@@ -298,7 +298,60 @@
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
-                          
+                            <section class="section"><hr>
+                                <div class="card"><br>
+
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Maklumat Operasi</h6>
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6>
+
+                                    <div class="table-responsive " id="example1">
+                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" style="vertical-align: middle">Bil.</th>
+                                                    <th scope="col" style="vertical-align: middle">Pelesen</th>
+                                                    <th scope="col" style="vertical-align: middle">Jan</th>
+                                                    <th scope="col" style="vertical-align: middle">Feb</th>
+                                                    <th scope="col" style="vertical-align: middle">Mac</th>
+                                                    <th scope="col" style="vertical-align: middle">Apr</th>
+                                                    <th scope="col" style="vertical-align: middle">Mei</th>
+                                                    <th scope="col" style="vertical-align: middle">Jun</th>
+                                                    <th scope="col" style="vertical-align: middle">Jul</th>
+                                                    <th scope="col" style="vertical-align: middle">Ogos</th>
+                                                    <th scope="col" style="vertical-align: middle">Sep</th>
+                                                    <th scope="col" style="vertical-align: middle">Okt</th>
+                                                    <th scope="col" style="vertical-align: middle">Nov</th>
+                                                    <th scope="col" style="vertical-align: middle">Dis</th>
+                                                    <th scope="col" style="vertical-align: middle">Jumlah</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{-- @foreach ($result as $data) --}}
+
+                                                    @foreach($test as $key => $value)
+
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $result[$key]->lesen }} </td>
+
+                                                            @foreach ( $value as  $test2 )
+                                                                <td>
+                                                                    {{  $test2 }}
+                                                                </td>
+                                                            @endforeach
+
+                                                            <td>-</td>
+                                                        </tr>
+
+                                                    @endforeach
+                                                {{-- @endforeach --}}
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </section>
                         </div>
 
 
