@@ -88,7 +88,7 @@
                                                         Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="number" class="form-control" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan tidah melebihi 31 hari')"
+                                                        <input type="number" class="form-control" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                                             onkeypress="return isNumberKey(event)" id="e104_a5" required oninput="this.setCustomValidity(''); nodecimal()" max="31" min="0"
                                                             title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
                                                         @error('e104_a5')

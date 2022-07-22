@@ -116,26 +116,26 @@
                                                     <td class="text-bold-500 ">A.
                                                         Stok Awal Di Premis</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" name='e91_aa1' id='e91_aa1' style="text-align: center"
+                                                        <input type="text" size="10" name='e91_aa1' id='e91_aa1' style="text-align: center" onchange="aa1()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"  onkeyup="FormatCurrency(this)"
                                                             onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{ number_format( $kilang->e91_aa1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa2' id='e91_aa2'required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"  onchange="aa2()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_aa2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa3' id='e91_aa3'required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"  onchange="aa3()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_aa3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa4' id='e91_aa4'required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()" onchange="aa4()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_aa4 ?? 0,2) }}">
                                                     </td>
@@ -146,22 +146,22 @@
                                                         Belian/Terimaan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_ab1' id='e91_ab1'id="number" required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()" onchange="ab1()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_ab1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ab2()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc6()" name='e91_ab2' id='e91_ab2'  onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ab2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ab3()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc7()" name='e91_ab3' id='e91_ab3'   onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ab3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ab4()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc8()" name='e91_ab4'  id='e91_ab4'  onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ab4 ?? 0,2) }}">
                                                     </td>
@@ -171,7 +171,7 @@
                                                     <td class="text-bold-500 ">C.
                                                         Diproses</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"  onchange="ac1()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc9()"  onkeyup="FormatCurrency(this)" name='e91_ac1' id='e91_ac1'   onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ac1 ?? 0,2) }}">
                                                     </td>
@@ -197,17 +197,17 @@
                                                                                 onkeypress="return isNumberKey(event)"> --}}
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ad1()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc10()" name='e91_ad1' id='e91_ad1' onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ad1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ad2()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc11()" name='e91_ad2' id='e91_ad2' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ad2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ad3()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc12()" name='e91_ad3' id='e91_ad3' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ad3 ?? 0,2) }}">
                                                     </td>
@@ -217,22 +217,22 @@
                                                     <td class="text-bold-500 ">E.
                                                         Jualan/Edaran Tempatan</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ae1()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc13()" name='e91_ae1' id='e91_ae1' onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ae2()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc14()" name='e91_ae2' id='e91_ae2' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ae3()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc15()" name='e91_ae3' id='e91_ae3' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ae4()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc16()" name='e91_ae4' id='e91_ae4' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae4 ?? 0,2) }}">
                                                     </td>
@@ -259,24 +259,24 @@
                                                     <td class="text-bold-500 ">G.
                                                         Stok Akhir Di Premis</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"  onchange="ag1()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc17()" onkeyup="FormatCurrency(this)" name='e91_ag1' id='e91_ag1'onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ag1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc18()" name='e91_ag2' id='e91_ag2'
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ag2()" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc18()" name='e91_ag2' id='e91_ag2'
                                                         onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_ag2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ag3()"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc19()" name='e91_ag3' id='e91_ag3' onkeyup="FormatCurrency(this)"
                                                             onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onchange="setTwoNumberDecimal()"
                                                             value="{{number_format( $kilang->e91_ag3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" onchange="ag4()"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ag4' id='e91_ag4' onkeyup="FormatCurrency(this)"
                                                             onchange="setTwoNumberDecimal()" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
@@ -694,6 +694,266 @@
             function checkKey(evt) {
                 console.log(evt.which);
                 return evt.which;
+            }
+        </script>
+        <script>
+            function aa1() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_aa1").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_aa1").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function aa2() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_aa2").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_aa2").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function aa3() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_aa3").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_aa3").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function aa4() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_aa4").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_aa4").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ab1() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ab1").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ab1").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ab2() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ab2").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ab2").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ab3() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ab3").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ab3").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ab4() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ab4").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ab4").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ac1() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ac1").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ac1").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ad1() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ad1").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ad1").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ad2() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ad2").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ad2").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ad3() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ad3").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ad3").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ae1() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ae1").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ae1").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ae2() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ae2").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ae2").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ae3() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ae3").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ae3").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ae4() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ae4").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ae4").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ag1() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ag1").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ag1").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ag2() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ag2").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ag2").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ag3() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ag3").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ag3").value = y;
+                console.log(y);
+            }
+        </script>
+        <script>
+            function ag4() {
+
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("e91_ag4").value);
+                if(isNaN(x)){
+                    x = 0.00;
+                }
+                var y = parseFloat(x).toFixed(2);
+                document.querySelector("#e91_ag4").value = y;
+                console.log(y);
             }
         </script>
             <script type="text/javascript">
