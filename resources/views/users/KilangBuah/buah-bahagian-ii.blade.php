@@ -87,7 +87,8 @@
                                         Mengisi Maklumat Bahagian 2</u></i></a>
                         </div>
                     </div>
-                    <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post">
+                    <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post"
+                        id="form">
                         @csrf
                         <div class="container center ">
 
@@ -97,10 +98,9 @@
                                         Jumlah Jam Pengilangan</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e91_ah1'
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
-                                        style="  text-align:right" onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="jam_pengilangan" required
+                                    <input type="number" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
+                                        oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
+                                        style="  text-align:right" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ $penyata->e91_ah1 ?? 0 }}">
                                     @error('e91_ah1')
                                         <div class="alert alert-danger">
@@ -117,11 +117,10 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e91_ah2'
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()" style=" text-align:right"
-                                        onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2"
-                                        required title="Sila isikan butiran ini."
-                                        value="{{ number_format($oer ?? 0, 2) }}">
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
+                                        style=" text-align:right" onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required
+                                        title="Sila isikan butiran ini." value="{{ number_format($oer ?? 0, 2) }}">
                                     @error('e91_ah2')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -136,11 +135,10 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e91_ah3'
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()" style=" text-align:right"
-                                        onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3"
-                                        required title="Sila isikan butiran ini."
-                                        value="{{ number_format($ker ?? 0, 2) }}">
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
+                                        style=" text-align:right" onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required
+                                        title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0, 2) }}">
                                     @error('e91_ah3')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -180,8 +178,10 @@
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
                                             <option selected hidden disabled value="">Sila Pilih Prestasi OER
                                             </option>
-                                            <option value="Meningkat">Meningkat</option>
-                                            <option value="Menurun">Menurun</option>
+                                            <option {{ $status_prestasi == 'Meningkat' ? 'selected' : '' }}
+                                                value="Meningkat">Meningkat</option>
+                                            <option {{ $status_prestasi == 'Menurun' ? 'selected' : '' }} value="Menurun">
+                                                Menurun</option>
                                         </select>
                                     </fieldset>
                                     {{-- <input type="text" class="form-control" name='kadar_oer'
@@ -221,7 +221,7 @@
                                                                 Buah berkualiti</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox1"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah5' class='form-check-input'
                                                                     value="Y" onclick="untick_menurun()"
                                                                     {{ $penyata->e91_ah5 == 'Y' ? 'checked' : '' }}>
@@ -233,7 +233,7 @@
                                                                 baik</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox2"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah6' class='form-check-input'
                                                                     value="Y" onclick="untick_menurun()"
                                                                     {{ $penyata->e91_ah6 == 'Y' ? 'checked' : '' }}>
@@ -245,7 +245,7 @@
                                                                 minyak</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox3"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah7' class='form-check-input'
                                                                     value="Y" onclick="untick_menurun()"
                                                                     {{ $penyata->e91_ah7 == 'Y' ? 'checked' : '' }}>
@@ -258,7 +258,7 @@
                                                                 mesin</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox4"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah8' class='form-check-input'
                                                                     value="Y" onclick="untick_menurun()"
                                                                     {{ $penyata->e91_ah8 == 'Y' ? 'checked' : '' }}>
@@ -273,7 +273,7 @@
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox5"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah9' class='form-check-input'
                                                                     value="Y" onclick="untick_menurun()"
                                                                     {{ $penyata->e91_ah9 == 'Y' ? 'checked' : '' }}>
@@ -286,7 +286,7 @@
                                                                 lerai</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox6"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah10' class='form-check-input'
                                                                     value="Y" onclick="untick_menurun()"
                                                                     {{ $penyata->e91_ah10 == 'Y' ? 'checked' : '' }}>
@@ -331,7 +331,7 @@
                                                                 Tiada / Kurang buah berkualiti</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox7"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah11' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah11 == 'Y' ? 'checked' : '' }}>
@@ -344,7 +344,7 @@
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox8"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah12' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah12 == 'Y' ? 'checked' : '' }}>
@@ -356,7 +356,7 @@
                                                             <td class="text-bold-500">c. Jerebu</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox9"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah13' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah13 == 'Y' ? 'checked' : '' }}>
@@ -370,7 +370,7 @@
                                                                 yang berlebihan</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox10"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah14' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah14 == 'Y' ? 'checked' : '' }}>
@@ -382,7 +382,7 @@
                                                             <td class="text-bold-500">e. Banjir</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox11"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah15' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah15 == 'Y' ? 'checked' : '' }}>
@@ -396,7 +396,7 @@
                                                                 berhasil</td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox12"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah16' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah16 == 'Y' ? 'checked' : '' }}>
@@ -409,7 +409,7 @@
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="checkbox" id="checkbox13"
-                                                                    style=" width: 25px;height: 25px; margin-top:-0.2%"
+                                                                    style=" width: 20px;height: 20px; margin-top:-1%"
                                                                     name='e91_ah17' class='form-check-input'
                                                                     value="Y" onclick="untick_meningkat()"
                                                                     {{ $penyata->e91_ah17 == 'Y' ? 'checked' : '' }}>
@@ -460,7 +460,7 @@
                         <div class="form-group" style="margin-bottom: 70px; width: 100%">
                             <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary">Sebelumnya</a>
 
-                            <button type="submit" class="btn btn-primary" style="float: right"  id="checkBtn">Simpan &
+                            <button type="submit" class="btn btn-primary" style="float: right" id="checkBtn">Simpan &
                                 Seterusnya</button>
                         </div>
 
@@ -488,7 +488,7 @@
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                         </button>
-                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal" >
+                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
                                             <i class="bx bx-check d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block">Ya</span>
                                         </button>
@@ -515,77 +515,89 @@
 
     @section('scripts')
     <script>
-        function invokeFunc() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e91_ah2').focus();
-                }
-
-            });
-        }
-
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
+        function nodecimal() {
+            // let decimal = ".00"
+            var x = parseFloat(document.getElementById("e91_ah1").value);
+            if(isNaN(x)){
+                x = 0;
+            }
+            const removedDecimal = Math.round(x);
+            document.querySelector("#e91_ah1").value = removedDecimal;
+            console.log(removedDecimal);
         }
     </script>
-    <script>
-        function invokeFunc2() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e91_ah3').focus();
-                }
+        <script>
+            function invokeFunc() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ah2').focus();
+                    }
 
-            });
-        }
+                });
+            }
 
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
-    <script>
-        function invokeFunc3() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e91_ah4').focus();
-                }
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc2() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ah3').focus();
+                    }
 
-            });
-        }
+                });
+            }
 
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
-    <script>
-        function invokeFunc4() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('kadar_oer').focus();
-                }
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc3() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ah4').focus();
+                    }
 
-            });
-        }
+                });
+            }
 
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc4() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('kadar_oer').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
         <script type="text/javascript">
             function showTable() {
                 var oer = $('#kadar_oer').val();
@@ -631,27 +643,27 @@
                 document.getElementById("checkbox6").checked = false;
             }
         </script>
-        <script type = "text/javascript" >
-                $(document).ready(function() {
-                    $('#checkBtn').click(function() {
-                        checked = $("input[type=checkbox]:checked").length;
-                        lain = $('#lain-sebab').val();
-                        console.log('lain');
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    checked = $("input[type=checkbox]:checked").length;
+                    lain = $('#lain-sebab').val();
+                    console.log('lain');
 
-                        if (!checked && !lain) {
-                            toastr.error(
+                    if (!checked && !lain) {
+                        toastr.error(
                             'Sila tanda sekurang-kurangnya satu sebab dibahagian Sebab-Sebab OER Meningkat/Menurun atau di Lain-Lain Sebab',
                             'Ralat!', {
                                 "progressBar": true
                             })
-                            return false;
-                        }
+                        return false;
+                    }
 
-                    });
                 });
+            });
         </script>
         <script>
-            document.addEventListener('keypress', function (e) {
+            document.addEventListener('keypress', function(e) {
                 if (e.keyCode === 13 || e.which === 13) {
                     e.preventDefault();
                     return false;
@@ -669,4 +681,31 @@
 
             // });
         {{-- </script> --}}
+
+        <script>
+            $(function() {
+                @if ($penyata->e91_ah5 ||
+                    $penyata->e91_ah6 ||
+                    $penyata->e91_ah7 ||
+                    $penyata->e91_ah8 ||
+                    $penyata->e91_ah9 ||
+                    $penyata->e91_ah10)
+
+                    document.getElementById('meningkat_container').style.display = "block";
+                    document.getElementById('lain_container').style.display = "block";
+                @elseif ($penyata->e91_ah11 ||
+                        $penyata->e91_ah12 ||
+                        $penyata->e91_ah13 ||
+                        $penyata->e91_ah14 ||
+                        $penyata->e91_ah15 ||
+                        $penyata->e91_ah16 ||
+                        $penyata->e91_ah17)
+                    document.getElementById('menurun_container').style.display = "block";
+                    document.getElementById('lain_container').style.display = "block";
+                @else
+                    document.getElementById('menurun_container').style.display = "none";
+                    document.getElementById('lain_container').style.display = "none";
+                @endif
+            });
+        </script>
     @endsection

@@ -766,8 +766,10 @@
                 function b5() {
 
                     // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b5").value | 0.00);
-                    // console.log(x);
+                    var x = parseFloat(document.getElementById("e104_b5").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b5").value = y;
                     console.log(y);
@@ -776,8 +778,10 @@
             <script>
                 function b6() {
                     // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b6").value | 0.00);
-                    // console.log(x);
+                    var x = parseFloat(document.getElementById("e104_b6").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b6").value = y;
                     console.log(y);
@@ -785,9 +789,11 @@
             </script>
             <script>
                 function b7() {
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b7").value | 0.00);
-                    // console.log(x);
+                     // let decimal = ".00"
+                     var x = parseFloat(document.getElementById("e104_b7").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b7").value = y;
                     console.log(y);
@@ -795,9 +801,11 @@
             </script>
             <script>
                 function b9() {
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b9").value | 0.00);
-                    // console.log(x);
+                     // let decimal = ".00"
+                     var x = parseFloat(document.getElementById("e104_b9").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b9").value = y;
                     console.log(y);
@@ -805,9 +813,11 @@
             </script>
             <script>
                 function b10() {
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b10").value | 0.00);
-                    // console.log(x);
+                     // let decimal = ".00"
+                     var x = parseFloat(document.getElementById("e104_b10").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b10").value = y;
                     console.log(y);
@@ -816,8 +826,10 @@
             <script>
                 function b11() {
                     // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b11").value | 0.00);
-                    // console.log(x);
+                    var x = parseFloat(document.getElementById("e104_b11").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b11").value = y;
                     console.log(y);
@@ -825,9 +837,11 @@
             </script>
             <script>
                 function b12() {
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b12").value | 0.00);
-                    // console.log(x);
+                     // let decimal = ".00"
+                     var x = parseFloat(document.getElementById("e104_b12").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b12").value = y;
                     console.log(y);
@@ -835,9 +849,11 @@
             </script>
             <script>
                 function b13() {
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b13").value | 0.00);
-                    // console.log(x);
+                     // let decimal = ".00"
+                     var x = parseFloat(document.getElementById("e104_b13").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b13").value = y;
                     console.log(y);
