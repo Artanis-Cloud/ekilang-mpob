@@ -185,8 +185,8 @@ class LaporanController extends Controller
 
         }
 
-        foreach ($no_batches as $no_batch) {
-            $hbiob = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->leftJoin('produk','h_bio_b_s.ebio_b4','=','produk.prodid')->first();
+        foreach ($no_batches as $key =>  $no_batch) {
+            $hbiob = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->first();
 
             $data_bulanan_ebio_b3[$no_batch->ebio_bln] = $hbiob->ebio_b3 ?? 0;
             $data_bulanan_ebio_b4[$no_batch->ebio_bln] = $hbiob->ebio_b4 ?? 0;
@@ -195,10 +195,10 @@ class LaporanController extends Controller
             $data_bulanan_ebio_b7[$no_batch->ebio_bln] = $hbiob->ebio_b7 ?? 0;
             $data_bulanan_ebio_b8[$no_batch->ebio_bln] = $hbiob->ebio_b8 ?? 0;
             $data_bulanan_ebio_b9[$no_batch->ebio_bln] = $hbiob->ebio_b9 ?? 0;
-
+            // $test[] = $data_bulanan_ebio_b5;
         }
 
-    //    dd($data_bulanan_ebio_b5);
+       dd($hbiob);
 
 
 
@@ -210,13 +210,7 @@ class LaporanController extends Controller
         $negeri = Negeri::where('kod_negeri', $data->e_negeri)->first();
         // $bio1 = HBioB::where('ebio_nobatch',$data2->ebio_nobatch)->first();
         $date = HBioInit::where('ebio_sdate', $datas->ebio_sdate);
-        // $myDateTime = DateTime::createFromFormat('Y-m-d', $date);
-        // $formatteddate = $myDateTime->format('d-m-Y');
-        // dd($datas);
-        // $b1 = HBioB::with('h_bio_inits')->where('ebio_nobatch','ebio_nobatch')->get();
 
-        $b1 = DB::table('h_bio_b_s')->leftJoin('h_bio_inits','h_bio_b_s.ebio_nobatch','=','h_bio_inits.ebio_nobatch')
-                ->leftJoin('produk','h_bio_b_s.ebio_b4','=','produk.prodid')->get();
 
         // dd($b1);
 
@@ -232,8 +226,12 @@ class LaporanController extends Controller
             'date' => $date,
             'datas' => $datas,
             // 'i'=> $i,
-            'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
             'data_bulanan_ebio_b4'=> $data_bulanan_ebio_b4,
+            'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
+            'data_bulanan_ebio_b6'=> $data_bulanan_ebio_b6,
+            'data_bulanan_ebio_b7'=> $data_bulanan_ebio_b7,
+            'data_bulanan_ebio_b8'=> $data_bulanan_ebio_b8,
+            'data_bulanan_ebio_b9'=> $data_bulanan_ebio_b9,
             'hbiob' => $hbiob,
             'no_batches' => $no_batches,
             // 'formatteddate' => $formatteddate,
@@ -427,7 +425,7 @@ class LaporanController extends Controller
             $test[] = $data_kapasiti;
 
         }
-        dd($test);
+        // dd($test);
 
 
 
