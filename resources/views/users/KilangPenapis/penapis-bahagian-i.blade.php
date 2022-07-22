@@ -367,7 +367,7 @@
                                                                 <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b5'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b5') ?? $data->e101_b5 }}"
@@ -377,7 +377,7 @@
                                                                 </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b6'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b6 }}" required>
@@ -385,7 +385,7 @@
                                                                 <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b7'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b7') ?? $data->e101_b7 }}"
@@ -401,7 +401,7 @@
                                                                 <label class="required">Pengeluaran </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b9'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b9') ?? $data->e101_b9 }}"
@@ -411,7 +411,7 @@
                                                                     Selanjutnya</label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b10'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b10') ?? $data->e101_b10 }}"
@@ -421,7 +421,7 @@
                                                                 </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b11'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b11') ?? $data->e101_b11 }}"
@@ -430,7 +430,7 @@
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b12'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b12') ?? $data->e101_b12 }}"
@@ -439,7 +439,7 @@
                                                                 <label class="required">Stok Akhir Di Premis </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b13'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b13') ?? $data->e101_b13 }}"
@@ -449,7 +449,7 @@
                                                                 </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b14'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
                                                                         class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ old('e101_b14') ?? $data->e101_b14 }}"
@@ -464,7 +464,7 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                        <button type="submit" class="btn btn-primary ml-1"  disabled id="kemaskini">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -596,7 +596,8 @@
 
         {{-- </div> --}}
 
-
+@endsection
+@section('scripts')
 
         <script>
             function onlyNumberKey(evt) {
@@ -610,7 +611,7 @@
         </script>
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
         <script type="text/javascript">
             $(document).ready(function() {
                 $(".floatNumberField").change(function() {
@@ -628,7 +629,9 @@
             });
         </script>
 
-        </body>
-
-        </html>
+<script>
+    function enableKemaskini() {
+        $('#kemaskini').prop("disabled", false);
+    }
+</script>
     @endsection

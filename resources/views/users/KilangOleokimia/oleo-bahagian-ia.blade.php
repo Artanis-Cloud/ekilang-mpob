@@ -766,8 +766,10 @@
                 function b5() {
 
                     // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_b5").value | 0.00);
-                    // console.log(x);
+                    var x = parseFloat(document.getElementById("e104_b5").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
                     var y = parseFloat(x).toFixed(2);
                     document.querySelector("#e104_b5").value = y;
                     console.log(y);

@@ -97,7 +97,7 @@
                                     Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) <b>%</b></label>
                             </div>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" style="text-align:right" name='e102_al1'
+                                <input type="text" class="form-control" style="text-align:right" name='e102_al1'
                                     id="e102_al1" required onkeypress="return isNumberKey(event)" max="99" required
                                     title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                     value="{{ number_format($cpko ?? 0, 2) }}">
@@ -115,7 +115,7 @@
                                     Kadar Perolehan Dedak Isirung (PKC)<b>%</b></label>
                             </div>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" style="text-align:right" name='e102_al2'
+                                <input type="text" class="form-control" style="text-align:right" name='e102_al2'
                                     id="e102_al2" required onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                     value="{{ number_format($pkc ?? 0, 2) }}">
@@ -133,7 +133,7 @@
                                     Jumlah Jam Pengilangan Isirung (PK)</label>
                             </div>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" style="text-align:right" name='e102_al3'
+                                <input type="text" class="form-control" style="text-align:right" name='e102_al3'
                                     id="e102_al3" onkeypress="return isNumberKey(event)" required
                                     title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                     value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
@@ -151,7 +151,7 @@
                                     Kadar Penggunaan Kapasiti Sebulan <b>%</b></label>
                             </div>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" style="text-align:right" name='e102_al4'
+                                <input type="text" class="form-control" style="text-align:right" name='e102_al4'
                                     id="e102_al4" onkeypress="return isNumberKey(event)" required
                                     title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                     value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
