@@ -12,6 +12,7 @@ use App\Models\HBioC;
 use App\Models\HBioInit;
 use App\Models\HebahanProses;
 use App\Models\HebahanStokAkhir;
+use App\Models\HHari;
 use App\Models\Kapasiti;
 use App\Models\KumpProduk;
 use App\Models\Negara;
@@ -354,32 +355,79 @@ class LaporanController extends Controller
         $pembeli = SyarikatPembeli::orderBy('id')->get();
         $tahun = $request->tahun;
 
+        // dd($result);
+
+
+
+
+        $layout = 'layouts.admin';
+
+        $array = [
+            'produk' => $produk,
+            'users2' => $users2,
+            'pembeli' => $pembeli,
+            'kumpproduk' => $kumpproduk,
+            'negeri' => $negeri,
+            'tahun' => $tahun,
+            'kembali' => $kembali,
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2', $array);
+    }
+
+    public function admin_ringkasan_bahagian2_table(Request $request)
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.ringkasan.penyata'), 'name' => "Maklumat Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $kumpproduk = KumpProduk::get();
+        $produk = Produk::get();
+        $pembeli = SyarikatPembeli::orderBy('id')->get();
+        $tahun = $request->tahun;
+
 
 
         //RINGKASAN OPERASI
         $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
            ->groupBy('lesen')->get();
             // dd($result);
-
-        // $no_batches = HBioInit::where('ebio_nl', $ebio_nl)->where('ebio_thn', $tahun)->get();
-
-        for ($i=1; $i <= 12; $i++) {
-            $data_hari_operasi[$i] = 0;
-            $data_kapasiti[$i] = 0;
+        if ($request->e_nl) {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->groupBy('lesen')->get();
 
         }
-        // dd($result);
+
+        for ($i=1; $i <= 12; $i++) {
+            // $data_hari_operasi[$i] = 0;
+            $data_kapasiti[$i] = 0;
+        }
 
 
         foreach ($result as $key => $list_result) {
 
             $hbiob[] = DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
-            $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
+
+            // $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
             $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
             $test[] = $data_kapasiti;
 
         }
-        // dd($test);
+        dd($test);
 
 
 
@@ -395,15 +443,13 @@ class LaporanController extends Controller
             'result' => $result,
             'tahun' => $tahun,
             'kembali' => $kembali,
-
             'returnArr' => $returnArr,
             'layout' => $layout,
 
         ];
 
-        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2', $array,compact('test'));
+        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2-table', $array, compact('test'));
     }
-
 
     public function admin_ringkasan_bahagian3(Request $request)
     {
