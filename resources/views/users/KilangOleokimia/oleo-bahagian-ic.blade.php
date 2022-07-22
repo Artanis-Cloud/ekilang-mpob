@@ -106,7 +106,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b5'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc()"
+                                        oninput="this.setCustomValidity(''); invokeFunc()"  onchange="b5()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b5" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b5')
@@ -121,7 +121,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b6'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc2()"
+                                        oninput="this.setCustomValidity(''); invokeFunc2()"  onchange="b6()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b6" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b6')
@@ -141,7 +141,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b7'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc3()"
+                                        oninput="this.setCustomValidity(''); invokeFunc3()"  onchange="b7()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b7" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b7')
@@ -156,7 +156,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b9'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc4()"
+                                        oninput="this.setCustomValidity(''); invokeFunc4()"  onchange="b9()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b9" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b9')
@@ -174,7 +174,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b10'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc5()"
+                                        oninput="this.setCustomValidity(''); invokeFunc5()"  onchange="b10()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b10" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b10')
@@ -189,7 +189,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b11'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc6()"
+                                        oninput="this.setCustomValidity(''); invokeFunc6()"  onchange="b11()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b11" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b11')
@@ -215,7 +215,7 @@
                                     <span class="">Stok Akhir di Premis</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b12'
+                                    <input type="text" class="form-control" name='e104_b12'  onchange="b12()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc7()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b12" required
@@ -231,7 +231,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b13' required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"  onchange="b13()"
                                         oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b13" title="Sila isikan butiran ini.">
                                     @error('e104_b13')
@@ -563,6 +563,103 @@
     <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
     @endsection
     @section('scripts')
+    <script>
+        function b5() {
+
+            // let decimal = ".00"
+            var x = parseFloat(document.getElementById("e104_b5").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b5").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b6() {
+            // let decimal = ".00"
+            var x = parseFloat(document.getElementById("e104_b6").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b6").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b7() {
+             // let decimal = ".00"
+             var x = parseFloat(document.getElementById("e104_b7").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b7").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b9() {
+             // let decimal = ".00"
+             var x = parseFloat(document.getElementById("e104_b9").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b9").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b10() {
+             // let decimal = ".00"
+             var x = parseFloat(document.getElementById("e104_b10").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b10").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b11() {
+            // let decimal = ".00"
+            var x = parseFloat(document.getElementById("e104_b11").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b11").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b12() {
+             // let decimal = ".00"
+             var x = parseFloat(document.getElementById("e104_b12").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b12").value = y;
+            console.log(y);
+        }
+    </script>
+    <script>
+        function b13() {
+             // let decimal = ".00"
+             var x = parseFloat(document.getElementById("e104_b13").value);
+            if(isNaN(x)){
+                x = 0.00;
+            }
+            var y = parseFloat(x).toFixed(2);
+            document.querySelector("#e104_b13").value = y;
+            console.log(y);
+        }
+    </script>
         <script>
             function invokeFunc() {
                 addEventListener('keydown', function(evt) {
