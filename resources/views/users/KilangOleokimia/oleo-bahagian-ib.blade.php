@@ -101,7 +101,7 @@
                                     <span class="">Stok Awal di Premis</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b5'
+                                    <input type="text" class="form-control" name='e104_b5'  onchange="b5()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b5" required title="Sila isikan butiran ini.">
                                     @error('e104_b5')
@@ -114,7 +114,7 @@
                                     <span class="">Stok Awal di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b6'
+                                    <input type="text" class="form-control" name='e104_b6'  onchange="b6()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b6" required title="Sila isikan butiran ini.">
                                     @error('e104_b6')
@@ -135,7 +135,7 @@
                                         title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b7'
+                                    <input type="text" class="form-control" name='e104_b7' onchange="b7()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b7" required title="Sila isikan butiran ini.">
                                     @error('e104_b7')
@@ -148,7 +148,7 @@
                                     <span class="">Jumlah Yang Diproses</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b9'
+                                    <input type="text" class="form-control" name='e104_b9'  onchange="b9()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b9" required title="Sila isikan butiran ini.">
                                     @error('e104_b9')
@@ -165,7 +165,7 @@
                                     <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b10'
+                                    <input type="text" class="form-control" name='e104_b10'  onchange="b10()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc5()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b10" required title="Sila isikan butiran ini.">
                                     @error('e104_b10')
@@ -179,7 +179,7 @@
                                     <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b11'
+                                    <input type="text" class="form-control" name='e104_b11'  onchange="b11()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc6()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b11" required title="Sila isikan butiran ini.">
                                     @error('e104_b11')
@@ -203,7 +203,7 @@
                                     <span class="">Stok Akhir di Premis</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b12'
+                                    <input type="text" class="form-control" name='e104_b12'  onchange="b12()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc7()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b12" required title="Sila isikan butiran ini.">
                                     @error('e104_b12')
@@ -216,7 +216,7 @@
                                     <span class="">Stok Akhir di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b13'
+                                    <input type="text" class="form-control" name='e104_b13'  onchange="b13()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b13" required title="Sila isikan butiran ini.">
                                     @error('e104_b13')
@@ -677,6 +677,103 @@
     function checkKey(evt) {
         console.log(evt.which);
         return evt.which;
+    }
+</script>
+<script>
+    function b5() {
+
+        // let decimal = ".00"
+        var x = parseFloat(document.getElementById("e104_b5").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b5").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b6() {
+        // let decimal = ".00"
+        var x = parseFloat(document.getElementById("e104_b6").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b6").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b7() {
+         // let decimal = ".00"
+         var x = parseFloat(document.getElementById("e104_b7").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b7").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b9() {
+         // let decimal = ".00"
+         var x = parseFloat(document.getElementById("e104_b9").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b9").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b10() {
+         // let decimal = ".00"
+         var x = parseFloat(document.getElementById("e104_b10").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b10").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b11() {
+        // let decimal = ".00"
+        var x = parseFloat(document.getElementById("e104_b11").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b11").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b12() {
+         // let decimal = ".00"
+         var x = parseFloat(document.getElementById("e104_b12").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b12").value = y;
+        console.log(y);
+    }
+</script>
+<script>
+    function b13() {
+         // let decimal = ".00"
+         var x = parseFloat(document.getElementById("e104_b13").value);
+        if(isNaN(x)){
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        document.querySelector("#e104_b13").value = y;
+        console.log(y);
     }
 </script>
     <script>
