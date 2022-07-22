@@ -365,14 +365,42 @@ class KilangBuahController extends Controller
             $ker = 0;
         }
 
-        // dd($oer);
+        // dd($penyata);
+        // if ($penyata->e91_ah5 ||
+        //     $penyata->e91_ah6 ||
+        //     $penyata->e91_ah7 ||
+        //     $penyata->e91_ah8 ||
+        //     $penyata->e91_ah9 ||
+        //     $penyata->e91_ah10){
+        //     $status_prestasi = "Meningkat";
+        // }else{
+        //     $status_prestasi = "Menurun";
+        // }
+        if ($penyata->e91_ah5 ||
+            $penyata->e91_ah6 ||
+            $penyata->e91_ah7 ||
+            $penyata->e91_ah8 ||
+            $penyata->e91_ah9 ||
+            $penyata->e91_ah10){
+            $status_prestasi = "Meningkat";
+        }elseif ($penyata->e91_ah11 ||
+                $penyata->e91_ah12 ||
+                $penyata->e91_ah13 ||
+                $penyata->e91_ah14 ||
+                $penyata->e91_ah15 ||
+                $penyata->e91_ah16 ||
+                $penyata->e91_ah17){
+            $status_prestasi = "Menurun";
+        } else {
+            $status_prestasi = "Sila Pilih Prestasi OER";
+        }
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
 
         if ($penyata) {
-            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker'));
+            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker','status_prestasi'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');

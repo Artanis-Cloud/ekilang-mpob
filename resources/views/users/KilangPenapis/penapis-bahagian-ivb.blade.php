@@ -295,16 +295,16 @@
                                                                 <label class="required">Stok Awal </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c5'
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                        onkeypress="  return isNumberKey(event)"
                                                                         class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini() "
                                                                         value="{{ $data->e101_c5 }}">
                                                                 </div>
                                                                 <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c6' class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c6 }}">
+                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
+                                                                        value="{{ $data->e101_c6 }}" onkeypress="  return isNumberKey(event)">
                                                                 </div>
                                                                 {{-- <label>Import </label>
                                                                         <div class="form-group">
@@ -316,7 +316,7 @@
                                                                     <input type="text" name='e101_c7'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
                                                                         value="{{ $data->e101_c7 }}">
                                                                 </div>
                                                                 <label class="required">Jualan/Edaran Dalam Negeri
@@ -325,7 +325,7 @@
                                                                     <input type="text" name='e101_c8'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
                                                                         value="{{ $data->e101_c8 }}">
                                                                 </div>
                                                                 <label class="required">Eksport </label>
@@ -333,7 +333,7 @@
                                                                     <input type="text" name='e101_c9'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
                                                                         value="{{ $data->e101_c9 }}">
                                                                 </div>
                                                                 <label class="required">Stok Akhir </label>
@@ -341,7 +341,7 @@
                                                                     <input type="text" name='e101_c10'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
                                                                         value="{{ $data->e101_c10 }}">
                                                                 </div>
                                                             </div>
@@ -353,7 +353,7 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -481,9 +481,8 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
+@endsection
+@section('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
             $('.calc').change(function() {
@@ -507,10 +506,9 @@
         });
     </script>
 
-
-
-
-    </body>
-
-    </html>
+<script>
+    function enableKemaskini() {
+        $('#kemaskini').prop("disabled", false);
+    }
+</script>
 @endsection

@@ -280,7 +280,7 @@ class KilangIsirungController extends Controller
         $tahun = date("Y");
 
         if ($penyata) {
-            return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
+            return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun','cpko','pkc'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');

@@ -104,22 +104,14 @@
 
                                     <br>
                                     <div class="table-responsive col-10 ml-auto mr-auto" id="example1">
-                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                        <table class="table table-bordered text-center" style="width: 100%;">
                                             <thead>
                                                 <tr style="background-color: #e9ecefbd;  word-wrap:normal">
-                                                    {{-- <th class="no-sort">Bil.</th> --}}
                                                     <th>Bil.</th>
                                                     <th>Nama Syarikat</th>
                                                     <th>Jumlah Jualan/Edaran</th>
                                                 </tr>
                                             </thead>
-                                            {{-- <tfoot>
-                                            <tr style="background-color: #e9ecefbd;">
-                                                <th>Bil.</th>
-                                                <th>No. Lesen</th>
-                                                <th>Nama Premis</th>
-                                                <th>Tarikh Terima PL</th>
-                                        </tfoot> --}}
                                             <tbody style="word-break: break-word; font-size:12px">
                                                 @foreach ($senarai_syarikat as $data)
                                                     <tr class="text-left">
