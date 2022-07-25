@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         <div class="card" style="margin-right:3%; margin-left:3%">
 
             <div class="card-body">
