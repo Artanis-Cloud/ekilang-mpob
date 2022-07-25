@@ -921,6 +921,7 @@ class KilangBiodieselController extends Controller
 
     public function bio_add_bahagian_iii(Request $request)
     {
+        // dd($request->all());
         $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first();
 
         $penyata = EBioC::where('ebio_reg', $ebio_reg->ebio_reg)
@@ -991,8 +992,13 @@ class KilangBiodieselController extends Controller
     protected function store_bahagian_iii2(array $data)
     {
         $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+
+
+
         // dd($ebio_reg);
         foreach ($data['jumlah_row_hidden'] as $key => $value) {
+            // $nama_syarikat = SyarikatPembeli::where('pembeli', $data['new_syarikat_hidden'][$key])->get();
+            // dd($nama_syarikat);
             $bio = EBioCC::create([
                 'ebio_reg' => $ebio_reg->ebio_reg,
                 'ebio_cc2' => $data['ebio_c3'],

@@ -80,7 +80,7 @@
                     <hr>
 
 
-                    <form action="{{ route('buah.update.bahagian.iv', [$penyata->e91_reg]) }}" method="post"
+                    <form action="{{ route('buah.update.bahagian.iv', [$penyata->e91_reg]) }}" method="post" class="sub-form"
                         onsubmit="return validation_jum();" onload="validation_jumlah()">
                         @csrf
                         {{-- <div class="row" id="table-bordered"> --}}
@@ -116,8 +116,8 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj1()"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_aj1') ?? ($penyata->e91_aj1 ?? 0) }}"
-                                                            onchange="validation_jumlah(); aj1()">
+                                                            value="{{ old('e91_aj1') ?? (number_format($penyata->e91_aj1 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); aj1(); FormatCurrency(this)">
                                                         @error('e91_aj1')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -135,8 +135,8 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj2()"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_aj2') ?? ($penyata->e91_aj2 ?? 0) }}"
-                                                            onchange="validation_jumlah(); aj2()">
+                                                            value="{{ old('e91_aj2') ?? (number_format($penyata->e91_aj2 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); aj2(); FormatCurrency(this)">
                                                         @error('e91_aj2')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -154,8 +154,8 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj3()"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_aj3') ?? ($penyata->e91_aj3 ?? 0) }}"
-                                                            onchange="validation_jumlah(); aj3()">
+                                                            value="{{ old('e91_aj3') ?? (number_format($penyata->e91_aj3 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); aj3(); FormatCurrency(this)">
                                                         @error('e91_aj3')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -173,8 +173,8 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj4()"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_aj4') ?? ($penyata->e91_aj4 ?? 0) }}"
-                                                            onchange="validation_jumlah(); aj4()">
+                                                            value="{{ old('e91_aj4') ?? (number_format($penyata->e91_aj4 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); aj4(); FormatCurrency(this)">
                                                         @error('e91_aj4')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -192,8 +192,8 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj5()"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_aj5') ?? ($penyata->e91_aj5 ?? 0) }}"
-                                                            onchange="validation_jumlah(); aj5()">
+                                                            value="{{ old('e91_aj5') ?? (number_format($penyata->e91_aj5 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); aj5(); FormatCurrency(this)">
                                                         @error('e91_aj5')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -211,8 +211,8 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_aj8') ?? ($penyata->e91_aj8 ?? 0) }}"
-                                                            onchange="validation_jumlah(); aj8()">
+                                                            value="{{ old('e91_aj8') ?? (number_format($penyata->e91_aj8 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); aj8(); FormatCurrency(this)">
                                                         @error('e91_aj8')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -305,6 +305,70 @@
             </div>
         @endsection
         @section('scripts')
+        <script language="javascript" type="text/javascript">
+            function FormatCurrency(ctrl) {
+                //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                    return;
+                }
+
+                var val = ctrl.value;
+
+                val = val.replace(/,/g, "")
+                ctrl.value = "";
+                val += '';
+                x = val.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+
+                var rgx = /(\d+)(\d{3})/;
+
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+
+                ctrl.value = x1 + x2;
+            }
+        </script>
+          <script>
+            $('.sub-form').submit(function() {
+
+            var x=$('#e91_aj1').val();
+            x=x.replace(/,/g,'');
+            x=parseFloat(x,10);
+            $('#e91_aj1').val(x);
+
+            var x=$('#e91_aj2').val();
+            x=x.replace(/,/g,'');
+            x=parseFloat(x,10);
+            $('#e91_aj2').val(x);
+
+            var x=$('#e91_aj3').val();
+            x=x.replace(/,/g,'');
+            x=parseFloat(x,10);
+            $('#e91_aj3').val(x);
+
+            var x=$('#e91_aj4').val();
+            x=x.replace(/,/g,'');
+            x=parseFloat(x,10);
+            $('#e91_aj4').val(x);
+
+            var x=$('#e91_aj5').val();
+            x=x.replace(/,/g,'');
+            x=parseFloat(x,10);
+            $('#e91_aj5').val(x);
+
+            var x=$('#e91_aj8').val();
+            x=x.replace(/,/g,'');
+            x=parseFloat(x,10);
+            $('#e91_aj8').val(x);
+
+
+            return true;
+
+    });
+
+        </script>
         <script>
             function invoke_aj1() {
                 addEventListener('keydown', function(evt) {
