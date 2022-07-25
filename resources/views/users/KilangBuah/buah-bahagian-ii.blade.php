@@ -98,9 +98,9 @@
                                         Jumlah Jam Pengilangan</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="number" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
+                                    <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                         oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
-                                        style="  text-align:right" onkeypress="return isNumberKey(event)" id="e91_ah1" required  onkeyup="FormatCurrency(this)"
+                                        style="  text-align:right" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
                                     @error('e91_ah1')
                                         <div class="alert alert-danger">
@@ -116,10 +116,10 @@
                                         Perahan MSM (OER) Yang Diperolehi</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="number" class="form-control" name='e91_ah2'
+                                    <input type="text" class="form-control" name='e91_ah2'
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
-                                        style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah2()"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required  onkeyup="FormatCurrency(this)"
+                                        style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah2();FormatCurrency(this)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required maxlength="6"
                                         title="Sila isikan butiran ini." value="{{ number_format($oer ?? 0, 2) }}">
                                     @error('e91_ah2')
                                         <div class="alert alert-danger">
@@ -134,10 +134,10 @@
                                         Kadar Perolehan Isirung (KER)</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="number" class="form-control" name='e91_ah3'
+                                    <input type="text" class="form-control" name='e91_ah3'
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
-                                        style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah3()"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required  onkeyup="FormatCurrency(this)"
+                                        style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah3();FormatCurrency(this)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required maxlength="5"
                                         title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0, 2) }}">
                                     @error('e91_ah3')
                                         <div class="alert alert-danger">
@@ -152,9 +152,9 @@
                                         Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="number" class="form-control" name='e91_ah4' onchange="ah4()"
+                                    <input type="text" class="form-control" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
-                                        style="  text-align:right" onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)"
+                                        style="  text-align:right" onkeypress="return isNumberKey(event)" maxlength="5"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"
                                         placeholder="RM" required title="Sila isikan butiran ini."
                                         value="{{  number_format($penyata->e91_ah4 ?? 0,2) }}">
@@ -560,7 +560,7 @@
 });
 
     </script>
-    {{-- <script>
+    <script>
         function ah2() {
 
             // let decimal = ".00"
@@ -598,7 +598,7 @@
             document.querySelector("#e91_ah4").value = y;
             console.log(y);
         }
-    </script> --}}
+    </script>
     <script>
         function nodecimal() {
             // let decimal = ".00"
@@ -611,7 +611,7 @@
             console.log(removedDecimal);
         }
     </script>
-        {{-- <script>
+        <script>
             function invokeFunc() {
                 addEventListener('keydown', function(evt) {
                     var whichKey = checkKey(evt);
@@ -682,7 +682,7 @@
                 console.log(evt.which);
                 return evt.which;
             }
-        </script> --}}
+        </script>
         <script type="text/javascript">
             function showTable() {
                 var oer = $('#kadar_oer').val();

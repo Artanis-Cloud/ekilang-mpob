@@ -73,7 +73,7 @@
                     <hr>
 
                     <div class="col-12 mt-2" style="margin-bottom: -2%">
-                        <form action="{{ route('buah.update.bahagian.iii', [$penyata->e91_reg]) }}" method="post"
+                        <form action="{{ route('buah.update.bahagian.iii', [$penyata->e91_reg]) }}" method="post" class="sub-form"
                             onsubmit="return validation_jum();" onload="validation_jumlah()">
                             @csrf
                             <div class="card">
@@ -105,8 +105,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event);"
-                                                            onchange=" ai1(); validation_jumlah()" required
-                                                            value="{{ old('e91_ai1') ?? ($penyata->e91_ai1 ?? 0) }}">
+                                                            onchange=" ai1(); validation_jumlah();FormatCurrency(this)" required
+                                                            value="{{ old('e91_ai1') ?? (number_format($penyata->e91_ai1 ?? 0,2)) }}">
                                                         @error('e91_ai1')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -124,9 +124,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
-                                                            onchange="validation_jumlah(); ai2()" required
-                                                            value="{{ old('e91_ai2') ?? ($penyata->e91_ai2 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange="validation_jumlah(); ai2();FormatCurrency(this)" required
+                                                            value="{{ old('e91_ai2') ?? (number_format($penyata->e91_ai2 ?? 0,2)) }}">
                                                         @error('e91_ai2')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -144,8 +143,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_ai3') ?? ($penyata->e91_ai3 ?? 0) }}"
-                                                            onchange="validation_jumlah(); ai3()">
+                                                            value="{{ old('e91_ai3') ?? (number_format($penyata->e91_ai3 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); ai3();FormatCurrency(this)">
                                                         @error('e91_ai3')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -163,8 +162,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_ai4') ?? ($penyata->e91_ai4 ?? 0) }}"
-                                                            onchange="validation_jumlah(); ai4()">
+                                                            value="{{ old('e91_ai4') ?? (number_format($penyata->e91_ai4 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); ai4();FormatCurrency(this)">
                                                         @error('e91_ai4')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -182,8 +181,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_ai5') ?? ($penyata->e91_ai5 ?? 0) }}"
-                                                            onchange="validation_jumlah(); ai5()">
+                                                            value="{{ old('e91_ai5') ?? (number_format($penyata->e91_ai5 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); ai5();FormatCurrency(this)">
                                                         @error('e91_ai5')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -201,8 +200,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
-                                                            value="{{ old('e91_ai6') ?? ($penyata->e91_ai6 ?? 0) }}"
-                                                            onchange="validation_jumlah(); ai6()">
+                                                            value="{{ old('e91_ai6') ?? (number_format($penyata->e91_ai6 ?? 0,2)) }}"
+                                                            onchange="validation_jumlah(); ai6();FormatCurrency(this)">
                                                         @error('e91_ai6')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -217,11 +216,11 @@
                                                         <b>Jumlah</b>
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <b><span id="total" name="total">
+                                                        <b><span id="total" name="total" onchange="FormatCurrency(this)">
                                                                 {{ old('total_hidden') ?? number_format($jumlah, 2) }}
                                                             </span>
                                                             <input type="hidden" id="total_hidden" name="total_hidden"
-                                                                value="{{ $jumlah }}">
+                                                                value="{{ number_format($jumlah ?? 0,2) }}">
                                                         </b>
                                                     </td>
 
@@ -301,7 +300,75 @@
             @section('scripts')
             {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
             {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> --}}
-            <script>
+            <script language="javascript" type="text/javascript">
+                function FormatCurrency(ctrl) {
+                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                        return;
+                    }
+
+                    var val = ctrl.value;
+
+                    val = val.replace(/,/g, "")
+                    ctrl.value = "";
+                    val += '';
+                    x = val.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+
+                    ctrl.value = x1 + x2;
+                }
+            </script>
+              <script>
+                $('.sub-form').submit(function() {
+
+                var x=$('#e91_ai1').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#e91_ai1').val(x);
+
+                var x=$('#e91_ai2').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#e91_ai2').val(x);
+
+                var x=$('#e91_ai3').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#e91_ai3').val(x);
+
+                var x=$('#e91_ai4').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#e91_ai4').val(x);
+
+                var x=$('#e91_ai5').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#e91_ai5').val(x);
+
+                var x=$('#e91_ai6').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#e91_ai6').val(x);
+
+                var x=$('#total').val();
+                x=x.replace(/,/g,'');
+                x=parseFloat(x,10);
+                $('#total').val(x);
+
+                return true;
+
+        });
+
+            </script>
+           <script>
                 function ai1() {
 
                     // let decimal = ".00"

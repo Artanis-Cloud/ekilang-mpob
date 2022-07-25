@@ -1,6 +1,16 @@
 @extends('layouts.main')
 
+<style>
+    .blink_me {
+  animation: blinker 1s linear infinite;
+}
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
 
 @section('content')
     <!-- ============================================================== -->
@@ -152,17 +162,17 @@
                                     <span class="">Jualan / Edaran Tempatan </span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='ebio_c8' style="width:50%"
+                                    <input type="text" class="form-control" name='ebio_c8' style="width:50%; display:inline"
                                         id="ebio_c8" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal(this)"
-                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">&nbsp;
 
-                                    <div id="merah_container" style="display:none">
+                                    <div id="merah_container" style="display:none" class="blink_me">
                                         <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
                                             style="font-size:11px; color:red" type="button" data-toggle="modal"
                                             data-target="#modal" &nbsp;> (Sila klik untuk
                                             mengisi<br> maklumat
-                                            jualan)</i>
+                                            jualan) </i>
                                     </div>
 
                                     @error('ebio_c8')
@@ -770,7 +780,7 @@
                                                         oninput="this.setCustomValidity('')">
                                                         <option selected hidden disabled value="">Sila Pilih</option>
                                                         @foreach ($syarikat as $data)
-                                                            <option value="{{ $data->pembeli }}">
+                                                            <option value="{{ $data->id }}">
                                                                 {{ $data->pembeli }}
                                                             </option>
                                                         @endforeach
@@ -840,11 +850,11 @@
                 function add_row() {
                     var new_syarikat = document.getElementById("new_syarikat[]").value;
                     var new_jumlah = document.getElementById("new_jumlah[]").value;
-
+                    var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]").selectedIndex].text;
                     var table = document.getElementById("data_table");
                     var table_len = (table.rows.length) - 1;
                     var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" +
-                        table_len + "'>" + new_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
+                        table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
                         "</td><td><input type='hidden' id='jumlah_row" + table_len +
                         "' name='jumlah_row_hidden[]' value=" + new_jumlah +
                         "> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
