@@ -195,7 +195,7 @@
                     }
                 }
             </script>
-            <script>
+            {{-- <script>
                 var oldpassword = document.getElementById("myInput"), newpassword = document.getElementById("myInput2");
 
                 function validateOldPassword(){
@@ -208,7 +208,7 @@
 
                 oldpassword.onkeyup = validateOldPassword;
                 newpassword.onchange = validateOldPassword;
-            </script>
+            </script> --}}
             <script>
                 document.addEventListener('keypress', function (e) {
                     if (e.keyCode === 13 || e.which === 13) {

@@ -10,8 +10,8 @@
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-5 mb-3 align-self-center">
+            <div class="row mb-2">
+                <div class="col-5 align-self-center">
                     <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
@@ -72,7 +72,7 @@
             <div class="card-body">
 
                 {{-- @if (!$penyata) --}}
-                <form action="{{ route('bio.add.bahagian.ia') }}" method="post">
+                <form action="{{ route('bio.add.bahagian.ia') }}" method="post" style="margin: auto;">
                     @csrf
                     <div class="mb-4 text-center">
                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -82,16 +82,16 @@
                         {{-- <p>Maklumat Kilang</p> --}}
                     </div>
                     <hr>
-
+ 
                     <div class="container center mt-4">
 
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-3 mt-3">
                                 <span class="">Nama Produk dan Kod</span>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-7 mt-3">
                                 <select class="form-control select2" id="ebio_b4" name="ebio_b4" required
-                                    oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                                    oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
                                     oninput="this.setCustomValidity('')">
                                     <option selected hidden disabled value="">Sila Pilih</option>
                                     @foreach ($produk as $data)
@@ -99,36 +99,18 @@
                                             {{ $data->prodname }} - {{ $data->proddesc }}
                                         </option>
                                     @endforeach
-
                                 </select>
-
                             </div>
-                            <div class="col-md-2">
-                                <span class="">Digunakan Untuk Proses Selanjutnya</span>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" name='ebio_b8'
-                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b8" required
-                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)">
-
-                                @error('ebio_b8')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-
                         </div>
 
-                        <div class="row mt-4">
-                            <div class="col-md-2">
+                         <div class="row">
+                            <div class="col-md-3 mt-3">
                                 <span class="">Stok Awal di Premis</span>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b5'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b5" required
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b5" required
                                     oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -138,34 +120,13 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-2"></div>
-                            <div class="col-md-2">
-                                <span class="">Jualan/Edaran Tempatan</span>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" name='ebio_b9'
-                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b9" required
-                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                    title="Sila isikan butiran ini.">
-
-                                @error('ebio_b9')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-md-2">
+                            <div class="col-md-3 mt-3">
                                 <span class="">Belian/Terimaan</span>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b6'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b6" required
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b6" required
                                     oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -175,34 +136,17 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-2"></div>
+                         </div>
 
-                            <div class="col-md-2">
-                                <span class="">Eksport </span>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" name='ebio_b10'
-                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b10" required
-                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                    title="Sila isikan butiran ini.">
 
-                                @error('ebio_b10')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-md-2">
+                         <div class="row">
+                            <div class="col-md-3 mt-3">
                                 <span class="">Pengeluaran</span>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b7'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b7" required
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b7" required
                                     oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -212,15 +156,67 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-2"></div>
+                            <div class="col-md-3 mt-3">
+                                <span class="">Digunakan Untuk Proses Selanjutnya</span>
+                            </div>
+                            <div class="col-md-2 mt-3">
+                                <input type="text" class="form-control" name='ebio_b8'
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b8" required
+                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)">
 
-                            <div class="col-md-2">
+                                @error('ebio_b8')
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                         <div class="row">
+                            <div class="col-md-3 mt-3">
+                                <span class="">Jualan/Edaran Tempatan</span>
+                            </div>
+                            <div class="col-md-2 mt-3">
+                                <input type="text" class="form-control" name='ebio_b9'
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b9" required
+                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                    title="Sila isikan butiran ini.">
+
+                                @error('ebio_b9')
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <span class="">Eksport </span>
+                            </div>
+                            <div class="col-md-2 mt-3">
+                                <input type="text" class="form-control" name='ebio_b10'
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b10" required
+                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                    title="Sila isikan butiran ini.">
+
+                                @error('ebio_b10')
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+                         </div>
+
+
+                        <div class="row">
+                            <div class="col-md-3 mt-3">
                                 <span class="">Stok Akhir Dilapor</span>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b11'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b11" required
+                                    oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b11" required
                                     oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -568,5 +564,15 @@
                         return false;
                     return true;
                 }
+            </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+
             </script>
         @endsection

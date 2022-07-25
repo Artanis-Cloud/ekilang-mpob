@@ -62,8 +62,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="tahun">
-                                            <option selected hidden disabled>Sila Pilih Tahun</option>
+                                        <select class="form-control" id="basicSelect" name="tahun" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
+                                            <option selected hidden disabled value="" >Sila Pilih Tahun</option>
                                             @for ($i = 2004; $i <= date('Y'); $i++)
                                                     <option value="{{ $i }}">{{ $i }}</option>
                                                 @endfor
@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="bulan">
+                                        <select class="form-control" id="basicSelect" name="bulan" required >
                                             <option selected hidden disabled>Sila Pilih Bulan</option>
                                             <option value="01">Januari</option>
                                             <option value="02">Februari</option>

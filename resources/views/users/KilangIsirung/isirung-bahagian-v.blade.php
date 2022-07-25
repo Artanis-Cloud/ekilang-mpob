@@ -85,7 +85,7 @@
                                     <span class="">Jualan/Edaran:</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b4" style=" width:70%" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" name="e102_b4" required>
+                                    <select class="form-control" id="e102_b4" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')" name="e102_b4" required>
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($prodcat as $data)
                                             <option value="{{ $data->catid }}">
@@ -104,7 +104,7 @@
                                     <span class="">Ke:</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b5" style=" width:70%" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <select class="form-control" id="e102_b5" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')"
                                         name="e102_b5" required>
                                         <option selected hidden disabled value="">Sila Pilih</option>
 

@@ -693,7 +693,7 @@ class KilangPenapisController extends Controller
         $tahun = date("Y");
 
         $produk = Produk::where('prodcat', 04)->orderBy('prodname')->get();
-
+        // dd($produk);
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
         if ($user) {

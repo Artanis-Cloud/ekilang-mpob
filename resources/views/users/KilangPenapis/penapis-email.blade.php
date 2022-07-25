@@ -74,7 +74,7 @@
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="TypeOfEmail" required
-                                            oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                                            oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
                                             oninput="this.setCustomValidity('')">
                                             <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan
@@ -305,5 +305,14 @@
                     // (C4) RESULT
                     return valid;
                 }
+            </script>
+             <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
             </script>
         @endsection

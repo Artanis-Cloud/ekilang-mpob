@@ -81,14 +81,12 @@
                                 <div class="col-md-3 mt-3">
                                     <span>Nama Produk dan Kod</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="produk" name="e104_c3" style="width: 70%" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')">
+                                <div class="col-md-7 mt-3">
+                                    <select class="form-control" id="produk" name="e104_c3" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->prodid }}
+                                                {{ $data->prodname }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
@@ -99,11 +97,13 @@
                                         </div>
                                     @enderror
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Belian/Terimaan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_c4' style="width:70%" onchange="c4()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_c4' style="width:100%" onchange="c4()"
                                         id="e104_c4" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -113,16 +113,11 @@
                                         </div>
                                     @enderror
                                 </div>
-
-                            </div>
-
-                            <div class="row">
-
                                 <div class="col-md-3 mt-3">
                                     <span class="">Pengeluaran</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_c5' style="width:70%" onchange="c5()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_c5' style="width:100%" onchange="c5()"
                                         id="e104_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc2()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -132,11 +127,14 @@
                                         </div>
                                     @enderror
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_c6' style="width: 70%"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_c6' style="width: 100%"
                                         id="e104_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c6()"
                                         oninput="this.setCustomValidity(''); invokeFunc3()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -146,15 +144,11 @@
                                         </div>
                                     @enderror
                                 </div>
-
-                            </div>
-
-                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Eksport</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_c7' style="width: 70%"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_c7' style="width: 100%"
                                         id="e104_c7" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c7()"
                                         oninput="this.setCustomValidity(''); invokeFunc4()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -164,11 +158,14 @@
                                         </div>
                                     @enderror
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir &nbsp; **<span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_c8' style="width:70%" onchange="c8()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_c8' style="width:100%" onchange="c8()"
                                         id="e104_c8" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('')" required
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
@@ -218,7 +215,7 @@
                                 <tbody>
                                     @foreach ($penyata as $data)
                                         <tr style="text-align: right">
-                                            <td style="text-align: left">{{ $data->produk->prodname }}</td>
+                                            <td style="text-align: left">{{ $data->produk->proddesc }}</td>
                                             <td style="text-align: center">{{ $data->produk->prodid }}</td>
                                             <td>{{ number_format($data->e104_c4 ?? 0, 2) }}</td>
                                             <td>{{ number_format($data->e104_c5 ?? 0, 2) }}</td>
@@ -271,7 +268,7 @@
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c3'
                                                                             class="form-control" required
-                                                                            value="{{ $data->produk->prodname }}"
+                                                                            value="{{ $data->produk->proddesc }}"
                                                                             readonly>
                                                                     </div>
                                                                     <label class="">Belian/Terimaan </label>

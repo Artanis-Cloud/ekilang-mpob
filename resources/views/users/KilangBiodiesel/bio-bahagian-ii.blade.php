@@ -100,7 +100,7 @@
                                 Jumlah Hari Kilang Beroperasi Sebulan </label>
                             </div>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" name='hari_operasi' oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                <input type="number" class="form-control" name='hari_operasi' max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
                                 oninput="this.setCustomValidity('')"
                                     onkeypress="return isNumberKey(event)" id="hari_operasi"  oninput="validate_two_decimal(this)"
                                     required
@@ -182,5 +182,15 @@
                     </form>
                 </div>
             </div>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+
+            </script>
 
 @endsection

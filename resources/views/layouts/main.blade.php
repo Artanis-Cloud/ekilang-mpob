@@ -1057,7 +1057,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagianic') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian 1(c) </span>
+                                                <span class="hide-menu"> Bahagian 1 (c) </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">

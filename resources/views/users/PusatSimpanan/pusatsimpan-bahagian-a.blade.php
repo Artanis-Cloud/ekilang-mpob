@@ -85,7 +85,7 @@
                                         <span class="">Nama Produk Sawit dan Kod</span>
                                     </div>
                                     <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="produk" name="e07bt_produk" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    <select class="form-control select2" id="produk" name="e07bt_produk" required  oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produks as $produk)
                                             @if ($produk->prodname != '')
@@ -109,7 +109,7 @@
                                         <span class="">Stok Awal</span>
                                     </div>
                                     <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_stokawal' style="width: 70%" onkeypress="return isNumberKey(event)"
+                                    <input type="text" class="form-control" name='e07bt_stokawal' onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokawal" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini." >
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
@@ -123,7 +123,7 @@
                                             title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 70%" onkeypress="return isNumberKey(event)"
+                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 100%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_terima" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" title="Sila isikan butiran ini." >
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
@@ -133,12 +133,12 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div class="row">
                                     <div class="col-md-3 mt-3">
                                     <span>Import</span>
                                 </div>
                                     <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_import' style="width: 70%"
+                                    <input type="text" class="form-control" name='e07bt_import' style="width: 100%"
                                         id="e07bt_import" title="Sila isikan butiran ini." readonly>
                                     @error('e07bt_import')
                                         <div class="alert alert-danger">
@@ -153,7 +153,7 @@
                                         title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 70%" onkeypress="return isNumberKey(event)"
+                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_edaran" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini." >
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">
@@ -163,12 +163,12 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span>Eksport</span>
                                 </div>
                                     <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_eksport' style="width: 70%"
+                                    <input type="text" class="form-control" name='e07bt_eksport' style="width: 100%"
                                         id="e07bt_eksport" title="Sila isikan butiran ini." readonly >
                                     @error('e07bt_eksport')
                                         <div class="alert alert-danger">
@@ -181,7 +181,7 @@
                                     <span class="">Pelarasan(+/-)</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 70%" onkeypress="return isNumberKey(event)"
+                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 100%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_pelarasan" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
                                     @error('e07bt_pelarasan')
                                         <div class="alert alert-danger">
@@ -191,12 +191,12 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-3">
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir</span>
                                 </div>
                                     <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 70%" onkeypress="return isNumberKey(event)"
+                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 100%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokakhir" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">

@@ -77,12 +77,12 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="produk" name="e104_b4" style="width: 70%" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                <div class="col-md-7 mt-3">
+                                    <select class="form-control" id="produk" name="e104_b4" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->prodid }}
+                                                {{ $data->prodname }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
@@ -100,10 +100,10 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Awal di Premis</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b5'  onchange="b5()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_b5' onchange="b5()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b5" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b5" required title="Sila isikan butiran ini.">
                                     @error('e104_b5')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -113,10 +113,10 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Awal di Pusat Simpanan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b6'  onchange="b6()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_b6' onchange="b6()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b6" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b6" required title="Sila isikan butiran ini.">
                                     @error('e104_b6')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -134,10 +134,10 @@
                                         style="color: red; cursor: pointer;"
                                         title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b7' onchange="b7()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b7" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b7" required title="Sila isikan butiran ini.">
                                     @error('e104_b7')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -147,10 +147,10 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Jumlah Yang Diproses</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b9'  onchange="b9()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_b9' onchange="b9()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b9" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b9" required title="Sila isikan butiran ini.">
                                     @error('e104_b9')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -164,10 +164,10 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b10'  onchange="b10()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_b10' onchange="b10()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc5()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b10" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b10" required title="Sila isikan butiran ini.">
                                     @error('e104_b10')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -178,10 +178,10 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Eksport</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b11'  onchange="b11()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_b11' onchange="b11()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc6()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b11" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b11" required title="Sila isikan butiran ini.">
                                     @error('e104_b11')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -196,16 +196,16 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b8'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b8" required title="Sila isikan butiran ini." readonly>
+                                        style="width:100%" id="e104_b8" required title="Sila isikan butiran ini." readonly>
                                 </div>--}}
 
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir di Premis</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b12'  onchange="b12()"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e104_b12' onchange="b12()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc7()" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b12" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b12" required title="Sila isikan butiran ini.">
                                     @error('e104_b12')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -215,10 +215,10 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir di Pusat Simpanan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b13'  onchange="b13()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
-                                        style="width:70%" id="e104_b13" required title="Sila isikan butiran ini.">
+                                        style="width:100%" id="e104_b13" required title="Sila isikan butiran ini.">
                                     @error('e104_b13')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -273,7 +273,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">
-                                            {{ $data->produk->prodname }}
+                                            {{ $data->produk->proddesc}}
                                         </td>
                                         <td style="text-align: center">
                                             {{ $data->produk->prodid }}
@@ -289,8 +289,8 @@
                                         <td>{{ number_format($data->e104_b13 ?? 0, 2) }}</td>
                                         <td>
                                             <div class="icon" style="text-align: center">
-                                                <a href="#" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#modal{{ $data->e104_b1 }}">
+                                                <a href="#" type="button" data-toggle="modal"
+                                                    data-target="#modal{{ $data->e104_b1 }}">
                                                     <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                     </i>
                                                 </a>
@@ -298,8 +298,8 @@
                                         </td>
                                         <td>
                                             <div class="icon" style="text-align: center">
-                                                <a href="#" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#next2{{ $data->e104_b1 }}">
+                                                <a href="#" type="button" data-toggle="modal"
+                                                    data-target="#next2{{ $data->e104_b1 }}">
                                                     <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
                                                 </a>
                                             </div>
@@ -319,7 +319,7 @@
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalScrollableTitle">
                                                             Kemaskini Maklumat Produk</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                        <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
@@ -333,7 +333,7 @@
                                                                 <label class="required">Nama Produk </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e104_b4' class="form-control"
-                                                                        value="{{ $data->produk->prodname }}" readonly>
+                                                                        value="{{ $data->produk->proddesc }}" readonly>
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
@@ -414,7 +414,7 @@
 
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
+                                                            data-dismiss="modal">
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
@@ -438,7 +438,7 @@
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                                         PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                                    <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <i data-feather="x"></i>
                                                     </button>
@@ -450,7 +450,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
+                                                        data-dismiss="modal">
                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block">Tidak</span>
                                                     </button>
@@ -494,8 +494,8 @@
 
         <div class="form-group" style="padding: 10px; ">
                 <a href="{{ route('oleo.bahagiania') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
-                <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                    data-bs-target="#next">Simpan &
+                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                    data-target="#next">Simpan &
                     Seterusnya</button>
             </div>
 
@@ -509,7 +509,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">
                             PENGESAHAN</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
                     </div>
@@ -519,7 +519,7 @@
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                         </button>
@@ -533,7 +533,6 @@
         </div>
 
     </form>
-    </div>
 
 
     {{-- <div id="preloader"></div> --}}
@@ -859,6 +858,7 @@
 
     });
     </script>
+
     </body>
 
     </html>
