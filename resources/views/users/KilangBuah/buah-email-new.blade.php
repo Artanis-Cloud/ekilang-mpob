@@ -82,8 +82,9 @@
                                     Jenis Emel</label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="TypeOfEmail">
-                                            <option selected hidden disabled>Sila Pilih Jenis Emel</option>
+                                        <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                            <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan
                                             </option>
                                             <option value="pindaan">Pindaan
@@ -121,8 +122,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                     Tajuk</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name='Subject' id="Subject" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='Subject' id="Subject" required oninput="setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini.">
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>

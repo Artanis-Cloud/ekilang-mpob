@@ -73,7 +73,7 @@
 
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('bio.add.bahagian.ib') }}" method="post">
+                    <form action="{{ route('bio.add.bahagian.ib') }}" method="post" style="margin: auto">
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -84,16 +84,16 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4" >
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-7 mt-3">
                                     <select class="form-control" id="ebio_b4" name="ebio_b4"
-                                        style="width:70%" required oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')">
+                                        required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="this.setCustomValidity('')" style="width: 100%">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -104,12 +104,15 @@
                                     </select>
 
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Awal di Premis</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b5'
-                                        style="width:70%" id="ebio_b5" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b5" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required
                                         title="Sila isikan butiran ini.">
@@ -121,15 +124,12 @@
                                     @enderror
 
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
+                               <div class="col-md-3 mt-3">
                                     <span class="">Belian / Terimaan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b6'
-                                        style="width:70%" id="ebio_b6" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b6" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required
                                         title="Sila isikan butiran ini.">
@@ -140,12 +140,15 @@
                                         </div>
                                     @enderror
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Pengeluaran</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b7'
-                                        style="width:70%" id="ebio_b7" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b7" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required
                                         title="Sila isikan butiran ini.">
@@ -156,15 +159,12 @@
                                         </div>
                                     @enderror
                                 </div>
-                            </div>
-
-                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Digunakan Untuk Proses Selanjutnya</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b8'
-                                        style="width:70%" id="ebio_b8" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b8" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required>
 
@@ -173,14 +173,16 @@
                                                 <strong>{{ $message }}</strong>
                                             </div>
                                         @enderror
-
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Jualan / Edaran Tempatan</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b9'
-                                        style="width:70%" id="ebio_b9" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b9" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required
                                         title="Sila isikan butiran ini.">
@@ -191,15 +193,12 @@
                                         </div>
                                     @enderror
                                 </div>
-                            </div>
-
-                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Eksport </span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b10'
-                                        style="width:70%" id="ebio_b10" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b10" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="this.setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required
                                         title="Sila isikan butiran ini.">
@@ -210,12 +209,15 @@
                                         </div>
                                     @enderror
                                 </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir Dilapor</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b11'
-                                        style="width:70%" id="ebio_b11" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        style="width:100%" id="ebio_b11" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" required
                                         title="Sila isikan butiran ini.">
@@ -236,7 +238,6 @@
 
                     </form>
                     <section class="section">
-
                     <hr>
                     <br>
                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Isirung
@@ -423,27 +424,24 @@
                                                                             </div> --}}
 
 
-                                                            </div>
-
-
-                                                            <div class="modal-footer">
-                                                                <button type="button"
-                                                                    class="btn btn-light-secondary"
-                                                                    data-dismiss="modal">
-                                                                    <i
-                                                                        class="bx bx-x d-block d-sm-none"></i>
-                                                                    <span
-                                                                        class="d-none d-sm-block">Batal</span>
-                                                                </button>
-                                                                <button type="submit"
-                                                                    class="btn btn-primary ml-1">
-                                                                    <i
-                                                                        class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span
-                                                                        class="d-none d-sm-block">Kemaskini</span>
-                                                                </button>
-                                                            </div>
-                                                            </form>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-light-secondary"
+                                                                            data-dismiss="modal">
+                                                                            <i
+                                                                                class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span
+                                                                                class="d-none d-sm-block">Batal</span>
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary ml-1">
+                                                                            <i
+                                                                                class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span
+                                                                                class="d-none d-sm-block">Kemaskini</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -506,9 +504,7 @@
                             </div>
                             {{-- </div> --}}
                         </div>
-
                     </section>
-
                 </div>
 
 
@@ -667,10 +663,10 @@
         });
     </script>
 
-@endsection
+    @endsection
         </div>
     </div>
 
-    </body>
+</body>
 
-    </html>
+</html>

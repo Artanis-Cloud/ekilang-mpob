@@ -769,23 +769,23 @@
                         }
 
                     });
-        
-            </script>
-            <script>
-                let bilangan = document.querySelector("#bil_tangki_cpo");
-                let kapasiti = document.querySelector("#kap_tangki_cpo");
-                kapasiti.disabled = true;
-                bilangan.addEventListener("change", stateHandle);
 
-                function stateHandle() {
-                    if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo").value === "0") {
-                        kapasiti.disabled = true;
-                    } else {
-                        kapasiti.disabled = false;
+                </script>
+                <script>
+                    let bilangan = document.querySelector("#bil_tangki_cpo");
+                    let kapasiti = document.querySelector("#kap_tangki_cpo");
+                    kapasiti.disabled = true;
+                    bilangan.addEventListener("change", stateHandle);
+
+                    function stateHandle() {
+                        if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo").value === "0") {
+                            kapasiti.disabled = true;
+                        } else {
+                            kapasiti.disabled = false;
+                        }
                     }
-                }
 
-            </script>
+                </script>
 
                  </body>
 

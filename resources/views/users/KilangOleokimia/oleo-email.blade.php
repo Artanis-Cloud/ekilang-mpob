@@ -73,7 +73,7 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="TypeOfEmail"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                                        required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
                                                         <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                                         <option value="pertanyaan">Pertanyaan
                                                         </option>
