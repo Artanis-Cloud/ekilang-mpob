@@ -198,7 +198,7 @@ class LaporanController extends Controller
             // $test[] = $data_bulanan_ebio_b5;
         }
 
-       dd($hbiob);
+    //    dd($hbiob);
 
 
 
@@ -331,7 +331,7 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.ringkasan.ringkasan-bahagian1', $array);
     }
 
-    public function admin_ringkasan_bahagian2(Request $request)
+    public function admin_ringkasan_bahagian2()
     {
 
         $breadcrumbs    = [
@@ -351,7 +351,7 @@ class LaporanController extends Controller
         $kumpproduk = KumpProduk::get();
         $produk = Produk::get();
         $pembeli = SyarikatPembeli::orderBy('id')->get();
-        $tahun = $request->tahun;
+        // $tahun = $request->tahun;
 
         // dd($result);
 
@@ -366,7 +366,6 @@ class LaporanController extends Controller
             'pembeli' => $pembeli,
             'kumpproduk' => $kumpproduk,
             'negeri' => $negeri,
-            'tahun' => $tahun,
             'kembali' => $kembali,
             'returnArr' => $returnArr,
             'layout' => $layout,
@@ -397,35 +396,49 @@ class LaporanController extends Controller
         $produk = Produk::get();
         $pembeli = SyarikatPembeli::orderBy('id')->get();
         $tahun = $request->tahun;
-
+        $start_month = $request->start_month;
+        $end_month = $request->end_month;
 
 
         //RINGKASAN OPERASI
         $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
            ->groupBy('lesen')->get();
+
             // dd($result);
         if ($request->e_nl) {
             $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
             ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->groupBy('lesen')->get();
 
         }
-
-        for ($i=1; $i <= 12; $i++) {
-            // $data_hari_operasi[$i] = 0;
-            $data_kapasiti[$i] = 0;
-        }
-
-
-        foreach ($result as $key => $list_result) {
-
-            $hbiob[] = DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
-
-            // $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
-            $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
-            $test[] = $data_kapasiti;
+        if ($request->bulan == 'equal') {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
 
         }
-        // dd($test);
+        if ($request->bulan == 'between') {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
+
+        }
+        if($result){
+            for ($i=1; $i <= 12; $i++) {
+                $data_hari_operasi[$i] = 0;
+                $data_kapasiti[$i] = 0;
+            }
+
+
+            //  dd($result);
+            foreach ($result as $key =>  $list_result) {
+
+                $hbiob[] = DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
+
+                $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
+                $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
+                $test[] = $data_kapasiti;
+                $test3[] = $data_hari_operasi;
+
+            }
+
 
 
 
@@ -440,13 +453,21 @@ class LaporanController extends Controller
             'negeri' => $negeri,
             'result' => $result,
             'tahun' => $tahun,
+            'test' => $test,
+            'test3' => $test3,
             'kembali' => $kembali,
             'returnArr' => $returnArr,
             'layout' => $layout,
+            'start_month' => $start_month,
+            'end_month' => $end_month,
 
         ];
 
-        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2-table', $array, compact('test'));
+            return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2-table', $array);
+        } else {
+            return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+        }
     }
 
     public function admin_ringkasan_bahagian3(Request $request)
@@ -1376,7 +1397,7 @@ class LaporanController extends Controller
             return view('admin.laporan_dq.laporan-eksport', $array);
         } else {
             return redirect()->back()
-                ->with('error', 'Penyata Tidak Wujud!');
+                ->with('error', 'Rekod Tidak Wujud!');
         }
     }
 

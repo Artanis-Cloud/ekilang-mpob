@@ -135,7 +135,7 @@
                                                 <select class="form-control" name="tahun"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')" required>
-                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                     <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                     </option>
                                                     <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
@@ -182,8 +182,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12 ">
                                                         <div class="form-group">
-                                                            <label>&nbsp;</label>
-                                                            <select class="form-control" name="bulan" >
+                                                            <label>Equal</label>
+                                                            <select class="form-control" name="start" >
                                                                 <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                                 <option value="01">Januari</option>
                                                                 <option value="02">Februari</option>
@@ -268,7 +268,7 @@
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
-                                                <select class="form-control select2" name="e_np" style="width: 10%">
+                                                <select class="form-control select2" name="e_nl" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
                                                         <option value="{{ $data->e_nl }}">
@@ -298,7 +298,7 @@
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
-                          
+
                         </div>
 
 

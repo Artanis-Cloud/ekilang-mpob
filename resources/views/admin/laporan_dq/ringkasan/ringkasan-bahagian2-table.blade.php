@@ -135,7 +135,7 @@
                                                 <select class="form-control" name="tahun"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')" required>
-                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                     <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                     </option>
                                                     <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
@@ -268,7 +268,7 @@
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
-                                                <select class="form-control select2" name="e_np" style="width: 10%">
+                                                <select class="form-control select2" name="e_nl" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
                                                         <option value="{{ $data->e_nl }}">
@@ -329,25 +329,73 @@
                                                 {{-- @foreach ($result as $data) --}}
 
                                                     @foreach($test as $key => $value)
-
                                                         <tr>
-                                                            <td>{{ $loop->iteration }}</td>
-                                                            <td>{{ $result[$key]->lesen }} </td>
+                                                            @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $result[$key]->lesen }} </td>
 
-                                                            @foreach ( $value as  $test2 )
-                                                                <td>
-                                                                    {{  $test2 }}
-                                                                </td>
-                                                            @endforeach
-
+                                                                @foreach ( $value as  $test2 )
+                                                                    <td>
+                                                                        {{  $test2 }}
+                                                                    </td>
+                                                                @endforeach
+                                                            @endfor
                                                             <td>-</td>
                                                         </tr>
-
                                                     @endforeach
-                                                {{-- @endforeach --}}
-                                            </tbody>
-                                        </table>
 
+
+                                                {{-- @endforeach --}}
+                                            </tbody><br>
+
+                                        </table>
+                                    </div>
+
+                                    <div class="table-responsive " id="example1">
+                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" style="vertical-align: middle">Bil.</th>
+                                                    <th scope="col" style="vertical-align: middle">Pelesen</th>
+                                                    <th scope="col" style="vertical-align: middle">Jan</th>
+                                                    <th scope="col" style="vertical-align: middle">Feb</th>
+                                                    <th scope="col" style="vertical-align: middle">Mac</th>
+                                                    <th scope="col" style="vertical-align: middle">Apr</th>
+                                                    <th scope="col" style="vertical-align: middle">Mei</th>
+                                                    <th scope="col" style="vertical-align: middle">Jun</th>
+                                                    <th scope="col" style="vertical-align: middle">Jul</th>
+                                                    <th scope="col" style="vertical-align: middle">Ogos</th>
+                                                    <th scope="col" style="vertical-align: middle">Sep</th>
+                                                    <th scope="col" style="vertical-align: middle">Okt</th>
+                                                    <th scope="col" style="vertical-align: middle">Nov</th>
+                                                    <th scope="col" style="vertical-align: middle">Dis</th>
+                                                    <th scope="col" style="vertical-align: middle">Jumlah</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{-- @foreach ($result as $data) --}}
+
+                                                    @foreach($test3 as $key => $value)
+                                                        <tr>
+                                                            @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $result[$key]->lesen }} </td>
+
+                                                                @foreach ( $value as  $test2 )
+                                                                    <td>
+                                                                        {{  $test2 }}
+                                                                    </td>
+                                                                @endforeach
+                                                            @endfor
+                                                            <td>-</td>
+                                                        </tr>
+                                                    @endforeach
+
+
+                                                {{-- @endforeach --}}
+                                            </tbody><br>
+
+                                        </table>
                                     </div>
                                 </div>
 
