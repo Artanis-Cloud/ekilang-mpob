@@ -106,9 +106,9 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak1'
                                                                             class="calc" name='e91_ak1' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak1()"
                                                                             value="{{ old('e91_ak1') ?? $penyata->e91_ak1 ?? 0 }}" required
-                                                                            onchange="validation_jumlah()" oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                                                            onchange="validation_jumlah(); ak1()" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak1')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -123,9 +123,9 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak2'
                                                                             class="calc" name='e91_ak2' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak2()"
                                                                             value="{{ old('e91_ak2') ?? $penyata->e91_ak2 ?? 0 }}" required
-                                                                            onchange="validation_jumlah()" oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                                                            onchange="validation_jumlah(); ak2()" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak2')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -140,9 +140,9 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak3'
                                                                             class="calc" name='e91_ak3' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak3()"
                                                                             value="{{ old('e91_ak3') ?? $penyata->e91_ak3 ?? 0 }}" required
-                                                                            onchange="validation_jumlah()" oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                                                            onchange="validation_jumlah(); ak3()" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak3')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -249,26 +249,83 @@
                             </div>
                     </div>
 
-                    {{-- <div id="preloader"></div> --}}
-                    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                            class="bi bi-arrow-up-short"></i></a>
+                @endsection
+                @section('scripts')
+                <script>
+                    function ak1() {
 
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-                    </script>
-                    {{-- <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('.calc').change(function() {
-                                var total = 0;
-                                $('.calc').each(function() {
-                                    if ($(this).val() != '') {
-                                        total += parseFloat($(this).val());
-                                    }
-                                });
-                                $('#total').html(total);
-                            });
+                        // let decimal = ".00"
+                        var x = parseFloat(document.getElementById("e91_ak1").value);
+                        if (isNaN(x)) {
+                            x = 0.00;
+                        }
+                        var y = parseFloat(x).toFixed(2);
+                        document.querySelector("#e91_ak1").value = y;
+                        console.log(y);
+                    }
+                </script>
+                <script>
+                    function ak2() {
+
+                        // let decimal = ".00"
+                        var x = parseFloat(document.getElementById("e91_ak2").value);
+                        if (isNaN(x)) {
+                            x = 0.00;
+                        }
+                        var y = parseFloat(x).toFixed(2);
+                        document.querySelector("#e91_ak2").value = y;
+                        console.log(y);
+                    }
+                </script>
+                <script>
+                    function ak3() {
+
+                        // let decimal = ".00"
+                        var x = parseFloat(document.getElementById("e91_ak3").value);
+                        if (isNaN(x)) {
+                            x = 0.00;
+                        }
+                        var y = parseFloat(x).toFixed(2);
+                        document.querySelector("#e91_ak3").value = y;
+                        console.log(y);
+                    }
+                </script>
+                <script>
+                    function invoke_ak1() {
+                        addEventListener('keydown', function(evt) {
+                            var whichKey = checkKey(evt);
+                            if (whichKey == 13) {
+                                console.log('successful');
+                                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                                document.getElementById('e91_ak2').focus();
+                            }
+
                         });
-                    </script> --}}
+                    }
+
+                    function checkKey(evt) {
+                        console.log(evt.which);
+                        return evt.which;
+                    }
+                </script>
+                <script>
+                    function invoke_ak2() {
+                        addEventListener('keydown', function(evt) {
+                            var whichKey = checkKey(evt);
+                            if (whichKey == 13) {
+                                console.log('successful');
+                                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                                document.getElementById('e91_ak3').focus();
+                            }
+
+                        });
+                    }
+
+                    function checkKey(evt) {
+                        console.log(evt.which);
+                        return evt.which;
+                    }
+                </script>
                     <script>
                         function validation_jumlah() {
                             var e91_ak1 = $("#e91_ak1").val();
@@ -294,9 +351,5 @@
                         });
                     </script>
 
-                    </body>
-
-                    </html>
                   @endsection
-                </div>
-    </div>
+

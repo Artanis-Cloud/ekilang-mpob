@@ -1245,26 +1245,10 @@ class LaporanController extends Controller
             $start_month = $request->start_month;
             $end_month = $request->end_month;
 
-            // $nobatch = HBioInit::where('ebio_thn', $request->tahun)->where('ebio_bln', $request->bulan)->get('ebio_nobatch');
-
-
-            // $operasi =  DB::select("SELECT p.e_np, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch
-            // FROM kapasiti k, pelesen p, h_bio_c_s h
-            // WHERE h.ebio_nobatch = $batch
-            // AND k.e_nl = p.e_nl
-            // AND h.ebio_c3 = 'AW'");
-
-            $nbatch =  DB::select("SELECT ebio_nobatch
-            FROM h_bio_inits
-            WHERE $tahun_sql.$bulan_sql");
-
-            // $batch = $nbatch[0]->ebio_nobatch;
-
-            // dd($batch);
 
             $pengeluaran =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6,  k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
             FROM h_bio_c_s h
-            LEFT JOIN ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
             WHERE $tahun_sql.$bulan_sql
