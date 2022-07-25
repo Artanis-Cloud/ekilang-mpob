@@ -427,7 +427,7 @@
                                             @else
                                                 @foreach ($pengeluaran as $key => $data)
                                                     <tr>
-                                                        <td>{{ $key }}</td>
+                                                        <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $data->e_np }}</td>
 
                                                         @if ($data->e_negeri == '01')
@@ -463,7 +463,43 @@
                                                             @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
                                                                 @php
                                                                     $total_bulan[$i]++;
-                                                                    $total_kapasiti[$i] += $data->kap_proses;
+                                                                    if ($i == '1'){
+                                                                        $total_kapasiti[$i] += $data->jan;
+                                                                    }
+                                                                    elseif ($i == '2') {
+                                                                        $total_kapasiti[$i] += $data->feb;
+                                                                    }
+                                                                    elseif ($i == '3') {
+                                                                        $total_kapasiti[$i] += $data->mac;
+                                                                    }
+                                                                    elseif ($i == '4') {
+                                                                        $total_kapasiti[$i] += $data->apr;
+                                                                    }
+                                                                    elseif ($i == '5') {
+                                                                        $total_kapasiti[$i] += $data->mei;
+                                                                    }
+                                                                    elseif ($i == '6') {
+                                                                        $total_kapasiti[$i] += $data->jun;
+                                                                    }
+                                                                    elseif ($i == '7') {
+                                                                        $total_kapasiti[$i] += $data->jul;
+                                                                    }
+                                                                    elseif ($i == '8') {
+                                                                        $total_kapasiti[$i] += $data->ogs;
+                                                                    }
+                                                                    elseif ($i == '9') {
+                                                                        $total_kapasiti[$i] += $data->sept;
+                                                                    }
+                                                                    elseif ($i == '10') {
+                                                                        $total_kapasiti[$i] += $data->okt;
+                                                                    }
+                                                                    elseif ($i == '11') {
+                                                                        $total_kapasiti[$i] += $data->nov;
+                                                                    }
+                                                                    elseif ($i == '12') {
+                                                                        $total_kapasiti[$i] += $data->dec;
+                                                                    }
+
                                                                 @endphp
                                                                 @if ($i == '1')
                                                                     <td scope="col">
@@ -510,10 +546,17 @@
                                                             @endif
                                                         @endfor
                                                     </tr>
-                                                    @php
-                                                        $total_kapasiti_bio += $data->kap_proses;
-                                                    @endphp
+
                                                 @endforeach
+                                                <tr style="background-color: #d3d3d34d"
+                                                    class="font-weight-bold text-right">
+                                                    <th colspan="3"><b>JUMLAH</b></th>
+                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+                                                        <td>{{ number_format($total_kapasiti[$i] ?? 0, 2) }}</td>
+                                                    @endfor
+                                                    {{-- <td></td> --}}
+                                                    {{-- <td></td> --}}
+                                                </tr>
                                             @endif
                                         @endif
 

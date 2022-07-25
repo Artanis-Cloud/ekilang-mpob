@@ -5,7 +5,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -30,7 +30,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -91,7 +92,8 @@
 
                                     <div class="row col-12 mt-1">
                                         <div class=" col-8" style="text-align: left">
-                                            <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                                            <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i>
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -110,11 +112,12 @@
                                                     <td class="text-bold-500">1. Kilang Buah</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj1'
-                                                            id='e91_aj1' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            id='e91_aj1' style="text-align:center"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj1()"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj1') ?? ($penyata->e91_aj1 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange="validation_jumlah(); aj1()">
                                                         @error('e91_aj1')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -128,12 +131,13 @@
                                                     <td class="text-bold-500">2. Kilang Penapis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj2'
-                                                            id='e91_aj2' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            id='e91_aj2' style="text-align:center"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj2()"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj2') ?? ($penyata->e91_aj2 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
-                                                            @error('e91_aj2')
+                                                            onchange="validation_jumlah(); aj2()">
+                                                        @error('e91_aj2')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -146,12 +150,13 @@
                                                     <td class="text-bold-500">3. Kilang Oleokimia</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj3'
-                                                            id='e91_aj3' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            id='e91_aj3' style="text-align:center"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj3()"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj3') ?? ($penyata->e91_aj3 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
-                                                            @error('e91_aj3')
+                                                            onchange="validation_jumlah(); aj3()">
+                                                        @error('e91_aj3')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -164,12 +169,13 @@
                                                     <td class="text-bold-500">4. Peniaga</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj4'
-                                                            id='e91_aj4' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            id='e91_aj4' style="text-align:center"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj4()"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj4') ?? ($penyata->e91_aj4 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
-                                                            @error('e91_aj4')
+                                                            onchange="validation_jumlah(); aj4()">
+                                                        @error('e91_aj4')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -182,12 +188,13 @@
                                                     <td class="text-bold-500">5. Pusat Simpanan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj5'
-                                                            id='e91_aj5' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            id='e91_aj5' style="text-align:center"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj5()"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj5') ?? ($penyata->e91_aj5 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
-                                                            @error('e91_aj5')
+                                                            onchange="validation_jumlah(); aj5()">
+                                                        @error('e91_aj5')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -199,13 +206,14 @@
                                                 <tr>
                                                     <td class="text-bold-500">6. Lain-Lain</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc" name='e91_aj8'
-                                                            id='e91_aj8' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                        <input type="text" size="15" class="calc"
+                                                            name='e91_aj8' id='e91_aj8' style="text-align:center"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj8') ?? ($penyata->e91_aj8 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
-                                                            @error('e91_aj8')
+                                                            onchange="validation_jumlah(); aj8()">
+                                                        @error('e91_aj8')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -250,9 +258,8 @@
                 <br>
 
 
-                <div class="form-group"  style="padding: 10px">
-                    <a href="{{ route('buah.bahagianiii') }}" class="btn btn-primary"
-                    style="float: left">Sebelumnya</a>
+                <div class="form-group" style="padding: 10px">
+                    <a href="{{ route('buah.bahagianiii') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
                     {{-- <div class="text-right col-md-7 mb-2 ">
                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                             style="float: right" data-bs-target="#exampleModalCenter">Simpan &
@@ -260,87 +267,241 @@
                     </div> --}}
 
                     <button type="submit" class="btn btn-primary " style="float: right;">Simpan
-                            & Seterusnya</button>
+                        & Seterusnya</button>
                 </div>
 
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menyimpan maklumat ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="submit" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Ya</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menyimpan maklumat ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Ya</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        @endsection
+        @section('scripts')
+        <script>
+            function invoke_aj1() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aj2').focus();
+                    }
 
+                });
+            }
 
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invoke_aj2() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aj3').focus();
+                    }
 
-                                {{-- <div id="preloader"></div> --}}
-                                <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                                        class="bi bi-arrow-up-short"></i></a>
+                });
+            }
 
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invoke_aj3() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aj4').focus();
+                    }
 
+                });
+            }
 
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invoke_aj4() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aj5').focus();
+                    }
 
-                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                                        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-                                </script>
-                                <script>
-                                    function validation_jumlah() {
-                                        var e91_aj1 = $("#e91_aj1").val();
-                                        var e91_aj2 = $("#e91_aj2").val();
-                                        var e91_aj3 = $("#e91_aj3").val();
-                                        var e91_aj4 = $("#e91_aj4").val();
-                                        var e91_aj5 = $("#e91_aj5").val();
-                                        var e91_aj8 = $("#e91_aj8").val();
+                });
+            }
 
-                                        var jumlah = $("#jumlah").val();
-                                        var jumlah_input = 0;
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invoke_aj5() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aj8').focus();
+                    }
 
-                                        jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) +
-                                            parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(e91_aj8));
-                                        // console.log(jumlah_input.toFixed(2));
-                                        document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
-                                    }
-                                </script>
-                                <script>
-                                    document.addEventListener('keypress', function (e) {
-                                        if (e.keyCode === 13 || e.which === 13) {
-                                            e.preventDefault();
-                                            return false;
-                                        }
+                });
+            }
 
-                                    });
-                                </script>
-                                {{-- <script>
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+            <script>
+                function aj1() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_aj1").value);
+                    if (isNaN(x)) {
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_aj1").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function aj2() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_aj2").value);
+                    if (isNaN(x)) {
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_aj2").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function aj3() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_aj3").value);
+                    if (isNaN(x)) {
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_aj3").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function aj4() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_aj4").value);
+                    if (isNaN(x)) {
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_aj4").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function aj5() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_aj5").value);
+                    if (isNaN(x)) {
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_aj5").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function aj8() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_aj8").value);
+                    if (isNaN(x)) {
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_aj8").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function validation_jumlah() {
+                    var e91_aj1 = $("#e91_aj1").val();
+                    var e91_aj2 = $("#e91_aj2").val();
+                    var e91_aj3 = $("#e91_aj3").val();
+                    var e91_aj4 = $("#e91_aj4").val();
+                    var e91_aj5 = $("#e91_aj5").val();
+                    var e91_aj8 = $("#e91_aj8").val();
+
+                    var jumlah = $("#jumlah").val();
+                    var jumlah_input = 0;
+
+                    jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) +
+                        parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(
+                            e91_aj8));
+                    // console.log(jumlah_input.toFixed(2));
+                    document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                }
+            </script>
+            <script>
+                document.addEventListener('keypress', function(e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+            </script>
+            {{-- <script>
                                     function validation_jumlah() {
                                         var e91_aj1 = $("#e91_aj1").val();
                                         var e91_aj2 = $("#e91_aj2").val();
@@ -360,11 +521,11 @@
                                 </script> --}}
 
 
-                                </body>
+            </body>
 
-                                </html>
-                            @endsection
+            </html>
+        @endsection
 
-                        </div>
-                    </div>
     </div>
+</div>
+</div>

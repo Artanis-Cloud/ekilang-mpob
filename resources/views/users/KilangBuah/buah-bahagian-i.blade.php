@@ -353,7 +353,7 @@
         <!-- ======= Footer ======= -->
 
         @section('scripts')
-        <script>
+        {{-- <script>
             function invokeFunc() {
                 addEventListener('keydown', function(evt) {
                     var whichKey = checkKey(evt);
@@ -695,8 +695,8 @@
                 console.log(evt.which);
                 return evt.which;
             }
-        </script>
-        <script>
+        </script> --}}
+        {{-- <script>
             function aa1() {
 
                 // let decimal = ".00"
@@ -955,7 +955,7 @@
                 document.querySelector("#e91_ag4").value = y;
                 console.log(y);
             }
-        </script>
+        </script> --}}
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".floatNumberField").change(function() {

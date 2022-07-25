@@ -105,9 +105,8 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event);"
-                                                            onchange="validation_jumlah()" required
-                                                            value="{{ old('e91_ai1') ?? ($penyata->e91_ai1 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange=" ai1(); validation_jumlah()" required
+                                                            value="{{ old('e91_ai1') ?? ($penyata->e91_ai1 ?? 0) }}">
                                                         @error('e91_ai1')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -125,7 +124,7 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
-                                                            onchange="validation_jumlah()" required
+                                                            onchange="validation_jumlah(); ai2()" required
                                                             value="{{ old('e91_ai2') ?? ($penyata->e91_ai2 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                         @error('e91_ai2')
@@ -146,7 +145,7 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai3') ?? ($penyata->e91_ai3 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange="validation_jumlah(); ai3()">
                                                         @error('e91_ai3')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -165,7 +164,7 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai4') ?? ($penyata->e91_ai4 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange="validation_jumlah(); ai4()">
                                                         @error('e91_ai4')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -184,7 +183,7 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai5') ?? ($penyata->e91_ai5 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange="validation_jumlah(); ai5()">
                                                         @error('e91_ai5')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -203,7 +202,7 @@
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai6') ?? ($penyata->e91_ai6 ?? 0) }}"
-                                                            onchange="validation_jumlah()">
+                                                            onchange="validation_jumlah(); ai6()">
                                                         @error('e91_ai6')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -297,8 +296,89 @@
             <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
                     class="bi bi-arrow-up-short"></i></a>
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+            @endsection
+            @section('scripts')
+            {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+            {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> --}}
+            <script>
+                function ai1() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_ai1").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_ai1").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function ai2() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_ai2").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_ai2").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function ai3() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_ai3").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_ai3").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function ai4() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_ai4").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_ai4").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function ai6() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_ai6").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_ai6").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function ai5() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e91_ai5").value);
+                    if(isNaN(x)){
+                        x = 0.00;
+                    }
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e91_ai5").value = y;
+                    console.log(y);
+                }
+            </script>
             <script>
                 function invokeFunc() {
                     addEventListener('keydown', function(evt) {
