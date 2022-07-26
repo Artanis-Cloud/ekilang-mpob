@@ -12,7 +12,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -37,7 +37,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -66,7 +67,7 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.add.bahagian.ii') }}" method="post">
+            <form action="{{ route('penapis.add.bahagian.ii') }}" method="post" class="sub-form">
                 @csrf
                 <div class="card-body">
                     <div style="padding: 2%">
@@ -80,7 +81,7 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" >
+                        <div class="container center mt-4">
 
 
                             <div class="row">
@@ -88,7 +89,9 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="produk" required name="e101_b4" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                    <select class="form-control select2" id="produk" required name="e101_b4"
+                                        oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -111,9 +114,11 @@
                                     <span class="">Stok Awal Di Premis</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e101_b5' style="width:100%" id="e101_b5" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='e101_b5' style="width:100%"
+                                        id="e101_b5" oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        onkeypress="return isNumberKey(event)"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b5()""
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('e101_b5')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -124,9 +129,11 @@
                                     <span class="">Stok Awal Di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e101_b6' style="width:100%" id="e101_b6" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='e101_b6' style="width:100%"
+                                        id="e101_b6" oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        onkeypress="return isNumberKey(event)"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b6()""
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('e101_b6')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -138,13 +145,16 @@
                             <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class=""> Belian/Terimaan</span>
-                                    <i class="fa fa-exclamation-circle" style="color: red" title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan.">
+                                    <i class="fa fa-exclamation-circle" style="color: red"
+                                        title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     </i>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e101_b7' style="width:100%" id="e101_b7" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='e101_b7' style="width:100%"
+                                        id="e101_b7" oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        onkeypress="return isNumberKey(event)"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b7()""
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('e101_b7')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -155,8 +165,8 @@
                                     <span>Import</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e101_b8' style="width:100%" id="e101_b8"
-                                        title="Sila isikan butiran ini." readonly>
+                                    <input type="text" class="form-control" name='e101_b8' style="width:100%"
+                                        id="e101_b8" title="Sila isikan butiran ini." readonly>
                                     @error('e101_b8')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -170,9 +180,12 @@
                                     <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e101_b9' style="width:100%" id="e101_b9" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='e101_b9' style="width:100%"
+                                        id="e101_b9" oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        onkeypress="return isNumberKey(event)"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b9()""
+                                        title="Sila isikan butiran ini."
+                                        onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('e101_b9')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -184,8 +197,10 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b10' style="width:100%"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" id="e101_b10" required oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b10()" id="e101_b10" required
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                        onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('e101_b10')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -201,8 +216,11 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b11' style="width:100%"
-                                        id="e101_b11" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
+                                        id="e101_b11" required onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b11()"
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('e101_b11')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -214,8 +232,11 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b12' style="width:100%"
-                                        id="e101_b12" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
+                                        id="e101_b12" required onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b12()"
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('e101_b12')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -231,8 +252,11 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b13' style="width:100%"
-                                        id="e101_b13" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
+                                        id="e101_b13" required onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b13()"
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('e101_b13')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -244,8 +268,11 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b14' style="width:100%"
-                                        id="e101_b14" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
+                                        id="e101_b14" required onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity('')"
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('e101_b14')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -352,7 +379,8 @@
 
                                         <!--scrolling content Modal -->
                                         <div class="modal fade" id="modal{{ $data->e101_b1 }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                            role="dialog" aria-labelledby="exampleModalScrollableTitle"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -371,88 +399,99 @@
                                                             <div class="modal-body">
                                                                 <label class="required">Nama Produk </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b4' class="form-control"
+                                                                    <input type="text" name='e101_b4'
+                                                                        class="form-control"
                                                                         value="{{ $data->produk->proddesc }}" readonly>
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b5'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event);"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b5 }}" required>
+                                                                    <input type="text" name='e101_b5' id="e101_eb5{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event);"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb5({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b5 ,2) }}" required>
                                                                 </div>
-                                                                <label class="required">Stok Awal Di Pusat Simpanan </label>
+                                                                <label class="required">Stok Awal Di Pusat Simpanan
+                                                                </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b6'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b6 }}" required>
+                                                                    <input type="text" name='e101_b6' id="e101_eb6{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb6({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b6 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b7'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b7 }}" required>
+                                                                    <input type="text" name='e101_b7' id="e101_eb7{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb7({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b7 ,2) }}" required>
                                                                 </div>
                                                                 <label>Import </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b8'
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                        class="form-control"
                                                                         value="{{ $data->e101_b8 }}" readonly>
                                                                 </div>
                                                                 <label class="required">Pengeluaran </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b9'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b9 }}" required>
+                                                                    <input type="text" name='e101_b9' id="e101_eb9{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb9({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b9 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">Digunakan Untuk Proses
                                                                     Selanjutnya</label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b10'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b10 }}" required>
+                                                                    <input type="text" name='e101_b10' id="e101_eb10{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb10({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b10 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">Jualan/Edaran Dalam Negeri </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b11'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b11 }}" required>
+                                                                    <input type="text" name='e101_b11' id="e101_eb11{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb11({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b11 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b12'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b12 }}" required>
+                                                                    <input type="text" name='e101_b12' id="e101_eb12{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }});invoke_eb12({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b12 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">Stok Akhir Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b13'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b13 }}" required>
+                                                                    <input type="text" name='e101_b13' id="e101_eb13{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }}); invoke_eb13({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b13 ,2) }}" required>
                                                                 </div>
-                                                                <label class="required">Stok Akhir Di Pusat Simpanan </label>
+                                                                <label class="required">Stok Akhir Di Pusat Simpanan
+                                                                </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b14'
-                                                                        onkeypress="enableKemaskini();return isNumberKey(event)"
-                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                        value="{{ $data->e101_b14 }}" required>
+                                                                    <input type="text" name='e101_b14' id="e101_eb14{{ $data->e101_b1 }}"
+                                                                        onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('');enableKemaskini({{ $data->e101_b1 }}); invoke_eb14({{ $data->e101_b1 }})"
+                                                                        value="{{ number_format($data->e101_b14 ,2) }}" required>
                                                                 </div>
                                                             </div>
                                                     </div>
@@ -464,7 +503,8 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini">
+                                                        <button type="submit" class="btn btn-primary ml-1" disabled
+                                                            id="kemaskini{{ $data->e101_b1 }}">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -476,9 +516,8 @@
 
                                     </div>
 
-                                    <div class="modal fade" id="exampleModalCenter2{{ $data->e101_b1 }}"
-                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                        aria-hidden="true">
+                                    <div class="modal fade" id="exampleModalCenter2{{ $data->e101_b1 }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                             role="document">
                                             <div class="modal-content">
@@ -502,10 +541,11 @@
                                                         <span class="d-none d-sm-block">Tidak</span>
                                                     </button>
                                                     <a href="{{ route('penapis.delete.bahagianii', [$data->e101_b1]) }}"
-                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+                                                        type="button" class="btn btn-light-secondary"
+                                                        style="color: #275047; background-color: #a1929238">
 
-                                                        <i class="bx bx-x d-block d-sm-none" ></i>
-                                                        <span class="d-none d-sm-block" >Ya</span>
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Ya</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -542,16 +582,16 @@
 
 
                 <div class="form-group" style="padding: 10px; ">
-                        <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
-                            style="float: left">Sebelumnya</a>
-                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                            data-target="#next">Simpan &
-                            Seterusnya</button>
-                 </div>
+                    <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                        style="float: left">Sebelumnya</a>
+                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                        data-target="#next">Simpan &
+                        Seterusnya</button>
+                </div>
 
                 <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
+                <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                         role="document">
                         <div class="modal-content">
@@ -572,7 +612,8 @@
                                     <i class="bx bx-x d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                 </button>
-                                <a href="{{ route('penapis.bahagianiii') }}" type="button" class="btn btn-primary ml-1">
+                                <a href="{{ route('penapis.bahagianiii') }}" type="button"
+                                    class="btn btn-primary ml-1">
 
                                     <i class="bx bx-check d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block">Ya</span>
@@ -589,70 +630,350 @@
 
 
 
-    {{-- </div> --}}
-@endsection
-@section('scripts')
+        {{-- </div> --}}
+    @endsection
+    @section('scripts')
+
+    <script language="javascript" type="text/javascript">
+        function FormatCurrency(ctrl) {
+            //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+            if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                return;
+            }
+
+            var val = ctrl.value;
+
+            val = val.replace(/,/g, "")
+            ctrl.value = "";
+            val += '';
+            x = val.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+
+            var rgx = /(\d+)(\d{3})/;
+
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+
+            ctrl.value = x1 + x2;
+        }
+    </script>
     <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
+        $('.sub-form').submit(function() {
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+            var x = $('#e101_b5').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b5').val(x);
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+            var x = $('#e101_b6').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b6').val(x);
 
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
+            var x = $('#e101_b7').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b7').val(x);
+
+
+            var x = $('#e101_b9').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b9').val(x);
+
+
+            var x = $('#e101_b10').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b10').val(x);
+
+            var x = $('#e101_b11').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b11').val(x);
+
+            var x = $('#e101_b12').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b12').val(x);
+
+
+            var x = $('#e101_b13').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b13').val(x);
+
+
+            var x = $('#e101_b14').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e101_b14').val(x);
+
+
+
+            return true;
+
+        });
+    </script>
+
+    <script>
+        function invoke_b5() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b6').focus();
+                }
+
+            });
         }
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
+        function invoke_b6() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b7').focus();
+                }
+
+            });
         }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
+        function invoke_b7() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b9').focus();
+                }
+
+            });
+        }
+
+        function invoke_b9() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b10').focus();
+                }
+
+            });
+        }
+
+        function invoke_b10() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b11').focus();
+                }
+
+            });
+        }
+
+        function invoke_b11() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b12').focus();
+                }
+
+            });
+        }
+
+        function invoke_b12() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b13').focus();
+                }
+
+            });
+        }
+
+        function invoke_b13() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_b14').focus();
+                }
+
+            });
+        }
+
+        function invoke_eb5(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb6'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb6(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb7'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb7(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb9'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb9(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb10'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb10(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb11'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb11(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb12'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb12(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb13'+key).focus();
+                }
+
+            });
+        }
+
+        function invoke_eb13(key) {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e101_eb14'+key).focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
                 modal.style.display = "none";
             }
-        }
-    </script>
 
-    <script>
-        function onlyNumberKey(evt) {
-
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
-
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".floatNumberField").change(function() {
-                $(this).val(parseFloat($(this).val()).toFixed(2));
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener('keypress', function (e) {
-            if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
-                return false;
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
             }
+        </script>
 
-        });
-    </script>
+        <script>
+            function onlyNumberKey(evt) {
 
-    <script>
-        function enableKemaskini() {
-            $('#kemaskini').prop("disabled", false);
-        }
-    </script>
+                // Only ASCII charactar in that range allowed
+                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    return false;
+                return true;
+            }
+        </script>
 
-@endsection
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".floatNumberField").change(function() {
+                    $(this).val(parseFloat($(this).val()).toFixed(2));
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener('keypress', function(e) {
+                if (e.keyCode === 13 || e.which === 13) {
+                    e.preventDefault();
+                    return false;
+                }
+
+            });
+        </script>
+
+
+    @endsection
