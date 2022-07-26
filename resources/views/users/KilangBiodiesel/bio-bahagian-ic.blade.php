@@ -74,7 +74,7 @@
 
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('bio.add.bahagian.ic') }}" method="post">
+                    <form action="{{ route('bio.add.bahagian.ic') }}" method="post" class="sub-form">
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -116,8 +116,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b5'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b5"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)" required
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b5"
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
 
                                     @error('ebio_b5')
@@ -132,8 +132,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b6'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b6"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)" required
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b6"
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
 
                                     @error('ebio_b6')
@@ -151,9 +151,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b7'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b7"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        required title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b7"
+                                        onkeypress="return isNumberKey(event)"
+                                        required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
 
                                     @error('ebio_b7')
                                         <div class="alert alert-danger">
@@ -167,9 +167,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b8'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b8"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        required>
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b8"
+                                        onkeypress="return isNumberKey(event)"
+                                        required onkeyup="FormatCurrency(this)">
                                     @error('ebio_b8')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -185,8 +185,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b9'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b9"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)" required
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b9"
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
 
                                     @error('ebio_b9')
@@ -201,9 +201,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b10'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b10"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        required title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b10"
+                                        onkeypress="return isNumberKey(event)"
+                                        required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
 
                                     @error('ebio_b10')
                                         <div class="alert alert-danger">
@@ -220,9 +220,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b11'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" style="width:100%" id="ebio_b11"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        required title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); validate_two_decimal('')" style="width:100%" id="ebio_b11"
+                                        onkeypress="return isNumberKey(event)"
+                                        required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
                                     @error('ebio_b11')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -574,14 +574,12 @@
             <br>
             </form>
 
-        </div>
         </section><!-- End Hero -->
-
-
-
-
-
 @endsection
+
+        </div>
+    </div>
+
 @section('scripts')
         {{-- <div id="preloader"></div> --}}
         {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -673,5 +671,79 @@
             });
 
         </script>
+        <script language="javascript" type="text/javascript">
+            function FormatCurrency(ctrl) {
+                //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                    return;
+                }
+
+                var val = ctrl.value;
+
+                val = val.replace(/,/g, "")
+                ctrl.value = "";
+                val += '';
+                x = val.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+
+                var rgx = /(\d+)(\d{3})/;
+
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+
+                ctrl.value = x1 + x2;
+            }
+        </script>
+        <script>
+            $('.sub-form').submit(function() {
+
+                var x = $('#ebio_b5').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b5').val(x);
+
+                var x = $('#ebio_b6').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b6').val(x);
+
+                var x = $('#ebio_b7').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b7').val(x);
+
+                var x = $('#ebio_b8').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b8').val(x);
+
+                var x = $('#ebio_b9').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b9').val(x);
+
+                var x = $('#ebio_b10').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b10').val(x);
+
+                var x = $('#ebio_b11').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b11').val(x);
+
+                var x = $('#ebio_b12').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#ebio_b12').val(x);
+
+
+                return true;
+
+            });
+        </script>
+
 
     @endsection

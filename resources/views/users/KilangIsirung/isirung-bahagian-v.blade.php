@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('isirung.add.bahagian.v') }}" method="post">
+            <form action="{{ route('isirung.add.bahagian.v') }}" method="post" class="sub-form">
                 @csrf
                 <div class="card-body">
                     <div class="pl-3">
@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini." onkeyup="FormatCurrency(this)">
                                         @error('e102_b6')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -682,6 +682,44 @@
             }
 
         });
+    </script>
+    <script language="javascript" type="text/javascript">
+        function FormatCurrency(ctrl) {
+            //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+            if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                return;
+            }
+
+            var val = ctrl.value;
+
+            val = val.replace(/,/g, "")
+            ctrl.value = "";
+            val += '';
+            x = val.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+
+            var rgx = /(\d+)(\d{3})/;
+
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+
+            ctrl.value = x1 + x2;
+        }
+    </script>
+
+    <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#e102_b6').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e102_b6').val(x);
+
+            return true;
+
+    });
     </script>
     </body>
 
