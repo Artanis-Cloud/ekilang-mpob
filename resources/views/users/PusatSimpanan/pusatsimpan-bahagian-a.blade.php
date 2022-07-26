@@ -68,7 +68,7 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('pusatsimpan.add.bahagian.a') }}" method="post">
+                    <form action="{{ route('pusatsimpan.add.bahagian.a') }}" method="post" class="sub-form">
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokawal' onkeypress="return isNumberKey(event)"
-                                        id="e07bt_stokawal" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini." >
+                                        id="e07bt_stokawal" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini." >
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_terima' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_terima" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" title="Sila isikan butiran ini." >
+                                        id="e07bt_terima" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" title="Sila isikan butiran ini." >
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_edaran" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini." >
+                                        id="e07bt_edaran" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini." >
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -182,7 +182,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_pelarasan" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                        id="e07bt_pelarasan" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
                                     @error('e07bt_pelarasan')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -197,7 +197,7 @@
                                 </div>
                                     <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_stokakhir" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                        id="e07bt_stokakhir" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -670,6 +670,75 @@
             }
 
         });
+    </script>
+    <script language="javascript" type="text/javascript">
+        function FormatCurrency(ctrl) {
+            //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+            if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                return;
+            }
+
+            var val = ctrl.value;
+
+            val = val.replace(/,/g, "")
+            ctrl.value = "";
+            val += '';
+            x = val.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+
+            var rgx = /(\d+)(\d{3})/;
+
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+
+            ctrl.value = x1 + x2;
+        }
+    </script>
+
+    <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#e07bt_stokawal').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_stokawal').val(x);
+
+            var x = $('#e07bt_terima').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_terima').val(x);
+
+            var x = $('#e07bt_import').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_import').val(x);
+
+            var x = $('#e07bt_edaran').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_edaran').val(x);
+
+            var x = $('#e07bt_eksport').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_eksport').val(x);
+
+            var x = $('#e07bt_pelarasan').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_pelarasan').val(x);
+
+            var x = $('#e07bt_stokakhir').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e07bt_stokakhir').val(x);
+
+
+            return true;
+
+    });
     </script>
 
     </body>

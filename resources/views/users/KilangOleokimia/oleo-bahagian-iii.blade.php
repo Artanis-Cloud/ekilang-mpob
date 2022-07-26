@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('oleo.add.bahagian.iii') }}" method="post">
+            <form action="{{ route('oleo.add.bahagian.iii') }}" method="post" class="sub-form">
                 @csrf
                 <div class="card-body">
                     <div class="">
@@ -103,7 +103,7 @@
                                     <span class="">Belian/Terimaan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_c4' style="width:100%" onchange="c4()"
+                                    <input type="text" class="form-control" name='e104_c4' style="width:100%" onchange="c4();FormatCurrency(this)"
                                         id="e104_c4" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -117,7 +117,7 @@
                                     <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_c5' style="width:100%" onchange="c5()"
+                                    <input type="text" class="form-control" name='e104_c5' style="width:100%" onchange="c5();FormatCurrency(this)"
                                         id="e104_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc2()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_c6' style="width: 100%"
-                                        id="e104_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c6()"
+                                        id="e104_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c6();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc3()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_c3')
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_c7' style="width: 100%"
-                                        id="e104_c7" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c7()"
+                                        id="e104_c7" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c7();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc4()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_c7')
@@ -165,7 +165,7 @@
                                     <span class="">Stok Akhir &nbsp; **<span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_c8' style="width:100%" onchange="c8()"
+                                    <input type="text" class="form-control" name='e104_c8' style="width:100%" onchange="c8();FormatCurrency(this)"
                                         id="e104_c8" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('')" required
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
@@ -618,6 +618,65 @@
                     document.querySelector("#e104_c8").value = y;
                     console.log(y);
                 }
+            </script>
+            <script language="javascript" type="text/javascript">
+                function FormatCurrency(ctrl) {
+                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                        return;
+                    }
+
+                    var val = ctrl.value;
+
+                    val = val.replace(/,/g, "")
+                    ctrl.value = "";
+                    val += '';
+                    x = val.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+
+                    ctrl.value = x1 + x2;
+                }
+            </script>
+
+            <script>
+                $('.sub-form').submit(function() {
+
+                    var x = $('#e104_c4').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_c4').val(x);
+
+                    var x = $('#e104_c5').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_c5').val(x);
+
+                    var x = $('#e104_c7').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_c7').val(x);
+
+                    var x = $('#e104_c9').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_c9').val(x);
+
+                    var x = $('#e104_c6').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_c6').val(x);
+
+
+                    return true;
+
+            });
             </script>
 
 

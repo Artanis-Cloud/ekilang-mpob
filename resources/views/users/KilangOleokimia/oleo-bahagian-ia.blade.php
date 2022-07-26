@@ -64,7 +64,7 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('oleo.add.bahagian.ia') }}" method="post">
+                    <form action="{{ route('oleo.add.bahagian.ia') }}" method="post" class="sub-form">
                         @csrf
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(a)</h3>
@@ -108,7 +108,7 @@
                                     <input type="text" class="form-control" name='e104_b5'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b5" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc()" onchange="b5()"
+                                        oninput="this.setCustomValidity(''); invokeFunc()" onchange="b5();FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b5')
                                         <div class="alert alert-danger">
@@ -124,7 +124,7 @@
                                     <input type="text" class="form-control" name='e104_b6'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b6" required
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc2()" onchange="b6()"
+                                        oninput="this.setCustomValidity(''); invokeFunc2()" onchange="b6();FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b6')
                                         <div class="alert alert-danger">
@@ -143,7 +143,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b7'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b7" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b7()"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b7();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini.">
                                     @error('e104_b7')
                                         <div class="alert alert-danger">
@@ -157,7 +157,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b9'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b9" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b9()"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b9();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc4()" title="Sila isikan butiran ini.">
                                     @error('e104_b9')
                                         <div class="alert alert-danger">
@@ -175,7 +175,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b10'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b10()"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b10();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc5()" title="Sila isikan butiran ini.">
                                     @error('e104_b10')
                                         <div class="alert alert-danger">
@@ -189,7 +189,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b11'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b11" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b11()"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b11();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc6()" title="Sila isikan butiran ini.">
                                     @error('e104_b11')
                                         <div class="alert alert-danger">
@@ -207,7 +207,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b12'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b12" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b12()"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b12();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc7()" title="Sila isikan butiran ini.">
                                     @error('e104_b12')
                                         <div class="alert alert-danger">
@@ -229,7 +229,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b13'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b13"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b13()"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b13();FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc8()" required title="Sila isikan butiran ini.">
                                     @error('e104_b13')
                                         <div class="alert alert-danger">
@@ -941,6 +941,79 @@
                     }
 
                 });
+            </script>
+            <script language="javascript" type="text/javascript">
+                function FormatCurrency(ctrl) {
+                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                        return;
+                    }
+
+                    var val = ctrl.value;
+
+                    val = val.replace(/,/g, "")
+                    ctrl.value = "";
+                    val += '';
+                    x = val.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+
+                    ctrl.value = x1 + x2;
+                }
+            </script>
+
+            <script>
+                $('.sub-form').submit(function() {
+
+                    var x = $('#e104_b5').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b5').val(x);
+
+                    var x = $('#e104_b7').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b7').val(x);
+
+                    var x = $('#e104_b9').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b9').val(x);
+
+                    var x = $('#e104_b10').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b10').val(x);
+
+                    var x = $('#e104_b11').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b11').val(x);
+
+                    var x = $('#e104_b12').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b12').val(x);
+
+                    var x = $('#e104_b6').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b6').val(x);
+
+                    var x = $('#e104_b13').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e104_b13').val(x);
+
+                    return true;
+
+            });
             </script>
 
             </body>
