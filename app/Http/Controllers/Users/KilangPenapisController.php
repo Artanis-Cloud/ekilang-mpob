@@ -1011,7 +1011,7 @@ class KilangPenapisController extends Controller
         $c8 = str_replace(',', '', $e101_c8);
         $c9 = str_replace(',', '', $e101_c9);
         $c10 = str_replace(',', '', $e101_c10);
-
+        // dd($c5);
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
         $penyata->e101_c5 = $c5;
@@ -1165,12 +1165,12 @@ class KilangPenapisController extends Controller
         // $kodsl = KodSl::where('catname', $request->e101_d3)->first();
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
-        $semak_duplicate = E101D::where('e101_reg', $e101_reg->e101_reg)->where('e101_d3', $request->e101_d3)->where('e101_d4', $request->e101_d4)->first();
+        // $semak_duplicate = E101D::where('e101_reg', $e101_reg->e101_reg)->where('e101_d3', $request->e101_d3)->where('e101_d4', $request->e101_d4)->first();
 
-        if ($semak_duplicate) {
-            return redirect()->route('penapis.bahagianv')
-                ->with('error', 'Maklumat Telah Tersedia');
-        }
+        // if ($semak_duplicate) {
+        //     return redirect()->route('penapis.bahagianv')
+        //         ->with('error', 'Maklumat Telah Tersedia');
+        // }
 
         $e101_d5 = $request->e101_d5;
         $e101_d6 = $request->e101_d6;
@@ -1180,6 +1180,7 @@ class KilangPenapisController extends Controller
         $d6 = str_replace(',', '', $e101_d6);
         $d7 = str_replace(',', '', $e101_d7);
         $d8 = str_replace(',', '', $e101_d8);
+
 
         // dd($request->all());
         $penyata = E101D::findOrFail($id);
