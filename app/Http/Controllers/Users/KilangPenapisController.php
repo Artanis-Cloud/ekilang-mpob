@@ -124,7 +124,7 @@ class KilangPenapisController extends Controller
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
-        if(isset($request['alamat_sama'])){
+        if (isset($request['alamat_sama'])) {
             // dd($request->all());
             $penyata = Pelesen::findOrFail($id);
             $penyata->e_ap1 = $request->e_ap1;
@@ -158,9 +158,7 @@ class KilangPenapisController extends Controller
             $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
             $penyata->kap_tangki_others = $request->kap_tangki_others;
             // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
-        }
-
-        else{
+        } else {
             $penyata = Pelesen::findOrFail($id);
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
@@ -196,7 +194,7 @@ class KilangPenapisController extends Controller
         }
         $penyata->save();
 
-        $map = User::where('username',$penyata->e_nl)->first();
+        $map = User::where('username', $penyata->e_nl)->first();
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
@@ -415,19 +413,40 @@ class KilangPenapisController extends Controller
     {
 
         $produk = Produk::where('prodname', $request->e101_b4)->first();
+        // dd($produk);
 
+        $e101_b5 = $request->e101_b5;
+        $e101_b6 = $request->e101_b6;
+        $e101_b7 = $request->e101_b7;
+        $e101_b9 = $request->e101_b9;
+        $e101_b10 = $request->e101_b10;
+        $e101_b11 = $request->e101_b11;
+        $e101_b12 = $request->e101_b12;
+        $e101_b13 = $request->e101_b13;
+        $e101_b14 = $request->e101_b14;
+        $b5 = str_replace(',', '', $e101_b5);
+        $b6 = str_replace(',', '', $e101_b6);
+        $b7 = str_replace(',', '', $e101_b7);
+        $b9 = str_replace(',', '', $e101_b9);
+        $b10 = str_replace(',', '', $e101_b10);
+        $b11 = str_replace(',', '', $e101_b11);
+        $b12 = str_replace(',', '', $e101_b12);
+        $b13 = str_replace(',', '', $e101_b13);
+        $b14 = str_replace(',', '', $e101_b14);
+        // dd($e101_b5);
+        // dd($b5);
         // dd($request->all());
         $penyata = E101B::findOrFail($id);
-        $penyata->e101_b4 = $produk->prodid;
-        $penyata->e101_b5 = $request->e101_b5;
-        $penyata->e101_b6 = $request->e101_b6;
-        $penyata->e101_b7 = $request->e101_b7;
-        $penyata->e101_b9 = $request->e101_b9;
-        $penyata->e101_b10 = $request->e101_b10;
-        $penyata->e101_b11 = $request->e101_b11;
-        $penyata->e101_b12 = $request->e101_b12;
-        $penyata->e101_b13 = $request->e101_b13;
-        $penyata->e101_b14 = $request->e101_b14;
+        // $penyata->e101_b4 = $produk->prodid;
+        $penyata->e101_b5 = $b5;
+        $penyata->e101_b6 = $b6;
+        $penyata->e101_b7 = $b7;
+        $penyata->e101_b9 = $b9;
+        $penyata->e101_b10 = $b10;
+        $penyata->e101_b11 = $b11;
+        $penyata->e101_b12 = $b12;
+        $penyata->e101_b13 = $b13;
+        $penyata->e101_b14 = $b14;
         $penyata->save();
 
 
@@ -597,20 +616,40 @@ class KilangPenapisController extends Controller
     public function penapis_edit_bahagian_ii(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->e101_b4)->first();
+        // $produk = Produk::where('prodname', $request->e101_b4)->first();/
 
+        $e101_b5 = $request->e101_b5;
+        $e101_b6 = $request->e101_b6;
+        $e101_b7 = $request->e101_b7;
+        $e101_b9 = $request->e101_b9;
+        $e101_b10 = $request->e101_b10;
+        $e101_b11 = $request->e101_b11;
+        $e101_b12 = $request->e101_b12;
+        $e101_b13 = $request->e101_b13;
+        $e101_b14 = $request->e101_b14;
+        $b5 = str_replace(',', '', $e101_b5);
+        $b6 = str_replace(',', '', $e101_b6);
+        $b7 = str_replace(',', '', $e101_b7);
+        $b9 = str_replace(',', '', $e101_b9);
+        $b10 = str_replace(',', '', $e101_b10);
+        $b11 = str_replace(',', '', $e101_b11);
+        $b12 = str_replace(',', '', $e101_b12);
+        $b13 = str_replace(',', '', $e101_b13);
+        $b14 = str_replace(',', '', $e101_b14);
+        // dd($e101_b5);
+        // dd($b5);
         // dd($request->all());
         $penyata = E101B::findOrFail($id);
-        $penyata->e101_b4 = $produk->prodid;
-        $penyata->e101_b5 = $request->e101_b5;
-        $penyata->e101_b6 = $request->e101_b6;
-        $penyata->e101_b7 = $request->e101_b7;
-        $penyata->e101_b9 = $request->e101_b9;
-        $penyata->e101_b10 = $request->e101_b10;
-        $penyata->e101_b11 = $request->e101_b11;
-        $penyata->e101_b12 = $request->e101_b12;
-        $penyata->e101_b13 = $request->e101_b13;
-        $penyata->e101_b14 = $request->e101_b14;
+        // $penyata->e101_b4 = $produk->prodid;
+        $penyata->e101_b5 = $b5;
+        $penyata->e101_b6 = $b6;
+        $penyata->e101_b7 = $b7;
+        $penyata->e101_b9 = $b9;
+        $penyata->e101_b10 = $b10;
+        $penyata->e101_b11 = $b11;
+        $penyata->e101_b12 = $b12;
+        $penyata->e101_b13 = $b13;
+        $penyata->e101_b14 = $b14;
         $penyata->save();
 
 
@@ -651,7 +690,7 @@ class KilangPenapisController extends Controller
         $penyata = E101Init::where('e101_nl', auth()->user()->username)->first();
 
         if ($penyata) {
-            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
+            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -796,17 +835,28 @@ class KilangPenapisController extends Controller
 
     public function penapis_edit_bahagian_iva(Request $request, $id)
     {
-        $produk = Produk::where('prodname', $request->e101_c4)->first();
+
+        $e101_c5 = $request->e101_c5;
+        $e101_c6 = $request->e101_c6;
+        $e101_c7 = $request->e101_c7;
+        $e101_c8 = $request->e101_c8;
+        $e101_c9 = $request->e101_c9;
+        $e101_c10 = $request->e101_c10;
+        $c5 = str_replace(',', '', $e101_c5);
+        $c6 = str_replace(',', '', $e101_c6);
+        $c7 = str_replace(',', '', $e101_c7);
+        $c8 = str_replace(',', '', $e101_c8);
+        $c9 = str_replace(',', '', $e101_c9);
+        $c10 = str_replace(',', '', $e101_c10);
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
-        $penyata->e101_c4 = $produk->prodid;
-        $penyata->e101_c5 = $request->e101_c5;
-        $penyata->e101_c6 = $request->e101_c6;
-        $penyata->e101_c7 = $request->e101_c7;
-        $penyata->e101_c8 = $request->e101_c8;
-        $penyata->e101_c9 = $request->e101_c9;
-        $penyata->e101_c10 = $request->e101_c10;
+        $penyata->e101_c5 = $c5;
+        $penyata->e101_c6 = $c6;
+        $penyata->e101_c7 = $c7;
+        $penyata->e101_c8 = $c8;
+        $penyata->e101_c9 = $c9;
+        $penyata->e101_c10 = $c10;
         $penyata->save();
 
 
@@ -949,19 +999,28 @@ class KilangPenapisController extends Controller
     public function penapis_edit_bahagian_ivb(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->e101_c4)->first();
+        $e101_c5 = $request->e101_c5;
+        $e101_c6 = $request->e101_c6;
+        $e101_c7 = $request->e101_c7;
+        $e101_c8 = $request->e101_c8;
+        $e101_c9 = $request->e101_c9;
+        $e101_c10 = $request->e101_c10;
+        $c5 = str_replace(',', '', $e101_c5);
+        $c6 = str_replace(',', '', $e101_c6);
+        $c7 = str_replace(',', '', $e101_c7);
+        $c8 = str_replace(',', '', $e101_c8);
+        $c9 = str_replace(',', '', $e101_c9);
+        $c10 = str_replace(',', '', $e101_c10);
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
-        $penyata->e101_c4 = $produk->prodid;
-        $penyata->e101_c5 = $request->e101_c5;
-        $penyata->e101_c6 = $request->e101_c6;
-        $penyata->e101_c7 = $request->e101_c7;
-        $penyata->e101_c8 = $request->e101_c8;
-        $penyata->e101_c9 = $request->e101_c9;
-        $penyata->e101_c10 = $request->e101_c10;
+        $penyata->e101_c5 = $c5;
+        $penyata->e101_c6 = $c6;
+        $penyata->e101_c7 = $c7;
+        $penyata->e101_c8 = $c8;
+        $penyata->e101_c9 = $c9;
+        $penyata->e101_c10 = $c10;
         $penyata->save();
-
 
         return redirect()->route('penapis.bahagianivb')
             ->with('success', 'Maklumat telah disimpan');
@@ -1112,14 +1171,24 @@ class KilangPenapisController extends Controller
             return redirect()->route('penapis.bahagianv')
                 ->with('error', 'Maklumat Telah Tersedia');
         }
+
+        $e101_d5 = $request->e101_d5;
+        $e101_d6 = $request->e101_d6;
+        $e101_d7 = $request->e101_d7;
+        $e101_d8 = $request->e101_d8;
+        $d5 = str_replace(',', '', $e101_d5);
+        $d6 = str_replace(',', '', $e101_d6);
+        $d7 = str_replace(',', '', $e101_d7);
+        $d8 = str_replace(',', '', $e101_d8);
+
         // dd($request->all());
         $penyata = E101D::findOrFail($id);
         $penyata->e101_d3 = $request->e101_d3;
         $penyata->e101_d4 = $request->e101_d4;
-        $penyata->e101_d5 = $request->e101_d5;
-        $penyata->e101_d6 = $request->e101_d6;
-        $penyata->e101_d7 = $request->e101_d7;
-        $penyata->e101_d8 = $request->e101_d8;
+        $penyata->e101_d5 = $d5;
+        $penyata->e101_d6 = $d6;
+        $penyata->e101_d7 = $d7;
+        $penyata->e101_d8 = $d8;
         $penyata->save();
 
 

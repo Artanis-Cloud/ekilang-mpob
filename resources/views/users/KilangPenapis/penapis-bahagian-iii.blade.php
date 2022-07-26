@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.update.bahagian.iii', [$penyata->e101_reg]) }}" method="post">
+            <form action="{{ route('penapis.update.bahagian.iii', [$penyata->e101_reg]) }}" method="post" class="sub-form">
                 @csrf
                 <div class="card-body">
                     <div class="" style="padding: 2%">
@@ -91,8 +91,8 @@
                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="number" class="form-control" style="text-align:right" max="31" name='e101_a1'
-                                        oninput="setCustomValidity('')" id="e101_a1" required
+                                    <input type="text" class="form-control" style="text-align:right" max="31" name='e101_a1'
+                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1()" id="e101_a1" required
                                         onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
@@ -111,10 +111,10 @@
                                 </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
-                                        id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
+                                        id="e101_a2" required onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this);setCustomValidity('')"
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_a2()"
                                         value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
                                     @error('e101_a2')
                                         <div class="alert alert-danger">
@@ -132,9 +132,9 @@
                                 </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a3'
-                                        id="kuantiti" onkeypress="return isNumberKey(event)" required
+                                        id="e101_a3" onkeypress="return isNumberKey(event)" required
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                         value="{{ number_format($penyata->e101_a3 ?? 0, 2) }}">
                                     @error('e101_a3')
@@ -188,21 +188,52 @@
                     </div>
                 </div>
             </form>
-            {{-- </div> --}}
+          
+            @endsection
+            @section('scripts')
+            <script>
+                function invoke_a1() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_a2').focus();
+                        }
 
-            {{-- </div> --}}
+                    });
+                }
+
+                function invoke_a2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_a3').focus();
+                        }
+
+                    });
+                }
 
 
-
-
-
-            {{-- <div id="preloader"></div> --}}
-
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
             </script>
-
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+                function nodecimal(data) {
+                    // let decimal = ".00"
+                    var x = parseFloat(data.value);
+                    if(isNaN(x)){
+                        x = 0;
+                    }
+                    const removedDecimal = Math.round(x);
+                    data.value = removedDecimal;
+                    console.log(removedDecimal);
+                }
+            </script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".floatNumberField").change(function() {
@@ -210,27 +241,7 @@
                     });
                 });
             </script>
-            {{-- <script>
-                var inputBox = document.getElementById("inputBox");
 
-                var invalidChars = [
-                    "-",
-                    "+",
-                    "e",
-                    "."
-                ];
-
-                inputBox.addEventListener("input", function() {
-                    this.value = this.value.replace(/[e\+\-\.]/gi, "");
-                });
-
-
-                inputBox.addEventListener("keydown", function(e) {
-                    if (invalidChars.includes(e.key)) {
-                        e.preventDefault();
-                    }
-                });
-            </script> --}}
             <script>
                 var input = document.getElementById("e101_a1");
                 var lastValue = "";
@@ -254,4 +265,51 @@
 
                 });
             </script>
+                <script language="javascript" type="text/javascript">
+                    function FormatCurrency(ctrl) {
+                        //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                        if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                            return;
+                        }
+
+                        var val = ctrl.value;
+
+                        val = val.replace(/,/g, "")
+                        ctrl.value = "";
+                        val += '';
+                        x = val.split('.');
+                        x1 = x[0];
+                        x2 = x.length > 1 ? '.' + x[1] : '';
+
+                        var rgx = /(\d+)(\d{3})/;
+
+                        while (rgx.test(x1)) {
+                            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                        }
+
+                        ctrl.value = x1 + x2;
+                    }
+                </script>
+                <script>
+                    $('.sub-form').submit(function() {
+
+                        //add form
+                        var x = $('#e101_a2').val();
+                        x = x.replace(/,/g, '');
+                        x = parseFloat(x, 10);
+                        $('#e101_a2').val(x);
+
+                        var x = $('#e101_a3').val();
+                        x = x.replace(/,/g, '');
+                        x = parseFloat(x, 10);
+                        $('#e101_a3').val(x);
+
+
+
+                        return true;
+
+                    });
+
+                </script>
+
         @endsection

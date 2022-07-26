@@ -1663,6 +1663,24 @@
         SessionTimeout.init()
     });
 </script>
+<script>
+    function autodecimal(data) {
+
+        // let decimal = ".00"
+        var x = parseFloat(data.value);
+        if (isNaN(x)) {
+            x = 0.00;
+        }
+        var y = parseFloat(x).toFixed(2);
+        data.value = y;
+        // console.log('data', data.value);
+    }
+</script>
+<script>
+    function enableKemaskini(key) {
+        $('#kemaskini'+key).prop("disabled", false);
+    }
+</script>
 {{-- <script>
             $(document).ready(function() {
                 $('#example').DataTable({

@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.add.bahagian.v') }}" method="post">
+            <form action="{{ route('penapis.add.bahagian.v') }}" method="post" class="sub-form">
                 @csrf
                 <div class="card-body" style="padding: 2%">
                     <div class="mb-4 text-center">
@@ -126,7 +126,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_d5' style="width: 70%" id="e101_d5"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity('')"
+                                        oninput="this.setCustomValidity(''); invoke_d5()" onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_d5')
                                         <div class="alert alert-danger">
@@ -140,7 +140,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_d6' style="width: 70%" id="e101_d6"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity('')"
+                                        oninput="this.setCustomValidity(''); invoke_d6()" onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_d6')
                                         <div class="alert alert-danger">
@@ -158,7 +158,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_d7' style="width: 70%" id="e101_d7"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity('')"
+                                        oninput="this.setCustomValidity(''); invoke_d7()" onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_d7')
                                         <div class="alert alert-danger">
@@ -172,7 +172,7 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_d8' style="width: 70%" id="e101_d8"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="this.setCustomValidity('')"
+                                        oninput="this.setCustomValidity(''); invoke_d8()" onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_d8')
                                         <div class="alert alert-danger">
@@ -267,7 +267,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e101_d3"
-                                                                            name="e101_d3" oninput="enableKemaskini()">
+                                                                            name="e101_d3" oninput="enableKemaskini({{ $data->e101_d1 }})">
                                                                             <option hidden value="{{ $data->e101_d3 }}">
                                                                                 {{ $data->kodsl->catname }}</option>
                                                                             <option value="1"> SENDIRI</option>
@@ -285,7 +285,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e101_d4"
-                                                                            name="e101_d4" oninput="enableKemaskini()">
+                                                                            name="e101_d4" oninput="enableKemaskini({{ $data->e101_d1 }})">
                                                                             <option hidden value="{{ $data->e101_d4 }}">
                                                                                 {{ $data->prodcat->catname }}</option>
                                                                             <option value="1">KILANG BUAH</option>
@@ -301,35 +301,35 @@
                                                                 </div>
                                                                 <label class="required">CPO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d5'
+                                                                    <input type="text" name='e101_d5' id="e101_sd5{{ $data->e101_d1 }}"
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d5 }}" required>
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd5({{ $data->e101_d1 }}) "
+                                                                        value="{{ number_format($data->e101_d5 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">PPO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d6'
+                                                                    <input type="text" name='e101_d6' id="e101_sd6{{ $data->e101_d1 }}"
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d6 }}" required>
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd6({{ $data->e101_d1 }}) "
+                                                                        value="{{ number_format($data->e101_d6 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">CPKO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d7'
+                                                                    <input type="text" name='e101_d7' id="e101_sd7{{ $data->e101_d1 }}"
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d7 }}" required>
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd7({{ $data->e101_d1 }}) "
+                                                                        value="{{ number_format($data->e101_d7 ,2) }}" required>
                                                                 </div>
                                                                 <label class="required">PPKO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d8'
+                                                                    <input type="text" name='e101_d8' id="e101_sd8{{ $data->e101_d1 }}"
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d8 }}" required>
+                                                                        class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd8({{ $data->e101_d1 }}) "
+                                                                        value="{{ number_format($data->e101_d8 ,2) }}" required>
                                                                 </div>
                                                             </div>
                                                     </div>
@@ -340,7 +340,7 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini">
+                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e101_d1 }}">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -401,6 +401,7 @@
 
                                 </tr>
                                 {{-- <td><br></td> --}}
+                                {{-- belian/terimaan luar --}}
                                 @foreach ($penyata2 as $data)
                                     <tr style="text-align: right">
 
@@ -454,7 +455,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e101_d3"
-                                                                            name="e101_d3" oninput="enableKemaskini()">
+                                                                            name="e101_d3" oninput="enableKemaskini({{ $data->e101_d1 }})">
                                                                             <option hidden value="{{ $data->e101_d3 }}">
                                                                                 {{ $data->kodsl->catname }}</option>
                                                                             <option value="1"> SENDIRI</option>
@@ -467,7 +468,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e101_d4"
-                                                                            name="e101_d4" oninput="enableKemaskini()">
+                                                                            name="e101_d4" oninput="enableKemaskini({{ $data->e101_d1 }})">
                                                                             <option hidden value="{{ $data->e101_d4 }}">
                                                                                 {{ $data->prodcat->catname }}</option>
                                                                             <option value="1">KILANG BUAH</option>
@@ -483,31 +484,31 @@
                                                                 </div>
                                                                 <label class="required">CPO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d5'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d5 }}">
+                                                                    <input type="text" name='e101_d5' id="e101_ed5{{ $data->e101_d1 }}"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed5({{ $data->e101_d1 }})"
+                                                                        value="{{ number_format($data->e101_d5 ,2) }}">
                                                                 </div>
                                                                 <label class="required">PPO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d6'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d6 }}">
+                                                                    <input type="text" name='e101_d6' id="e101_ed6{{ $data->e101_d1 }}"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed6({{ $data->e101_d1 }})"
+                                                                        value="{{ number_format($data->e101_d6 ,2) }}">
                                                                 </div>
                                                                 <label class="required">CPKO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d7'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d7 }}">
+                                                                    <input type="text" name='e101_d7' id="e101_ed7{{ $data->e101_d1 }}"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed7({{ $data->e101_d1 }})"
+                                                                        value="{{ number_format($data->e101_d7 ,2) }}">
                                                                 </div>
                                                                 <label class="required">PPKO </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_d8'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
-                                                                        oninput="validate_two_decimal(this);enableKemaskini()"
-                                                                        value="{{ $data->e101_d8 }}">
+                                                                    <input type="text" name='e101_d8' id="e101_ed8{{ $data->e101_d1 }}"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_ed8({{ $data->e101_d1 }})"
+                                                                        value="{{ number_format($data->e101_d8 ,2)}}">
                                                                 </div>
                                                             </div>
                                                     </div>
@@ -629,17 +630,181 @@
         </div>
 
 
-    </section><!-- End Hero -->
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
 
 @endsection
 @section('scripts')
+<script>
+    function invoke_d5() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_d6').focus();
+            }
+
+        });
+    }
+
+    function invoke_d6() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_d7').focus();
+            }
+
+        });
+    }
+
+    function invoke_d7() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_d8').focus();
+            }
+
+        });
+    }
+
+    function invoke_ed5(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_ed6' + key).focus();
+            }
+
+        });
+    }
+
+    function invoke_ed6(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_ed7' + key).focus();
+            }
+
+        });
+    }
+
+    function invoke_ed7(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_ed8' + key).focus();
+            }
+
+        });
+    }
+
+
+    function invoke_sd5(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_sd6' + key).focus();
+            }
+
+        });
+    }
+
+    function invoke_sd6(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_sd7' + key).focus();
+            }
+
+        });
+    }
+
+    function invoke_sd7(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e101_sd8' + key).focus();
+            }
+
+        });
+    }
+
+
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script language="javascript" type="text/javascript">
+    function FormatCurrency(ctrl) {
+        //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+        if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+            return;
+        }
+
+        var val = ctrl.value;
+
+        val = val.replace(/,/g, "")
+        ctrl.value = "";
+        val += '';
+        x = val.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+
+        var rgx = /(\d+)(\d{3})/;
+
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+
+        ctrl.value = x1 + x2;
+    }
+</script>
+<script>
+    $('.sub-form').submit(function() {
+
+        //add form
+        var x = $('#e101_d5').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e101_d5').val(x);
+
+        var x = $('#e101_d6').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e101_d6').val(x);
+
+        var x = $('#e101_d7').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e101_d7').val(x);
+
+
+        var x = $('#e101_d8').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e101_d8').val(x);
+
+
+        return true;
+
+    });
+</script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.calc').change(function() {
@@ -663,11 +828,4 @@
         });
     </script>
 
-
-
-<script>
-    function enableKemaskini() {
-        $('#kemaskini').prop("disabled", false);
-    }
-</script>
 @endsection
