@@ -220,14 +220,21 @@
                                                             {{-- @foreach($hbiob as $key =>  $value) --}}
                                                             <tr>
                                                                 {{-- <td> {{ $value[$key]->prodid }}</td> --}}
-                                                                @foreach ($no_batches as $key =>  $no_batch)
-                                                                <td> {{ $hbiob[$key]->ebio_b4 }}</td>
-                                                                <td> {{ $hbiob[$key]->proddesc }}</td>
-                                                                @endforeach
 
-                                                                @foreach ( $data_bulanan_ebio_b5 as  $data )
-                                                                    <td> {{$data}}</td>
-                                                                @endforeach
+                                                                {{-- @foreach ($no_batches as $key =>  $no_batch) --}}
+                                                                <tr>
+
+
+                                                                    <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                    <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                    @foreach ( $data_bulanan_ebio_b5 as  $data )
+                                                                        <td> {{$data}}</td>
+                                                                    @endforeach
+                                                        
+                                                                </tr>
+                                                                {{-- @endforeach --}}
+
+
 
                                                             </tr>
                                                             {{-- @endforeach --}}
@@ -283,8 +290,8 @@
                                                         <tr>
                                                             {{-- <td> {{ $value[$key]->prodid }}</td> --}}
                                                             @foreach ($no_batches as $key =>  $no_batch)
-                                                                <td> {{ $hbiob[$key]->ebio_b4 }}</td>
-                                                                <td> {{ $hbiob[$key]->proddesc }}</td>
+                                                                <td> {{ $hbiob[$key]->ebio_b4 ?? 0  }}</td>
+                                                                <td> {{ $hbiob[$key]->proddesc ?? 0  }}</td>
                                                             @endforeach
 
                                                             @foreach ( $data_bulanan_ebio_b6 as  $data )
@@ -343,8 +350,8 @@
                                                         <tr>
                                                             {{-- <td> {{ $value[$key]->prodid }}</td> --}}
                                                             @foreach ($no_batches as $key =>  $no_batch)
-                                                                <td> {{ $hbiob[$key]->ebio_b4 }}</td>
-                                                                <td> {{ $hbiob[$key]->proddesc }}</td>
+                                                                <td> {{ $hbiob[$key]->ebio_b4 ?? 0  }}</td>
+                                                                <td> {{ $hbiob[$key]->proddesc ?? 0  }}</td>
                                                             @endforeach
 
                                                             @foreach ( $data_bulanan_ebio_b7 as  $data )
@@ -404,8 +411,8 @@
                                                             <tr>
                                                                 {{-- <td> {{ $value[$key]->prodid }}</td> --}}
                                                                 @foreach ($no_batches as $key =>  $no_batch)
-                                                                    <td> {{ $hbiob[$key]->ebio_b4 }}</td>
-                                                                    <td> {{ $hbiob[$key]->proddesc }}</td>
+                                                                    <td> {{ $hbiob[$key]->ebio_b4 ?? 0  }}</td>
+                                                                    <td> {{ $hbiob[$key]->proddesc ?? 0  }}</td>
                                                                 @endforeach
 
                                                                 @foreach ( $data_bulanan_ebio_b8 as  $data )
@@ -466,8 +473,8 @@
                                                             <tr>
                                                                 {{-- <td> {{ $value[$key]->prodid }}</td> --}}
                                                                 @foreach ($no_batches as $key =>  $no_batch)
-                                                                    <td> {{ $hbiob[$key]->ebio_b4 }}</td>
-                                                                    <td> {{ $hbiob[$key]->proddesc }}</td>
+                                                                    <td> {{ $hbiob[$key]->ebio_b4 ?? 0  }}</td>
+                                                                    <td> {{ $hbiob[$key]->proddesc ?? 0  }}</td>
                                                                 @endforeach
 
                                                                 @foreach ( $data_bulanan_ebio_b9 as  $data )
