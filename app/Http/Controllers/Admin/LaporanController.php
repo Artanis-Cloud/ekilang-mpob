@@ -402,42 +402,43 @@ class LaporanController extends Controller
 
         //RINGKASAN OPERASI
         $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-           ->groupBy('lesen')->get();
+        ->groupBy('lesen')->get();
 
-            // dd($result);
-        if ($request->e_nl) {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-            ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->groupBy('lesen')->get();
+//  dd($result);
+    //  if ($request->e_nl) {
+    //      $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+    //      ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->get()->groupBy('lesen')->toArray();
 
-        }
-        if ($request->bulan == 'equal') {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-            ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
+    //  }
+    //  if ($request->bulan == 'equal') {
+    //      $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+    //      ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
 
-        }
-        if ($request->bulan == 'between') {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-            ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
+    //  }
+    //  if ($request->bulan == 'between') {
+    //      $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+    //      ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
 
-        }
-        if($result){
-            for ($i=1; $i <= 12; $i++) {
-                $data_hari_operasi[$i] = 0;
-                $data_kapasiti[$i] = 0;
-            }
+    //  }
+    //  if($result){
+         for ($i=1; $i <= 12; $i++) {
+             $data_hari_operasi[$i] = 0;
+             $data_kapasiti[$i] = 0;
+         }
 
 
-            //  dd($result);
-            foreach ($result as $key =>  $list_result) {
+         foreach ($result as $key =>  $list_result) {
+            //  foreach ($list_result as $key =>  $res) {
+                 $hbiob[]= DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
+//  dd($hbiob);
+                 $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
+                 $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
+                 $test[] = $data_kapasiti;
 
-                $hbiob[] = DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
-
-                $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
-                $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
-                $test[] = $data_kapasiti;
-                $test3[] = $data_hari_operasi;
-
-            }
+            //  }
+         }
+ dd($data_kapasiti);
+// dd($test);
 
 
 
@@ -453,8 +454,8 @@ class LaporanController extends Controller
             'negeri' => $negeri,
             'result' => $result,
             'tahun' => $tahun,
+            'hbiob' => $hbiob,
             'test' => $test,
-            'test3' => $test3,
             'kembali' => $kembali,
             'returnArr' => $returnArr,
             'layout' => $layout,
@@ -464,10 +465,7 @@ class LaporanController extends Controller
         ];
 
             return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2-table', $array);
-        } else {
-            return redirect()->back()
-                ->with('error', 'Penyata Tidak Wujud!');
-        }
+
     }
 
     public function admin_ringkasan_bahagian3(Request $request)
