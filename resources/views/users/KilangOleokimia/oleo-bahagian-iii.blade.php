@@ -103,7 +103,7 @@
                                     <span class="">Belian/Terimaan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_c4' style="width:100%" onchange="c4();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_c4' style="width:100%" onchange="autodecimal(this); FormatCurrency(this)"
                                         id="e104_c4" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -117,7 +117,7 @@
                                     <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_c5' style="width:100%" onchange="c5();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_c5' style="width:100%" onchange="autodecimal(this); FormatCurrency(this)"
                                         id="e104_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc2()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_c6' style="width: 100%"
-                                        id="e104_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c6();FormatCurrency(this)"
+                                        id="e104_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc3()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_c3')
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_c7' style="width: 100%"
-                                        id="e104_c7" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="c7();FormatCurrency(this)"
+                                        id="e104_c7" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this); FormatCurrency(this)"
                                         oninput="this.setCustomValidity(''); invokeFunc4()" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
                                     @error('e104_c7')
@@ -165,7 +165,7 @@
                                     <span class="">Stok Akhir &nbsp; **<span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_c8' style="width:100%" onchange="c8();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_c8' style="width:100%" onchange="autodecimal(this); FormatCurrency(this)"
                                         id="e104_c8" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('')" required
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
@@ -273,43 +273,43 @@
                                                                     </div>
                                                                     <label class="">Belian/Terimaan </label>
                                                                     <div class="form-group">
-                                                                        <input type="text" name='e104_c4'
-                                                                            oninput="validate_two_decimal(this)"
+                                                                        <input type="text" name='e104_c4' id="e104_ec4{{ $data->e104_c1 }}"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_c1 }}); invoke_ec4({{ $data->e104_c1 }})"
                                                                             onkeypress="return isNumberKey(event)"
-                                                                            class="form-control"
-                                                                            value="{{ $data->e104_c4 }}">
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            value="{{ number_format($data->e104_c4 ,2) }}">
                                                                     </div>
                                                                     <label class="">Pengeluaran </label>
                                                                     <div class="form-group">
-                                                                        <input type="text" name='e104_c5'
-                                                                            oninput="validate_two_decimal(this)"
+                                                                        <input type="text" name='e104_c5' id="e104_ec5{{ $data->e104_c1 }}"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_c1 }}); invoke_ec5({{ $data->e104_c1 }})"
                                                                             onkeypress="return isNumberKey(event)"
-                                                                            class="form-control"
-                                                                            value="{{ $data->e104_c5 }}">
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            value="{{ number_format($data->e104_c5 ,2) }}">
                                                                     </div>
                                                                     <label class="">Jualan/Edaran Tempatan </label>
                                                                     <div class="form-group">
-                                                                        <input type="text" name='e104_c6'
-                                                                            oninput="validate_two_decimal(this)"
+                                                                        <input type="text" name='e104_c6' id="e104_ec6{{ $data->e104_c1 }}"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_c1 }}); invoke_ec6({{ $data->e104_c1 }})"
                                                                             onkeypress="return isNumberKey(event)"
-                                                                            class="form-control"
-                                                                            value="{{ $data->e104_c6 }}">
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            value="{{ number_format($data->e104_c6 ,2) }}">
                                                                     </div>
                                                                     <label class="">Eksport </label>
                                                                     <div class="form-group">
-                                                                        <input type="text" name='e104_c7'
-                                                                            oninput="validate_two_decimal(this)"
+                                                                        <input type="text" name='e104_c7' id="e104_ec7{{ $data->e104_c1 }}"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_c1 }}); invoke_ec7({{ $data->e104_c1 }})"
                                                                             onkeypress="return isNumberKey(event)"
-                                                                            class="form-control"
-                                                                            value="{{ $data->e104_c7 }}">
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            value="{{ number_format($data->e104_c7 ,2) }}">
                                                                     </div>
                                                                     <label class="">Stok Akhir</label>
                                                                     <div class="form-group">
-                                                                        <input type="text" name='e104_c8'
-                                                                            oninput="validate_two_decimal(this)"
+                                                                        <input type="text" name='e104_c8' id="e104_ec8{{ $data->e104_c1 }}"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_c1 }}); invoke_ec8({{ $data->e104_c1 }})"
                                                                             onkeypress="return isNumberKey(event)"
-                                                                            class="form-control"
-                                                                            value="{{ $data->e104_c8 }}">
+                                                                            class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            value="{{ number_format($data->e104_c8 ,2) }}">
                                                                     </div>
 
                                                                 </div>
@@ -320,7 +320,7 @@
                                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Batal</span>
                                                                     </button>
-                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                    <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e104_c1 }}">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Kemaskini</span>
                                                                     </button>
@@ -446,6 +446,64 @@
             @section('scripts')
         {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
         </script> --}}
+        <script language="javascript" type="text/javascript">
+            function FormatCurrency(ctrl) {
+                //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                    return;
+                }
+
+                var val = ctrl.value;
+
+                val = val.replace(/,/g, "")
+                ctrl.value = "";
+                val += '';
+                x = val.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+
+                var rgx = /(\d+)(\d{3})/;
+
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+
+                ctrl.value = x1 + x2;
+            }
+        </script>
+
+        <script>
+            $('.sub-form').submit(function() {
+
+                var x = $('#e104_c4').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#e104_c4').val(x);
+
+                var x = $('#e104_c5').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#e104_c5').val(x);
+
+                var x = $('#e104_c6').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#e104_c6').val(x);
+
+                var x = $('#e104_c7').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#e104_c7').val(x);
+
+                var x = $('#e104_c8').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#e104_c8').val(x);
+
+                return true;
+
+        });
+        </script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('.calc').change(function() {
@@ -558,67 +616,7 @@
                     return evt.which;
                 }
             </script>
-            <script>
-                function c4() {
 
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_c4").value);
-                    if(isNaN(x)){
-                        x = 0.00;
-                    }
-                    var y = parseFloat(x).toFixed(2);
-                    document.querySelector("#e104_c4").value = y;
-                    console.log(y);
-                }
-            </script>
-            <script>
-                function c5() {
-                    // let decimal = ".00"
-                    var x = parseFloat(document.getElementById("e104_c5").value);
-                    if(isNaN(x)){
-                        x = 0.00;
-                    }
-                    var y = parseFloat(x).toFixed(2);
-                    document.querySelector("#e104_c5").value = y;
-                    console.log(y);
-                }
-            </script>
-            <script>
-                function c6() {
-                     // let decimal = ".00"
-                     var x = parseFloat(document.getElementById("e104_c6").value);
-                    if(isNaN(x)){
-                        x = 0.00;
-                    }
-                    var y = parseFloat(x).toFixed(2);
-                    document.querySelector("#e104_c6").value = y;
-                    console.log(y);
-                }
-            </script>
-            <script>
-                function c7() {
-                     // let decimal = ".00"
-                     var x = parseFloat(document.getElementById("e104_c7").value);
-                    if(isNaN(x)){
-                        x = 0.00;
-                    }
-                    var y = parseFloat(x).toFixed(2);
-                    document.querySelector("#e104_c7").value = y;
-                    console.log(y);
-                }
-            </script>
-            <script>
-                function c8() {
-                     // let decimal = ".00"
-                     var x = parseFloat(document.getElementById("e104_c8").value);
-                    if(isNaN(x)){
-                        x = 0.00;
-                    }
-                    var y = parseFloat(x).toFixed(2);
-                    document.querySelector("#e104_c8").value = y;
-                    console.log(y);
-                }
-            </script>
             <script language="javascript" type="text/javascript">
                 function FormatCurrency(ctrl) {
                     //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys

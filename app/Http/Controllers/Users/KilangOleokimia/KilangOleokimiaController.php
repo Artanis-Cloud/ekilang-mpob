@@ -349,19 +349,34 @@ class KilangOleokimiaController extends Controller
     public function oleo_edit_bahagian_ia(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->e104_b4)->first();
+        $e104_b5 = $request->e104_b5;
+        $e104_b6 = $request->e104_b6;
+        $e104_b7 = $request->e104_b7;
+        $e104_b9 = $request->e104_b9;
+        $e104_b10 = $request->e104_b10;
+        $e104_b11 = $request->e104_b11;
+        $e104_b12 = $request->e104_b12;
+        $e104_b13 = $request->e104_b13;
+        $b5 = str_replace(',', '', $e104_b5);
+        $b6 = str_replace(',', '', $e104_b6);
+        $b7 = str_replace(',', '', $e104_b7);
+        $b9 = str_replace(',', '', $e104_b9);
+        $b10 = str_replace(',', '', $e104_b10);
+        $b11 = str_replace(',', '', $e104_b11);
+        $b12 = str_replace(',', '', $e104_b12);
+        $b13 = str_replace(',', '', $e104_b13);
 
         // dd($request->all());
         $penyata = E104B::findOrFail($id);
-        $penyata->e104_b4 = $produk->prodid;
-        $penyata->e104_b5 = $request->e104_b5;
-        $penyata->e104_b6 = $request->e104_b6;
-        $penyata->e104_b7 = $request->e104_b7;
-        $penyata->e104_b9 = $request->e104_b9;
-        $penyata->e104_b10 = $request->e104_b10;
-        $penyata->e104_b11 = $request->e104_b11;
-        $penyata->e104_b12 = $request->e104_b12;
-        $penyata->e104_b13 = $request->e104_b13;
+        // $penyata->e104_b4 = $produk->prodid;
+        $penyata->e104_b5 = $b5;
+        $penyata->e104_b6 = $b6;
+        $penyata->e104_b7 = $b7;
+        $penyata->e104_b9 = $b9;
+        $penyata->e104_b10 = $b10;
+        $penyata->e104_b11 = $b11;
+        $penyata->e104_b12 = $b12;
+        $penyata->e104_b13 = $b13;
         $penyata->save();
 
 
@@ -524,19 +539,34 @@ class KilangOleokimiaController extends Controller
     public function oleo_edit_bahagian_ib(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->e104_b4)->first();
+        $e104_b5 = $request->e104_b5;
+        $e104_b6 = $request->e104_b6;
+        $e104_b7 = $request->e104_b7;
+        $e104_b9 = $request->e104_b9;
+        $e104_b10 = $request->e104_b10;
+        $e104_b11 = $request->e104_b11;
+        $e104_b12 = $request->e104_b12;
+        $e104_b13 = $request->e104_b13;
+        $b5 = str_replace(',', '', $e104_b5);
+        $b6 = str_replace(',', '', $e104_b6);
+        $b7 = str_replace(',', '', $e104_b7);
+        $b9 = str_replace(',', '', $e104_b9);
+        $b10 = str_replace(',', '', $e104_b10);
+        $b11 = str_replace(',', '', $e104_b11);
+        $b12 = str_replace(',', '', $e104_b12);
+        $b13 = str_replace(',', '', $e104_b13);
 
         // dd($request->all());
         $penyata = E104B::findOrFail($id);
-        $penyata->e104_b4 = $produk->prodid;
-        $penyata->e104_b5 = $request->e104_b5;
-        $penyata->e104_b6 = $request->e104_b6;
-        $penyata->e104_b7 = $request->e104_b7;
-        $penyata->e104_b9 = $request->e104_b9;
-        $penyata->e104_b10 = $request->e104_b10;
-        $penyata->e104_b11 = $request->e104_b11;
-        $penyata->e104_b12 = $request->e104_b12;
-        $penyata->e104_b13 = $request->e104_b13;
+        // $penyata->e104_b4 = $produk->prodid;
+        $penyata->e104_b5 = $b5;
+        $penyata->e104_b6 = $b6;
+        $penyata->e104_b7 = $b7;
+        $penyata->e104_b9 = $b9;
+        $penyata->e104_b10 = $b10;
+        $penyata->e104_b11 = $b11;
+        $penyata->e104_b12 = $b12;
+        $penyata->e104_b13 = $b13;
         $penyata->save();
 
 
@@ -701,21 +731,35 @@ class KilangOleokimiaController extends Controller
     public function oleo_edit_bahagian_ic(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->e104_b4)->first();
+        $e104_b5 = $request->e104_b5;
+        $e104_b6 = $request->e104_b6;
+        $e104_b7 = $request->e104_b7;
+        $e104_b9 = $request->e104_b9;
+        $e104_b10 = $request->e104_b10;
+        $e104_b11 = $request->e104_b11;
+        $e104_b12 = $request->e104_b12;
+        $e104_b13 = $request->e104_b13;
+        $b5 = str_replace(',', '', $e104_b5);
+        $b6 = str_replace(',', '', $e104_b6);
+        $b7 = str_replace(',', '', $e104_b7);
+        $b9 = str_replace(',', '', $e104_b9);
+        $b10 = str_replace(',', '', $e104_b10);
+        $b11 = str_replace(',', '', $e104_b11);
+        $b12 = str_replace(',', '', $e104_b12);
+        $b13 = str_replace(',', '', $e104_b13);
 
         // dd($request->all());
         $penyata = E104B::findOrFail($id);
-        $penyata->e104_b4 = $produk->prodid;
-        $penyata->e104_b5 = $request->e104_b5;
-        $penyata->e104_b6 = $request->e104_b6;
-        $penyata->e104_b7 = $request->e104_b7;
-        $penyata->e104_b9 = $request->e104_b9;
-        $penyata->e104_b10 = $request->e104_b10;
-        $penyata->e104_b11 = $request->e104_b11;
-        $penyata->e104_b12 = $request->e104_b12;
-        $penyata->e104_b13 = $request->e104_b13;
+        // $penyata->e104_b4 = $produk->prodid;
+        $penyata->e104_b5 = $b5;
+        $penyata->e104_b6 = $b6;
+        $penyata->e104_b7 = $b7;
+        $penyata->e104_b9 = $b9;
+        $penyata->e104_b10 = $b10;
+        $penyata->e104_b11 = $b11;
+        $penyata->e104_b12 = $b12;
+        $penyata->e104_b13 = $b13;
         $penyata->save();
-
 
         return redirect()->route('oleo.bahagianic')
             ->with('success', 'Maklumat telah disimpan');
@@ -890,16 +934,25 @@ class KilangOleokimiaController extends Controller
     {
 
 
-        // $produk = Produk::where('prodname', $request->e104_C3)->first();
+        $e104_c4 = $request->e104_c4;
+        $e104_c5 = $request->e104_c5;
+        $e104_c6 = $request->e104_c6;
+        $e104_c7 = $request->e104_c7;
+        $e104_c8 = $request->e104_c8;
+        $c4 = str_replace(',', '', $e104_c4);
+        $c5 = str_replace(',', '', $e104_c5);
+        $c6 = str_replace(',', '', $e104_c6);
+        $c7 = str_replace(',', '', $e104_c7);
+        $c8 = str_replace(',', '', $e104_c8);
 
         // dd($request->all());
         $penyata = E104C::findOrFail($id);
         // $penyata->e104_c3 = $request->e104_c3;
-        $penyata->e104_c4 = $request->e104_c4;
-        $penyata->e104_c5 = $request->e104_c5;
-        $penyata->e104_c6 = $request->e104_c6;
-        $penyata->e104_c7 = $request->e104_c7;
-        $penyata->e104_c8 = $request->e104_c8;
+        $penyata->e104_c4 = $c4;
+        $penyata->e104_c5 = $c5;
+        $penyata->e104_c6 = $c6;
+        $penyata->e104_c7 = $c7;
+        $penyata->e104_c8 = $c8;
 
         $penyata->save();
 
