@@ -247,6 +247,88 @@ class KilangPenapisController extends Controller
             ->with('success', 'Kata Laluan berjaya ditukar');
     }
 
+    public function penapis_test()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagiani'), 'name' => "Bahagian 1"],
+        ];
+
+        $kembali = route('penapis.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
+        $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
+        // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        // dd($user);
+
+
+
+
+        if ($user) {
+
+
+            // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
+            $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+            // dd($penyata);
+            $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b5');
+
+            $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b6');
+
+            $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b7');
+
+            $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b8');
+
+            $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b9');
+
+            $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b10');
+
+            $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b11');
+
+            $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b12');
+
+            $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b13');
+
+            $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b14');
+
+
+
+            return view('users.KilangPenapis.penapis-test', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'penyata',
+                'user',
+                'total',
+                'total2',
+                'total3',
+                'total4',
+                'total5',
+                'total6',
+                'total7',
+                'total8',
+                'total9',
+                'total10',
+                'bulan',
+                'tahun',
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
+    }
+
     public function penapis_bahagiani()
     {
 

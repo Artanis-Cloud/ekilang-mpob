@@ -101,7 +101,7 @@
                                     <span class="">Stok Awal di Premis</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b5' onchange="b5();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b5' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b5" required title="Sila isikan butiran ini.">
                                     @error('e104_b5')
@@ -114,7 +114,7 @@
                                     <span class="">Stok Awal di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b6' onchange="b6();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b6' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b6" required title="Sila isikan butiran ini.">
                                     @error('e104_b6')
@@ -135,7 +135,7 @@
                                         title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b7' onchange="b7();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b7' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b7" required title="Sila isikan butiran ini.">
                                     @error('e104_b7')
@@ -148,7 +148,7 @@
                                     <span class="">Jumlah Yang Diproses</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b9' onchange="b9();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b9' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b9" required title="Sila isikan butiran ini.">
                                     @error('e104_b9')
@@ -165,7 +165,7 @@
                                     <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b10' onchange="b10();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b10' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc5()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b10" required title="Sila isikan butiran ini.">
                                     @error('e104_b10')
@@ -179,7 +179,7 @@
                                     <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b11' onchange="b11();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b11' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc6()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b11" required title="Sila isikan butiran ini.">
                                     @error('e104_b11')
@@ -203,7 +203,7 @@
                                     <span class="">Stok Akhir di Premis</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b12' onchange="b12();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b12' onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc7()" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b12" required title="Sila isikan butiran ini.">
                                     @error('e104_b12')
@@ -216,7 +216,7 @@
                                     <span class="">Stok Akhir di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e104_b13'  onchange="b13();FormatCurrency(this)"
+                                    <input type="text" class="form-control" name='e104_b13'  onchange="autodecimal(this); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:100%" id="e104_b13" required title="Sila isikan butiran ini.">
                                     @error('e104_b13')
@@ -253,19 +253,19 @@
                         <table class="table table-bordered mb-0" style="font-size: 13px">
                             <thead style="text-align: center">
                                 <tr>
-                                    <th>Produk Minyak Isirung Sawit</th>
-                                    <th>Kod Produk</th>
-                                    <th>Stok Awal Di Premis</th>
-                                    <th>Stok Awal Di Pusat Simpanan</th>
-                                    <th>Belian / Terimaan</th>
-                                    <th>Import</th>
-                                    <th>Jumlah yang Diproses</th>
-                                    <th>Jualan / Edaran Tempatan</th>
-                                    <th>Eksport</th>
-                                    <th>Stok Akhir Di Premis</th>
-                                    <th>Stok Akhir Di Pusat Simpanan</th>
-                                    <th>Kemaskini</th>
-                                    <th>Hapus?</th>
+                                    <th style="vertical-align: middle">Produk Minyak Isirung Sawit</th>
+                                    <th style="vertical-align: middle">Kod Produk</th>
+                                    <th style="vertical-align: middle">Stok Awal Di Premis</th>
+                                    <th style="vertical-align: middle">Stok Awal Di Pusat Simpanan</th>
+                                    <th style="vertical-align: middle">Belian / Terimaan</th>
+                                    <th style="vertical-align: middle">Import</th>
+                                    <th style="vertical-align: middle">Jumlah yang Diproses</th>
+                                    <th style="vertical-align: middle">Jualan / Edaran Tempatan</th>
+                                    <th style="vertical-align: middle">Eksport</th>
+                                    <th style="vertical-align: middle">Stok Akhir Di Premis</th>
+                                    <th style="vertical-align: middle">Stok Akhir Di Pusat Simpanan</th>
+                                    <th style="vertical-align: middle">Kemaskini</th>
+                                    <th style="vertical-align: middle">Hapus?</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -337,28 +337,28 @@
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b5'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b5' id="e104_eb5{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb5({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b5 }}">
+                                                                        value="{{ number_format($data->e104_b5 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Pusat Simpanan
                                                                 </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b6'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b6' id="e104_eb6{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb6({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b6 }}">
+                                                                        value="{{ number_format($data->e104_b6 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b7'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b7' id="e104_eb7{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb7({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b7 }}">
+                                                                        value="{{ number_format($data->e104_b7 ,2) }}">
                                                                 </div>
                                                                 <label>Import </label>
                                                                 <div class="form-group">
@@ -368,45 +368,45 @@
 
                                                                 <label class="required">Jumlah yang Diproses</label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b9'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b9' id="e104_eb9{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb9({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b9 }}">
+                                                                        value="{{ number_format($data->e104_b9 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Jualan / Edaran Tempatan
                                                                 </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b10'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b10' id="e104_eb10{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb10({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b10 }}">
+                                                                        value="{{ number_format($data->e104_b10 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b11'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b11' id="e104_eb11{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb11({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b11 }}">
+                                                                        value="{{ number_format($data->e104_b11 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Stok Akhir Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b12'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b12' id="e104_eb12{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb12({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b12 }}">
+                                                                        value="{{ number_format($data->e104_b12 ,2) }}">
                                                                 </div>
                                                                 <label class="required">Stok Akhir Di Pusat Simpanan
                                                                 </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b13'
-                                                                        oninput="validate_two_decimal(this)"
-                                                                        onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e104_b13' id="e104_eb13{{ $data->e104_b1 }}"
+                                                                        oninput="validate_two_decimal(this); enableKemaskini({{ $data->e104_b1 }}); invoke_eb13({{ $data->e104_b1 }})"
+                                                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
-                                                                        value="{{ $data->e104_b13 }}">
+                                                                        value="{{ number_format($data->e104_b13 ,2) }}">
                                                                 </div>
                                                             </div>
                                                     </div>
@@ -418,7 +418,7 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e104_b1 }}">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -553,6 +553,109 @@
 @endsection
 @section('scripts')
 <script>
+
+    function invoke_eb5(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb6'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb6(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb7'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb7(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb9'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb9(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb10'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb10(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb11'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb11(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb12'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb12(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb13'+key).focus();
+            }
+
+        });
+    }
+
+    function invoke_eb13(key) {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_eb14'+key).focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
     function invokeFunc() {
         addEventListener('keydown', function(evt) {
             var whichKey = checkKey(evt);
@@ -678,103 +781,7 @@
         return evt.which;
     }
 </script>
-<script>
-    function b5() {
 
-        // let decimal = ".00"
-        var x = parseFloat(document.getElementById("e104_b5").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b5").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b6() {
-        // let decimal = ".00"
-        var x = parseFloat(document.getElementById("e104_b6").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b6").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b7() {
-         // let decimal = ".00"
-         var x = parseFloat(document.getElementById("e104_b7").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b7").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b9() {
-         // let decimal = ".00"
-         var x = parseFloat(document.getElementById("e104_b9").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b9").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b10() {
-         // let decimal = ".00"
-         var x = parseFloat(document.getElementById("e104_b10").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b10").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b11() {
-        // let decimal = ".00"
-        var x = parseFloat(document.getElementById("e104_b11").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b11").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b12() {
-         // let decimal = ".00"
-         var x = parseFloat(document.getElementById("e104_b12").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b12").value = y;
-        console.log(y);
-    }
-</script>
-<script>
-    function b13() {
-         // let decimal = ".00"
-         var x = parseFloat(document.getElementById("e104_b13").value);
-        if(isNaN(x)){
-            x = 0.00;
-        }
-        var y = parseFloat(x).toFixed(2);
-        document.querySelector("#e104_b13").value = y;
-        console.log(y);
-    }
-</script>
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({

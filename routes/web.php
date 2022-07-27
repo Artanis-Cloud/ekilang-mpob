@@ -376,6 +376,7 @@ Route::middleware('auth')->group(function () {
         Route::post('penapis/update-password/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_password'])->name('penapis.update.password');
 
 
+        Route::get('penapis/test', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_test'])->name('penapis.test');
         Route::get('penapis/bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagiani'])->name('penapis.bahagiani');
         Route::post('penapis/add-bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_i'])->name('penapis.add.bahagian.i');
         Route::post('penapis/edit-bahagian-i/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_i'])->name('penapis.edit.bahagian.i');

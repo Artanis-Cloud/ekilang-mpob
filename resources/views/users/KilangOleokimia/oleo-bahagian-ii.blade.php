@@ -65,7 +65,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <form action="{{ route('oleo.update.bahagian.ii', [$penyata->e104_reg]) }}" method="post">
+                        <form action="{{ route('oleo.update.bahagian.ii', [$penyata->e104_reg]) }}" method="post" class="sub-form">
                             @csrf
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
@@ -88,8 +88,8 @@
                                                         Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="number" class="form-control" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
-                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required oninput="this.setCustomValidity(''); nodecimal()" max="31" min="0"
+                                                        <input type="text" class="form-control text-right" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required oninput="this.setCustomValidity(''); nodecimal(); invokeFunc()" max="31" min="0"
                                                             title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
                                                         @error('e104_a5')
                                                         <div class="alert alert-danger">
@@ -113,8 +113,8 @@
                                                         Kadar Penggunaan Kapasiti Sebulan (%)	</label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="text" class="form-control" name='e104_a6'
-                                                            onkeypress="return isNumberKey(event)" id="e104_a6" onchange="withdecimal()"
+                                                        <input type="text" class="form-control text-right" name='e104_a6'
+                                                            onkeypress="return isNumberKey(event)" id="e104_a6"  onchange="autodecimal(this); FormatCurrency(this)"
                                                             oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
                                                         @error('e104_a6')
@@ -192,6 +192,24 @@
 
 @endsection
 @section('scripts')
+<script>
+    function invokeFunc() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_a6').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
     <script>
         function nodecimal() {
             // let decimal = ".00"
@@ -204,18 +222,7 @@
             console.log(removedDecimal);
         }
     </script>
-    <script>
-        function withdecimal() {
-            // let decimal = ".00"
-            var x = parseFloat(document.getElementById("e104_a6").value);
-            if(isNaN(x)){
-                x = 0.00;
-            }
-            var y = parseFloat(x).toFixed(2);
-            document.querySelector("#e104_a6").value = y;
-            console.log(y);
-        }
-    </script>
+
     <script type="text/javascript">
 
         function showTable() {
@@ -256,6 +263,45 @@
             }
 
         });
+    </script>
+     <script language="javascript" type="text/javascript">
+        function FormatCurrency(ctrl) {
+            //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+            if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                return;
+            }
+
+            var val = ctrl.value;
+
+            val = val.replace(/,/g, "")
+            ctrl.value = "";
+            val += '';
+            x = val.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+
+            var rgx = /(\d+)(\d{3})/;
+
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+
+            ctrl.value = x1 + x2;
+        }
+    </script>
+
+    <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#e104_a6').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#e104_a6').val(x);
+
+
+            return true;
+
+    });
     </script>
 
 @endsection
