@@ -185,13 +185,9 @@ class LaporanController extends Controller
 
         }
 
-
         foreach ($no_batches as $key =>  $no_batch) {
-            $hbiob[] = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
-            ->get();
+            $hbiob[] = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->first();
 
-            $unique=$hbiob[$key]->unique('ebio_b4');
-dd($unique);
             $data_bulanan_ebio_b3[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b3 ?? 0;
             $data_bulanan_ebio_b4[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b4 ?? 0;
             $data_bulanan_ebio_b5[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b5 ?? 0;
@@ -200,7 +196,10 @@ dd($unique);
             $data_bulanan_ebio_b8[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b8 ?? 0;
             $data_bulanan_ebio_b9[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b9 ?? 0;
             // $test[] = $data_bulanan_ebio_b5;
+    //   dd($data_bulanan_ebio_b5);
         }
+
+        $same_product = HBioB::where('ebio_b4', $hbiob[$key]->ebio_b4)->get();
 
 
 
@@ -228,6 +227,7 @@ dd($unique);
             'data' => $data,
             'date' => $date,
             'datas' => $datas,
+            'same_product' => $same_product,
             // 'i'=> $i,
             'data_bulanan_ebio_b4'=> $data_bulanan_ebio_b4,
             'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
