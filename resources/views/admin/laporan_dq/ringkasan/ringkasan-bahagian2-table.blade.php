@@ -330,16 +330,36 @@
 
                                                     @foreach($test as $key => $value)
                                                         <tr>
-                                                            @for ($i = $start_month; $i <= $end_month; $i++)
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $result[$key]->lesen }} </td>
 
-                                                                @foreach ( $value as  $test2 )
-                                                                    <td>
-                                                                        {{  $test2 }}
-                                                                    </td>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $result[$key]->e_nl }} </td>
+
+                                                                @foreach($value => $test2)
+                                                                    <td>{{ $test }} </td>
                                                                 @endforeach
-                                                            @endfor
+                                                                {{--
+                                                                @if($hbiob[$key]->bulan == 1) != null
+                                                                {
+                                                                    <td>{{ $hbiob[$key]->kapasiti }}</td>
+                                                                }
+                                                                @else
+                                                                {
+                                                                    <td> Yilek </td>
+                                                                }
+                                                                @endif
+
+                                                                @if($hbiob[$key]->bulan == 2) != null
+                                                                {
+                                                                    <td>{{ $hbiob[$key]->kapasiti }}</td>
+                                                                }
+                                                                @else
+                                                                {
+                                                                    <td> Yilek </td>
+                                                                }
+                                                                @endif --}}
+
+
+
                                                             <td>-</td>
                                                         </tr>
                                                     @endforeach
@@ -375,7 +395,7 @@
                                             <tbody>
                                                 {{-- @foreach ($result as $data) --}}
 
-                                                    @foreach($test3 as $key => $value)
+                                                    {{-- @foreach($test3 as $key => $value)
                                                         <tr>
                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                 <td>{{ $loop->iteration }}</td>
@@ -389,7 +409,7 @@
                                                             @endfor
                                                             <td>-</td>
                                                         </tr>
-                                                    @endforeach
+                                                    @endforeach --}}
 
 
                                                 {{-- @endforeach --}}
