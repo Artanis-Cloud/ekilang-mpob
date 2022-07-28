@@ -182,16 +182,15 @@ class LaporanController extends Controller
             $data_bulanan_ebio_b10[$i] = 0;
             $data_bulanan_ebio_b11[$i] = 0;
             $data_bulanan_ebio_b13[$i] = 0;
+            $data_bulanan_ebio_date[$i] = 0;
 
         }
 
 
         foreach ($no_batches as $key =>  $no_batch) {
             $hbiob[] = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
-            ->get();
+            ->first();
 
-            $unique=$hbiob[$key]->unique('ebio_b4');
-dd($unique);
             $data_bulanan_ebio_b3[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b3 ?? 0;
             $data_bulanan_ebio_b4[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b4 ?? 0;
             $data_bulanan_ebio_b5[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b5 ?? 0;
@@ -199,23 +198,34 @@ dd($unique);
             $data_bulanan_ebio_b7[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b7 ?? 0;
             $data_bulanan_ebio_b8[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b8 ?? 0;
             $data_bulanan_ebio_b9[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b9 ?? 0;
+            $data_bulanan_ebio_b10[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b10 ?? 0;
+            $data_bulanan_ebio_b11[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b11 ?? 0;
             // $test[] = $data_bulanan_ebio_b5;
         }
 
+        foreach($no_batches as    $batch){
+            // $hbiodate[] = DB::table('h_bio_inits')->where('ebio_nl', $ebio_nl)->where('ebio_thn', $tahun)->first();
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $batch->ebio_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+                $data_bulanan_ebio_date[$batch->ebio_bln] = $formatteddate ?? '-';
 
 
+           }
+//  dd($formatteddate);
+// dd($data_bulanan_ebio_date);
 
 
         $data2 = HBioInit::find($ebio_nl);
-        $datas = HBioInit::where('ebio_nl', $ebio_nl)->first();
+        // $datas = HBioInit::where('ebio_nl', $ebio_nl)->get();
+
         // $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $data = Pelesen::where('e_nl', $ebio_nl)->first();
         $negeri = Negeri::where('kod_negeri', $data->e_negeri)->first();
         // $bio1 = HBioB::where('ebio_nobatch',$data2->ebio_nobatch)->first();
-        $date = HBioInit::where('ebio_sdate', $datas->ebio_sdate);
 
 
-        // dd($b1);
+
+
 
 
         //RINGKASAN URUSNIAGA
@@ -226,8 +236,9 @@ dd($unique);
 
             'negeri' => $negeri,
             'data' => $data,
-            'date' => $date,
-            'datas' => $datas,
+
+            'data_bulanan_ebio_date'=> $data_bulanan_ebio_date,
+
             // 'i'=> $i,
             'data_bulanan_ebio_b4'=> $data_bulanan_ebio_b4,
             'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
@@ -235,6 +246,8 @@ dd($unique);
             'data_bulanan_ebio_b7'=> $data_bulanan_ebio_b7,
             'data_bulanan_ebio_b8'=> $data_bulanan_ebio_b8,
             'data_bulanan_ebio_b9'=> $data_bulanan_ebio_b9,
+            'data_bulanan_ebio_b10'=> $data_bulanan_ebio_b10,
+            'data_bulanan_ebio_b11'=> $data_bulanan_ebio_b11,
             'hbiob' => $hbiob,
             'no_batches' => $no_batches,
             // 'formatteddate' => $formatteddate,
