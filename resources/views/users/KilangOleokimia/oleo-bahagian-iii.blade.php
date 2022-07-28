@@ -446,6 +446,64 @@
             @section('scripts')
         {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
         </script> --}}
+        <script>
+
+            function invoke_ec4(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_ec5'+key).focus();
+                    }
+
+                });
+            }
+
+            function invoke_ec5(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_ec6'+key).focus();
+                    }
+
+                });
+            }
+
+            function invoke_ec6(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_ec7'+key).focus();
+                    }
+
+                });
+            }
+
+            function invoke_ec7(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_ec8'+key).focus();
+                    }
+
+                });
+            }
+
+
+
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
         <script language="javascript" type="text/javascript">
             function FormatCurrency(ctrl) {
                 //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
@@ -617,65 +675,6 @@
                 }
             </script>
 
-            <script language="javascript" type="text/javascript">
-                function FormatCurrency(ctrl) {
-                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
-                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
-                        return;
-                    }
-
-                    var val = ctrl.value;
-
-                    val = val.replace(/,/g, "")
-                    ctrl.value = "";
-                    val += '';
-                    x = val.split('.');
-                    x1 = x[0];
-                    x2 = x.length > 1 ? '.' + x[1] : '';
-
-                    var rgx = /(\d+)(\d{3})/;
-
-                    while (rgx.test(x1)) {
-                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
-                    }
-
-                    ctrl.value = x1 + x2;
-                }
-            </script>
-
-            <script>
-                $('.sub-form').submit(function() {
-
-                    var x = $('#e104_c4').val();
-                    x = x.replace(/,/g, '');
-                    x = parseFloat(x, 10);
-                    $('#e104_c4').val(x);
-
-                    var x = $('#e104_c5').val();
-                    x = x.replace(/,/g, '');
-                    x = parseFloat(x, 10);
-                    $('#e104_c5').val(x);
-
-                    var x = $('#e104_c7').val();
-                    x = x.replace(/,/g, '');
-                    x = parseFloat(x, 10);
-                    $('#e104_c7').val(x);
-
-                    var x = $('#e104_c9').val();
-                    x = x.replace(/,/g, '');
-                    x = parseFloat(x, 10);
-                    $('#e104_c9').val(x);
-
-                    var x = $('#e104_c6').val();
-                    x = x.replace(/,/g, '');
-                    x = parseFloat(x, 10);
-                    $('#e104_c6').val(x);
-
-
-                    return true;
-
-            });
-            </script>
 
 
 

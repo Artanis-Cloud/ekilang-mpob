@@ -36,6 +36,9 @@ class EBioCC extends Model
     public function ebioc(){
         return $this->hasOne(EBioC::class,'ebio_c3', 'ebio_cc2');
     }
+    public function syarikat(){
+        return $this->hasOne(SyarikatPembeli::class,'id', 'ebio_cc3');
+    }
 
 
 }

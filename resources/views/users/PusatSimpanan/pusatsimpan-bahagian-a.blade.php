@@ -12,7 +12,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -37,7 +37,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -79,13 +80,15 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4 col-10 ml-auto mr-auto" >
+                        <div class="container center mt-4 col-10 ml-auto mr-auto">
                             <div class="row">
-                                    <div class="col-md-3 mt-3">
-                                        <span class="">Nama Produk Sawit dan Kod</span>
-                                    </div>
-                                    <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="produk" name="e07bt_produk" required  oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Nama Produk Sawit dan Kod</span>
+                                </div>
+                                <div class="col-md-7 mt-3">
+                                    <select class="form-control select2" id="produk" name="e07bt_produk" required
+                                        oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="this.setCustomValidity('')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produks as $produk)
                                             @if ($produk->prodname != '')
@@ -105,12 +108,15 @@
                             </div>
 
                             <div class="row">
-                                    <div class="col-md-3 mt-3">
-                                        <span class="">Stok Awal</span>
-                                    </div>
-                                    <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_stokawal' onkeypress="return isNumberKey(event)"
-                                        id="e07bt_stokawal" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini." >
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Stok Awal</span>
+                                </div>
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_stokawal'
+                                        onkeypress="return isNumberKey(event)" id="e07bt_stokawal" required
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -123,8 +129,12 @@
                                             title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_terima" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" title="Sila isikan butiran ini." >
+                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 100%"
+                                        onkeypress="return isNumberKey(event)" id="e07bt_terima" required
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc2()"
+                                        title="Sila isikan butiran ini.">
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -134,10 +144,10 @@
                             </div>
 
                             <div class="row">
-                                    <div class="col-md-3 mt-3">
+                                <div class="col-md-3 mt-3">
                                     <span>Import</span>
                                 </div>
-                                    <div class="col-md-2 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_import' style="width: 100%"
                                         id="e07bt_import" title="Sila isikan butiran ini." readonly>
                                     @error('e07bt_import')
@@ -149,12 +159,16 @@
 
                                 <div class="col-md-3 mt-3">
                                     <span class=" align-items-center">
-                                        Edaran Tempatan  &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
-                                        title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
+                                        Edaran Tempatan &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
+                                            title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_edaran" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini." >
+                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%"
+                                        onkeypress="return isNumberKey(event)" id="e07bt_edaran" required
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc3()"
+                                        title="Sila isikan butiran ini.">
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -167,9 +181,9 @@
                                 <div class="col-md-3 mt-3">
                                     <span>Eksport</span>
                                 </div>
-                                    <div class="col-md-2 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_eksport' style="width: 100%"
-                                        id="e07bt_eksport" title="Sila isikan butiran ini." readonly >
+                                        id="e07bt_eksport" title="Sila isikan butiran ini." readonly>
                                     @error('e07bt_eksport')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -181,8 +195,8 @@
                                     <span class="">Pelarasan(+/-)</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_pelarasan" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                    <input type="text" class="form-control" name='e07bt_pelarasan' readonly
+                                        style="width: 100%" id="e07bt_pelarasan"title="Sila isikan butiran ini.">
                                     @error('e07bt_pelarasan')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -195,9 +209,12 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir</span>
                                 </div>
-                                    <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 100%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_stokakhir" required onchange="FormatCurrency(this)"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_stokakhir'
+                                        style="width: 100%" onkeypress="return isNumberKey(event)" id="e07bt_stokakhir"
+                                        required  onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -210,539 +227,574 @@
                         </div>
                         <br>
                         <div class="row justify-content-center form-group" style="margin-top: 1%; ">
-                            <button type="submit" class="btn btn-primary" >Tambah</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
                     </form>
                     <hr>
-                    <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:-2%">Senarai Instolasi Keluaran Minyak
+                    <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:-2%">Senarai
+                        Instolasi Keluaran Minyak
                         Sawit</h5>
 
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered mb-0" style="font-size: 13px">
-                                        <thead>
-                                            <tr style="text-align: center">
-                                                <th>Nama Produk Sawit</th>
-                                                <th>Stok Awal</th>
-                                                <th>Terimaan Dalam Negeri</th>
-                                                <th>Import</th>
-                                                <th>Edaran Tempatan</th>
-                                                <th>Eksport</th>
-                                                <th>Pelarasan (+/-)</th>
-                                                <th>Stok Akhir</th>
-                                                <th>Kemaskini</th>
-                                                <th>Hapus?</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($penyata as $data)
-                                                <tr style="text-align: right">
-                                                    <td style="text-align: left">
-                                                        {{ $data->produk->proddesc }}</td>
-                                                    <td>{{ number_format($data->e07bt_stokawal ?? 0, 2) }}
-                                                    </td>
-                                                    <td>{{ number_format($data->e07bt_terima ?? 0, 2) }}
-                                                    </td>
-                                                    <td>{{ number_format($data->e07bt_import ?? 0, 2) }}
-                                                    </td>
-                                                    <td>{{ number_format($data->e07bt_edaran ?? 0, 2) }}
-                                                    </td>
-                                                    <td>{{ number_format($data->e07bt_eksport ?? 0, 2) }}
-                                                    </td>
-                                                    <td>{{ number_format($data->e07bt_pelarasan ?? 0, 2) }}
-                                                    </td>
-                                                    <td>{{ number_format($data->e07bt_stokakhir ?? 0, 2) }}
-                                                    </td>
-                                                    <td>
-                                                        <div class="icon" style="text-align: center">
-                                                            <a href="#" type="button" data-toggle="modal"
-                                                                data-target="#modal{{ $data->e07bt_id }}">
-                                                                <i class="fas fa-edit fa-lg" style="color: #ffc107">
-                                                                </i>
-                                                            </a>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0" style="font-size: 13px">
+                                <thead>
+                                    <tr style="text-align: center">
+                                        <th>Nama Produk Sawit</th>
+                                        <th>Stok Awal</th>
+                                        <th>Terimaan Dalam Negeri</th>
+                                        <th>Import</th>
+                                        <th>Edaran Tempatan</th>
+                                        <th>Eksport</th>
+                                        <th>Pelarasan (+/-)</th>
+                                        <th>Stok Akhir</th>
+                                        <th>Kemaskini</th>
+                                        <th>Hapus?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($penyata as $data)
+                                        <tr style="text-align: right">
+                                            <td style="text-align: left">
+                                                {{ $data->produk->proddesc }}</td>
+                                            <td>{{ number_format($data->e07bt_stokawal ?? 0, 2) }}
+                                            </td>
+                                            <td>{{ number_format($data->e07bt_terima ?? 0, 2) }}
+                                            </td>
+                                            <td>{{ number_format($data->e07bt_import ?? 0, 2) }}
+                                            </td>
+                                            <td>{{ number_format($data->e07bt_edaran ?? 0, 2) }}
+                                            </td>
+                                            <td>{{ number_format($data->e07bt_eksport ?? 0, 2) }}
+                                            </td>
+                                            <td>{{ number_format($data->e07bt_pelarasan ?? 0, 2) }}
+                                            </td>
+                                            <td>{{ number_format($data->e07bt_stokakhir ?? 0, 2) }}
+                                            </td>
+                                            <td>
+                                                <div class="icon" style="text-align: center">
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#modal{{ $data->e07bt_id }}">
+                                                        <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                        </i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="icon" style="text-align: center">
+                                                    <a href="#" type="button" data-toggle="modal"
+                                                        data-target="#next2{{ $data->e07bt_id }}">
+                                                        <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <div class="col-md-6 col-12">
+
+                                            <!--scrolling content Modal -->
+                                            <div class="modal fade" id="modal{{ $data->e07bt_id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalScrollableTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                Kemaskini Maklumat Produk</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
                                                         </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="icon" style="text-align: center">
-                                                            <a href="#" type="button" data-toggle="modal"
-                                                                data-target="#next2{{ $data->e07bt_id }}">
-                                                                <i class="fa fa-trash"
-                                                                    style="color: #dc3545;font-size:18px"></i>
-                                                            </a>
+                                                        <div class="modal-body">
+                                                            <form
+                                                                action="{{ route('pusatsimpan.edit.bahagian.a', [$data->e07bt_id]) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <div class="modal-body">
+                                                                    <label class="required">Nama Produk Sawit</label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e07bt_produk'
+                                                                            class="form-control"
+                                                                            value="{{ $data->produk->proddesc }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                    <label class="required">Stok Awal </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e07bt_stokawal'
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            id="e07b2{{ $data->e07bt_id }}"
+                                                                            onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            class="form-control"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }}); invoke_bt2({{ $data->e07bt_id }})"
+                                                                            value="{{ number_format($data->e07bt_stokawal, 2) }}">
+                                                                    </div>
+                                                                    <label class="required">Penerimaan Dalam Negeri
+                                                                    </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e07bt_terima'
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            id="e07b3{{ $data->e07bt_id }}"
+                                                                            onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            class="form-control"
+                                                                            oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }}); invoke_bt3({{ $data->e07bt_id }})"
+                                                                            value="{{ number_format($data->e07bt_terima, 2) }}">
+                                                                    </div>
+                                                                    <label>Import </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='e07bt_import'
+                                                                            class="form-control" "
+                                                                                        value="{{ number_format($data->e07bt_import, 2) }}"
+                                                                                        readonly>
+                                                                                </div>
+                                                                                <label class="required">Edaran Dalam Negeri
+                                                                                </label>
+                                                                                <div class="form-group">
+                                                                                    <input type="text" name='e07bt_edaran' onkeypress="return isNumberKey(event)"  id="e07b5{{ $data->e07bt_id }}" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                                        class="form-control"  oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }}); invoke_bt5({{ $data->e07bt_id }})"
+                                                                                        value="{{ number_format($data->e07bt_edaran, 2) }}">
+                                                                                </div>
+                                                                                <label>Eksport </label>
+                                                                                <div class="form-group">
+                                                                                    <input type="text" name='e07bt_eksport' id="e07b6"
+                                                                                        class="form-control"
+                                                                                        value="{{ number_format($data->e07bt_eksport, 2) }}"
+                                                                                        readonly>
+                                                                                </div>
+                                                                                <label class="required">Pelarasan (+/-) </label>
+                                                                                <div class="form-group">
+                                                                                    <input type="text" name='e07bt_pelarasan'
+                                                                                        class="form-control" readonly
+                                                                                        value="{{ number_format($data->e07bt_pelarasan, 2) }}">
+                                                                                </div>
+                                                                                <label class="required">Stok Akhir </label>
+                                                                                <div class="form-group">
+                                                                                    <input type="text" name='e07bt_stokakhir' onkeypress="return isNumberKey(event)"  id="e07b8{{ $data->e07bt_id }}" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                                        class="form-control"  oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }})"
+                                                                                        value="{{ number_format($data->e07bt_stokakhir, 2) }}">
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-secondary"
+                                                                            data-dismiss="modal">
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Batal</span>
+                                                                        </button>
+                                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e07bt_id }}">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Kemaskini</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
-                                                    </td>
-                                                </tr>
-                                                <div class="col-md-6 col-12">
+                                                    </div>
 
-                                                    <!--scrolling content Modal -->
-                                                    <div class="modal fade" id="modal{{ $data->e07bt_id }}"
-                                                        tabindex="-1" role="dialog"
-                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                    <div class="modal fade" id="next2{{ $data->e07bt_id }}"
+                                                        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                            role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title"
-                                                                        id="exampleModalScrollableTitle">
-                                                                        Kemaskini Maklumat Produk</h5>
+                                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                        PENGESAHAN</h5>
                                                                     <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <i data-feather="x"></i>
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form
-                                                                        action="{{ route('pusatsimpan.edit.bahagian.a', [$data->e07bt_id]) }}"
-                                                                        method="post">
-                                                                        @csrf
-                                                                        <div class="modal-body">
-                                                                            <label class="required">Nama Produk Sawit</label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_produk'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->produk->proddesc }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label class="required">Stok Awal </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_stokawal' onkeypress="return isNumberKey(event)"
-                                                                                    class="form-control"  oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_stokawal }}">
-                                                                            </div>
-                                                                            <label class="required">Penerimaan Dalam Negeri
-                                                                            </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_terima' onkeypress="return isNumberKey(event)"
-                                                                                    class="form-control"  oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_terima }}">
-                                                                            </div>
-                                                                            <label>Import </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_import'
-                                                                                    class="form-control"  oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_import }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label class="required">Edaran Dalam Negeri
-                                                                            </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_edaran' onkeypress="return isNumberKey(event)"
-                                                                                    class="form-control"  oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_edaran }}">
-                                                                            </div>
-                                                                            <label>Eksport </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_eksport'
-                                                                                    class="form-control" oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_eksport }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label class="required">Pelarasan (+/-) </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_pelarasan' onkeypress="return isNumberKey(event)"
-                                                                                    class="form-control"  oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_pelarasan }}">
-                                                                            </div>
-                                                                            <label class="required">Stok Akhir </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='e07bt_stokakhir' onkeypress="return isNumberKey(event)"
-                                                                                    class="form-control"  oninput="validate_two_decimal(this)"
-                                                                                    value="{{ $data->e07bt_stokakhir }}">
-                                                                            </div>
-                                                                        </div>
-
-
+                                                                    <p>
+                                                                        Anda pasti mahu menghapus maklumat ini?
+                                                                    </p>
                                                                 </div>
-
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                    <button type="button" class="btn btn-primary ml-1"
                                                                         data-dismiss="modal">
-                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Batal</span>
-                                                                    </button>
-                                                                    <button type="submit" class="btn btn-primary ml-1">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                        <span class="d-none d-sm-block">Tidak</span>
                                                                     </button>
+                                                                    <a href="{{ route('pusatsimpan.delete.bahagiana', [$data->e07bt_id]) }}"
+                                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+
+                                                                        <i class="bx bx-x d-block d-sm-none" ></i>
+                                                                        <span class="d-none d-sm-block" >Ya</span>
+                                                                    </a>
                                                                 </div>
-                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
+     @endforeach
+                                                                        <tr>
 
-                                                </div>
+                                                                            <td colspan="1"><b>JUMLAH</b></td>
+                                                                            {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                                            <td style="text-align: right">
+                                                                                <b>{{ number_format($total ?? 0, 2) }}</b>
+                                                                            </td>
+                                                                            <td style="text-align: right">
+                                                                                <b>{{ number_format($total2 ?? 0, 2) }}</b>
+                                                                            </td>
+                                                                            <td style="text-align: right"><b>0</b></td>
+                                                                            <td style="text-align: right">
+                                                                                <b>{{ number_format($total3 ?? 0, 2) }}</b>
+                                                                            </td>
+                                                                            <td style="text-align: right"><b>0</b></td>
+                                                                            <td style="text-align: right">
+                                                                                <b>{{ number_format($total4 ?? 0, 2) }}</b>
+                                                                            </td>
+                                                                            <td style="text-align: right">
+                                                                                <b>{{ number_format($total5 ?? 0, 2) }}</b>
+                                                                            </td>
 
-                                                <div class="modal fade" id="next2{{ $data->e07bt_id }}"
-                                                    tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                        role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                    PENGESAHAN</h5>
-                                                                <button type="button" class="close"
-                                                                    data-dismiss="modal" aria-label="Close">
-                                                                    <i data-feather="x"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>
-                                                                    Anda pasti mahu menghapus maklumat ini?
-                                                                </p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary ml-1"
-                                                                    data-dismiss="modal">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Tidak</span>
-                                                                </button>
-                                                                <a href="{{ route('pusatsimpan.delete.bahagiana', [$data->e07bt_id]) }}"
-                                                                    type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
-
-                                                                    <i class="bx bx-x d-block d-sm-none" ></i>
-                                                                    <span class="d-none d-sm-block" >Ya</span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                            <tr>
-
-                                                <td colspan="1"><b>JUMLAH</b></td>
-                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                <td style="text-align: right"><b>{{ number_format($total ?? 0, 2) }}</b>
-                                                </td>
-                                                <td style="text-align: right"><b>{{ number_format($total2 ?? 0, 2) }}</b>
-                                                </td>
-                                                <td style="text-align: right"><b>0</b></td>
-                                                <td style="text-align: right"><b>{{ number_format($total3 ?? 0, 2) }}</b>
-                                                </td>
-                                                <td style="text-align: right"><b>0</b></td>
-                                                <td style="text-align: right"><b>{{ number_format($total4 ?? 0, 2) }}</b>
-                                                </td>
-                                                <td style="text-align: right"><b>{{ number_format($total5 ?? 0, 2) }}</b>
-                                                </td>
-
-                                                {{-- <td style="text-align: right"><b>{{ number_format($totalb2 ??  0,2) }}</b></td>
+                                                                            {{-- <td style="text-align: right"><b>{{ number_format($totalb2 ??  0,2) }}</b></td>
                                                                 <td style="text-align: right"><b>{{ number_format($totalb3 ??  0,2) }}</b></td>
                                                                 <td style="text-align: right"><b>{{ number_format($totalb4 ??  0,2) }}</b></td> --}}
 
-                                                <td colspan="2"></td>
-                                                {{-- <td></td> --}}
+                                                                            <td colspan="2"></td>
+                                                                            {{-- <td></td> --}}
 
-                                            </tr>
+                                                                        </tr>
 
-                                            <br>
+                                                                        <br>
 
-                                        </tbody>
+                                </tbody>
 
-                                    </table>
+                            </table>
 
-                                </div>
+                        </div>
 
-                <div class="form-group" style="padding-top: 20px; ">
-                    {{--<div class="text-left col-md-5">
+                        <div class="form-group" style="padding-top: 20px; ">
+                            {{-- <div class="text-left col-md-5">
                          <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
                             style="float: left">Sebelumnya</a>
                     </div>
-                    <div class="text-right col-md-7">--}}
-                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                        data-target="#next">Simpan & Seterusnya</button>
-                </div>
+                    <div class="text-right col-md-7"> --}}
+                            <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                                data-target="#next">Simpan & Seterusnya</button>
+                        </div>
 
-                <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    PENGESAHAN</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Anda pasti mahu menyimpan maklumat ini?
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                </button>
-                                <a href="{{ route('pusatsimpan.paparpenyata') }}" type="button"
-                                    class="btn btn-primary ml-1">
+                        <!-- Vertically Centered modal Modal -->
+                        <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                            PENGESAHAN</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Anda pasti mahu menyimpan maklumat ini?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                        </button>
+                                        <a href="{{ route('pusatsimpan.paparpenyata') }}" type="button"
+                                            class="btn btn-primary ml-1">
 
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Ya</span>
-                                </a>
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Ya</span>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+
+
                     </div>
+                    <br>
+                    </form>
+
                 </div>
-
-
-
             </div>
-            <br>
-            </form>
+        @endsection
+        @section('scripts')
+        <script>
 
-        </div>
-    </div>
+            function invoke_bt2(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e07b3'+key).focus();
+                    }
 
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
-
-    <script src="assets/js/main.js"></script>
-
-    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
-
-    @endsection
-    @section('scripts')
-    <script>
-        function invokeFunc() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e07bt_terima').focus();
-                }
-
-            });
-        }
-
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
-    <script>
-        function invokeFunc2() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e07bt_edaran').focus();
-                }
-
-            });
-        }
-
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
-    <script>
-        function invokeFunc3() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e07bt_pelarasan').focus();
-                }
-
-            });
-        }
-
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
-    <script>
-        function invokeFunc4() {
-            addEventListener('keydown', function(evt) {
-                var whichKey = checkKey(evt);
-                if (whichKey == 13) {
-                    console.log('successful');
-                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e07bt_stokakhir').focus();
-                }
-
-            });
-        }
-
-        function checkKey(evt) {
-            console.log(evt.which);
-            return evt.which;
-        }
-    </script>
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
-
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
-
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
-    <script>
-        function onlyNumberKey(evt) {
-
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
-    <script>
-        document.addEventListener('keypress', function (e) {
-            if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
-                return false;
+                });
             }
 
-        });
-    </script>
-    <script language="javascript" type="text/javascript">
-        function FormatCurrency(ctrl) {
-            //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
-            if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
-                return;
+            function invoke_bt3(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e07b5'+key).focus();
+                    }
+
+                });
             }
 
-            var val = ctrl.value;
+            function invoke_bt5(key) {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e07b8'+key).focus();
+                    }
 
-            val = val.replace(/,/g, "")
-            ctrl.value = "";
-            val += '';
-            x = val.split('.');
-            x1 = x[0];
-            x2 = x.length > 1 ? '.' + x[1] : '';
-
-            var rgx = /(\d+)(\d{3})/;
-
-            while (rgx.test(x1)) {
-                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                });
             }
 
-            ctrl.value = x1 + x2;
-        }
-    </script>
 
-    <script>
-        $('.sub-form').submit(function() {
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e07bt_terima').focus();
+                        }
 
-            var x = $('#e07bt_stokawal').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_stokawal').val(x);
+                    });
+                }
 
-            var x = $('#e07bt_terima').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_terima').val(x);
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e07bt_edaran').focus();
+                        }
 
-            var x = $('#e07bt_import').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_import').val(x);
+                    });
+                }
 
-            var x = $('#e07bt_edaran').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_edaran').val(x);
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc3() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e07bt_stokakhir').focus();
+                        }
 
-            var x = $('#e07bt_eksport').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_eksport').val(x);
+                    });
+                }
 
-            var x = $('#e07bt_pelarasan').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_pelarasan').val(x);
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc4() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e07bt_stokakhir').focus();
+                        }
 
-            var x = $('#e07bt_stokakhir').val();
-            x = x.replace(/,/g, '');
-            x = parseFloat(x, 10);
-            $('#e07bt_stokakhir').val(x);
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                $(document).ready(function() {
+                    var table = $('#example').DataTable({
+                        "language": {
+                            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                            "zeroRecords": "Maaf, tiada rekod.",
+                            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                            "infoEmpty": "Tidak ada rekod yang tersedia",
+                            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                            "search": "Carian",
+                            "previous": "Sebelum",
+                            "paginate": {
+                                "first": "Pertama",
+                                "last": "Terakhir",
+                                "next": "Seterusnya",
+                                "previous": "Sebelumnya"
+                            },
+                        },
+                    });
+                });
+
+                $(window).on('changed', (e) => {
+                    // if($('#example').DataTable().clear().destroy()){
+                    // $('#example').DataTable();
+                    // }
+                });
+
+                // document.getElementById("form_type").onchange = function() {
+                //     myFunction()
+                // };
+
+                // function myFunction() {
+                //     console.log('asasa');
+                //     table.clear().draw();
+                // }
+            </script>
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on the button, open the modal
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+            <script>
+                function onlyNumberKey(evt) {
+
+                    // Only ASCII charactar in that range allowed
+                    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                        return false;
+                    return true;
+                }
+            </script>
+            <script>
+                document.addEventListener('keypress', function(e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+            </script>
+            <script language="javascript" type="text/javascript">
+                function FormatCurrency(ctrl) {
+                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                        return;
+                    }
+
+                    var val = ctrl.value;
+
+                    val = val.replace(/,/g, "")
+                    ctrl.value = "";
+                    val += '';
+                    x = val.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+
+                    ctrl.value = x1 + x2;
+                }
+            </script>
+
+            <script>
+                $('.sub-form').submit(function() {
+
+                    var x = $('#e07bt_stokawal').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_stokawal').val(x);
+
+                    var x = $('#e07bt_terima').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_terima').val(x);
+
+                    var x = $('#e07bt_import').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_import').val(x);
+
+                    var x = $('#e07bt_edaran').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_edaran').val(x);
+
+                    var x = $('#e07bt_eksport').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_eksport').val(x);
+
+                    var x = $('#e07bt_pelarasan').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_pelarasan').val(x);
+
+                    var x = $('#e07bt_stokakhir').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e07bt_stokakhir').val(x);
 
 
-            return true;
+                    return true;
 
-    });
-    </script>
+                });
+            </script>
 
-    </body>
+            </body>
 
-    </html>
-    @endsection
-
+            </html>
+        @endsection

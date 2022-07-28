@@ -42,7 +42,7 @@ class EBioC extends Model
     }
 
     public function ebiocc(){
-        return $this->hasMany(EBioCC::class,'ebio_cc2', 'ebio_c3');
+        return $this->hasOne(EBioCC::class,'ebio_reg', 'ebio_reg');
     }
 
     public function produk(){

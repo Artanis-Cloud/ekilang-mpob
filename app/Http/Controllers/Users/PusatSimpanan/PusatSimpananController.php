@@ -370,7 +370,7 @@ class PusatSimpananController extends Controller
             'e07bt_stokawal' => ['required', 'string'],
             'e07bt_terima' => ['required', 'string'],
             'e07bt_edaran' => ['required', 'string'],
-            'e07bt_pelarasan' => ['required', 'string'],
+            // 'e07bt_pelarasan' => ['required', 'string'],
             'e07bt_stokakhir' => ['required', 'string'],
         ]);
     }
@@ -387,7 +387,7 @@ class PusatSimpananController extends Controller
             // 'e07bt_import' => '0',
             'e07bt_edaran' => $data['e07bt_edaran'],
             // 'e07bt_eksport' => '0',
-            'e07bt_pelarasan' => $data['e07bt_pelarasan'],
+            // 'e07bt_pelarasan' => $data['e07bt_pelarasan'],
             'e07bt_stokakhir' => $data['e07bt_stokakhir'],
         ]);
         // return $data;
@@ -405,21 +405,27 @@ class PusatSimpananController extends Controller
 
     public function pusatsimpan_edit_bahagian_a(Request $request, $id)
     {
-        // $produk = Produk::where('prodname', $request->e07bt_produk)->first();
-        // dd($produk);
-        // $prodcat2 = ProdCat2::where('catname', $request->e101_b5)->first();
+        $e07bt_stokawal = $request->e07bt_stokawal;
+        $e07bt_terima = $request->e07bt_terima;
+        $e07bt_edaran = $request->e07bt_edaran;
+        $e07bt_stokakhir = $request->e07bt_stokakhir;
+        $bt2 = str_replace(',', '', $e07bt_stokawal);
+        $bt3 = str_replace(',', '', $e07bt_terima);
+        $bt4 = str_replace(',', '', $e07bt_edaran);
+        $bt5 = str_replace(',', '', $e07bt_stokakhir);
+
 
 
         // dd($request->all());
         $penyata = E07Btranshipment::findOrFail($id);
         // $penyata->e07bt_produk = $produk->prodid;
-        $penyata->e07bt_stokawal = $request->e07bt_stokawal;
-        $penyata->e07bt_terima = $request->e07bt_terima;
-        $penyata->e07bt_import = $request->e07bt_import;
-        $penyata->e07bt_edaran = $request->e07bt_edaran;
-        $penyata->e07bt_eksport = $request->e07bt_eksport;
-        $penyata->e07bt_pelarasan = $request->e07bt_pelarasan;
-        $penyata->e07bt_stokakhir = $request->e07bt_stokakhir;
+        $penyata->e07bt_stokawal = $bt2;
+        $penyata->e07bt_terima = $bt3;
+        // $penyata->e07bt_import = $request->e07bt_import;
+        $penyata->e07bt_edaran = $bt4;
+        // $penyata->e07bt_eksport = $request->e07bt_eksport;
+        // $penyata->e07bt_pelarasan = $request->e07bt_pelarasan;
+        $penyata->e07bt_stokakhir = $bt5;
         $penyata->save();
 
 

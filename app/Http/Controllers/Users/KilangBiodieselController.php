@@ -892,13 +892,15 @@ class KilangBiodieselController extends Controller
             $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
 
-            $senarai_syarikat = EBioCC::with('ebioinit')->where('ebio_reg', $user->ebio_reg)->get();
-            // dd($senarai_syarikat[0]->ebio_cc1);
+            $senarai_syarikat = EBioCC::with('ebioinit','syarikat')->where('ebio_reg', $user->ebio_reg)->get();
+            // dd($penyata);
 
+            $syarikat = SyarikatPembeli::get();
 
             return view('users.KilangBiodiesel.bio-maklumat-jualan', compact(
                 'returnArr',
                 'senarai_syarikat',
+                'syarikat',
                 'user',
                 'penyata',
                 'bulan',
