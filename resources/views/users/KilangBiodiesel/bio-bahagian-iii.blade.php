@@ -309,9 +309,9 @@
                                                 <td>{{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                 <td>{{ number_format($data->ebio_c7 ?? 0, 2) }}</td>
                                                 @if ($data->produk->prodid == 'AW')
-                                                    <td> {{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp; <a href="{{ route('bio.maklumat.jualan', $data->e_id) }}">
-                                                               <i
-                                                                class="far fa-file-alt" style="color: blue; cursor: pointer;"></i></a>
+                                                    <td> {{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp;
+                                                        {{-- <a href="{{ route('bio.maklumat.jualan', $data->e_id) }}"> --}}
+                                                               <i class="far fa-file-alt" style="color: blue; cursor: pointer;" data-toggle="modal" data-target="#modal{{ $key }}"></i></a>
                                                     </td>
                                                 @else
                                                     <td>{{ number_format($data->ebio_c8 ?? 0, 2) }}</td>
@@ -647,45 +647,25 @@
                                                     <td><input type="text" id="ebio_cc4" class="form-control"
                                                         placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
                                                         value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
-                                                            <td style="size: 10ch"><input type="button" class="add"
-                                                                    onclick="add_row();" value="Tambah Maklumat">
-                                                            </td>
+
 
                                                         </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        {{-- @endforeach --}}
+                                                        <td><input type="text" id="new_syarikat{{ $key }}[]"
+                                                                name='new_syarikat{{ $key }}[]'></td>
+                                                        <td><input type="text" id="new_jumlah{{ $key }}[]"
+                                                                name='new_jumlah{{ $key }}[]'></td>
+                                                        <td><input type="button" class="add"
+                                                                onclick="add_row1({{ $key }});" value="Tambah Maklumat">
+                                                        </td>
+                                                    </tr>
 
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <table align='center' cellspacing=2 cellpadding=5
-                                            id="data_table{{ $key }}" border=1>
-                                            <tr>
-                                                <th>Nama Syarikat</th>
-                                                <th>Jumlah Jualan / Edaran</th>
-                                            </tr>
-                                            <tr style="text-align: right">
-                                                {{-- <td class="text-center">{{ $key+1 }}</td> --}}
-                                                <td><input type="text" id="ebio_cc3" class="form-control"
-                                                        placeholder="Nama Syarikat" name="ebio_cc3[]"
-                                                        value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}">
-                                                </td>
-                                                <td><input type="text" id="ebio_cc4" class="form-control"
-                                                        placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
-                                                        value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
-
-                                            </tr>
-                                            <tr>
-                                                {{-- @endforeach --}}
-                                                <td><input type="text" id="new_syarikat{{ $key }}[]"
-                                                        name='new_syarikat{{ $key }}[]'></td>
-                                                <td><input type="text" id="new_jumlah{{ $key }}[]"
-                                                        name='new_jumlah{{ $key }}[]'></td>
-                                                <td><input type="button" class="add"
-                                                        onclick="add_row1({{ $key }});" value="Tambah Maklumat">
-                                                </td>
-                                            </tr>
-
-                                        </table>
+                            
 
 
                                     </div>

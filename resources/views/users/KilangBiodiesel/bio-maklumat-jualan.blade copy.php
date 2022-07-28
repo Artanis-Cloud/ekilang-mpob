@@ -96,75 +96,77 @@
 
                         </div>
                         <hr>
-                        @foreach ($penyata as $key => $data)
+                        <form action="{{ route('bio.update.bahagian.iii.sykt', [$senarai_syarikat[0]->ebio_cc1]) }}"
+                            method="post">
+                            @csrf
+                            <section class="section">
+                                <div class="card">
 
-                                    <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebiocc->ebio_cc1) }}"
-                                        method="post">
-                                        @csrf
+                                    <br>
+                                    @foreach ($penyata as $key => $data)
 
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered" style="font-size: 13px"
-                                                    id="data_table{{ $key }}">
-                                                    <thead style="text-align: center">
-                                                        <tr style="vertical-align: middle">
-                                                            <th style="vertical-align: middle; ">Bil</th>
-                                                            <th style="vertical-align: middle; ">Nama Syarikat</th>
-                                                            <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($data->ebiocc as $ebiocc_data)
-                                                            <tr>
+                                    <div class="table-responsive col-10 ml-auto mr-auto" id="data_table{{ $key }}">
+                                        <table class="table table-bordered text-center" style="width: 100%;">
+                                            <thead>
+                                                <tr style="background-color: #e9ecefbd;  word-wrap:normal">
+                                                    <th>Bil.</th>
+                                                    <th>Nama Syarikat</th>
+                                                    <th colspan="2">Jumlah Jualan/Edaran</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="word-break: break-word; font-size:12px">
+                                                @foreach ($data->ebiocc as $ebiocc_data)
+                                                    <tr class="text-left">
+                                                        <td>{{ $loop->iteration }}
+                                                        </td>
+                                                        <td style="text-align: center">{{ $data->ebiocc->ebio_cc3 ?? 0 }}
+                                                        </td>
+                                                        <td style="text-align: center" colspan="2"><input type="text"
+                                                                size="10" name='ebio_cc4' id='4bio_cc4'
+                                                                style="text-align: center; width:50%" required
+                                                                oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                                oninput="this.setCustomValidity('')"
+                                                                onkeyup="FormatCurrency(this)"
+                                                                onkeypress="return isNumberKey(event)"
+                                                                value="{{ $data->ebiocc->ebio_cc4 ?? 0 }}"></td>
 
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td><input type="text" id="ebio_cc3" class="form-control"
-                                                                        placeholder="Nama Syarikat" name="ebio_cc3[]"
-                                                                        value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}" readonly></td>
-                                                                {{-- <div class="modal-body">
-                                                    <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
-                                                        <tr>
-                                                            <th>Nama Syarikat</th>
-                                                            <th>Jumlah Jualan / Edaran</th>
-                                                        </tr>
-                                                        <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
-                                                        <td><input type="text" id="ebio_cc4" class="form-control"
-                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
-                                                            value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
+                                                        {{-- <td>-</td> --}}
+                                                    </tr>
+                                                    @endforeach
 
-
-                                                            </tr>
+                                                    <tr class="text-left">
+                                                        <td><input type="text" id="new_syarikat{{ $key }}[]"
+                                                                name='new_syarikat{{ $key }}[]'></td>
+                                                        <td><input type="text" id="new_jumlah{{ $key }}[]"
+                                                                name='new_jumlah{{ $key }}[]'></td>
+                                                        <td><input type="button" class="add"
+                                                                onclick="add_row1({{ $key }});"
+                                                                value="Tambah Maklumat">
+                                                        </td>
+                                                        {{-- <td></td>
+                                                    <td><select class="form-control select2 " id="new_syarikat[]"
+                                                        name="new_syarikat[]" required onchange="showDetail()"
+                                                        oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal('')">
+                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        @foreach ($syarikat as $data)
+                                                            <option value="{{ $data->id }}">
+                                                                {{ $data->pembeli }}
+                                                            </option>
                                                         @endforeach
-                                                        <tr>
-                                                            {{-- @endforeach --}}
-                                                            <td><input type="text" id="new_syarikat{{ $key }}[]"
-                                                                    name='new_syarikat{{ $key }}[]'></td>
-                                                            <td><input type="text" id="new_jumlah{{ $key }}[]"
-                                                                    name='new_jumlah{{ $key }}[]'></td>
-                                                            <td><input type="button" class="add"
-                                                                    onclick="add_row1({{ $key }});" value="Tambah Maklumat">
-                                                            </td>
-                                                        </tr>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                    </select></td>
+                                                    <td><input type="text" id="new_jumlah[]" name='new_jumlah[]'></td>
+                                                <td style="size: 10ch"><input type="button" class="add"
+                                                        onclick="add_row();" value="Tambah Maklumat">
+                                                </td> --}}
+                                                        {{-- <td>-</td> --}}
+                                                    </tr>
 
+                                            </tbody>
+                                            @endforeach
 
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Batal</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1">
-                                                <i class=" bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Kemaskini</span>
-                                            </button>
-                                        </div>
-                                    </form>
-
-                    @endforeach
+                                        </table>
                                         <div class="col-md-12 mt-3">
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#next" style="float: right">
