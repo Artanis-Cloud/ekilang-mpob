@@ -882,13 +882,13 @@
                                             <p>
                                                 <div class="required">Nama Pegawai Melapor:</div>
                                                 <input type="text" id="e_npg" class="form-control" size="50"
-                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc()"
                                                     name='e102_npg' value="{{ $penyatai->e102_npg }}" required>
                                             </p>
                                             <p>
                                                 <div class="required">Jawatan Pegawai Melapor:</div>
                                                 <input type="text" id="e_jpg" class="form-control" size="50"
-                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc2()"
                                                     name='e102_jpg' value="{{ $penyatai->e102_jpg }}" required>
                                             </p>
                                             <p>
@@ -995,6 +995,42 @@
             }
 
         });
+    </script>
+    <script>
+        function invokeFunc() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e_jpg').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc2() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e_notel').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
     </script>
 
     </body>

@@ -497,11 +497,27 @@ class KilangIsirungController extends Controller
                     ->with('error', 'Maklumat Telah Tersedia');
             }
         }
-        $penyata = E102b::findOrFail($id);
+
+        $e102_b6 = $request->e102_b6;
+        $b6 = str_replace(',', '', $e102_b6);
+
+
+
+        // dd($request->all());
+        $penyata = E102B::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
         $penyata->e102_b5 = $request->e102_b5;
-        $penyata->e102_b6 = $request->e102_b6;
+        $penyata->e102_b6 = $b6;
+
         $penyata->save();
+
+
+
+        // $penyata = E102b::findOrFail($id);
+        // $penyata->e102_b4 = $request->e102_b4;
+        // $penyata->e102_b5 = $request->e102_b5;
+        // $penyata->e102_b6 = $request->e102_b6;
+        // $penyata->save();
 
 
         return redirect()->route('isirung.bahagianiii')
@@ -667,12 +683,19 @@ class KilangIsirungController extends Controller
                     ->with('error', 'Maklumat Telah Tersedia');
             }
         }
-        $penyata = E102b::findOrFail($id);
+
+        $e102_b6 = $request->e102_b6;
+        $b6 = str_replace(',', '', $e102_b6);
+
+
+
+        // dd($request->all());
+        $penyata = E102B::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
         $penyata->e102_b5 = $request->e102_b5;
-        $penyata->e102_b6 = $request->e102_b6;
-        $penyata->save();
+        $penyata->e102_b6 = $b6;
 
+        $penyata->save();
 
         return redirect()->route('isirung.bahagianiv')
             ->with('success', 'Maklumat telah disimpan');
@@ -844,12 +867,18 @@ class KilangIsirungController extends Controller
             }
         }
         // dd($request->all());
-        $penyata = E102b::findOrFail($id);
+        $e102_b6 = $request->e102_b6;
+        $b6 = str_replace(',', '', $e102_b6);
+
+
+
+        // dd($request->all());
+        $penyata = E102B::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
         $penyata->e102_b5 = $request->e102_b5;
-        $penyata->e102_b6 = $request->e102_b6;
-        $penyata->save();
+        $penyata->e102_b6 = $b6;
 
+        $penyata->save();
 
         return redirect()->route('isirung.bahagianv')
             ->with('success', 'Maklumat telah disimpan');

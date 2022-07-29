@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="card" style="margin: 2%">
-            <form action="{{ route('isirung.update.bahagian.ii', [$penyata->e102_reg]) }}" method="post" onsubmit="return check()" novalidate>
+            <form action="{{ route('isirung.update.bahagian.ii', [$penyata->e102_reg]) }}" method="post" class="sub-form" onsubmit="return check()" novalidate>
                 @csrf
                 <div class="card-body">
 
@@ -98,8 +98,8 @@
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al1'
-                                    id="e102_al1" required onkeypress="return isNumberKey(event)" max="99" required
-                                    title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                    id="e102_al1" required onkeypress="return isNumberKey(event)" max="99" required onchange="FormatCurrency(this)"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc()"
                                     value="{{ number_format($cpko ?? 0, 2) }}">
                                 {{-- @error('e102_al1')
                                     <div class="alert alert-danger">
@@ -116,8 +116,8 @@
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al2'
-                                    id="e102_al2" required onkeypress="return isNumberKey(event)"
-                                    title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                    id="e102_al2" required onchange="FormatCurrency(this)" onkeypress="return isNumberKey(event)"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc2()"
                                     value="{{ number_format($pkc ?? 0, 2) }}">
                                 @error('e102_al2')
                                     <div class="alert alert-danger">
@@ -134,8 +134,8 @@
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al3'
-                                    id="e102_al3" onkeypress="return isNumberKey(event)" required
-                                    title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                    id="e102_al3" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc3()"
                                     value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
                                 @error('e102_al3')
                                     <div class="alert alert-danger">
@@ -152,8 +152,8 @@
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al4'
-                                    id="e102_al4" onkeypress="return isNumberKey(event)" required
-                                    title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                    id="e102_al4" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc4()"
                                     value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
                                 @error('e102_al4')
                                     <div class="alert alert-danger">
@@ -255,6 +255,112 @@
 
     });
 </script>
+<script>
+    function invokeFunc() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e102_al2').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc2() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e102_al3').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc3() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e102_al4').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+
+<script language="javascript" type="text/javascript">
+    function FormatCurrency(ctrl) {
+        //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+        if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+            return;
+        }
+
+        var val = ctrl.value;
+
+        val = val.replace(/,/g, "")
+        ctrl.value = "";
+        val += '';
+        x = val.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+
+        var rgx = /(\d+)(\d{3})/;
+
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+
+        ctrl.value = x1 + x2;
+    }
+</script>
+<script>
+    $('.sub-form').submit(function() {
+
+        var x = $('#e102_al1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e102_al1').val(x);
+
+        var x = $('#e102_al2').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e102_al2').val(x);
+
+        var x = $('#e102_al3').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e102_al3').val(x);
+
+        var x = $('#e102_al4').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#e102_al4').val(x);
+        return true;
+
+                });
+            </script>
 {{--
             <script>
                 window.onload = function() {

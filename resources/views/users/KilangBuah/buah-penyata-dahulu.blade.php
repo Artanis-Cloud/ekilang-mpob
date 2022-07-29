@@ -138,7 +138,7 @@
                     class="bi bi-arrow-up-short"></i></a>
         @endsection
         @section('scripts')
-   
+
           <script type="text/javascript">
             window.onload = function () {
                 //Reference the DropDownList.
