@@ -8234,7 +8234,7 @@ sidebar navigation
     .sidebar-nav ul .sidebar-item .first-level {
       padding: 0 0 10px 0; }
       .sidebar-nav ul .sidebar-item .first-level > .sidebar-item.active > .sidebar-link {
-        opacity: 1; }
+        opacity: 1; font-weight: bold; background: rgba(0, 0, 0, 0.1); }
       .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link {
         padding: 10px 15px; }
         .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link i {
