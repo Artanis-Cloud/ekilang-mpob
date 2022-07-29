@@ -852,7 +852,7 @@
 
                 <h1 style="page-break-before:always"></h1>
 
-               
+
         </div>
 
 
@@ -889,6 +889,7 @@
 
     <script>
         function myPrint(myfrm) {
+            document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
             var printdata = document.getElementById(myfrm);
             newwin = window.open("");
             newwin.document.write(printdata.outerHTML);

@@ -500,7 +500,7 @@
 
                 </div>
             </div>
-        </div>
+       
 
 
     @endsection

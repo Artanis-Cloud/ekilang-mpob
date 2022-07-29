@@ -1,6 +1,7 @@
 @extends($layout)
 
 @section('content')
+
     <!-- ======= Hero Section ======= -->
     <div class="page-wrapper">
 
@@ -794,7 +795,7 @@
 
                 <h1 style="page-break-before:always"></h1>
 
-               
+
         </div>
 
     </div>
@@ -805,6 +806,11 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
+    {{-- <style>
+        @media print{
+            * {font-family: Arial;}
+        }
+    </style> --}}
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
     <script type="text/javascript">
@@ -823,6 +829,7 @@
 
 <script>
     function myPrint(myfrm) {
+        document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
         var printdata = document.getElementById(myfrm);
         newwin = window.open("");
         newwin.document.write(printdata.outerHTML);

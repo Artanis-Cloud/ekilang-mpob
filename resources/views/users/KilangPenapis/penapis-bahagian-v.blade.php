@@ -323,7 +323,7 @@
                                                                         oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd7({{ $data->e101_d1 }}) "
                                                                         value="{{ number_format($data->e101_d7 ,2) }}" required>
                                                                 </div>
-                                                                <label class="required">PPKO </label>
+                                                                <label class="required">PPKO </label> 
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_d8' id="e101_sd8{{ $data->e101_d1 }}"
                                                                         onkeypress="return isNumberKey(event)"

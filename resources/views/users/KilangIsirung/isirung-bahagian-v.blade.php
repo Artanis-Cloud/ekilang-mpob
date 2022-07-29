@@ -85,7 +85,8 @@
                                     <span class="">Jualan/Edaran:</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b4" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')" name="e102_b4" required>
+                                    <select class="form-control" id="e102_b4" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                    oninput="this.setCustomValidity('');invokeFunc()" name="e102_b4" required>
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($prodcat as $data)
                                             <option value="{{ $data->catid }}">
@@ -104,7 +105,8 @@
                                     <span class="">Ke:</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b5" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')"
+                                    <select class="form-control" id="e102_b5" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                    oninput="this.setCustomValidity('');invokeFunc2()"
                                         name="e102_b5" required>
                                         <option selected hidden disabled value="">Sila Pilih</option>
 
@@ -128,7 +130,8 @@
                                     <span class="">Kuantiti:</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                    oninput="this.setCustomValidity('');invokeFunc3()"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini." onkeyup="FormatCurrency(this)">
                                         @error('e102_b6')
                                         <div class="alert alert-danger">
@@ -228,7 +231,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b4"
-                                                                            name="e102_b4">
+                                                                            name="e102_b4"  oninput="enableKemaskini({{ $data->e102_b1 }})" required>
                                                                             <option hidden value="{{ $data->e102_b4 }}">
                                                                                 {{ $data->kodsl->catname ?? '' }}
                                                                             </option>
@@ -249,7 +252,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b5"
-                                                                            name="e102_b5">
+                                                                            name="e102_b5" oninput="enableKemaskini({{ $data->e102_b1 }})" required>
                                                                             <option selected hidden
                                                                                 value="{{ $data->prodcat2->catid ?? '' }}">
                                                                                 {{ $data->prodcat2->catname ?? '' }}
@@ -263,8 +266,9 @@
                                                                 </div>
                                                                 <label class="required">Kuantiti </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e102_b6' class="form-control" oninput="validate_two_decimal(this)"
-                                                                        id='e102_b6' onkeypress="return isNumberKey(event)"
+                                                                    <input type="text" name='e102_b6' class="form-control" onchange="autodecimal(this);FormatCurrency(this)"
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})"
+                                                                        id="e102_sb6{{ $data->e102_b1 }}" onkeypress="return isNumberKey(event)"
                                                                         value="{{ old('e102_b6') ?? $data->e102_b6 }}">
                                                                 </div>
                                                             </div>
@@ -278,7 +282,7 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e102_b1 }}">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -396,7 +400,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b4"
-                                                                            name="e102_b4">
+                                                                            name="e102_b4" oninput="enableKemaskini({{ $data->e102_b1 }})">
                                                                             <option hidden value="{{ $data->e102_b4 }}">
                                                                                 {{ $data->kodsl->catname ?? '' }}
                                                                             </option>
@@ -417,7 +421,7 @@
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b5"
-                                                                            name="e102_b5">
+                                                                            name="e102_b5" oninput="enableKemaskini({{ $data->e102_b1 }})">
                                                                             <option selected hidden
                                                                                 value="{{ $data->prodcat2->catid ?? '' }}">
                                                                                 {{ $data->prodcat2->catname ?? '' }}
@@ -434,8 +438,9 @@
                                                                 </div>
                                                                 <label class="required">Kuantiti </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e102_b6' oninput="validate_two_decimal(this)"
-                                                                        class="form-control" id='e102_b6'
+                                                                    <input type="text" name='e102_b6'
+                                                                        oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" id="e102_eb6{{ $data->e102_b1 }}" onchange="autodecimal(this);FormatCurrency(this)"
                                                                         value="{{ old('e102_b6') ?? $data->e102_b6 }}">
                                                                 </div>
                                                             </div>
@@ -449,7 +454,7 @@
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Batal</span>
                                                         </button>
-                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                        <button type="submit" class="btn btn-primary ml-1" disabled id="kemaskini{{ $data->e102_b1 }}">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                         </button>
@@ -720,6 +725,42 @@
             return true;
 
     });
+    </script>
+    <script>
+        function invokeFunc() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e102_b5').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc2() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e102_b6').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
     </script>
     </body>
 
