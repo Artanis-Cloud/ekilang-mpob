@@ -893,9 +893,12 @@ class KilangBiodieselController extends Controller
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
 
             $senarai_syarikat = EBioCC::with('ebioinit','syarikat')->where('ebio_reg', $user->ebio_reg)->get();
-            // dd($penyata);
+            // dd($senarai_syarikat);
 
             $syarikat = SyarikatPembeli::get();
+
+            $seq = EBioCC::where('ebio_reg', $user->ebio_reg)->count();
+            // dd($seq);
 
             return view('users.KilangBiodiesel.bio-maklumat-jualan', compact(
                 'returnArr',
@@ -905,6 +908,7 @@ class KilangBiodieselController extends Controller
                 'penyata',
                 'bulan',
                 'tahun',
+                'seq',
             ));
 
         // $penyata = [];
@@ -1074,9 +1078,9 @@ class KilangBiodieselController extends Controller
 
     public function bio_edit_bahagian_iii_sykt(Request $request, $id)
     {
-
+        // dd($request->all());
         $penyata = EBioC::findOrFail($id);
-        $syarikat = EBioCC::where('ebio_cc2', $penyata->ebio_c3)->get();
+        $syarikat = EBioCC::where('ebio_reg', $penyata->ebio_reg)->get();
         $count = EBioCC::max('ebio_cc1');
         // dd($syarikat);
         foreach ($syarikat as $key => $data) {
@@ -1084,30 +1088,48 @@ class KilangBiodieselController extends Controller
         }
         // dd($syarikat);
 
-        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
         // dd($ebio_reg);
-        foreach ($data['jumlah_row_hidden'] as $key => $value) {
-            $bio = EBioCC::create([
-                'ebio_reg' => $ebio_reg->ebio_reg,
-                'ebio_cc2' => $data['ebio_c3'],
-                'ebio_cc3' => $data['new_syarikat_hidden'][$key],
-                'ebio_cc4' => $data['jumlah_row_hidden'][$key],
-
-            ]);
+        if($request->new_syarikat_hidden){
+            foreach ($request->new_syarikat_hidden as $key => $value) {
+                $bio = EBioCC::create([
+                    'ebio_reg' => $penyata->ebio_reg,
+                    'ebio_cc2' => 'AW',
+                    'ebio_cc3' => $request->new_syarikat_hidden[$key],
+                    'ebio_cc4' => $request->jumlah_row_hidden[$key],
+                ]);
+            }
         }
-        return $bio;
 
-        foreach ($syarikat as $key => $syarikats) {
-            $ebio_cc2 = $penyata->ebio_c3;
-            $ebio_reg = $penyata->ebio_reg;
-            $query = EBioCC::create([
-                'ebio_cc1' => $count + 1,
-                'ebio_reg' => $ebio_reg,
-                'ebio_cc2' => $ebio_cc2,
-                'ebio_cc3' => now()->year,
-                'ebio_cc4' => '1',
-            ]);
+        if($request->ebio_cc3){
+            foreach ($request->ebio_cc3 as $key => $value) {
+                $syarikat_id = SyarikatPembeli::where('pembeli', $value)->first();
+                $bio = EBioCC::create([
+                    'ebio_reg' => $penyata->ebio_reg,
+                    'ebio_cc2' => 'AW',
+                    'ebio_cc3' => $syarikat_id->id,
+                    'ebio_cc4' => $request->ebio_cc4[$key],
+                ]);
+            }
         }
+
+
+        // return $bio;
+        // dd($bio);
+
+        // foreach ($syarikat as $key => $syarikats) {
+        //     $ebio_cc2 = $penyata->ebio_c3;
+        //     $ebio_reg = $penyata->ebio_reg;
+        //     $query = EBioCC::create([
+        //         'ebio_cc1' => $count + 1,
+        //         'ebio_reg' => $ebio_reg,
+        //         'ebio_cc2' => $ebio_cc2,
+        //         'ebio_cc3' => now()->year,
+        //         'ebio_cc4' => '1',
+        //     ]);
+        // }
+
+        return redirect()->back();
     }
 
     // public function bio_edit_bahagian_iii_sykt(Request $request, $id)

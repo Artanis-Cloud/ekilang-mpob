@@ -96,31 +96,31 @@
 
                         </div>
                         <hr>
-                        @foreach ($penyata as $key => $data)
+                        {{-- @foreach ($penyata as $key => $data) --}}
 
-                                    <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebiocc->ebio_cc1) }}"
+                                    <form action="{{ route('bio.edit.bahagian.iii.sykt', $penyata[0]->ebio_c1) }}"
                                         method="post">
                                         @csrf
 
-                                            <div class="table-responsive">
+                                            <div class="table-responsive col-10 ml-auto mr-auto">
                                                 <table class="table table-bordered" style="font-size: 13px"
-                                                    id="data_table{{ $key }}">
+                                                    id="data_table">
                                                     <thead style="text-align: center">
                                                         <tr style="vertical-align: middle">
                                                             <th style="vertical-align: middle; ">Bil</th>
                                                             <th style="vertical-align: middle; ">Nama Syarikat</th>
-                                                            <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
-                                                            <th></th>
+                                                            <th style="vertical-align: middle;" colspan="2">Jumlah Jualan / Edaran</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($data->ebiocc as $ebiocc_data)
+                                                        @foreach ($senarai_syarikat as $data)
                                                             <tr>
 
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                <td><input type="text" id="ebio_cc3" class="form-control"
+                                                                <td><input type="text" id="ebio_cc3" class="form-control" style="text-align: center"
                                                                         placeholder="Nama Syarikat" name="ebio_cc3[]"
-                                                                        value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}" readonly></td>
+                                                                        value="{{ $data->syarikat->pembeli ?? 0 }}" readonly></td>
                                                                 {{-- <div class="modal-body">
                                                     <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
                                                         <tr>
@@ -128,21 +128,30 @@
                                                             <th>Jumlah Jualan / Edaran</th>
                                                         </tr>
                                                         <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
-                                                        <td><input type="text" id="ebio_cc4" class="form-control"
+                                                        <td colspan="2"><input type="text" id="ebio_cc4" class="form-control" style="text-align: center"
                                                             placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
-                                                            value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
+                                                            value="{{ $data->ebio_cc4 ?? 0 }}"></td>
 
 
                                                             </tr>
                                                         @endforeach
                                                         <tr>
                                                             {{-- @endforeach --}}
-                                                            <td><input type="text" id="new_syarikat{{ $key }}[]"
-                                                                    name='new_syarikat{{ $key }}[]'></td>
-                                                            <td><input type="text" id="new_jumlah{{ $key }}[]"
-                                                                    name='new_jumlah{{ $key }}[]'></td>
+                                                            <td></td>
+                                                            <td><select class="form-control select2 " id="new_syarikat[]"
+                                                                name="new_syarikat[]"  onchange="showDetail()">
+                                                                <option selected hidden disabled value="">Sila Pilih</option>
+                                                                @foreach ($syarikat as $data)
+                                                                    <option value="{{ $data->id }}">
+                                                                        {{ $data->pembeli }}
+                                                                    </option>
+                                                                @endforeach
+
+                                                            </select></td>
+                                                            <td><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
+                                                                    name='new_jumlah[]' placeholder="Jumlah Edaran"></td>
                                                             <td><input type="button" class="add"
-                                                                    onclick="add_row1({{ $key }});" value="Tambah Maklumat">
+                                                                    onclick="add_row();" value="Tambah Maklumat">
                                                             </td>
                                                         </tr>
 
@@ -151,8 +160,8 @@
                                             </div>
 
 
-
-                                        <div class="modal-footer">
+                                            <table id="cc3_4"></table>
+                                        {{-- <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block">Batal</span>
@@ -162,9 +171,9 @@
                                                 <span class="d-none d-sm-block">Kemaskini</span>
                                             </button>
                                         </div>
-                                    </form>
+                                    </form> --}}
 
-                    @endforeach
+                    {{-- @endforeach --}}
                                         <div class="col-md-12 mt-3">
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#next" style="float: right">
@@ -228,6 +237,43 @@
 @endsection
 
 @section('scripts')
+<script>
+    function add_row() {
+        // var seq = $seq;
+        // seq += 1
+        var new_syarikat = document.getElementById("new_syarikat[]").value;
+        var new_jumlah = document.getElementById("new_jumlah[]").value;
+        var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]").selectedIndex].text;
+        var table = document.getElementById("data_table");
+        var table_len = (table.rows.length) - 1;
+        var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td></td><td id='syarikat_row" +
+            table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
+            "</td><td><input type='hidden' id='jumlah_row" + table_len +
+            "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+            "> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
+
+        var table_input = document.getElementById("cc3_4");
+        var table_input_len = (table_input.rows.length);
+        var row_input = table_input.insertRow(table_input_len).outerHTML =
+            "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='jumlah_row_hidden" +
+            table_input_len +
+            "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+            "><input type='hidden' id='new_syarikat_hidden" + table_input_len +
+            "' name='new_syarikat_hidden[]' value=" + new_syarikat +
+            "></td></tr>";
+
+        document.getElementById("new_syarikat[]").value = "";
+        document.getElementById("new_jumlah[]").value = "";
+    }
+
+    function delete_row(no) {
+        document.getElementById("row" + no + "").outerHTML = "";
+        // document.getElementById("row_input" + no + "").outerHTML = "";
+
+        document.getElementById("jumlah_row_hidden" + (no - 1)).value = "";
+        document.getElementById("new_syarikat_hidden" + (no - 1)).value = "";
+    }
+</script>
     <script>
         function add_row1(key) {
             console.log("new_syarikat" + key + "[]");

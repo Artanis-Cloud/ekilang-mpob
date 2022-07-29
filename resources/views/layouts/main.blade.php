@@ -1138,7 +1138,7 @@
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.1daftarpelesen') }}" class="sidebar-link">
+                                        <a href="{{ route('admin.1daftarpelesen') }}" class="sidebar-link" class="{{ (request()->is('admin/1-daftarpelesen*')) ? 'selected' : '' }}">
                                             <i class="fas fa-user-plus" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Daftar Pelesen Baru </span>
                                         </a>
