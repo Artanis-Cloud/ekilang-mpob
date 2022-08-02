@@ -1473,7 +1473,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        Anda tidak dibenarkan akses bahagian ini
+                        Pemegang lesen tidak perlu melengkapkan maklumat di bahagian ini.
                     </p>
                 </div>
                 <div class="modal-footer">

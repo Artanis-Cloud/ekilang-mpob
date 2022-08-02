@@ -338,7 +338,7 @@
                                 @endforeach
                                 <tr>
 
-                                    <td colspan="2"><b>JUMLAH</b></td>
+                                    <td colspan="2"><b>JUMLAH (SENDIRI)</b></td>
                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                     <td style="text-align: right"><b><span name='total' id='total'>
                                                 {{ number_format($total, 2) }}</span></b>
@@ -513,7 +513,7 @@
                                     @csrf
                                     <tr>
 
-                                        <td colspan="2"><b>JUMLAH</b></td>
+                                        <td colspan="2"><b>JUMLAH (LUAR)</b></td>
                                         {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                         <td style="text-align: right"><b><span name='total2' id='total2'>
                                                     {{ number_format($total2, 2) }}</span></b>

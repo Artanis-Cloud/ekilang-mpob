@@ -108,7 +108,7 @@
                                     <select class="form-control select2" id="ebio_c3" name="ebio_c3" required
                                         onchange="showDetail()"
                                         oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
-                                        oninput="this.setCustomValidity('')">
+                                        oninput="this.setCustomValidity('');">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -191,15 +191,17 @@
 
                             </div>
 
-                            <div class="row">
+                            <div class="row" >
                                 <div class="col-md-3 mt-3">
                                     <span class="">Jualan / Edaran Tempatan </span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <input type="text" class="form-control" name='ebio_c8' style="width:100%; display:inline"
+                                    {{-- <div id="aw"> --}}
+                                    <input type="text" class="form-control" name='ebio_c8' style="width:100%;"
                                         id="ebio_c8" required onkeyup="FormatCurrency(this)" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">&nbsp;
+                                    {{-- </div> --}}
 
                                     <div id="merah_container" style="display:none" class="blink_me">
                                         <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
@@ -215,6 +217,7 @@
                                     @enderror
 
                                 </div>
+
                                 <div class="col-md-3 mt-3">
                                     <span class="">Eksport </span>
                                 </div>
@@ -814,6 +817,22 @@
             </form>
         @endsection
         @section('scripts')
+        {{-- <script>
+
+            function jualan() {
+                var produk = $('#ebio_c3').val();
+                    console.log(produk);
+
+                    if (produk == "AW") {
+                        // $('#ebio_c8').prop("readonly", true);
+                        $('#ebio_c8').attr('readonly', 'readonly');
+
+                    } else {
+                        $('#ebio_c8').removeAttr('readonly');
+
+                    }
+            }
+        </script> --}}
             <script>
                 function onlyNumberKey(evt) {
 
@@ -894,7 +913,7 @@
 
                 function delete_row1(no) {
                     document.getElementById("row" + key + "").outerHTML = "";
-                    // document.getElementById("row_input" + no + "").outerHTML = "";
+                    // document.getElementById("row_input" + no + "").outerHTML = "";lain_container
 
                     document.getElementById("jumlah_row_hidden1" + (no - 1)).value = "";
                     document.getElementById("new_syarikat_hidden1" + (no - 1)).value = "";
@@ -903,14 +922,24 @@
             <script type="text/javascript">
                 function showDetail() {
                     var produk = $('#ebio_c3').val();
-                    // console.log(oer);
+                    // const total = $produk2;
+                    console.log(produk);
 
                     if (produk == "AW") {
                         document.getElementById('merah_container').style.display = "block";
-                        document.getElementById('lain_container').style.display = "block";
+                        $('#ebio_c8').attr('readonly', 'readonly');
+                        $('#ebio_c8').attr('value', ' {{ $produk2 }}');
+
+                        // document.getElementById('isaw').style.display = "block";
+                        // document.getElementById('notaw').style.display = "none";
+                        // document.getElementById('lain_container').style.display = "block";
                     } else {
                         document.getElementById('merah_container').style.display = "none";
-                        document.getElementById('lain_container').style.display = "block";
+                        $('#ebio_c8').removeAttr('readonly');
+                        $('#ebio_c8').removeAttr('value');
+                        // document.getElementById('isaw').style.display = "none";
+                        // document.getElementById('notaw').style.display = "block";
+                        // document.getElementById('lain_container').style.display = "block";
 
                     }
 
