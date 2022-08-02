@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="card" style="margin-right:3%; margin-left:3%">
 
             <div class="card-body">
@@ -62,7 +62,7 @@
                     <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b
                         style="color: red"> *</b><i>'</i>
                     <form action="{{ route('buah.update.maklumat.asas.pelesen.cuba') }}" method="post" id="myform"
-                        onsubmit="return check()" novalidate>
+                        onsubmit="return check()" >
                         @csrf
                         <div class="container center" style="padding: 0%">
                             <div class="row justify-content-center" style="margin:20px 0px">
@@ -189,14 +189,13 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="email" id="e_email" class="form-control" maxlength=40
-                                        placeholder="Alamat Emel" name="e_email" required oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila masukkan alamat emel yang betul')"
+                                        placeholder="Alamat Emel" name="e_email" 
                                         value="{{ $pelesen->e_email }}">
-                                    {{-- @error('e_email')
+                                    @error('e_email')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
 

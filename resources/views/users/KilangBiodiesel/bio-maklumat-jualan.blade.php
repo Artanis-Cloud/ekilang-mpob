@@ -129,7 +129,7 @@
                                                         </tr>
                                                         <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
                                                         <td colspan="2"><input type="text" id="ebio_cc4" class="form-control" style="text-align: center"
-                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
+                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"  onkeypress="return isNumberKey(event)"
                                                             value="{{ $data->ebio_cc4 ?? 0 }}"></td>
 
 
@@ -149,7 +149,7 @@
 
                                                             </select></td>
                                                             <td><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
-                                                                    name='new_jumlah[]' placeholder="Jumlah Edaran"></td>
+                                                                    name='new_jumlah[]' placeholder="Jumlah Edaran"  onkeypress="return isNumberKey(event)"></td>
                                                             <td><input type="button" class="add"
                                                                     onclick="add_row();" value="Tambah Maklumat">
                                                             </td>

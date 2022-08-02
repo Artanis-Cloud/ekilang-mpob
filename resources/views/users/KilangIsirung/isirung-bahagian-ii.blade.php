@@ -82,7 +82,7 @@
                     <div class="mb-4 text-center">
                         <h3 style="color: rgb(39, 80, 71); ">Bahagian 2</h3>
                         <h5 style="color: rgb(39, 80, 71); font-size:14px">Kadar Perahan CPKO, Kadar Perolehan PKC, Jam
-                            Pengilangan dan Penggunaan Kapasiti Pemprosesan</h5>
+                            Pengilangan dan Kadar Penggunaan Kapasiti Pemprosesan</h5>
 
 
                     </div>

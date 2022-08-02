@@ -65,7 +65,7 @@
 
                     <div class=" text-center">
                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h3>
-                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Belian, Proses,
+                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Stok Awal, Belian, Proses,
                             Pengeluaran,
                             Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="col-12 mt-3">
                         <div class="row col-12">
                             <div class="mb-2 col-8" style="text-align: left">
-                                <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                                <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                             </div>
                             <div class="mb-2 col-4" style="text-align: right">
                                 <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
@@ -109,7 +109,7 @@
                                                     <th>Minyak Keladak (Sludge Oil)
                                                         <br> Kod 49
                                                     </th>
- 
+
 
                                                 </tr>
                                             </thead>
