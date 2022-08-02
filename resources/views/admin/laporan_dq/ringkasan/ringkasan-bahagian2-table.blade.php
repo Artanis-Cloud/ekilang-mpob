@@ -183,14 +183,14 @@
                                                     <div class="col-md-12 ">
                                                         <div class="form-group">
                                                             <label>&nbsp;</label>
-                                                            <select class="form-control" name="bulan" >
+                                                            <select class="form-control" name="start" >
                                                                 <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                                 <option value="01">Januari</option>
                                                                 <option value="02">Februari</option>
                                                                 <option value="03">Mac</option>
                                                                 <option value="04">April</option>
                                                                 <option value="05">Mei</option>
-                                                                <option value="06">Jun</option>
+                                                                <option value="6">Jun</option>
                                                                 <option value="07">Julai</option>
                                                                 <option value="08">Ogos</option>
                                                                 <option value="09">September</option>
@@ -293,36 +293,38 @@
                                     </div>
 
                                 </div>
-                                <div class="text-right col-md-6 mb-4 mt-4">
-                                    <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary"  data-toggle="modal"
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
                             <section class="section"><hr>
                                 <div class="card"><br>
 
-                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Maklumat Operasi</h6>
-                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6>
+                                    <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Maklumat Operasi</h4>
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6><br>
 
-                                    <div class="table-responsive " id="example1">
-                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                    <h6 style="color: black; text-align:center; margin-bottom:auto">Jumlah Hari Kilang Beroperasi Sebulan</h6>
+
+                                    <div class="table-responsive " >
+                                        <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                    <th scope="col" style="vertical-align: middle">Pelesen</th>
-                                                    <th scope="col" style="vertical-align: middle">Jan</th>
-                                                    <th scope="col" style="vertical-align: middle">Feb</th>
-                                                    <th scope="col" style="vertical-align: middle">Mac</th>
-                                                    <th scope="col" style="vertical-align: middle">Apr</th>
-                                                    <th scope="col" style="vertical-align: middle">Mei</th>
-                                                    <th scope="col" style="vertical-align: middle">Jun</th>
-                                                    <th scope="col" style="vertical-align: middle">Jul</th>
-                                                    <th scope="col" style="vertical-align: middle">Ogos</th>
-                                                    <th scope="col" style="vertical-align: middle">Sep</th>
-                                                    <th scope="col" style="vertical-align: middle">Okt</th>
-                                                    <th scope="col" style="vertical-align: middle">Nov</th>
-                                                    <th scope="col" style="vertical-align: middle">Dis</th>
-                                                    <th scope="col" style="vertical-align: middle">Jumlah</th>
+                                                <tr style="background-color: #265960; color:white" >
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Bil.</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Pelesen</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jan</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Feb</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mac</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Apr</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mei</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jun</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jul</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Ogos</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Sep</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Okt</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Nov</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Dis</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jumlah</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -332,32 +334,11 @@
                                                         <tr>
 
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $result[$key]->e_nl }} </td>
+                                                                <td>{{ $result[$key]->e_np }} </td>
 
-                                                                @foreach($value => $test2)
-                                                                    <td>{{ $test }} </td>
+                                                                @foreach($value as $test2)
+                                                                    <td>{{ $test2 }} </td>
                                                                 @endforeach
-                                                                {{--
-                                                                @if($hbiob[$key]->bulan == 1) != null
-                                                                {
-                                                                    <td>{{ $hbiob[$key]->kapasiti }}</td>
-                                                                }
-                                                                @else
-                                                                {
-                                                                    <td> Yilek </td>
-                                                                }
-                                                                @endif
-
-                                                                @if($hbiob[$key]->bulan == 2) != null
-                                                                {
-                                                                    <td>{{ $hbiob[$key]->kapasiti }}</td>
-                                                                }
-                                                                @else
-                                                                {
-                                                                    <td> Yilek </td>
-                                                                }
-                                                                @endif --}}
-
 
 
                                                             <td>-</td>
@@ -370,49 +351,46 @@
 
                                         </table>
                                     </div>
+                                    <br>
+                                    <br>
 
-                                    <div class="table-responsive " id="example1">
-                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center; margin-bottom:auto">Kadar Penggunaan Kapasiti Sebulan</h6>
+                                    <div class="table-responsive ">
+                                        <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                    <th scope="col" style="vertical-align: middle">Pelesen</th>
-                                                    <th scope="col" style="vertical-align: middle">Jan</th>
-                                                    <th scope="col" style="vertical-align: middle">Feb</th>
-                                                    <th scope="col" style="vertical-align: middle">Mac</th>
-                                                    <th scope="col" style="vertical-align: middle">Apr</th>
-                                                    <th scope="col" style="vertical-align: middle">Mei</th>
-                                                    <th scope="col" style="vertical-align: middle">Jun</th>
-                                                    <th scope="col" style="vertical-align: middle">Jul</th>
-                                                    <th scope="col" style="vertical-align: middle">Ogos</th>
-                                                    <th scope="col" style="vertical-align: middle">Sep</th>
-                                                    <th scope="col" style="vertical-align: middle">Okt</th>
-                                                    <th scope="col" style="vertical-align: middle">Nov</th>
-                                                    <th scope="col" style="vertical-align: middle">Dis</th>
-                                                    <th scope="col" style="vertical-align: middle">Jumlah</th>
+                                                <tr style="background-color: #265960; color:white">
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Bil.</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Pelesen</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jan</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Feb</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mac</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Apr</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mei</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jun</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jul</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Ogos</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Sep</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Okt</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Nov</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Dis</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jumlah</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {{-- @foreach ($result as $data) --}}
+                                                @foreach($test_hari as $key => $value)
+                                                    <tr>
 
-                                                    {{-- @foreach($test3 as $key => $value)
-                                                        <tr>
-                                                            @for ($i = $start_month; $i <= $end_month; $i++)
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $result[$key]->lesen }} </td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $result[$key]->e_np }} </td>
 
-                                                                @foreach ( $value as  $test2 )
-                                                                    <td>
-                                                                        {{  $test2 }}
-                                                                    </td>
-                                                                @endforeach
-                                                            @endfor
-                                                            <td>-</td>
-                                                        </tr>
-                                                    @endforeach --}}
+                                                            @foreach($value as $test2)
+                                                                <td>{{ $test2 }} </td>
+                                                            @endforeach
 
 
-                                                {{-- @endforeach --}}
+                                                        <td>-</td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody><br>
 
                                         </table>
@@ -563,7 +541,6 @@
         }
     </script>
 
-
     <script type="text/javascript">
         $("document").ready(function() {
             setTimeout(function() {
@@ -649,5 +626,10 @@
                 ddlYears.appendChild(option);
             }
         };
+    </script>
+    <script>
+        $(document).ready(function() {
+           $('html,body').animate({scrollTop: document.body.scrollHeight},"slow");
+        })
     </script>
 @endsection

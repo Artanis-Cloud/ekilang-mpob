@@ -190,7 +190,7 @@
                                                                 <option value="03">Mac</option>
                                                                 <option value="04">April</option>
                                                                 <option value="05">Mei</option>
-                                                                <option value="06">Jun</option>
+                                                                <option value="6">Jun</option>
                                                                 <option value="07">Julai</option>
                                                                 <option value="08">Ogos</option>
                                                                 <option value="09">September</option>

@@ -420,67 +420,74 @@ class LaporanController extends Controller
         $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
         ->groupBy('lesen')->get();
 
-//  dd($result);
-    //  if ($request->e_nl) {
-    //      $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-    //      ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->get()->groupBy('lesen')->toArray();
+    //  dd($result);
+        if ($request->e_nl) {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->groupBy('lesen')->get();
 
-    //  }
-    //  if ($request->bulan == 'equal') {
-    //      $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-    //      ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
+        }
+        if ($request->bulan == 'equal') {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
+// dd($result);
+        }
+        if ($request->bulan == 'between') {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
 
-    //  }
-    //  if ($request->bulan == 'between') {
-    //      $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-    //      ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
+        }
 
-    //  }
-    //  if($result){
-         for ($i=1; $i <= 12; $i++) {
-             $data_hari_operasi[$i] = 0;
-             $data_kapasiti[$i] = 0;
-         }
+        // if( $result){
 
-
-         foreach ($result as $key =>  $list_result) {
-            //  foreach ($list_result as $key =>  $res) {
-                 $hbiob[]= DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
-//  dd($hbiob);
-                 $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
-                 $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
-                 $test[] = $data_kapasiti;
-
-            //  }
-         }
- dd($data_kapasiti);
-// dd($test);
+            for ($i=1; $i <= 12; $i++) {
+                $data_hari_operasi[$i] = 0;
+                $data_kapasiti[$i] = 0;
+            }
 
 
+            foreach ($result as $key =>  $list_result) {
+
+                    $hbiob[]= DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
+
+                    $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
+                    $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
+                    $test[] = $data_kapasiti;
+                    $test_hari[] = $data_hari_operasi;
+
+
+            }
 
 
 
-        $layout = 'layouts.admin';
 
-        $array = [
-            'produk' => $produk,
-            'users2' => $users2,
-            'pembeli' => $pembeli,
-            'kumpproduk' => $kumpproduk,
-            'negeri' => $negeri,
-            'result' => $result,
-            'tahun' => $tahun,
-            'hbiob' => $hbiob,
-            'test' => $test,
-            'kembali' => $kembali,
-            'returnArr' => $returnArr,
-            'layout' => $layout,
-            'start_month' => $start_month,
-            'end_month' => $end_month,
 
-        ];
 
-            return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2-table', $array);
+            $layout = 'layouts.admin';
+
+            $array = [
+                'produk' => $produk,
+                'users2' => $users2,
+                'pembeli' => $pembeli,
+                'kumpproduk' => $kumpproduk,
+                'negeri' => $negeri,
+                'result' => $result,
+                'tahun' => $tahun,
+                'test' => $test,
+                'test_hari' => $test_hari,
+                'kembali' => $kembali,
+                'returnArr' => $returnArr,
+                'layout' => $layout,
+                'start_month' => $start_month,
+                'end_month' => $end_month,
+
+            ];
+
+                return view('admin.laporan_dq.ringkasan.ringkasan-bahagian2-table', $array);
+        // } else {
+        //     return redirect()->back()
+        //         ->with('error', 'Rekod Tidak Wujud!');
+        // }
+
 
     }
 
