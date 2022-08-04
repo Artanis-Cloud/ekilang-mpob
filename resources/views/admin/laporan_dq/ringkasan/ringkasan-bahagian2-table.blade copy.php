@@ -182,7 +182,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 ">
                                                         <div class="form-group">
-                                                            <label>Equal</label>
+                                                            <label>&nbsp;</label>
                                                             <select class="form-control" name="start" >
                                                                 <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                                 <option value="1">Januari</option>
@@ -293,12 +293,111 @@
                                     </div>
 
                                 </div>
-                                <div class="text-right col-md-6 mb-4 mt-4">
-                                    <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary"  data-toggle="modal"
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
+                            <section class="section"><hr>
+                                <div class="card"><br>
 
+                                    <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Maklumat Operasi</h4>
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6><br>
+
+                                    <h6 style="color: black; text-align:center; margin-bottom:auto">Jumlah Hari Kilang Beroperasi Sebulan</h6>
+
+                                    <div class="table-responsive " >
+                                        <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
+                                            <thead>
+                                                <tr style="background-color: #265960; color:white" >
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Bil.</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Pelesen</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jan</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Feb</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mac</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Apr</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mei</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jun</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jul</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Ogos</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Sep</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Okt</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Nov</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Dis</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jumlah</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{-- @foreach ($result as $data) --}}
+
+                                                    @foreach($test as $key => $value)
+                                                        <tr>
+
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $result[$key]->e_np }} </td>
+
+                                                                @foreach($value as $test2)
+                                                                    <td>{{ $test2 }} </td>
+                                                                @endforeach
+
+
+                                                            <td>-</td>
+                                                        </tr>
+                                                    @endforeach
+
+
+                                                {{-- @endforeach --}}
+                                            </tbody><br>
+
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <br>
+
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center; margin-bottom:auto">Kadar Penggunaan Kapasiti Sebulan</h6>
+                                    <div class="table-responsive ">
+                                        <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
+                                            <thead>
+                                                <tr style="background-color: #265960; color:white">
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Bil.</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Pelesen</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jan</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Feb</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mac</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Apr</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Mei</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jun</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jul</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Ogos</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Sep</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Okt</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Nov</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Dis</th>
+                                                    <th scope="col" style="vertical-align: middle; font-weight:400">Jumlah</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($test_hari as $key => $value)
+                                                    <tr>
+
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $result[$key]->e_np }} </td>
+
+                                                            @foreach($value as $test2)
+                                                                <td>{{ $test2 }} </td>
+                                                            @endforeach
+
+
+                                                        <td>-</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody><br>
+
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </section>
                         </div>
 
 
@@ -442,7 +541,6 @@
         }
     </script>
 
-
     <script type="text/javascript">
         $("document").ready(function() {
             setTimeout(function() {
@@ -528,5 +626,10 @@
                 ddlYears.appendChild(option);
             }
         };
+    </script>
+    <script>
+        $(document).ready(function() {
+           $('html,body').animate({scrollTop: document.body.scrollHeight},"slow");
+        })
     </script>
 @endsection
