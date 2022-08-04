@@ -243,13 +243,13 @@
                                                         @elseif ($data->e_negeri == '14')
                                                             <td class="text-left">SARAWAK</td>
                                                         @endif
-                                                        {{-- @for ($i = $request->start_month; $i < $request->end_month; $i++)
-                                     @foreach ($operasi as $data)
-                                     @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
-                                         <td style="text-align: center">/</td>
-                                     @endif
-                                     @endforeach
-                                 @endfor --}}
+                                                                    {{-- @for ($i = $request->start_month; $i < $request->end_month; $i++)
+                                                @foreach ($operasi as $data)
+                                                @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
+                                                    <td style="text-align: center">/</td>
+                                                @endif
+                                                @endforeach
+                                            @endfor --}}
                                                         @if ($data->ebio_bln == '01' && $data->ebio_c6 != 0)
                                                             @php
                                                                 $bulan_1++;

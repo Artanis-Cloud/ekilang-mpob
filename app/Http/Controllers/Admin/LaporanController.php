@@ -414,7 +414,8 @@ class LaporanController extends Controller
         $tahun = $request->tahun;
         $start_month = $request->start_month;
         $end_month = $request->end_month;
-
+        $bulan = $request->bulan;
+        $laporan = $request->laporan;
 
         //RINGKASAN OPERASI
         $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
@@ -423,19 +424,29 @@ class LaporanController extends Controller
     //  dd($result);
         if ($request->e_nl) {
             $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
-            ->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->groupBy('lesen')->get();
+            ->where('lesen', 'LIKE', '%' . $request->e_nl . '%') ->groupBy('lesen')->get();
 
         }
         if ($request->bulan == 'equal') {
             $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
             ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
-// dd($result);
+
         }
         if ($request->bulan == 'between') {
             $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
             ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
 
         }
+        if ($request->e_negeri) {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%') ->groupBy('lesen')->get();
+
+        }
+
+
+
+
+
 
         // if( $result){
 
@@ -445,17 +456,21 @@ class LaporanController extends Controller
             }
 
 
-            foreach ($result as $key =>  $list_result) {
+            foreach ($result as  $list_result) {
 
-                    $hbiob[]= DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
+                    $hbiob= DB::table('h_hari')->where('lesen', $list_result->lesen)->first();
 
-                    $data_hari_operasi[$list_result->bulan] = $hbiob[$key]->hari_operasi ?? 0;
-                    $data_kapasiti[$list_result->bulan] = $hbiob[$key]->kapasiti ?? 0;
+// dd( $hbiob);
+                    $data_hari_operasi[$list_result->bulan] = $hbiob->hari_operasi ?? 0;
+
+                    $data_kapasiti[$list_result->bulan] = $hbiob->kapasiti ?? 0;
                     $test[] = $data_kapasiti;
                     $test_hari[] = $data_hari_operasi;
 
 
+
             }
+            // $hbiob= DB::table('h_hari')->where()->get();
 
 
 
@@ -472,11 +487,11 @@ class LaporanController extends Controller
                 'negeri' => $negeri,
                 'result' => $result,
                 'tahun' => $tahun,
-                'test' => $test,
-                'test_hari' => $test_hari,
+                'bulan' => $bulan,
                 'kembali' => $kembali,
                 'returnArr' => $returnArr,
                 'layout' => $layout,
+                'laporan' => $laporan,
                 'start_month' => $start_month,
                 'end_month' => $end_month,
 

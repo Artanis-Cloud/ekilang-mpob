@@ -199,7 +199,7 @@
                                         <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: {{ $tahun }}</h6>
 
                                         <div class="table-responsive " >
-                                            <table id="example1" class="table table-bordered text-center" style="width: 100%;">
+                                            <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
@@ -220,7 +220,7 @@
 
                                                             <td>{{ $data->e_np }}</td>
                                                             <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data->e_daerah }}</th>  
+                                                            <th>{{ $data->e_daerah }}</th>
 
 
                                                         </tr>
