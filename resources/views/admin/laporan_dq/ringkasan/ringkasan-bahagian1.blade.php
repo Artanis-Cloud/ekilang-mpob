@@ -123,7 +123,7 @@
                             <hr>
 
                             <div class="card-body">
-                                <form action="{{ route('admin.ringkasan.penyata.process') }}" method="get">
+                                <form action="{{ route('admin.ringkasan.bahagian1.process') }}" method="get">
                                 @csrf
                                     <div class="container center">
 
@@ -131,9 +131,11 @@
                                             <div class="col-md-4 ml-auto ">
 
                                                 <div class="form-group">
-                                                    <label>Tahun</label>
-                                                    <select class="form-control" name="tahun">
-                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                    <label class="required">Tahun</label>
+                                                    <select class="form-control" name="tahun"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')" required>
+                                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                         <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                         </option>
                                                         <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
@@ -183,15 +185,15 @@
                                                                 <label>&nbsp;</label>
                                                                 <select class="form-control" name="bulan" >
                                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                    <option value="01">Januari</option>
-                                                                    <option value="02">Februari</option>
-                                                                    <option value="03">Mac</option>
-                                                                    <option value="04">April</option>
-                                                                    <option value="05">Mei</option>
-                                                                    <option value="06">Jun</option>
-                                                                    <option value="07">Julai</option>
-                                                                    <option value="08">Ogos</option>
-                                                                    <option value="09">September</option>
+                                                                    <option value="1">Januari</option>
+                                                                    <option value="2">Februari</option>
+                                                                    <option value="3">Mac</option>
+                                                                    <option value="4">April</option>
+                                                                    <option value="5">Mei</option>
+                                                                    <option value="6">Jun</option>
+                                                                    <option value="7">Julai</option>
+                                                                    <option value="8">Ogos</option>
+                                                                    <option value="9">September</option>
                                                                     <option value="10">Oktober</option>
                                                                     <option value="11">November</option>
                                                                     <option value="12">Disember</option>
@@ -206,17 +208,17 @@
                                                         <div class="col-md-6 ">
                                                             <div class="form-group">
                                                                 <label>Dari</label>
-                                                                <select class="form-control" name="start_date">
+                                                                <select class="form-control" name="start_month">
                                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                    <option value="01">Januari</option>
-                                                                    <option value="02">Februari</option>
-                                                                    <option value="03">Mac</option>
-                                                                    <option value="04">April</option>
-                                                                    <option value="05">Mei</option>
-                                                                    <option value="06">Jun</option>
-                                                                    <option value="07">Julai</option>
-                                                                    <option value="08">Ogos</option>
-                                                                    <option value="09">September</option>
+                                                                    <option value="1">Januari</option>
+                                                                    <option value="2">Februari</option>
+                                                                    <option value="3">Mac</option>
+                                                                    <option value="4">April</option>
+                                                                    <option value="5">Mei</option>
+                                                                    <option value="6">Jun</option>
+                                                                    <option value="7">Julai</option>
+                                                                    <option value="8">Ogos</option>
+                                                                    <option value="9">September</option>
                                                                     <option value="10">Oktober</option>
                                                                     <option value="11">November</option>
                                                                     <option value="12">Disember</option>
@@ -227,17 +229,17 @@
                                                         <div class="col-md-6 ">
                                                             <div class="form-group">
                                                                 <label>Ke</label>
-                                                                <select class="form-control" name="end_date">
+                                                                <select class="form-control" name="end_month">
                                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                    <option value="01">Januari</option>
-                                                                    <option value="02">Februari</option>
-                                                                    <option value="03">Mac</option>
-                                                                    <option value="04">April</option>
-                                                                    <option value="05">Mei</option>
-                                                                    <option value="06">Jun</option>
-                                                                    <option value="07">Julai</option>
-                                                                    <option value="08">Ogos</option>
-                                                                    <option value="09">September</option>
+                                                                    <option value="1">Januari</option>
+                                                                    <option value="2">Februari</option>
+                                                                    <option value="3">Mac</option>
+                                                                    <option value="4">April</option>
+                                                                    <option value="5">Mei</option>
+                                                                    <option value="6">Jun</option>
+                                                                    <option value="7">Julai</option>
+                                                                    <option value="8">Ogos</option>
+                                                                    <option value="9">September</option>
                                                                     <option value="10">Oktober</option>
                                                                     <option value="11">November</option>
                                                                     <option value="12">Disember</option>
@@ -327,55 +329,7 @@
                                             data-target="#next">Carian</button>
                                     </div>
                                 </form>
-                                <section class="section"><hr>
-                                    <div class="card"><br>
 
-                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h6>
-                                        <div class="table-responsive " id="example1">
-                                            <table id="example" class="table table-bordered text-center" style="width: 100%;">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Jan</th>
-                                                        <th scope="col" style="vertical-align: middle">Feb</th>
-                                                        <th scope="col" style="vertical-align: middle">Mac</th>
-                                                        <th scope="col" style="vertical-align: middle">Jun</th>
-                                                        <th scope="col" style="vertical-align: middle">Jul</th>
-                                                        <th scope="col" style="vertical-align: middle">Ogos</th>
-                                                        <th scope="col" style="vertical-align: middle">Sep</th>
-                                                        <th scope="col" style="vertical-align: middle">Okt</th>
-                                                        <th scope="col" style="vertical-align: middle">Nov</th>
-                                                        <th scope="col" style="vertical-align: middle">Dis</th>
-                                                        <th scope="col" style="vertical-align: middle">Jumlah</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <tr>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        {{-- </div> --}}
-                                    </div>
-
-                                </section>
                             </div>
 
 
