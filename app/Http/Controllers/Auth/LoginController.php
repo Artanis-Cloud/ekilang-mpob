@@ -46,6 +46,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
         $category = auth()->user()->category;
+        // dd(auth()->user()->category);
         switch ($category) {
             case 'PL91':
                 return '/buah/dashboard';
