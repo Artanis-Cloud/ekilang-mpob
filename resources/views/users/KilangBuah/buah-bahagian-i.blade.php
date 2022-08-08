@@ -120,7 +120,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa1' id='e91_aa1'
                                                             style="text-align: center" onchange="aa1();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc(); "
                                                             onkeypress="return isNumberKey(event)" required
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{ number_format($kilang->e91_aa1 ?? 0, 2) }}">
@@ -450,6 +450,15 @@
         <!-- ======= Footer ======= -->
 
         @section('scripts')
+        <script language="Javascript">
+            function IsEmpty() {
+
+              if (document.form.question.value == "") {
+                alert("empty");
+              }
+              return;
+            }
+          </script>
             <script>
                 function invokeFunc() {
                     addEventListener('keydown', function(evt) {

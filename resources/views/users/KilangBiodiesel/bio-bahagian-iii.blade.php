@@ -2,14 +2,14 @@
 
 <style>
     .blink_me {
-  animation: blinker 1s linear infinite;
-}
+        animation: blinker 1s linear infinite;
+    }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
 </style>
 
 @section('content')
@@ -134,8 +134,8 @@
                                     <input type="text" class="form-control" name='ebio_c4' style="width:100%"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); validate_two_decimal('')"
-                                        onkeypress="return isNumberKey(event)" id="ebio_c4" required onkeyup="FormatCurrency(this)"
-                                        title="Sila isikan butiran ini.">
+                                        onkeypress="return isNumberKey(event)" id="ebio_c4" required
+                                        onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
 
                                     @error('ebio_c4')
                                         <div class="alert alert-danger">
@@ -145,14 +145,15 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <span class="">Belian / Terimaan &nbsp;<i class="fa fa-exclamation-circle"
-                                        style="color: red; cursor: pointer;"
-                                        title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
+                                            style="color: red; cursor: pointer;"
+                                            title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c5' style="width:100%"
                                         id="ebio_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('ebio_c5')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -169,7 +170,8 @@
                                     <input type="text" class="form-control" name='ebio_c6' style="width:100%"
                                         id="ebio_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('ebio_c6')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -193,22 +195,23 @@
 
                             </div>
 
-                            <div class="row" >
+                            <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Jualan / Edaran Tempatan </span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     {{-- <div id="aw"> --}}
                                     <input type="text" class="form-control" name='ebio_c8' style="width:100%;"
-                                        id="ebio_c8" required onkeyup="FormatCurrency(this)" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        id="ebio_c8" required onkeyup="FormatCurrency(this)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">&nbsp;
                                     {{-- </div> --}}
 
                                     <div id="merah_container" style="display:none" class="blink_me">
                                         <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
-                                            style="font-size:11px; color:red" type="button" data-toggle="modal"
-                                            data-target="#modal" &nbsp;> (Sila klik untuk
+                                            style="font-size:11px; color:red; font:rubik" type="button"
+                                            data-toggle="modal" data-target="#modal" &nbsp;> (Sila klik untuk
                                             mengisi<br> maklumat
                                             jualan) </i>
                                     </div>
@@ -227,12 +230,13 @@
                                     <input type="text" class="form-control" name='ebio_c9' style="width:100%"
                                         id="ebio_c9" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
 
                                     <div id="merah_container" style="display:none">
                                         <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
-                                            style="font-size:11px; color:red" type="button" data-toggle="modal" data-target="#modal"
-                                            &nbsp;> (Sila klik untuk
+                                            style="font-size:11px; color:red" type="button" data-toggle="modal"
+                                            data-target="#modal" &nbsp;> (Sila klik untuk
                                             mengisi<br> maklumat
                                             jualan)</i>
                                     </div>
@@ -253,7 +257,8 @@
                                     <input type="text" class="form-control" name='ebio_c10' style="width:100%"
                                         id="ebio_c10" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
+                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                        title="Sila isikan butiran ini.">
                                     @error('ebio_c10')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -316,7 +321,8 @@
                                                 @if ($data->produk->prodid == 'AW')
                                                     <td> {{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp;
                                                         <a href="{{ route('bio.maklumat.jualan', $data->e_id) }}">
-                                                               <i class="far fa-file-alt" style="color: blue; cursor: pointer;"></i></a>
+                                                            <i class="far fa-file-alt"
+                                                                style="color: blue; cursor: pointer;"></i></a>
                                                     </td>
                                                 @else
                                                     <td>{{ number_format($data->ebio_c8 ?? 0, 2) }}</td>
@@ -610,7 +616,7 @@
 
 
                 <!-- Kemaskini Syarikat Input Modal -->
-                @foreach ($penyata as $key => $data)
+                {{-- @foreach ($penyata as $key => $data)
                     <div class="modal fade bs-example-modal-lg" id="modal{{ $key }}" tabindex="-1"
                         role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog modal-lg">
@@ -620,8 +626,7 @@
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">×</button>
                                 </div>
-                                <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}"
-                                    method="post">
+                                <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}" method="post">
                                     @csrf
                                     <div class="modal-body">
 
@@ -635,35 +640,36 @@
                                                         <th></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    @foreach ($data->ebiocc as $ebiocc_data)
+                                                <tbody> --}}
+                {{-- @foreach ($data->ebiocc as $ebiocc_data)
                                                         <tr>
 
                                                             <td><input type="text" id="ebio_cc3" class="form-control"
                                                                     placeholder="Nama Syarikat" name="ebio_cc3[]"
-                                                                    value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}" readonly></td>
-                                                            {{-- <div class="modal-body">
+                                                                    value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}" readonly>
+                                                            </td> --}}
+                {{-- <div class="modal-body">
                                                 <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
                                                     <tr>
                                                         <th>Nama Syarikat</th>
                                                         <th>Jumlah Jualan / Edaran</th>
                                                     </tr>
                                                     <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
-                                                    <td><input type="text" id="ebio_cc4" class="form-control"
-                                                        placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
-                                                        value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
+                {{-- <td><input type="text" id="ebio_cc4" class="form-control"
+                                                                    placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
+                                                                    value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td> --}}
 
-
-                                                        </tr>
-                                                    @endforeach
-                                                    <tr>
-                                                        {{-- @endforeach --}}
-                                                        <td><input type="text" id="new_syarikat{{ $key }}[]"
+                {{-- </tr> --}}
+                {{-- @endforeach --}}
+                {{-- <tr> --}}
+                {{-- @endforeach --}}
+                {{-- <td><input type="text" id="new_syarikat{{ $key }}[]"
                                                                 name='new_syarikat{{ $key }}[]'></td>
                                                         <td><input type="text" id="new_jumlah{{ $key }}[]"
                                                                 name='new_jumlah{{ $key }}[]'></td>
-                                                        <td><input type="button" class="add"
-                                                                onclick="add_row1({{ $key }});" value="Tambah Maklumat">
+                                                        <td><input type="button" class="btn btn-primary ml-1"
+                                                                onclick="add_row1({{ $key }});"
+                                                                value="Tambah Maklumat">
                                                         </td>
                                                     </tr>
 
@@ -690,7 +696,7 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @endforeach --}}
 
                 {{-- <div class="text-right col-md-7">
                 <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
@@ -739,6 +745,9 @@
 
 
 
+
+
+
                 <!-- Syarikat Input Modal -->
                 <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog"
                     aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
@@ -749,49 +758,56 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" style="font-size: 13px" id="data_table">
-                                        <thead style="text-align: center">
-                                            <tr style="vertical-align: middle">
-                                                <th style="vertical-align: middle; width:70%">Nama Syarikat</th>
-                                                <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><select class="form-control select2 " id="new_syarikat[]"
-                                                        name="new_syarikat[]" required onchange="showDetail()"
-                                                        oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
-                                                        oninput="this.setCustomValidity(''); validate_two_decimal('')">
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
-                                                        @foreach ($syarikat as $data)
-                                                            <option value="{{ $data->id }}">
-                                                                {{ $data->pembeli }}
-                                                            </option>
-                                                        @endforeach
+                            <div class="table-responsive col-10 ml-auto mr-auto">
 
-                                                    </select></td>
-                                                {{-- <div class="modal-body">
-                                <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
-                                    <tr>
-                                        <th>Nama Syarikat</th>
-                                        <th>Jumlah Jualan / Edaran</th>
-                                    </tr>
-                                    <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
-                                                <td><input type="text" id="new_jumlah[]" name='new_jumlah[]'></td>
-                                                <td style="size: 10ch"><input type="button" class="add"
-                                                        onclick="add_row();" value="Tambah Maklumat">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style="font-size: 13px" id="data_table">
+                                            <thead style="text-align: center">
+                                                <tr style="vertical-align: middle">
+                                                    <th style="vertical-align: middle;">Nama Syarikat</th>
+                                                    <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    {{-- <div class='field'> --}}
+
+                                                    <td class="field"><select class="form-control select2 " style="width: 100px"
+                                                            id="new_syarikat[]" name="new_syarikat[]"
+                                                            onchange="showDetail()" oninput="removeDisabled()">
+                                                            <option selected hidden disabled value="">Sila Pilih
+                                                            </option>
+                                                            @foreach ($syarikat as $data)
+                                                                <option value="{{ $data->id }}">
+                                                                    {{ $data->pembeli }}
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select></td>
+                                                    {{-- </div> --}}
+                                                    <td class="field"><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
+                                                        onkeypress="return isNumberKey(event)"  name='new_jumlah[]'>
+                                                        {{-- <div class='actions'> --}}
+
+                                                    <td style="size: 10ch" class="actions"><input type="button"
+                                                            class="btn btn-primary ml-1 actions" id="tambah_maklumat"
+                                                            onclick="add_row()" disabled="disabled"
+                                                            value="Tambah Maklumat">
+                                                    </td>
+                                                    {{-- </div> --}}
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
 
                                 </form>
 
                             </div>
+
+
 
 
                             <div class="modal-footer">
@@ -810,6 +826,23 @@
                 </div>
             </div>
             <br>
+            {{-- <div class='form'>
+                <form>
+                    <div class='field'>
+                        <label for="username">Username</label>
+                        <input id="username[]" type="text" />
+                    </div>
+                    <div class='field'>
+                        <label for="password">Password</label>
+                        <input id="password[]" type="password" />
+                    </div>
+                    <div class='actions'>
+                        <input type="submit" value="Login" disabled="disabled" />
+                    </div>
+                </form>
+            </div> --}}
+            <p id="par"></p>
+
             {{-- INPUT HIDDEN --}}
             <input type="hidden" name="jumlah_row[]">
             <input type="hidden" name="nama_syarikat[]">
@@ -819,7 +852,7 @@
             </form>
         @endsection
         @section('scripts')
-        {{-- <script>
+            {{-- <script>
 
             function jualan() {
                 var produk = $('#ebio_c3').val();
@@ -852,17 +885,23 @@
                 function add_row() {
                     var new_syarikat = document.getElementById("new_syarikat[]").value;
                     var new_jumlah = document.getElementById("new_jumlah[]").value;
-                    var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]").selectedIndex].text;
+
+                    var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]")
+                        .selectedIndex].text;
+
                     var table = document.getElementById("data_table");
                     var table_len = (table.rows.length) - 1;
+
                     var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" +
                         table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
                         "</td><td><input type='hidden' id='jumlah_row" + table_len +
-                        "' name='jumlah_row_hidden[]' value=" + new_jumlah +
-                        "> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
+                        "' name='jumlah_row[]' value=" + new_jumlah +
+                        "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
+                        ")'></td></tr>";
 
                     var table_input = document.getElementById("cc3_4");
                     var table_input_len = (table_input.rows.length);
+
                     var row_input = table_input.insertRow(table_input_len).outerHTML =
                         "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='jumlah_row_hidden" +
                         table_input_len +
@@ -873,14 +912,33 @@
 
                     document.getElementById("new_syarikat[]").value = "";
                     document.getElementById("new_jumlah[]").value = "";
+
+                    let total = 0;
+                    for (let index = 0; index <= table_input_len; index++) {
+                        let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+                        total += parseInt(hidden_value);
+                    }
+                    console.log("total", total);
+                    document.getElementById("ebio_c8").value = total;
                 }
 
                 function delete_row(no) {
-                    document.getElementById("row" + no + "").outerHTML = "";
+                    document.getElementById("row" + no + "").remove();
                     // document.getElementById("row_input" + no + "").outerHTML = "";
+                    document.getElementById("jumlah_row_hidden" + (no - 1)).remove();
+                    document.getElementById("new_syarikat_hidden" + (no - 1)).remove();
 
-                    document.getElementById("jumlah_row_hidden" + (no - 1)).value = "";
-                    document.getElementById("new_syarikat_hidden" + (no - 1)).value = "";
+                    var x = document.getElementsByName('jumlah_row_hidden[]');
+
+                    let total = 0;
+
+                    for (let index = 0; index < x.length; index++) {
+                        // let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+                        let hidden_value = x[index].value;
+                        console.log('hidden_value', hidden_value);
+                        total += parseInt(hidden_value);
+                    }
+                    document.getElementById("ebio_c8").value = total;
                 }
             </script>
 
@@ -897,7 +955,8 @@
                         table_len1 + "'>" + new_syarikat1 + "</td><td id='jumlah_row" + key + table_len1 + "'>" + new_jumlah1 +
                         "</td><td><input type='hidden' id='jumlah_row" + key + table_len1 +
                         "' name='jumlah_row_hidden" + key + "[]' value=" + new_jumlah1 +
-                        "> <input type='button' value='Hapus' class='delete' onclick='delete_row1(" + table_len1 + ")'></td></tr>";
+                        "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row1(" + table_len1 +
+                        ")'></td></tr>";
 
                     var table_input1 = document.getElementById("cc3_4");
                     var table_input_len1 = (table_input1.rows.length);
@@ -925,7 +984,6 @@
                 function showDetail() {
                     var produk = $('#ebio_c3').val();
                     // const total = $produk2;
-                    console.log(produk);
 
                     if (produk == "AW") {
                         document.getElementById('merah_container').style.display = "block";
@@ -944,18 +1002,16 @@
                         // document.getElementById('lain_container').style.display = "block";
 
                     }
-
                 }
             </script>
             <script>
-                document.addEventListener('keypress', function (e) {
+                document.addEventListener('keypress', function(e) {
                     if (e.keyCode === 13 || e.which === 13) {
                         e.preventDefault();
                         return false;
                     }
 
                 });
-
             </script>
             <script language="javascript" type="text/javascript">
                 function FormatCurrency(ctrl) {
@@ -1022,6 +1078,42 @@
 
                     return true;
 
+                });
+
+
+
+                function removeDisabled() {
+
+                    var new_syarikat = document.getElementById("new_syarikat[]").value;
+                    // var new_jumlah = document.getElementById("new_jumlah[]").value;
+                    // console.log(new_syarikat);
+                    var table_input = document.getElementById("data_table");
+                    var table_input_len = (table_input.rows.length) - 1;
+
+                    if (new_syarikat != "") {
+                        $('#tambah_maklumat').attr('disabled', 'disabled');
+                    } else {
+                        $('#tambah_maklumat').attr('disabled', false);
+                    }
+                }
+            </script>
+            <script>
+                $(document).ready(function() {
+                    $('.field input').keyup(function() {
+
+                        var empty = false;
+                        $('.field input').each(function() {
+                            if ($(this).val().length == 0) {
+                                empty = true;
+                            }
+                        });
+
+                        if (empty) {
+                            $('.actions input').attr('disabled', 'disabled');
+                        } else {
+                            $('.actions input').attr('disabled', false);
+                        }
+                    });
                 });
             </script>
         @endsection

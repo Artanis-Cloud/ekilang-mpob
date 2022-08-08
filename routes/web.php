@@ -17,6 +17,7 @@ Auth::routes();
 
 //forget password
 Route::get('/testing3', [App\Http\Controllers\tryController::class, 'testing3'])->name('testing3');
+Route::get('/testArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('tryArx');
 Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
 
 Route::post('/terlupa-kata-laluan/submit', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPasswordSubmit'])->name('forget-password.submit');

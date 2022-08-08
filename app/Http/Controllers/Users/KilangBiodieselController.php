@@ -823,7 +823,7 @@ class KilangBiodieselController extends Controller
             $senarai_syarikat = EBioCC::with('ebioinit')->where('ebio_reg', $user->ebio_reg)->get();
             // foreach ($data['jumlah_row_hidden'] as $key => $value) {
 
-            $produk2 = '123';
+            $produk2 = '0.00';
             // }
             $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
             $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
