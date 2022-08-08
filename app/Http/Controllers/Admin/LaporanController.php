@@ -263,8 +263,49 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.ringkasan.laporan-ringkasan-penyata', $array);
     }
 
+    public function admin_ringkasan_bahagian1()
+    {
 
-    public function admin_ringkasan_bahagian1(Request $request)
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.ringkasan.penyata'), 'name' => "Maklumat Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $kumpproduk = KumpProduk::get();
+        $produk = Produk::get();
+        $pembeli = SyarikatPembeli::orderBy('id')->get();
+
+
+
+
+        $layout = 'layouts.admin';
+
+        $array = [
+            'produk' => $produk,
+            'users2' => $users2,
+            'pembeli' => $pembeli,
+            'kumpproduk' => $kumpproduk,
+            'negeri' => $negeri,
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian1', $array);
+    }
+
+    public function admin_ringkasan_bahagian1_table(Request $request)
     {
 
         $breadcrumbs    = [
@@ -285,47 +326,59 @@ class LaporanController extends Controller
         $produk = Produk::get();
         $pembeli = SyarikatPembeli::orderBy('id')->get();
         $tahun = $request->tahun;
-
+        $tahun = $request->tahun;
+        $start_month = $request->start_month;
+        $end_month = $request->end_month;
+        $bulan = $request->bulan;
+        $laporan = $request->laporan;
 
 
         //RINGKASAN URUSNIAGA
-        $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->groupBy('ebio_nl')->get();
+        $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->where('ebio_thn',$tahun)->groupBy('ebio_nl')->get();
 
 
-        if ($request->tahun) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')->groupBy('ebio_nl')->get();
-        }
         if ($request->e_negeri) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
         }
-        if ($request->e_daerah) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('ebio_nl')->get();
-        }
+
         if ($request->e_nl) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->where('ebio_thn',$tahun)->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+        }
+        if ($request->bulan == 'equal') {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start . '%')->groupBy('ebio_nl')->get();
+
+        }
+        if ($request->bulan == 'between') {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->groupBy('ebio_nl')->get();
+
+        }
+// dd( $result);
+
+
+
+        for ($i=1; $i <= 12; $i++) {
+            $ebio_b5[$i] = 0;
+            $data_kapasiti[$i] = 0;
         }
 
-        if ($request->tahun && $request->e_negeri) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
-                ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
-        }
-        if ($request->tahun && $request->e_nl) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
-                ->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
-        }
-        if ($request->tahun && $request->e_negeri && $request->e_nl) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
-                ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
-        }
+//  dd( $result);
+        foreach ($result as  $list_result) {
 
+                $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $list_result->ebio_nobatch)->first();
+
+
+                $ebio_b5[$list_result->ebio_bln] = $hbiob_s->ebio_b5 ?? 0;
+
+                // $data_kapasiti[$list_result->bulan] = $hbiob->kapasiti ?? 0;
+                $test[] = $data_kapasiti;
+// $test_hari[] = $data_hari_operasi;
+
+        }
 
         $layout = 'layouts.admin';
 
@@ -337,14 +390,17 @@ class LaporanController extends Controller
             'negeri' => $negeri,
             'result' => $result,
             'tahun' => $tahun,
+            'bulan' => $bulan,
             'kembali' => $kembali,
-
             'returnArr' => $returnArr,
             'layout' => $layout,
+            'laporan' => $laporan,
+            'start_month' => $start_month,
+            'end_month' => $end_month,
 
         ];
 
-        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian1', $array);
+        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian1-table', $array);
     }
 
     public function admin_ringkasan_bahagian2()

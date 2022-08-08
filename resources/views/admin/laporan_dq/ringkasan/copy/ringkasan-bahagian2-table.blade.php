@@ -350,32 +350,9 @@
                                                                 @php
                                                                     $total_bulan[$i] = 0;
                                                                     $total_kapasiti[$i] = 0;
-                                                                    $total_bulan[$i] = 0;
-                                                                    $total_kapasiti[$i] = 0;
-                                                                    $total_hari_1 = 0;
-                                                                    $total_hari_2 = 0;
+                                                                    $total_kapasiti_bio = 0;
                                                                     $total_hari_3 = 0;
-                                                                    $total_hari_4 = 0;
-                                                                    $total_hari_5 = 0;
                                                                     $total_hari_6 = 0;
-                                                                    $total_hari_7 = 0;
-                                                                    $total_hari_8 = 0;
-                                                                    $total_hari_9 = 0;
-                                                                    $total_hari_10 = 0;
-                                                                    $total_hari_11 = 0;
-                                                                    $total_hari_12 = 0;
-                                                                    $total_kapasiti_1 = 0;
-                                                                    $total_kapasiti_2 = 0;
-                                                                    $total_kapasiti_3 = 0;
-                                                                    $total_kapasiti_4 = 0;
-                                                                    $total_kapasiti_5 = 0;
-                                                                    $total_kapasiti_6 = 0;
-                                                                    $total_kapasiti_7 = 0;
-                                                                    $total_kapasiti_8 = 0;
-                                                                    $total_kapasiti_9 = 0;
-                                                                    $total_kapasiti_10 = 0;
-                                                                    $total_kapasiti_11 = 0;
-                                                                    $total_kapasiti_12 = 0;
 
                                                                 @endphp
                                                                 @if ($i == '1')
@@ -789,32 +766,9 @@
                                                                 @php
                                                                     $total_bulan[$i] = 0;
                                                                     $total_kapasiti[$i] = 0;
-                                                                    $total_bulan[$i] = 0;
-                                                                    $total_kapasiti[$i] = 0;
-                                                                    $total_hari_1 = 0;
-                                                                    $total_hari_2 = 0;
+                                                                    $total_kapasiti_bio = 0;
                                                                     $total_hari_3 = 0;
-                                                                    $total_hari_4 = 0;
-                                                                    $total_hari_5 = 0;
                                                                     $total_hari_6 = 0;
-                                                                    $total_hari_7 = 0;
-                                                                    $total_hari_8 = 0;
-                                                                    $total_hari_9 = 0;
-                                                                    $total_hari_10 = 0;
-                                                                    $total_hari_11 = 0;
-                                                                    $total_hari_12 = 0;
-                                                                    $total_kapasiti_1 = 0;
-                                                                    $total_kapasiti_2 = 0;
-                                                                    $total_kapasiti_3 = 0;
-                                                                    $total_kapasiti_4 = 0;
-                                                                    $total_kapasiti_5 = 0;
-                                                                    $total_kapasiti_6 = 0;
-                                                                    $total_kapasiti_7 = 0;
-                                                                    $total_kapasiti_8 = 0;
-                                                                    $total_kapasiti_9 = 0;
-                                                                    $total_kapasiti_10 = 0;
-                                                                    $total_kapasiti_11 = 0;
-                                                                    $total_kapasiti_12 = 0;
 
                                                                 @endphp
                                                                 @if ($i == '1')
@@ -1227,32 +1181,9 @@
                                                                 @php
                                                                     $total_bulan[$i] = 0;
                                                                     $total_kapasiti[$i] = 0;
-                                                                    $total_bulan[$i] = 0;
-                                                                    $total_kapasiti[$i] = 0;
-                                                                    $total_hari_1 = 0;
-                                                                    $total_hari_2 = 0;
+                                                                    $total_kapasiti_bio = 0;
                                                                     $total_hari_3 = 0;
-                                                                    $total_hari_4 = 0;
-                                                                    $total_hari_5 = 0;
                                                                     $total_hari_6 = 0;
-                                                                    $total_hari_7 = 0;
-                                                                    $total_hari_8 = 0;
-                                                                    $total_hari_9 = 0;
-                                                                    $total_hari_10 = 0;
-                                                                    $total_hari_11 = 0;
-                                                                    $total_hari_12 = 0;
-                                                                    $total_kapasiti_1 = 0;
-                                                                    $total_kapasiti_2 = 0;
-                                                                    $total_kapasiti_3 = 0;
-                                                                    $total_kapasiti_4 = 0;
-                                                                    $total_kapasiti_5 = 0;
-                                                                    $total_kapasiti_6 = 0;
-                                                                    $total_kapasiti_7 = 0;
-                                                                    $total_kapasiti_8 = 0;
-                                                                    $total_kapasiti_9 = 0;
-                                                                    $total_kapasiti_10 = 0;
-                                                                    $total_kapasiti_11 = 0;
-                                                                    $total_kapasiti_12 = 0;
 
                                                                 @endphp
                                                                 @if ($i == '1')
@@ -1665,32 +1596,9 @@
                                                                 @php
                                                                     $total_bulan[$i] = 0;
                                                                     $total_kapasiti[$i] = 0;
-                                                                                        $total_bulan[$i] = 0;
-                                                                    $total_kapasiti[$i] = 0;
-                                                                    $total_hari_1 = 0;
-                                                                    $total_hari_2 = 0;
+                                                                    $total_kapasiti_bio = 0;
                                                                     $total_hari_3 = 0;
-                                                                    $total_hari_4 = 0;
-                                                                    $total_hari_5 = 0;
                                                                     $total_hari_6 = 0;
-                                                                    $total_hari_7 = 0;
-                                                                    $total_hari_8 = 0;
-                                                                    $total_hari_9 = 0;
-                                                                    $total_hari_10 = 0;
-                                                                    $total_hari_11 = 0;
-                                                                    $total_hari_12 = 0;
-                                                                    $total_kapasiti_1 = 0;
-                                                                    $total_kapasiti_2 = 0;
-                                                                    $total_kapasiti_3 = 0;
-                                                                    $total_kapasiti_4 = 0;
-                                                                    $total_kapasiti_5 = 0;
-                                                                    $total_kapasiti_6 = 0;
-                                                                    $total_kapasiti_7 = 0;
-                                                                    $total_kapasiti_8 = 0;
-                                                                    $total_kapasiti_9 = 0;
-                                                                    $total_kapasiti_10 = 0;
-                                                                    $total_kapasiti_11 = 0;
-                                                                    $total_kapasiti_12 = 0;
 
                                                                 @endphp
                                                                 @if ($i == '1')
