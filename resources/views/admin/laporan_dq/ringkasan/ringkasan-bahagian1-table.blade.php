@@ -335,7 +335,7 @@
                                         <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Maklumat Operasi</h4>
                                         <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6><br>
 
-                                        <h6 style="color: black; text-align:center; margin-bottom:auto">Stok Awal</h6>
+                                        <h6 style="color: black; text-align:center; margin-bottom:auto">Stok Awal Di Premis</h6>
 
                                         <div class="table-responsive " >
                                             <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">

@@ -34,9 +34,9 @@
             </div>
         </div>
         <div class="card" style="margin-right:3%; margin-left:3%">
-            <div class="card-body" style="padding: 2%">
+            <div class="card-body" >
 
-                <div class="text-center" style="padding: 2%">
+                <div class="text-center">
                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
                     <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
                     </h5>
