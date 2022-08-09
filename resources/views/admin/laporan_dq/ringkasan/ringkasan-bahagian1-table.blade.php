@@ -672,18 +672,15 @@
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
                                                                         @if ($data->ebio_bln == $i && $data->ebio_b5 != 0)
                                                                             @php
-                                                                                $total_bulan[$i]++;
+                                                                                $total_bulan[$i]+=$data->ebio_b5;
                                                                             @endphp
-                                                                            <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? '0') }}</td>
                                                                         @else
                                                                             <td></td>
                                                                         @endif
                                                                     @endfor
                                                                 </tr>
-                                                                @php
-                                                                $total_hari_3 += $data->ebio_b5;
-                                                                $total_hari_6 += $data->ebio_b5;
-                                                                @endphp
+
                                                             @endforeach
 
 
@@ -692,42 +689,9 @@
                                                                 <th colspan="4"></th>
 
                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
-                                                                    @if ($i == '1' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '2' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '3' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '4' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '5' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '6' )
-                                                                        <td style="text-align: center"> {{ $total_hari_6 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '7' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '8' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '9' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '10' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '11' )
-                                                                        <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                    @endif
-                                                                    @if ($i == '12' )
-                                                                    <td style="text-align: center"> {{ $total_hari_3 }}</td>
-                                                                @endif
+
+                                                                <td>{{ $total_bulan[$i] }}</td>
+
                                                                 @endfor
                                                             </tr>
 
