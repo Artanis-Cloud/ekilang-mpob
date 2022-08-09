@@ -90,7 +90,7 @@ class KilangBuahController extends Controller
             'e_email_pg' => ['required', 'string'],
             'e_npgtg' => ['required', 'string'],
             'e_jpgtg' => ['required', 'string'],
-            'e_email_pengurus' => ['required', 'string'],
+            'e_email_pengurus' => [ 'required', 'string'],
             // 'e_negeri' => ['required', 'string'],
             // 'e_daerah' => ['required', 'string'],
             // 'e_kawasan' => ['required', 'string'],
