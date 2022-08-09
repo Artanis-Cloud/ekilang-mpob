@@ -431,7 +431,7 @@
                                             @else
                                                 @foreach ($operasi as $key => $data)
                                                     <tr>
-                                                        <td>{{ $key }}</td>
+                                                        <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $data->e_np }}</td>
                                                         <td class="text-right">
                                                             {{ number_format($data->kap_proses ?? 0, 2) }}</td>

@@ -128,9 +128,12 @@
                                                             <th>Jumlah Jualan / Edaran</th>
                                                         </tr>
                                                         <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
-                                                        <td colspan="2"><input type="text" id="ebio_cc4" class="form-control" style="text-align: center"
+                                                        <td><input type="text" id="ebio_cc4" class="form-control" style="text-align: center"
                                                             placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"  onkeypress="return isNumberKey(event)"
                                                             value="{{ $data->ebio_cc4 ?? 0 }}"></td>
+                                                            <td><input type="button" class="add btn btn-danger"
+                                                                onclick="deleteRow();" value="Hapus">
+                                                        </td>
 
 
                                                             </tr>
@@ -138,7 +141,7 @@
                                                         <tr>
                                                             {{-- @endforeach --}}
                                                             <td></td>
-                                                            <td><select class="form-control select2 " id="new_syarikat[]"
+                                                            <td class="field"><select class="form-control select2 " id="new_syarikat[]"
                                                                 name="new_syarikat[]"  onchange="showDetail()">
                                                                 <option selected hidden disabled value="">Sila Pilih</option>
                                                                 @foreach ($syarikat as $data)
@@ -148,9 +151,9 @@
                                                                 @endforeach
 
                                                             </select></td>
-                                                            <td><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
+                                                            <td class="field"><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
                                                                     name='new_jumlah[]' placeholder="Jumlah Edaran"  onkeypress="return isNumberKey(event)"></td>
-                                                            <td><input type="button" class="add"
+                                                            <td class="actions"><input type="button" class="add btn btn-primary" disabled="disabled"
                                                                     onclick="add_row();" value="Tambah Maklumat">
                                                             </td>
                                                         </tr>
@@ -238,6 +241,34 @@
 
 @section('scripts')
 <script>
+    function deleteRow(no) {
+        document.getElementById("ebio" + no + "").remove();
+        // document.getElementById("row_input" + no + "").outerHTML = "";
+
+        document.getElementById("jumlah_row_hidden" + (no - 1)).remove();
+        document.getElementById("new_syarikat_hidden" + (no - 1)).remove();
+    }
+    </script>
+<script>
+    $(document).ready(function() {
+        $('.field input').keyup(function() {
+
+            var empty = false;
+            $('.field input').each(function() {
+                if ($(this).val().length == 0) {
+                    empty = true;
+                }
+            });
+
+            if (empty) {
+                $('.actions input').attr('disabled', 'disabled');
+            } else {
+                $('.actions input').attr('disabled', false);
+            }
+        });
+    });
+</script>
+<script>
     function add_row() {
         // var seq = $seq;
         // seq += 1
@@ -250,7 +281,7 @@
             table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
             "</td><td><input type='hidden' id='jumlah_row" + table_len +
             "' name='jumlah_row_hidden[]' value=" + new_jumlah +
-            "> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
+            "> <input type='button' value='Hapus' class='delete btn btn-danger' onclick='delete_row(" + table_len + ")'></td></tr>";
 
         var table_input = document.getElementById("cc3_4");
         var table_input_len = (table_input.rows.length);
@@ -310,5 +341,14 @@
             document.getElementById("jumlah_row_hidden1" + (no - 1)).value = "";
             document.getElementById("new_syarikat_hidden1" + (no - 1)).value = "";
         }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
     </script>
 @endsection

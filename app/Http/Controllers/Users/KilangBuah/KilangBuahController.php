@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\E91Init;
 use App\Models\Ekmessage;
 use App\Models\H91Init;
+use App\Models\Negara;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
+use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\User;
 use DateTime;
@@ -1067,7 +1069,48 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.[B]-login', compact('returnArr', 'layout'));
     }
 
+    public function buah_kod_produk()
+    {
 
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.produk'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $produk = Produk::orderBy('prodid')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+    }
+
+
+    public function buah_kod_negara()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.negara'), 'name' => "Senarai Kod dan Nama Negara"],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $negara = Negara::orderBy('kodnegara')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
+    }
 
 
 

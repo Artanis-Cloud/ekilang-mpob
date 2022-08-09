@@ -1110,6 +1110,18 @@
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('bio.kod.produk') }}" class="sidebar-link">
+                                    <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('bio.kod.negara') }}" class="sidebar-link">
+                                    <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
 

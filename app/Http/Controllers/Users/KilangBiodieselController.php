@@ -11,6 +11,7 @@ use App\Models\EBioCC;
 use App\Models\EBioInit;
 use App\Models\Ekmessage;
 use App\Models\Hari;
+use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
@@ -1587,6 +1588,50 @@ class KilangBiodieselController extends Controller
 
         return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout'));
     }
+
+    public function bio_kod_produk()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.produk'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
+        ];
+
+        $kembali = route('bio.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $produk = Produk::orderBy('prodid')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+    }
+
+
+    public function bio_kod_negara()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.negara'), 'name' => "Senarai Kod dan Nama Negara"],
+        ];
+
+        $kembali = route('bio.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $negara = Negara::orderBy('kodnegara')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
+    }
+
 
     public function try()
     {
