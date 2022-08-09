@@ -2240,7 +2240,48 @@ class KilangPenapisController extends Controller
 
         ]);
     }
+    public function penapis_kod_produk()
+    {
 
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.produk'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
+        ];
+
+        $kembali = route('penapis.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $produk = Produk::orderBy('prodid')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+    }
+
+
+    public function penapis_kod_negara()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.negara'), 'name' => "Senarai Kod dan Nama Negara"],
+        ];
+
+        $kembali = route('penapis.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $negara = Negara::orderBy('kodnegara')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
+    }
 
     public function try()
     {

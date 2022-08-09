@@ -554,154 +554,6 @@
 
                 </div>
 
-                {{-- @foreach ($penyata as $key => $data) --}}
-                {{-- <!-- Senarai Syarikat Modals -->
-                <div class="modal fade" id="modal{{ $key }}" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    Senarai Syarikat</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}" method="post">
-                            @csrf
-                            <div class="modal-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" style="font-size: 13px">
-                                        <thead style="text-align: center">
-                                            <tr>
-                                                <th>Nama Syarikat</th>
-                                                <th>Jumlah Jualan Edaran</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($data->ebiocc as $ebiocc_data)
-                                                <tr style="text-align: right">
-                                                    {{-- <td class="text-center">{{ $key+1 }}</td> --}}
-                {{-- <td><input type="text" id="ebio_cc3" class="form-control"
-                                                            placeholder="Nama Syarikat" name="ebio_cc3[]"
-                                                            value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}">
-                                                    </td>
-                                                    <td><input type="text" id="ebio_cc4" class="form-control"
-                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
-                                                            value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
-
-                                                </tr>
-                                            @endforeach
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
-                                </button>
-                                <button type="submit" class="btn btn-primary ml-1">
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Kemaskini</span>
-                                </button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            @endforeach --}}
-
-
-                <!-- Kemaskini Syarikat Input Modal -->
-                {{-- @foreach ($penyata as $key => $data)
-                    <div class="modal fade bs-example-modal-lg" id="modal{{ $key }}" tabindex="-1"
-                        role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myLargeModalLabel">Maklumat Jualan / Edaran</h4>
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        aria-hidden="true">×</button>
-                                </div>
-                                <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}" method="post">
-                                    @csrf
-                                    <div class="modal-body">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered" style="font-size: 13px"
-                                                id="data_table{{ $key }}">
-                                                <thead style="text-align: center">
-                                                    <tr style="vertical-align: middle">
-                                                        <th style="vertical-align: middle; ">Nama Syarikat</th>
-                                                        <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody> --}}
-                {{-- @foreach ($data->ebiocc as $ebiocc_data)
-                                                        <tr>
-
-                                                            <td><input type="text" id="ebio_cc3" class="form-control"
-                                                                    placeholder="Nama Syarikat" name="ebio_cc3[]"
-                                                                    value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}" readonly>
-                                                            </td> --}}
-                {{-- <div class="modal-body">
-                                                <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
-                                                    <tr>
-                                                        <th>Nama Syarikat</th>
-                                                        <th>Jumlah Jualan / Edaran</th>
-                                                    </tr>
-                                                    <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
-                {{-- <td><input type="text" id="ebio_cc4" class="form-control"
-                                                                    placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
-                                                                    value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td> --}}
-
-                {{-- </tr> --}}
-                {{-- @endforeach --}}
-                {{-- <tr> --}}
-                {{-- @endforeach --}}
-                {{-- <td><input type="text" id="new_syarikat{{ $key }}[]"
-                                                                name='new_syarikat{{ $key }}[]'></td>
-                                                        <td><input type="text" id="new_jumlah{{ $key }}[]"
-                                                                name='new_jumlah{{ $key }}[]'></td>
-                                                        <td><input type="button" class="btn btn-primary ml-1"
-                                                                onclick="add_row1({{ $key }});"
-                                                                value="Tambah Maklumat">
-                                                        </td>
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-
-
-                                    </div>
-
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Batal</span>
-                                        </button>
-                                        <button type="submit" class="btn btn-primary ml-1">
-                                            <i class=" bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Kemaskini</span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach --}}
-
-                {{-- <div class="text-right col-md-7">
-                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                    data-target="#123">cuba</button>
-            </div> --}}
 
                 <div class="form-group">
                     <a href="{{ route('bio.bahagianii') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
@@ -826,22 +678,7 @@
                 </div>
             </div>
             <br>
-            {{-- <div class='form'>
-                <form>
-                    <div class='field'>
-                        <label for="username">Username</label>
-                        <input id="username[]" type="text" />
-                    </div>
-                    <div class='field'>
-                        <label for="password">Password</label>
-                        <input id="password[]" type="password" />
-                    </div>
-                    <div class='actions'>
-                        <input type="submit" value="Login" disabled="disabled" />
-                    </div>
-                </form>
-            </div> --}}
-            <p id="par"></p>
+
 
             {{-- INPUT HIDDEN --}}
             <input type="hidden" name="jumlah_row[]">
@@ -852,22 +689,7 @@
             </form>
         @endsection
         @section('scripts')
-            {{-- <script>
-
-            function jualan() {
-                var produk = $('#ebio_c3').val();
-                    console.log(produk);
-
-                    if (produk == "AW") {
-                        // $('#ebio_c8').prop("readonly", true);
-                        $('#ebio_c8').attr('readonly', 'readonly');
-
-                    } else {
-                        $('#ebio_c8').removeAttr('readonly');
-
-                    }
-            }
-        </script> --}}
+           
             <script>
                 function onlyNumberKey(evt) {
 

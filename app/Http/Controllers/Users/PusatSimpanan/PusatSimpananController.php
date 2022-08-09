@@ -8,6 +8,7 @@ use App\Models\E07Init;
 use App\Models\Ekmessage;
 use App\Models\H07Btranshipment;
 use App\Models\H07Init;
+use App\Models\Negara;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\Produk;
@@ -774,6 +775,49 @@ class PusatSimpananController extends Controller
             'total4',
             'total5'
         ));
+    }
+
+    public function pusatsimpan_kod_produk()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.produk'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
+        ];
+
+        $kembali = route('pusatsimpan.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $produk = Produk::orderBy('prodid')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+    }
+
+
+    public function pusatsimpan_kod_negara()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.negara'), 'name' => "Senarai Kod dan Nama Negara"],
+        ];
+
+        $kembali = route('pusatsimpan.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $negara = Negara::orderBy('kodnegara')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
     }
 
 

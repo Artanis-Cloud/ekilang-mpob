@@ -366,6 +366,10 @@ Route::middleware('auth')->group(function () {
 
         Route::get('buah/penyata-dahulu', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_penyatadahulu'])->name('buah.penyatadahulu');
         Route::post('buah/penyata-dahulu/process', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_penyata_dahulu_process'])->name('buah.penyata.dahulu.process');
+
+        Route::get('buah/kod-produk', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_kod_produk'])->name('buah.kod.produk');
+        Route::get('buah/kod-negara', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_kod_negara'])->name('buah.kod.negara');
+
     });
 
     Route::group(['middleware' => ['kilang-penapis']], function () {
@@ -430,6 +434,8 @@ Route::middleware('auth')->group(function () {
         Route::get('penapis/penyata-dahulu', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_penyatadahulu'])->name('penapis.penyatadahulu');
         Route::post('penapis/penyata-dahulu/process', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_penyata_dahulu_process'])->name('penapis.penyata.dahulu.process');
 
+        Route::get('penapis/kod-produk', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_kod_produk'])->name('penapis.kod.produk');
+        Route::get('penapis/kod-negara', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_kod_negara'])->name('penapis.kod.negara');
         Route::get('penapis/try', [App\Http\Controllers\Users\KilangPenapisController::class, 'try'])->name('try');
     });
 
@@ -480,6 +486,8 @@ Route::middleware('auth')->group(function () {
         Route::get('isirung/email', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_email'])->name('isirung.email');
         Route::post('isirung/send-email', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_send_email_proses'])->name('isirung.send.email.proses');
 
+        Route::get('isirung/kod-produk', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_kod_produk'])->name('isirung.kod.produk');
+        Route::get('isirung/kod-negara', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_kod_negara'])->name('isirung.kod.negara');
 
         Route::get('isirung/penyata-dahulu', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_penyatadahulu'])->name('isirung.penyatadahulu');
         Route::post('isirung/penyata-dahulu/process', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_penyata_dahulu_process'])->name('isirung.penyata.dahulu.process');
@@ -530,6 +538,8 @@ Route::middleware('auth')->group(function () {
         Route::get('oleokimia/email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_email'])->name('oleo.email');
         Route::post('oleokimia/send-email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_send_email_proses'])->name('oleo.send.email.proses');
 
+        Route::get('oleokimia/kod-produk', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_kod_produk'])->name('oleo.kod.produk');
+        Route::get('oleokimia/kod-negara', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_kod_negara'])->name('oleo.kod.negara');
         Route::get('oleokimia/penyata-dahulu', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_penyatadahulu'])->name('oleo.penyatadahulu');
         Route::post('oleokimia/penyata-dahulu/process', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_penyata_dahulu_process'])->name('oleo.penyata.dahulu.process');
     });
@@ -560,6 +570,8 @@ Route::middleware('auth')->group(function () {
         Route::get('pusatsimpan/email', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_email'])->name('pusatsimpan.email');
         Route::post('pusatsimpan/send-email', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_send_email_proses'])->name('pusatsimpan.send.email.proses');
 
+        Route::get('pusatsimpan/kod-produk', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_kod_produk'])->name('pusatsimpan.kod.produk');
+        Route::get('pusatsimpan/kod-negara', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_kod_negara'])->name('pusatsimpan.kod.negara');
 
         Route::get('pusatsimpan/penyata-dahulu', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_penyatadahulu'])->name('pusatsimpan.penyatadahulu');
         Route::post('pusatsimpan/penyata-dahulu/process', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_penyata_dahulu_process'])->name('pusatsimpan.penyata.dahulu.process');
@@ -622,6 +634,10 @@ Route::middleware('auth')->group(function () {
         Route::post('biodiesel/send-email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_send_email_proses'])->name('bio.send.email.proses');
 
         Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
+
+
+        Route::get('biodiesel/kod-produk', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_kod_produk'])->name('bio.kod.produk');
+        Route::get('biodiesel/kod-negara', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_kod_negara'])->name('bio.kod.negara');
         Route::get('biodiesel/try', [App\Http\Controllers\Users\KilangBiodieselController::class, 'try'])->name('try');
     });
 });
@@ -634,9 +650,6 @@ Route::get('hashpassword', [App\Http\Controllers\Users\KilangBuah\KilangBuahCont
 
 Route::get('/data/graph/default', [App\Http\Controllers\Admin\KilangController::class, 'graph_dashboard_default'])->name('ipjpsm.graph_dashboard.default');
 
-//Data Migration
-Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
-Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
 
 
 Route::get('/trylogin', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'trylogin'])->name('trylogin');
