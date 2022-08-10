@@ -12,7 +12,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    {{-- <h4 class="page-title" >Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -37,7 +37,7 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif  {{ $tahun }}</h4> --}}
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -64,6 +64,40 @@
                     </div>
                 </div>
             </div>
+            <p style="text-align: center; vertical-align:middle; font-size: 20px">
+
+                PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4
+                <br>
+
+            BULAN :&nbsp;&nbsp;
+            @if ($bulan == 1)
+                JANUARI
+            @elseif($bulan == 2)
+                FEBRUARI
+            @elseif($bulan == 3)
+                MAC
+            @elseif($bulan == 4)
+                APRIL
+            @elseif($bulan == 5)
+                MEI
+            @elseif($bulan == 6)
+                JUN
+            @elseif($bulan == 7)
+                JULAI
+            @elseif($bulan == 8)
+                OGOS
+            @elseif($bulan == 9)
+                SEPTEMBER
+            @elseif($bulan == 10)
+                OKTOBER
+            @elseif($bulan == 11)
+                NOVEMBER
+            @elseif($bulan == 12)
+                DISEMBER
+            @endif
+            &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+
+            </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
             <form action="{{ route('penapis.add.bahagian.v') }}" method="post" class="sub-form">
@@ -323,7 +357,7 @@
                                                                         oninput="validate_two_decimal(this);enableKemaskini({{ $data->e101_d1 }}); invoke_sd7({{ $data->e101_d1 }}) "
                                                                         value="{{ number_format($data->e101_d7 ,2) }}" required>
                                                                 </div>
-                                                                <label class="required">PPKO </label> 
+                                                                <label class="required">PPKO </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_d8' id="e101_sd8{{ $data->e101_d1 }}"
                                                                         onkeypress="return isNumberKey(event)"
