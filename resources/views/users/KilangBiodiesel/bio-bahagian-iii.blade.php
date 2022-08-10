@@ -689,7 +689,7 @@
             </form>
         @endsection
         @section('scripts')
-           
+
             <script>
                 function onlyNumberKey(evt) {
 
@@ -810,7 +810,7 @@
                     if (produk == "AW") {
                         document.getElementById('merah_container').style.display = "block";
                         $('#ebio_c8').attr('readonly', 'readonly');
-                        $('#ebio_c8').attr('value', ' {{ $produk2 }}');
+                        $('#ebio_c8').attr('value', ' 0.00');
 
                         // document.getElementById('isaw').style.display = "block";
                         // document.getElementById('notaw').style.display = "none";
