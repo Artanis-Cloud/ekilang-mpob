@@ -133,7 +133,7 @@
                                 Jumlah Hari Kilang Beroperasi Sebulan </label>
                             </div>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" name='hari_operasi' max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
+                                <input type="number" class="form-control" name='hari_operasi' min="0" max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
                                 oninput="this.setCustomValidity('')"
                                     onkeypress="return isNumberKey(event)" id="hari_operasi"  oninput="validate_two_decimal(this)"
                                     required

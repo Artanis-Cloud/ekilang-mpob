@@ -115,7 +115,7 @@
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($senarai_syarikat as $data)
-                                                            <tr>
+                                                            <tr id="row{{ $data->ebio_cc1 }}">
 
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td><input type="text" id="ebio_cc3" class="form-control" style="text-align: center"
@@ -131,8 +131,9 @@
                                                         <td><input type="text" id="ebio_cc4" class="form-control" style="text-align: center"
                                                             placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"  onkeypress="return isNumberKey(event)"
                                                             value="{{ $data->ebio_cc4 ?? 0 }}"></td>
-                                                            <td><input type="button" class="add btn btn-danger"
-                                                                onclick="deleteRow();" value="Hapus">
+                                                            <td><input type="button" class="add btn btn-danger" style="display: block;
+                                                                margin: auto;"
+                                                                onclick="deleteRow({{ $data->ebio_cc1 }});" value="Hapus">
                                                         </td>
 
 
@@ -241,12 +242,12 @@
 
 @section('scripts')
 <script>
-    function deleteRow(no) {
-        document.getElementById("ebio" + no + "").remove();
+    function deleteRow(key) {
+        document.getElementById("row" + key ).remove();
         // document.getElementById("row_input" + no + "").outerHTML = "";
 
-        document.getElementById("jumlah_row_hidden" + (no - 1)).remove();
-        document.getElementById("new_syarikat_hidden" + (no - 1)).remove();
+        // document.getElementById("jumlah_row_hidden" + (no - 1)).remove();
+        // document.getElementById("new_syarikat_hidden" + (no - 1)).remove();
     }
     </script>
 <script>
@@ -280,7 +281,7 @@
         var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td></td><td id='syarikat_row" +
             table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
             "</td><td><input type='hidden' id='jumlah_row" + table_len +
-            "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+            "' name='jumlah_row_add[]' value=" + new_jumlah +
             "> <input type='button' value='Hapus' class='delete btn btn-danger' onclick='delete_row(" + table_len + ")'></td></tr>";
 
         var table_input = document.getElementById("cc3_4");
