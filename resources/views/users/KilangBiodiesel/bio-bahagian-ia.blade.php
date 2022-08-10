@@ -143,7 +143,8 @@
                             <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b5'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b5" required
+                                    onchange="autodecimal(this); FormatCurrency(this)"
+                                    oninput="validate_two_decimal(this); this.setCustomValidity('');" style="width:100%" id="ebio_b5" required
                                     onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -161,8 +162,9 @@
                             <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b6'
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b6" required onkeyup="FormatCurrency(this)"
-                                    oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                    onchange="autodecimal(this); FormatCurrency(this)"
+                                    oninput="validate_two_decimal(this); this.setCustomValidity('')" style="width:100%" id="ebio_b6" required
+                                    onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
                                 @error('ebio_b6')
@@ -179,9 +181,9 @@
                                 <span class="">Pengeluaran</span>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <input type="text" class="form-control" name='ebio_b7'
+                                <input type="text" class="form-control" name='ebio_b7' onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b7" required onkeyup="FormatCurrency(this)"
+                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b7" required
                                     onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -195,9 +197,9 @@
                                 <span class="">Digunakan Untuk Proses Selanjutnya</span>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <input type="text" class="form-control" name='ebio_b8'
+                                <input type="text" class="form-control" name='ebio_b8' onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b8" required onkeyup="FormatCurrency(this)"
+                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b8" required
                                     onkeypress="return isNumberKey(event)">
 
                                 @error('ebio_b8')
@@ -213,9 +215,9 @@
                                 <span class="">Jualan/Edaran Tempatan</span>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <input type="text" class="form-control" name='ebio_b9'
+                                <input type="text" class="form-control" name='ebio_b9' onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b9" required onkeyup="FormatCurrency(this)"
+                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b9" required
                                     onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -229,9 +231,9 @@
                                 <span class="">Eksport </span>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <input type="text" class="form-control" name='ebio_b10'
+                                <input type="text" class="form-control" name='ebio_b10' onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('');" style="width:100%" id="ebio_b10" required onkeyup="FormatCurrency(this)"
+                                    oninput="this.setCustomValidity('');validate_two_decimal('');" style="width:100%" id="ebio_b10" required
                                     onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
 
@@ -249,9 +251,9 @@
                                 <span class="">Stok Akhir Dilapor</span>
                             </div>
                             <div class="col-md-2 mt-3">
-                                <input type="text" class="form-control" name='ebio_b11'
+                                <input type="text" class="form-control" name='ebio_b11' onchange="autodecimal(this); FormatCurrency(this)"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b11" required onkeyup="FormatCurrency(this)"
+                                    oninput="this.setCustomValidity('');validate_two_decimal('')" style="width:100%" id="ebio_b11" required
                                     onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini.">
                                 @error('ebio_b11')
@@ -588,7 +590,206 @@
 
                 </div>
             </div>
+@endsection
+@section('scripts')
+            <script>
+                function invoke_b5() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b6').focus();
+                        }
 
+                    });
+                }
+
+                function invoke_b6() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b7').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_b7() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b9').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_b9() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b10').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_b10() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b11').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_b11() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b12').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_b12() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b13').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_b13() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_b14').focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb5(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb6'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb6(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb7'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb7(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb9'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb9(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb10'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb10(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb11'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb11(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb12'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb12(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb13'+key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_eb13(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e101_eb14'+key).focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
             <script>
                 function onlyNumberKey(evt) {
 
@@ -657,29 +858,12 @@
 
                 });
             </script>
-            <script language="javascript" type="text/javascript">
-                function FormatCurrency(ctrl) {
-                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
-                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
-                        return;
-                    }
 
-                    var val = ctrl.value;
-
-                    val = val.replace(/,/g, "")
-                    ctrl.value = "";
-                    val += '';
-                    x = val.split('.');
-                    x1 = x[0];
-                    x2 = x.length > 1 ? '.' + x[1] : '';
-
-                    var rgx = /(\d+)(\d{3})/;
-
-                    while (rgx.test(x1)) {
-                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
-                    }
-
-                    ctrl.value = x1 + x2;
-                }
-            </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".floatNumberField").change(function() {
+            $(this).val(parseFloat($(this).val()).toFixed(2));
+        });
+    });
+</script>
         @endsection
