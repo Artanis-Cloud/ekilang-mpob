@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c4' style="width:100%"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this)"
                                         oninput="this.setCustomValidity(''); validate_two_decimal('')"
                                         onkeypress="return isNumberKey(event)" id="ebio_c4" required
                                         onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
@@ -151,7 +151,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c5' style="width:100%"
                                         id="ebio_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')"
+                                        oninput="this.setCustomValidity('');validate_two_decimal('')" onchange="autodecimal(this)"
                                         onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('ebio_c5')
@@ -169,7 +169,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c6' style="width:100%"
                                         id="ebio_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')"
+                                        oninput="this.setCustomValidity('');validate_two_decimal('')" onchange="autodecimal(this)"
                                         onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('ebio_c6')
@@ -184,7 +184,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c7' style="width:100%"
                                         id="ebio_c7" oninput="this.validate_two_decimal('');this.setCustomValidity('')"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this)"
                                         onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)">
                                     @error('ebio_c7')
                                         <div class="alert alert-danger">
@@ -203,7 +203,7 @@
                                     {{-- <div id="aw"> --}}
                                     <input type="text" class="form-control" name='ebio_c8' style="width:100%;"
                                         id="ebio_c8" required onkeyup="FormatCurrency(this)"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this)"
                                         oninput="this.setCustomValidity('');validate_two_decimal('')"
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">&nbsp;
                                     {{-- </div> --}}
@@ -229,7 +229,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c9' style="width:100%"
                                         id="ebio_c9" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')"
+                                        oninput="this.setCustomValidity('');validate_two_decimal('')" onchange="autodecimal(this)"
                                         onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
 
