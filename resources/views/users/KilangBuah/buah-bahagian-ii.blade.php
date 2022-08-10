@@ -6,10 +6,11 @@
     <!-- ======= Hero Section ======= -->
     <div class="page-wrapper">
 
-        <div class="page-breadcrumb mb-3">
+        <div class="page-breadcrumb">
+
             <div class="row">
-                <div class="col-5 align-self-center">
-                    <h4 class="page-title">Kemasukan Penyata Bulanan
+                <div class="col-9 align-self-center">
+                    {{-- <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -35,9 +36,9 @@
                         @elseif($bulan == 12)
                             DISEMBER
                         @endif {{ $tahun }}
-                    </h4>
+                    </h4> --}}
                 </div>
-                <div class="col-7 align-self-center">
+                <div class="col-3 align-self-center" >
                     <div class="d-flex justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -62,6 +63,40 @@
                     </div>
                 </div>
             </div>
+                <p style="text-align: center; vertical-align:middle; font-size: 20px">
+
+                    KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
+
+                    BULAN :&nbsp;&nbsp;
+                    @if ($bulan == 1)
+                        JANUARI
+                    @elseif($bulan == 2)
+                        FEBRUARI
+                    @elseif($bulan == 3)
+                        MAC
+                    @elseif($bulan == 4)
+                        APRIL
+                    @elseif($bulan == 5)
+                        MEI
+                    @elseif($bulan == 6)
+                        JUN
+                    @elseif($bulan == 7)
+                        JULAI
+                    @elseif($bulan == 8)
+                        OGOS
+                    @elseif($bulan == 9)
+                        SEPTEMBER
+                    @elseif($bulan == 10)
+                        OKTOBER
+                    @elseif($bulan == 11)
+                        NOVEMBER
+                    @elseif($bulan == 12)
+                        DISEMBER
+                    @endif
+                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+
+                    </p>
+
         </div>
 
         <div class="card" style="margin-right:2%; margin-left:2%;">
@@ -500,7 +535,7 @@
 
                 </div>
             </div>
-       
+
 
 
     @endsection

@@ -33,12 +33,10 @@
                 <div class="container center mt-2">
                     <div class="mb-4 row">
                         <div class="col-md-8">
-                            <div class="card">
-                                <div class=" text-center">
-                                    <h4 style="color: rgb(39, 80, 71); margin-top:3%">Pengumuman</h4>
+                            <div class="card" style="border-radius: 20px">
+                                <div class=" text-center" style="background-color: rgb(44, 177, 113); border-radius: 20px; padding: 15px">
+                                    <h4 style="color: #fff; margin-top:1%">Pengumuman</h4>
                                 </div>
-                                <hr>
-
                                 <div class="card-body">
                                     <div class="container center ">
 
@@ -66,8 +64,8 @@
                                                             berikut :</b></span><br>
                                                     <br>
 
-                                                    <div class="container" style="
-                                                                    border: 1px solid black;">
+                                                    <div class="container"  style=" border-radius: 20px;
+                                                    border: 1px solid rgb(209, 169, 11);">
 
                                                         <p class="card-text" style="text-align: justify;">
                                                             <br>
@@ -117,11 +115,10 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="row">
-                                    <div class="card">
-                                        <div class=" text-center">
-                                            <h4 style="color: rgb(39, 80, 71); margin-top:7%">Peringatan</h4>
+                                    <div class="card" style="border-radius: 20px">
+                                        <div class=" text-center" style="background-color: rgb(213, 179, 67); border-radius: 20px; padding: 15px">
+                                            <h4 style="color: #fff; margin-top: 1%">Peringatan</button></h4>
                                         </div>
-                                        <hr>
 
                                         <div class="card-body">
                                             <div class="container center ">
@@ -142,11 +139,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class=" text-center">
-                                            <h4 style="color: rgb(39, 80, 71); margin-top:7%">Penafian</h4>
-                                        </div>
-                                        <hr>
+                                    <div class="card" style="border-radius: 20px">
+                                        <div class=" text-center" style="background-color: rgb(223, 60, 60); border-radius: 20px; padding: 15px">
+                                            <h4 style="color: #fff; margin-top: 1%">Penafian</h4>
+                                    </div>
 
                                         <div class="card-body">
                                             <div class="container center ">
