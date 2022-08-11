@@ -1765,11 +1765,11 @@
 
         var that = this;
         $('input', this.footer()).on('keyup change', function() {
-            if (that.search() !== this.value) {
-                that
-                    .search(this.value)
-                    .draw();
-            }
+            // if (that.search() !== this.value) {
+            //     that
+            //         .search(this.value)
+            //         .draw();
+            // }
         });
     });
 </script>

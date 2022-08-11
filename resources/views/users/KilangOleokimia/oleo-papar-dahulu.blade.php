@@ -852,6 +852,14 @@
         function myPrint(myfrm) {
             document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
             var printdata = document.getElementById(myfrm);
+            var htmlToPrint = '' +
+                '<style type="text/css">' +
+                'table th, table td {' +
+                'border:1px solid #000;' +
+                'padding:0.5em;' +
+                '}' +
+                '</style>';
+            htmlToPrint += divToPrint.outerHTML;
             newwin = window.open("");
             newwin.document.write(printdata.outerHTML);
             newwin.print();

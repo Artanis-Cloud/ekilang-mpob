@@ -114,7 +114,7 @@
 
                     <div class="row col-12 mt-3">
                         <div class="mb-2 col-8" style="text-align: left">
-                            <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                            <p><i>Nota: Sila isikan butiran dibawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
                         </div>
                         <div class=" mt-2 col-4" style="text-align: right">
                             <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
