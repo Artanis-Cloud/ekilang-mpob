@@ -46,35 +46,31 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <form method="get" action="" id="myfrm">
+
 
                         <div class="card">
                             <div class="row">
-                                <div class="col-1 align-self-center">
-                                    <a href="{{ $returnArr['kembali'] }}" class="btn" style="padding: 20px; color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                <div class="col align-self-center" style="padding: 20px;" >
+                                    <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+
+                                    <button class="btn btn-primary" onclick="exportTableToExcel('tblData')" style="float: right">Excel</button>
+
+                                    <button type="button" class="btn btn-primary " onclick="myPrint('myfrm')" style="float: right; margin-right: 5px"
+                                                value="print">PDF</button>
                                 </div>
                             </div>
-                            <div class=" text-center">
+
+
+
+                        <form method="get" action="" id="myfrm">
+                            <div class="text-center">
                                 <h4 style="color: rgb(39, 80, 71); ">Senarai Direktori</h4>
 
                             </div>
                             <hr>
-                            <div class="row col-md-12" style=" float:right; margin-left:83%">
-
-                                <div class="text-left col-md-8">
-                                    <button class="btn btn-primary" onclick="exportTableToExcel('tblData')">Excel</button>
-
-                                    <button type="button" class="btn btn-primary " onclick="myPrint('myfrm')"
-                                        value="print">PDF</button>
-
-
-                                </div>
-                            </div>
-
-
                             <div class="card-body">
                                 <div class="container center ">
-                                    <table id="tblData" style="margin-left:2%; margin-top:-7%">
+                                    <table id="tblData" >
 
                                         @foreach ($query as $data)
                                             <tr style="margin-left:2%">
@@ -143,10 +139,6 @@
                                         @endforeach
                                         <br>
                                     </table>
-
-
-
-
                                 </div>
                             </div>
                     </form>

@@ -66,7 +66,7 @@
             </div>
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
-                PENYATA BULANAN KILANG OLEOKIMIA (BIODIESEL) - MPOB (EL) CM 4<br>
+               <b> PENYATA BULANAN KILANG OLEOKIMIA (BIODIESEL) - MPOB (EL) CM 4<br>
 
             BULAN :&nbsp;&nbsp;
             @if ($bulan == 1)
@@ -95,7 +95,7 @@
                 DISEMBER
             @endif
             &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
-
+               </b>
             </p>
         </div>
 
@@ -134,9 +134,8 @@
                             </div>
                             <div class="col-md-3">
                                 <input type="number" class="form-control" name='hari_operasi' min="0" max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
-                                oninput="this.setCustomValidity('')"
-                                    onkeypress="return isNumberKey(event)" id="hari_operasi"  oninput="validate_two_decimal(this)"
-                                    required
+                                oninput="this.setCustomValidity(''); invokeFunc()"
+                                required
                                     title="Sila isikan butiran ini." value="{{ $penyata->hari_operasi ?? 0 }}">
                                 @error('hari_operasi')
                                     <div class="alert alert-danger">
@@ -170,7 +169,7 @@
 
                     </div>
 
-                    <div class="form-group col-10 ml-auto mr-auto" style="margin-top:4%; margin-bottom: 1px">
+                    <div class="form-group col-10 ml-auto mr-auto" style="margin-top:4%; margin-bottom: 15%">
                             <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
 
@@ -224,6 +223,24 @@
 
                 });
 
+            </script>
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kapasiti').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
             </script>
 <br>
 @endsection

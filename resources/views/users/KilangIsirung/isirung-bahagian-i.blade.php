@@ -68,7 +68,7 @@
             </div>
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
-                PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
+                <b>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
             BULAN :&nbsp;&nbsp;
             @if ($bulan == 1)
@@ -97,7 +97,7 @@
                 DISEMBER
             @endif
             &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
-
+                </b>
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%; margin-top:2%">

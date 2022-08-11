@@ -9,7 +9,7 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb mb-3">
+        <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
                     {{-- <h4 class="page-title" >Kemasukan Penyata Bulanan
@@ -66,7 +66,7 @@
             </div>
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
-                PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4
+                <b>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4
                 <br>
 
             BULAN :&nbsp;&nbsp;
@@ -96,7 +96,7 @@
                 DISEMBER
             @endif
             &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
-
+                </b>
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">

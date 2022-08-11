@@ -34,7 +34,7 @@
                     <div class="mb-4 row">
                         <div class="col-md-8">
                             <div class="card" style="border-radius: 20px">
-                                <div class=" text-center" style="background-color: rgb(44, 177, 113); border-radius: 20px; padding: 15px">
+                                <div class=" text-center" style="background-color: rgb(44, 177, 113); border-radius: 15px; padding: 15px; margin: 15px">
                                     <h4 style="color: #fff; margin-top:1%">Pengumuman</h4>
                                 </div>
                                 <div class="card-body">
@@ -116,8 +116,8 @@
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="card" style="border-radius: 20px">
-                                        <div class=" text-center" style="background-color: rgb(213, 179, 67); border-radius: 20px; padding: 15px">
-                                            <h4 style="color: #fff; margin-top: 1%">Peringatan</button></h4>
+                                        <div class=" text-center" style="background-color: rgb(213, 179, 67); border-radius: 15px; padding: 15px; margin: 15px">
+                                            <h4 style="color: #fff; margin-top: 2%">Peringatan</button></h4>
                                         </div>
 
                                         <div class="card-body">
@@ -140,8 +140,8 @@
                                         </div>
                                     </div>
                                     <div class="card" style="border-radius: 20px">
-                                        <div class=" text-center" style="background-color: rgb(223, 60, 60); border-radius: 20px; padding: 15px">
-                                            <h4 style="color: #fff; margin-top: 1%">Penafian</h4>
+                                        <div class=" text-center" style="background-color: rgb(223, 60, 60); border-radius: 15px; padding: 15px; margin: 15px">
+                                            <h4 style="color: #fff; margin-top: 2%">Penafian</h4>
                                     </div>
 
                                         <div class="card-body">

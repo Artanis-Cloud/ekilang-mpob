@@ -269,7 +269,7 @@
                             <tbody>
                                     <tr>
                                         <td width="220" style="text-align: center; vertical-align:middle">
-                                            <<b>
+                                            <b>
                                                     <font size="3">Butiran</font>
                                                 </b>
                                         </td>

@@ -16,7 +16,9 @@ class tryController extends Controller
     public function testing3(){
         return view('users.users-dashboard');
     }
-
+    public function dashArx(){
+        return view('dashboardArx');
+    }
     // public function register2(){
     //     return view('auth/registerrrrrrrr');
     // }
@@ -24,3 +26,4 @@ class tryController extends Controller
 
 
 }
+

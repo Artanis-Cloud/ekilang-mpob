@@ -57,7 +57,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_nlkppk" class="form-control" maxlength="60"
                                     placeholder="No. Lesen KPPK" onkeypress="return isNumberKey(event)"
-                                    name="e_nlkppk" value="{{ $pelesen->e_nlkppk }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    name="e_nlkppk" value="{{ $pelesen->e_nlkppk }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc()">
                                 @error('e_nlkppk')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -73,14 +73,14 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_ap1" class="form-control"  maxlength="60"
-                                    placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()">
                                 @error('e_ap1')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
                                     </div>
                                 @enderror
 
-                                <input type="text" id="e_ap2" class="form-control" maxlength="60"
+                                <input type="text" id="e_ap2" class="form-control" maxlength="60" oninput="this.setCustomValidity(''); invokeFunc3()"
                                     placeholder="Alamat Surat Menyurat 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
                                 @error('e_ap2')
                                     <div class="alert alert-danger">
@@ -88,7 +88,7 @@
                                     </div>
                                 @enderror
 
-                                <input type="text" id="e_ap3" class="form-control" maxlength="60"
+                                <input type="text" id="e_ap3" class="form-control" maxlength="60" oninput="this.setCustomValidity(''); invokeFunc4()"
                                     placeholder="Alamat Surat Menyurat 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
                                 @error('e_ap3')
                                     <div class="alert alert-danger">
@@ -116,14 +116,15 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_as1" class="form-control"  maxlength="60"
-                                    placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}" required
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc5()">
                                 @error('e_as1')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
                                     </div>
                                 @enderror
 
-                                <input type="text" id="e_as2" class="form-control" maxlength="60"
+                                <input type="text" id="e_as2" class="form-control" maxlength="60" oninput="this.setCustomValidity(''); invokeFunc6()"
                                     placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}">
                                 @error('e_as2')
                                     <div class="alert alert-danger">
@@ -131,7 +132,7 @@
                                     </div>
                                 @enderror
 
-                                <input type="text" id="e_as3" class="form-control" maxlength="60"
+                                <input type="text" id="e_as3" class="form-control" maxlength="60" oninput="this.setCustomValidity(''); invokeFunc7()"
                                     placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                     value="{{ $pelesen->e_as3 }}">
                                 @error('e_as3')
@@ -150,7 +151,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_notel" class="form-control" maxlength="60"
                                     placeholder="No. Telefon Pejabat / Kilang" onkeypress="return isNumberKey(event)"
-                                    name="e_notel" value="{{ $pelesen->e_notel }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    name="e_notel" value="{{ $pelesen->e_notel }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc8()">
                                 @error('e_notel')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -165,7 +166,7 @@
                                     No. Faks</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
+                                <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks" oninput="this.setCustomValidity(''); invokeFunc9()"
                                     maxlength="60" name="e_nofax" value="{{ $pelesen->e_nofax }}">
                                 @error('e_nofax')
                                     <div class="alert alert-danger">
@@ -181,7 +182,8 @@
                                     Alamat Emel Kilang</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60" required
+                                oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc10()"
                                     name="e_email" value="{{ $pelesen->e_email }}">
                                 @error('e_email')
                                     <div class="alert alert-danger">
@@ -197,7 +199,8 @@
                                     Nama Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor" maxlength="60" required
+                                oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc11()"
                                     name="e_npg" value="{{ $pelesen->e_npg }}">
                                 @error('e_npg')
                                     <div class="alert alert-danger">
@@ -215,7 +218,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_jpg" class="form-control"
                                     placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}" maxlength="60"
-                                    required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc12()">
                                 @error('e_jpg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -233,7 +236,7 @@
                                 <input type="text" id="e_notel_pg" class="form-control" maxlength="60"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
-                                    required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc13()">
                                 @error('e_notel_pg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -250,7 +253,7 @@
                             <div class="col-md-7">
                                 <input type="email" id="e_email_pg" class="form-control" maxlength="100"
                                     placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                    value="{{ $pelesen->e_email_pg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" multiple>
+                                    value="{{ $pelesen->e_email_pg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc14()" multiple>
                                 @error('e_email_pg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -268,7 +271,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_npgtg" class="form-control"
                                     placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                    value="{{ $pelesen->e_npgtg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    value="{{ $pelesen->e_npgtg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc15()">
                                 @error('e_npgtg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -286,7 +289,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
                                     placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                    value="{{ $pelesen->e_jpgtg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    value="{{ $pelesen->e_jpgtg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc16()">
                                 @error('e_jpgtg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -304,7 +307,7 @@
                             <div class="col-md-7">
                                 <input type="email" id="e_email_pengurus" class="form-control" maxlength="100"
                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                    value="{{ $pelesen->e_email_pengurus }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" multiple>
+                                    value="{{ $pelesen->e_email_pengurus }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc17()" multiple>
                                 @error('e_email_pengurus')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -320,7 +323,7 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_syktinduk" class="form-control" placeholder="Syarikat Induk" maxlength="60"
-                                    name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc18()">
 
                                 @error('e_syktinduk')
                                     <div class="alert alert-danger">
@@ -360,7 +363,8 @@
                             <div class="col-md-7">
                                 <input type="text" id="kap_proses" class="form-control"
                                     onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun"
-                                    name="kap_proses" value="{{ $pelesen->kap_proses }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    name="kap_proses" value="{{ $pelesen->kap_proses }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                    oninput="this.setCustomValidity(''); invokeFunc19()">
                                 @error('kap_proses')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -395,7 +399,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpo'
                                                 style="width:100%" size="15" id="bil_tangki_cpo" required
                                                 title="Sila isikan butiran ini." onkeypress="return isNumberKey(event)"
-                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()">
+                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc20()">
                                             @error('bil_tangki_cpo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -406,7 +410,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_ppo" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()">
+                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc21()">
                                             @error('bil_tangki_ppo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -417,7 +421,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_cpko" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()">
+                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc22()">
                                             @error('bil_tangki_cpko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -427,7 +431,7 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_ppko'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_ppko" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()">
+                                                value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc23()">
                                             @error('bil_tangki_ppko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -437,7 +441,7 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_oleo'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_oleo" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()">
+                                                value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc24()">
                                             @error('bil_tangki_oleo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -448,7 +452,7 @@
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_others" required title="Sila isikan butiran ini."
                                                 value="{{ $pelesen->bil_tangki_others }}"
-                                                onchange="validation_jumlah()">
+                                                onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc25()">
                                             @error('bil_tangki_others')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -464,7 +468,7 @@
 
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_cpo" onchange="validation_jumlah2()"
+                                                id="kap_tangki_cpo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc26()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_cpo }}">
                                             @error('kap_tangki_cpo')
@@ -475,7 +479,7 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_ppo" onchange="validation_jumlah2()"
+                                                id="kap_tangki_ppo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc27()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_ppo }}">
                                             @error('kap_tangki_ppo')
@@ -486,7 +490,7 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_cpko" onchange="validation_jumlah2()"
+                                                id="kap_tangki_cpko" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc28()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_cpko }}">
                                             @error('kap_tangki_cpko')
@@ -497,7 +501,7 @@
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_ppko'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_ppko" onchange="validation_jumlah2()"
+                                                id="kap_tangki_ppko" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc29()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_ppko }}">
                                             @error('kap_tangki_ppko')
@@ -508,7 +512,7 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_oleo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_oleo" onchange="validation_jumlah2()"
+                                                id="kap_tangki_oleo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc30()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_oleo }}">
                                             @error('kap_tangki_oleo')
@@ -519,7 +523,7 @@
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_others'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_others" onchange="validation_jumlah2()"
+                                                id="kap_tangki_others" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc31()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_others }}">
                                             @error('kap_tangki_others')
@@ -1017,7 +1021,550 @@
                         });
                     });
                 </script>
+<script>
+    function invokeFunc() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_ap1').focus();
+            }
 
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc2() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_ap2').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc3() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_ap3').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc4() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_as1').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc5() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_as2').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc6() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_as3').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc7() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_notel').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc8() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_nofax').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc9() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_email').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc10() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_npg').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc11() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_jpg').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc12() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_notel_pg').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+
+<script>
+    function invokeFunc13() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_email_pg').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc14() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_npgtg').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+
+<script>
+    function invokeFunc15() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_jpgtg').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc16() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_email_pengurus').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc17() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e_syktinduk').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc18() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_proses').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc19() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('bil_tangki_cpo').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc20() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('bil_tangki_ppo').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc21() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('bil_tangki_cpko').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc22() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('bil_tangki_ppko').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+
+<script>
+    function invokeFunc23() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('bil_tangki_oleo').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc24() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('bil_tangki_others').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+
+<script>
+    function invokeFunc25() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_tangki_cpo').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc26() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_tangki_ppo').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc27() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_tangki_cpko').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc28() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_tangki_ppko').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc29() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_tangki_oleo').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc30() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('kap_tangki_others').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
 
 
 @endsection
