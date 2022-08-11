@@ -54,7 +54,7 @@
                             @csrf
                             <div class="card-body">
                                 <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71);">Daftar Pelesen Baru</h3><br>
+                                    <h3 style="color: rgb(39, 80, 71); margin-top:-50px">Daftar Pelesen Baru</h3><br>
                                 </div>
                                 <hr>
                                 <div class="row justify-content-center" >

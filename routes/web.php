@@ -223,6 +223,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/maklumat-penyata-bulanan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_maklumat_penyata_bulanan'])->name('admin.maklumat.penyata.bulanan');
         Route::get('admin/ringkasan-penyata', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata'])->name('admin.ringkasan.penyata');
+        Route::get('admin/ringkasan-penyata-table', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata_table'])->name('admin.ringkasan.penyata.process');
+        // Route::get('admin/ringkasan-penyata/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata'])->name('admin.ringkasan.penyata.process');
         Route::get('admin/ringkasan-bahagian-1', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_bahagian1'])->name('admin.ringkasan.bahagian1');
         Route::get('admin/ringkasan-bahagian-1-table', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_bahagian1_table'])->name('admin.ringkasan.bahagian1.process');
         Route::get('admin/ringkasan-bahagian-2', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_bahagian2'])->name('admin.ringkasan.bahagian2');
@@ -230,7 +232,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/ringkasan-bahagian-3', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_bahagian3'])->name('admin.ringkasan.bahagian3');
         Route::get('admin/ringkasan-bahagian-3-table', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_bahagian3_table'])->name('admin.ringkasan.bahagian3.process');
         Route::get('admin/ringkasan-jualan-bio', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_jualan_bio'])->name('admin.ringkasan.jualan.bio');
-        Route::get('admin/ringkasan-penyata/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata'])->name('admin.ringkasan.penyata.process');
+        Route::get('admin/ringkasan-jualan-bio-table', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_jualan_bio_table'])->name('admin.ringkasan.jualan.bio.process');
         // Route::get('admin/ringkasan-bahagian-2/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_bahagian2'])->name('admin.ringkasan.bahagian2.process');
 
         Route::get('admin/laporan-ringkasan/{Id}/{data}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan'])->name('admin.laporan.ringkasan');

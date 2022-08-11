@@ -452,40 +452,40 @@
                                                                 $total_hari_operasi = 0;
                                                             @endphp
                                                             @foreach ($result as $data)
-                                                                <tr class="text-right">
-                                                                    <td scope="row" class="text-left">{{ $loop->iteration }}</td>
+                                                                <tr>
+                                                                    <td scope="row">{{ $loop->iteration }}</td>
                                                                     <td scope="row" class="text-left">{{ $data->e_np }}</td>
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
-                                                                    {{-- <td class="text-right">
+                                                                    {{-- <td>
                                                                         {{ number_format($data->hari_operasi ?? 0, 2) }}
                                                                     </td> --}}
 
@@ -625,37 +625,37 @@
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
                                                                     <td>{{ $loop->iteration }}</td>
-                                                                    <td>{{ $data->e_np }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
 
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
                                                                         @if ($data->bulan == $i && $data->hari_operasi != 0)
@@ -891,40 +891,40 @@
                                                                 $total_kapasiti_operasi = 0;
                                                             @endphp
                                                             @foreach ($result as $data)
-                                                                <tr class="text-right">
-                                                                    <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                                    <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                                <tr>
+                                                                    <td class="text-left">{{ $loop->iteration }}</td>
+                                                                    <td scope="row">{{ $data->e_np }}</td>
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
-                                                                    {{-- <td class="text-right">
+                                                                    {{-- <td>
                                                                         {{ number_format($data->kapasiti_operasi ?? 0, 2) }}
                                                                     </td> --}}
 
@@ -1064,37 +1064,37 @@
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
                                                                     <td>{{ $loop->iteration }}</td>
-                                                                    <td>{{ $data->e_np }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
 
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
                                                                         @if ($data->bulan == $i && $data->kapasiti != 0)
@@ -1329,40 +1329,40 @@
                                                                 $total_hari_operasi = 0;
                                                             @endphp
                                                             @foreach ($result as $data)
-                                                                <tr class="text-right">
-                                                                    <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                                    <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                                <tr>
+                                                                    <td scope="row">{{ $loop->iteration }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
-                                                                    {{-- <td class="text-right">
+                                                                    {{-- <td>
                                                                         {{ number_format($data->hari_operasi ?? 0, 2) }}
                                                                     </td> --}}
 
@@ -1502,37 +1502,37 @@
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
                                                                     <td>{{ $loop->iteration }}</td>
-                                                                    <td>{{ $data->e_np }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
 
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
                                                                         @if ($data->bulan == $i && $data->hari_operasi != 0)
@@ -1767,40 +1767,40 @@
                                                                 $total_kapasiti_operasi = 0;
                                                             @endphp
                                                             @foreach ($result as $data)
-                                                                <tr class="text-right">
-                                                                    <td scope="row" class="text-left">{{ $loop->iteration }}</td>
-                                                                    <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                                <tr>
+                                                                    <td scope="row">{{ $loop->iteration }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
-                                                                    {{-- <td class="text-right">
+                                                                    {{-- <td>
                                                                         {{ number_format($data->kapasiti_operasi ?? 0, 2) }}
                                                                     </td> --}}
 
@@ -1944,33 +1944,33 @@
 
 
                                                                     @if ($data->e_negeri == '01')
-                                                                        <td class="text-left">JOHOR</td>
+                                                                        <td>JOHOR</td>
                                                                     @elseif ($data->e_negeri == '02')
-                                                                        <td class="text-left">KEDAH</td>
+                                                                        <td>KEDAH</td>
                                                                     @elseif ($data->e_negeri == '03')
-                                                                        <td class="text-left">KELANTAN</td>
+                                                                        <td>KELANTAN</td>
                                                                     @elseif ($data->e_negeri == '04')
-                                                                        <td class="text-left">MELAKA</td>
+                                                                        <td>MELAKA</td>
                                                                     @elseif ($data->e_negeri == '05')
-                                                                        <td class="text-left">NEGERI SEMBILAN</td>
+                                                                        <td>NEGERI SEMBILAN</td>
                                                                     @elseif ($data->e_negeri == '06')
-                                                                        <td class="text-left">PAHANG</td>
+                                                                        <td>PAHANG</td>
                                                                     @elseif ($data->e_negeri == '07')
-                                                                        <td class="text-left">PERAK</td>
+                                                                        <td>PERAK</td>
                                                                     @elseif ($data->e_negeri == '08')
-                                                                        <td class="text-left">PERLIS</td>
+                                                                        <td>PERLIS</td>
                                                                     @elseif ($data->e_negeri == '09')
-                                                                        <td class="text-left">PULAU PINANG</td>
+                                                                        <td>PULAU PINANG</td>
                                                                     @elseif ($data->e_negeri == '10')
-                                                                        <td class="text-left">SELANGOR</td>
+                                                                        <td>SELANGOR</td>
                                                                     @elseif ($data->e_negeri == '11')
-                                                                        <td class="text-left">TERENGGANU</td>
+                                                                        <td>TERENGGANU</td>
                                                                     @elseif ($data->e_negeri == '12')
-                                                                        <td class="text-left">WILAYAH PERSEKUTUAN</td>
+                                                                        <td>WILAYAH PERSEKUTUAN</td>
                                                                     @elseif ($data->e_negeri == '13')
-                                                                        <td class="text-left">SABAH</td>
+                                                                        <td>SABAH</td>
                                                                     @elseif ($data->e_negeri == '14')
-                                                                        <td class="text-left">SARAWAK</td>
+                                                                        <td>SARAWAK</td>
                                                                     @endif
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
                                                                         @if ($data->bulan == $i && $data->kapasiti != 0)

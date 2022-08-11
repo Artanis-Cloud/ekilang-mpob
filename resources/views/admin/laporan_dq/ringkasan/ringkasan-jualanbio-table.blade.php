@@ -98,11 +98,12 @@
                     style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks">Bahagian 2</a>
 
-                <a style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem; background-color: lightgray"
+                <a href="{{ route('admin.ringkasan.bahagian3') }}"
+                    style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" >Bahagian 3</a>
 
-                <a href="{{ route('admin.ringkasan.jualan.bio') }}"
-                    style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
+                <a
+                    style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem; background-color: lightgray"
                     class="btn btn-work tablinks" >Maklumat Jualan Biodiesel</a>
 
             </div>
@@ -117,19 +118,18 @@
                             </div>
                         </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Produk Biodiesel dan Glycerine</h3>
-                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 3</h5>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Jualan Biodiesel</h3>
+                            {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h5> --}}
                         </div>
                         <hr>
 
                         <div class="card-body">
-                            <form action="{{ route('admin.ringkasan.bahagian3.process') }}" method="get">
+                            <form action="{{ route('admin.ringkasan.jualan.bio.process') }}" method="get">
                             @csrf
                                 <div class="container center">
 
                                     <div class="row">
-                                        <div class="col-md-4 ml-auto ">
-
+                                        <div class="col-md-4 ml-auto">
                                             <div class="form-group">
                                                 <label class="required">Tahun</label>
                                                 <select class="form-control" name="tahun" required>
@@ -168,88 +168,6 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Bulan</label>
-                                                <select class="form-control" name="bulan"  id="bulan" onchange="showTable()">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
-                                                    <option value="equal">Equal</option>
-                                                    <option value="between">Between</option>
-                                                </select>
-
-                                            </div>
-                                            <div id="equal_container" style="display:none">
-                                                <div class="row">
-                                                    <div class="col-md-12 ">
-                                                        <div class="form-group">
-                                                            <label>&nbsp;</label>
-                                                            <select class="form-control" name="bulan" >
-                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                <option value="1">Januari</option>
-                                                                <option value="2">Februari</option>
-                                                                <option value="3">Mac</option>
-                                                                <option value="4">April</option>
-                                                                <option value="5">Mei</option>
-                                                                <option value="6">Jun</option>
-                                                                <option value="7">Julai</option>
-                                                                <option value="8">Ogos</option>
-                                                                <option value="9">September</option>
-                                                                <option value="10">Oktober</option>
-                                                                <option value="11">November</option>
-                                                                <option value="12">Disember</option>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="between_container" style="display:none">
-                                                <div class="row">
-                                                    <div class="col-md-6 ">
-                                                        <div class="form-group">
-                                                            <label>Dari</label>
-                                                            <select class="form-control" name="start_month">
-                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                <option value="1">Januari</option>
-                                                                <option value="2">Februari</option>
-                                                                <option value="3">Mac</option>
-                                                                <option value="4">April</option>
-                                                                <option value="5">Mei</option>
-                                                                <option value="6">Jun</option>
-                                                                <option value="7">Julai</option>
-                                                                <option value="8">Ogos</option>
-                                                                <option value="9">September</option>
-                                                                <option value="10">Oktober</option>
-                                                                <option value="11">November</option>
-                                                                <option value="12">Disember</option>
-                                                            </select>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 ">
-                                                        <div class="form-group">
-                                                            <label>Ke</label>
-                                                            <select class="form-control" name="end_month">
-                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                <option value="1">Januari</option>
-                                                                <option value="2">Februari</option>
-                                                                <option value="3">Mac</option>
-                                                                <option value="4">April</option>
-                                                                <option value="5">Mei</option>
-                                                                <option value="6">Jun</option>
-                                                                <option value="7">Julai</option>
-                                                                <option value="8">Ogos</option>
-                                                                <option value="9">September</option>
-                                                                <option value="10">Oktober</option>
-                                                                <option value="11">November</option>
-                                                                <option value="12">Disember</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div id="lain_container" style="display:none">
-                                            </div>
-                                            <div class="form-group">
                                                 <label>Negeri</label>
                                                 <select class="form-control" id="negeri_id" name="e_negeri">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
@@ -263,7 +181,7 @@
 
                                         </div>
 
-                                        <div class="col-md-5 mr-auto">
+                                        <div class="col-md-5 mr-auto ">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
                                                 <select class="form-control select2" name="e_nl" style="width: 10%">
@@ -276,50 +194,22 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Kumpulan Produk</label>
-                                                <select class="form-control" id="kumpproduk" name="kumpproduk"  onchange="ajax_produk_b2(this);" >
-                                                    <option selected hidden disabled>Sila Pilih</option>
-                                                    @foreach ($kumpproduk as $data)
-                                                    {{-- @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin') --}}
-                                                        <option value="{{ $data->kumpulan }}">
-                                                            {{ $data->kumpulan }} - {{ $data->nama_kumpulan }}
+                                                <label>Pembeli</label>
+                                                <select class="form-control select2" name="pembeli" style="width: 10%">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    @foreach ($pembeli as $data)
+                                                        <option value="{{ $data->id }}">
+                                                            {{ $data->pembeli }}
                                                         </option>
                                                     @endforeach
-
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Kod Produk</label>
-                                                <select class="form-control select2" id="kod_produk2" name="kod_produk" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')" style="width: 10%">
-                                                    <option selected hidden disabled value="">Sila Pilih Kumpulan Terlebih Dahulu
-                                                    </option>
-                                                    {{-- @foreach ($produk as $data)
-                                                        <option value="{{ $data->nama_produk }}">
-                                                            {{ $data->nama_produk }} - {{ $data->kod_produk }}  - {{ $data->namapanjang_produk }}
-                                                        </option>
-                                                    @endforeach --}}
 
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Data</label>
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Data</option>
-                                                        <option value="ebio_b5">Stok Awal Di Premis</option>
-                                                        <option value="ebio_b6">Belian / Terimaan</option>
-                                                        <option value="ebio_b7">Pengeluaran</option>
-                                                        <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
-                                                        <option value="ebio_b9">Jualan / Edaran Tempatan</option>
-                                                        <option value="ebio_b10">Eksport</option>
-                                                        <option value="ebio_b11">Stok Akhir Dilapor</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
 
                                         </div>
+
                                     </div>
+
 
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
@@ -327,10 +217,96 @@
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
+                            <section class="section"><hr>
+                                <div class="card"><br>
 
+                                    <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Jualan Biodiesel</h4>
+                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6><br>
+
+
+                                        <div class="table-responsive " >
+                                            <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
+                                                <thead>
+                                                    <tr style="background-color: #d3d3d34d">
+                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                            rowspan="2">Bil.</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                            rowspan="2">No Lesen</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                            rowspan="2">Nama Pemegang Lesen</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                            rowspan="2">Negeri</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                            rowspan="2">Pembeli</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                            rowspan="2">Kuantiti</th>
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                    @if ($result)
+
+                                                            @php
+                                                                $total_hari_1 = 0;
+                                                                $total_hari_2 = 0;
+                                                                $total_hari_3 = 0;
+                                                                $total_hari_4 = 0;
+                                                                $total_hari_5 = 0;
+                                                                $total_hari_6 = 0;
+                                                                $total_hari_7 = 0;
+                                                                $total_hari_8 = 0;
+                                                                $total_hari_9 = 0;
+                                                                $total_hari_10 = 0;
+                                                                $total_hari_11 = 0;
+                                                                $total_hari_12 = 0;
+                                                                $total_bulan = 0;
+                                                                $total_hari_operasi = 0;
+                                                            @endphp
+                                                            @foreach ($result as $data)
+                                                                <tr>
+                                                                    <td scope="row">{{ $loop->iteration }}</td>
+                                                                    <td scope="row">{{ $data->e_nl }}</td>
+                                                                    <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                                    <td scope="row">{{ $data->nama_negeri }}</td>
+
+                                                                    <td scope="row" class="text-left">{{ $data->pembeli ?? '-'}}</td>
+                                                                    <td scope="row">{{ $data->ebio_cc4 ?? '-' }}</td>
+
+                                                                </tr>
+                                                                @php
+                                                                    // $total_hari_operasi += $data->hari_operasi;
+                                                                @endphp
+                                                            @endforeach
+
+
+                                                    @endif
+                                                        {{-- @foreach($test as $key => $value)
+                                                            <tr>
+
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td>{{ $result[$key]->e_np }} </td>
+                                                                    <td>- </td>
+
+                                                                    @foreach($value as $test2)
+                                                                        <td>{{ $test2 }} </td>
+                                                                    @endforeach
+
+
+                                                                <td>-</td>
+                                                            </tr>
+                                                        @endforeach --}}
+
+                                                </tbody><br>
+
+                                            </table>
+                                        </div>
+                                        <br>
+                                        <br>
+
+                                </div>
+
+                            </section>
                         </div>
-
-
 
                     </div>
                 </div>
