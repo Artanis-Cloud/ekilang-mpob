@@ -22,9 +22,9 @@
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Kemasukan Penyata Bulanan
+                    {{-- <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -50,7 +50,7 @@
                         @elseif($bulan == 12)
                             DISEMBER
                         @endif {{ $tahun }}
-                    </h4>
+                    </h4> --}}
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -77,6 +77,39 @@
                     </div>
                 </div>
             </div>
+            <p style="text-align: center; vertical-align:middle; font-size: 20px">
+
+              <b>  PENYATA BULANAN KILANG OLEOKIMIA (BIODIESEL) - MPOB (EL) CM 4<br>
+
+            BULAN :&nbsp;&nbsp;
+            @if ($bulan == 1)
+                JANUARI
+            @elseif($bulan == 2)
+                FEBRUARI
+            @elseif($bulan == 3)
+                MAC
+            @elseif($bulan == 4)
+                APRIL
+            @elseif($bulan == 5)
+                MEI
+            @elseif($bulan == 6)
+                JUN
+            @elseif($bulan == 7)
+                JULAI
+            @elseif($bulan == 8)
+                OGOS
+            @elseif($bulan == 9)
+                SEPTEMBER
+            @elseif($bulan == 10)
+                OKTOBER
+            @elseif($bulan == 11)
+                NOVEMBER
+            @elseif($bulan == 12)
+                DISEMBER
+            @endif
+            &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+              </b>
+            </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
             {{-- <div class="card-header border-bottom">
@@ -108,7 +141,7 @@
                                     <select class="form-control select2" id="ebio_c3" name="ebio_c3" required
                                         onchange="showDetail()"
                                         oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
-                                        oninput="this.setCustomValidity('');">
+                                       oninput="this.setCustomValidity('');">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -132,10 +165,10 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c4' style="width:100%"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this)"
-                                        oninput="this.setCustomValidity(''); validate_two_decimal('')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                       oninput="this.setCustomValidity(''); invokeFunc(); "
                                         onkeypress="return isNumberKey(event)" id="ebio_c4" required
-                                        onkeyup="FormatCurrency(this)" title="Sila isikan butiran ini.">
+                                        onchange="autodecimal(this); FormatCurrency(this)" title="Sila isikan butiran ini.">
 
                                     @error('ebio_c4')
                                         <div class="alert alert-danger">
@@ -151,8 +184,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c5' style="width:100%"
                                         id="ebio_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')" onchange="autodecimal(this)"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                       oninput="this.setCustomValidity(''); invokeFunc1();"
+                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('ebio_c5')
                                         <div class="alert alert-danger">
@@ -169,8 +202,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c6' style="width:100%"
                                         id="ebio_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')" onchange="autodecimal(this)"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                       oninput="this.setCustomValidity(''); invokeFunc2();"
+                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('ebio_c6')
                                         <div class="alert alert-danger">
@@ -183,9 +216,9 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c7' style="width:100%"
-                                        id="ebio_c7" oninput="this.validate_two_decimal('');this.setCustomValidity('')"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this)"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)">
+                                        id="ebio_c7" oninput="this.setCustomValidity(''); invokeFunc3();"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('ebio_c7')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -202,9 +235,9 @@
                                 <div class="col-md-2 mt-3">
                                     {{-- <div id="aw"> --}}
                                     <input type="text" class="form-control" name='ebio_c8' style="width:100%;"
-                                        id="ebio_c8" required onkeyup="FormatCurrency(this)"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="autodecimal(this)"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')"
+                                        id="ebio_c8" required onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc4();"
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">&nbsp;
                                     {{-- </div> --}}
 
@@ -229,8 +262,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c9' style="width:100%"
                                         id="ebio_c9" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')" onchange="autodecimal(this)"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                       oninput="this.setCustomValidity(''); invokeFunc5();"
+                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
 
                                     <div id="merah_container" style="display:none">
@@ -256,8 +289,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c10' style="width:100%"
                                         id="ebio_c10" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');validate_two_decimal('')"
-                                        onkeypress="return isNumberKey(event)" required onkeyup="FormatCurrency(this)"
+                                       oninput="this.setCustomValidity(''); invokeFunc6();"
+                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('ebio_c10')
                                         <div class="alert alert-danger">
@@ -938,4 +971,114 @@
                     });
                 });
             </script>
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_c5').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc1() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_c6').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_c7').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc3() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_c8').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc4() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_c9').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc5() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_c10').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+
+
         @endsection

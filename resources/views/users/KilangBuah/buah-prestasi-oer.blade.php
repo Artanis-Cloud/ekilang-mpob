@@ -104,8 +104,7 @@
                                                     <option>2018</option>
                                                     <option>2019</option>
                                                     <option>2020</option>
-                                                    <option>2021</option> --}}
-
+                                                    <option>2021</option> 
                                     </select>
                                 </fieldset>
                                 {{-- @error('alamat_kilang_1')
@@ -119,7 +118,7 @@
 
 
 
-                            <div class="row justify-content-center form-group" >
+                            <div class="row justify-content-center form-group" style="margin-bottom: 13%" >
                                 <button type="submit" class="btn btn-primary ">Papar Data</button>
 
                             </div>

@@ -657,6 +657,7 @@ Route::get('/data/graph/default', [App\Http\Controllers\Admin\KilangController::
 Route::get('/trylogin', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'trylogin'])->name('trylogin');
 
 Route::get('/loginArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('loginArx');
+Route::get('/dashboardArx', [App\Http\Controllers\tryController::class, 'dashArx'])->name('dashboardArx');
 
 // //Kilang Biodiesel
 // Route::get('biodiesel/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'biodiesel_dashboard'])->name('bio.dashboard');

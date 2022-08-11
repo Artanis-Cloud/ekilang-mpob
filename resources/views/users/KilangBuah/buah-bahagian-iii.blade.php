@@ -60,7 +60,7 @@
                 </div>
             </div>
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
-
+                <b>
                 KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
             BULAN :&nbsp;&nbsp;
@@ -90,7 +90,7 @@
                 DISEMBER
             @endif
             &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
-
+                </b>
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
