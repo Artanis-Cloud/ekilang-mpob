@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Bulan;
 use App\Models\Daerah;
+use App\Models\EBioCC;
 use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\HBioB;
 use App\Models\HBioC;
+use App\Models\HBioCC;
 use App\Models\HBioInit;
 use App\Models\HebahanProses;
 use App\Models\HebahanStokAkhir;
@@ -66,7 +68,45 @@ class LaporanController extends Controller
     //     ]);
     // }
 
-    public function admin_ringkasan_penyata(Request $request)
+    public function admin_ringkasan_penyata()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.ringkasan.penyata'), 'name' => "Maklumat Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $kumpproduk = KumpProduk::get();
+        $produk = Produk::get();
+        $pembeli = SyarikatPembeli::orderBy('id')->get();
+
+        $layout = 'layouts.admin';
+
+        $array = [
+            'produk' => $produk,
+            'users2' => $users2,
+            'pembeli' => $pembeli,
+            'kumpproduk' => $kumpproduk,
+            'negeri' => $negeri,
+            'kembali' => $kembali,
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+        return view('admin.laporan_dq.ringkasan.ringkasan-penyata', $array);
+    }
+
+    public function admin_ringkasan_penyata_table(Request $request)
     {
 
         $breadcrumbs    = [
@@ -146,7 +186,7 @@ class LaporanController extends Controller
 
         ];
 
-        return view('admin.laporan_dq.ringkasan.ringkasan-penyata', $array);
+        return view('admin.laporan_dq.ringkasan.ringkasan-penyata-table', $array);
     }
 
 
@@ -158,7 +198,7 @@ class LaporanController extends Controller
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Maklumat Penyata Bulanan"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.ringkasan.penyata');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -211,34 +251,18 @@ class LaporanController extends Controller
 
 
            }
-//  dd($formatteddate);
-// dd($data_bulanan_ebio_date);
 
-
+            // dd($data_bulanan_ebio_date);
         $data2 = HBioInit::find($ebio_nl);
-        // $datas = HBioInit::where('ebio_nl', $ebio_nl)->get();
-
-        // $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $data = Pelesen::where('e_nl', $ebio_nl)->first();
         $negeri = Negeri::where('kod_negeri', $data->e_negeri)->first();
-        // $bio1 = HBioB::where('ebio_nobatch',$data2->ebio_nobatch)->first();
-
-
-
-
-
-
-        //RINGKASAN URUSNIAGA
-
 
 
         $array = [
 
             'negeri' => $negeri,
             'data' => $data,
-
             'data_bulanan_ebio_date'=> $data_bulanan_ebio_date,
-
             // 'i'=> $i,
             'data_bulanan_ebio_b4'=> $data_bulanan_ebio_b4,
             'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
@@ -712,7 +736,48 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.ringkasan.ringkasan-bahagian3-table', $array);
     }
 
-    public function admin_ringkasan_jualan_bio(Request $request)
+    public function admin_ringkasan_jualan_bio()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.ringkasan.penyata'), 'name' => "Maklumat Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $kumpproduk = KumpProduk::get();
+        $produk = Produk::get();
+        $pembeli = SyarikatPembeli::orderBy('id')->get();
+
+
+
+        $layout = 'layouts.admin';
+
+        $array = [
+            'produk' => $produk,
+            'users2' => $users2,
+            'pembeli' => $pembeli,
+            'kumpproduk' => $kumpproduk,
+            'negeri' => $negeri,
+            'kembali' => $kembali,
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+        return view('admin.laporan_dq.ringkasan.ringkasan-jualanbio', $array);
+
+    }
+
+    public function admin_ringkasan_jualan_bio_table(Request $request)
     {
 
         $breadcrumbs    = [
@@ -735,45 +800,31 @@ class LaporanController extends Controller
         $tahun = $request->tahun;
 
 
+        //RINGKASAN URUSNIAGA()
+        $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->groupBy('ebio_nl')->get();
+        // dd($result);
 
-        //RINGKASAN URUSNIAGA
-        $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->groupBy('ebio_nl')->get();
-
-
-        if ($request->tahun) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')->groupBy('ebio_nl')->get();
-        }
         if ($request->e_negeri) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
+        // dd($result);
         }
-        if ($request->e_daerah) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('ebio_nl')->get();
-        }
+
         if ($request->e_nl) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+        // dd($result);
         }
-
-        if ($request->tahun && $request->e_negeri) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
-                ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
+        if ($request->pembeli) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->where('ebio_cc3', 'LIKE', '%' . $request->pembeli . '%')->groupBy('ebio_nl')->get();
+        // dd($result);
         }
-        if ($request->tahun && $request->e_nl) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
-                ->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
-        }
-        if ($request->tahun && $request->e_negeri && $request->e_nl) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
-                ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
-        }
-
 
         $layout = 'layouts.admin';
 
@@ -786,15 +837,15 @@ class LaporanController extends Controller
             'result' => $result,
             'tahun' => $tahun,
             'kembali' => $kembali,
-
             'returnArr' => $returnArr,
             'layout' => $layout,
 
         ];
 
-        return view('admin.laporan_dq.ringkasan.ringkasan-jualanbio', $array);
+        return view('admin.laporan_dq.ringkasan.ringkasan-jualanbio-table', $array);
 
     }
+
 
 
 
@@ -847,6 +898,8 @@ class LaporanController extends Controller
 
         return view('admin.laporan_dq.ringkasan.laporan-jualan-bio', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
     }
+
+
 
     public function admin_pl_lewat()
     {

@@ -131,10 +131,14 @@
                                         <div class="row">
                                             <div class="col-md-4 ml-auto">
                                                 <div class="form-group">
-                                                    <label>Tahun</label>
-                                                    <select class="form-control" name="tahun" id="date-dropdown">
-                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                    <label class="required">Tahun</label>
+                                                    <select class="form-control" name="tahun" id="date-dropdown" required
+                                                    oninput="setCustomValidity(''); valid_tahun()"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" >
+                                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                     </select>
+                                                    <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di bahagian ini!</i></p>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Negeri</label>
@@ -193,55 +197,7 @@
                                         >Carian</button>
                                         </a>
                                 </div> --}}
-                                <section class="section"><hr>
-                                    <div class="card"><br>
 
-                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: {{ $tahun }}</h6>
-
-                                        <div class="table-responsive " >
-                                            <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($result as $data)
-                                                        <tr>
-                                                            <td>{{ $loop->iteration }}</td>
-                                                            {{-- <td>{{ $data->ebio_thn }}</td> --}}
-                                                            <td> <a
-                                                                href="{{ route('admin.laporan.ringkasan', [$data->e_nl, $data->ebio_thn]) }}"><u>
-                                                                    {{ $data->e_nl }}</u></a></td>
-
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data->e_daerah }}</th>
-
-
-                                                        </tr>
-                                                    @endforeach
-                                                    {{-- <tr>
-                                                        <td>1</td>
-                                                        <td><a href="{{ route('admin.laporan.ringkasan') }}">500403125000</a></td>
-                                                        <td>CAROTECH BERHAD (CHEMOR PLANT)</td>
-                                                        <td>PERAK</td>
-                                                        <td>KUALA KANGSAR</td>
-
-
-                                                    </tr> --}}
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-
-                                </section>
                             </div>
 
                     </div>
@@ -471,4 +427,35 @@
             }
         };
     </script>
+    {{-- <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            function valid_tahun() {
+
+                if ($('#date-dropdown').val() == '') {
+                    $('#date-dropdown').css('border-color', 'red');
+                    document.getElementById('err_tahun').style.display = "block";
+
+
+                } else {
+                    $('#date-dropdown').css('border-color', '');
+                    document.getElementById('err_tahun').style.display = "none";
+
+                }
+
+            }
+        }
+    </script>
+    <script>
+
+        field = document.getElementById("date-dropdown");
+                if (!field.checkValidity()) {
+                    $('#date-dropdown').css('border-color', 'red');
+                    document.getElementById('date-dropdown').style.display = "block";
+                }
+
+    </script> --}}
 @endsection

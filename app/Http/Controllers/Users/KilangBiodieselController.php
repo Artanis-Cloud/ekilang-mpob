@@ -1202,7 +1202,6 @@ class KilangBiodieselController extends Controller
                 return $query->where('prodcat', '=', '01');
             })->get();
 
-
             $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
             // dd($ii);
 

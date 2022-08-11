@@ -41,7 +41,7 @@
             <br>
             <br>
             <div class="card-body">
-                {{-- <div class="row"> --}}
+                <form method="get" action="" id="myfrm">
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
@@ -755,9 +755,18 @@
 
 
                     </div>
-                {{-- </div> --}}
+                </form>
             </div>
+            <div class="row form-group" style="padding-top: 10px; ">
 
+                <div class="text-right col-md-6 mb-4 ">
+
+                    <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                        onclick="myPrint('myfrm')" value="print">Cetak</button>
+                </div>
+
+            </div>
+        </div>
 
 
 

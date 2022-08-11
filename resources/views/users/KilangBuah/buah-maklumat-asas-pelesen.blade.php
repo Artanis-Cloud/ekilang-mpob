@@ -809,7 +809,7 @@
                     var error = "",
                         field = "";
 
-                    // alamat premis 1
+                    // alamat premis 1500403125000
                     field = document.getElementById("kap_proses");
                     if (!field.checkValidity()) {
                         // error += "Name must be 2-4 characters\r\n";
