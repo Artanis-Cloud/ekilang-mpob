@@ -570,6 +570,7 @@ class MenuLainController extends Controller
         ];
 
         $produk = Produk::orderBy('prodid')->get();
+        // dd($produk);
         $layout = 'layouts.main';
 
         return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));

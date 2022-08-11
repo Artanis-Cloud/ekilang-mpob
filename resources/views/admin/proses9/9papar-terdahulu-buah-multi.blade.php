@@ -1150,7 +1150,7 @@
         function myPrint(myfrm) {
             document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
             var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
+            newwin = window.open("",'_blank', 'width=3000, height=3000');
             newwin.document.write(printdata.outerHTML);
             newwin.print();
             newwin.close();

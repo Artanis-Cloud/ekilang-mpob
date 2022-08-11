@@ -170,7 +170,7 @@
 
                     </div>
 
-                    <div class="form-group col-10 ml-auto mr-auto" style="margin-top:4%; margin-bottom: 50px">
+                    <div class="form-group col-10 ml-auto mr-auto" style="margin-top:4%; margin-bottom: 1px">
                             <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
 
@@ -225,5 +225,5 @@
                 });
 
             </script>
-<br><br><br><br><br><br><br>
+<br>
 @endsection
