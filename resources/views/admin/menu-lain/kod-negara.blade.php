@@ -92,6 +92,7 @@
                                                 <tr>
                                                     <th>Kod Negara</th>
                                                     <th>Nama Negara</th>
+                                                    <th>Benua</th>
                                                 </tr>
                                             </thead>
                                             <tbody style="word-break: break-word; font-size:12px">
@@ -102,6 +103,9 @@
                                                         </td>
                                                         <td>
                                                             {{ $data->namanegara }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $data->benua }}
                                                         </td>
                                                     </tr>
 

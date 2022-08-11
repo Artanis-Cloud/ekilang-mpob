@@ -1024,12 +1024,11 @@
 
 <script>
     function myPrint(myfrm) {
-        document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
-        var printdata = document.getElementById(myfrm);
-        newwin = window.open("");
-        newwin.document.write(printdata.outerHTML );
-        newwin.print();
-        newwin.close();
+    var restorepage = $('body').html();
+    var printcontent = $('#' + myfrm).clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
     }
 </script>
 

@@ -46,11 +46,11 @@
                         </div>
                     </div>
                     <div class="col-2 align-self-center">
-                        <button type="button" class="btn btn-primary " onclick="PrintElem(elem)"
-                            value="print">Cetak</button>
+                        <button type="button" class="btn btn-primary "
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
                     </div>
                 </div>
-                <form method="get" action="" id="elem">
+                <form method="get" action="" id="myfrm">
 
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- @foreach ($pelesens as $data) --}}
@@ -78,7 +78,7 @@
 
 
                                             <div class="table-responsive">
-                                                <table class="table table-bordered mb-0" style="font-size: 13px">
+                                                <table border="1" class="table table-bordered" style="font-size: 13px">
                                                     <thead style="text-align: center">
                                                         <tr>
                                                             <th>Nama Syarikat</th>
@@ -99,7 +99,7 @@
                                             <font size="2">TARIKH TERIMA PENYATA BULANAN<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center" >
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -144,7 +144,7 @@
                                             <font size="2">STOK AWAL BULAN DI PREMIS<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -174,8 +174,8 @@
                                                                 <tr>
 
 
-                                                                    <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b5 as  $data )
                                                                         <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                     @endforeach
@@ -190,7 +190,7 @@
                                                         {{-- @endforeach --}}
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -214,7 +214,7 @@
                                             <font size="2">BELIAN / TERIMAAN<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -241,8 +241,8 @@
                                                             <tr>
 
 
-                                                                <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                 @foreach ( $data_bulanan_ebio_b6 as  $data )
                                                                     <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                 @endforeach
@@ -252,7 +252,7 @@
                                                         </tr>
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -276,7 +276,7 @@
                                             <font size="2">DIGUNAKAN UNTUK PROSES SELANJUTNYA<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -303,8 +303,8 @@
                                                             <tr>
 
 
-                                                                <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                 @foreach ( $data_bulanan_ebio_b7 as  $data )
                                                                     <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                 @endforeach
@@ -314,7 +314,7 @@
                                                         </tr>
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -338,7 +338,7 @@
                                             <font size="2">PENGELUARAN<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -364,8 +364,8 @@
                                                             <tr>
 
 
-                                                                <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                 @foreach ( $data_bulanan_ebio_b8 as  $data )
                                                                     <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                 @endforeach
@@ -374,7 +374,7 @@
                                                         </tr>
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -398,7 +398,7 @@
                                             <font size="2">JUALAN / EDARAN TEMPATAN<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -426,8 +426,8 @@
                                                                 <tr>
 
 
-                                                                    <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b9 as  $data )
                                                                         <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                     @endforeach
@@ -438,7 +438,7 @@
                                                         </tr>
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -462,7 +462,7 @@
                                             <font size="2">EKSPORT<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -490,8 +490,8 @@
                                                                 <tr>
 
 
-                                                                    <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b10 as  $data )
                                                                         <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                     @endforeach
@@ -502,7 +502,7 @@
                                                         </tr>
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -526,7 +526,7 @@
                                             <font size="2">STOK AKHIR BULAN DILAPOR<br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
+                                                <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -557,8 +557,8 @@
                                                                     $total_bulan = 0;
                                                                 @endphp
 
-                                                                    <td> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td> {{ $hbiob[0]->proddesc ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
+                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b11 as  $data )
                                                                         <td class="text-center" style="width:auto"> {{$data}}</td>
                                                                     @endforeach
@@ -571,7 +571,7 @@
                                                         </tr>
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
                                                         <td>{{ $total_bulan }}</td>
                                                         <td>{{ $total_bulan }}</td>
@@ -639,34 +639,26 @@
         });
     </script>
 
+{{-- <script>
+    function
+        document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
+        var printdata = document.getElementById(myfrm);
+        newwin = window.open("");
+        newwin.document.write(printdata.outerHTML );
+        newwin.print();
+        newwin.close();
+    }
+
+</script> --}}
+
     <script>
         function myPrint(myfrm) {
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
         }
-    </script>
-<script>
-    function PrintElem(elem)
-    {
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
-        mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write('<h1>' + document.title  + '</h1>');
-        mywindow.document.write(document.getElementById(elem).innerHTML);
-        mywindow.document.write('</body></html>');
-
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10*/
-
-        mywindow.print();
-        mywindow.close();
-
-        return true;
-    }
     </script>
     </body>
 
