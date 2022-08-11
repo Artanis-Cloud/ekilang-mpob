@@ -825,7 +825,7 @@ class KilangBiodieselController extends Controller
             // foreach ($data['jumlah_row_hidden'] as $key => $value) {
             // $ebioreg_jualan = $penyata->ebioinit->ebio_reg;
             // dd($ebioreg_jualan);
-            $total_jualan = EBioCC::where('ebio_reg', $penyata[0]->ebio_reg)->sum('ebio_cc4');
+            // $total_jualan = EBioCC::where('ebio_reg', $penyata[0]->ebio_reg)->sum('ebio_cc4');
             // dd($penyata);
             // }
             $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
@@ -842,7 +842,6 @@ class KilangBiodieselController extends Controller
                 'layout',
                 'user',
                 'produk',
-                'total_jualan',
                 'penyata',
                 'totaliiic4',
                 'totaliiic5',
@@ -1569,6 +1568,7 @@ class KilangBiodieselController extends Controller
         ];
 
         $produk = Produk::orderBy('prodid')->get();
+        // dd($produk);
         $layout = 'layouts.main';
 
         return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
