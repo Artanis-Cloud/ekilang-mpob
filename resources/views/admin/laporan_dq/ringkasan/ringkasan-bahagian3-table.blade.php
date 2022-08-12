@@ -680,7 +680,7 @@
 
                                                                     @php
                                                                 $total_bulan[$i]+= $data->ebio_c5;
-                                                                @endphp
+                                                                    @endphp
                                                                         <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0) }}</td>
 
                                                                     @else
@@ -688,8 +688,6 @@
                                                                     @endif
                                                                 @endfor
                                                             </tr>
-
-
 
                                                         @endforeach
 
