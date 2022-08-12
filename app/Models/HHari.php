@@ -16,7 +16,7 @@ class HHari extends Model
      * @var string
      *
      */
-    protected $table = 'h_hari'; //penyata arkib (history) - kilang penapis
+    protected $table = 'h_hari';
     protected $primaryKey = 'lesen';
     public $timestamps = false;
 
