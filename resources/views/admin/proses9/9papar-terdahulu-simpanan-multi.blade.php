@@ -260,7 +260,7 @@
                                             <br>
 
 
-                                            <br><h1 style="page-break-before:always"></h1>
+                                            <br>
                                             <p><b>
                                                     <font color="#0000FF">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                                         MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON TRANSHIPMENT)</font>
@@ -421,7 +421,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br><h1 style="page-break-before:always"></h1>
+                                            </table><br>
 
 
                                             <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

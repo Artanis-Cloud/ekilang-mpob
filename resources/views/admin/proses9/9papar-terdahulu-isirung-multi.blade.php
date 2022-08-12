@@ -791,7 +791,7 @@
                                 </div>
                             </div>
 
-                            <br><hr>
+                            <br>
 
                         @endforeach
 
@@ -834,16 +834,16 @@
         });
     </script>
 
-<script>
-    function myPrint(myfrm) {
-        document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
-        var printdata = document.getElementById(myfrm);
-        newwin = window.open("");
-        newwin.document.write(printdata.outerHTML);
-        newwin.print();
-        newwin.close();
-    }
-</script>
+    <script>
+        function myPrint(myfrm) {
+            document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
 
     </body>
 

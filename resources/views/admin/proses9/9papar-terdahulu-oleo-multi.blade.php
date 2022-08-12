@@ -839,7 +839,7 @@
                                 </div>
                             </div>
 
-                            <br><hr>
+                            <br>
 
                         @endforeach
 

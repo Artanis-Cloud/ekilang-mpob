@@ -122,7 +122,7 @@
                                             </div>
 
                                     </div> --}}
-                <div class="row justify-content-center form-group" style="margin-top:20px; ">
+                <div class="row justify-content-center form-group" style="margin-top:20px; margin-bottom:17%">
                         <button type="submit" class="btn btn-primary" data-toggle="modal"
                             data-target="#next">Papar Penyata</button>
 

@@ -56,74 +56,75 @@
                     </div>
                         <div class="pl-3">
 
-                            <div class=" text-center">
-                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Emel Pertanyaan /
-                                    Pindaan / Cadangan</h3>
-                                {{-- <p>Maklumat Kilang</p> --}}
-                            </div>
-                            <hr>
 
 
-                                <section class="section">
-                                    <div class="card">
-                                        <form method="get" action="" id="myfrm">
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered mb-0">
 
-                                                    <tr>
-                                                        <th>Tarikh</th>
-                                                        <td>{{ $emel->Date }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Nama Pelesen</th>
-                                                        <td>{{ $emel->FromName }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>No. Lesen</th>
-                                                        <td>{{ $emel->FromLicense }}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Emel</th>
-                                                        <td>{{ $emel->FromEmail }}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Kategori</th>
-                                                        <td>{{ $emel->Category }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Jenis Emel</th>
-                                                        <td>{{ $emel->TypeOfEmail }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Subjek</th>
-                                                        <td>{{ $emel->Subject }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Mesej</th>
-                                                        <td>{!! $emel->Message !!}
-
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <th>Lampiran</th>
-                                                        @if($emel->file_upload)
-                                                        <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td>
-                                                        @else
-                                                        <td>-</td>
-                                                        @endif
-                                                    </tr>
-
-                                                </table>
-
-                                            </div>
-                                        </form>
+                        <section class="section">
+                            <div class="card">
+                                <form method="get" action="" id="myfrm">
+                                    <div class=" text-center">
+                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Emel Pertanyaan /
+                                            Pindaan / Cadangan</h3>
+                                        {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered mb-0">
 
-                                </section>
+                                            <tr>
+                                                <th>Tarikh</th>
+                                                <td>{{ $emel->Date }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Nama Pelesen</th>
+                                                <td>{{ $emel->FromName }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>No. Lesen</th>
+                                                <td>{{ $emel->FromLicense }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Emel</th>
+                                                <td>{{ $emel->FromEmail }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Kategori</th>
+                                                <td>{{ $emel->Category }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Jenis Emel</th>
+                                                <td>{{ $emel->TypeOfEmail }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Subjek</th>
+                                                <td>{{ $emel->Subject }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Mesej</th>
+                                                <td>{!! $emel->Message !!}
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>Lampiran</th>
+                                                @if($emel->file_upload)
+                                                <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td>
+                                                @else
+                                                <td>-</td>
+                                                @endif
+                                            </tr>
+
+                                        </table>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                        </section>
 
                         </div>
 
@@ -149,14 +150,13 @@
 @endsection
 
 @section('scripts')
-    <script>
-        function myPrint(myfrm) {
-            document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-    </script>
+<script>
+    function myPrint(myfrm) {
+    var restorepage = $('body').html();
+    var printcontent = $('#' + myfrm).clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
+    }
+</script>
 @endsection

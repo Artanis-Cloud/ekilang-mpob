@@ -254,7 +254,7 @@
 
                                 </tbody>
                             </table>
-                            <br><h1 style="page-break-before:always"></h1>
+                            <br>
                             <p><b>
                                     <font color="#0000FF">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                         MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON TRANSHIPMENT)</font>
@@ -411,7 +411,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br><h1 style="page-break-before:always"></h1>
+                            </table><br>
 
                             <p style="font-size: 16px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
@@ -427,17 +427,13 @@
                     </div>
                 </form>
             </div>
-            <div class="row form-group" style="padding-top: 10px; ">
-                <div class="text-right col-md-6 ">
-                    <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+
+                <div class="row justify-content-center">
+                    <button type="button" class="btn btn-primary " style=" margin:1%"
                         onclick="myPrint('myfrm')" value="print">Cetak</button>
                 </div>
-            </div>
-
-        </div><br>
 
 
-    </div>
 
 
 
@@ -457,8 +453,16 @@
         });
     </script>
 
-
-    <script>
+<script>
+    function myPrint(myfrm) {
+    var restorepage = $('body').html();
+    var printcontent = $('#' + myfrm).clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
+    }
+</script>
+    {{-- <script>
         function myPrint(myfrm) {
             document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
             var printdata = document.getElementById(myfrm);
@@ -467,7 +471,7 @@
             newwin.print();
             newwin.close();
         }
-    </script>
+    </script> --}}
 
     </body>
 

@@ -1125,21 +1125,13 @@
 
             </div>
 
-            <div class="row form-group" style="padding-top: 10px; ">
+            <div class="row justify-content-center ">
 
-                <div class="text-right col-md-6 mb-4 ">
-
-                    <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
-                        onclick="myPrint('myfrm')" value="print">Cetak</button>
-                </div>
-
+                <button type="button" class="btn btn-primary " style="margin: 1%"
+                    onclick="myPrint('myfrm')" value="print">Cetak</button>
             </div>
 
-
-        </div><br>
-
-    </div>
-
+           
 
 
 
@@ -1151,7 +1143,18 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
 
+
+
     <script>
+        function myPrint(myfrm) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+        }
+    </script>
+    {{-- <script>
         function myPrint(myfrm) {
             document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
             var printdata = document.getElementById(myfrm);
@@ -1160,7 +1163,7 @@
             newwin.print();
             newwin.close();
         }
-    </script>
+    </script> --}}
 
     </body>
 

@@ -112,8 +112,8 @@
 
                         </div>
                         </div>
-                        <div class="row justify-content-center form-group" >
-                                <button type="submit" class="btn btn-primary"  data-toggle="modal"
+                        <div class="row justify-content-center form-group"  >
+                                <button type="submit" class="btn btn-primary"  data-toggle="modal" style="margin-bottom: 13%"
                                     data-target="#next">Papar Penyata</button>
                         </div>
                     </form><br>

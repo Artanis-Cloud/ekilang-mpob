@@ -268,7 +268,7 @@
 
                                 </tbody>
                             </table>
-                            <br><h1 style="page-break-before:always"></h1>
+                            <br>
                             <p><b>
                                     <font color="#0000FF">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
@@ -448,9 +448,9 @@
             </div>
 
 
-            <div class="text-right col-md-6">
+            <div class="row justify-content-center">
 
-                <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                <button type="button" class="btn btn-primary "
                     onclick="myPrint('myfrm')" value="print">Cetak</button>
             </div>
             <div class="text-right col-md-7">
@@ -458,7 +458,7 @@
         </div><br>
 
 
-    </div>
+
 
 
 
@@ -482,16 +482,15 @@
     </script>
 
 
-    <script>
-        function myPrint(myfrm) {
-            document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-    </script>
+<script>
+    function myPrint(myfrm) {
+    var restorepage = $('body').html();
+    var printcontent = $('#' + myfrm).clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
+    }
+</script>
 
     </body>
 
