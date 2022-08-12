@@ -1024,20 +1024,10 @@
             </div>
 
 
-            <div class="row form-group" style="padding-top: 10px; ">
-
-                <div class="text-right col-md-6 mb-4 ">
-                    <button type="button" class="btn btn-primary "
-                        style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
-                </div>
-
+            <div class="row justify-content-center">
+                <button type="button" class="btn btn-primary "
+                    style="margin: 1%" onclick="myPrint('myfrm')" value="print">Cetak</button>
             </div>
-
-        </div><br>
-
-
-    </div>
-
 
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -1058,18 +1048,26 @@
             });
         });
     </script>
-
-
-<script>
-    function myPrint(myfrm) {
-        document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
-        var printdata = document.getElementById(myfrm);
-        newwin = window.open("");
-        newwin.document.write(printdata.outerHTML);
-        newwin.print();
-        newwin.close();
-    }
-</script>
+    <script>
+        function myPrint(myfrm) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+        }
+    </script>
+    {{--
+    <script>
+        function myPrint(myfrm) {
+            document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script> --}}
 
     </body>
 

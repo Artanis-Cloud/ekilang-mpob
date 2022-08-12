@@ -114,7 +114,7 @@
 
                 </div>
 
-                    <div class="row justify-content-center form-group" style="margin-top: 1%;">
+                    <div class="row justify-content-center form-group" style="margin-top: 1%; margin-bottom: 20%">
                         <button type="submit" class="btn btn-primary">Papar Penyata</button>
                     </div>
                 </form>

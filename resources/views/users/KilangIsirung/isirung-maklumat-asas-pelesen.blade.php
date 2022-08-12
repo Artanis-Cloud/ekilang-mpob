@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex justify-content-end">
-                        <nav aria-label="breadcrumb">
+                        <nav aria-label="breadcrumb"> 
                             <ol class="breadcrumb">
                                 @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
                                     @if (!$loop->last)
@@ -1115,7 +1115,7 @@
                     return evt.which;
                 }
             </script>
-            
+
             </body>
 
             </html>

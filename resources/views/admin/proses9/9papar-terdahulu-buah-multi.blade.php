@@ -1103,7 +1103,7 @@
                             </div>
 
                             <br>
-                            <hr>
+                         
                         @endforeach
 
                     </div>

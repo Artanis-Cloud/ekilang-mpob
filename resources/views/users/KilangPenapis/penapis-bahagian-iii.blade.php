@@ -125,8 +125,8 @@
                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control" style="text-align:right" max="31" name='e101_a1'
-                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1()" id="e101_a1" required
+                                    <input type="number" class="form-control" style="text-align:right" max="31" name='e101_a1'
+                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1()" id="e101_a1" required max="31"
                                         onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">

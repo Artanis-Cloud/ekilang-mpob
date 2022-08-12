@@ -182,13 +182,10 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="row form-group" style="padding-top: 10px; ">
-                                        <div class="text-right col-md-12 center">
-                                            <button type="submit" class="btn btn-primary">Papar</button>
-                                            {{-- <button type="submit">YA</button> --}}
-                                        </div>
+                                    <div class="row justify-content-center" style="margin: 10px; ">
+                                        <button type="submit" class="btn btn-primary">Papar</button>
+                                        {{-- <button type="submit">YA</button> --}}
                                     </div>
-
                                 </div>
                             </div>
                         </form>

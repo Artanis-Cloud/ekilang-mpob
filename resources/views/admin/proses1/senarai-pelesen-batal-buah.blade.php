@@ -217,10 +217,10 @@
                                             </tbody>
 
                                         </table>
-                                        <div class="col-1 align-self-center">
+                                        {{-- <div class="col-1 align-self-center">
                                             <a href="{{ $returnArr['kembali'] }}" class="btn"
                                                 style="margin-left:5%; color:white; background-color:#265960">Kembali</a>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </section>

@@ -97,8 +97,7 @@
                                                         required>
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         <option value="All">ALL</option>
-                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get()
-        as $data)
+                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get() as $data)
                                                             <option value="{{ $data->kod_negeri }}">
                                                                 {{ $data->nama_negeri }}
                                                             </option>
@@ -117,28 +116,19 @@
 
                                     </div>
 
-                                    <div class="row center mt-3">
-                                        <div class="col-md-12 center mb-3">
+                                    <div class="row justify-content-center mt-3">
+
                                             <button type="submit" class="btn btn-primary center"
-                                                style="margin-left:48%">Papar Direktori</button>
+                                                style="margin: 10px">Papar Direktori</button>
                                             {{-- <button type="submit">YA</button> --}}
-                                        </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
-
-
     </div>
 @endsection
 

@@ -108,36 +108,18 @@
                                                             {{ $data->benua }}
                                                         </td>
                                                     </tr>
-
                                                 @endforeach
                                             </tbody>
-
                                         </table>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
-
                         </section>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
-
-
-
     </div>
-
-
-
-
-
 @endsection
 
 @section('scripts')
