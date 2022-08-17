@@ -118,11 +118,11 @@
                             <div class="mb-2 col-8" style="text-align: left">
                                 <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                             </div>
-                            <div class="mb-2 col-4" style="text-align: right">
+                            {{-- <div class="mb-2 col-4" style="text-align: right">
                                 <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
                                     style="text-align:right"><i><u>Panduan
                                             Mengisi Maklumat Bahagian I</u></i></a>
-                            </div>
+                            </div> --}}
 
                         </div>
                         <form action="{{ route('buah.update.bahagian.i', $kilang->e91_reg) }}" method="post"
@@ -155,7 +155,9 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="text-bold-500 ">A.
-                                                        Stok Awal Di Premis</td>
+                                                        Stok Awal Di Premis &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Lapor stok fizikal di premis sahaja"></i></td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa1' id='e91_aa1'
                                                             style="text-align: center" onchange="aa1();FormatCurrency(this)"
@@ -167,7 +169,6 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa2'
                                                             id='e91_aa2'required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
@@ -201,7 +202,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">B.
-                                                        Belian/Terimaan</td>
+                                                        Belian/Terimaan  &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Belian - Urusniaga yang melibatkan pembayaran.
+Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan)."></i></td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_ab1'
                                                             id='e91_ab1'id="number" required
@@ -247,7 +251,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">C.
-                                                        Diproses</td>
+                                                        Diproses  &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Jumlah BKS daripada stok awal/belian/penerimaan yang diproses termasuk proses untuk 'Tol'."></i></td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -274,7 +280,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">D.
-                                                        Pengeluaran</td>
+                                                        Pengeluaran &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Pengeluaran minyak sawit mentah (CPO), isirong kelapa sawit (PK) dan minyak keladak
+termasuk pengeluaran untuk 'Tol'."></i></td>
                                                     <td style="text-align:center; background-color:#808080b8">
                                                         {{-- <input type="text"size="10" style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"> --}}
@@ -313,7 +322,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">E.
-                                                        Jualan/Edaran Tempatan</td>
+                                                        Jualan/Edaran Tempatan &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Jualan Tempatan merujuk kepada urusniaga yang dilakukan secara tempatan yang melibatkan pembayaran."></i></td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -358,7 +369,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">F.
-                                                        Eksport</td>
+                                                        Eksport &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Hanya lapor, jika keluaran dieksport terus dari premis."></i></td>
                                                     <td style="text-align:center; background-color:#808080b8">
                                                         {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
                                                     </td>
@@ -375,7 +388,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">G.
-                                                        Stok Akhir Di Premis</td>
+                                                        Stok Akhir Di Premis  &nbsp; <i class="fa fa-exclamation-circle"
+                                                        style="color: red; cursor: pointer;"
+                                                        title="Laporkan stok akhir pada akhir bulan di premis (termasuk pusat simpanan dan gudang sendiri). "></i></td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -507,7 +522,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_aa2').focus();
+                            document.getElementById('e91_ab1').focus();
                         }
 
                     });
@@ -525,7 +540,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_aa3').focus();
+                            document.getElementById('e91_ab2').focus();
                         }
 
                     });
@@ -543,7 +558,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_aa4').focus();
+                            document.getElementById('e91_ab3').focus();
                         }
 
                     });
@@ -561,7 +576,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ab1').focus();
+                            document.getElementById('e91_ab4').focus();
                         }
 
                     });
@@ -579,7 +594,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ab2').focus();
+                            document.getElementById('e91_ac1').focus();
                         }
 
                     });
@@ -597,7 +612,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ab3').focus();
+                            document.getElementById('e91_ad1').focus();
                         }
 
                     });
@@ -615,7 +630,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ab4').focus();
+                            document.getElementById('e91_ad2').focus();
                         }
 
                     });
@@ -633,7 +648,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ac1').focus();
+                            document.getElementById('e91_ad3').focus();
                         }
 
                     });
@@ -651,7 +666,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ad1').focus();
+                            document.getElementById('e91_ae1').focus();
                         }
 
                     });
@@ -669,7 +684,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ad2').focus();
+                            document.getElementById('e91_ae2').focus();
                         }
 
                     });
@@ -687,7 +702,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ad3').focus();
+                            document.getElementById('e91_ae3').focus();
                         }
 
                     });
@@ -705,7 +720,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ae1').focus();
+                            document.getElementById('e91_ae4').focus();
                         }
 
                     });
@@ -724,7 +739,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ae2').focus();
+                            document.getElementById('e91_ag1').focus();
                         }
 
                     });
@@ -742,7 +757,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ae3').focus();
+                            document.getElementById('e91_ag2').focus();
                         }
 
                     });
@@ -760,7 +775,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ae4').focus();
+                            document.getElementById('e91_ag3').focus();
                         }
 
                     });
@@ -778,7 +793,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ag1').focus();
+                            document.getElementById('e91_ag4').focus();
                         }
 
                     });
@@ -796,7 +811,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ag2').focus();
+                            document.getElementById('e91_aa2').focus();
                         }
 
                     });
@@ -814,7 +829,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ag3').focus();
+                            document.getElementById('e91_aa3').focus();
                         }
 
                     });
@@ -832,7 +847,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e91_ag4').focus();
+                            document.getElementById('e91_aa4').focus();
                         }
 
                     });

@@ -119,7 +119,7 @@
 
                                                     <div class="row col-12 mt-1">
                                                         <div class=" col-8" style="text-align: left">
-                                                            <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                                                            <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                                                         </div>
                                                     </div>
                                                     <div class="table-responsive">

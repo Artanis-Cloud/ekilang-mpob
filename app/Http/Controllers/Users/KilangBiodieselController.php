@@ -290,7 +290,7 @@ class KilangBiodieselController extends Controller
             return redirect()->route('bio.bahagiania')->with('error', 'Maklumat sudah tersedia');
         } else {
             // dd($request->all());
-            $this->validation_bahagian_ia($request->all())->validate();
+            // $this->validation_bahagian_ia($request->all())->validate();
             $this->store_bahagian_ia($request->all());
 
             return redirect()->route('bio.bahagiania')->with('success', 'Maklumat sudah ditambah');
@@ -301,14 +301,14 @@ class KilangBiodieselController extends Controller
     {
         return Validator::make($data, [
 
-            'ebio_b4' => ['required', 'string'],
-            'ebio_b5' => ['required', 'string'],
-            'ebio_b6' => ['required', 'string'],
-            'ebio_b7' => ['required', 'string'],
-            'ebio_b8' => ['required', 'string'],
-            'ebio_b9' => ['required', 'string'],
-            'ebio_b10' => ['required', 'string'],
-            'ebio_b11' => ['required', 'string'],
+            // 'ebio_b4' => ['required', 'string'],
+            // 'ebio_b5' => ['required', 'string'],
+            // 'ebio_b6' => ['required', 'string'],
+            // 'ebio_b7' => ['required', 'string'],
+            // 'ebio_b8' => ['required', 'string'],
+            // 'ebio_b9' => ['required', 'string'],
+            // 'ebio_b10' => ['required', 'string'],
+            // 'ebio_b11' => ['required', 'string'],
             // 'ebio_b12' => ['required', 'string'],
             // 'ebio_b13' => ['required', 'string'],
 
