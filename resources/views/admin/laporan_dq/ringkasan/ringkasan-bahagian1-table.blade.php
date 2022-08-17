@@ -37,7 +37,27 @@
         border-top: none;
     }
 
+/* .wrapper {
+} */
+.table {
 
+  overflow-x:scroll;
+  width:100%;
+  table-layout: fixed;
+  width: auto;
+  border-collapse: collapse;
+  background: white;
+  display: block;
+}
+tr {
+  border-top: 1px solid #ccc;
+}
+td, th {
+  vertical-align: top;
+  text-align: left;
+  width:150px;
+  padding: 5px;
+}
 </style>
 
 @section('content')
@@ -337,46 +357,51 @@
 
                                         <h6 style="color: black; text-align:center; margin-bottom:auto">Stok Awal Di Premis</h6>
 
-                                        <div class="table-responsive " >
-                                            <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
+                                        {{-- <div class="wrapper " > --}}
+
+                                            <table  class="table table-bordered text-center" style="font-size:13px; ">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:1% "
                                                             rowspan="2">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:20%"
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
+                                                            rowspan="2">No. Pemegang Lesen</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
                                                             rowspan="2">Nama Pemegang Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
                                                             rowspan="2">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:20%"
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                            rowspan="2">Kod Produk</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
                                                             rowspan="2">Nama Produk</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        <th scope="col" style="vertical-align: middle; text-align:center;  width:100px;"
                                                             colspan="12">{{ $tahun }}</th>
                                                     </tr>
                                                     <tr style="background-color: #d3d3d34d">
                                                         @if ($bulan == null)
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Jan
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:300px">Jan
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Feb
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Mac
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Apr
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Mei
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Jun
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Jul
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Ogos
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Sept
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Okt
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Nov
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
                                                             </th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center">Dis
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
                                                             </th>
                                                         @else
                                                             @for ($i = $start_month; $i <= $end_month; $i++)
@@ -464,6 +489,7 @@
                                                             @foreach ($result as $data)
                                                                 <tr>
                                                                     <td scope="row">{{ $loop->iteration }}</td>
+                                                                    <td class="text-left">{{ $data->e_nl }}</td>
                                                                     <td class="text-left">{{ $data->e_np }}</td>
 
                                                                     @if ($data->e_negeri == '01')
@@ -498,6 +524,7 @@
                                                                     {{-- <td>
                                                                         {{ number_format($data->ebio_b5 ?? 0, 2) }}
                                                                     </td> --}}
+                                                                    <td> {{ $data->prodid }}</td>
                                                                     <td> {{ $data->proddesc }}</td>
                                                                     @if ($data->ebio_bln == '1' && $data->ebio_b5 != 0)
                                                                         @php
@@ -505,7 +532,7 @@
                                                                             $total_bulan++;
                                                                             $total_ebio_b5_1 += $data->ebio_b5;
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0, 2,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -524,7 +551,7 @@
                                                                             $total_hari_3 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -533,7 +560,7 @@
                                                                         $total_hari_4 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -542,7 +569,7 @@
                                                                             $total_hari_5 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -550,7 +577,7 @@
                                                                         @php
                                                                             $total_hari_6 += $data->ebio_b5;
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -559,7 +586,7 @@
                                                                             $total_hari_7 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -568,7 +595,7 @@
                                                                             $total_hari_8 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                    <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -577,7 +604,7 @@
                                                                             $total_hari_9 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -586,7 +613,7 @@
                                                                             $total_hari_10 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -595,7 +622,7 @@
                                                                             $total_hari_11 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -604,7 +631,7 @@
                                                                             $total_hari_12 += $data->ebio_b5;
 
                                                                         @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0) }}</td>
+                                                                        <td style="text-align: center"> {{ number_format($data->ebio_b5 ?? 0,2) }}</td>
                                                                     @else
                                                                         <td></td>
                                                                     @endif
@@ -616,25 +643,24 @@
                                                             @endforeach
                                                             <tr style="background-color: #d3d3d34d"
                                                                 class="font-weight-bold text-center">
-                                                                <th colspan="4"></th>
-
-                                                                <td>{{ $total_hari_1  }}</td>
-                                                                <td>{{ $total_hari_2 }}</td>
-                                                                <td>{{ $total_hari_3 }}</td>
-                                                                <td>{{ $total_hari_4 }}</td>
-                                                                <td>{{ $total_hari_5 }}</td>
-                                                                <td>{{ $total_hari_6 }}</td>
-                                                                <td>{{ $total_hari_7 }}</td>
-                                                                <td>{{ $total_hari_8 }}</td>
-                                                                <td>{{ $total_hari_9 }}</td>
-                                                                <td>{{ $total_hari_10 }}</td>
-                                                                <td>{{ $total_hari_11 }}</td>
-                                                                <td>{{ $total_hari_12 }}</td>
+                                                                <th class=text-right colspan="6">Jumlah</th>
+                                                                <td>{{number_format( $total_hari_1 ?? 0,2)   }}</td>
+                                                                <td>{{number_format( $total_hari_2 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_3 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_4 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_5 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_6 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_7 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_8 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_9 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_10 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_11 ?? 0,2)  }}</td>
+                                                                <td>{{number_format( $total_hari_12 ?? 0,2)  }}</td>
                                                             </tr>
                                                         @else
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
-                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td class="text-center">{{ $loop->iteration }}</td>
                                                                     <td class="text-left">{{ $data->e_np }}</td>
 
 
@@ -716,7 +742,8 @@
                                                 </tbody><br>
 
                                             </table>
-                                        </div>
+
+                                        {{-- </div> --}}
                                         <br>
                                         <br>
 

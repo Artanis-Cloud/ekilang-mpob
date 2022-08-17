@@ -121,21 +121,21 @@
             <div class="card-body">
                 <div class="col-md-12">
 
-                    <div class="text-center">
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
-                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar
-                            Perahan Dan
-                            Harga</h5>
+
+
+
+                    <div class=" mt-2 col-8" style="text-align: left">
+                        <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
+                            style="text-align:right"><i><u>Panduan
+                                    Mengisi Maklumat Bahagian 2</u></i></a>
                     </div>
-                    <hr>
+                    <br>
 
-
-                    <div class="row col-12 mt-3">
-                        <div class="mb-2 col-8" style="text-align: left">
-                            <p><i>Nota: Sila isikan butiran dibawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
-                        </div>
-
+                    <div class="mb-2 col-8" style="text-align: left">
+                        <p><i>Nota: Sila isikan butiran dibawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
                     </div>
+
+
                     <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post" class="sub-form"
                         id="form">
                         @csrf
@@ -144,9 +144,11 @@
                             <div class="row justify-content-center" >
                                 <div class="col-sm-6 form-group">
                                     <label for="fname" class="align-items-center">i.
-                                        Jumlah Jam Pengilangan   <i class="fa fa-exclamation-circle"
+
+                                        Jumlah Jam Pengilangan <i class="fa fa-exclamation-circle"
                                         style="color: red; cursor: pointer;"
-                                        title="Jumlah jam kilang beroperasi sebulan"></i></label>
+                                        title="Jumlah jam pengilangan = Jumlah jam beroperasi sebulan."></i></label>
+
                                 </div>
                                 <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
