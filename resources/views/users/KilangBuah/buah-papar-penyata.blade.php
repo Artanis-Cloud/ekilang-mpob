@@ -272,7 +272,9 @@
                                     </td>
                                     <td width="120" style="text-align: center; vertical-align:middle">
                                         <b>
-                                            <font size="2.7">Buah Kelapa Sawit (FFB)<br> Kod 52</font>
+
+                                            <font size="2.7">Buah Tandan Segar  <br>(FFB) Kod 52</font>
+
                                         </b>
                                     </td>
                                     <td width="135" style="text-align: center; vertical-align:middle">
@@ -396,7 +398,7 @@
                                 </tr>
                                 <tr>
                                     <td width="220">
-                                        <font size="2.7">E. Penjualan/Pengedaran Tempatan</font>
+                                        <font size="2.7">E. Jualan/Edaran Tempatan</font>
                                     </td>
                                     <td width="120">
                                         <p style="text-align: center; vertical-align:middle">
@@ -425,7 +427,7 @@
                                 </tr>
                                 <tr>
                                     <td width="220">
-                                        <font size="2.7">F. Eksport&nbsp;Terus Dari Premis</font>
+                                        <font size="2.7">F. Eksport</font>
                                     </td>
                                     <td width="120" bgcolor="#C0C0C0"
                                         style="text-align: center; vertical-align:middle">

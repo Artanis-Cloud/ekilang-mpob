@@ -449,8 +449,10 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%"
-                                    oninput="invokeFunc20();setCustomValidity(''); " id="kap_tangki_cpo" required
-                                    min="1" title="Sila isikan butiran ini."
+
+                                    oninput="nodecimal(); invokeFunc20();setCustomValidity(''); " id="kap_tangki_cpo"
+                                    title="Sila isikan butiran ini." min="0"
+
                                     oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
                                     required>
@@ -1442,6 +1444,7 @@
                     });
                 }
 
+
                 function checkKey(evt) {
                     console.log(evt.which);
                     return evt.which;
@@ -1466,6 +1469,18 @@
                 }
             </script>
 
+<script>
+    function nodecimal() {
+        // let decimal = ".00"
+        var x = parseFloat(document.getElementById("kap_tangki_cpo").value);
+        if(isNaN(x)){
+            x = 0;
+        }
+        const removedDecimal = Math.round(x);
+        document.querySelector("#kap_tangki_cpo").value = removedDecimal;
+        console.log(removedDecimal);
+    }
+</script>
 
 
             </body>

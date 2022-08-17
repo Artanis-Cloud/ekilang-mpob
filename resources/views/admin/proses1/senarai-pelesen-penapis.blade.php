@@ -144,9 +144,9 @@
                                         style="margin: 1%"> Tambah Pelesen Baru</a>
 
 
-                                    <div class="text-right col-5" style="margin: 1%">
-                                        <button style="font-size:14px; background-color:#265960;color: white; border: 0px; border-radius: 2px; padding:7px 35px;"
-                                            onclick="exportTableToCSV('Senarai Pelesen Berdaftar Kilang Penapis.csv')">Excel <i class="fa fa-file-excel" style="color: white"></i></button>
+                                    <div class="text-right col-5" style="margin: 1%; position: static; margin-left: auto">
+                                        <button id="exportExcel" style="font-size:14px; background-color:#265960;color: white; border: 0px; border-radius: 2px; padding:7px 35px;"
+                                           >Excel <i class="fa fa-file-excel" style="color: white"></i></button>
 
                                     </div>
 
@@ -247,38 +247,24 @@
 @endsection
 
 @section('scripts')
-    <script>
-        //user-defined function to download CSV file
-        function downloadCSV(csv, filename) {
-            var csvFile;
-            var downloadLink;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+<script>
+    $('#exportExcel').on('click', function(){
+      var wb = XLSX.utils.table_to_book(document.getElementById('example'),{sheet: "Sheet name"})
 
-            //define the file type to text/csv
-            csvFile = new Blob([csv], {type: 'text/csv'});
-            downloadLink = document.createElement("a");
-            downloadLink.download = filename;
-            downloadLink.href = window.URL.createObjectURL(csvFile);
-            downloadLink.style.display = "none";
+      var wbout = XLSX.write(wb, {bookType: 'xlsx', bookSST: true, type: 'binary'});
 
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
+      function s2ab(s) {
+        var buf = new ArrayBuffer(s.length);
+        var view = new Uint8Array(buf);
+        for (var i = 0; i < s.length; i++) {
+          view[i] = s.charCodeAt(i) & 0xFF;
         }
+        return buf;
+      }
 
-        //user-defined function to export the data to CSV file format
-        function exportTableToCSV(filename) {
-        //declare a JavaScript variable of array type
-        var csv = [];
-        var rows = document.querySelectorAll("table tr");
-
-        //merge the whole data in tabular form
-        for(var i=0; i<rows.length; i++) {
-            var row = [], cols = rows[i].querySelectorAll("td, th");
-            for( var j=0; j<cols.length; j++)
-            row.push(cols[j].innerText);
-            csv.push(row.join(","));
-        }
-        //call the function to download the CSV file
-        downloadCSV(csv.join("\n"), filename);
-        }
-    </script>
+      saveAs(new Blob([s2ab(wbout)], {type:"application/octet-stream"}), 'Senarai Pelesen Berdaftar Kilang Penapis.xlsx');
+    })
+  </script>
 @endsection

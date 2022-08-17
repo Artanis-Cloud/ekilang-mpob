@@ -148,9 +148,9 @@
                                         <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                             style=" margin: 1%"> Tambah Pelesen Baru</a>
 
-                                        <div class="text-right col-5 " style="margin: 1%">
-                                            <button style="font-size:14px; background-color:#265960;color: white; border: 0px; border-radius: 2px; padding:7px 35px;"
-                                                onclick="exportTableToCSV('Senarai Pelesen Berdaftar Kilang Buah.csv')">Excel <i class="fa fa-file-excel" style="color: white"></i></button>
+                                        <div class="text-right col-5 " style="margin: 1%; position: static; margin-left: auto">
+                                            <button id="exportExcel" style="font-size:14px; background-color:#265960;color: white; border: 0px; border-radius: 2px; padding:7px 35px;"
+                                               >Excel <i class="fa fa-file-excel" style="color: white"></i></button>
                                         </div>
 
 
@@ -257,7 +257,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         //user-defined function to download CSV file
         function downloadCSV(csv, filename) {
             var csvFile;
@@ -290,5 +290,25 @@
         //call the function to download the CSV file
         downloadCSV(csv.join("\n"), filename);
         }
-    </script>
+    </script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
+    <script>
+        $('#exportExcel').on('click', function(){
+          var wb = XLSX.utils.table_to_book(document.getElementById('example'),{sheet: "Sheet name"})
+
+          var wbout = XLSX.write(wb, {bookType: 'xlsx', bookSST: true, type: 'binary'});
+
+          function s2ab(s) {
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i = 0; i < s.length; i++) {
+              view[i] = s.charCodeAt(i) & 0xFF;
+            }
+            return buf;
+          }
+
+          saveAs(new Blob([s2ab(wbout)], {type:"application/octet-stream"}), 'Senarai Pelesen Berdaftar Kilang Buah.xlsx');
+        })
+      </script>
 @endsection

@@ -96,7 +96,7 @@
                                                 </table>
                                             </div><br>
                                             <p align="center">
-                                            <font size="2">TARIKH TERIMA PENYATA BULANAN<br></font>
+                                            <font size="2"><b>TARIKH TERIMA PENYATA BULANAN</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center" >
@@ -141,7 +141,7 @@
                                                 </table>
                                             </div><br>
                                             <p align="center">
-                                            <font size="2">STOK AWAL BULAN DI PREMIS<br></font>
+                                            <font size="2"><b>STOK AWAL BULAN DI PREMIS</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -177,9 +177,9 @@
                                                                     <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                     <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b5 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                     @endforeach
-
+                                                                    <td class="text-center" style="width:auto">-</td>
                                                                 </tr>
                                                                 {{-- @endforeach --}}
 
@@ -211,7 +211,7 @@
                                             </div>
                                             <br>
                                             <p align="center">
-                                            <font size="2">BELIAN / TERIMAAN<br></font>
+                                            <font size="2"><b>BELIAN / TERIMAAN</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -244,8 +244,9 @@
                                                                 <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                 <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                 @foreach ( $data_bulanan_ebio_b6 as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                    <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                 @endforeach
+                                                                <td class="text-center" style="width:auto">-</td>
 
                                                             </tr>
 
@@ -273,7 +274,7 @@
                                             </div>
                                             <br>
                                             <p align="center">
-                                            <font size="2">DIGUNAKAN UNTUK PROSES SELANJUTNYA<br></font>
+                                            <font size="2"><b>DIGUNAKAN UNTUK PROSES SELANJUTNYA</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -306,8 +307,9 @@
                                                                 <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                 <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                 @foreach ( $data_bulanan_ebio_b7 as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                    <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                 @endforeach
+                                                                <td class="text-center" style="width:auto">-</td>
 
                                                             </tr>
 
@@ -335,7 +337,7 @@
                                             </div>
                                             <br>
                                             <p align="center">
-                                            <font size="2">PENGELUARAN<br></font>
+                                            <font size="2"><b>PENGELUARAN</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -367,8 +369,9 @@
                                                                 <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                 <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                 @foreach ( $data_bulanan_ebio_b8 as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                    <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                 @endforeach
+                                                                <td class="text-center" style="width:auto">-</td>
 
                                                             </tr>
                                                         </tr>
@@ -395,7 +398,7 @@
                                             </div>
                                             <br>
                                             <p align="center">
-                                            <font size="2">JUALAN / EDARAN TEMPATAN<br></font>
+                                            <font size="2"><b>JUALAN / EDARAN TEMPATAN</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -429,8 +432,9 @@
                                                                     <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                     <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b9 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                     @endforeach
+                                                                    <td class="text-center" style="width:auto">-</td>
 
                                                                 </tr>
 
@@ -459,7 +463,7 @@
                                             </div>
                                             <br>
                                             <p align="center">
-                                            <font size="2">EKSPORT<br></font>
+                                            <font size="2"><b>EKSPORT</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -493,8 +497,9 @@
                                                                     <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                     <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b10 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                     @endforeach
+                                                                    <td class="text-center" style="width:auto">-</td>
 
                                                                 </tr>
 
@@ -523,7 +528,7 @@
                                             </div>
                                             <br>
                                             <p align="center">
-                                            <font size="2">STOK AKHIR BULAN DILAPOR<br></font>
+                                            <font size="2"><b>STOK AKHIR BULAN DILAPOR</b><br></font>
                                             </p>
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
@@ -560,8 +565,10 @@
                                                                     <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
                                                                     <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
                                                                     @foreach ( $data_bulanan_ebio_b11 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{$data}}</td>
+                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
                                                                     @endforeach
+                                                                    <td class="text-center" style="width:auto">-</td>
+
                                                                     {{-- @php
                                                                     $total_bulan+= $data->ebio_b11;
                                                                     @endphp --}}
