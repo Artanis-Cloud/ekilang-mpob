@@ -58,10 +58,10 @@
                 {{-- @if ($errors->any())
                     {{ implode('', $errors->all('<div>:message</div>')) }}
                 @endif --}}
-                <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b
-                    style="color: red"> *</b><i>'</i>
+                <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red">
+                    *</b><i>'</i>
                 <form action="{{ route('buah.update.maklumat.asas.pelesen.cuba') }}" method="post" id="myform"
-                        >
+                    novalidate>
                     @csrf
                     <div class="container center" style="padding: 0%">
                         <div class="row justify-content-center" style="margin:20px 0px">
@@ -79,19 +79,20 @@
                                         bahagian ini!</i></p>
 
                                 <input type="text" id="e_ap2" class="form-control" maxlength=60
-                                    placeholder="Alamat Premis Berlesen 2" oninput="invokeFunc2();" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
+                                    placeholder="Alamat Premis Berlesen 2" oninput="invokeFunc2();" name="e_ap2"
+                                    value="{{ $pelesen->e_ap2 }}">
 
                                 <input type="text" id="e_ap3" class="form-control" maxlength=60
-                                    placeholder="Alamat Premis Berlesen 3" oninput="invokeFunc3();" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
+                                    placeholder="Alamat Premis Berlesen 3" oninput="invokeFunc3();" name="e_ap3"
+                                    value="{{ $pelesen->e_ap3 }}">
                             </div>
                         </div>
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px"></div>
                             <div class="col-md-7">
-                                <input onchange="alamat();" type="checkbox" class="custom-control-input"
-                                    id="alamat_sama" name="alamat_sama"
-                                    {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                                <input onchange="alamat();" type="checkbox" class="custom-control-input" id="alamat_sama"
+                                    name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="alamat_sama">Alamat sama seperti di
                                     atas</label>
 
@@ -149,8 +150,8 @@
                                     No. Faks</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="tel" id="e_nofax" class="form-control" maxlength=40 oninput="invokeFunc8();"
-                                    placeholder="No. Faks" {{-- oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                <input type="tel" id="e_nofax" class="form-control" maxlength=40
+                                    oninput="invokeFunc8();" placeholder="No. Faks" {{-- oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         oninput="invokeFunc();setCustomValidity('')" --}}
                                     onkeypress="return isNumberKey(event)" name="e_nofax"
                                     value="{{ $pelesen->e_nofax }}">
@@ -165,11 +166,13 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="email" id="e_email" class="form-control" maxlength=40
-                                    oninput="invokeFunc9();setCustomValidity(''); valid_email()"
+                                    oninput="invokeFunc9();setCustomValidity(''); valid_email(); ValidateEmail()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" placeholder="Alamat Emel"
                                     name="e_email" value="{{ $pelesen->e_email }}">
                                 <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran
                                         di bahagian ini!</i></p>
+                                <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
 
                             </div>
                         </div>
@@ -183,7 +186,8 @@
                                 <input type="text" id="e_npg" class="form-control" maxlength=60
                                     placeholder="Nama Pegawai Melapor"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_npg" required
-                                    value="{{ $pelesen->e_npg }}" oninput="invokeFunc10();setCustomValidity(''); valid_npg()">
+                                    value="{{ $pelesen->e_npg }}"
+                                    oninput="invokeFunc10();setCustomValidity(''); valid_npg()">
                                 <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran
                                         di bahagian ini!</i></p>
 
@@ -203,8 +207,7 @@
                                 <input type="text" id="e_jpg" class="form-control" maxlength=60
                                     oninput="invokeFunc11();setCustomValidity(''); valid_jpg()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required
-                                    placeholder="Jawatan Pegawai Melapor" name="e_jpg"
-                                    value="{{ $pelesen->e_jpg }}">
+                                    placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}">
                                 <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran
                                         di bahagian ini!</i></p>
 
@@ -312,10 +315,9 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_syktinduk" maxlength=60 class="form-control"
-                                    oninput="invokeFunc17();setCustomValidity(''); valid_syktinduk()"
-                                    title="Sila isi butiran di bahagian ini"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" placeholder="Syarikat Induk"
-                                    name="e_syktinduk" value="{{ $pelesen->e_syktinduk ?? '' }}" required>
+                                    oninput="invokeFunc17(); valid_syktinduk()" title="Sila isi butiran di bahagian ini"
+                                    placeholder="Syarikat Induk" name="e_syktinduk"
+                                    value="{{ $pelesen->e_syktinduk ?? '' }}" required>
                                 <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
                                 {{-- @error('e_syktinduk')
@@ -429,7 +431,7 @@
                                     oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
                                     required>
-                                    <p type="hidden" id="err_bil_tangki" style="color: red; display:none"><i>Sila isi
+                                <p type="hidden" id="err_bil_tangki" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
                                 {{-- @error('bil_tangki_cpo')
                                     <div class="alert alert-danger">
@@ -447,12 +449,12 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%"
-                                    oninput="invokeFunc20();setCustomValidity(''); " id="kap_tangki_cpo" required min="1"
-                                    title="Sila isikan butiran ini."
+                                    oninput="invokeFunc20();setCustomValidity(''); " id="kap_tangki_cpo" required
+                                    min="1" title="Sila isikan butiran ini."
                                     oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
                                     required>
-                                    <p type="hidden" id="err_kap_tangki" style="color: red; display:none"><i>Sila isi
+                                <p type="hidden" id="err_kap_tangki" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
                                 {{-- @error('kap_tangki_cpo')
                                     <div class="alert alert-danger">
@@ -474,12 +476,11 @@
 
 
                     <div class="row form-group justify-content-center" style="margin-top: 2%">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" onclick="check()"
-                            data-target="#next">Simpan</button>
+                        <button type="button" class="btn btn-primary" onclick="check();">Simpan</button>
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
-                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                    <div class="modal fade hide" id="next" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                             role="document">
@@ -487,8 +488,7 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                         PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                        aria-label="Close">
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>
@@ -514,6 +514,32 @@
                 </form>
 
             </div>
+
+            </body>
+
+
+            {{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript form validation - checking email</title>
+<link rel='stylesheet' href='form-style.css' type='text/css' />
+</head>
+<body onload='document.form1.text1.focus()'>
+<div class="mail">
+<h2>Input an email and Submit</h2>
+<form name="form1" action="#">
+<ul>
+<li><input type='text' name='text1'/></li>
+<li>&nbsp;</li>
+<li class="submit"><input type="button" name="submit" value="Submit" onclick="ValidateEmail(document.form1.text1)"/></li>
+<li>&nbsp;</li>
+</ul>
+</form>
+</div>
+<script src="email-validation.js"></script>
+</body>
+</html> --}}
         @endsection
 
         @section('scripts')
@@ -592,7 +618,8 @@
                     if ($('#e_email').val() == '') {
                         $('#e_email').css('border-color', 'red');
                         document.getElementById('err_email').style.display = "block";
-
+                        document.getElementById('err_email2').style.display = "none";
+                        console.log('sini');
 
                     } else {
                         $('#e_email').css('border-color', '');
@@ -812,7 +839,7 @@
                     // alamat premis 1500403125000
                     field = document.getElementById("kap_proses");
                     if (!field.checkValidity()) {
-                        // error += "Name must be 2-4 characters\r\n";
+                        error += "Name must be 2-4 characters\r\n";
                         $('#kap_proses').css('border-color', 'red');
                         document.getElementById('err_proses').style.display = "block";
                     }
@@ -820,6 +847,7 @@
                     // alamat premis 1
                     field = document.getElementById("e_ap1");
                     if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                         $('#e_ap1').css('border-color', 'red');
                         document.getElementById('err_ap').style.display = "block";
                     }
@@ -827,6 +855,7 @@
                     // alamat surat-menyurat 1
                     field = document.getElementById("e_as1");
                     if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                         $('#e_as1').css('border-color', 'red');
                         document.getElementById('err_as').style.display = "block";
                     }
@@ -834,117 +863,168 @@
                     // no tel kilang
                     field = document.getElementById("e_notel");
                     if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                         $('#e_notel').css('border-color', 'red');
                         document.getElementById('err_notel').style.display = "block";
                     }
 
                     // email kilang
                     field = document.getElementById("e_email");
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                     if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                         $('#e_email').css('border-color', 'red');
                         document.getElementById('err_email').style.display = "block";
+                        // document.getElementById('err_email2').style.display = "none";
+                    }
+                    if (!field.value.match(mailformat)) {
+                        error += "Name must be 2-4 characters\r\n";
+                        // alert("You have entered an invalid email address!");
+                        $('#e_email').css('border-color', 'red');
+                        document.getElementById('err_email2').style.display = "block";
+                        console.log('error');
                     }
 
-                    // nama pegawai melapor
-                    field = document.getElementById("e_npg");
-                    if (!field.checkValidity()) {
-                        $('#e_npg').css('border-color', 'red');
-                        document.getElementById('err_npg').style.display = "block";
-                    }
 
-                    // jawatan pegawai melapor
-                    field = document.getElementById("e_jpg");
-                    if (!field.checkValidity()) {
-                        $('#e_jpg').css('border-color', 'red');
-                        document.getElementById('err_jpg').style.display = "block";
-                    }
 
-                    // no tel pegawai melapor
-                    field = document.getElementById("e_notel_pg");
-                    if (!field.checkValidity()) {
-                        $('#e_notel_pg').css('border-color', 'red');
-                        document.getElementById('err_notelpg').style.display = "block";
-                    }
 
-                    // email pegawai melapor
-                    field = document.getElementById("e_email_pg");
-                    if (!field.checkValidity()) {
-                        $('#e_email_pg').css('border-color', 'red');
-                        document.getElementById('err_emailpg').style.display = "block";
-                    }
 
-                    // nama pegawai bertanggungjawab
-                    field = document.getElementById("e_npgtg");
-                    if (!field.checkValidity()) {
-                        $('#e_npgtg').css('border-color', 'red');
-                        document.getElementById('err_npgtg').style.display = "block";
-                    }
+            // nama pegawai melapor
+            field = document.getElementById("e_npg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_npg').css('border-color', 'red');
+            document.getElementById('err_npg').style.display = "block";
+            }
 
-                    // jawatan pegawai bertanggungjawab
-                    field = document.getElementById("e_jpgtg");
-                    if (!field.checkValidity()) {
-                        $('#e_jpgtg').css('border-color', 'red');
-                        document.getElementById('err_jpgtg').style.display = "block";
-                    }
+            // jawatan pegawai melapor
+            field = document.getElementById("e_jpg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_jpg').css('border-color', 'red');
+            document.getElementById('err_jpg').style.display = "block";
+            }
 
-                    // emel pengurus
-                    field = document.getElementById("e_email_pengurus");
-                    if (!field.checkValidity()) {
-                        $('#e_email_pengurus').css('border-color', 'red');
-                        document.getElementById('err_emailpengurus').style.display = "block";
-                    }
+            // no tel pegawai melapor
+            field = document.getElementById("e_notel_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_notel_pg').css('border-color', 'red');
+            document.getElementById('err_notelpg').style.display = "block";
+            }
 
-                    // syarikat induk
-                    field = document.getElementById("e_syktinduk");
-                    if (!field.checkValidity()) {
-                        $('#e_syktinduk').css('border-color', 'red');
-                        document.getElementById('err_syktinduk').style.display = "block";
-                    }
+            // email pegawai melapor
+            field = document.getElementById("e_email_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_email_pg').css('border-color', 'red');
+            document.getElementById('err_emailpg').style.display = "block";
+            }
 
-                    // kumpulan
-                    field = document.getElementById("e_group");
-                    if (!field.checkValidity()) {
-                        $('#e_group').css('border-color', 'red');
-                        document.getElementById('err_group').style.display = "block";
-                    }
+            // nama pegawai bertanggungjawab
+            field = document.getElementById("e_npgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_npgtg').css('border-color', 'red');
+            document.getElementById('err_npgtg').style.display = "block";
+            }
 
-                    // poma
-                    field = document.getElementById("e_poma");
-                    if (!field.checkValidity()) {
-                        $('#e_poma').css('border-color', 'red');
-                        document.getElementById('err_poma').style.display = "block";
-                    }
+            // jawatan pegawai bertanggungjawab
+            field = document.getElementById("e_jpgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_jpgtg').css('border-color', 'red');
+            document.getElementById('err_jpgtg').style.display = "block";
+            }
 
-                    // POMA
-                    // field = document.getElementById("e_poma");
-                    // if (!field.checkValidity()) {
-                    //     error += "Name must be 2-4 characters\r\n";
-                    // }
+            // emel pengurus
+            field = document.getElementById("e_email_pengurus");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_email_pengurus').css('border-color', 'red');
+            document.getElementById('err_emailpengurus').style.display = "block";
+            }
 
-                    // (B4) RESULT
-                    // if (error == "") {
-                    //     return true;
-                    // } else {
-                    //     toastr.error(
-                    //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                    //         'Ralat!', {
-                    //             "progressBar": true
-                    //         })
-                    //     return false;
-                    // }
+            // syarikat induk
+            field = document.getElementById("e_syktinduk");
+            if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#e_syktinduk').css('border-color', 'red');
+            document.getElementById('err_syktinduk').style.display = "block";
+            }
 
-                    // if (error == "") {
-                    //     return true;
-                    // } else {
-                    //     toastr.error(
-                    //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                    //         'Ralat!', {
-                    //             "progressBar": true
-                    //         })
-                    //     return false;
-                    // }
-                }
+            // kumpulan
+            field = document.getElementById("e_group");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_group').css('border-color', 'red');
+            document.getElementById('err_group').style.display = "block";
+            }
+
+            // poma
+            field = document.getElementById("e_poma");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            $('#e_poma').css('border-color', 'red');
+            document.getElementById('err_poma').style.display = "block";
+            }
+
+            // POMA
+            // field = document.getElementById("e_poma");
+            // if (!field.checkValidity()) {
+            // error += "Name must be 2-4 characters\r\n";
+            // }
+
+            // (B4) RESULT
+            if (error == "") {
+                $('#next').modal('show');
+            return true;
+            } else {
+                toastr.error(
+                'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                'Ralat!', {
+                "progressBar": true
+                })
+            return false;
+            }
+
+            // if (error == "") {
+            // return true;
+            // } else {
+            // toastr.error(
+            // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            // 'Ralat!', {
+            // "progressBar": true
+            // })
+            // return false;
+            // }
+            }
             </script>
+            <script>
+                function ValidateEmail()
+                {
+                var inputText = document.getElementById('e_email');
+                console.log(inputText.value);
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(inputText.value.match(mailformat))
+                {
+                // alert("Valid email address!");
+                // document.myform.e_email.focus();
+                document.getElementById('err_email2').style.display = "none";
+
+                return true;
+                }
+                else
+                {
+                    if(inputText.value != ''){
+                    // alert("You have entered an invalid email address!");
+                    $('#e_email').css('border-color', 'red');
+                    document.getElementById('err_email2').style.display = "block";
+                    return false;
+                    }
+                }
+                }
+                </script>
             <script>
                 function alamat() {
                     var x = $("#alamat_sama").is(":checked");
@@ -1041,350 +1121,350 @@
 
 
 
-<script>
-    function invokeFunc() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_ap2').focus();
-            }
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_ap2').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc2() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_ap3').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_ap3').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc3() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_as1').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc3() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_as1').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc4() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_as2').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc4() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_as2').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc5() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_as3').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc5() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_as3').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc6() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_notel').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc6() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_notel').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc7() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_nofax').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc7() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_nofax').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc8() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_email').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc8() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_email').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc9() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_npg').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc9() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_npg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc10() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_jpg').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc10() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_jpg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc11() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_notel_pg').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc11() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_notel_pg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc12() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_email_pg').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc12() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_email_pg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
-<script>
-    function invokeFunc13() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_npgtg').focus();
-            }
+            <script>
+                function invokeFunc13() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_npgtg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc14() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_jpgtg').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc14() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_jpgtg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
-<script>
-    function invokeFunc15() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_email_pengurus').focus();
-            }
+            <script>
+                function invokeFunc15() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_email_pengurus').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc16() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_syktinduk').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc16() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_syktinduk').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc17() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_proses').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc17() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_proses').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc18() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('bil_tangki_cpo').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc18() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('bil_tangki_cpo').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc19() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_tangki_cpo').focus();
-            }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc19() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_tangki_cpo').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
 
 

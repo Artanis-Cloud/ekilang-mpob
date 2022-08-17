@@ -1,6 +1,24 @@
 @extends('layouts.main')
+<style>
+	.currency-wrap{
+		position:relative;
+	}
+
+	.currency-code{
+		position:absolute;
+		left:20px;
+		top:10px;
+	}
+
+	.text-currency{
+		padding:10px 20px;
+		border:solid 1px #ccc;
+		border-radius:5px;
+	}
+</style>
 
 @section('content')
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <!-- ======= Hero Section ======= -->
@@ -63,7 +81,7 @@
                     </div>
                 </div>
             </div>
-                <p style="text-align: center; vertical-align:middle; font-size: 20px">
+                <p style="text-align: center; vertical-align:middle; font-size: 18px">
 
                     <b>KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
@@ -116,122 +134,118 @@
                         <div class="mb-2 col-8" style="text-align: left">
                             <p><i>Nota: Sila isikan butiran dibawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
                         </div>
-                        <div class=" mt-2 col-4" style="text-align: right">
-                            <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
-                                style="text-align:right"><i><u>Panduan
-                                        Mengisi Maklumat Bahagian 2</u></i></a>
-                        </div>
+
                     </div>
                     <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post" class="sub-form"
                         id="form">
                         @csrf
                         <div class="container center ">
-
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
+                            <div class="row">
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-6 form-group">
                                     <label for="fname" class="align-items-center">i.
-                                        Jumlah Jam Pengilangan</label>
+                                        Jumlah Jam Pengilangan   <i class="fa fa-exclamation-circle"
+                                        style="color: red; cursor: pointer;"
+                                        title="Jumlah jam kilang beroperasi sebulan"></i></label>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                         oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
                                         style="  text-align:right" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
-                                    @error('e91_ah1')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
                                 </div>
+                                <div class="mt-2">&nbsp;&nbsp;</div>
                             </div>
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label">ii.
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-6 form-group " >
+                                    <label for="fname" class="control-label col-form-label" >&nbsp;ii.
                                         Kadar
-                                        Perahan MSM (OER) Yang Diperolehi</label>
+                                        Perahan MSM (OER) Yang Diperolehi &nbsp; <i class="fa fa-exclamation-circle "
+                                        style="color: red; cursor: pointer;"
+                                        title="Jumlah pengeluaran minyak sawit mentah &#010; ____________________________________________    x 100 &#010;      Jumlah buah kelapa sawit di proses"></i></label>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah2'
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                         style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah2();FormatCurrency(this)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required maxlength="6"
                                         title="Sila isikan butiran ini." value="{{ number_format($oer ?? 0, 2) }}">
-                                    @error('e91_ah2')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
                                 </div>
+                                <div class="mt-2">%</div>
+
                             </div>
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label">iii.
-                                        Kadar Perolehan Isirung (KER)</label>
+                        </div>
+                            <div class="row">
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-6 form-group">
+                                    <label for="fname" class="align-items-center">iii.
+                                        Kadar Perolehan Isirung <br> (KER) &nbsp; <i class="fa fa-exclamation-circle "
+                                        style="color: red; cursor: pointer;"
+                                        title="       Jumlah pengeluaran isirung &#010;____________________________________   x 100 &#010;Jumlah buah kelapa sawit di proses"></i></label>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah3'
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
-                                        style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah3();FormatCurrency(this)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required maxlength="5"
-                                        title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0, 2) }}">
-                                    @error('e91_ah3')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
+                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
+                                    style=" text-align:right; width:90%; margin-left:6%" onkeypress="return isNumberKey(event)" onchange="ah3();FormatCurrency(this)"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required maxlength="5"
+                                    title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0, 2) }}">
                                 </div>
+                                <div class="mt-2">%</div>
+
                             </div>
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label">iv.
-                                        Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-6 form-group " >
+                                    <label for="fname" class="control-label col-form-label" style="margin-left:4%">iv.
+                                        Harga Purata Belian Buah Kelapa Sawit (FFB) &nbsp; <i class="fa fa-exclamation-circle "
+                                        style="color: red; cursor: pointer;"
+                                        title="Purata harga belian buah satu tan metrik &#010;____________________________________________    x 100 &#010;Purata OER yang ditetapkan semasa belian"></i></label>
+                                {{-- <div class="mt-2">%</div> --}}
+
+                                    </div>
+
+                                <div class="col-md-5">
+                                    <span class="currency-code" &nbsp;>RM</span>
+                                    <input type="text" class="form-control text-currency" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                         style="  text-align:right" onkeypress="return isNumberKey(event)" maxlength="5"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"
                                         placeholder="RM" required title="Sila isikan butiran ini."
-                                        value="{{  number_format($penyata->e91_ah4 ?? 0,2) }}">
-                                    <p><i>(1% Kadar Perahan)</i></p>
-                                    @error('e91_ah4')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
+                                        value=" {{number_format($penyata->e91_ah4 ?? 0,2) }}">
+                                        <p style="text-align: right"><i>(1% Kadar Perahan)</i></p>
                                 </div>
-                            </div>
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label">v.
-                                        Prestasi OER</label>
-                                </div>
-                                <div class="col-md-3">
-                                    <fieldset class="form-group">
-                                        <select name="kadar_oer" class="form-control" id="kadar_oer" required
-                                            onchange="showTable()" oninput="setCustomValidity('')"
-                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                            <option selected hidden disabled value="">Sila Pilih Prestasi OER
-                                            </option>
-                                            <option {{ $status_prestasi == 'Meningkat' ? 'selected' : '' }}
-                                                value="Meningkat">Meningkat</option>
-                                            <option {{ $status_prestasi == 'Menurun' ? 'selected' : '' }} value="Menurun">
-                                                Menurun</option>
-                                        </select>
-                                    </fieldset>
-                                    {{-- <input type="text" class="form-control" name='kadar_oer'
-                                                id="kadar_oer" placeholder="Harga Purata Belian Buah Kelapa Sawit (FFB)"
-                                                required title="Sila isikan butiran ini."> --}}
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
-                                </div>
+
                             </div>
                         </div>
-                        <br>
+                            <div class="row">
+                                <div class="row justify-content-center" >
+                                    <div class="col-sm-6 form-group">
+                                        <label for="fname" class="align-items-center" style="margin-left:8%">v.
+                                            Prestasi OER  </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                                <select name="kadar_oer" class="form-control" id="kadar_oer" required style="margin-left: 40%;width:110%"
+                                                    onchange="showTable()" >
+                                                    <option selected hidden disabled value="">Sila Pilih Prestasi OER
+                                                    </option>
+                                                    <option {{ $status_prestasi == 'Meningkat' ? 'selected' : '' }}
+                                                        value="Meningkat">Meningkat</option>
+                                                    <option {{ $status_prestasi == 'Menurun' ? 'selected' : '' }} value="Menurun">
+                                                        Menurun</option>
+                                                </select>
 
+                                            {{-- <input type="text" class="form-control" name='kadar_oer'
+                                                        id="kadar_oer" placeholder="Harga Purata Belian Buah Kelapa Sawit (FFB)"
+                                                        required title="Sila isikan butiran ini."> --}}
+                                            {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                        </div>
+
+                                    <div class="mt-2">&nbsp;&nbsp;</div>
+                                </div>
+                        </div>
 
                         {{-- kadar oer meningkat --}}
                         <div class="row" id="table-bordered">
@@ -630,7 +644,8 @@
                 x = 0.00;
             }
             var y = parseFloat(x).toFixed(2);
-            document.querySelector("#e91_ah4").value = y;
+            document.querySelector("#e91_ah4").value =  y;
+            // document.getElementById("e91_ah4").value = y;
             console.log(y);
         }
     </script>
