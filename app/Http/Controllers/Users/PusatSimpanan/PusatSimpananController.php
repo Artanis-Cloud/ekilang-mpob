@@ -388,7 +388,7 @@ class PusatSimpananController extends Controller
             // 'e07bt_import' => '0',
             'e07bt_edaran' => $data['e07bt_edaran'],
             // 'e07bt_eksport' => '0',
-            // 'e07bt_pelarasan' => $data['e07bt_pelarasan'],
+            'e07bt_pelarasan' => $data['e07bt_pelarasan'],
             'e07bt_stokakhir' => $data['e07bt_stokakhir'],
         ]);
         // return $data;
@@ -446,26 +446,28 @@ class PusatSimpananController extends Controller
 
 
 
-    // public function pusatsimpan_bahagianb()
-    // {
+    public function pusatsimpan_bahagianb()
+    {
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
-    //     $breadcrumbs    = [
-    //         ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
-    //         ['link' => route('pusatsimpan.bahagianb'), 'name' => "Bahagian B"],
-    //     ];
+        $breadcrumbs    = [
+            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('pusatsimpan.bahagianb'), 'name' => "Bahagian B"],
+        ];
 
-    //     $kembali = route('pusatsimpan.dashboard');
+        $kembali = route('pusatsimpan.dashboard');
 
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.psimpan';
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.psimpan';
 
 
 
-    //     return view('users.PusatSimpanan.pusatsimpan-bahagian-b', compact('returnArr', 'layout'));
-    // }
+        return view('users.PusatSimpanan.pusatsimpan-bahagian-b', compact('returnArr', 'layout', 'bulan', 'tahun'));
+    }
 
 
 
@@ -578,11 +580,20 @@ class PusatSimpananController extends Controller
             return $query->where('prodcat', '!=', '07');
         })->get();
         // dd($penyata);
+        $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
+        $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
+        $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
+        $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_pelarasan');
+        $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
 
 
 
-
-        return view('users.PusatSimpanan.pusatsimpan-hantar-penyata', compact('layout', 'returnArr', 'date', 'user', 'penyata', 'pelesen', 'tahun', 'bulan'));
+        return view('users.PusatSimpanan.pusatsimpan-hantar-penyata', compact('layout', 'returnArr', 'date', 'user', 'penyata', 'pelesen', 'tahun', 'bulan',
+        'total',
+        'total2',
+        'total3',
+        'total4',
+        'total5'));
     }
 
     public function pusatsimpan_email()
