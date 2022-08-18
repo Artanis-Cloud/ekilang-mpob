@@ -310,5 +310,5 @@
 
           saveAs(new Blob([s2ab(wbout)], {type:"application/octet-stream"}), 'Senarai Pelesen Berdaftar Kilang Buah.xlsx');
         })
-      </script>
+    </script>
 @endsection

@@ -172,7 +172,7 @@
                                                 <div class="form-group">
                                                     <label>Bulan</label>
                                                     <select class="form-control" name="bulan"  id="bulan" onchange="showTable()">
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option value="">Sila Pilih</option>
                                                         <option value="equal">Equal</option>
                                                         <option value="between">Between</option>
                                                     </select>
@@ -254,7 +254,7 @@
                                                 <div class="form-group">
                                                     <label>Negeri</label>
                                                     <select class="form-control" id="negeri_id" name="e_negeri">
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option value="">Sila Pilih Negeri</option>
                                                         @foreach ($negeri as $data)
                                                             <option value="{{ $data->kod_negeri }}">
                                                                 {{ $data->nama_negeri }}
@@ -267,9 +267,9 @@
 
                                             <div class="col-md-5 mr-auto">
                                                 <div class="form-group">
-                                                    <label>No. Pelesen</label>
+                                                    <label>Pemegang Pelesen</label>
                                                     <select class="form-control select2" name="e_nl" style="width: 10%">
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option value="">Sila Pilih Pemegang Pelesen</option>
                                                         @foreach ($users2 as $data)
                                                             <option value="{{ $data->e_nl }}">
                                                                 {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
@@ -280,7 +280,7 @@
                                                 <div class="form-group">
                                                     <label>Kumpulan Produk</label>
                                                     <select class="form-control" id="kumpproduk" name="kumpproduk"  onchange="ajax_produk(this);" >
-                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option selected>Sila Pilih Kumpulan Produk</option>
                                                         @foreach ($kumpproduk as $data)
                                                         {{-- @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin') --}}
                                                             <option value="{{ $data->kumpulan }}">
@@ -294,7 +294,7 @@
                                                     <label>Kod Produk</label>
                                                     <select class="form-control select2" id="kod_produk" name="kod_produk" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity('')" style="width: 10%">
-                                                        <option selected hidden disabled value="">Sila Pilih Kumpulan Terlebih Dahulu
+                                                        <option selected value="">Sila Pilih Kumpulan Terlebih Dahulu
                                                         </option>
                                                         {{-- @foreach ($produk as $data)
                                                             <option value="{{ $data->nama_produk }}">
@@ -305,10 +305,10 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Data</label>
+                                                    <label class="required">Data</label>
                                                     <fieldset class="form-group">
-                                                        <select class="form-control" name="laporan">
-                                                            <option selected hidden disabled>Sila Pilih Jenis Data</option>
+                                                        <select class="form-control" name="laporan" required>
+                                                            <option selected hidden disabled value="">Sila Pilih Jenis Data</option>
                                                             <option value="ebio_b5">Stok Awal Di Premis</option>
                                                             <option value="ebio_b6">Belian / Terimaan</option>
                                                             <option value="ebio_b7">Pengeluaran</option>
@@ -424,9 +424,8 @@
                     respond.forEach(function() { //penting
 
                         console.log(respond[x]);
-                        $("#kod_produk").append('<option value="' + respond[x].prodname + '">' +
-                            respond[x]
-                            .proddesc + '</option>');
+                        $("#kod_produk").append('<option value="' + respond[x].prodname + '">'
+                        + respond[x].prodid + " - " + respond[x].proddesc+ '</option>');
                         x++;
                     });
                 },
@@ -459,9 +458,8 @@
                     respond.forEach(function() { //penting
 
                         console.log(respond[x]);
-                        $("#kod_produk2").append('<option value="' + respond[x].prodname + '">' +
-                            respond[x]
-                            .proddesc + '</option>');
+                        $("#kod_produk2").append('<option value="' + respond[x].prodname + '">'
+                        + respond[x].prodid + " - " + respond[x].proddesc+ '</option>');
                         x++;
                     });
                 },
