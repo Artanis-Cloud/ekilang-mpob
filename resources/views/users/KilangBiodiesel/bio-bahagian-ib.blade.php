@@ -106,7 +106,7 @@
 
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('bio.add.bahagian.ib') }}" method="post" style="margin: auto" class="sub-form">
+                    <form action="{{ route('bio.add.bahagian.ib') }}" method="post" style="margin: auto" class="sub-form" novalidate>
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -124,18 +124,23 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="ebio_b4" name="ebio_b4"
+                                <div id="border_produk">
+
+                                    <select class="form-control select2" id="produk" name="ebio_b4"
                                         required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                        oninput="this.setCustomValidity('');">
+                                        oninput="this.setCustomValidity(''); valid_produk()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                                {{ $data->prodid }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
                                     </select>
-
+                                </div>
+                                <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                    di
+                                    bahagian ini!</i></p>
                                 </div>
                             </div>
 
@@ -268,7 +273,7 @@
                         <br>
 
                         <div class="row justify-content-center form-group" style="padding-top: 10px; ">
-                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                            <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Tambah</button>
                         </div>
 
                     </form>
@@ -613,6 +618,123 @@
 
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
     <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    <script>
+        function valid_produk() {
+
+            if ($('#produk').val() == '') {
+                $('#border_produk').css('border', '1px solid red');
+                document.getElementById('err_produk').style.display = "block";
+
+
+            } else {
+                $('#border_produk').css('border', '');
+                document.getElementById('err_produk').style.display = "none";
+
+            }
+
+        }
+    </script>
+        <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // kod produk
+                field = document.getElementById("produk");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#border_produk').css('border', '1px solid red');
+                    document.getElementById('err_produk').style.display = "block";
+                    console.log('masuk');
+                }
+
+
+
+                // (B4) RESULT
+                if (error == "") {
+
+                    document.getElementById("checkBtn").setAttribute("type", "submit");
+                    return true;
+                } else {
+                    document.getElementById("checkBtn").setAttribute("type", "button");
+
+                    return false;
+                }
+
+            }
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    b5 = $('#ebio_b5').val();
+                    b6 = $('#ebio_b6').val();
+                    b7 = $('#ebio_b7').val();
+                    b8 = $('#ebio_b8').val();
+                    b9 = $('#ebio_b9').val();
+                    b10 = $('#ebio_b10').val();
+                    b11 = $('#ebio_b11').val();
+                    // b5 = b5 || 0;
+
+                    let x5 = b5;
+                    if (x5 == '') {
+                            x5 = x5 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x6 = b6;
+                    if (x6 == '') {
+                            x6 = x6 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x7 = b7;
+                    if (x7 == '') {
+                            x7 = x7 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x9 = b9;
+                    if (x9 == '') {
+                            x9 = x9 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x10 = b10;
+                    if (x10 == '') {
+                            x10 = x10 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x11 = b11;
+                    if (x11 == '') {
+                            x11 = x11 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+                    let x8 = b8;
+                    if (x8 == '') {
+                            x8 = x8 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                    }
+
+                     document.getElementById("ebio_b5").value = x5;
+                     document.getElementById("ebio_b6").value = x6;
+                     document.getElementById("ebio_b7").value = x7;
+                     document.getElementById("ebio_b8").value = x8;
+                     document.getElementById("ebio_b9").value = x9;
+                     document.getElementById("ebio_b10").value = x10;
+                     document.getElementById("ebio_b11").value = x11;
+
+
+                    if (b5 == 0 && b6 == 0 && b7 == 0 && b8 == 0 && b9 == 0 && b10 == 0 && b11 == 0) {
+                        // console.log('lain');
+
+                        toastr.error(
+                            'Sila isi sekurang-kurangnya satu data',
+                            'Ralat!', {
+                                "progressBar": true
+                            })
+                        return false;
+                    }
+
+                });
+            });
+        </script>
 
     <script>
         $(document).ready(function() {

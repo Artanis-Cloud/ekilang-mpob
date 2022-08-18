@@ -120,7 +120,7 @@
             <div class="card-body">
                 <div class="">
 
-                    <form action="{{ route('bio.add.bahagian.iii') }}" method="post" class="sub-form">
+                    <form action="{{ route('bio.add.bahagian.iii') }}" method="post" class="sub-form" novalidate>
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -138,10 +138,12 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="ebio_c3" name="ebio_c3" required
+                                <div id="border_produk">
+
+                                    <select class="form-control select2" id="produk" name="ebio_c3" required
                                         onchange="showDetail()"
                                         oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
-                                       oninput="this.setCustomValidity('');">
+                                       oninput="this.setCustomValidity(''); valid_produk()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -150,6 +152,11 @@
                                         @endforeach
 
                                     </select>
+                                </div>
+                                <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                    di
+                                    bahagian ini!</i></p>
+                                </div>
                                     @error('ebio_c3')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -157,7 +164,7 @@
                                     @enderror
 
                                 </div>
-                            </div>
+                            {{-- </div> --}}
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
@@ -307,7 +314,7 @@
                         <br>
 
                         <div class="row justify-content-center form-group" style="margin: 3%;">
-                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                            <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Tambah</button>
                         </div>
 
                     </form>
@@ -591,7 +598,7 @@
                 <div class="form-group">
                     <a href="{{ route('bio.bahagianii') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
                     <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                        data-target="#next">Hantar Penyata</button>
+                        data-target="#next">Simpan & Seterusnya</button>
                 </div>
 
                 <!-- Pengesahan Modal -->
@@ -617,7 +624,7 @@
                                     <i class="bx bx-x d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                 </button>
-                                <a href="{{ route('bio.paparpenyata') }}" type="button" class="btn btn-primary ml-1">
+                                <a href="{{ route('bio.bahagianiv') }}" type="button" class="btn btn-primary ml-1">
 
                                     <i class="bx bx-check d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block">Ya</span>
@@ -722,6 +729,123 @@
             </form>
         @endsection
         @section('scripts')
+        <script>
+            function valid_produk() {
+
+                if ($('#produk').val() == '') {
+                    $('#border_produk').css('border', '1px solid red');
+                    document.getElementById('err_produk').style.display = "block";
+
+
+                } else {
+                    $('#border_produk').css('border', '');
+                    document.getElementById('err_produk').style.display = "none";
+
+                }
+
+            }
+        </script>
+            <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
+
+                    // kod produk
+                    field = document.getElementById("produk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#border_produk').css('border', '1px solid red');
+                        document.getElementById('err_produk').style.display = "block";
+                        console.log('masuk');
+                    }
+
+
+
+                    // (B4) RESULT
+                    if (error == "") {
+
+                        document.getElementById("checkBtn").setAttribute("type", "submit");
+                        return true;
+                    } else {
+                        document.getElementById("checkBtn").setAttribute("type", "button");
+
+                        return false;
+                    }
+
+                }
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#checkBtn').click(function() {
+                        c4 = $('#ebio_c4').val();
+                        c5 = $('#ebio_c5').val();
+                        c6 = $('#ebio_c6').val();
+                        c7 = $('#ebio_c7').val();
+                        c8 = $('#ebio_c8').val();
+                        c9 = $('#ebio_c9').val();
+                        c10 = $('#ebio_c10').val();
+                        // b5 = b5 || 0;
+
+                        let x5 = c4;
+                        if (x5 == '') {
+                                x5 = x5 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x6 = c5;
+                        if (x6 == '') {
+                                x6 = x6 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x7 = c6;
+                        if (x7 == '') {
+                                x7 = x7 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x9 = c7;
+                        if (x9 == '') {
+                                x9 = x9 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x10 = c8;
+                        if (x10 == '') {
+                                x10 = x10 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x11 = c9;
+                        if (x11 == '') {
+                                x11 = x11 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x8 = c10;
+                        if (x8 == '') {
+                                x8 = x8 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                        }
+
+                         document.getElementById("ebio_c4").value = x5;
+                         document.getElementById("ebio_c5").value = x6;
+                         document.getElementById("ebio_c6").value = x7;
+                         document.getElementById("ebio_c7").value = x9;
+                         document.getElementById("ebio_c8").value = x10;
+                         document.getElementById("ebio_c9").value = x11;
+                         document.getElementById("ebio_c10").value = x8;
+
+
+                        if (c4 == 0 && c5 == 0 && c6 == 0 && c7 == 0 && c8 == 0 && c9 == 0 && c10 == 0) {
+                            // console.log('lain');
+
+                            toastr.error(
+                                'Sila isi sekurang-kurangnya satu data',
+                                'Ralat!', {
+                                    "progressBar": true
+                                })
+                            return false;
+                        }
+
+                    });
+                });
+            </script>
 
             <script>
                 function onlyNumberKey(evt) {

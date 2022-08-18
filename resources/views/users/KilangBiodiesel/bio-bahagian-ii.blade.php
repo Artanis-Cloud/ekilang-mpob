@@ -107,11 +107,11 @@
             <div class="card-body">
                 <div class="">
                     @if (!$penyata)
-                        <form action="{{ route('bio.add.bahagian.ii') }}" method="post">
+                        <form action="{{ route('bio.add.bahagian.ii') }}" method="post" novalidate>
                             @csrf
                     @else
                         <form action="{{ route('bio.edit.bahagian.ii', [$penyata->lesen]) }}"
-                                method="post">
+                                method="post" novalidate>
                             @csrf
                     @endif
 
@@ -133,15 +133,23 @@
                                 Jumlah Hari Kilang Beroperasi Sebulan </label>
                             </div>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" name='hari_operasi' min="0" max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
-                                oninput="this.setCustomValidity(''); invokeFunc()"
+                                <input type="text" class="form-control" id="hari" style="text-align: right"
+                                name='hari_operasi' min="0" max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
+                                oninput="this.setCustomValidity(''); invokeFunc(); valid_a5()"
                                 required
                                     title="Sila isikan butiran ini." value="{{ $penyata->hari_operasi ?? 0 }}">
-                                @error('hari_operasi')
+                                    <p type="hidden" id="err_a5" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                    <p type="hidden" id="err_a52" style="color: red; display:none"><i>Nilai hendaklah kurang dari 31 hari.</i></p>
+                                    @error('hari_operasi')
                                     <div class="alert alert-danger">
                                         <strong>{{ $message }}</strong>
                                     </div>
                                 @enderror
+                            </div>
+                            <div class="col-sm-1 form-group" style="margin: 0px">
+                                <label for="fname"
+                                class="control-label col-form-label">	</label>
                             </div>
 
                         </div>
@@ -154,15 +162,22 @@
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='kapasiti' oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                oninput="this.setCustomValidity('')"
+                                oninput="this.setCustomValidity(''); valid_a6()" style="text-align: right"
                                     onkeypress="return isNumberKey(event)" id="kapasiti" oninput="validate_two_decimal(this)"
                                     required
                                     title="Sila isikan butiran ini." value="{{ $penyata->kapasiti ?? 0 }}">
-                                @error('kapasiti')
+                                    <p type="hidden" id="err_a6" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                    <p type="hidden" id="err_a62" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%</i></p>
+                                    @error('kapasiti')
                                     <div class="alert alert-danger">
                                         <strong>{{ $message }}</strong>
                                     </div>
                                 @enderror
+                            </div>
+                            <div class="col-sm-1 form-group" style="margin: 0px">
+                                <label for="fname"
+                                class="control-label col-form-label">%	</label>
                             </div>
                         </div>
 
@@ -173,8 +188,8 @@
                             <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
 
-                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                style="float: right" data-target="#next">Simpan &
+                            <button type="button" class="btn btn-primary " id="checkBtn" onclick="check()"
+                                style="float: right" >Simpan &
                                 Seterusnya</button>
                     </div>
 
@@ -214,6 +229,119 @@
                     </form>
                 </div>
             </div>
+            <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
+
+
+
+                    //e102_al1
+                    field = document.getElementById("hari");
+                    if (field.value == '') {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#hari').css('border-color', 'red');
+                        document.getElementById('err_a5').style.display = "block";
+                        // document.getElementById('err_email2').style.display = "none";
+                    }
+                    else if (field.value > 31) {
+                        error += "Name must be 2-4 characters\r\n";
+                        // alert("You have entered an invalid email address!");
+                        $('#hari').css('border-color', 'red');
+                        document.getElementById('err_a52').style.display = "block";
+                        console.log('error');
+                    } else {
+                        document.getElementById('err_a52').style.display = "none";
+                        document.getElementById('err_a5').style.display = "none";
+
+                    }
+
+                    //e102_al2
+                    field = document.getElementById("kapasiti");
+                    if (field.value == '') {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kapasiti').css('border-color', 'red');
+                        document.getElementById('err_a6').style.display = "block";
+                        // document.getElementById('err_email2').style.display = "none";
+                    }
+                    else if (field.value >= 100) {
+                        error += "Name must be 2-4 characters\r\n";
+                        // alert("You have entered an invalid email address!");
+                        $('#kapasiti').css('border-color', 'red');
+                        document.getElementById('err_a62').style.display = "block";
+                        console.log('error');
+                    } else {
+                        document.getElementById('err_a62').style.display = "none";
+                        document.getElementById('err_a6').style.display = "none";
+
+                    }
+
+
+
+
+                    // (B4) RESULT
+                    if (error == "") {
+                        console.log('modal');
+                        $('#next').modal('show');
+                        return true;
+                    } else {
+                        $('#next').modal('hide');
+
+                        console.log('xmodal');
+
+                        return false;
+                    }
+
+
+                }
+            </script>
+            <script>
+                function valid_a5() {
+
+                    if ($('#hari').val() == '') {
+                        $('#hari').css('border-color', 'red');
+                        document.getElementById('err_a5').style.display = "block";
+                        document.getElementById('err_a52').style.display = "none";
+                        console.log('sini');
+
+                    } else if ($('#hari').val() > 31) {
+                        $('#hari').css('border-color', 'red');
+                        document.getElementById('err_a52').style.display = "block";
+                        document.getElementById('err_a5').style.display = "none";
+
+
+                    } else {
+                        $('#hari').css('border-color', '');
+                        document.getElementById('err_a5').style.display = "none";
+                        document.getElementById('err_a52').style.display = "none";
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_a6() {
+
+                    if ($('#kapasiti').val() == '') {
+                        $('#kapasiti').css('border-color', 'red');
+                        document.getElementById('err_a6').style.display = "block";
+                        document.getElementById('err_a62').style.display = "none";
+                        console.log('sini');
+
+                    } else if ($('#kapasiti').val() >= 100) {
+                        $('#kapasiti').css('border-color', 'red');
+                        document.getElementById('err_a62').style.display = "block";
+                        document.getElementById('err_a6').style.display = "none";
+
+
+                    } else {
+                        $('#kapasiti').css('border-color', '');
+                        document.getElementById('err_a6').style.display = "none";
+                        document.getElementById('err_a62').style.display = "none";
+                    }
+
+                }
+            </script>
             <script>
                 document.addEventListener('keypress', function (e) {
                     if (e.keyCode === 13 || e.which === 13) {
