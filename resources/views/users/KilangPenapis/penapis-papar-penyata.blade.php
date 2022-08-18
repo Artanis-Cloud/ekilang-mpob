@@ -165,7 +165,7 @@
                                 <font color="#0000FF">MAKLUMAT PELESEN </font>
                             </b></p>
 
-                        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                        <table border="0" width="73%" cellpadding="0" cellspacing="0">
 
                             <tbody>
 

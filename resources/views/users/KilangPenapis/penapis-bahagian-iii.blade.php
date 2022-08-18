@@ -1,5 +1,20 @@
 @extends('layouts.main')
-
+<style>
+.input-holder {
+  border: 1px solid #cccccc;
+  display: inline-block;
+  padding: 5px;
+}
+.input-holder > input {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline:none;
+}
+.input-holder:after {
+  content: '%';
+}
+</style>
 @section('content')
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -119,8 +134,8 @@
 
                         <div class="container center mt-4">
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-5 form-group" style="margin: 0px">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-5 form-group" >
                                     <label for="fname" class="control-label col-form-label">
                                         Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 </div>
@@ -139,9 +154,10 @@
                                                     </div>
                                                 @enderror --}}
                                 </div>
+                                <div class="mt-2">&nbsp;&nbsp;&nbsp;</div>
                             </div>
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-5 form-group" style="margin: 0px">
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-5 form-group" >
                                     <label for="fname" class="control-label col-form-label">
                                         Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                 </div>
@@ -151,7 +167,9 @@
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_a2();valid_a2()"
-                                        value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
+                                        value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}" >
+
+
                                     <p type="hidden" id="err_a2" style="color: red; display:none"><i>Nilai mestilah
                                             melebihi 0!</i></p>
 
@@ -161,10 +179,11 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <div class="mt-2">%</div>
                             </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-5 form-group" style="margin: 0px">
+                            <div class="row justify-content-center" ">
+                                <div class="col-sm-5 form-group" >
                                     <label for="fname" class="control-label col-form-label">
                                         Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
                                 </div>
@@ -184,6 +203,8 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <div class="mt-2">%</div>
+
                             </div>
 
                             <div class="form-group" style="padding: 2%; margin-bottom: 10%">
@@ -232,6 +253,14 @@
             </form>
         @endsection
         @section('scripts')
+        <script>
+        $(document).ready(function(){
+            $("input[id='e101_a2']").on('input', function() {
+                $(this).val(function(i, v) {
+                 return v.replace('%','') + '%';  });
+                });
+            });
+        </script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
