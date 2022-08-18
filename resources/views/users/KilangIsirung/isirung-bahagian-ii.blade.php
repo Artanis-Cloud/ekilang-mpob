@@ -199,7 +199,7 @@
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al4'
-                                    id="e102_al4" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
+                                    id="e102_al4" onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
                                     title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); valid_percent()"
                                     value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
                                     <p type="hidden" id="err_al4" style="color: red; display:none"><i>Sila isi butiran di
@@ -333,13 +333,13 @@
             document.getElementById('err_al2').style.display = "block";
             // document.getElementById('err_email2').style.display = "none";
         }
-        else if (field.value >= 100) {
-            error += "Name must be 2-4 characters\r\n";
-            // alert("You have entered an invalid email address!");
-            $('#e102_al2').css('border-color', 'red');
-            document.getElementById('err_al2_2').style.display = "block";
-            console.log('error');
-        } else {
+        // else if (field.value >= 100) {
+        //     error += "Name must be 2-4 characters\r\n";
+        //     // alert("You have entered an invalid email address!");
+        //     $('#e102_al2').css('border-color', 'red');
+        //     document.getElementById('err_al2_2').style.display = "block";
+        //     console.log('error');
+         else {
             document.getElementById('err_al2_2').style.display = "none";
             document.getElementById('err_al2').style.display = "none";
 
@@ -372,6 +372,8 @@
             $('#next').modal('show');
             return true;
         } else {
+            $('#next').modal('hide');
+
             console.log('xmodal');
 
             return false;

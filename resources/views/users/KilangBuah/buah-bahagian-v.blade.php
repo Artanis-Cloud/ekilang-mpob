@@ -193,11 +193,12 @@
                                                                         <b>Jumlah</b>
                                                                     </td>
                                                                     <td style="text-align:center;">
-                                                                        {{-- <b><span id="total">{{ ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) }}</span></b> --}}
-                                                                        <b><span id="total" name="total">
-                                                                            {{ number_format(old('total') ?? $jumlah, 2) }}
-                                                                        </span>
-                                                                    </b>
+                                                                        <b><span id="total" name="total" onchange="FormatCurrency(this)">
+                                                                                {{ old('total_hidden') ?? number_format($jumlah, 2) }}
+                                                                            </span>
+                                                                            <input type="hidden" id="total_hidden" name="total_hidden"
+                                                                                value="{{ number_format($jumlah ?? 0,2) }}">
+                                                                        </b>
                                                                     </td>
 
                                                                 </tr>
@@ -422,6 +423,8 @@
                                 parseFloat(Number(e91_ak3));
                             console.log(jumlah_input.toFixed(2));
                             document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                        document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
+
                         }
                     </script>
                     <script>

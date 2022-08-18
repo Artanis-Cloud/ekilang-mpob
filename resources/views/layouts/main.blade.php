@@ -770,14 +770,14 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('isirung.bahagianvi') }}" class="btn sidebar-link">
 
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 6 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item ">
-                                            <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('isirung.bahagianvii') }}" class="btn sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "> </i>
                                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                                 <span class="hide-menu">Bahagian 7</span>
@@ -791,18 +791,7 @@
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('isirung.kod.produk') }}" class="sidebar-link">
-                                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"><b> Kod & Nama Produk </b></span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('isirung.kod.negara') }}" class="sidebar-link">
-                                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"><b> Kod & Nama Negara </b></span>
-                                            </a>
-                                        </li>
+
 
                                     </ul>
                                 </li>
@@ -819,6 +808,18 @@
                                 <a href="{{ route('isirung.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('isirung.kod.produk') }}" class="sidebar-link">
+                                    <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('isirung.kod.negara') }}" class="sidebar-link">
+                                    <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
                         </ul>

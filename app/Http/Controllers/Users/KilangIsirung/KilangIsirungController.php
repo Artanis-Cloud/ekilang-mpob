@@ -838,7 +838,7 @@ class KilangIsirungController extends Controller
             return redirect()->back()->withInput()
                 ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
         } else {
-            return redirect()->route('isirung.paparpenyata')
+            return redirect()->route('isirung.bahagianvi')
                 ->with('success', 'Maklumat telah disimpan');
         }
     }
@@ -887,7 +887,8 @@ class KilangIsirungController extends Controller
 
     public function isirung_bahagianvi()
     {
-
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('isirung.bahagianvi'), 'name' => "Bahagian 6"],
@@ -925,7 +926,52 @@ class KilangIsirungController extends Controller
 
 
 
-        return view('users.KilangIsirung.isirung-bahagian-vi', compact('returnArr', 'layout', 'negara', 'prodcat', 'user', 'penyata'));
+        return view('users.KilangIsirung.isirung-bahagian-vi', compact('returnArr', 'layout', 'negara', 'prodcat', 'user', 'penyata','bulan','tahun'));
+    }
+
+
+    public function isirung_bahagianvii()
+    {
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        $breadcrumbs    = [
+            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('isirung.bahagianvi'), 'name' => "Bahagian 6"],
+        ];
+
+        $kembali = route('isirung.bahagianv');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kisirung';
+
+        $negara = Negara::get();
+        // dd($negara);
+
+        $prodcat = KodSl::get();
+        // dd($prodcat);
+
+        // $produk = ProdCat2::where('catid', [1,5,6,7])->orderBy('catid')->get();
+        // dd($produk);
+
+        // $produk = Produk::where('prodcat', ['02','05'])->orderBy('prodname')->get();
+        // dd($produk);
+
+
+        // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        // dd($user);
+
+        // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $user->e102_reg)->where('e102_c3', 1)->get();
+        // dd($penyata);
+
+
+
+
+        return view('users.KilangIsirung.isirung-bahagian-vii', compact('returnArr', 'layout', 'negara', 'prodcat', 'user', 'penyata','bulan','tahun'));
     }
 
 
@@ -999,33 +1045,14 @@ class KilangIsirungController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
-    public function isirung_bahagianvii()
-    {
 
-        $breadcrumbs    = [
-            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianvii'), 'name' => "Bahagian 7"],
-        ];
-
-        $kembali = route('isirung.bahagianvi');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kisirung';
-
-
-
-        return view('users.KilangIsirung.isirung-bahagian-vii', compact('returnArr', 'layout'));
-    }
 
 
     public function isirung_paparpenyata()
     {
 
 
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first();
 
         $total_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
         $total2_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
@@ -1042,6 +1069,7 @@ class KilangIsirungController extends Controller
         $total2_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '2')->sum('e102_b6');
 
         $total3_bhg5 = $total_bhg5 + $total2_bhg5;
+        // dd($user);
 
         if ($total3_bhg3 != $user->e102_ac1) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
