@@ -429,7 +429,6 @@ termasuk pengeluaran untuk 'Tol'."></i></td>
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"
                                                             name='e91_ag4' id='e91_ag4'
                                                             onchange="setTwoNumberDecimal()" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
                                                             value="{{ number_format($kilang->e91_ag4 ?? 0, 2) }}">
                                                     </td>

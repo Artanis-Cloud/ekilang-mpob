@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex justify-content-end">
-                        <nav aria-label="breadcrumb"> 
+                        <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
                                     @if (!$loop->last)
@@ -70,8 +70,10 @@
                                 <div class="col-md-7">
                                     <input type="text" id="e_ap1" class="form-control" maxlength="60" autocomplete="off"
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc()"
+                                        oninput="this.setCustomValidity(''); invokeFunc(); valid_ap()"
                                         required >
+                                    <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
+                                                                                bahagian ini!</i></p>
                                     @error('e_ap1')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -92,6 +94,7 @@
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3"
                                         oninput="this.setCustomValidity(''); invokeFunc3()"
                                         value="{{ $pelesen->e_ap3 }}">
+
                                     @error('e_ap3')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -120,8 +123,10 @@
                                     <input type="text" id="e_as1" class="form-control" autocomplete="off"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1" maxlength="60"
                                         value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc4()">
-                                    @error('e_as1')
+                                        oninput="this.setCustomValidity(''); invokeFunc4(); valid_as()">
+                                        <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
+                                        @error('e_as1')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
@@ -157,9 +162,11 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_notel" class="form-control" maxlength="40"
-                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc7()"
+                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()"
                                         value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
-                                    @error('e_notel')
+                                        <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
+                                        @error('e_notel')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
@@ -190,9 +197,13 @@
                                         Alamat Emel Kilang</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc9()"
+                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc9(); valid_email(); ValidateEmail()"
                                         name="e_email" value="{{ $pelesen->e_email }}" required>
-                                    @error('e_email')
+                                        <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
+                                            <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
+                                                alamat emel yang betul!</i></p>
+                                        @error('e_email')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
@@ -207,8 +218,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_npg" class="form-control" maxlength="60"
-                                        placeholder="Nama Pegawai Melapor" name="e_npg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc10()"
+                                        placeholder="Nama Pegawai Melapor" name="e_npg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc10(); valid_npg()"
                                         value="{{ $pelesen->e_npg }}" required>
+                                        <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('e_npg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -224,8 +237,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_jpg" class="form-control" maxlength="60"
-                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc11()"
+                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc11(); valid_jpg()"
                                         value="{{ $pelesen->e_jpg }}" required>
+                                        <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('e_jpg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -242,9 +257,11 @@
                                 <div class="col-md-7">
                                     <input type="text" id="e_notel_pg" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pegawai Melapor"
-                                        name="e_notel_pg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc12()"
+                                        name="e_notel_pg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc12(); valid_notelpg()"
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}" required>
-                                    @error('e_notel_pg')
+                                        <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
+                                        @error('e_notel_pg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
@@ -259,9 +276,11 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_email_pg" class="form-control" maxlength="100"
-                                            placeholder="Alamat Emel Pegawai Melapor"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc13()"
+                                            placeholder="Alamat Emel Pegawai Melapor"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg()"
                                             name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required >
-                                    @error('e_email_pg')
+                                            <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran di
+                                                bahagian ini!</i></p>
+                                            @error('e_email_pg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
@@ -276,8 +295,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_npgtg" class="form-control" maxlength="60"
-                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc14()"
+                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg()"
                                         value="{{ $pelesen->e_npgtg }}" required>
+                                        <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('e_npgtg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -294,8 +315,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
-                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc15()"
+                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg()"
                                         value="{{ $pelesen->e_jpgtg }}" required>
+                                        <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('e_jpgtg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -311,8 +334,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="email" id="e_email_pengurus" class="form-control" maxlength="100"
-                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc16()"
+                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus()"
                                         value="{{ $pelesen->e_email_pengurus  }}" required multiple>
+                                        <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
 
 
                                     @error('e_email_pengurus')
@@ -330,8 +355,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_syktinduk" class="form-control" maxlength="60"
-                                        placeholder="Syarikat Induk" name="e_syktinduk" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc17()"
+                                        placeholder="Syarikat Induk" name="e_syktinduk" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc17(); valid_syktinduk()"
                                         value="{{ $pelesen->e_syktinduk}}" required>
+                                        <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('e_syktinduk')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -347,13 +374,15 @@
                                 </div>
                                 <div class="col-md-7">
                                     <fieldset class="form-group" >
-                                        <select class="form-control" id="e_group" name="e_group" required oninput="this.setCustomValidity(''); invokeFunc18()">
+                                        <select class="form-control" id="e_group" name="e_group" required oninput="this.setCustomValidity(''); invokeFunc18(); valid_kumpulan()">
 
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
                                                 Kerajaan</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
                                                 Swasta</option>
                                         </select>
+                                        <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     </fieldset>
                                     @error('e_group')
                                         <div class="alert alert-danger">
@@ -370,9 +399,10 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc19()"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc19(); valid_proses()"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
-
+                                        <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('kap_proses')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -439,8 +469,7 @@
 
 
                 <div class="row justify-content-center form-group" style="margin-top: 2%">
-                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                        data-target="#next">Simpan</button>
+                    <button type="button" class="btn btn-primary"  onclick="check()">Simpan</button>
                 </div>
 
             </div>
@@ -537,135 +566,7 @@
                 }
 
             </script>
-            <script>
-                function check() {
-                    // (B1) INIT
-                    var error = "",
-                        field = "";
 
-                    // alamat premis 1
-                    field = document.getElementById("e_ap1");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // alamat surat-menyurat 1
-                    field = document.getElementById("e_as1");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // no tel kilang
-                    field = document.getElementById("e_notel");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // email kilang
-                    field = document.getElementById("e_email");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // nama pegawai melapor
-                    field = document.getElementById("e_npg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // jawatan pegawai melapor
-                    field = document.getElementById("e_jpg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // no tel pegawai melapor
-                    field = document.getElementById("e_notel_pg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // email pegawai melapor
-                    field = document.getElementById("e_email_pg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // nama pegawai bertanggungjawab
-                    field = document.getElementById("e_npgtg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // jawatan pegawai bertanggungjawab
-                    field = document.getElementById("e_jpgtg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // emel pengurus
-                    field = document.getElementById("e_email_pengurus");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // syarikat induk
-                    field = document.getElementById("e_syktinduk");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // kumpulan
-                    field = document.getElementById("e_group");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap proses
-                    field = document.getElementById("kap_proses");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // bil tangki cpko
-                    field = document.getElementById("bil_tangki_cpko");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap_tangki cpko
-                    field = document.getElementById("kap_tangki_cpko");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
-                    // POMA
-                    // field = document.getElementById("e_poma");
-                    // if (!field.checkValidity()) {
-                    //     error += "Name must be 2-4 characters\r\n";
-                    // }
-
-                    // (B4) RESULT
-                    if (error == "") {
-                        return true;
-                    } else {
-                        toastr.error(
-                            'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                            'Ralat!', {
-                                "progressBar": true
-                            })
-                        return false;
-                    }
-
-                    // if (error == "") {
-                    //     return true;
-                    // } else {
-                    //     toastr.error(
-                    //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                    //         'Ralat!', {
-                    //             "progressBar": true
-                    //         })
-                    //     return false;
-                    // }
-                }
-            </script>
             {{-- <script>
         function readonlyalamat() {
             // var checkedValue = $('#alamat_sama').val();
@@ -696,6 +597,428 @@
             }
         }
     </script> --}}
+    <script>
+        function valid_ap() {
+
+            if ($('#e_ap1').val() == '') {
+                $('#e_ap1').css('border-color', 'red');
+                document.getElementById('err_ap').style.display = "block";
+
+
+            } else {
+                $('#e_ap1').css('border-color', '');
+                document.getElementById('err_ap').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_as() {
+
+            if ($('#e_as1').val() == '') {
+                $('#e_as1').css('border-color', 'red');
+                document.getElementById('err_as').style.display = "block";
+
+
+            } else {
+                $('#e_as1').css('border-color', '');
+                document.getElementById('err_as').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_notel() {
+
+            if ($('#e_notel').val() == '') {
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
+
+
+            } else {
+                $('#e_notel').css('border-color', '');
+                document.getElementById('err_notel').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_email() {
+
+            if ($('#e_email').val() == '') {
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email').style.display = "block";
+                document.getElementById('err_email2').style.display = "none";
+                console.log('sini');
+
+            } else {
+                $('#e_email').css('border-color', '');
+                document.getElementById('err_email').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_npg() {
+
+            if ($('#e_npg').val() == '') {
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
+
+
+            } else {
+                $('#e_npg').css('border-color', '');
+                document.getElementById('err_npg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_jpg() {
+
+            if ($('#e_jpg').val() == '') {
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
+
+
+            } else {
+                $('#e_jpg').css('border-color', '');
+                document.getElementById('err_jpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_notelpg() {
+
+            if ($('#e_notel_pg').val() == '') {
+                $('#e_notel_pg').css('border-color', 'red');
+                document.getElementById('err_notelpg').style.display = "block";
+
+
+            } else {
+                $('#e_notel_pg').css('border-color', '');
+                document.getElementById('err_notelpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_emailpg() {
+
+            if ($('#e_email_pg').val() == '') {
+                $('#e_email_pg').css('border-color', 'red');
+                document.getElementById('err_emailpg').style.display = "block";
+
+
+            } else {
+                $('#e_email_pg').css('border-color', '');
+                document.getElementById('err_emailpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_npgtg() {
+
+            if ($('#e_npgtg').val() == '') {
+                $('#e_npgtg').css('border-color', 'red');
+                document.getElementById('err_npgtg').style.display = "block";
+
+
+            } else {
+                $('#e_npgtg').css('border-color', '');
+                document.getElementById('err_npgtg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_jpgtg() {
+
+            if ($('#e_jpgtg').val() == '') {
+                $('#e_jpgtg').css('border-color', 'red');
+                document.getElementById('err_jpgtg').style.display = "block";
+
+
+            } else {
+                $('#e_jpgtg').css('border-color', '');
+                document.getElementById('err_jpgtg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_emailpengurus() {
+
+            if ($('#e_email_pengurus').val() == '') {
+                $('#e_email_pengurus').css('border-color', 'red');
+                document.getElementById('err_emailpengurus').style.display = "block";
+
+
+            } else {
+                $('#e_email_pengurus').css('border-color', '');
+                document.getElementById('err_emailpengurus').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_syktinduk() {
+
+            if ($('#e_syktinduk').val() == '') {
+                $('#e_syktinduk').css('border-color', 'red');
+                document.getElementById('err_syktinduk').style.display = "block";
+
+
+            } else {
+                $('#e_syktinduk').css('border-color', '');
+                document.getElementById('err_syktinduk').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_kumpulan() {
+
+            if ($('#e_group').val() == '') {
+                $('#e_group').css('border-color', 'red');
+                document.getElementById('err_group').style.display = "block";
+
+
+            } else {
+                $('#e_group').css('border-color', '');
+                document.getElementById('err_group').style.display = "none";
+
+            }
+
+        }
+    </script>
+    {{-- <script>
+        function valid_poma() {
+
+            if ($('#e_poma').val() == '') {
+                $('#e_poma').css('border-color', 'red');
+                document.getElementById('err_poma').style.display = "block";
+
+
+            } else {
+                $('#e_poma').css('border-color', '');
+                document.getElementById('err_poma').style.display = "none";
+
+            }
+
+        }
+    </script> --}}
+    <script>
+        function valid_proses() {
+
+            if ($('#kap_proses').val() == '') {
+                $('#kap_proses').css('border-color', 'red');
+                document.getElementById('err_proses').style.display = "block";
+
+
+            } else {
+                $('#kap_proses').css('border-color', '');
+                document.getElementById('err_proses').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+
+
+
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // alamat premis 1500403125000
+            field = document.getElementById("kap_proses");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_proses').css('border-color', 'red');
+                document.getElementById('err_proses').style.display = "block";
+            }
+
+            // alamat premis 1
+            field = document.getElementById("e_ap1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_ap1').css('border-color', 'red');
+                document.getElementById('err_ap').style.display = "block";
+            }
+
+            // alamat surat-menyurat 1
+            field = document.getElementById("e_as1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_as1').css('border-color', 'red');
+                document.getElementById('err_as').style.display = "block";
+            }
+
+            // no tel kilang
+            field = document.getElementById("e_notel");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
+            }
+
+            // email kilang
+            field = document.getElementById("e_email");
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email').style.display = "block";
+                // document.getElementById('err_email2').style.display = "none";
+            }
+            if (!field.value.match(mailformat)) {
+                error += "Name must be 2-4 characters\r\n";
+                // alert("You have entered an invalid email address!");
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email2').style.display = "block";
+                console.log('error');
+            }
+
+
+            // nama pegawai melapor
+            field = document.getElementById("e_npg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
+            }
+
+            // jawatan pegawai melapor
+            field = document.getElementById("e_jpg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
+            }
+
+            // no tel pegawai melapor
+            field = document.getElementById("e_notel_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_notel_pg').css('border-color', 'red');
+                document.getElementById('err_notelpg').style.display = "block";
+            }
+
+            // email pegawai melapor
+            field = document.getElementById("e_email_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_email_pg').css('border-color', 'red');
+                document.getElementById('err_emailpg').style.display = "block";
+            }
+
+            // nama pegawai bertanggungjawab
+            field = document.getElementById("e_npgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_npgtg').css('border-color', 'red');
+                document.getElementById('err_npgtg').style.display = "block";
+            }
+
+            // jawatan pegawai bertanggungjawab
+            field = document.getElementById("e_jpgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_jpgtg').css('border-color', 'red');
+                document.getElementById('err_jpgtg').style.display = "block";
+            }
+
+            // emel pengurus
+            field = document.getElementById("e_email_pengurus");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_email_pengurus').css('border-color', 'red');
+                document.getElementById('err_emailpengurus').style.display = "block";
+            }
+
+            // syarikat induk
+            field = document.getElementById("e_syktinduk");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_syktinduk').css('border-color', 'red');
+                document.getElementById('err_syktinduk').style.display = "block";
+            }
+
+            // kumpulan
+            field = document.getElementById("e_group");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_group').css('border-color', 'red');
+                document.getElementById('err_group').style.display = "block";
+            }
+
+
+
+
+            // (B4) RESULT
+            if (error == "") {
+                $('#next').modal('show');
+                return true;
+            } else {
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+            // if (error == "") {
+            // return true;
+            // } else {
+            // toastr.error(
+            // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            // 'Ralat!', {
+            // "progressBar": true
+            // })
+            // return false;
+            // }
+        }
+    </script>
+    <script>
+        function ValidateEmail() {
+            var inputText = document.getElementById('e_email');
+            console.log(inputText.value);
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                // alert("Valid email address!");
+                // document.myform.e_email.focus();
+                document.getElementById('err_email2').style.display = "none";
+
+                return true;
+            } else {
+                if (inputText.value != '') {
+                    // alert("You have entered an invalid email address!");
+                    $('#e_email').css('border-color', 'red');
+                    document.getElementById('err_email2').style.display = "block";
+                    return false;
+                }
+            }
+        }
+    </script>
 
             <script>
                 function alamat() {

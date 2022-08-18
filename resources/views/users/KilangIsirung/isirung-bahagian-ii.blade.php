@@ -120,47 +120,59 @@
 
                     </div>
                     <hr>
-
+                    <div class="mb-2 col-8" style="text-align: left">
+                        <p><i>Nota: Sila isikan butiran dibawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                    </div>
                     <div class="container mt-4" style="">
-                        <span style="padding-left: 5%">Sila isi butiran di bawah dan tekan butang ‘Simpan & Seterusnya’.</span>
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-4 form-group" style="margin: 0px">
+
+                        <div class="row justify-content-center" >
+                            <div class="col-sm-4 form-group" >
                                 <label for="fname" class="control-label col-form-label">
                                     i.
-                                    Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) <b>%</b></label>
+                                    Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) </label>
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al1'
                                     id="e102_al1" required onkeypress="return isNumberKey(event)" max="99" required onchange="FormatCurrency(this)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc()"
-                                    value="{{ number_format($cpko ?? 0, 2) }}">
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc(); valid_percent()"
+                                    value="{{ number_format($cpko ?? 0, 2) }}" readonly>
+                                    <p type="hidden" id="err_al1" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                    <p type="hidden" id="err_al1_2" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%. Sila ubah nilai di bahagian 1</i></p>
                                 {{-- @error('e102_al1')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
                                     </div>
                                 @enderror --}}
                             </div>
+                            <div class="mt-2">%</div>
+
                         </div>
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-4 form-group" style="margin: 0px">
+                        <div class="row justify-content-center" >
+                            <div class="col-sm-4 form-group" >
                                 <label for="fname" class="control-label col-form-label">
                                     ii.
-                                    Kadar Perolehan Dedak Isirung (PKC)<b>%</b></label>
+                                    Kadar Perolehan Dedak Isirung (PKC)</label>
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al2'
                                     id="e102_al2" required onchange="FormatCurrency(this)" onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc2()"
-                                    value="{{ number_format($pkc ?? 0, 2) }}">
+                                    value="{{ number_format($pkc ?? 0, 2) }}" readonly>
+                                    <p type="hidden" id="err_al2" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                    <p type="hidden" id="err_al2_2" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%. Sila ubah nilai di bahagian 1</i></p>
                                 @error('e102_al2')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
                                     </div>
                                 @enderror
                             </div>
+                            <div class="mt-2">%</div>
+
                         </div>
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-4 form-group" style="margin: 0px">
+                        <div class="row justify-content-center" >
+                            <div class="col-sm-4 form-group" >
                                 <label for="fname" class="control-label col-form-label">
                                     iii.
                                     Jumlah Jam Pengilangan Isirung (PK)</label>
@@ -176,32 +188,38 @@
                                     </div>
                                 @enderror
                             </div>
+                            <div class="mt-2">&nbsp;&nbsp;&nbsp;</div>
+
                         </div>
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-4 form-group" style="margin: 0px">
+                        <div class="row justify-content-center" >
+                            <div class="col-sm-4 form-group" >
                                 <label for="fname" class="control-label col-form-label">
                                     iv.
-                                    Kadar Penggunaan Kapasiti Sebulan <b>%</b></label>
+                                    Kadar Penggunaan Kapasiti Sebulan </label>
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al4'
                                     id="e102_al4" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc4()"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); valid_percent()"
                                     value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
+                                    <p type="hidden" id="err_al4" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                    <p type="hidden" id="err_al4_2" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%!</i></p>
                                 @error('e102_al4')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
                                     </div>
                                 @enderror
                             </div>
-                        </div><br><br><br><br>
+                            <div class="mt-2">%</div>
+
+                        </div>
 
                         <div class="form-group" style="padding: 3%; ">
                             <a href="{{ route('isirung.bahagiani') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
 
-                            <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                                data-target="#next">Simpan &
+                            <button type="button" class="btn btn-primary " style="float: right" onclick="check()" id="checkBtn">Simpan &
                                 Seterusnya</button>
                         </div>
 
@@ -254,6 +272,30 @@
                     });
                 });
             </script>
+                <script>
+                    function valid_percent() {
+
+                        if ($('#e102_al4').val() == '') {
+                            $('#e102_al4').css('border-color', 'red');
+                            document.getElementById('err_al4').style.display = "block";
+                            document.getElementById('err_al4_2').style.display = "none";
+                            console.log('sini');
+
+                        } else if ($('#e102_al4').val() >= 100) {
+                            $('#e102_al4').css('border-color', 'red');
+                            document.getElementById('err_al4_2').style.display = "block";
+                            document.getElementById('err_al4').style.display = "none";
+
+
+                        } else {
+                            $('#e102_al4').css('border-color', '');
+                            document.getElementById('err_al4_2').style.display = "none";
+                            document.getElementById('err_al4').style.display = "none";
+                        }
+
+                    }
+                </script>
+
 
 <script>
     function check() {
@@ -261,24 +303,84 @@
         var error = "",
             field = "";
 
-        // alamat premis 1
+
+
+        //e102_al1
         field = document.getElementById("e102_al1");
-        if (!field.checkValidity()) {
+        if (field.value == '') {
             error += "Name must be 2-4 characters\r\n";
+            $('#e102_al1').css('border-color', 'red');
+            document.getElementById('err_al1').style.display = "block";
+            // document.getElementById('err_email2').style.display = "none";
         }
+        else if (field.value >= 100) {
+            error += "Name must be 2-4 characters\r\n";
+            // alert("You have entered an invalid email address!");
+            $('#e102_al1').css('border-color', 'red');
+            document.getElementById('err_al1_2').style.display = "block";
+            console.log('error');
+        } else {
+            document.getElementById('err_al1_2').style.display = "none";
+            document.getElementById('err_al1').style.display = "none";
+
+        }
+
+        //e102_al2
+        field = document.getElementById("e102_al2");
+        if (field.value == '') {
+            error += "Name must be 2-4 characters\r\n";
+            $('#e102_al2').css('border-color', 'red');
+            document.getElementById('err_al2').style.display = "block";
+            // document.getElementById('err_email2').style.display = "none";
+        }
+        else if (field.value >= 100) {
+            error += "Name must be 2-4 characters\r\n";
+            // alert("You have entered an invalid email address!");
+            $('#e102_al2').css('border-color', 'red');
+            document.getElementById('err_al2_2').style.display = "block";
+            console.log('error');
+        } else {
+            document.getElementById('err_al2_2').style.display = "none";
+            document.getElementById('err_al2').style.display = "none";
+
+        }
+        //e102_al4
+        field = document.getElementById("e102_al4");
+        if (field.value == '') {
+            error += "Name must be 2-4 characters\r\n";
+            $('#e102_al4').css('border-color', 'red');
+            document.getElementById('err_al4').style.display = "block";
+            // document.getElementById('err_email2').style.display = "none";
+        }
+        else if (field.value >= 100) {
+            error += "Name must be 2-4 characters\r\n";
+            // alert("You have entered an invalid email address!");
+            $('#e102_al4').css('border-color', 'red');
+            document.getElementById('err_al4_2').style.display = "block";
+            console.log('error');
+        } else {
+            document.getElementById('err_al4_2').style.display = "none";
+            document.getElementById('err_al4').style.display = "none";
+
+        }
+
 
 
         // (B4) RESULT
         if (error == "") {
+            console.log('modal');
+            $('#next').modal('show');
             return true;
         } else {
-            toastr.error('Sila isikan butiran yang betul', 'Ralat!', {
-                "progressBar": true
-            })
+            console.log('xmodal');
+
             return false;
         }
+
+
     }
 </script>
+
 <script>
     document.addEventListener('keypress', function (e) {
         if (e.keyCode === 13 || e.which === 13) {
