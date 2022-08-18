@@ -118,12 +118,12 @@
                             <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                         </div>
                         <div class="container center mt-4">
-                            <div class="row">
-                                <div class="col-md-2 ">
+                            <div class="row col-12 ml-auto mr-auto">
+                                <div class="col-md-2" style="margin-top:2%; margin-left:4%">
                                     <span class="">Belian/Terimaan:</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b4" style=" width:70%" name="e102_b4" required
+                                <div class="col-md-2 mt-3">
+                                    <select class="form-control" id="e102_b4"  name="e102_b4" required
                                     oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('');invokeFunc(); valid_sl()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($kodsl as $data)
@@ -144,11 +144,11 @@
                                 </div>
 
 
-                                <div class="col-md-2 mt-3">
+                                <div class="col-md-1" style="margin-left: 3%; margin-top:2%">
                                     <span class=""> Dari:</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b5" style=" width:70%" name='e102_b5' required
+                                <div class="col-md-2 mt-3">
+                                    <select class="form-control" id="e102_b5"  name='e102_b5' required
                                     oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('');invokeFunc2(); valid_dari()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
 
@@ -168,17 +168,17 @@
                                     @enderror --}}
                                 </div>
 
-                            </div>
+                            {{-- </div> --}}
 
-                            <div class="row">
-                                <div class="col-md-2 mt-3">
+                            {{-- <div class="row"> --}}
+                                <div class=" col-md-1" style="margin-left: 3%; margin-top:2%">
                                     <span class="">Kuantiti:</span>
                                 </div>
 
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e102_b6' id="e102_b6"
                                     oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_kuantiti()"
-                                        required onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)">
+                                        required onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)">
                                         <p type="hidden" id="err_kuantiti" style="color: red; display:none"><i>Sila isi butiran
                                             di
                                             bahagian ini!</i></p>
@@ -193,7 +193,7 @@
 
                         </div>
 
-
+<br>
                         <div class="row justify-content-center form-group" ">
                             <button type="submit" class="btn btn-primary" onclick="check()" id="checkBtn">Tambah</button>
                         </div>
@@ -395,7 +395,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><br></td>
+                                    {{-- <td><br></td> --}}
                                 </tr>
                                 @foreach ($penyata2 as $data)
                                     <tr>

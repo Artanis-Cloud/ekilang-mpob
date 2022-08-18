@@ -102,7 +102,7 @@
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-            <form action="{{ route('isirung.add.bahagian.iv') }}" method="post" class="sub-form">
+            <form action="{{ route('isirung.add.bahagian.iv') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body">
                     <div class="" style="padding: 2%">
@@ -119,13 +119,13 @@
                             <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                         </div>
                         <div class="container center mt-3" >
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
+                            <div class="row col-12 ml-auto mr-auto">
+                                <div class="col-md-2"  style="margin-top:2%; margin-left:4%">
                                     <span class="">Jualan/Edaran:</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b4" style=" width:70%" name="e102_b4" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                    oninput="this.setCustomValidity('');invokeFunc()">
+                                <div class="col-md-2 mt-3">
+                                    <select class="form-control" id="e102_b4" name="e102_b4" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                    oninput="this.setCustomValidity('');invokeFunc(); valid_sl()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($prodcat as $data)
                                             <option value="{{ $data->catid }}">
@@ -134,6 +134,9 @@
                                         @endforeach
 
                                     </select>
+                                    <p type="hidden" id="err_sl" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                     @error('e102_b4')
                                         <div class="alert alert-danger" style="margin-right:20%">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -142,12 +145,12 @@
                                 </div>
 
 
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-1"  style="margin-left: 3%; margin-top:2%">
                                     <span class="">Ke:</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e102_b5" style=" width:70%" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                    oninput="this.setCustomValidity('');invokeFunc2()"
+                                <div class="col-md-2 mt-3">
+                                    <select class="form-control" id="e102_b5" oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                    oninput="this.setCustomValidity('');invokeFunc2(); valid_ke()"
                                         required name="e102_b5">
                                         <option selected hidden disabled value="">Sila Pilih</option>
 
@@ -159,6 +162,9 @@
 
 
                                     </select>
+                                    <p type="hidden" id="err_ke" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                     @error('e102_b5')
 
                                         <div class="alert alert-danger" style="margin-right:50%; margin-left:-30%">
@@ -167,17 +173,20 @@
                                     @enderror
                                 </div>
 
-                            </div>
+                            {{-- </div> --}}
 
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
+                            {{-- <div class="row"> --}}
+                                <div class="col-md-1"  style="margin-left: 3%; margin-top:2%">
                                     <span class="">Kuantiti:</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6"
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e102_b6' id="e102_b6"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('');invokeFunc3()" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." onkeyup="FormatCurrency(this)">
+                                        oninput="this.setCustomValidity(''); valid_kuantiti()" required onkeypress="return isNumberKey(event)"
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)">
+                                        <p type="hidden" id="err_kuantiti" style="color: red; display:none"><i>Sila isi butiran
+                                            di
+                                            bahagian ini!</i></p>
                                         @error('e102_b6')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -187,15 +196,15 @@
                             </div>
 
                         </div>
-
-                        <div class="row justify-content-center form-group" style="margin-top: 3%; ">
-                                <button type="submit" class="btn btn-primary">Tambah</button>
+<br>
+                        <div class="row justify-content-center form-group" >
+                                <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                         </div>
 
             </form>
 
             <hr>
-            <br>
+            {{-- <br> --}}
             <br>
             <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Jualan/Edaran Minyak Isirung Sawit Mentah -
                 (CPKO) (04)</h5>
@@ -375,7 +384,7 @@
                                 @endforeach
                                 <tr>
 
-                                    <td colspan="2"><b>JUMLAH</b></td>
+                                    <td colspan="2"><b>JUMLAH (SENDIRI)</b></td>
                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                     <td style="text-align: right"><b><span name='total' id='total'>
                                                 {{ number_format($total, 2) }}</span></b>
@@ -387,7 +396,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><br></td>
+                                    {{-- <td></td> --}}
                                 </tr>
                                 @foreach ($penyata2 as $data)
                                     <tr>
@@ -549,7 +558,7 @@
                                     @csrf
                                     <tr>
 
-                                        <td colspan="2"><b>JUMLAH</b></td>
+                                        <td colspan="2"><b>JUMLAH (LUAR)</b></td>
                                         {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                         <td style="text-align: right"><b><span name='total2' id='total2'>
                                                     {{ number_format($total2, 2) }}</span></b>
@@ -691,6 +700,111 @@
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
+    <script>
+        function valid_sl() {
+
+            if ($('#e102_b4').val() == '') {
+                $('#e102_b4').css('border', '1px solid red');
+                document.getElementById('err_sl').style.display = "block";
+
+
+            } else {
+                $('#e102_b4').css('border', '');
+                document.getElementById('err_sl').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_ke() {
+
+            if ($('#e102_b5').val() == '') {
+                $('#e102_b5').css('border', '1px solid red');
+                document.getElementById('err_ke').style.display = "block";
+
+
+            } else {
+                $('#e102_b5').css('border', '');
+                document.getElementById('err_dari').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_kuantiti() {
+
+            if ($('#e102_b6').val() == '') {
+                $('#e102_b6').css('border', '1px solid red');
+                document.getElementById('err_kuantiti').style.display = "block";
+
+
+            } else {
+                $('#e102_b6').css('border', '');
+                document.getElementById('err_kuantiti').style.display = "none";
+
+            }
+
+        }
+    </script>
+         <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+
+
+                // kumpulan
+                field = document.getElementById("e102_b4");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#e102_b4').css('border-color', 'red');
+                    document.getElementById('err_sl').style.display = "block";
+                }
+                // kumpulan
+                field = document.getElementById("e102_b5");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#e102_b5').css('border-color', 'red');
+                    document.getElementById('err_ke').style.display = "block";
+                }
+                // kumpulan
+                field = document.getElementById("e102_b6");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#e102_b6').css('border-color', 'red');
+                    document.getElementById('err_kuantiti').style.display = "block";
+                }
+
+
+
+
+                // (B4) RESULT
+                if (error == "") {
+
+    document.getElementById("checkBtn").setAttribute("type", "submit");
+    return true;
+    } else {
+    document.getElementById("checkBtn").setAttribute("type", "button");
+
+    return false;
+    }
+
+
+                // if (error == "") {
+                // return true;
+                // } else {
+                // toastr.error(
+                // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                // 'Ralat!', {
+                // "progressBar": true
+                // })
+                // return false;
+                // }
+            }
+        </script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.calc').change(function() {

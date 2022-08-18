@@ -259,10 +259,18 @@
                                                     <td class="text-bold-500" style="text-align:center;">
                                                         <b>Jumlah</b>
                                                     </td>
-                                                    <td style="text-align:center;">
+                                                    {{-- <td style="text-align:center;">
                                                         <b><span id="total" name="total">
                                                                 {{ number_format($jumlah, 2) }}
                                                             </span>
+                                                        </b>
+                                                    </td> --}}
+                                                    <td style="text-align:center;">
+                                                        <b><span id="total" name="total" onchange="FormatCurrency(this)">
+                                                                {{ old('total_hidden') ?? number_format($jumlah, 2) }}
+                                                            </span>
+                                                            <input type="hidden" id="total_hidden" name="total_hidden"
+                                                                value="{{ number_format($jumlah ?? 0,2) }}">
                                                         </b>
                                                     </td>
 
@@ -587,6 +595,8 @@
                             e91_aj8));
                     // console.log(jumlah_input.toFixed(2));
                     document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                    document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
+
                 }
             </script>
             <script>
