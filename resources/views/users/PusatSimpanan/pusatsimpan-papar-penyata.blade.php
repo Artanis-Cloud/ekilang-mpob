@@ -124,7 +124,7 @@
                                                     <font color="#0000FF">MAKLUMAT PELESEN </font>
                                                 </b></p>
 
-                                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                            <table border="0" width="72%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
 
@@ -199,7 +199,7 @@
 
                                                     <tr>
 
-                                                        <td width="35%">Alamat emel </td>
+                                                        <td width="35%">Alamat Emel Kilang</td>
 
                                                         <td width="65%"><b>{{ $pelesen->e_email ?? '' }}</b></td>
 
@@ -248,9 +248,9 @@
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr>
+                                                    <tr  style="background-color: #d3d3d370">
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Nama Produk</font>
+                                                                <font size="2">Nama Produk Sawit</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -280,35 +280,35 @@
                                                     @foreach ($penyata as $data)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                                <font size="2">{{ $data->produk->proddesc }}</font>
                                                             </td>
                                                             <td style="text-align: center; vertical-align:middle">
                                                                 <font size="2">{{ $data->produk->prodid }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_stokawal }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_stokawal ?? 0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_terima }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_terima ?? 0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_import }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_import ?? 0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_edaran }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_edaran ?? 0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_eksport }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_eksport ?? 0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_pelarasan }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_pelarasan ?? 0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ $data->e07bt_stokakhir }}</font>
+                                                                <font size="2">{{ number_format($data->e07bt_stokakhir ?? 0,2) }}</font>
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                    <tr>
+                                                    <tr  style="background-color: #d3d3d370">
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
@@ -349,9 +349,9 @@
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr>
+                                                    <tr  style="background-color: #d3d3d370">
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Nama Produk</font>
+                                                                <font size="2">Nama Produk Sawit</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -360,13 +360,13 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Terimaan Dari Luar Negara</font>
+                                                                <font size="2">Penerimaan Dari Luar Negara</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Edaran Ke Dalam Negeri/Import</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Eksport Semula</font>
+                                                                <font size="2">Eksport </font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pelarasan (+/-)</font>
@@ -376,6 +376,10 @@
                                                             </b></td>
                                                     </tr>
                                                     <tr>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+
+                                                    </tr>
+                                                    <tr  style="background-color: #d3d3d370">
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
@@ -402,36 +406,44 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
-                                            <p style="font-size: 16px"><b>
-                                                Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
-                                                     benar, lengkap dan selaras dengan rekod harian.
-                                            </b></p>
+                                            <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
+                                                <p style="font-size: 16px; margin-bottom:0"><b>
+                                                        Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                                        benar, lengkap dan selaras dengan rekod harian.
+                                                    </b></p>
+                                                </div>
                                             {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                                 <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>
                                             </p> --}}
 
                                             <form action="{{ route('pusatsimpan.update.papar.penyata', [$user->e07_reg]) }}"
-                                                method="post">
+                                                method="post" novalidate>
                                                 @csrf
 
                                             <p>
                                                 <div class="required">Nama Pegawai Melapor:</div>
-                                                <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                                <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg()"
                                                     name='e07_npg' value="{{ $user->e07_npg }}">
+                                                    <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
+                                                        butiran di bahagian ini!</i></p>
                                             </p>
                                             <p>
                                                 <div class="required">Jawatan Pegawai Melapor:</div>
-                                                <input type="text" id="e_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                                <input type="text" id="e_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg()"
                                                     name='e07_jpg' value="{{ $user->e07_jpg }}">
+                                                    <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
+                                                        butiran di bahagian ini!</i></p>
                                             </p>
                                             <p>
                                                 <div class="required">No Telefon Kilang:</div>
 
-                                                <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                                <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_notel()"
                                                     name="e07_notel" value="{{ $user->e07_notel }}">
+                                                    <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
+                                                        butiran di bahagian ini!</i></p>
                                             </p>
 
 
@@ -441,8 +453,7 @@
                     <div class="form-group" style="padding-top: 10px; ">
                             <a href="{{ route('pusatsimpan.bahagiana') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
-                            <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                                data-target="#next">Hantar</button>
+                            <button type="button" class="btn btn-primary " style="float: right" id="checkBtn" onclick="check()">Hantar</button>
                             {{-- <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                 onclick="myPrint('myfrm')" value="print">Cetak</button> --}}
                     </div>
@@ -505,7 +516,107 @@
             });
         });
     </script>
+      <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
 
+            // alamat premis 1500403125000
+            field = document.getElementById("e_npg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
+            }
+
+            // alamat premis 1
+            field = document.getElementById("e_jpg");
+            if (!field.checkValidity()) {
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
+            }
+
+            // alamat surat-menyurat 1
+            field = document.getElementById("e_notel");
+            if (!field.checkValidity()) {
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
+            }
+
+            // (B4) RESULT
+            if (error == "") {
+                $('#next').modal('show');
+                return true;
+            } else {
+                // $('#next').modal('hide');
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+            // if (error == "") {
+            //     return true;
+            // } else {
+            //     toastr.error(
+            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            //         'Ralat!', {
+            //             "progressBar": true
+            //         })
+            //     return false;
+            // }
+        }
+    </script>
+<script>
+function valid_npg() {
+
+if ($('#e_npg').val() == '') {
+    $('#e_npg').css('border-color', 'red');
+    document.getElementById('err_npg').style.display = "block";
+
+
+} else {
+    $('#e_npg').css('border-color', '');
+    document.getElementById('err_npg').style.display = "none";
+
+}
+
+}
+</script>
+<script>
+function valid_jpg() {
+
+if ($('#e_jpg').val() == '') {
+    $('#e_jpg').css('border-color', 'red');
+    document.getElementById('err_jpg').style.display = "block";
+
+
+} else {
+    $('#e_jpg').css('border-color', '');
+    document.getElementById('err_jpg').style.display = "none";
+
+}
+
+}
+</script>
+<script>
+function valid_notel(){
+if ($('#e_notel').val() == '') {
+    $('#e_notel').css('border-color', 'red');
+    document.getElementById('err_notel').style.display = "block";
+
+
+} else {
+    $('#e_notel').css('border-color', '');
+    document.getElementById('err_notel').style.display = "none";
+
+}
+
+}
+</script>
 
     <script>
         function myPrint(myfrm) {

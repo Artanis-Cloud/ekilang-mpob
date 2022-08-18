@@ -927,6 +927,32 @@
                             </tbody>
                             <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
                                 <font size="2">Tiada Rekod</font></td>
+                                <tr  style="background-color: #d3d3d370">
+                                    <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>JUMLAH</b></font>
+                                    </td>
+                                    <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                </tr>
                         </table>
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -963,6 +989,32 @@
                             </tbody>
                             <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
                                 <font size="2">Tiada Rekod</font></td>
+                                <tr  style="background-color: #d3d3d370">
+                                    <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>JUMLAH</b></font>
+                                    </td>
+                                    <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                </tr>
                         </table>
 
                         <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">

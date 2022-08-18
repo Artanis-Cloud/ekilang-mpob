@@ -103,7 +103,7 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('pusatsimpan.add.bahagian.a') }}" method="post" class="sub-form">
+                    <form action="{{ route('pusatsimpan.add.bahagian.a') }}" method="post" class="sub-form" novalidate>
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -120,19 +120,25 @@
                                     <span class="">Nama Produk Sawit dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
+                                    <div id="bproduk">
+
                                     <select class="form-control select2" id="produk" name="e07bt_produk" required
                                         oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                        oninput="this.setCustomValidity('')">
+                                        oninput="this.setCustomValidity(''); valid_produk()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produks as $produk)
                                             @if ($produk->prodname != '')
                                                 <option value="{{ $produk->prodid }}">
-                                                    {{ $produk->prodname }} - {{ $produk->proddesc }}
+                                                    {{ $produk->prodid }} - {{ $produk->proddesc }}
                                                 </option>
                                             @endif
                                         @endforeach
 
                                     </select>
+                                    </div>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                     @error('e07bt_produk')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -148,7 +154,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokawal'
                                         onkeypress="return isNumberKey(event)" id="e07bt_stokawal" required
-                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokawal')
@@ -165,7 +171,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_terima' style="width: 100%"
                                         onkeypress="return isNumberKey(event)" id="e07bt_terima" required
-                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc2()"
                                         title="Sila isikan butiran ini.">
@@ -199,7 +205,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%"
                                         onkeypress="return isNumberKey(event)" id="e07bt_edaran" required
-                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc3()"
                                         title="Sila isikan butiran ini.">
@@ -246,7 +252,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokakhir'
                                         style="width: 100%" onkeypress="return isNumberKey(event)" id="e07bt_stokakhir"
-                                        required  onchange="autodecimal(this); FormatCurrency(this)"
+                                        required  onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokakhir')
@@ -261,7 +267,7 @@
                         </div>
                         <br>
                         <div class="row justify-content-center form-group" style="margin-top: 1%; ">
-                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                         </div>
                     </form>
                     <hr>
@@ -274,16 +280,17 @@
                             <table class="table table-bordered mb-0" style="font-size: 13px">
                                 <thead>
                                     <tr style="text-align: center">
-                                        <th>Nama Produk Sawit</th>
-                                        <th>Stok Awal</th>
-                                        <th>Terimaan Dalam Negeri</th>
-                                        <th>Import</th>
-                                        <th>Edaran Tempatan</th>
-                                        <th>Eksport</th>
-                                        <th>Pelarasan (+/-)</th>
-                                        <th>Stok Akhir</th>
-                                        <th>Kemaskini</th>
-                                        <th>Hapus?</th>
+                                        <th style="vertical-align: middle">Nama Produk Sawit</th>
+                                        <th style="vertical-align: middle">Kod Produk </th>
+                                        <th style="vertical-align: middle">Stok Awal</th>
+                                        <th style="vertical-align: middle">Terimaan Dalam Negeri</th>
+                                        <th style="vertical-align: middle">Import</th>
+                                        <th style="vertical-align: middle">Edaran Tempatan</th>
+                                        <th style="vertical-align: middle">Eksport</th>
+                                        <th style="vertical-align: middle">Pelarasan (+/-)</th>
+                                        <th style="vertical-align: middle">Stok Akhir</th>
+                                        <th style="vertical-align: middle">Kemaskini</th>
+                                        <th style="vertical-align: middle">Hapus?</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -291,6 +298,8 @@
                                         <tr style="text-align: right">
                                             <td style="text-align: left">
                                                 {{ $data->produk->proddesc }}</td>
+                                            <td style="text-align: center">
+                                                {{ $data->produk->prodid }}</td>
                                             <td>{{ number_format($data->e07bt_stokawal ?? 0, 2) }}
                                             </td>
                                             <td>{{ number_format($data->e07bt_terima ?? 0, 2) }}
@@ -468,7 +477,7 @@
      @endforeach
                                                                         <tr>
 
-                                                                            <td colspan="1"><b>JUMLAH</b></td>
+                                                                            <td colspan="2"><b>JUMLAH</b></td>
                                                                             {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                                                             <td style="text-align: right">
                                                                                 <b>{{ number_format($total ?? 0, 2) }}</b>
@@ -538,7 +547,7 @@
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                         </button>
-                                        <a href="{{ route('pusatsimpan.paparpenyata') }}" type="button"
+                                        <a href="{{ route('pusatsimpan.bahagianb') }}" type="button"
                                             class="btn btn-primary ml-1">
 
                                             <i class="bx bx-check d-block d-sm-none"></i>
@@ -559,6 +568,158 @@
             </div>
         @endsection
         @section('scripts')
+        <script>
+            function pelarasan() {
+                var stokawal = $("#e07bt_stokawal").val();
+                var penerimaan = $("#e07bt_terima").val();
+                var edaran = $("#e07bt_edaran").val();
+                // var jumlah = $("#total").val();
+
+
+                var pelarasan = $("#e07bt_pelarasan").val();
+                var pelarasan_input = 0;
+                var  stokakhir =   document.getElementById('e07bt_stokakhir');
+
+
+                pelarasan_input = parseFloat(Number(stokawal)) + parseFloat(Number(penerimaan)) -
+                        parseFloat(Number(edaran));
+
+                pelarasan_diff = pelarasan_input - stokakhir.value;
+
+                console.log(pelarasan_diff);
+                // var stokakhir = $("#e07bt_stokakhir").val();
+                // console.log(parseFloat(Number(stokawal)));
+
+
+                if (pelarasan_input >= stokakhir.value) {
+                    console.log('sama');
+                    document.getElementById('e07bt_pelarasan').value = pelarasan_diff.toFixed(2);
+                    return true;
+                //     console.log(document.getElementById('e07bt_pelarasan').value);
+
+                } else if (pelarasan_input < stokakhir.value ){
+                    console.log('taksama');
+                    document.getElementById('e07bt_pelarasan').value =  pelarasan_diff.toFixed(2);
+                    return false
+                }
+
+                    // document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+
+
+                    // console.log(document.getElementById('e07bt_pelarasan').value);
+
+            }
+        </script>
+<script>
+    function valid_produk() {
+
+        if ($('#e101_b4').val() == '') {
+            $('#bproduk').css('border', '1px solid red');
+            document.getElementById('err_produk').style.display = "block";
+
+
+        } else {
+            $('#bproduk').css('border', '');
+            document.getElementById('err_produk').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function check() {
+        // (B1) INIT
+        var error = "",
+            field = "";
+
+        // kod produk
+        field = document.getElementById("produk");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#bproduk').css('border', '1px solid red');
+            document.getElementById('err_produk').style.display = "block";
+            console.log('masuk');
+        }
+
+
+
+        // (B4) RESULT
+        if (error == "") {
+
+            document.getElementById("checkBtn").setAttribute("type", "submit");
+            return true;
+        } else {
+            document.getElementById("checkBtn").setAttribute("type", "button");
+
+            return false;
+        }
+
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#checkBtn').click(function() {
+            b5 = $('#e07bt_stokawal').val();
+            b6 = $('#e07bt_terima').val();
+            b8 = $('#e07bt_import').val();
+            b7 = $('#e07bt_edaran').val();
+            b10 = $('#e07bt_eksport').val();
+            b9 = $('#e07bt_stokakhir').val();
+
+            let x5 = b5;
+            if (x5 == '') {
+                x5 = x5 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x6 = b6;
+            if (x6 == '') {
+                x6 = x6 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x7 = b7;
+            if (x7 == '') {
+                x7 = x7 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x9 = b9;
+            if (x9 == '') {
+                x9 = x9 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x8 = b8;
+            if (x8 == '') {
+                x8 = x8 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x10 = b10;
+            if (x10 == '') {
+                x10 = x10 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+
+            document.getElementById("e07bt_stokawal").value = x5;
+            document.getElementById("e07bt_terima").value = x6;
+            document.getElementById("e07bt_import").value = x8;
+            document.getElementById("e07bt_edaran").value = x7;
+            document.getElementById("e07bt_eksport").value = x10;
+            document.getElementById("e07bt_stokakhir").value = x9;
+
+
+            if (b5 == 0 && b6 == 0 && b7 == 0 && b9 == 0 ) {
+                // console.log('lain');
+
+                toastr.error(
+                    'Sila isi sekurang-kurangnya satu data',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+        });
+    });
+</script>
         <script>
 
             function invoke_bt2(key) {
