@@ -67,7 +67,9 @@
                                 <input type="text" id="e_ap1" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                     placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc()">
+                                    oninput="this.setCustomValidity(''); invokeFunc(); valid_ap()">
+                                    <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                                 <input type="text" id="e_ap2" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}"
@@ -100,7 +102,9 @@
                                 <input type="text" id="e_as1" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc4()">
+                                    oninput="this.setCustomValidity(''); invokeFunc4(); valid_as()">
+                                    <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                                 <input type="text" id="e_as2" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}"
@@ -121,8 +125,10 @@
                                 <input type="text" id="e_notel" class="form-control" maxlength=40
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
-                                    oninput="this.setCustomValidity(''); invokeFunc7()" value="{{ $pelesen->e_notel }}"
+                                    oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()" value="{{ $pelesen->e_notel }}"
                                     onkeypress="return isNumberKey(event)" required>
+                                    <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -133,9 +139,10 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_nofax" class="form-control" maxlength=40
-                                    placeholder="No. Faks" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    placeholder="No. Faks"
                                     name="e_nofax" value="{{ $pelesen->e_nofax }}"
-                                    onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc8()">
+                                    onkeypress="return isNumberKey(event)"
+                                    oninput=" invokeFunc8()">
                             </div>
                         </div>
 
@@ -149,7 +156,11 @@
                                     placeholder="Alamat Emel"
                                     oninvalid="setCustomValidity('Sila isi Alamat Emel Kilang dengan betul')"
                                     name="e_email" value="{{ $pelesen->e_email }}" required
-                                    oninput="this.setCustomValidity(''); invokeFunc9()">
+                                    oninput="this.setCustomValidity(''); invokeFunc9(); valid_email(); ValidateEmail()">
+                                    <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                        <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
+                                            alamat emel yang betul!</i></p>
                             </div>
                         </div>
 
@@ -162,7 +173,10 @@
                                 <input type="text" id="e_npg" class="form-control" maxlength=60
                                     placeholder="Nama Pegawai Melapor"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_npg"
-                                    value="{{ $pelesen->e_npg }}" required oninput="this.setCustomValidity(''); invokeFunc10()">
+                                    value="{{ $pelesen->e_npg }}" required
+                                    oninput="this.setCustomValidity(''); invokeFunc10(); valid_npg()">
+                                    <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -173,9 +187,12 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_jpg" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="this.setCustomValidity(''); invokeFunc11()"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninput="this.setCustomValidity(''); invokeFunc11(); valid_jpg()"
                                     placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}"
                                     required>
+                                    <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -188,9 +205,11 @@
                                 <input type="text" id="e_notel_pg" maxlength=40 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
-                                    oninput="this.setCustomValidity(''); invokeFunc12()" value="{{ $pelesen->e_notel_pg }}"
-                                    onkeypress="return isNumberKey(event)" required>
-                            </div>
+                                    oninput="this.setCustomValidity(''); invokeFunc12(); valid_notelpg()"
+                                    value="{{ $pelesen->e_notel_pg }}" onkeypress="return isNumberKey(event)" required>
+                                    <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                </div>
                         </div>
 
                         <div class="row justify-content-center" style="margin:20px 0px">
@@ -202,8 +221,10 @@
                                 <input type="text" id="e_email_pg" maxlength=100 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                    oninput="this.setCustomValidity(''); invokeFunc13()" value="{{ $pelesen->e_email_pg }}" required
-                                    multiple>
+                                    oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg()"
+                                    value="{{ $pelesen->e_email_pg }}" required multiple>
+                                    <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -216,7 +237,10 @@
                                 <input type="text" id="e_npgtg" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                    oninput="this.setCustomValidity(''); invokeFunc14()" value="{{ $pelesen->e_npgtg }}" required>
+                                    oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg()" value="{{ $pelesen->e_npgtg }}"
+                                    required>
+                                    <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -230,7 +254,10 @@
                                 <input type="text" id="e_jpgtg" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                    oninput="this.setCustomValidity(''); invokeFunc15()" value="{{ $pelesen->e_jpgtg }}" required>
+                                    oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg()" value="{{ $pelesen->e_jpgtg }}"
+                                    required>
+                                    <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -243,8 +270,10 @@
                                 <input type="text" id="e_email_pengurus" class="form-control" maxlength=100
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                    oninput="this.setCustomValidity(''); invokeFunc16()" value="{{ $pelesen->e_email_pengurus }}" required
-                                    multiple>
+                                    oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus()"
+                                    value="{{ $pelesen->e_email_pengurus }}" required multiple>
+                                    <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -256,8 +285,11 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_syktinduk" class="form-control"
                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                    placeholder="Syarikat Induk" name="e_syktinduk" oninput="this.setCustomValidity(''); invokeFunc17()"
+                                    placeholder="Syarikat Induk" name="e_syktinduk"
+                                    oninput="this.setCustomValidity(''); invokeFunc17(); valid_syktinduk()"
                                     value="{{ $pelesen->e_syktinduk }}" required>
+                                    <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -270,7 +302,7 @@
                                 <fieldset class="form-group">
                                     <select class="form-control" id="e_group" name="e_group" required
                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                        oninput="this.setCustomValidity('');">
+                                        oninput="this.setCustomValidity(''); valid_kumpulan()">
                                         <option selected value="">Sila Pilih Kumpulan</option>
 
                                         <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
@@ -278,6 +310,8 @@
                                         <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
                                             Swasta</option>
                                     </select>
+                                    <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila buat pilihan di
+                                        bahagian ini!</i></p>
                                 </fieldset>
                             </div>
                         </div>
@@ -288,12 +322,14 @@
                                     Kapasiti Pemprosesan / Tahun</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="kap_proses" class="form-control" onkeyup="FormatCurrency(this)"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                <input type="text" id="kap_proses" class="form-control"
+                                    onkeyup="FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                    onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc18()"
+                                    onchange="validation_jumlah()" oninput="this.setCustomValidity(''); valid_proses(); invokeFunc18()"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}" required>
-                            </div>
+                                    <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
+                                        bahagian ini!</i></p>
+                                </div>
                         </div>
 
 
@@ -317,46 +353,45 @@
                                     <tr>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc19()" size="15"
-                                                id="bil_tangki_cpo" onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc19()"
+                                                size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()"
-                                                required>
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpo }}"
+                                                onchange="validation_jumlah()" required>
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc20()" size="15"
-                                                id="bil_tangki_ppo" onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc20()"
+                                                size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()"
-                                                required>
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo }}"
+                                                onchange="validation_jumlah()" required>
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc21()" size="15"
-                                                id="bil_tangki_cpko" onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc21()"
+                                                size="15" id="bil_tangki_cpko"
+                                                onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()"
-                                                required>
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko }}"
+                                                onchange="validation_jumlah()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='bil_tangki_ppko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc22()" size="15"
-                                                id="bil_tangki_ppko" onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc22()"
+                                                size="15" id="bil_tangki_ppko"
+                                                onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppko }}"
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko }}"
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td><input type="text" class="form-control" name='bil_tangki_others'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc23()" size="15"
-                                                id="bil_tangki_others" onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc23()"
+                                                size="15" id="bil_tangki_others"
+                                                onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_others }}"
-                                                onchange="validation_jumlah()" required>
+                                                value="{{ $pelesen->bil_tangki_others }}" onchange="validation_jumlah()"
+                                                required>
                                         </td>
                                         <td>
                                             <b><span
@@ -365,43 +400,40 @@
                                     </tr>
                                     <tr>
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc24()" id="kap_tangki_cpo"
-                                                onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc24()"
+                                                id="kap_tangki_cpo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo }}"
                                                 onchange="validation_jumlah2()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc25()" id="kap_tangki_ppo"
-                                                onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc25()"
+                                                id="kap_tangki_ppo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->kap_tangki_ppo }}" onchange="validation_jumlah2()"
-                                                required>
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo }}"
+                                                onchange="validation_jumlah2()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc26()" id="kap_tangki_cpko"
-                                                onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc26()"
+                                                id="kap_tangki_cpko" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->kap_tangki_cpko }}"
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko }}"
                                                 onchange="validation_jumlah2()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc27()" id="kap_tangki_ppko"
-                                                onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc27()"
+                                                id="kap_tangki_ppko" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->kap_tangki_ppko }}"
+                                                title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko }}"
                                                 onchange="validation_jumlah2()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_others'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc28()" id="kap_tangki_others"
-                                                onkeypress="return isNumberKey(event)"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc28()"
+                                                id="kap_tangki_others" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->kap_tangki_others }}"
-                                                onchange="validation_jumlah2()" required>
+                                                value="{{ $pelesen->kap_tangki_others }}" onchange="validation_jumlah2()"
+                                                required>
                                         </td>
                                         <td><b><span id="kap_tangki_jumlah">
                                                     {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
@@ -426,7 +458,7 @@
 
 
             <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#next">Simpan</button>
+                <button type="button" class="btn btn-primary" onclick="check()">Simpan</button>
             </div>
 
             <div class="modal fade" id="next" tabindex="-1" role="dialog"
@@ -532,8 +564,6 @@
             </script>
         @endsection
         @section('scripts')
-
-
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#checkBtn').click(function() {
@@ -615,150 +645,405 @@
             </script>
 
             <script>
+                function valid_ap() {
+
+                    if ($('#e_ap1').val() == '') {
+                        $('#e_ap1').css('border-color', 'red');
+                        document.getElementById('err_ap').style.display = "block";
+
+
+                    } else {
+                        $('#e_ap1').css('border-color', '');
+                        document.getElementById('err_ap').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_as() {
+
+                    if ($('#e_as1').val() == '') {
+                        $('#e_as1').css('border-color', 'red');
+                        document.getElementById('err_as').style.display = "block";
+
+
+                    } else {
+                        $('#e_as1').css('border-color', '');
+                        document.getElementById('err_as').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_notel() {
+
+                    if ($('#e_notel').val() == '') {
+                        $('#e_notel').css('border-color', 'red');
+                        document.getElementById('err_notel').style.display = "block";
+
+
+                    } else {
+                        $('#e_notel').css('border-color', '');
+                        document.getElementById('err_notel').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_email() {
+
+                    if ($('#e_email').val() == '') {
+                        $('#e_email').css('border-color', 'red');
+                        document.getElementById('err_email').style.display = "block";
+                        document.getElementById('err_email2').style.display = "none";
+                        console.log('sini');
+
+                    } else {
+                        $('#e_email').css('border-color', '');
+                        document.getElementById('err_email').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_npg() {
+
+                    if ($('#e_npg').val() == '') {
+                        $('#e_npg').css('border-color', 'red');
+                        document.getElementById('err_npg').style.display = "block";
+
+
+                    } else {
+                        $('#e_npg').css('border-color', '');
+                        document.getElementById('err_npg').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_jpg() {
+
+                    if ($('#e_jpg').val() == '') {
+                        $('#e_jpg').css('border-color', 'red');
+                        document.getElementById('err_jpg').style.display = "block";
+
+
+                    } else {
+                        $('#e_jpg').css('border-color', '');
+                        document.getElementById('err_jpg').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_notelpg() {
+
+                    if ($('#e_notel_pg').val() == '') {
+                        $('#e_notel_pg').css('border-color', 'red');
+                        document.getElementById('err_notelpg').style.display = "block";
+
+
+                    } else {
+                        $('#e_notel_pg').css('border-color', '');
+                        document.getElementById('err_notelpg').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_emailpg() {
+
+                    if ($('#e_email_pg').val() == '') {
+                        $('#e_email_pg').css('border-color', 'red');
+                        document.getElementById('err_emailpg').style.display = "block";
+
+
+                    } else {
+                        $('#e_email_pg').css('border-color', '');
+                        document.getElementById('err_emailpg').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_npgtg() {
+
+                    if ($('#e_npgtg').val() == '') {
+                        $('#e_npgtg').css('border-color', 'red');
+                        document.getElementById('err_npgtg').style.display = "block";
+
+
+                    } else {
+                        $('#e_npgtg').css('border-color', '');
+                        document.getElementById('err_npgtg').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_jpgtg() {
+
+                    if ($('#e_jpgtg').val() == '') {
+                        $('#e_jpgtg').css('border-color', 'red');
+                        document.getElementById('err_jpgtg').style.display = "block";
+
+
+                    } else {
+                        $('#e_jpgtg').css('border-color', '');
+                        document.getElementById('err_jpgtg').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_emailpengurus() {
+
+                    if ($('#e_email_pengurus').val() == '') {
+                        $('#e_email_pengurus').css('border-color', 'red');
+                        document.getElementById('err_emailpengurus').style.display = "block";
+
+
+                    } else {
+                        $('#e_email_pengurus').css('border-color', '');
+                        document.getElementById('err_emailpengurus').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_syktinduk() {
+
+                    if ($('#e_syktinduk').val() == '') {
+                        $('#e_syktinduk').css('border-color', 'red');
+                        document.getElementById('err_syktinduk').style.display = "block";
+
+
+                    } else {
+                        $('#e_syktinduk').css('border-color', '');
+                        document.getElementById('err_syktinduk').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_kumpulan() {
+
+                    if ($('#e_group').val() == '') {
+                        $('#e_group').css('border-color', 'red');
+                        document.getElementById('err_group').style.display = "block";
+
+
+                    } else {
+                        $('#e_group').css('border-color', '');
+                        document.getElementById('err_group').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            {{-- <script>
+                function valid_poma() {
+
+                    if ($('#e_poma').val() == '') {
+                        $('#e_poma').css('border-color', 'red');
+                        document.getElementById('err_poma').style.display = "block";
+
+
+                    } else {
+                        $('#e_poma').css('border-color', '');
+                        document.getElementById('err_poma').style.display = "none";
+
+                    }
+
+                }
+            </script> --}}
+            <script>
+                function valid_proses() {
+
+                    if ($('#kap_proses').val() == '') {
+                        $('#kap_proses').css('border-color', 'red');
+                        document.getElementById('err_proses').style.display = "block";
+
+
+                    } else {
+                        $('#kap_proses').css('border-color', '');
+                        document.getElementById('err_proses').style.display = "none";
+
+                    }
+
+                }
+            </script>
+
+            {{-- <script>
+function validatePhoneNumber(input_str) {
+    var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+
+    return re.test(input_str);
+}
+
+function validateForm(event) {
+    var phone = document.getElementById('myform_phone').value;
+    if (!validatePhoneNumber(phone)) {
+        toastr.error('Sila masukkan nombor telefon yang betul', 'Ralat!', {
+            "progressBar": true
+        })
+    } else {
+        document.getElementById('phone_error').classList.add('hidden');
+        // alert("validation success")
+    }
+    event.preventDefault();
+}
+
+document.getElementById('myform').addEventListener('submit', validateForm);
+</script> --}}
+
+
+            <script>
                 function check() {
                     // (B1) INIT
                     var error = "",
                         field = "";
 
+                    // alamat premis 1500403125000
+                    field = document.getElementById("kap_proses");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_proses').css('border-color', 'red');
+                        document.getElementById('err_proses').style.display = "block";
+                    }
+
                     // alamat premis 1
                     field = document.getElementById("e_ap1");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_ap1').css('border-color', 'red');
+                        document.getElementById('err_ap').style.display = "block";
                     }
 
                     // alamat surat-menyurat 1
                     field = document.getElementById("e_as1");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_as1').css('border-color', 'red');
+                        document.getElementById('err_as').style.display = "block";
                     }
 
                     // no tel kilang
                     field = document.getElementById("e_notel");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_notel').css('border-color', 'red');
+                        document.getElementById('err_notel').style.display = "block";
                     }
 
                     // email kilang
                     field = document.getElementById("e_email");
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_email').css('border-color', 'red');
+                        document.getElementById('err_email').style.display = "block";
+                        // document.getElementById('err_email2').style.display = "none";
                     }
+                    if (!field.value.match(mailformat)) {
+                        error += "Name must be 2-4 characters\r\n";
+                        // alert("You have entered an invalid email address!");
+                        $('#e_email').css('border-color', 'red');
+                        document.getElementById('err_email2').style.display = "block";
+                        console.log('error');
+                    }
+
 
                     // nama pegawai melapor
                     field = document.getElementById("e_npg");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_npg').css('border-color', 'red');
+                        document.getElementById('err_npg').style.display = "block";
                     }
 
                     // jawatan pegawai melapor
                     field = document.getElementById("e_jpg");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_jpg').css('border-color', 'red');
+                        document.getElementById('err_jpg').style.display = "block";
                     }
 
                     // no tel pegawai melapor
                     field = document.getElementById("e_notel_pg");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_notel_pg').css('border-color', 'red');
+                        document.getElementById('err_notelpg').style.display = "block";
                     }
 
                     // email pegawai melapor
                     field = document.getElementById("e_email_pg");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_email_pg').css('border-color', 'red');
+                        document.getElementById('err_emailpg').style.display = "block";
                     }
 
                     // nama pegawai bertanggungjawab
                     field = document.getElementById("e_npgtg");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_npgtg').css('border-color', 'red');
+                        document.getElementById('err_npgtg').style.display = "block";
                     }
 
                     // jawatan pegawai bertanggungjawab
                     field = document.getElementById("e_jpgtg");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_jpgtg').css('border-color', 'red');
+                        document.getElementById('err_jpgtg').style.display = "block";
                     }
 
                     // emel pengurus
                     field = document.getElementById("e_email_pengurus");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_email_pengurus').css('border-color', 'red');
+                        document.getElementById('err_emailpengurus').style.display = "block";
                     }
 
                     // syarikat induk
                     field = document.getElementById("e_syktinduk");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_syktinduk').css('border-color', 'red');
+                        document.getElementById('err_syktinduk').style.display = "block";
                     }
 
                     // kumpulan
                     field = document.getElementById("e_group");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
+                        $('#e_group').css('border-color', 'red');
+                        document.getElementById('err_group').style.display = "block";
                     }
-                    // kap_proses
-                    field = document.getElementById("kap_proses");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // bil tangki cpo
-                    field = document.getElementById("bil_tangki_cpo");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // bil_tangki_ppo
-                    field = document.getElementById("bil_tangki_ppo");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // bil_tangki_cpko
-                    field = document.getElementById("bil_tangki_cpko");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // bil tangki ppko
-                    field = document.getElementById("bil_tangki_ppko");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // bil tangki others
-                    field = document.getElementById("bil_tangki_others");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap tangki cpo
-                    field = document.getElementById("kap_tangki_cpo");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap_tangki_ppo
-                    field = document.getElementById("kap_tangki_ppo");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap_tangki_cpko
-                    field = document.getElementById("kap_tangki_cpko");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap tangki ppko
-                    field = document.getElementById("kap_tangki_ppko");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-                    // kap tangki others
-                    field = document.getElementById("kap_tangki_others");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                    }
-
 
 
 
 
                     // (B4) RESULT
                     if (error == "") {
+                        $('#next').modal('show');
                         return true;
                     } else {
                         toastr.error(
@@ -767,6 +1052,38 @@
                                 "progressBar": true
                             })
                         return false;
+                    }
+
+                    // if (error == "") {
+                    // return true;
+                    // } else {
+                    // toastr.error(
+                    // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    // 'Ralat!', {
+                    // "progressBar": true
+                    // })
+                    // return false;
+                    // }
+                }
+            </script>
+            <script>
+                function ValidateEmail() {
+                    var inputText = document.getElementById('e_email');
+                    console.log(inputText.value);
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (inputText.value.match(mailformat)) {
+                        // alert("Valid email address!");
+                        // document.myform.e_email.focus();
+                        document.getElementById('err_email2').style.display = "none";
+
+                        return true;
+                    } else {
+                        if (inputText.value != '') {
+                            // alert("You have entered an invalid email address!");
+                            $('#e_email').css('border-color', 'red');
+                            document.getElementById('err_email2').style.display = "block";
+                            return false;
+                        }
                     }
                 }
             </script>
@@ -851,508 +1168,508 @@
                     e_as3.value = e_ap3.value;
 
 
-            }
-        </script>
-        <script>
-            document.addEventListener('keypress', function (e) {
-                if (e.keyCode === 13 || e.which === 13) {
-                    e.preventDefault();
-                    return false;
+                }
+            </script>
+            <script>
+                document.addEventListener('keypress', function(e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+            </script>
+
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_ap2').focus();
+                        }
+
+                    });
                 }
 
-            });
-        </script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_ap3').focus();
+                        }
 
-<script>
-    function invokeFunc() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_ap2').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc3() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_as1').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc2() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_ap3').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc4() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_as2').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc3() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_as1').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc5() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_as3').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc4() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_as2').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc6() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_notel').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc5() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_as3').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc7() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_nofax').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc6() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_notel').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc8() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_email').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc7() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_nofax').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc9() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_npg').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc8() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_email').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc10() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_jpg').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc9() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_npg').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc11() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_notel_pg').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc10() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_jpg').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc11() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_notel_pg').focus();
-            }
+            <script>
+                function invokeFunc12() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_email_pg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc13() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_npgtg').focus();
+                        }
 
-<script>
-    function invokeFunc12() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_email_pg').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc13() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_npgtg').focus();
-            }
+            <script>
+                function invokeFunc14() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_jpgtg').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc15() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_email_pengurus').focus();
+                        }
 
-<script>
-    function invokeFunc14() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_jpgtg').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc16() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e_syktinduk').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc15() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_email_pengurus').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc17() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_proses').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc16() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e_syktinduk').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc18() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('bil_tangki_cpo').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc17() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_proses').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc19() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('bil_tangki_ppo').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc18() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('bil_tangki_cpo').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc20() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('bil_tangki_cpko').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc19() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('bil_tangki_ppo').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc21() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('bil_tangki_ppko').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc20() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('bil_tangki_cpko').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc21() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('bil_tangki_ppko').focus();
-            }
+            <script>
+                function invokeFunc22() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('bil_tangki_others').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc23() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_tangki_cpo').focus();
+                        }
 
-<script>
-    function invokeFunc22() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('bil_tangki_others').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc23() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_tangki_cpo').focus();
-            }
+            <script>
+                function invokeFunc24() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_tangki_ppo').focus();
+                        }
 
-        });
-    }
+                    });
+                }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc25() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_tangki_cpko').focus();
+                        }
 
-<script>
-    function invokeFunc24() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_tangki_ppo').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc26() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_tangki_ppko').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc25() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_tangki_cpko').focus();
-            }
+                    });
+                }
 
-        });
-    }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc27() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('kap_tangki_others').focus();
+                        }
 
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc26() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_tangki_ppko').focus();
-            }
+                    });
+                }
 
-        });
-    }
-
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc27() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('kap_tangki_others').focus();
-            }
-
-        });
-    }
-
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
 
             <!-- (B) FORM CHECK -->
             {{-- <script>

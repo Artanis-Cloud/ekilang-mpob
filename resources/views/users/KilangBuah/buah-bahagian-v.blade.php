@@ -259,7 +259,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>
-                                                        Anda pasti mahu menghantar penyata ini?
+                                                        Anda pasti mahu mmenyimpan maklumat ini?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">

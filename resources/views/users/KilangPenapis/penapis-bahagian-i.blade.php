@@ -69,40 +69,40 @@
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
                 <b>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4
-                <br>
+                    <br>
 
-            BULAN :&nbsp;&nbsp;
-            @if ($bulan == 1)
-                JANUARI
-            @elseif($bulan == 2)
-                FEBRUARI
-            @elseif($bulan == 3)
-                MAC
-            @elseif($bulan == 4)
-                APRIL
-            @elseif($bulan == 5)
-                MEI
-            @elseif($bulan == 6)
-                JUN
-            @elseif($bulan == 7)
-                JULAI
-            @elseif($bulan == 8)
-                OGOS
-            @elseif($bulan == 9)
-                SEPTEMBER
-            @elseif($bulan == 10)
-                OKTOBER
-            @elseif($bulan == 11)
-                NOVEMBER
-            @elseif($bulan == 12)
-                DISEMBER
-            @endif
-            &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                    BULAN :&nbsp;&nbsp;
+                    @if ($bulan == 1)
+                        JANUARI
+                    @elseif($bulan == 2)
+                        FEBRUARI
+                    @elseif($bulan == 3)
+                        MAC
+                    @elseif($bulan == 4)
+                        APRIL
+                    @elseif($bulan == 5)
+                        MEI
+                    @elseif($bulan == 6)
+                        JUN
+                    @elseif($bulan == 7)
+                        JULAI
+                    @elseif($bulan == 8)
+                        OGOS
+                    @elseif($bulan == 9)
+                        SEPTEMBER
+                    @elseif($bulan == 10)
+                        OKTOBER
+                    @elseif($bulan == 11)
+                        NOVEMBER
+                    @elseif($bulan == 12)
+                        DISEMBER
+                    @endif
+                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                 </b>
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.add.bahagian.i') }}" method="post" class="sub-form">
+            <form action="{{ route('penapis.add.bahagian.i') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body">
                     <div class="" style="padding: 2%">
@@ -120,7 +120,7 @@
                                     <span class="">Nama Produk dan Kod </span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="produk" name="e101_b4"  required
+                                    <select class="form-control select2" id="e101_b4" name="e101_b4" required
                                         oninput="setCustomValidity('')"
                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
@@ -131,6 +131,9 @@
                                         @endforeach
 
                                     </select>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
                                     {{-- @error('e101_b4')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -148,8 +151,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b5' style="width: 100%"
                                         id="e101_b5" oninvalid="setCustomValidity('Sila isi butiran ini')" required
-                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b5()">
                                     @error('e101_b5')
                                         <div class="alert alert-danger">
@@ -163,8 +166,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b6' style="width: 100%"
                                         id="e101_b6" oninvalid="setCustomValidity('Sila isi butiran ini')" required
-                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b6()">
                                     @error('e101_b6')
                                         <div class="alert alert-danger">
@@ -184,8 +187,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b7' style="width: 100%"
                                         id="e101_b7" oninvalid="setCustomValidity('Sila isi butiran ini')" required
-                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b7()">
                                     @error('e101_b7')
                                         <div class="alert alert-danger">
@@ -209,8 +212,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b9' style="width: 100%"
                                         id="e101_b9" oninvalid="setCustomValidity('Sila isi butiran ini')" required
-                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        onchange="autodecimal(this); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b9()">
                                     @error('e101_b9')
                                         <div class="alert alert-danger">
@@ -224,7 +227,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b10' style="width: 100%"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e101_b10" required
-                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)"
+                                        onchange="autodecimal(this); FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b10()"
                                         title="Sila isikan butiran ini.">
                                     @error('e101_b10')
@@ -243,7 +247,8 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b11' style="width: 100%"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e101_b11" required
-                                        onkeypress="return isNumberKey(event)" onchange="autodecimal(this); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)"
+                                        onchange="autodecimal(this); FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b11()"
                                         title="Sila isikan butiran ini.">
                                     @error('e101_b11')
@@ -307,7 +312,7 @@
 
 
                         <div class="row justify-content-center form-group" style="margin: 2%">
-                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                         </div>
                         <input type="hidden" name="hidDelete" id="hidDelete" value="" />
 
@@ -409,7 +414,8 @@
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b5' id="e101_eb5{{ $data->e101_b1 }}"
+                                                                    <input type="text" name='e101_b5'
+                                                                        id="e101_eb5{{ $data->e101_b1 }}"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         onchange="autodecimal(this); FormatCurrency(this)"
                                                                         class="form-control"
@@ -481,7 +487,8 @@
                                                                     <input type="text" name='e101_b11'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         onchange="autodecimal(this); FormatCurrency(this)"
-                                                                        id="e101_eb11{{ $data->e101_b1 }}" class="form-control"
+                                                                        id="e101_eb11{{ $data->e101_b1 }}"
+                                                                        class="form-control"
                                                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity(''); enableKemaskini({{ $data->e101_b1 }}); invoke_eb11({{ $data->e101_b1 }})"
                                                                         value="{{ old('e101_b11') ?? number_format($data->e101_b11, 2) }}"
@@ -669,6 +676,134 @@
 @endsection
 @section('scripts')
     <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kod produk
+            field = document.getElementById("e101_b4");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e101_b4').css('border-color', 'red');
+                document.getElementById('err_produk').style.display = "block";
+
+            }
+
+
+
+            // // (B4) RESULT
+            // if (error == "") {
+            //     $('#next').modal('show');
+            //     return true;
+            // } else {
+            //     toastr.error(
+            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            //         'Ralat!', {
+            //             "progressBar": true
+            //         })
+            //     return false;
+            // }
+
+            // if (error == "") {
+            // return true;
+            // } else {
+            // toastr.error(
+            // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            // 'Ralat!', {
+            // "progressBar": true
+            // })
+            // return false;
+            // }
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                b5 = $('#e101_b5').val();
+                b6 = $('#e101_b6').val();
+                b7 = $('#e101_b7').val();
+                b9 = $('#e101_b9').val();
+                b10 = $('#e101_b10').val();
+                b11 = $('#e101_b11').val();
+                b12 = $('#e101_b12').val();
+                b13 = $('#e101_b13').val();
+                b14 = $('#e101_b14').val();
+                // b5 = b5 || 0;
+
+                let x5 = b5;
+                if (x5 == '') {
+                    x5 = x5 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x6 = b6;
+                if (x6 == '') {
+                    x6 = x6 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x7 = b7;
+                if (x7 == '') {
+                    x7 = x7 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x9 = b9;
+                if (x9 == '') {
+                    x9 = x9 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x10 = b10;
+                if (x10 == '') {
+                    x10 = x10 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x11 = b11;
+                if (x11 == '') {
+                    x11 = x11 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x12 = b12;
+                if (x12 == '') {
+                    x12 = x12 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x13 = b13;
+                if (x13 == '') {
+                    x13 = x13 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x14 = b14;
+                if (x14 == '') {
+                    x14 = x14 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+                document.getElementById("e101_b5").value = x5;
+                document.getElementById("e101_b6").value = x6;
+                document.getElementById("e101_b7").value = x7;
+                document.getElementById("e101_b9").value = x9;
+                document.getElementById("e101_b10").value = x10;
+                document.getElementById("e101_b11").value = x11;
+                document.getElementById("e101_b12").value = x12;
+                document.getElementById("e101_b13").value = x13;
+                document.getElementById("e101_b14").value = x14;
+
+
+                if (b5 == 0 && b6 == 0 && b7 == 0 && b9 == 0 && b10 == 0 && b11 == 0 && b12 == 0 && b13 ==
+                    0 && b14 == 0) {
+                    // console.log('lain');
+
+                    toastr.error(
+                        'Sila isi sekurang-kurangnya satu data',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+            });
+        });
+    </script>
+    <script>
         function invoke_b5() {
             addEventListener('keydown', function(evt) {
                 var whichKey = checkKey(evt);
@@ -771,7 +906,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb6'+key).focus();
+                    document.getElementById('e101_eb6' + key).focus();
                 }
 
             });
@@ -783,7 +918,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb7'+key).focus();
+                    document.getElementById('e101_eb7' + key).focus();
                 }
 
             });
@@ -795,7 +930,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb9'+key).focus();
+                    document.getElementById('e101_eb9' + key).focus();
                 }
 
             });
@@ -807,7 +942,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb10'+key).focus();
+                    document.getElementById('e101_eb10' + key).focus();
                 }
 
             });
@@ -819,7 +954,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb11'+key).focus();
+                    document.getElementById('e101_eb11' + key).focus();
                 }
 
             });
@@ -831,7 +966,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb12'+key).focus();
+                    document.getElementById('e101_eb12' + key).focus();
                 }
 
             });
@@ -843,7 +978,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb13'+key).focus();
+                    document.getElementById('e101_eb13' + key).focus();
                 }
 
             });
@@ -855,7 +990,7 @@
                 if (whichKey == 13) {
                     console.log('successful');
                     evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                    document.getElementById('e101_eb14'+key).focus();
+                    document.getElementById('e101_eb14' + key).focus();
                 }
 
             });
@@ -950,7 +1085,6 @@
             return true;
 
         });
-
     </script>
 
 
@@ -983,6 +1117,4 @@
 
         });
     </script>
-
-
 @endsection
