@@ -421,6 +421,7 @@ Route::middleware('auth')->group(function () {
         // Route::get('penapis/bahagian-vb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvb'])->name('penapis.bahagianvb');'
 
         Route::get('penapis/bahagian-vi', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvi'])->name('penapis.bahagianvi');
+        Route::get('penapis/bahagian-vii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvii'])->name('penapis.bahagianvii');
         Route::post('penapis/add-bahagian-vi', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_vi'])->name('penapis.add.bahagian.vi');
         Route::post('penapis/edit-bahagian-vi/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_vi'])->name('penapis.edit.bahagian.vi');
 

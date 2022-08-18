@@ -100,7 +100,7 @@
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.add.bahagian.v') }}" method="post" class="sub-form">
+            <form action="{{ route('penapis.add.bahagian.v') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body" style="padding: 2%">
                     <div class="mb-4 text-center">
@@ -110,6 +110,9 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
+                        <div class="mb-2 col-8" style="text-align: left">
+                            <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                        </div>
                         <div class="container center mt-4">
 
                             <div class="row">
@@ -117,12 +120,16 @@
                                     <span class="">Sendiri/Luar</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e101_d3" name="e101_d3" style="width: 70%" required oninput="this.setCustomValidity('')"
+                                    <div id="border_sl">
+                                    <select class="form-control" id="e101_d3" name="e101_d3" style="width: 70%" required oninput="this.setCustomValidity(''); valid_sl()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         <option value="1"> SENDIRI </option>
                                         <option value="2"> LUAR </option>
                                     </select>
+                                    </div>
+                                    <p type="hidden" id="err_sl" style="color: red; display:none"><i>Sila buat pilihan
+                                        di bahagian ini!</i></p>
                                     @error('e101_d3')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -133,7 +140,8 @@
                                     <span class="">Belian/Terimaan Dari</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="e101_d4" style="width:70%" name="e101_d4" required oninput="this.setCustomValidity('')"
+                                    <div id="border_bt">
+                                    <select class="form-control" id="e101_d4" style="width:70%" name="e101_d4" required oninput="this.setCustomValidity(''); valid_bt()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         <option value="1">KILANG BUAH</option>
@@ -144,6 +152,9 @@
                                         <option value="6">PENIAGA</option>
                                         <option value="9">LAIN-LAIN</option>
                                     </select>
+                                    </div>
+                                    <p type="hidden" id="err_bt" style="color: red; display:none"><i>Sila buat pilihan
+                                        di bahagian ini!</i></p>
                                     @error('e101_d4')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -219,7 +230,7 @@
                         </div>
 
                         <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                         </div>
 
 
@@ -651,7 +662,7 @@
                                     <i class="bx bx-x d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                 </button>
-                                <a href="{{ route('penapis.paparpenyata') }}" type="button"
+                                <a href="{{ route('penapis.bahagianvi') }}" type="button"
                                     class="btn btn-primary ml-1">
 
                                     <i class="bx bx-check d-block d-sm-none"></i>
@@ -667,6 +678,125 @@
 
 @endsection
 @section('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#checkBtn').click(function() {
+            d5 = $('#e101_d5').val();
+            d6 = $('#e101_d6').val();
+            d7 = $('#e101_d7').val();
+            d8 = $('#e101_d8').val();
+            // b5 = b5 || 0;
+
+            let x5 = d5;
+            if (x5 == '') {
+                x5 = x5 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x6 = d6;
+            if (x6 == '') {
+                x6 = x6 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x7 = d7;
+            if (x7 == '') {
+                x7 = x7 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x8 = d8;
+            if (x8 == '') {
+                x8 = x8 || 0.00;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+            document.getElementById("e101_d5").value = x5;
+            document.getElementById("e101_d6").value = x6;
+            document.getElementById("e101_d7").value = x7;
+            document.getElementById("e101_d8").value = x8;
+
+            if (d5 == 0 && d6 == 0 && d7 == 0 && d8 == 0  ) {
+                // console.log('lain');
+
+                toastr.error(
+                    'Sila isi sekurang-kurangnya satu data',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+        });
+    });
+</script>
+<script>
+    function valid_sl() {
+
+        if ($('#e101_d3').val() == '') {
+            $('#e101_d3').css('border', '1px solid red');
+            document.getElementById('err_sl').style.display = "block";
+
+
+        } else {
+            $('#e101_d3').css('border', '');
+            document.getElementById('err_sl').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function valid_bt() {
+
+        if ($('#e101_d4').val() == '') {
+            $('#e101_d4').css('border', '1px solid red');
+            document.getElementById('err_bt').style.display = "block";
+
+
+        } else {
+            $('#e101_d4').css('border', '');
+            document.getElementById('err_bt').style.display = "none";
+
+        }
+
+    }
+</script>
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // sl
+            field = document.getElementById("e101_d3");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e101_d3').css('border', '1px solid red');
+                document.getElementById('err_sl').style.display = "block";
+                console.log('masuk');
+            }
+            // bt
+            field = document.getElementById("e101_d4");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e101_d4').css('border', '1px solid red');
+                document.getElementById('err_bt').style.display = "block";
+                console.log('masuk');
+            }
+
+
+
+            // (B4) RESULT
+            if (error == "") {
+
+                document.getElementById("checkBtn").setAttribute("type", "submit");
+                return true;
+            } else {
+                document.getElementById("checkBtn").setAttribute("type", "button");
+
+                return false;
+            }
+
+        }
+    </script>
 <script>
     function invoke_d5() {
         addEventListener('keydown', function(evt) {

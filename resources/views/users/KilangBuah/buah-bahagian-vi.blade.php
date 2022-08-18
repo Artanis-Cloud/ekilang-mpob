@@ -302,7 +302,7 @@
 @section('scripts')
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#tutup").modal('show');;
+        $("#tutup").modal('show');
         });
 
 </script>
