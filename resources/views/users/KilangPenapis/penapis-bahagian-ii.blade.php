@@ -101,7 +101,8 @@
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.add.bahagian.ii') }}" method="post" class="sub-form">
+            <form action="{{ route('penapis.add.bahagian.ii') }}" method="post" class="sub-form" novalidate
+            >
                 @csrf
                 <div class="card-body">
                     <div style="padding: 2%">
@@ -114,7 +115,9 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-
+                        <div class="mb-2 col-8" style="text-align: left">
+                            <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                        </div>
                         <div class="container center mt-4">
 
 
@@ -129,11 +132,14 @@
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                                {{ $data->prodid }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
                                     </select>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                     @error('e101_b4')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -320,7 +326,7 @@
 
 
                         <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                            <button type="submit" class="btn btn-primary">Tambah</button>
+                            <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Tambah</button>
                         </div>
 
                     </div>
@@ -667,7 +673,122 @@
         {{-- </div> --}}
     @endsection
     @section('scripts')
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
 
+            // kod produk
+            field = document.getElementById("produk");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#produk').css('border-color', 'red');
+                document.getElementById('err_produk').style.display = "block";
+                console.log('masuk');
+            }
+
+
+
+            // (B4) RESULT
+            if (error == "") {
+
+                document.getElementById("checkBtn").setAttribute("type", "submit");
+                return true;
+            } else {
+                document.getElementById("checkBtn").setAttribute("type", "button");
+
+                return false;
+            }
+
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                b5 = $('#e101_b5').val();
+                b6 = $('#e101_b6').val();
+                b7 = $('#e101_b7').val();
+                b9 = $('#e101_b9').val();
+                b10 = $('#e101_b10').val();
+                b11 = $('#e101_b11').val();
+                b12 = $('#e101_b12').val();
+                b13 = $('#e101_b13').val();
+                b14 = $('#e101_b14').val();
+                // b5 = b5 || 0;
+
+                let x5 = b5;
+                if (x5 == '') {
+                    x5 = x5 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x6 = b6;
+                if (x6 == '') {
+                    x6 = x6 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x7 = b7;
+                if (x7 == '') {
+                    x7 = x7 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x9 = b9;
+                if (x9 == '') {
+                    x9 = x9 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x10 = b10;
+                if (x10 == '') {
+                    x10 = x10 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x11 = b11;
+                if (x11 == '') {
+                    x11 = x11 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x12 = b12;
+                if (x12 == '') {
+                    x12 = x12 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x13 = b13;
+                if (x13 == '') {
+                    x13 = x13 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x14 = b14;
+                if (x14 == '') {
+                    x14 = x14 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+                document.getElementById("e101_b5").value = x5;
+                document.getElementById("e101_b6").value = x6;
+                document.getElementById("e101_b7").value = x7;
+                document.getElementById("e101_b9").value = x9;
+                document.getElementById("e101_b10").value = x10;
+                document.getElementById("e101_b11").value = x11;
+                document.getElementById("e101_b12").value = x12;
+                document.getElementById("e101_b13").value = x13;
+                document.getElementById("e101_b14").value = x14;
+
+
+                if (b5 == 0 && b6 == 0 && b7 == 0 && b9 == 0 && b10 == 0 && b11 == 0 && b12 == 0 && b13 ==
+                    0 && b14 == 0) {
+                    // console.log('lain');
+
+                    toastr.error(
+                        'Sila isi sekurang-kurangnya satu data',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+            });
+        });
+    </script>
     <script language="javascript" type="text/javascript">
         function FormatCurrency(ctrl) {
             //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys

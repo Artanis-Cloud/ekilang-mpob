@@ -769,10 +769,18 @@ class KilangPenapisController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $penyata = E101Init::where('e101_nl', auth()->user()->username)->first();
+        $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->first();
+        $cpo = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','01')->first('e101_b10');
+        $cpko = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','04')->first('e101_b10');
+        // $produk2 = $penyata->e101b->e101_b4;
+        // $json = json_encode($produk);
+        // dd($cpko);
 
+        // $cpo = E101B::where($produk->e101_b4, '01')->first();
+        // $cpko = E101B::where($produk->e101_b4, '04')->first();
+        // dd($cpo);
         if ($penyata) {
-            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun',));
+            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'cpo', 'cpko','layout', 'penyata', 'bulan', 'tahun'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -1291,7 +1299,8 @@ class KilangPenapisController extends Controller
 
     public function penapis_bahagianvi()
     {
-
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian 6"],
@@ -1317,7 +1326,7 @@ class KilangPenapisController extends Controller
         // dd($penyata);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout', 'produk', 'negara', 'penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout', 'produk', 'negara', 'penyata','tahun', 'bulan'));
     }
 
 
@@ -1391,7 +1400,37 @@ class KilangPenapisController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+    public function penapis_bahagianvii()
+    {
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian 6"],
+        ];
 
+        $kembali = route('penapis.bahagianv');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+        $produk = Produk::where('prodcat', ['01', '02', '03', '04', '06'])->orderBy('prodname')->get();
+        // dd($produk);
+
+        $negara = Negara::get();
+
+        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+
+
+        $penyata = E101E::with('e101init', 'produk', 'negara')->where('e101_reg', $user->e101_reg)->where('e101_e3', 1)->get();
+        // dd($penyata);
+
+
+        return view('users.KilangPenapis.penapis-bahagian-vii', compact('returnArr', 'layout', 'produk', 'negara', 'penyata','tahun', 'bulan'));
+    }
     public function penapis_paparpenyata()
     {
 

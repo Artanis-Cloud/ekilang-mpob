@@ -68,40 +68,41 @@
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
                 <b>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4
-                <br>
+                    <br>
 
-            BULAN :&nbsp;&nbsp;
-            @if ($bulan == 1)
-                JANUARI
-            @elseif($bulan == 2)
-                FEBRUARI
-            @elseif($bulan == 3)
-                MAC
-            @elseif($bulan == 4)
-                APRIL
-            @elseif($bulan == 5)
-                MEI
-            @elseif($bulan == 6)
-                JUN
-            @elseif($bulan == 7)
-                JULAI
-            @elseif($bulan == 8)
-                OGOS
-            @elseif($bulan == 9)
-                SEPTEMBER
-            @elseif($bulan == 10)
-                OKTOBER
-            @elseif($bulan == 11)
-                NOVEMBER
-            @elseif($bulan == 12)
-                DISEMBER
-            @endif
-            &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                    BULAN :&nbsp;&nbsp;
+                    @if ($bulan == 1)
+                        JANUARI
+                    @elseif($bulan == 2)
+                        FEBRUARI
+                    @elseif($bulan == 3)
+                        MAC
+                    @elseif($bulan == 4)
+                        APRIL
+                    @elseif($bulan == 5)
+                        MEI
+                    @elseif($bulan == 6)
+                        JUN
+                    @elseif($bulan == 7)
+                        JULAI
+                    @elseif($bulan == 8)
+                        OGOS
+                    @elseif($bulan == 9)
+                        SEPTEMBER
+                    @elseif($bulan == 10)
+                        OKTOBER
+                    @elseif($bulan == 11)
+                        NOVEMBER
+                    @elseif($bulan == 12)
+                        DISEMBER
+                    @endif
+                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                 </b>
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('penapis.update.bahagian.iii', [$penyata->e101_reg]) }}" method="post" class="sub-form">
+            <form action="{{ route('penapis.update.bahagian.iii', [$penyata->e101_reg]) }}" method="post" class="sub-form"
+                novalidate>
                 @csrf
                 <div class="card-body">
                     <div class="" style="padding: 2%">
@@ -120,16 +121,18 @@
 
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-5 form-group" style="margin: 0px">
-                                    <label for="fname"
-                                    class="control-label col-form-label">
-                                    Jumlah Hari Kilang Beroperasi Sebulan</label>
+                                    <label for="fname" class="control-label col-form-label">
+                                        Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="number" class="form-control" style="text-align:right" max="31" name='e101_a1'
-                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1()" id="e101_a1" required max="31"
-                                        onkeypress="return isNumberKey(event)"
+                                    <input type="number" class="form-control" style="text-align:right" max="31"
+                                        name='e101_a1'
+                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1();valid_a1()"
+                                        id="e101_a1" required max="31" onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
+                                    <p type="hidden" id="err_a1" style="color: red; display:none"><i>Nilai mestilah
+                                            melebihi 0!</i></p>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>Sila isi butiran ini</strong>
@@ -139,17 +142,19 @@
                             </div>
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-5 form-group" style="margin: 0px">
-                                    <label for="fname"
-                                    class="control-label col-form-label">
-                                    Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
+                                    <label for="fname" class="control-label col-form-label">
+                                        Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
                                         id="e101_a2" required onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_a2()"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_a2();valid_a2()"
                                         value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
+                                    <p type="hidden" id="err_a2" style="color: red; display:none"><i>Nilai mestilah
+                                            melebihi 0!</i></p>
+
                                     @error('e101_a2')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -160,17 +165,19 @@
 
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-5 form-group" style="margin: 0px">
-                                    <label for="fname"
-                                    class="control-label col-form-label">
-                                    Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
+                                    <label for="fname" class="control-label col-form-label">
+                                        Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a3'
                                         id="e101_a3" onkeypress="return isNumberKey(event)" required
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')"
+                                        oninput="validate_two_decimal(this);setCustomValidity('');valid_a3()"
                                         value="{{ number_format($penyata->e101_a3 ?? 0, 2) }}">
+                                    <p type="hidden" id="err_a3" style="color: red; display:none"><i>Nilai mestilah
+                                            melebihi 0!</i></p>
+
                                     @error('e101_a3')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -180,10 +187,11 @@
                             </div>
 
                             <div class="form-group" style="padding: 2%; margin-bottom: 10%">
-                                    <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
-                                        style="float: left">Sebelumnya</a>
-                                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                                        data-target="#next">Simpan & Seterusnya</button>
+                                <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
+                                    style="float: left">Sebelumnya</a>
+                                <button type="button" class="btn btn-primary "style="float: right" id="checkBtn"
+                                    onclick="check()">Simpan &
+                                    Seterusnya</button>
                             </div>
 
                             <!-- Vertically Centered modal Modal -->
@@ -222,9 +230,125 @@
                     </div>
                 </div>
             </form>
+        @endsection
+        @section('scripts')
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
+                        console.log('tiada');
+                        document.getElementById("e101_a1").removeAttribute('required');
+                        document.getElementById("e101_a2").removeAttribute('required');
+                        document.getElementById("e101_a3").removeAttribute('required');
 
-            @endsection
-            @section('scripts')
+                        // document.getElementById('meningkat_container').style.display = "block";
+                        // document.getElementById('lain_container').style.display = "block";
+                    @else
+                        console.log('ada');
+                        document.getElementById("e101_a1").setAttribute('required', '');
+                        document.getElementById("e101_a2").setAttribute('required', '');
+                        document.getElementById("e101_a3").setAttribute('required', '');
+                        // $("#tutup").modal('show');
+                    @endif
+                });
+            </script>
+            <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
+                    @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
+                    @else
+                        // kod produk
+                        field = document.getElementById("e101_a1");
+                        if (!field.checkValidity() || field.value == '0') {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#e101_a1').css('border-color', 'red');
+                            document.getElementById('err_a1').style.display = "block";
+                            console.log('masuk');
+                        }
+                        field = document.getElementById("e101_a2");
+                        if (!field.checkValidity() || field.value == '0.00') {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#e101_a2').css('border-color', 'red');
+                            document.getElementById('err_a2').style.display = "block";
+                            console.log('masuk');
+                        }
+                        field = document.getElementById("e101_a3");
+                        if (!field.checkValidity() || field.value == '0.00') {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#e101_a3').css('border-color', 'red');
+                            document.getElementById('err_a3').style.display = "block";
+                            console.log('masuk');
+                        }
+                        @endif
+
+
+
+                        // (B4) RESULT
+                        if (error == "") {
+
+                            $('#next').modal('show');
+                            return true;
+                        } else {
+                            $('#next').modal('hide');
+
+                            return false;
+                        }
+
+                    }
+            </script>
+            <script>
+                function valid_a1() {
+                    @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
+                    @else
+
+                        if ($('#e101_a1').val() == '' || $('#e101_a1').val() == '0') {
+                            $('#e101_a1').css('border-color', 'red');
+                            document.getElementById('err_a1').style.display = "block";
+
+
+                        } else {
+                            $('#e101_a1').css('border-color', '');
+                            document.getElementById('err_a1').style.display = "none";
+
+                        }
+                    @endif
+                }
+            </script>
+            <script>
+                function valid_a2() {
+                    @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
+                    @else
+                        if ($('#e101_a2').val() == '' || $('#e101_a2').val() == '0') {
+                            $('#e101_a2').css('border-color', 'red');
+                            document.getElementById('err_a2').style.display = "block";
+
+
+                        } else {
+                            $('#e101_a2').css('border-color', '');
+                            document.getElementById('err_a2').style.display = "none";
+
+                        }
+                    @endif
+                }
+            </script>
+            <script>
+                function valid_a3() {
+                    @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
+                    @else
+                        if ($('#e101_a3').val() == '' || $('#e101_a3').val() == '0') {
+                            $('#e101_a3').css('border-color', 'red');
+                            document.getElementById('err_a3').style.display = "block";
+
+
+                        } else {
+                            $('#e101_a3').css('border-color', '');
+                            document.getElementById('err_a3').style.display = "none";
+
+                        }
+                    @endif
+                }
+            </script>
             <script>
                 function invoke_a1() {
                     addEventListener('keydown', function(evt) {
@@ -260,7 +384,7 @@
                 function nodecimal(data) {
                     // let decimal = ".00"
                     var x = parseFloat(data.value);
-                    if(isNaN(x)){
+                    if (isNaN(x)) {
                         x = 0;
                     }
                     const removedDecimal = Math.round(x);
@@ -291,7 +415,7 @@
                 }
             </script>
             <script>
-                document.addEventListener('keypress', function (e) {
+                document.addEventListener('keypress', function(e) {
                     if (e.keyCode === 13 || e.which === 13) {
                         e.preventDefault();
                         return false;
@@ -299,51 +423,49 @@
 
                 });
             </script>
-                <script language="javascript" type="text/javascript">
-                    function FormatCurrency(ctrl) {
-                        //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
-                        if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
-                            return;
-                        }
-
-                        var val = ctrl.value;
-
-                        val = val.replace(/,/g, "")
-                        ctrl.value = "";
-                        val += '';
-                        x = val.split('.');
-                        x1 = x[0];
-                        x2 = x.length > 1 ? '.' + x[1] : '';
-
-                        var rgx = /(\d+)(\d{3})/;
-
-                        while (rgx.test(x1)) {
-                            x1 = x1.replace(rgx, '$1' + ',' + '$2');
-                        }
-
-                        ctrl.value = x1 + x2;
+            <script language="javascript" type="text/javascript">
+                function FormatCurrency(ctrl) {
+                    //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                    if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                        return;
                     }
-                </script>
-                <script>
-                    $('.sub-form').submit(function() {
 
-                        //add form
-                        var x = $('#e101_a2').val();
-                        x = x.replace(/,/g, '');
-                        x = parseFloat(x, 10);
-                        $('#e101_a2').val(x);
+                    var val = ctrl.value;
 
-                        var x = $('#e101_a3').val();
-                        x = x.replace(/,/g, '');
-                        x = parseFloat(x, 10);
-                        $('#e101_a3').val(x);
+                    val = val.replace(/,/g, "")
+                    ctrl.value = "";
+                    val += '';
+                    x = val.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+
+                    ctrl.value = x1 + x2;
+                }
+            </script>
+            <script>
+                $('.sub-form').submit(function() {
+
+                    //add form
+                    var x = $('#e101_a2').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e101_a2').val(x);
+
+                    var x = $('#e101_a3').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#e101_a3').val(x);
 
 
 
-                        return true;
+                    return true;
 
-                    });
-
-                </script>
-
+                });
+            </script>
         @endsection

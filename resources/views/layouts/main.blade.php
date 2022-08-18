@@ -541,6 +541,18 @@
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('buah.kod.produk') }}" class="sidebar-link">
+                                    <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('buah.kod.negara') }}" class="sidebar-link">
+                                    <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                </a>
+                            </li>
 
                         </ul>
                     </nav>
@@ -592,7 +604,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('penapis.bahagiani') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian 1 </span>
+                                                <span class="hidapise-menu"> Bahagian 1 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
@@ -626,14 +638,14 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('penapis.bahagianvi') }}" class="btn sidebar-link">
 
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 6 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item ">
-                                            <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('penapis.bahagianvii') }}"class="btn sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "> </i>
                                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                                 <span class="hide-menu">Bahagian 7</span>
@@ -662,6 +674,18 @@
                                 <a href="{{ route('penapis.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('penapis.kod.produk') }}" class="sidebar-link">
+                                    <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('penapis.kod.negara') }}" class="sidebar-link">
+                                    <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
                         </ul>
@@ -765,6 +789,18 @@
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
                                                 <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('isirung.kod.produk') }}" class="sidebar-link">
+                                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('isirung.kod.negara') }}" class="sidebar-link">
+                                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                             </a>
                                         </li>
 
@@ -886,6 +922,18 @@
                                                 </span>
                                             </a>
                                         </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('oleo.kod.produk') }}" class="sidebar-link">
+                                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('oleo.kod.negara') }}" class="sidebar-link">
+                                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                             @else
@@ -989,6 +1037,18 @@
                                 <a href="{{ route('pusatsimpan.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('pusatsimpan.kod.produk') }}" class="sidebar-link">
+                                    <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('pusatsimpan.kod.negara') }}" class="sidebar-link">
+                                    <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
                         </ul>

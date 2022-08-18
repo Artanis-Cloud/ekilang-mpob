@@ -112,6 +112,9 @@
                             </h5>
                         </div>
                         <hr>
+                        <div class="mb-2 col-8" style="text-align: left">
+                            <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                        </div>
 
                         <div class="container center mt-4">
 
@@ -120,17 +123,19 @@
                                     <span class="">Nama Produk dan Kod </span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="e101_b4" name="e101_b4" required
-                                        oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                        <option selected hidden disabled value="">Sila Pilih</option>
-                                        @foreach ($produk as $data)
-                                            <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
-                                            </option>
-                                        @endforeach
+                                    <div id="border_e101_b4">
+                                        <select class="form-control select2" id="e101_b4" name="e101_b4" required
+                                            oninput="setCustomValidity(''); valid_produk()"
+                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                            <option selected hidden disabled value="">Sila Pilih</option>
+                                            @foreach ($produk as $data)
+                                                <option value="{{ $data->prodid }}">
+                                                    {{ $data->prodid }} - {{ $data->proddesc }}
+                                                </option>
+                                            @endforeach
 
-                                    </select>
+                                        </select>
+                                    </div>
                                     <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
                                             di
                                             bahagian ini!</i></p>
@@ -675,6 +680,22 @@
     {{-- </div> --}}
 @endsection
 @section('scripts')
+<script>
+    function valid_produk() {
+
+        if ($('#e101_b4').val() == '') {
+            $('#border_e101_b4').css('border', '1px solid red');
+            document.getElementById('err_produk').style.display = "block";
+
+
+        } else {
+            $('#border_e101_b4').css('border', '');
+            document.getElementById('err_produk').style.display = "none";
+
+        }
+
+    }
+</script>
     <script>
         function check() {
             // (B1) INIT
@@ -685,36 +706,24 @@
             field = document.getElementById("e101_b4");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
-                $('#e101_b4').css('border-color', 'red');
+                $('#border_e101_b4').css('border', '1px solid red');
                 document.getElementById('err_produk').style.display = "block";
-
+                console.log('masuk');
             }
 
 
 
-            // // (B4) RESULT
-            // if (error == "") {
-            //     $('#next').modal('show');
-            //     return true;
-            // } else {
-            //     toastr.error(
-            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-            //         'Ralat!', {
-            //             "progressBar": true
-            //         })
-            //     return false;
-            // }
+            // (B4) RESULT
+            if (error == "") {
 
-            // if (error == "") {
-            // return true;
-            // } else {
-            // toastr.error(
-            // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-            // 'Ralat!', {
-            // "progressBar": true
-            // })
-            // return false;
-            // }
+                document.getElementById("checkBtn").setAttribute("type", "submit");
+                return true;
+            } else {
+                document.getElementById("checkBtn").setAttribute("type", "button");
+
+                return false;
+            }
+
         }
     </script>
     <script type="text/javascript">

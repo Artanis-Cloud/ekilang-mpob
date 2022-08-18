@@ -101,7 +101,7 @@
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%; padding: 2%">
-            <form action="{{ route('penapis.add.bahagian.iva') }}" method="post" class="sub-form">
+            <form action="{{ route('penapis.add.bahagian.iva') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body">
                     <div class="">
@@ -112,6 +112,9 @@
                                 - Bahan Makanan</h5>
                         </div>
                         <hr>
+                        <div class="mb-2 col-8" style="text-align: left">
+                            <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                        </div>
                         <div class="container col-10 ml-auto mr-auto center mt-4">
 
                             <div class="row">
@@ -119,17 +122,22 @@
                                     <span class="">Nama Produk</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
+                                    <div id="border_produk">
+
                                     <select class="form-control select2" id="produk" name="e101_c4" required
-                                        oninput="setCustomValidity('')"
+                                        oninput="setCustomValidity('');valid_produk()"
                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                                {{ $data->prodid }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
                                     </select>
+                                    </div>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                        di bahagian ini!</i></p>
                                     {{-- @error('e101_c4')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -253,7 +261,7 @@
 
                     </div>
                     <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary" onclick="check()" id="checkBtn">Tambah</button>
                     </div>
 
 
@@ -549,6 +557,116 @@
                 class="bi bi-arrow-up-short"></i></a>
     @endsection
     @section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                c5 = $('#e101_c5').val();
+                c6 = $('#e101_c6').val();
+                c7 = $('#e101_c7').val();
+                c8 = $('#e101_c8').val();
+                c9 = $('#e101_c9').val();
+                c10 = $('#e101_c10').val();
+                // b5 = b5 || 0;
+
+                let x5 = c5;
+                if (x5 == '') {
+                    x5 = x5 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x6 = c6;
+                if (x6 == '') {
+                    x6 = x6 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x7 = c7;
+                if (x7 == '') {
+                    x7 = x7 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x8 = c8;
+                if (x8 == '') {
+                    x8 = x8 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x9 = c9;
+                if (x9 == '') {
+                    x9 = x9 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x10 = c10;
+                if (x10 == '') {
+                    x10 = x10 || 0.00;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+
+                document.getElementById("e101_c5").value = x5;
+                document.getElementById("e101_c6").value = x6;
+                document.getElementById("e101_c7").value = x7;
+                document.getElementById("e101_c8").value = x8;
+                document.getElementById("e101_c9").value = x9;
+                document.getElementById("e101_c10").value = x10;
+
+                if (c5 == 0 && c6 == 0 && c7 == 0 && c8 == 0 && c9 == 0 && c10 == 0 ) {
+                    // console.log('lain');
+
+                    toastr.error(
+                        'Sila isi sekurang-kurangnya satu data',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+            });
+        });
+    </script>
+    <script>
+        function valid_produk() {
+
+            if ($('#produk').val() == '') {
+                $('#border_produk').css('border', '1px solid red');
+                document.getElementById('err_produk').style.display = "block";
+
+
+            } else {
+                $('#border_produk').css('border', '');
+                document.getElementById('err_produk').style.display = "none";
+
+            }
+
+        }
+    </script>
+        <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // kod produk
+                field = document.getElementById("produk");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#border_produk').css('border', '1px solid red');
+                    document.getElementById('err_produk').style.display = "block";
+                    console.log('masuk');
+                }
+
+
+
+                // (B4) RESULT
+                if (error == "") {
+
+                    document.getElementById("checkBtn").setAttribute("type", "submit");
+                    return true;
+                } else {
+                    document.getElementById("checkBtn").setAttribute("type", "button");
+
+                    return false;
+                }
+
+            }
+        </script>
         <script>
             function invoke_c5() {
                 addEventListener('keydown', function(evt) {
