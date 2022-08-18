@@ -648,13 +648,14 @@ class KilangBuahController extends Controller
         $penyata->save();
 
 
-        return redirect()->route('buah.paparpenyata')
+        return redirect()->route('buah.bahagianvi')
             ->with('success', 'Maklumat telah disimpan');
     }
 
     public function buah_bahagianvi()
     {
-
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -671,7 +672,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout','bulan', 'tahun'));
     }
 
     public function buah_paparpenyata()

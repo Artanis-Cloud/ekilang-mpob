@@ -501,7 +501,7 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('buah.bahagianvi') }}"class="btn sidebar-link">
 
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 6 </span>
@@ -1485,7 +1485,7 @@
                 </div>
                 <div class="modal-body">
                     <p>
-                        Pemegang lesen tidak perlu melengkapkan maklumat di bahagian ini.
+                        Pemegang lesen tidak perlu melengkapkan maklumat di bahagian ini. Sila tekan butang 'Simpan & Seterusnya' untuk ke bahagian seterusnya.
                     </p>
                 </div>
                 <div class="modal-footer">

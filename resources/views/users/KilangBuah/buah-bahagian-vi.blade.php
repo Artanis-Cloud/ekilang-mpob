@@ -1,500 +1,310 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
-
-            <div class="mt-5 mb-4 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="col-7 align-self-center">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" style="margin-right:2%; margin-left:2%">
-                        {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
-
-                        <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
-
-                                    <div class="mb-5 text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 6</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Eksport Produk Sawit
-                                        </h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
-                                    </div>
-                                    <hr>
-
-                                    <div class="container center mt-5">
-                                        <div class="row" style="margin-bottom:2%;">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Produk</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Produk</option>
-                                                        <option value="15">BPL - 15
-                                                        </option>
-                                                        <option value="13">BPO - 13
-                                                        </option>
-                                                        <option value="14">BPS - 14
-                                                        </option>
-                                                        <option value="47">CO - 47
-                                                        </option>
-                                                        <option value="03">CPL - 03
-                                                        </option>
-                                                        <option value="01">CPO - 01
-                                                        </option>
-                                                        <option value="02">CPS - 02
-                                                        </option>
-                                                        <option value="V7">DFPL - V7
-                                                        </option>
-                                                        <option value="Z9">DFRBDPL - Z9
-                                                        </option>
-                                                        <option value="CZ">DFRDBPS - CZ
-                                                        </option>
-                                                        <option value="85">DPL - 85
-                                                        </option>
-                                                        <option value="84">DPO - 84
-                                                        </option>
-                                                        <option value="DS">DPST - DS
-                                                        </option>
-                                                        <option value="JH">DR RBDPL - JH
-                                                        </option>
-                                                        <option value="F6">DRBDPO - F6
-                                                        </option>
-                                                        <option value="D7">HCBST - D7
-                                                        </option>
-                                                        <option value="H0">HDFPL - H0
-                                                        </option>
-                                                        <option value="B3">HFFAPO - B3
-                                                        </option>
-                                                        <option value="Y7">HNPL - Y7
-                                                        </option>
-                                                        <option value="87">HPFAD - 87
-                                                        </option>
-                                                        <option value="C3">HPL - C3
-                                                        </option>
-                                                        <option value="Y9">HPMF - Y9
-                                                        </option>
-                                                        <option value="55">HPO - 55
-                                                        </option>
-                                                        <option value="H7">HPPS - H7
-                                                        </option>
-                                                        <option value="B9">HPS - B9
-                                                        </option>
-                                                        <option value="W1">HRBDDFL - W1
-                                                        </option>
-                                                        <option value="A3">HRBDPL - A3
-                                                        </option>
-                                                        <option value="H2">HRBDPO - H2
-                                                        </option>
-                                                        <option value="B6">HRBDSF - B6
-                                                        </option>
-                                                        <option value="B8">HRBDST - B8
-                                                        </option>
-                                                        <option value="Z3">IMPF - Z3
-                                                        </option>
-                                                        <option value="Z2">IMVO - Z2
-                                                        </option>
-                                                        <option value="X8">INTER PL - X8
-                                                        </option>
-                                                        <option value="Z6">INTER PO - Z6
-                                                        </option>
-                                                        <option value="DK">INTERPST - DK
-                                                        </option>
-                                                        <option value="Z4">JGQ RBDPO - Z4
-                                                        </option>
-                                                        <option value="KB">MVORBDPLMB - KB
-                                                        </option>
-                                                        <option value="GV">MVO_PMF - GV
-                                                        </option>
-                                                        <option value="Y0">MVO_RBDPL - Y0
-                                                        </option>
-                                                        <option value="X9">MVO_RBDPO - X9
-                                                        </option>
-                                                        <option value="BO">MVO_RBDPS - BO
-                                                        </option>
-                                                        <option value="GA">NBDDFPL - GA
-                                                        </option>
-                                                        <option value="Y6">NBDHPL - Y6
-                                                        </option>
-                                                        <option value="W3">NBDHPO - W3
-                                                        </option>
-                                                        <option value="W5">NBDHPS - W5
-                                                        </option>
-                                                        <option value="28">NBDPL - 28
-                                                        </option>
-                                                        <option value="JW">NBDPLRS - JW
-                                                        </option>
-                                                        <option value="HM">NBDPMF - HM
-                                                        </option>
-                                                        <option value="24">NBDPO3 - 24
-                                                        </option>
-                                                        <option value="22">NBDPO6 - 22
-                                                        </option>
-                                                        <option value="26">NBDPS - 26
-                                                        </option>
-                                                        <option value="W7">NBHPL - W7
-                                                        </option>
-                                                        <option value="Y8">NBHPL - Y8
-                                                        </option>
-                                                        <option value="W6">NBHPO - W6
-                                                        </option>
-                                                        <option value="W8">NBHPS - W8
-                                                        </option>
-                                                        <option value="H6">NBIF - H6
-                                                        </option>
-                                                        <option value="K0">NBIOL - K0
-                                                        </option>
-                                                        <option value="L0">NBIS - L0
-                                                        </option>
-                                                        <option value="20">NBPL - 20
-                                                        </option>
-                                                        <option value="16">NBPO - 16
-                                                        </option>
-                                                        <option value="18">NBPS - 18
-                                                        </option>
-                                                        <option value="G9">NO - G9
-                                                        </option>
-                                                        <option value="11">NPL - 11
-                                                        </option>
-                                                        <option value="07">NPO - 07
-                                                        </option>
-                                                        <option value="09">NPS - 09
-                                                        </option>
-                                                        <option value="34">PAO - 34
-                                                        </option>
-                                                        <option value="35">PFAD - 35
-                                                        </option>
-                                                        <option value="DF">PFAME - DF
-                                                        </option>
-                                                        <option value="33">PKC - 33
-                                                        </option>
-                                                        <option value="B1">PKE - B1
-                                                        </option>
-                                                        <option value="B2">PKP - B2
-                                                        </option>
-                                                        <option value="45">PMF - 45
-                                                        </option>
-                                                        <option value="DI">PRLFAT - DI
-                                                        </option>
-                                                        <option value="AD">RBD SL - AD
-                                                        </option>
-                                                        <option value="D0">RBDBO - D0
-                                                        </option>
-                                                        <option value="V9">RBDHPL - V9
-                                                        </option>
-                                                        <option value="W2">RBDHPMF - W2
-                                                        </option>
-                                                        <option value="B0">RBDHPMF - B0
-                                                        </option>
-                                                        <option value="V8">RBDHPO - V8
-                                                        </option>
-                                                        <option value="W0">RBDHPS - W0
-                                                        </option>
-                                                        <option value="29">RBDPL - 29
-                                                        </option>
-                                                        <option value="25">RBDPO3 - 25
-                                                        </option>
-                                                        <option value="23">RBDPO6 - 23
-                                                        </option>
-                                                        <option value="27">RBDPS - 27
-                                                        </option>
-                                                        <option value="AL">RBDPSH - AL
-                                                        </option>
-                                                        <option value="21">RBPL - 21
-                                                        </option>
-                                                        <option value="17">RBPO - 17
-                                                        </option>
-                                                        <option value="19">RBPS - 19
-                                                        </option>
-                                                        <option value="Z5">RED PSL - Z5
-                                                        </option>
-                                                        <option value="DJ">REDPO - DJ
-                                                        </option>
-                                                        <option value="T1">RHPS - T1
-                                                        </option>
-                                                        <option value="12">RPL - 12
-                                                        </option>
-                                                        <option value="08">RPO - 08
-                                                        </option>
-                                                        <option value="10">RPS - 10
-                                                        </option>
-                                                        <option value="G6">SBO - G6
-                                                        </option>
-                                                        <option value="H1">SL - H1
-                                                        </option>
-                                                        <option value="EO">TFPS - EO
-                                                        </option>
-                                                        <option value="61">US - 61
-                                                        </option>
-                                                        <option value="AK">VCO - AK
-                                                        </option>
-                                                        <option value="AN">VO - AN
-                                                        </option>
-                                                        <option value="AM">VPL - AM
-                                                        </option>
-                                                        <option value="DR">VPO - DR
-                                                        </option>
-                                                        <option value="51"> Palm Kernel-51 </option>
-                                                    </select>
-                                                </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nombor Borang Kastam 2</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam'
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Tarikh Eksport (dd-mm-yyyy)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="datepicker" class="form-control"
-                                                    name='tarikh_eksport' id="tarikh_ekport" required
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kuantiti (Tan Metrik)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti"
-                                                    onkeypress="return isNumberKey(event)" required
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nilai (RM)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nilai' id="nilai"
-                                                    onkeypress="return isNumberKey(event)" required
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Destinasi Negara</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row form-group" style="padding-top: 10px; ">
-
-
-
-                                        <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Simpan</button>
-                                        </div>
-
-                                    </div>
-
-
-                                    <br>
-                                    <br>
-                                    <hr>
-                                    <br>
-                                    <br>
-
-                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Eksport Produk Sawit</h5>
-                                    <br>
-                                    <br>
-
-
-
-                                    <section class="section">
-                                        <div class="card">
-                                            {{-- <div class="card-header">
-                                                Simple Datatable
-                                            </div> --}}
-
-                                                <table class='table table-striped' id="table1">
-                                                    <thead>
-                                                        <tr style="text-align: center">
-                                                            <th>Nama Produk</th>
-                                                            <th>Nombor Borang Kastam 2</th>
-                                                            <th>Tarikh Eksport</th>
-                                                            <th>Kuantiti <br>(Tan Metrik)</th>
-                                                            <th>Nilai (RM)</th>
-                                                            <th>Destinasi Negara</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>KKK</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                        </div>
-                                    </section>
-
-
-                                </div>
-
-
-                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                    <div class="text-left col-md-5">
-                                        <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
-                                            style="float: left">Sebelumnya</a>
-                                    </div>
-                                    <div class="text-right col-md-7 mb-4 ">
-                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                            Seterusnya</button>
-                                    </div>
-
-                                </div>
-
-                                <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                    PENGESAHAN</h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu menyimpan maklumat ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                </button>
-                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            </form>
-
-                        </div>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    {{-- <h4 class="page-title">Kemasukan Penyata Bulanan
+                        @if ($bulan == 1)
+                            JANUARI
+                        @elseif($bulan == 2)
+                            FEBRUARI
+                        @elseif($bulan == 3)
+                            MAC
+                        @elseif($bulan == 4)
+                            APRIL
+                        @elseif($bulan == 5)
+                            MEI
+                        @elseif($bulan == 6)
+                            JUN
+                        @elseif($bulan == 7)
+                            JULAI
+                        @elseif($bulan == 8)
+                            OGOS
+                        @elseif($bulan == 9)
+                            SEPTEMBER
+                        @elseif($bulan == 10)
+                            OKTOBER
+                        @elseif($bulan == 11)
+                            NOVEMBER
+                        @elseif($bulan == 12)
+                            DISEMBER
+                        @endif {{ $tahun }}
+                    </h4> --}}
+                </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                    @if (!$loop->last)
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                onMouseOver="this.style.color='#25877b'"
+                                                onMouseOut="this.style.color='grey'">
+                                                {{ $breadcrumb['name'] }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item active" aria-current="page"
+                                            style="color: #25877b  !important;">
+                                            {{ $breadcrumb['name'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ol>
+                        </nav>
                     </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
 
-    </section><!-- End Hero -->
+            </div>
+            <p style="text-align: center; vertical-align:middle; font-size: 20px">
+
+                <b>KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
+
+            BULAN :&nbsp;&nbsp;
+            @if ($bulan == 1)
+                JANUARI
+            @elseif($bulan == 2)
+                FEBRUARI
+            @elseif($bulan == 3)
+                MAC
+            @elseif($bulan == 4)
+                APRIL
+            @elseif($bulan == 5)
+                MEI
+            @elseif($bulan == 6)
+                JUN
+            @elseif($bulan == 7)
+                JULAI
+            @elseif($bulan == 8)
+                OGOS
+            @elseif($bulan == 9)
+                SEPTEMBER
+            @elseif($bulan == 10)
+                OKTOBER
+            @elseif($bulan == 11)
+                NOVEMBER
+            @elseif($bulan == 12)
+                DISEMBER
+            @endif
+            &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                </b>
+            </p>
+        </div>
+        <div class="card" style="margin-right:2%; margin-left:2%">
+            {{-- <form action="{{ route('penapis.add.bahagian.i') }}" method="post" class="sub-form">
+                @csrf --}}
+                <div class="card-body">
+                    <div class="" style="padding: 2%">
+                        <div class="mb-4 text-center">
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 6</h3>
+                            <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
+                            </h5>
+                        </div>
+                        <hr>
+
+                        <div class="container center mt-4">
+
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Nama Produk dan Kod </span>
+                                </div>
+                                <div class="col-md-7 mt-3">
+                                    <select class="form-control select2" id="produk" name="e101_b4" disabled
+                                        oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                        {{-- @foreach ($produk as $data) --}}
+                                            {{-- <option value="{{ $data->prodid }}">
+                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                            </option> --}}
+                                        {{-- @endforeach --}}
+
+                                    </select>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan di
+                                        bahagian ini!</i></p>
+                                    {{-- @error('e101_b4')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror --}}
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Nombor Borang Kastam 2</span>
+                                </div>
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e101_b5' style="width: 100%"
+                                        id="e101_b5" oninvalid="setCustomValidity('Sila isi butiran ini')" readonly
+                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
+                                        title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b5()">
+
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Tarikh Eksport (dd-mm-yyyy)</span>
+                                </div>
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e101_b6' style="width: 100%"
+                                        id="e101_b6" oninvalid="setCustomValidity('Sila isi butiran ini')" readonly
+                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
+                                        title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b6()">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
+                                    <span class=""> Kuantiti (Tan Metrik)</span>
+
+                                </div>
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e101_b7' style="width: 100%"
+                                        id="e101_b7" oninvalid="setCustomValidity('Sila isi butiran ini')" readonly
+                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
+                                        title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b7()">
+
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span>Nilai (RM)</span>
+                                </div>
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e101_b8' style="width: 100%"
+                                        id="e101_b8" title="Sila isikan butiran ini." readonly>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Destinasi Negara</span>
+                                </div>
+                                <div class="col-md-2 mt-3">
+                                    <input type="text" class="form-control" name='e101_b9' style="width: 100%"
+                                        id="e101_b9" oninvalid="setCustomValidity('Sila isi butiran ini')" readonly
+                                        onchange="autodecimal(this); FormatCurrency(this)" onkeypress="return isNumberKey(event)"
+                                        title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invoke_b9()">
+                                    @error('e101_b9')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+
+                            </div>
 
 
 
-    @endsection
+
+                        </div>
+
+
+                        <div class="row justify-content-center form-group" style="margin: 2%">
+                            <button type="submit" class="btn btn-primary" id="checkBtn" disabled>Tambah</button>
+                        </div>
+                        <input type="hidden" name="hidDelete" id="hidDelete" value="" />
+
+            </form>
+
+            <hr>
+            <br>
+            <br>
+            <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-3%; margin-bottom:3%">Senarai Eksport Produk
+                Sawit</h5>
+
+            <section class="section">
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
+                            <thead style="text-align: center">
+                                <tr>
+                                    <th>Nama Produk</th>
+                                    <th>Kod Produk</th>
+                                    <th>Nombor Borang Kastam 2</th>
+                                    <th>Tarikh Eksport (dd-mm-yyyy)</th>
+                                    <th>Kuantiti (Tan Metrik)</th>
+                                    <th>Nilai (RM)</th>
+                                    <th>Destinasi Negara</th>
+                                    <th>Kemaskini</th>
+                                    <th>Hapus</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td colspan="9" style="text-align: center">Tiada Rekod</td>
+
+
+
+
+                                <tr>
+
+                                    <td colspan="2"><b>JUMLAH</b></td>
+                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                    <td style="text-align: center"><b>-</b></td>
+                                    <td style="text-align: center"><b>-</b></td>
+                                    <td style="text-align: center"><b>-</b></td>
+                                    <td style="text-align: center"><b>-</b></td>
+                                    <td style="text-align: center"><b>-</b></td>
+
+
+
+                                    <td colspan="2"></td>
+                                    {{-- <td></td> --}}
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <div class=" row form-group" style="padding-top: 10px; ">
+
+
+                    <div class="text-left col-md-5">
+                        {{-- <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a> --}}
+                    </div>
+                    <div class="text-right col-md-7">
+                        <a href="{{ route('buah.paparpenyata') }}" type="button" class="btn btn-primary "  style="float: right"
+                            >Simpan &
+                            Seterusnya</a>
+                    </div>
+
+                </div>
+
+                <!-- Vertically Centered modal Modal -->
+
+        </div>
+    </div>
+    {{-- </form> --}}
+
+    {{-- </div> --}}
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#tutup").modal('show');;
+        });
+
+</script>
+@endsection
 
