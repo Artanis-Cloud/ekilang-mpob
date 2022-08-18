@@ -975,6 +975,8 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_bahagianiv()
     {
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
@@ -1013,7 +1015,56 @@ class KilangOleokimiaController extends Controller
             'negara',
             'penyata',
             'total',
-            'total2'
+            'total2',
+            'bulan',
+            'tahun'
+        ));
+    }
+    public function oleo_bahagianv()
+    {
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
+        $breadcrumbs    = [
+            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('oleo.bahagianiv'), 'name' => "Bahagian 4"],
+        ];
+
+        $kembali = route('oleo.bahagianiii');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.koleo';
+
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
+        // dd($produk);
+
+        $negara = Negara::get();
+
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+
+
+        $penyata = E104D::with('e104init', 'produk', 'negara')->where('e104_reg', $user->e104_reg)->where('e104_d3', 1)->get();
+
+        $total = DB::table("e104_d")->where('e104_reg', $user->e104_reg)->where('e104_d3', '1')->sum('e104_d7');
+
+        $total2 = DB::table("e104_d")->where('e104_reg', $user->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
+
+        // dd($penyata);
+
+
+        return view('users.KilangOleokimia.oleo-bahagian-v', compact(
+            'returnArr',
+            'layout',
+            'produk',
+            'negara',
+            'penyata',
+            'total',
+            'total2',
+            'bulan',
+            'tahun'
         ));
     }
 
