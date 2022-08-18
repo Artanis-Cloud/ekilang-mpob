@@ -1146,7 +1146,9 @@ class KilangBiodieselController extends Controller
 
     public function bio_bahagianiv()
     {
+        $bulan = date("m") - 1;
 
+        $tahun = date("Y");
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('bio.bahagianiv'), 'name' => "Bahagian 4"],
@@ -1166,6 +1168,31 @@ class KilangBiodieselController extends Controller
 
 
         return view('users.KilangBiodiesel.bio-bahagian-iv', compact('returnArr', 'layout', 'bulan', 'tahun',));
+    }
+    public function bio_bahagianv()
+    {
+        $bulan = date("m") - 1;
+
+        $tahun = date("Y");
+        $breadcrumbs    = [
+            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('bio.bahagianiv'), 'name' => "Bahagian 4"],
+        ];
+
+        $kembali = route('bio.bahagianiii');
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbio';
+
+
+
+        return view('users.KilangBiodiesel.bio-bahagian-v', compact('returnArr', 'layout', 'bulan', 'tahun',));
     }
 
 

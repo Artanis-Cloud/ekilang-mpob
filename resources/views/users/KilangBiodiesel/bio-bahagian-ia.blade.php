@@ -105,7 +105,7 @@
             <div class="card-body">
 
                 {{-- @if (!$penyata) --}}
-                <form action="{{ route('bio.add.bahagian.ia') }}" class="sub-form" method="post" style="margin: auto;">
+                <form action="{{ route('bio.add.bahagian.ia') }}" class="sub-form" method="post" style="margin: auto;" novalidate>
                     @csrf
                     <div class="mb-4 text-center">
                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -123,9 +123,11 @@
                                 <span class="">Nama Produk dan Kod</span>
                             </div>
                             <div class="col-md-7 mt-3">
-                                <select class="form-control select2" id="ebio_b4" name="ebio_b4" required
+                                <div id="border_produk">
+
+                                <select class="form-control select2" id="produk" name="ebio_b4" required
                                     oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                    oninput="this.setCustomValidity('')">
+                                    oninput="this.setCustomValidity(''); valid_produk()">
                                     <option selected hidden disabled value="">Sila Pilih</option>
                                     @foreach ($produk as $data)
                                         <option value="{{ $data->prodid }}">
@@ -133,6 +135,10 @@
                                         </option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                di
+                                bahagian ini!</i></p>
                             </div>
                         </div>
 
@@ -267,7 +273,7 @@
 
 
                     <div class="row form-group justify-content-center" style="margin: 3%">
-                        <button type="submit" class="btn btn-primary " id="checkBtn">Tambah</button>
+                        <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Tambah</button>
                     </div>
 
                 </form>
@@ -292,17 +298,17 @@
                                 <table class="table table-bordered mb-0" style="font-size: 13px">
                                     <thead style="text-align: center">
                                         <tr>
-                                            <th>Nama Produk</th>
-                                            <th>Kod Produk</th>
-                                            <th>Stok Awal Di Premis</th>
-                                            <th>Belian / Terimaan</th>
-                                            <th>Pengeluaran</th>
-                                            <th>Digunakan Untuk Proses Selanjutnya</th>
-                                            <th>Jualan / Edaran Tempatan</th>
-                                            <th>Eksport</th>
-                                            <th>Stok Akhir Dilapor</th>
-                                            <th>Kemaskini</th>
-                                            <th>Hapus?</th>
+                                            <th style="vertical-align: middle">Nama Produk</th>
+                                            <th style="vertical-align: middle">Kod Produk</th>
+                                            <th style="vertical-align: middle">Stok Awal Di Premis</th>
+                                            <th style="vertical-align: middle">Belian / Terimaan</th>
+                                            <th style="vertical-align: middle">Pengeluaran</th>
+                                            <th style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th style="vertical-align: middle">Jualan / Edaran Tempatan</th>
+                                            <th style="vertical-align: middle">Eksport</th>
+                                            <th style="vertical-align: middle">Stok Akhir Dilapor</th>
+                                            <th style="vertical-align: middle">Kemaskini</th>
+                                            <th style="vertical-align: middle">Hapus?</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -592,6 +598,52 @@
             </div>
         @endsection
         @section('scripts')
+        <script>
+            function valid_produk() {
+
+                if ($('#produk').val() == '') {
+                    $('#border_produk').css('border', '1px solid red');
+                    document.getElementById('err_produk').style.display = "block";
+
+
+                } else {
+                    $('#border_produk').css('border', '');
+                    document.getElementById('err_produk').style.display = "none";
+
+                }
+
+            }
+        </script>
+            <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
+
+                    // kod produk
+                    field = document.getElementById("produk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#border_produk').css('border', '1px solid red');
+                        document.getElementById('err_produk').style.display = "block";
+                        console.log('masuk');
+                    }
+
+
+
+                    // (B4) RESULT
+                    if (error == "") {
+
+                        document.getElementById("checkBtn").setAttribute("type", "submit");
+                        return true;
+                    } else {
+                        document.getElementById("checkBtn").setAttribute("type", "button");
+
+                        return false;
+                    }
+
+                }
+            </script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#checkBtn').click(function() {

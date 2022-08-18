@@ -1134,19 +1134,18 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
-                                                data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('bio.bahagianiv') }}"  class="btn sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 4 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
-                                                data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('bio.bahagianv') }}"  class="btn sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 5 </span>
                                             </a>
                                         </li>
+
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
