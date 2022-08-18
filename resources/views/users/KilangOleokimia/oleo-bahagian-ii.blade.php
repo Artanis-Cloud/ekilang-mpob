@@ -99,7 +99,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <form action="{{ route('oleo.update.bahagian.ii', [$penyata->e104_reg]) }}" method="post" class="sub-form">
+                        <form action="{{ route('oleo.update.bahagian.ii', [$penyata->e104_reg]) }}" method="post" class="sub-form" novalidate>
                             @csrf
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
@@ -123,9 +123,12 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="text" class="form-control text-right" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
-                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required oninput="this.setCustomValidity(''); nodecimal(); invokeFunc()" max="31" min="0"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required oninput="this.setCustomValidity(''); nodecimal(); invokeFunc(); valid_a5()" max="31" min="0"
                                                             title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
-                                                        @error('e104_a5')
+                                                            <p type="hidden" id="err_a5" style="color: red; display:none"><i>Sila isi butiran di
+                                                                bahagian ini!</i></p>
+                                                            <p type="hidden" id="err_a52" style="color: red; display:none"><i>Nilai hendaklah kurang dari 31 hari.</i></p>
+                                                            @error('e104_a5')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
@@ -149,9 +152,12 @@
                                                     <div class="col-md-2">
                                                         <input type="text" class="form-control text-right" name='e104_a6'
                                                             onkeypress="return isNumberKey(event)" id="e104_a6"  onchange="autodecimal(this); FormatCurrency(this)"
-                                                            oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                                            oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_a6()"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
-                                                        @error('e104_a6')
+                                                            <p type="hidden" id="err_a6" style="color: red; display:none"><i>Sila isi butiran di
+                                                                bahagian ini!</i></p>
+                                                            <p type="hidden" id="err_a62" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%</i></p>
+                                                            @error('e104_a6')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
@@ -167,8 +173,8 @@
                                             <div class="form-group col-10 ml-auto mr-auto" style="margin-top:50px">
                                                 <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
                                                     style="float: left">Sebelumnya</a>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    style="float: right" data-target="#next">Simpan &
+                                                <button type="button" class="btn btn-primary" id="checkBtn" onclick="check()"
+                                                    style="float: right" >Simpan &
                                                     Seterusnya</button>
                                             </div>
 
@@ -228,6 +234,119 @@
 @endsection
 @section('scripts')
 <script>
+    function check() {
+        // (B1) INIT
+        var error = "",
+            field = "";
+
+
+
+        //e102_al1
+        field = document.getElementById("e104_a5");
+        if (field.value == '') {
+            error += "Name must be 2-4 characters\r\n";
+            $('#e104_a5').css('border-color', 'red');
+            document.getElementById('err_a5').style.display = "block";
+            // document.getElementById('err_email2').style.display = "none";
+        }
+        else if (field.value > 31) {
+            error += "Name must be 2-4 characters\r\n";
+            // alert("You have entered an invalid email address!");
+            $('#e104_a5').css('border-color', 'red');
+            document.getElementById('err_a52').style.display = "block";
+            console.log('error');
+        } else {
+            document.getElementById('err_a52').style.display = "none";
+            document.getElementById('err_a5').style.display = "none";
+
+        }
+
+        //e102_al2
+        field = document.getElementById("e104_a6");
+        if (field.value == '') {
+            error += "Name must be 2-4 characters\r\n";
+            $('#e104_a6').css('border-color', 'red');
+            document.getElementById('err_a6').style.display = "block";
+            // document.getElementById('err_email2').style.display = "none";
+        }
+        else if (field.value >= 100) {
+            error += "Name must be 2-4 characters\r\n";
+            // alert("You have entered an invalid email address!");
+            $('#e102_al2').css('border-color', 'red');
+            document.getElementById('err_a62').style.display = "block";
+            console.log('error');
+        } else {
+            document.getElementById('err_a62').style.display = "none";
+            document.getElementById('err_a6').style.display = "none";
+
+        }
+
+
+
+
+        // (B4) RESULT
+        if (error == "") {
+            console.log('modal');
+            $('#next').modal('show');
+            return true;
+        } else {
+            $('#next').modal('hide');
+
+            console.log('xmodal');
+
+            return false;
+        }
+
+
+    }
+</script>
+<script>
+    function valid_a5() {
+
+        if ($('#e104_a5').val() == '') {
+            $('#e104_a5').css('border-color', 'red');
+            document.getElementById('err_a5').style.display = "block";
+            document.getElementById('err_a52').style.display = "none";
+            console.log('sini');
+
+        } else if ($('#e104_a5').val() > 31) {
+            $('#e104_a5').css('border-color', 'red');
+            document.getElementById('err_a52').style.display = "block";
+            document.getElementById('err_a5').style.display = "none";
+
+
+        } else {
+            $('#e104_a5').css('border-color', '');
+            document.getElementById('err_a5').style.display = "none";
+            document.getElementById('err_a52').style.display = "none";
+        }
+
+    }
+</script>
+<script>
+    function valid_a6() {
+
+        if ($('#e104_a6').val() == '') {
+            $('#e104_a6').css('border-color', 'red');
+            document.getElementById('err_a6').style.display = "block";
+            document.getElementById('err_a62').style.display = "none";
+            console.log('sini');
+
+        } else if ($('#e104_a6').val() >= 100) {
+            $('#e104_a6').css('border-color', 'red');
+            document.getElementById('err_a62').style.display = "block";
+            document.getElementById('err_a6').style.display = "none";
+
+
+        } else {
+            $('#e104_a6').css('border-color', '');
+            document.getElementById('err_a6').style.display = "none";
+            document.getElementById('err_a62').style.display = "none";
+        }
+
+    }
+</script>
+<script>
     function invokeFunc() {
         addEventListener('keydown', function(evt) {
             var whichKey = checkKey(evt);
@@ -258,38 +377,7 @@
         }
     </script>
 
-    <script type="text/javascript">
 
-        function showTable() {
-            var oer = $('#kadar_oer').val();
-            // console.log(oer);
-
-            if (oer == "Meningkat") {
-                document.getElementById('meningkat_container').style.display = "block";
-            } else {
-                document.getElementById('meningkat_container').style.display = "none";
-                document.getElementById("checkbox1").checked = false;
-                document.getElementById("checkbox2").checked = false;
-                document.getElementById("checkbox3").checked = false;
-                document.getElementById("checkbox4").checked = false;
-                document.getElementById("checkbox5").checked = false;
-                document.getElementById("checkbox6").checked = false;
-            }
-
-            if (oer == "Menurun") {
-                document.getElementById('menurun_container').style.display = "block";
-            } else {
-                document.getElementById('menurun_container').style.display = "none";
-                document.getElementById("checkbox7").checked = false;
-                document.getElementById("checkbox8").checked = false;
-                document.getElementById("checkbox9").checked = false;
-                document.getElementById("checkbox10").checked = false;
-                document.getElementById("checkbox11").checked = false;
-                document.getElementById("checkbox12").checked = false;
-                document.getElementById("checkbox13").checked = false;
-            }
-        }
-    </script>
     <script>
         document.addEventListener('keypress', function (e) {
             if (e.keyCode === 13 || e.which === 13) {

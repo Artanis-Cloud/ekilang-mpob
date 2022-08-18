@@ -107,8 +107,8 @@
                 <div class="card-body">
                     <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 4</h3>
-                            <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 5</h3>
+                            <h5 style="color: rgb(39, 80, 71)">Import Produk Sawit
                             </h5>
                         </div>
                         <hr>
@@ -145,7 +145,7 @@
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Nombor Borang Kastam 2</span>
+                                    <span class="">Nombor Borang Kastam 1</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b5' style="width: 100%"
@@ -156,7 +156,7 @@
 
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Tarikh Eksport (dd-mm-yyyy)</span>
+                                    <span class="">Tarikh Import (dd-mm-yyyy)</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b6' style="width: 100%"
@@ -192,7 +192,7 @@
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Destinasi Negara</span>
+                                    <span class="">Negara Sumber</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_b9' style="width: 100%"
@@ -236,11 +236,11 @@
                                 <tr>
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
-                                    <th>Nombor Borang Kastam 2</th>
-                                    <th>Tarikh Eksport (dd-mm-yyyy)</th>
+                                    <th>Nombor Borang Kastam 1</th>
+                                    <th>Tarikh Import (dd-mm-yyyy)</th>
                                     <th>Kuantiti (Tan Metrik)</th>
                                     <th>Nilai (RM)</th>
-                                    <th>Destinasi Negara</th>
+                                    <th>Negara Sumber</th>
                                     <th>Kemaskini</th>
                                     <th>Hapus</th>
 
@@ -285,7 +285,7 @@
                         {{-- <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a> --}}
                     </div>
                     <div class="text-right col-md-7">
-                        <a href="{{ route('oleo.bahagianv') }}" type="button" class="btn btn-primary "  style="float: right"
+                        <a href="{{ route('oleo.paparpenyata') }}" type="button" class="btn btn-primary "  style="float: right"
                             >Simpan &
                             Seterusnya</a>
                     </div>

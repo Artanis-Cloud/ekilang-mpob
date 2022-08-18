@@ -94,7 +94,7 @@
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            <form action="{{ route('oleo.add.bahagian.iii') }}" method="post" class="sub-form">
+            <form action="{{ route('oleo.add.bahagian.iii') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body">
                     <div class="">
@@ -116,15 +116,21 @@
                                     <span>Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                    <select class="form-control select2" id="produk" name="e104_c3" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
+                                    <div id="border_produk">
+
+                                    <select class="form-control select2" id="produk" name="e104_c3" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity(''); valid_produk()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                                {{ $data->prodid }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
                                     </select>
+                                    </div>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                     @error('e104_c3')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -218,13 +224,12 @@
 
 
                         <div class="row justify-content-center form-group">
-                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                            <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Tambah</button>
                         </div>
                     </div>
 
             </form>
-            <br>
-            <br>
+
             <hr>
             <h5 style="color: rgb(39, 80, 71); text-align:center">Ringkasan Produk Oleokimia</h5>
 
@@ -236,15 +241,15 @@
                             <table class="table table-bordered mb-0" style="font-size: 13px">
                                 <thead>
                                     <tr style="text-align: center">
-                                        <th>Produk Oleokimia</th>
-                                        <th>Kod Produk</th>
-                                        <th>Belian/Terimaan</th>
-                                        <th>Pengeluaran</th>
-                                        <th>Jualan/Edaran Tempatan</th>
-                                        <th>Eksport</th>
-                                        <th>Stok Akhir</th>
-                                        <th>Kemaskini</th>
-                                        <th>Hapus?</th>
+                                        <th style="vertical-align: middle">Produk Oleokimia</th>
+                                        <th style="vertical-align: middle">Kod Produk</th>
+                                        <th style="vertical-align: middle">Belian/Terimaan</th>
+                                        <th style="vertical-align: middle">Pengeluaran</th>
+                                        <th style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                        <th style="vertical-align: middle">Eksport</th>
+                                        <th style="vertical-align: middle">Stok Akhir</th>
+                                        <th style="vertical-align: middle">Kemaskini</th>
+                                        <th style="vertical-align: middle">Hapus?</th>
 
                                     </tr>
                                 </thead>
@@ -462,7 +467,7 @@
                                     <i class="bx bx-x d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                 </button>
-                                <a href="{{ route('oleo.paparpenyata') }}" type="button" class="btn btn-primary ml-1">
+                                <a href="{{ route('oleo.bahagianiv') }}" type="button" class="btn btn-primary ml-1">
 
                                     <i class="bx bx-check d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block">Ya</span>
@@ -480,6 +485,110 @@
 
             @endsection
             @section('scripts')
+            <script>
+                function valid_produk() {
+
+                    if ($('#produk').val() == '') {
+                        $('#border_produk').css('border', '1px solid red');
+                        document.getElementById('err_produk').style.display = "block";
+
+
+                    } else {
+                        $('#border_produk').css('border', '');
+                        document.getElementById('err_produk').style.display = "none";
+
+                    }
+
+                }
+            </script>
+                <script>
+                    function check() {
+                        // (B1) INIT
+                        var error = "",
+                            field = "";
+
+                        // kod produk
+                        field = document.getElementById("produk");
+                        if (!field.checkValidity()) {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#border_produk').css('border', '1px solid red');
+                            document.getElementById('err_produk').style.display = "block";
+                            console.log('masuk');
+                        }
+
+
+
+                        // (B4) RESULT
+                        if (error == "") {
+
+                            document.getElementById("checkBtn").setAttribute("type", "submit");
+                            return true;
+                        } else {
+                            document.getElementById("checkBtn").setAttribute("type", "button");
+
+                            return false;
+                        }
+
+                    }
+                </script>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#checkBtn').click(function() {
+                            c4 = $('#e104_c4').val();
+                            c5 = $('#e104_c5').val();
+                            c6 = $('#e104_c6').val();
+                            c7 = $('#e104_c7').val();
+                            c8 = $('#e104_c8').val();
+                            // b5 = b5 || 0;
+
+                            let x4 = c4;
+                            if (x4 == '') {
+                                x4 = x4 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                            }
+                            let x5 = c5;
+                            if (x5 == '') {
+                                x5 = x5 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                            }
+                            let x6 = c6;
+                            if (x6 == '') {
+                                x6 = x6 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                            }
+                            let x7 = c7;
+                            if (x7 == '') {
+                                x7 = x7 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                            }
+                            let x8 = c8;
+                            if (x8 == '') {
+                                x8 = x8 || 0.00;
+                                // document.getElementById("ebio_b5").value = x;
+                            }
+
+
+
+                            document.getElementById("e104_c4").value = x4;
+                            document.getElementById("e104_c5").value = x5;
+                            document.getElementById("e104_c6").value = x6;
+                            document.getElementById("e104_c7").value = x7;
+                            document.getElementById("e104_c8").value = x8;
+
+                            if (c4 == 0 && c5 == 0 && c6 == 0 && c7 == 0 && c8 == 0 ) {
+                                // console.log('lain');
+
+                                toastr.error(
+                                    'Sila isi sekurang-kurangnya satu data',
+                                    'Ralat!', {
+                                        "progressBar": true
+                                    })
+                                return false;
+                            }
+
+                        });
+                    });
+                </script>
         {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
         </script> --}}
         <script>

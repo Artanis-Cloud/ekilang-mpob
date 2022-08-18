@@ -98,7 +98,7 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
                 <div class="">
-                    <form action="{{ route('oleo.add.bahagian.ia') }}" method="post" class="sub-form">
+                    <form action="{{ route('oleo.add.bahagian.ia') }}" method="post" class="sub-form" novalidate>
                         @csrf
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(a)</h3>
@@ -114,17 +114,23 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3   ">
-                                    <select class="form-control select2" id="e104_b4" name="e104_b4" required
+                                    <div id="border_produk">
+
+                                    <select class="form-control select2" id="produk" name="e104_b4" required
                                         oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                        oninput="this.setCustomValidity('')">
+                                        oninput="this.setCustomValidity(''); valid_produk()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                                {{ $data->prodid }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
                                     </select>
+                                    </div>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                     @error('e104_b4')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
@@ -287,14 +293,13 @@
 
                         <div class="row justify-content-center form-group">
 
-                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                            <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Tambah</button>
 
                         </div>
 
                     </form>
 
                     <hr>
-                    <br>
                     <br>
 
                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
@@ -306,21 +311,21 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered mb-0" style="font-size: 13px">
                                     <thead style="text-align: center">
-                                        <tr>
-                                            <th>Produk Minyak Sawit</th>
-                                            <th>Kod Produk</th>
-                                            <th>Stok Awal Di Premis</th>
-                                            <th>Stok Awal Di Pusat Simpanan</th>
-                                            <th>Belian / Terimaan</th>
+                                        <tr style="vertical-align: middle">
+                                            <th style="vertical-align: middle">Produk Minyak Sawit</th>
+                                            <th style="vertical-align: middle">Kod Produk</th>
+                                            <th style="vertical-align: middle">Stok Awal Di Premis</th>
+                                            <th style="vertical-align: middle">Stok Awal Di Pusat Simpanan</th>
+                                            <th style="vertical-align: middle">Belian / Terimaan</th>
                                             {{-- <th>Import</th> --}}
-                                            <th>Import</th>
-                                            <th>Jumlah yang Diproses</th>
-                                            <th>Jualan / Edaran Tempatan</th>
-                                            <th>Eksport</th>
-                                            <th>Stok Akhir Di Premis</th>
-                                            <th>Stok Akhir Di Pusat Simpanan</th>
-                                            <th>Kemaskini</th>
-                                            <th>Hapus?</th>
+                                            <th style="vertical-align: middle">Import</th>
+                                            <th style="vertical-align: middle">Jumlah yang Diproses</th>
+                                            <th style="vertical-align: middle">Jualan / Edaran Tempatan</th>
+                                            <th style="vertical-align: middle">Eksport</th>
+                                            <th style="vertical-align: middle">Stok Akhir Di Premis</th>
+                                            <th style="vertical-align: middle">Stok Akhir Di Pusat Simpanan</th>
+                                            <th style="vertical-align: middle">Kemaskini</th>
+                                            <th style="vertical-align: middle">Hapus?</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -666,6 +671,131 @@
     <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
         @endsection
         @section('scripts')
+        <script>
+            function valid_produk() {
+
+                if ($('#produk').val() == '') {
+                    $('#border_produk').css('border', '1px solid red');
+                    document.getElementById('err_produk').style.display = "block";
+
+
+                } else {
+                    $('#border_produk').css('border', '');
+                    document.getElementById('err_produk').style.display = "none";
+
+                }
+
+            }
+        </script>
+            <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
+
+                    // kod produk
+                    field = document.getElementById("produk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#border_produk').css('border', '1px solid red');
+                        document.getElementById('err_produk').style.display = "block";
+                        console.log('masuk');
+                    }
+
+
+
+                    // (B4) RESULT
+                    if (error == "") {
+
+                        document.getElementById("checkBtn").setAttribute("type", "submit");
+                        return true;
+                    } else {
+                        document.getElementById("checkBtn").setAttribute("type", "button");
+
+                        return false;
+                    }
+
+                }
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#checkBtn').click(function() {
+                        b5 = $('#e104_b5').val();
+                        b6 = $('#e104_b6').val();
+                        b7 = $('#e104_b7').val();
+                        b9 = $('#e104_b9').val();
+                        b10 = $('#e104_b10').val();
+                        b11 = $('#e104_b11').val();
+                        b12 = $('#e104_b12').val();
+                        b13 = $('#e104_b13').val();
+                        // b5 = b5 || 0;
+
+                        let x5 = b5;
+                        if (x5 == '') {
+                            x5 = x5 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x6 = b6;
+                        if (x6 == '') {
+                            x6 = x6 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x7 = b7;
+                        if (x7 == '') {
+                            x7 = x7 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x9 = b9;
+                        if (x9 == '') {
+                            x9 = x9 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x10 = b10;
+                        if (x10 == '') {
+                            x10 = x10 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x11 = b11;
+                        if (x11 == '') {
+                            x11 = x11 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x12 = b12;
+                        if (x12 == '') {
+                            x12 = x12 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+                        let x13 = b13;
+                        if (x13 == '') {
+                            x13 = x13 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
+                        }
+
+
+                        document.getElementById("e104_b5").value = x5;
+                        document.getElementById("e104_b6").value = x6;
+                        document.getElementById("e104_b7").value = x7;
+                        document.getElementById("e104_b9").value = x9;
+                        document.getElementById("e104_b10").value = x10;
+                        document.getElementById("e104_b11").value = x11;
+                        document.getElementById("e104_b12").value = x12;
+                        document.getElementById("e104_b13").value = x13;
+
+                        if (b5 == 0 && b6 == 0 && b7 == 0 && b9 == 0 && b10 == 0 && b11 == 0 && b12 == 0 && b13 ==
+                            0 ) {
+                            // console.log('lain');
+
+                            toastr.error(
+                                'Sila isi sekurang-kurangnya satu data',
+                                'Ralat!', {
+                                    "progressBar": true
+                                })
+                            return false;
+                        }
+
+                    });
+                });
+            </script>
         <script>
 
             function invoke_eb5(key) {

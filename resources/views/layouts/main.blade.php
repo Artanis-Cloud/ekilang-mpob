@@ -903,19 +903,18 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
-                                                data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('oleo.bahagianiv') }}"  class="btn sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 4 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
-                                                data-target="#tutup" class="btn sidebar-link">
+                                            <a href="{{ route('oleo.bahagianv') }}" class="btn sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 5 </span>
                                             </a>
                                         </li>
+
                                         <li class="sidebar-item">
                                             <a href="{{ route('oleo.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
@@ -923,18 +922,7 @@
                                                 </span>
                                             </a>
                                         </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('oleo.kod.produk') }}" class="sidebar-link">
-                                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"><b> Kod & Nama Produk </b></span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('oleo.kod.negara') }}" class="sidebar-link">
-                                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"><b> Kod & Nama Negara </b></span>
-                                            </a>
-                                        </li>
+
                                     </ul>
                                 </li>
                             @else
@@ -950,6 +938,18 @@
                                 <a href="{{ route('oleo.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('oleo.kod.produk') }}" class="sidebar-link">
+                                    <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('oleo.kod.negara') }}" class="sidebar-link">
+                                    <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Kod & Nama Negara </b></span>
                                 </a>
                             </li>
                         </ul>
