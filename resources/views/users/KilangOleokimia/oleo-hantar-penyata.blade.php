@@ -35,12 +35,13 @@
             </div>
         </div>
 
-        <form method="get" action="" id="myfrm">
         <div class="card" style="margin-right:2%; margin-left:2%">
 
             <br>
             <br>
             <div class="card-body">
+        <form method="get" action="" id="myfrm">
+
                 <div class="row">
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
