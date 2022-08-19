@@ -155,7 +155,7 @@
                                 <font color="#0000FF">MAKLUMAT PELESEN </font>
                             </b></p>
 
-                        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                        <table border="0" width="72%" cellpadding="0" cellspacing="0">
 
                             <tbody>
 
@@ -276,7 +276,7 @@
                             bordercolor="#000000" cellspacing="0" cellpadding="0"
                             bordercolorlight="#FFFFFF" bordercolordark="#000000">
                             <tbody>
-                                <tr>
+                                <tr  style="background-color: #d3d3d370">
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font><b></b>
                                         </b></td>
@@ -318,7 +318,7 @@
                                 @foreach ($i as $data)
                                     <tr>
                                         <td align="left">
-                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                            <font size="2">{{ $data->produk->proddesc }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_b4 }}</font>
@@ -356,7 +356,7 @@
                                     </tr>
                                 @endforeach
 
-                                <tr>
+                                <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -397,15 +397,15 @@
                             </tbody>
                         </table>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
-                                    ISIRUNG MINYAK SAWIT</font>
+                                <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                    ISIRUNG SAWIT</font>
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
                             <tbody>
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
+                                            <font size="2">Produk Minyak Isirung Sawit</font>
                                         </b></td>
                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
@@ -444,7 +444,7 @@
                                 @foreach ($ii as $data)
                                     <tr>
                                         <td align="left">
-                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                            <font size="2">{{ $data->produk->proddesc }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_b4 }}</font>
@@ -482,7 +482,7 @@
                                     </tr>
                                 @endforeach
 
-                                <tr>
+                                <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -555,7 +555,7 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
                             <tbody>
-                                <tr>
+                                <tr  style="background-color: #d3d3d370">
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
@@ -584,7 +584,7 @@
                                 @foreach ($iva as $data)
                                 <tr>
                                     <td align="left">
-                                        <font size="2">{{ $data->produk->prodname }}</font>
+                                        <font size="2">{{ $data->produk->proddesc }}</font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2">{{ $data->e101_c4 }}</font>
@@ -609,7 +609,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -647,7 +647,7 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered" style="padding: 0.2rem 0.3rem">
                             <tbody>
-                                <tr style="padding: 0.2rem 0.3rem">
+                                <tr style="padding: 0.2rem 0.3rem; background-color: #d3d3d370">
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
@@ -676,7 +676,7 @@
                                 @foreach ($ivb as $data)
                                 <tr>
                                     <td align="left">
-                                        <font size="2">{{ $data->produk->prodname }}</font>
+                                        <font size="2">{{ $data->produk->proddesc }}</font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2">{{ $data->e101_c4 }}</font>
@@ -701,7 +701,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -738,7 +738,7 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
                             <tbody>
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian/Terimaan Dari</font>
                                         </b></td>
@@ -774,7 +774,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -800,7 +800,7 @@
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian/Terimaan Dari</font>
                                         </b></td>
@@ -836,7 +836,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -861,7 +861,7 @@
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td width="14%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
@@ -885,12 +885,41 @@
                                         </b></td>
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Destinasi Negara</font>
-                                        </b></td>
-                                </tr>
+
+                                            <tr>
+                                                <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+
+                                            </tr>
+                                            <tr  style="background-color: #d3d3d370">
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
                                 {{-- @foreach ($vii as $data)
                                 <tr>
                                     <td align="left">
-                                        <font size="2">{{ $data->produk->prodname }}</font>
+                                        <font size="2">{{ $data->produk->proddesc }}</font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2">{{ $data->e101_e4 }}</font>
@@ -923,7 +952,7 @@
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
-                                <tr>
+                                <tr style="background-color: #d3d3d370">
                                     <td width="14%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
@@ -948,6 +977,36 @@
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Destinasi Negara</font>
                                         </b></td>
+                                </tr>
+                                <tr>
+                                    <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+
+                                </tr>
+                                <tr  style="background-color: #d3d3d370">
+                                    <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>JUMLAH</b></font>
+                                    </td>
+                                    <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
+                                    <td align="right">
+                                        <font size="2"><b>0.00</b></font>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table><br>

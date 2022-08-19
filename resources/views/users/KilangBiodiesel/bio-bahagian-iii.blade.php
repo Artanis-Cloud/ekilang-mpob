@@ -429,7 +429,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c4 ?? 0,2) }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }}); invoke_ec4({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec4({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Belian / Terimaan
@@ -439,7 +439,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c5 ?? 0,2)  }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }}); invoke_ec5({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec5({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Pengeluaran </label>
@@ -448,7 +448,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c6 ?? 0,2)  }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }}); invoke_ec6({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec6({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         {{-- <label>Import </label>
@@ -463,7 +463,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c7 ?? 0,2)  }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }}); invoke_ec7({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec7({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Jualan / Edaran
@@ -473,7 +473,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c8 ?? 0,2)  }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }}); invoke_ec8({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec8({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Eksport
@@ -483,7 +483,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c9 ?? 0,2)  }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }}); invoke_ec9({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec9({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Stok Akhir Dilapor </label>
@@ -492,7 +492,7 @@
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
                                                                                 value="{{ number_format($data->ebio_c10 ?? 0,2) }}"
-                                                                                oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_c1 }})"
+                                                                                oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
 
@@ -507,7 +507,7 @@
                                                                     <span class="d-none d-sm-block">Batal</span>
                                                                 </button>
                                                                 <button type="submit" class="btn btn-primary ml-1" disabled
-                                                                id="kemaskini{{ $data->ebio_c1 }}">
+                                                                id="kemaskini_button{{ $data->ebio_c1 }}">
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Kemaskini</span>
                                                                 </button>
@@ -1288,6 +1288,10 @@
                 function checkKey(evt) {
                     console.log(evt.which);
                     return evt.which;
+                }
+
+                function enableKemaskini_bio(key) {
+                    $('#kemaskini_button'+key).prop("disabled", false);
                 }
             </script>
 

@@ -44,7 +44,7 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
                 <div style="padding: 2%">
-                    <form action="{{ route('penapis.penyata.dahulu.process') }}" method="post">
+                    <form action="{{ route('penapis.penyata.dahulu.process') }}" method="post" novalidate>
                         @csrf
                         <div class="text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Terdahulu</h3>
@@ -54,21 +54,24 @@
 
 
                         <div class="container center ">
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-2 form-group" style="margin: 0px">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-2 form-group" >
                                         <label for="fname"
                                     class="control-label col-form-label required ">
                                     Sila Pilih Tahun</label>
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="tahun" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
+                                        <select class="form-control" id="tahun" name="tahun" required oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity(''); valid_tahun()">
                                             <option selected hidden disabled value="" >Sila Pilih Tahun</option>
                                             @for ($i = 2004; $i <= date('Y'); $i++)
                                                     <option value="{{ $i }}">{{ $i }}</option>
                                                 @endfor
 
                                         </select>
+                                        <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
                                         <div class="alert alert-danger">
@@ -78,16 +81,16 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-2 form-group" style="margin: 0px">
+                            <div class="row justify-content-center" >
+                                <div class="col-sm-2 form-group" >
                                     <label for="fname"
-                                    class="control-label col-form-label required ">Bulan
+                                    class="control-label col-form-label required "> Sila Pilih Bulan
                                     </label>
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="bulan" required >
-                                            <option selected hidden disabled>Sila Pilih Bulan</option>
+                                        <select class="form-control" id="bulan" name="bulan" required onclick="valid_bulan()">
+                                            <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                             <option value="01">Januari</option>
                                             <option value="02">Februari</option>
                                             <option value="03">Mac</option>
@@ -101,6 +104,9 @@
                                             <option value="11">November</option>
                                             <option value="12">Disember</option>
                                         </select>
+                                        <p type="hidden" id="err_bulan" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
                                         <div class="alert alert-danger">
@@ -113,11 +119,83 @@
                         </div>
                         </div>
                         <div class="row justify-content-center form-group"  >
-                                <button type="submit" class="btn btn-primary"  data-toggle="modal" style="margin-bottom: 13%"
-                                    data-target="#next">Papar Penyata</button>
+                                <button type="submit" class="btn btn-primary" id="checkBtn" onclick="check()">Papar Penyata</button>
                         </div>
                     </form><br>
             </div>
 
+
+@endsection
+@section('scripts')
+<script>
+    function valid_tahun() {
+
+        if ($('#tahun').val() == '') {
+            $('#tahun').css('border', '1px solid red');
+            document.getElementById('err_tahun').style.display = "block";
+
+
+        } else {
+            $('#tahun').css('border', '');
+            document.getElementById('err_tahun').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function valid_bulan() {
+
+        if ($('#bulan').val() == '') {
+            $('#bulan').css('border', '1px solid red');
+            document.getElementById('err_bulan').style.display = "block";
+
+
+        } else {
+            $('#bulan').css('border', '');
+            document.getElementById('err_bulan').style.display = "none";
+
+        }
+
+    }
+</script>
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kod produk
+            field = document.getElementById("tahun");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#tahun').css('border', '1px solid red');
+                document.getElementById('err_tahun').style.display = "block";
+                console.log('masuk');
+            }
+            // kod produk
+            field = document.getElementById("bulan");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#bulan').css('border', '1px solid red');
+                document.getElementById('err_bulan').style.display = "block";
+                console.log('masuk');
+            }
+
+
+
+            // (B4) RESULT
+            if (error == "") {
+
+                document.getElementById("checkBtn").setAttribute("type", "submit");
+                return true;
+            } else {
+                document.getElementById("checkBtn").setAttribute("type", "button");
+
+                return false;
+            }
+
+        }
+    </script>
 
 @endsection

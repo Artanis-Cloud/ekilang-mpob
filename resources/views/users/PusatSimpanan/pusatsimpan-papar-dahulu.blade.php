@@ -261,7 +261,7 @@
                                 </b> </p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Nama Produk</font>
                                             </b></td>
@@ -293,7 +293,7 @@
                                     @foreach ($penyata as $data)
                                         <tr>
                                             <td align="left">
-                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                <font size="2">{{ $data->produk->proddesc }}</font>
                                             </td>
                                             <td align="center">
                                                 <font size="2">{{ $data->produk->prodid }}</font>
@@ -321,7 +321,7 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td align="center">
                                             <font size="2"><b>JUMLAH</b></font>
                                         </td>
@@ -358,7 +358,7 @@
                                 </b> </p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Nama Produk</font>
                                             </b></td>
@@ -384,7 +384,7 @@
                                                 <font size="2">Stok Akhir</font>
                                             </b></td>
                                     </tr>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td align="center">
                                             <font size="2"><b>JUMLAH</b></font>
                                         </td>

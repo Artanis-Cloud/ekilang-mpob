@@ -427,7 +427,7 @@
                                                                                 name='e104_b6' id="e104_eb6{{ $data->e104_b1 }}"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 class="form-control" onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->e104_b6 ?? 0,,2) }}">
+                                                                                value="{{ number_format($data->e104_b6 ?? 0,2) }}">
                                                                         </div>
                                                                         <label class="required">Belian / Terimaan </label>
                                                                         <div class="form-group">

@@ -84,7 +84,7 @@
                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                     height="100">
                             </p>
-                            <title>PENYATA BULANAN KILANG Isirung - MPOB (EL) CF 4</title>
+                            <title>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4</title>
                             <p align="center"><b>
                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
@@ -158,7 +158,7 @@
                                     <font color="#0000FF">MAKLUMAT PELESEN </font>
                                 </b></p>
 
-                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                            <table border="0" width="72%" cellpadding="0" cellspacing="0">
 
                                 <tbody>
 
@@ -280,10 +280,10 @@
                                     <font color="#000FF0">BAHAGIAN 1 : MAKLUMAT IMBANGAN </font>
                                 </b> </p>
 
-                            <table border="1" width="650" cellspacing="0" cellpadding="0"
+                            <table border="1" style="width: 65%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="255" style="text-align: center; vertical-align:middle; margin:0px">
                                             <b>
                                                     <font size="2"> Butir-Butir</font>
@@ -311,17 +311,17 @@
                                             <font size="2">A. Stok Awal Di Premis</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_aa1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_aa2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_aa3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -331,17 +331,17 @@
                                             <font size="2">B. Stok Awal Di Pusat Simpanan/Gudang</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ab1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ab2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ab3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -351,17 +351,17 @@
                                             <font size="2">C. Belian/Terimaan</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ac1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ac2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ac3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -371,17 +371,17 @@
                                             <font size="2">D. Import</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ad1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ad2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ad3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -391,14 +391,14 @@
                                             <font size="2">E. Diproses</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ae1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
-                                        <td width="135" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle; margin:0px" style="
+                                        <td width="135" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle; margin:0px" style="
                                                 background-color: #808080b8;
                                             ">&nbsp;</td>
-                                        <td width="135" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle; margin:0px" style="
+                                        <td width="135" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle; margin:0px" style="
                                                 background-color: #808080b8;
                                             ">&nbsp;</td>
 
@@ -407,16 +407,16 @@
                                         <td width="255">
                                             <font size="2">F. Pengeluaran</font>
                                         </td>
-                                        <td width="115" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle; margin:0px" style="
+                                        <td width="115" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle; margin:0px" style="
                                             background-color: #808080b8;
                                         ">&nbsp;</td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_af2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_af3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -426,17 +426,17 @@
                                             <font size="2">G. Jualan/Edaran Tempatan</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ag1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ag2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ag3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -446,17 +446,17 @@
                                             <font size="2">H. Hantar Ke Pusat Simpanan/Gudang</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ah1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ah2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ah3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -466,17 +466,17 @@
                                             <font size="2">I. Eksport</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ai1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ai2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ai3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -486,17 +486,17 @@
                                             <font size="2">J. Stok Akhir Di Premis</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_aj1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_aj2 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_aj3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -506,17 +506,17 @@
                                             <font size="2">K. Stok Akhir Di Pusat Simpanan</font>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ak1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
                                         <td width="135">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">{{  number_format($i->e102_ak2 ?? 0,2) }}
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">{{  number_format($i->e102_ak2 ?? 0,2) }}
                                                 </font>
                                             </p>
                                         </td>
                                         <td width="115">
-                                            <p style="text-align: center; vertical-align:middle; margin:0px">
+                                            <p style="text-align: right; vertical-align:middle; margin:0px">
                                                 <font size="2">{{  number_format($i->e102_ak3 ?? 0,2) }}</font>
                                             </p>
                                         </td>
@@ -561,10 +561,10 @@
                                         SAWIT (PK) (51)
                                     </font>
                                 </b></p>
-                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                            <table border="1"  style="width: 50%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Belian/Terimaan</font>
                                             </b></td>
@@ -582,7 +582,7 @@
                                         <td style="text-align: center">{{  number_format($data->e102_b6 ??  0,2) }}</td>
                                     </tr>
                                     @endforeach
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>-</b></font>
                                         </td>
@@ -600,10 +600,10 @@
                                         MENTAH (CPKO) (04)
                                     </font>
                                 </b></p>
-                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                            <table border="1"  style="width: 50%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Jualan/Edaran</font>
                                             </b></td>
@@ -621,7 +621,7 @@
                                         <td style="text-align: center">{{  number_format($data->e102_b6 ??  0,2) }}</td>
                                     </tr>
                                     @endforeach
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>-</b></font>
                                         </td>
@@ -638,10 +638,10 @@
                                     <font color="#0000FF">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                         (PKC) (33)</font>
                                 </b></p>
-                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                            <table border="1" style="width: 50%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Jualan/Edaran</font>
                                             </b></td>
@@ -659,7 +659,7 @@
                                         <td style="text-align: center">{{  number_format($data->e102_b6 ??  0,2) }}</td>
                                     </tr>
                                     @endforeach
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>-</b></font>
                                         </td>
@@ -678,7 +678,7 @@
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="14%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Produk Sawit</font>
                                             </b></td>
@@ -704,7 +704,37 @@
                                                 <font size="2">Destinasi Negara</font>
                                             </b></td>
                                     </tr>
-                                    @foreach ($vi as $data)
+                                    <tr>
+                                        <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+
+                                    </tr>
+                                    <tr  style="background-color: #d3d3d370">
+                                        <td style="text-align: center; vertical-align:middle">
+                                            <font size="2"><b>JUMLAH</b></font>
+                                        </td>
+                                        <td style="text-align: center; vertical-align:middle">
+                                            <font size="2"><b>-</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                    </tr>
+                                    {{-- @foreach ($vi as $data)
                                     <tr>
                                         <td>{{ $data->produk->prodname }}</td>
                                         <td>{{ $data->e102_c4 }}</td>
@@ -715,7 +745,7 @@
                                         <td>{{ $data->e102_c9 }}</td>
                                         <td>{{ $data->negara->namanegara }}</td>
                                     </tr>
-                                    @endforeach
+                                    @endforeach --}}
                                 </tbody>
                             </table>
                             <p><b>
@@ -724,7 +754,7 @@
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
-                                    <tr>
+                                    <tr style="background-color: #d3d3d370">
                                         <td width="14%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Produk Sawit</font>
                                             </b></td>
@@ -750,7 +780,37 @@
                                                 <font size="2">Negara Sumber</font>
                                             </b></td>
                                     </tr>
-                                    @foreach ($vi as $data)
+                                    <tr>
+                                        <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+
+                                    </tr>
+                                    <tr  style="background-color: #d3d3d370">
+                                        <td style="text-align: center; vertical-align:middle">
+                                            <font size="2"><b>JUMLAH</b></font>
+                                        </td>
+                                        <td style="text-align: center; vertical-align:middle">
+                                            <font size="2"><b>-</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                        <td align="right">
+                                            <font size="2"><b>0.00</b></font>
+                                        </td>
+                                    </tr>
+                                    {{-- @foreach ($vi as $data)
                                     <tr>
                                         <td>{{ $data->produk->prodname }}</td>
                                         <td>{{ $data->e102_c4 }}</td>
@@ -761,7 +821,7 @@
                                         <td>{{ $data->e102_c9 }}</td>
                                         <td>{{ $data->negara->namanegara }}</td>
                                     </tr>
-                                    @endforeach
+                                    @endforeach --}}
                                 </tbody>
                             </table>
 
