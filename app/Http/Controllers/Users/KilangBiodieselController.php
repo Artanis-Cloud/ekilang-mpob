@@ -16,6 +16,7 @@ use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\ProfileBulanan;
+use App\Models\RegPelesen;
 use App\Models\SyarikatPembeli;
 use App\Models\User;
 use Carbon\Carbon;
@@ -345,16 +346,31 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodname', $request->ebio_b4)->first();
 
+
+        $ebio_b5 = $request->ebio_b5;
+        $ebio_b6 = $request->ebio_b6;
+        $ebio_b7 = $request->ebio_b7;
+        $ebio_b8 = $request->ebio_b8;
+        $ebio_b9 = $request->ebio_b9;
+        $ebio_b10 = $request->ebio_b10;
+        $ebio_b11 = $request->ebio_b11;
+        $b5 = str_replace(',', '', $ebio_b5);
+        $b6 = str_replace(',', '', $ebio_b6);
+        $b7 = str_replace(',', '', $ebio_b7);
+        $b8 = str_replace(',', '', $ebio_b8);
+        $b9 = str_replace(',', '', $ebio_b9);
+        $b10 = str_replace(',', '', $ebio_b10);
+        $b11 = str_replace(',', '', $ebio_b11);
         // dd($request->all());
         $penyata = EBioB::findOrFail($id);
-        $penyata->ebio_b4 = $produk->prodid;
-        $penyata->ebio_b5 = $request->ebio_b5;
-        $penyata->ebio_b6 = $request->ebio_b6;
-        $penyata->ebio_b7 = $request->ebio_b7;
-        $penyata->ebio_b8 = $request->ebio_b8;
-        $penyata->ebio_b9 = $request->ebio_b9;
-        $penyata->ebio_b10 = $request->ebio_b10;
-        $penyata->ebio_b11 = $request->ebio_b11;
+        // $penyata->ebio_b4 = $produk->prodid;
+        $penyata->ebio_b5 = $b5;
+        $penyata->ebio_b6 = $b6;
+        $penyata->ebio_b7 = $b7;
+        $penyata->ebio_b8 = $b8;
+        $penyata->ebio_b9 = $b9;
+        $penyata->ebio_b10 = $b10;
+        $penyata->ebio_b11 = $b11;
         // $penyata->ebio_b12 = $request->ebio_b12;
         // $penyata->ebio_b13 = $request->ebio_b13;
         $penyata->save();
@@ -512,16 +528,30 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodname', $request->ebio_b4)->first();
 
+        $ebio_b5 = $request->ebio_b5;
+        $ebio_b6 = $request->ebio_b6;
+        $ebio_b7 = $request->ebio_b7;
+        $ebio_b8 = $request->ebio_b8;
+        $ebio_b9 = $request->ebio_b9;
+        $ebio_b10 = $request->ebio_b10;
+        $ebio_b11 = $request->ebio_b11;
+        $b5 = str_replace(',', '', $ebio_b5);
+        $b6 = str_replace(',', '', $ebio_b6);
+        $b7 = str_replace(',', '', $ebio_b7);
+        $b8 = str_replace(',', '', $ebio_b8);
+        $b9 = str_replace(',', '', $ebio_b9);
+        $b10 = str_replace(',', '', $ebio_b10);
+        $b11 = str_replace(',', '', $ebio_b11);
         // dd($request->all());
         $penyata = EBioB::findOrFail($id);
-        $penyata->ebio_b4 = $produk->prodid;
-        $penyata->ebio_b5 = $request->ebio_b5;
-        $penyata->ebio_b6 = $request->ebio_b6;
-        $penyata->ebio_b7 = $request->ebio_b7;
-        $penyata->ebio_b8 = $request->ebio_b8;
-        $penyata->ebio_b9 = $request->ebio_b9;
-        $penyata->ebio_b10 = $request->ebio_b10;
-        $penyata->ebio_b11 = $request->ebio_b11;
+        // $penyata->ebio_b4 = $produk->prodid;
+        $penyata->ebio_b5 = $b5;
+        $penyata->ebio_b6 = $b6;
+        $penyata->ebio_b7 = $b7;
+        $penyata->ebio_b8 = $b8;
+        $penyata->ebio_b9 = $b9;
+        $penyata->ebio_b10 = $b10;
+        $penyata->ebio_b11 = $b11;
         // $penyata->ebio_b12 = $request->ebio_b12;
         $penyata->save();
 
@@ -667,17 +697,30 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodname', $request->ebio_b4)->first();
 
+        $ebio_b5 = $request->ebio_b5;
+        $ebio_b6 = $request->ebio_b6;
+        $ebio_b7 = $request->ebio_b7;
+        $ebio_b8 = $request->ebio_b8;
+        $ebio_b9 = $request->ebio_b9;
+        $ebio_b10 = $request->ebio_b10;
+        $ebio_b11 = $request->ebio_b11;
+        $b5 = str_replace(',', '', $ebio_b5);
+        $b6 = str_replace(',', '', $ebio_b6);
+        $b7 = str_replace(',', '', $ebio_b7);
+        $b8 = str_replace(',', '', $ebio_b8);
+        $b9 = str_replace(',', '', $ebio_b9);
+        $b10 = str_replace(',', '', $ebio_b10);
+        $b11 = str_replace(',', '', $ebio_b11);
         // dd($request->all());
         $penyata = EBioB::findOrFail($id);
-        $penyata->ebio_b4 = $produk->prodid;
-        $penyata->ebio_b5 = $request->ebio_b5;
-        $penyata->ebio_b6 = $request->ebio_b6;
-        $penyata->ebio_b7 = $request->ebio_b7;
-        $penyata->ebio_b8 = $request->ebio_b8;
-        $penyata->ebio_b9 = $request->ebio_b9;
-        $penyata->ebio_b10 = $request->ebio_b10;
-        $penyata->ebio_b11 = $request->ebio_b11;
-        // $penyata->ebio_b12 = $request->ebio_b12;
+        // $penyata->ebio_b4 = $produk->prodid;
+        $penyata->ebio_b5 = $b5;
+        $penyata->ebio_b6 = $b6;
+        $penyata->ebio_b7 = $b7;
+        $penyata->ebio_b8 = $b8;
+        $penyata->ebio_b9 = $b9;
+        $penyata->ebio_b10 = $b10;
+        $penyata->ebio_b11 = $b11;
         $penyata->save();
 
 
@@ -1033,16 +1076,30 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodname', $request->ebio_c3)->first();
 
+
+        $ebio_c4 = $request->ebio_c4;
+        $ebio_c5 = $request->ebio_c5;
+        $ebio_c6 = $request->ebio_c6;
+        $ebio_c7 = $request->ebio_c7;
+        $ebio_c8 = $request->ebio_c8;
+        $ebio_c9 = $request->ebio_c9;
+        $ebio_c10 = $request->ebio_c10;
+        $c4 = str_replace(',', '', $ebio_c4);
+        $c5 = str_replace(',', '', $ebio_c5);
+        $c6 = str_replace(',', '', $ebio_c6);
+        $c7 = str_replace(',', '', $ebio_c7);
+        $c8 = str_replace(',', '', $ebio_c8);
+        $c9 = str_replace(',', '', $ebio_c9);
+        $c10 = str_replace(',', '', $ebio_c10);
         // dd($request->all());
         $penyata = EBioC::findOrFail($id);
-        $penyata->ebio_c3 = $produk->prodid;
-        $penyata->ebio_c4 = $request->ebio_c4;
-        $penyata->ebio_c5 = $request->ebio_c5;
-        $penyata->ebio_c6 = $request->ebio_c6;
-        $penyata->ebio_c7 = $request->ebio_c7;
-        $penyata->ebio_c8 = $request->ebio_c8;
-        $penyata->ebio_c9 = $request->ebio_c9;
-        $penyata->ebio_c10 = $request->ebio_c10;
+        $penyata->ebio_c4 = $c4;
+        $penyata->ebio_c5 = $c5;
+        $penyata->ebio_c6 = $c6;
+        $penyata->ebio_c7 = $c7;
+        $penyata->ebio_c8 = $c8;
+        $penyata->ebio_c9 = $c9;
+        $penyata->ebio_c10 = $c10;
         // $penyata->ebio_c12 = $request->ebio_c12;
         $penyata->save();
 
@@ -1559,7 +1616,15 @@ class KilangBiodieselController extends Controller
 
     public function bio_penyatadahulu()
     {
+        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
 
+        $year = $pelesen->pelesen->e_year;
+        // dd($year);
+        if($year){
+            $tahun = $year;
+        }else{
+            $tahun = 2003;
+        }
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('bio.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
@@ -1576,7 +1641,7 @@ class KilangBiodieselController extends Controller
 
 
 
-        return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout'));
+        return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout','pelesen', 'year', 'tahun'));
     }
 
     public function bio_kod_produk()

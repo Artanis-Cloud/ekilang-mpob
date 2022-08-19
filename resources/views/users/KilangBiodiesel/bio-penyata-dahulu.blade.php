@@ -48,36 +48,24 @@
                             <hr>
 
                             <div class="container center mt-2">
-                                <div class="row justify-content-center" style="margin:20px 0px">
-                                    <div class="col-sm-2 form-group" style="margin: 0px">
+                                <div class="row justify-content-center" >
+                                    <div class="col-sm-2 form-group" >
                                         <label for="fname"
                                         class="control-label col-form-label required">
                                         Sila Pilih Tahun</label>
                                     </div>
                                     <div class="col-md-3">
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="basicSelect">
-                                                <option selected hidden disabled>Sila Pilih Tahun</option>
-                                                <option>2004</option>
-                                                <option>2005</option>
-                                                <option>2006</option>
-                                                <option>2007</option>
-                                                <option>2008</option>
-                                                <option>2009</option>
-                                                <option>2010</option>
-                                                <option>2011</option>
-                                                <option>2012</option>
-                                                <option>2013</option>
-                                                <option>2014</option>
-                                                <option>2015</option>
-                                                <option>2016</option>
-                                                <option>2017</option>
-                                                <option>2018</option>
-                                                <option>2019</option>
-                                                <option>2020</option>
-                                                <option>2021</option>
+                                            <select class="form-control" id="tahun" required oninput="valid_tahun()">
+                                                <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                @for ($i = $tahun; $i <= date('Y'); $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
 
                                             </select>
+                                            <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat pilihan
+                                                di
+                                                bahagian ini!</i></p>
                                         </fieldset>
                                         {{-- @error('alamat_kilang_1')
                                             <div class="alert alert-danger">
@@ -86,16 +74,16 @@
                                         @enderror --}}
                                     </div>
                                 </div>
-                                <div class="row justify-content-center" style="margin:20px 0px">
-                                    <div class="col-sm-2 form-group" style="margin: 0px">
+                                <div class="row justify-content-center" >
+                                    <div class="col-sm-2 form-group" >
                                             <label for="fname"
                                         class="control-label col-form-label required">Bulan
                                             </label>
                                     </div>
                                     <div class="col-md-3">
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="basicSelect" name="bulan">
-                                                <option selected hidden disabled>Sila Pilih Bulan</option>
+                                            <select class="form-control" id="bulan" name="bulan" required oninput="valid_bulan()">
+                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                 <option value="01">Januari</option>
                                                 <option value="02">Februari</option>
                                                 <option value="03">Mac</option>
@@ -112,6 +100,9 @@
 
 
                                             </select>
+                                            <p type="hidden" id="err_bulan" style="color: red; display:none"><i>Sila buat pilihan
+                                                di
+                                                bahagian ini!</i></p>
                                         </fieldset>
                                         {{-- @error('alamat_kilang_1')
                                             <div class="alert alert-danger">
@@ -125,8 +116,8 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center form-group" style="margin: 3% ; margin-bottom: 15%">
-                                <button type="submit" class="btn btn-primary " >Papar Penyata</button>
+                            <div class="row justify-content-center form-group" >
+                                <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Papar Penyata</button>
                             </div>
 
     </section><!-- End Hero -->
@@ -147,7 +138,76 @@
 
 
 
+            <script>
+                function valid_tahun() {
 
+                    if ($('#tahun').val() == '') {
+                        $('#tahun').css('border', '1px solid red');
+                        document.getElementById('err_tahun').style.display = "block";
+
+
+                    } else {
+                        $('#tahun').css('border', '');
+                        document.getElementById('err_tahun').style.display = "none";
+
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_bulan() {
+
+                    if ($('#bulan').val() == '') {
+                        $('#bulan').css('border', '1px solid red');
+                        document.getElementById('err_bulan').style.display = "block";
+
+
+                    } else {
+                        $('#bulan').css('border', '');
+                        document.getElementById('err_bulan').style.display = "none";
+
+                    }
+
+                }
+            </script>
+                <script>
+                    function check() {
+                        // (B1) INIT
+                        var error = "",
+                            field = "";
+
+                        // kod produk
+                        field = document.getElementById("tahun");
+                        if (!field.checkValidity()) {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#tahun').css('border', '1px solid red');
+                            document.getElementById('err_tahun').style.display = "block";
+                            console.log('masuk');
+                        }
+                        // kod produk
+                        field = document.getElementById("bulan");
+                        if (!field.checkValidity()) {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#bulan').css('border', '1px solid red');
+                            document.getElementById('err_bulan').style.display = "block";
+                            console.log('masuk');
+                        }
+
+
+
+                        // (B4) RESULT
+                        if (error == "") {
+
+                            document.getElementById("checkBtn").setAttribute("type", "submit");
+                            return true;
+                        } else {
+                            document.getElementById("checkBtn").setAttribute("type", "button");
+
+                            return false;
+                        }
+
+                    }
+                </script>
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({
