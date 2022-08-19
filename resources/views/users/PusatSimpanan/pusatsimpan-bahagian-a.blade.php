@@ -367,7 +367,7 @@
                                                                         <input type="text" name='e07bt_stokawal'
                                                                             onkeypress="return isNumberKey(event)"
                                                                             id="e07b2{{ $data->e07bt_id }}"
-                                                                            onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            onchange="autodecimal(this); FormatCurrency(this); editpelarasan({{ $data->e07bt_id }})"
                                                                             class="form-control"
                                                                             oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }}); invoke_bt2({{ $data->e07bt_id }})"
                                                                             value="{{ number_format($data->e07bt_stokawal, 2) }}">
@@ -378,7 +378,7 @@
                                                                         <input type="text" name='e07bt_terima'
                                                                             onkeypress="return isNumberKey(event)"
                                                                             id="e07b3{{ $data->e07bt_id }}"
-                                                                            onchange="autodecimal(this); FormatCurrency(this)"
+                                                                            onchange="autodecimal(this); FormatCurrency(this); editpelarasan({{ $data->e07bt_id }})"
                                                                             class="form-control"
                                                                             oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }}); invoke_bt3({{ $data->e07bt_id }})"
                                                                             value="{{ number_format($data->e07bt_terima, 2) }}">
@@ -393,7 +393,7 @@
                                                                                 <label class="required">Edaran Dalam Negeri
                                                                                 </label>
                                                                                 <div class="form-group">
-                                                                                    <input type="text" name='e07bt_edaran' onkeypress="return isNumberKey(event)"  id="e07b5{{ $data->e07bt_id }}" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                                    <input type="text" name='e07bt_edaran' onkeypress="return isNumberKey(event)"  id="e07b5{{ $data->e07bt_id }}" onchange="autodecimal(this); FormatCurrency(this); editpelarasan({{ $data->e07bt_id }})"
                                                                                         class="form-control"  oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }}); invoke_bt5({{ $data->e07bt_id }})"
                                                                                         value="{{ number_format($data->e07bt_edaran, 2) }}">
                                                                                 </div>
@@ -407,12 +407,12 @@
                                                                                 <label class="required">Pelarasan (+/-) </label>
                                                                                 <div class="form-group">
                                                                                     <input type="text" name='e07bt_pelarasan'
-                                                                                        class="form-control" readonly
+                                                                                        class="form-control" readonly id="e07b7{{ $data->e07bt_id }}"
                                                                                         value="{{ number_format($data->e07bt_pelarasan, 2) }}">
                                                                                 </div>
                                                                                 <label class="required">Stok Akhir </label>
                                                                                 <div class="form-group">
-                                                                                    <input type="text" name='e07bt_stokakhir' onkeypress="return isNumberKey(event)"  id="e07b8{{ $data->e07bt_id }}" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                                    <input type="text" name='e07bt_stokakhir' onkeypress="return isNumberKey(event)"  id="e07b8{{ $data->e07bt_id }}" onchange="autodecimal(this); FormatCurrency(this); editpelarasan({{ $data->e07bt_id }})"
                                                                                         class="form-control"  oninput="validate_two_decimal(this); enableKemaskini({{ $data->e07bt_id }})"
                                                                                         value="{{ number_format($data->e07bt_stokakhir, 2) }}">
                                                                                 </div>
@@ -602,6 +602,44 @@
                     document.getElementById('e07bt_pelarasan').value =  pelarasan_diff.toFixed(2);
                     return false
                 }
+
+                    // document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+
+
+                    // console.log(document.getElementById('e07bt_pelarasan').value);
+
+            }
+        </script>
+        <script>
+            function editpelarasan(key) {
+                var estokawal = $("#e07b2" + key).val();
+                var epenerimaan = $("#e07b3" + key).val();
+                var eedaran = $("#e07b5" + key).val();
+
+                var epelarasan = $("#e07b7" + key).val();
+                var epelarasan_input = 0;
+                var  estokakhir =  document.getElementById('e07b8' + key);
+                // console.log(estokakhir.value);
+
+
+                epelarasan_input = parseFloat(Number(estokawal.replace(/,/g, ""))) + parseFloat(Number(epenerimaan.replace(/,/g, ""))) -
+                        parseFloat(Number(eedaran.replace(/,/g, "")));
+
+                epelarasan_diff = epelarasan_input - parseFloat(Number(estokakhir.value.replace(/,/g, "")));
+                console.log(epelarasan_diff);
+
+                // if (epelarasan_input >= estokakhir.value) {
+                //     console.log('sama');
+                // document.getElementById('#e07b7' + key).value = epelarasan_diff.toFixed(2);
+                document.querySelector("#e07b7" + key).value = epelarasan_diff.toFixed(2);
+                //     return true;
+                // //     console.log(document.getElementById('e07bt_pelarasan').value);
+
+                // } else if (epelarasan_input < estokakhir.value ){
+                //     console.log('taksama');
+                //     document.getElementById('#e07b7' + key).value =  epelarasan_diff.toFixed(2);
+                //     return false
+                // }
 
                     // document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
 

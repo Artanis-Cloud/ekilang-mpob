@@ -1751,6 +1751,7 @@
 <script>
     function enableKemaskini(key) {
         console.log('kemaskini masuk');
+        console.log('#kemaskini'+key);
         $('#kemaskini'+key).prop("disabled", false);
     }
 </script>
