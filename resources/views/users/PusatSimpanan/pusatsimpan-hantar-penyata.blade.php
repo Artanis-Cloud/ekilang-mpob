@@ -40,11 +40,12 @@
                 </div>
             </div>
         </div>
-                    <form method="get" action="" id="myfrm">
                         <div class="card" style="margin-right:2%; margin-left:2%">
                             <br>
                             <br>
                             <div class="card-body">
+                    <form method="get" action="" id="myfrm">
+
                                     <div class="pl-3">
                                         <body>
                                             <div align="right">
@@ -430,13 +431,14 @@
 
                                             {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
 
-                                            <div class="row justify-content-center">
 
-                                                <button type="button" class="btn btn-primary "
-                                                    onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                            </div>
 
                 {{-- </form> --}}
+                </div>
+                <div class="row justify-content-center">
+
+                    <button type="button" class="btn btn-primary "
+                        onclick="myPrint('myfrm')" value="print">Cetak</button>
                 </div>
             </div>
 

@@ -911,7 +911,8 @@ class KilangBuahController extends Controller
 
     public function buah_prestasioer()
     {
-
+        // $test = DB::connection('mysql3')->select("show databases");
+        // dd($test);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],

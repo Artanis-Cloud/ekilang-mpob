@@ -40,7 +40,6 @@
                 </div>
             </div>
         </div>
-        <form method="get" action="" id="myfrm">
         <div class="card" style="margin-right:2%; margin-left:2%; margin-top:2%">
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -48,6 +47,8 @@
             <br>
             <br>
             <div class="card-body">
+        <form method="get" action="" id="myfrm">
+
                 <div class="pl-3">
 
                     <body>
@@ -948,16 +949,17 @@
 
                         {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
 
-                        <div class="row justify-content-center" style="margin: 1%">
-                            <button type="button" class="btn btn-primary " style="margin:1%" onclick="myPrint('myfrm')"
-                                value="print">Cetak</button>
-                        </div>
 
 
+</form>
 
                 </div>
+
             </div>
-            </form>
+            <div class="row justify-content-center" style="margin: 1%">
+                <button type="button" class="btn btn-primary " style="margin:1%" onclick="myPrint('myfrm')"
+                    value="print">Cetak</button>
+            </div>
             {{-- </form> --}}
             {{-- <div id="preloader"></div> --}}
             <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

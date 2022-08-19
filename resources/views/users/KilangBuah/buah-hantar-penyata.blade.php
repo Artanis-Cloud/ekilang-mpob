@@ -37,7 +37,6 @@
                 </div>
             </div>
         </div>
-        <form method="get" action="" id="myfrm">
         <div class="card" style="margin-right:2%; margin-left:2%">
             {{-- <div class="card-header border-bottom">
                         <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -45,6 +44,8 @@
             <br>
             <br>
             <div class="card-body">
+        <form method="get" action="" id="myfrm">
+
                 <div class="pl-3">
 
                     <body>
@@ -1112,16 +1113,17 @@
                         </p>
 
 </form>
-                        <div class="row justify-content-center ">
-
-                            <button type="button" class="btn btn-primary " style="margin: 1%"
-                                onclick="myPrint('myfrm')" value="print">Cetak</button>
-                        </div>
 
 
 
 
                 </div>
+                <div class="row justify-content-center ">
+
+                            <button type="button" class="btn btn-primary " style="margin: 1%"
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+                        </div>
+
             </div>
 
 
