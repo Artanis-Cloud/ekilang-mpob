@@ -6,8 +6,8 @@
 
 	.currency-code{
 		position:absolute;
-		left:20px;
-		top:10px;
+		left:15px;
+		top:9px;
 	}
 
 	.text-currency{
@@ -122,18 +122,19 @@
                 <div class="col-md-12">
 
 
+                    <div class=" text-center">
 
 
-                    <div class=" mt-2 col-8" style="text-align: left">
-                        <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
-                            style="text-align:right"><i><u>Panduan
-                                    Mengisi Maklumat Bahagian 2</u></i></a>
+                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
+                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar Perahan Dan Harga</h5>
                     </div>
-                    <br>
+                    <hr>
+
 
                     <div class="mb-2 col-8" style="text-align: left">
                         <p><i>Nota: Sila isikan butiran dibawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
                     </div>
+                    <br>
 
 
                     <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post" class="sub-form"
@@ -153,7 +154,7 @@
                                 <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                         oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
-                                        style="  text-align:right" onkeypress="return isNumberKey(event)" id="e91_ah1" required
+                                        style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
                                 </div>
                                 <div class="mt-2">&nbsp;&nbsp;</div>
@@ -186,18 +187,24 @@
                                         title="       Jumlah pengeluaran isirung &#010;____________________________________   x 100 &#010;Jumlah buah kelapa sawit di proses"></i></label>
                                 </div>
                                 <div class="col-md-5">
+                                    <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
+                                        oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
+                                        style="  text-align:right; width:97%; margin-left:6%" onkeypress="return isNumberKey(event)" id="e91_ah1" required
+                                        title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
+                                </div>
+                                {{-- <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah3'
                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
-                                    style=" text-align:right; width:90%; margin-left:6%" onkeypress="return isNumberKey(event)" onchange="ah3();FormatCurrency(this)"
+                                    style=" text-align:right;  margin-left:6%" onkeypress="return isNumberKey(event)" onchange="ah3();FormatCurrency(this)"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required maxlength="5"
                                     title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0, 2) }}">
-                                </div>
-                                <div class="mt-2">%</div>
+                                </div> --}}
+                                <div class="mt-2" style="margin-left: 10px">%</div>
 
                             </div>
                             <div class="row justify-content-center" >
                                 <div class="col-sm-6 form-group " >
-                                    <label for="fname" class="control-label col-form-label" style="margin-left:4%">iv.
+                                    <label for="fname" class="control-label col-form-label">iv.
                                         Harga Purata Belian Buah Kelapa Sawit (FFB) &nbsp; <i class="fa fa-exclamation-circle "
                                         style="color: red; cursor: pointer;"
                                         title="Purata harga belian buah satu tan metrik &#010;____________________________________________    x 100 &#010;Purata OER yang ditetapkan semasa belian"></i></label>
@@ -209,9 +216,9 @@
                                     <span class="currency-code" &nbsp;>RM</span>
                                     <input type="text" class="form-control text-currency" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
-                                        style="  text-align:right" onkeypress="return isNumberKey(event)" maxlength="5"
+                                        style="  text-align:right; margin-left:-3%; width:99%" onkeypress="return isNumberKey(event)" maxlength="5"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"
-                                        placeholder="RM" required title="Sila isikan butiran ini."
+                                        required title="Sila isikan butiran ini."
                                         value=" {{number_format($penyata->e91_ah4 ?? 0,2) }}">
                                         <p style="text-align: right"><i>(1% Kadar Perahan)</i></p>
                                 </div>
@@ -225,7 +232,7 @@
                                             Prestasi OER  </label>
                                     </div>
                                     <div class="col-md-6">
-                                                <select name="kadar_oer" class="form-control" id="kadar_oer" required style="margin-left: 40%;width:110%"
+                                                <select name="kadar_oer" class="form-control" id="kadar_oer" required style="margin-left: 40%;width:105%"
                                                     onchange="showTable()" >
                                                     <option selected hidden disabled value="">Sila Pilih Prestasi OER
                                                     </option>
