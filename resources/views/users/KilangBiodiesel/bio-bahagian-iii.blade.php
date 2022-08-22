@@ -10,6 +10,18 @@
             opacity: 0;
         }
     }
+/*
+    table i {
+  color: red;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 5px 0;
+  width: 30px;
+  margin-right: 5px;
+  /* border: 2px solid black; */
+/* table td {
+  text-align: center;
+} */
 </style>
 
 @section('content')
@@ -79,36 +91,36 @@
             </div>
             <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
-              <b>  PENYATA BULANAN KILANG OLEOKIMIA (BIODIESEL) - MPOB (EL) CM 4<br>
+                <b> PENYATA BULANAN KILANG OLEOKIMIA (BIODIESEL) - MPOB (EL) CM 4<br>
 
-            BULAN :&nbsp;&nbsp;
-            @if ($bulan == 1)
-                JANUARI
-            @elseif($bulan == 2)
-                FEBRUARI
-            @elseif($bulan == 3)
-                MAC
-            @elseif($bulan == 4)
-                APRIL
-            @elseif($bulan == 5)
-                MEI
-            @elseif($bulan == 6)
-                JUN
-            @elseif($bulan == 7)
-                JULAI
-            @elseif($bulan == 8)
-                OGOS
-            @elseif($bulan == 9)
-                SEPTEMBER
-            @elseif($bulan == 10)
-                OKTOBER
-            @elseif($bulan == 11)
-                NOVEMBER
-            @elseif($bulan == 12)
-                DISEMBER
-            @endif
-            &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
-              </b>
+                    BULAN :&nbsp;&nbsp;
+                    @if ($bulan == 1)
+                        JANUARI
+                    @elseif($bulan == 2)
+                        FEBRUARI
+                    @elseif($bulan == 3)
+                        MAC
+                    @elseif($bulan == 4)
+                        APRIL
+                    @elseif($bulan == 5)
+                        MEI
+                    @elseif($bulan == 6)
+                        JUN
+                    @elseif($bulan == 7)
+                        JULAI
+                    @elseif($bulan == 8)
+                        OGOS
+                    @elseif($bulan == 9)
+                        SEPTEMBER
+                    @elseif($bulan == 10)
+                        OKTOBER
+                    @elseif($bulan == 11)
+                        NOVEMBER
+                    @elseif($bulan == 12)
+                        DISEMBER
+                    @endif
+                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                </b>
             </p>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
@@ -138,32 +150,32 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
-                                <div id="border_produk">
+                                    <div id="border_produk">
 
-                                    <select class="form-control select2" id="produk" name="ebio_c3" required
-                                        onchange="showDetail()"
-                                        oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
-                                       oninput="this.setCustomValidity(''); valid_produk()">
-                                        <option selected hidden disabled value="">Sila Pilih</option>
-                                        @foreach ($produk as $data)
-                                            <option value="{{ $data->prodid }}">
-                                                {{ $data->prodid }} - {{ $data->proddesc }}
-                                            </option>
-                                        @endforeach
+                                        <select class="form-control select2" id="produk" name="ebio_c3" required
+                                            onchange="showDetail()"
+                                            oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                                            oninput="this.setCustomValidity(''); valid_produk()">
+                                            <option selected hidden disabled value="">Sila Pilih</option>
+                                            @foreach ($produk as $data)
+                                                <option value="{{ $data->prodid }}">
+                                                    {{ $data->prodid }} - {{ $data->proddesc }}
+                                                </option>
+                                            @endforeach
 
-                                    </select>
+                                        </select>
+                                    </div>
+                                    <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
                                 </div>
-                                <p type="hidden" id="err_produk" style="color: red; display:none"><i>Sila buat pilihan
-                                    di
-                                    bahagian ini!</i></p>
-                                </div>
-                                    @error('ebio_c3')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila buat pilihan di bahagian ini</strong>
-                                        </div>
-                                    @enderror
+                                @error('ebio_c3')
+                                    <div class="alert alert-danger">
+                                        <strong>Sila buat pilihan di bahagian ini</strong>
+                                    </div>
+                                @enderror
 
-                                </div>
+                            </div>
                             {{-- </div> --}}
 
                             <div class="row">
@@ -173,7 +185,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c4' style="width:100%"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                       oninput="this.setCustomValidity(''); invokeFunc(); "
+                                        oninput="this.setCustomValidity(''); invokeFunc(); "
                                         onkeypress="return isNumberKey(event)" id="ebio_c4" required
                                         onchange="autodecimal(this); FormatCurrency(this)" title="Sila isikan butiran ini.">
 
@@ -191,9 +203,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c5' style="width:100%"
                                         id="ebio_c5" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                       oninput="this.setCustomValidity(''); invokeFunc1();"
-                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
-                                        title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc1();"
+                                        onkeypress="return isNumberKey(event)" required
+                                        onchange="autodecimal(this); FormatCurrency(this)" title="Sila isikan butiran ini.">
                                     @error('ebio_c5')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -209,9 +221,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c6' style="width:100%"
                                         id="ebio_c6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                       oninput="this.setCustomValidity(''); invokeFunc2();"
-                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
-                                        title="Sila isikan butiran ini.">
+                                        oninput="this.setCustomValidity(''); invokeFunc2();"
+                                        onkeypress="return isNumberKey(event)" required
+                                        onchange="autodecimal(this); FormatCurrency(this)" title="Sila isikan butiran ini.">
                                     @error('ebio_c6')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -225,7 +237,8 @@
                                     <input type="text" class="form-control" name='ebio_c7' style="width:100%"
                                         id="ebio_c7" oninput="this.setCustomValidity(''); invokeFunc3();"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)">
+                                        onkeypress="return isNumberKey(event)" required
+                                        onchange="autodecimal(this); FormatCurrency(this)">
                                     @error('ebio_c7')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -269,8 +282,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c9' style="width:100%"
                                         id="ebio_c9" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                       oninput="this.setCustomValidity(''); invokeFunc5();"
-                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninput="this.setCustomValidity(''); invokeFunc5();"
+                                        onkeypress="return isNumberKey(event)" required
+                                        onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
 
                                     <div id="merah_container" style="display:none">
@@ -296,8 +310,9 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_c10' style="width:100%"
                                         id="ebio_c10" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                       oninput="this.setCustomValidity(''); invokeFunc6();"
-                                        onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
+                                        oninput="this.setCustomValidity(''); invokeFunc6();"
+                                        onkeypress="return isNumberKey(event)" required
+                                        onchange="autodecimal(this); FormatCurrency(this)"
                                         title="Sila isikan butiran ini.">
                                     @error('ebio_c10')
                                         <div class="alert alert-danger">
@@ -314,7 +329,8 @@
                         <br>
 
                         <div class="row justify-content-center form-group" style="margin: 3%;">
-                            <button type="submit" class="btn btn-primary " id="checkBtn" onclick="check()">Tambah</button>
+                            <button type="submit" class="btn btn-primary " id="checkBtn"
+                                onclick="check()">Tambah</button>
                         </div>
 
                     </form>
@@ -425,29 +441,32 @@
                                                                         </div>
                                                                         <label>Stok Awal Di Premis </label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c4' id="ebio_ec4{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c4'
+                                                                                id="ebio_ec4{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c4 ?? 0,2) }}"
+                                                                                value="{{ number_format($data->ebio_c4 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec4({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Belian / Terimaan
                                                                         </label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c5' id="ebio_ec5{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c5'
+                                                                                id="ebio_ec5{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c5 ?? 0,2)  }}"
+                                                                                value="{{ number_format($data->ebio_c5 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec5({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Pengeluaran </label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c6' id="ebio_ec6{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c6'
+                                                                                id="ebio_ec6{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c6 ?? 0,2)  }}"
+                                                                                value="{{ number_format($data->ebio_c6 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec6({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
@@ -459,39 +478,43 @@
                                                                         <label>Digunakan Untuk Proses
                                                                             Selanjutnya </label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c7' id="ebio_ec7{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c7'
+                                                                                id="ebio_ec7{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c7 ?? 0,2)  }}"
+                                                                                value="{{ number_format($data->ebio_c7 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec7({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Jualan / Edaran
                                                                             Tempatan</label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c8' id="ebio_ec8{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c8'
+                                                                                id="ebio_ec8{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c8 ?? 0,2)  }}"
+                                                                                value="{{ number_format($data->ebio_c8 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec8({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Eksport
                                                                         </label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c9' id="ebio_ec9{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c9'
+                                                                                id="ebio_ec9{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c9 ?? 0,2)  }}"
+                                                                                value="{{ number_format($data->ebio_c9 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec9({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
                                                                         <label>Stok Akhir Dilapor </label>
                                                                         <div class="form-group">
-                                                                            <input type="text" name='ebio_c10' id="ebio_ec10{{ $data->ebio_c1 }}"
+                                                                            <input type="text" name='ebio_c10'
+                                                                                id="ebio_ec10{{ $data->ebio_c1 }}"
                                                                                 class="form-control"
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c10 ?? 0,2) }}"
+                                                                                value="{{ number_format($data->ebio_c10 ?? 0, 2) }}"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
@@ -506,8 +529,8 @@
                                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Batal</span>
                                                                 </button>
-                                                                <button type="submit" class="btn btn-primary ml-1" disabled
-                                                                id="kemaskini_button{{ $data->ebio_c1 }}">
+                                                                <button type="submit" class="btn btn-primary ml-1"
+                                                                    disabled id="kemaskini_button{{ $data->ebio_c1 }}">
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Kemaskini</span>
                                                                 </button>
@@ -658,7 +681,7 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             </div>
                             <div class="modal-body">
-                            <div class="table-responsive col-10 ml-auto mr-auto">
+                                <div class="table-responsive col-10 ml-auto mr-auto">
 
                                     <div class="table-responsive">
                                         <table class="table table-bordered" style="font-size: 13px" id="data_table">
@@ -666,16 +689,17 @@
                                                 <tr style="vertical-align: middle">
                                                     <th style="vertical-align: middle;">Nama Syarikat</th>
                                                     <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
-                                                    <th></th>
+                                                    <th style="vertical-align: middle;">Tindakan</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     {{-- <div class='field'> --}}
 
-                                                    <td class="field"><select class="form-control select2 " style="width: 100px"
-                                                            id="new_syarikat[]" name="new_syarikat[]"
-                                                            onchange="showDetail()" oninput="removeDisabled()">
+                                                    <td class="field"><select class="form-control select2 "
+                                                            style="width: 100px" id="new_syarikat[]"
+                                                            name="new_syarikat[]" onchange="showDetail()"
+                                                            oninput="removeDisabled()">
                                                             <option selected hidden disabled value="">Sila Pilih
                                                             </option>
                                                             @foreach ($syarikat as $data)
@@ -686,14 +710,18 @@
 
                                                         </select></td>
                                                     {{-- </div> --}}
-                                                    <td class="field"><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
-                                                        onkeypress="return isNumberKey(event)"  name='new_jumlah[]'>
+                                                    <td class="field"><input type="text" id="new_jumlah[]"
+                                                            class="form-control" style="text-align: center"
+                                                            onkeypress="return isNumberKey(event)" name='new_jumlah[]'>
                                                         {{-- <div class='actions'> --}}
 
-                                                    <td style="size: 10ch" class="actions"><input type="button"
-                                                            class="btn btn-primary ml-1 actions" id="tambah_maklumat"
-                                                            onclick="add_row()" disabled="disabled"
-                                                            value="Tambah Maklumat">
+                                                    <td style="size: 10ch" class="actions" align="center">
+                                                        <i class="fa fa-plus-circle center" type="button" id="tambah_maklumat"
+                                                            onclick="add_row()" disabled="disabled" style="font-size:30px; color:green;">
+                                                            {{-- <input  class="btn btn-primary ml-1 actions"
+                                                            id="tambah_maklumat" onclick="add_row()" disabled="disabled"
+                                                            value="Tambah Maklumat"> --}}
+                                                        </i>
                                                     </td>
                                                     {{-- </div> --}}
                                                 </tr>
@@ -737,101 +765,102 @@
             </form>
         @endsection
         @section('scripts')
-        <script>
-            function invoke_ec4(key) {
-                addEventListener('keydown', function(evt) {
-                    var whichKey = checkKey(evt);
-                    if (whichKey == 13) {
-                        console.log('successful');
-                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                        document.getElementById('ebio_ec5' + key).focus();
-                    }
+            <script>
+                function invoke_ec4(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_ec5' + key).focus();
+                        }
 
-                });
-            }
-            function invoke_ec5(key) {
-                addEventListener('keydown', function(evt) {
-                    var whichKey = checkKey(evt);
-                    if (whichKey == 13) {
-                        console.log('successful');
-                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                        document.getElementById('ebio_ec6' + key).focus();
-                    }
-
-                });
-            }
-
-            function invoke_ec6(key) {
-                addEventListener('keydown', function(evt) {
-                    var whichKey = checkKey(evt);
-                    if (whichKey == 13) {
-                        console.log('successful');
-                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                        document.getElementById('ebio_ec7' + key).focus();
-                    }
-
-                });
-            }
-
-            function invoke_ec7(key) {
-                addEventListener('keydown', function(evt) {
-                    var whichKey = checkKey(evt);
-                    if (whichKey == 13) {
-                        console.log('successful');
-                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                        document.getElementById('ebio_ec8' + key).focus();
-                    }
-
-                });
-            }
-
-            function invoke_ec8(key) {
-                addEventListener('keydown', function(evt) {
-                    var whichKey = checkKey(evt);
-                    if (whichKey == 13) {
-                        console.log('successful');
-                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                        document.getElementById('ebio_ec9' + key).focus();
-                    }
-
-                });
-            }
-
-            function invoke_ec9(key) {
-                addEventListener('keydown', function(evt) {
-                    var whichKey = checkKey(evt);
-                    if (whichKey == 13) {
-                        console.log('successful');
-                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                        document.getElementById('e104_eb10' + key).focus();
-                    }
-
-                });
-            }
-
-
-
-            function checkKey(evt) {
-                console.log(evt.which);
-                return evt.which;
-            }
-        </script>
-        <script>
-            function valid_produk() {
-
-                if ($('#produk').val() == '') {
-                    $('#border_produk').css('border', '1px solid red');
-                    document.getElementById('err_produk').style.display = "block";
-
-
-                } else {
-                    $('#border_produk').css('border', '');
-                    document.getElementById('err_produk').style.display = "none";
-
+                    });
                 }
 
-            }
-        </script>
+                function invoke_ec5(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_ec6' + key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_ec6(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_ec7' + key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_ec7(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_ec8' + key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_ec8(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('ebio_ec9' + key).focus();
+                        }
+
+                    });
+                }
+
+                function invoke_ec9(key) {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_eb10' + key).focus();
+                        }
+
+                    });
+                }
+
+
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function valid_produk() {
+
+                    if ($('#produk').val() == '') {
+                        $('#border_produk').css('border', '1px solid red');
+                        document.getElementById('err_produk').style.display = "block";
+
+
+                    } else {
+                        $('#border_produk').css('border', '');
+                        document.getElementById('err_produk').style.display = "none";
+
+                    }
+
+                }
+            </script>
             <script>
                 function check() {
                     // (B1) INIT
@@ -876,47 +905,47 @@
 
                         let x5 = c4;
                         if (x5 == '') {
-                                x5 = x5 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x5 = x5 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
                         let x6 = c5;
                         if (x6 == '') {
-                                x6 = x6 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x6 = x6 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
                         let x7 = c6;
                         if (x7 == '') {
-                                x7 = x7 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x7 = x7 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
                         let x9 = c7;
                         if (x9 == '') {
-                                x9 = x9 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x9 = x9 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
                         let x10 = c8;
                         if (x10 == '') {
-                                x10 = x10 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x10 = x10 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
                         let x11 = c9;
                         if (x11 == '') {
-                                x11 = x11 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x11 = x11 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
                         let x8 = c10;
                         if (x8 == '') {
-                                x8 = x8 || 0.00;
-                                // document.getElementById("ebio_b5").value = x;
+                            x8 = x8 || 0.00;
+                            // document.getElementById("ebio_b5").value = x;
                         }
 
-                         document.getElementById("ebio_c4").value = x5;
-                         document.getElementById("ebio_c5").value = x6;
-                         document.getElementById("ebio_c6").value = x7;
-                         document.getElementById("ebio_c7").value = x9;
-                         document.getElementById("ebio_c8").value = x10;
-                         document.getElementById("ebio_c9").value = x11;
-                         document.getElementById("ebio_c10").value = x8;
+                        document.getElementById("ebio_c4").value = x5;
+                        document.getElementById("ebio_c5").value = x6;
+                        document.getElementById("ebio_c6").value = x7;
+                        document.getElementById("ebio_c7").value = x9;
+                        document.getElementById("ebio_c8").value = x10;
+                        document.getElementById("ebio_c9").value = x11;
+                        document.getElementById("ebio_c10").value = x8;
 
 
                         if (c4 == 0 && c5 == 0 && c6 == 0 && c7 == 0 && c8 == 0 && c9 == 0 && c10 == 0) {
@@ -959,7 +988,8 @@
                     var table_len = (table.rows.length) - 1;
 
                     var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" +
-                        table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
+                        table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
+                        "text-align:center" + ">" + new_jumlah +
                         "</td><td><input type='hidden' id='jumlah_row" + table_len +
                         "' name='jumlah_row[]' value=" + new_jumlah +
                         "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
@@ -1291,9 +1321,7 @@
                 }
 
                 function enableKemaskini_bio(key) {
-                    $('#kemaskini_button'+key).prop("disabled", false);
+                    $('#kemaskini_button' + key).prop("disabled", false);
                 }
             </script>
-
-
         @endsection
