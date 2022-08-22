@@ -295,7 +295,7 @@ class KilangBuahController extends Controller
 
         $kilang = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $kilang = E91Init::where('e91_nl', '500028104000')->first();
-
+        // dd($kilang);
         if ($kilang) {
             return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang', 'bulan', 'tahun',));
         } else {
@@ -911,8 +911,10 @@ class KilangBuahController extends Controller
 
     public function buah_prestasioer()
     {
-        // $test = DB::connection('mysql3')->select("show databases");
-        // dd($test);
+        $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
+                                                    WHERE tahun = '2013'
+                                                    AND bulan = '06'");
+        dd($test);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],

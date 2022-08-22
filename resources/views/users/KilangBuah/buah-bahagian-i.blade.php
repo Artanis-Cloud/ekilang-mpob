@@ -141,7 +141,7 @@
                                                                     oninput="setCustomValidity(''); invokeFunc()"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0, 2) }}">
+                                                                    value="{{ $kilang->e91_aa1 }}">
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_aa2'
@@ -514,129 +514,166 @@ termasuk pengeluaran untuk 'Tol'."></i>
             <script>
                 $(document).ready(function() {
                     let empty = '';
+                    let zero = '2.00';
+
                     var aa1 = $('#e91_aa1').val();
-                    if (aa1 == '0.00' || aa1 == 0)
-                    {
+                    console.log(aa1);
+                    if (aa1 === null) {
+                        console.log('aa1');
                         $('#e91_aa1').val(empty);
                     }
 
-                    var aa2 = $('#e91_aa2').val();
-                    if (aa2 == '0.00' || aa2 == 0)
-                    {
-                        $('#e91_aa2').val(empty);
-                    }
+                    // if(!aa1 == null)
+                    // {
+                    //     console.log('masukkmana');
+                    //     $('#e91_aa1').val(zero);
+                    // }
 
-                    var aa3 = $('#e91_aa3').val();
-                    if (aa3 == '0.00' || aa3 == 0)
-                    {
-                        $('#e91_aa3').val(empty);
-                    }
+                    // var aa2 = $('#e91_aa2').val();
+                    // if (aa2 == null) {
+                    //     console.log('$ekilang->e91_aa2');
+                    //     $('#e91_aa2').val(empty);
+                    // } else if (aa2 == '0.00') {
+                    //     console.log('masukkmana');
+                    //     $('#e91_aa2').val(zero);
+                    // }
 
-                    var aa4 = $('#e91_aa4').val();
-                    if (aa4 == '0.00' || aa4 == 0)
-                    {
-                        $('#e91_aa4').val(empty);
-                    }
+                    // @if ($kilang->a91_aa2 == null)
+                    //     console.log('$ekilang->e91_aa2');
+                    //     $('#e91_aa2').val(empty);
+                    // @elseif ($kilang->a91_aa2 == 2.00)
+                    //     console.log('masukkmana');
+                    //     $('#e91_aa2').val(zero);
 
-                    var ab1 = $('#e91_ab1').val();
-                    if (ab1 == '0.00' || ab1 == 0)
-                    {
-                        $('#e91_ab1').val(empty);
-                    }
-
-                    var ab2 = $('#e91_ab2').val();
-                    if (ab2 == '0.00' || ab2 == 0)
-                    {
-                        $('#e91_ab2').val(empty);
-                    }
-
-                    var ab3 = $('#e91_ab3').val();
-                    if (ab3 == '0.00' || ab3 == 0)
-                    {
-                        $('#e91_ab3').val(empty);
-                    }
-
-                    var ab4 = $('#e91_ab4').val();
-                    if (ab4 == '0.00' || ab4 == 0)
-                    {
-                        $('#e91_ab4').val(empty);
-                    }
-
-                    var ac1 = $('#e91_ac1').val();
-                    if (ac1 == '0.00' || ac1 == 0)
-                    {
-                        $('#e91_ac1').val(empty);
-                    }
-
-                    var ad1 = $('#e91_ad1').val();
-                    if (ad1 == '0.00' || ad1 == 0)
-                    {
-                        $('#e91_ad1').val(empty);
-                    }
-
-                    var ad2 = $('#e91_ad2').val();
-                    if (ad2 == '0.00' || ad2 == 0)
-                    {
-                        $('#e91_ad2').val(empty);
-                    }
-
-                    var ad3 = $('#e91_ad3').val();
-                    if (ad3 == '0.00' || ad3 == 0)
-                    {
-                        $('#e91_ad3').val(empty);
-                    }
-
-                    var ae1 = $('#e91_ae1').val();
-                    if (ae1 == '0.00' || ae1 == 0)
-                    {
-                        $('#e91_ae1').val(empty);
-                    }
-
-                    var ae2 = $('#e91_ae2').val();
-                    if (ae2 == '0.00' || ae2 == 0)
-                    {
-                        $('#e91_ae2').val(empty);
-                    }
-
-                    var ae3 = $('#e91_ae3').val();
-                    if (ae3 == '0.00' || ae3 == 0)
-                    {
-                        $('#e91_ae3').val(empty);
-                    }
-
-                    var ae4 = $('#e91_ae4').val();
-                    if (ae4 == '0.00' || ae4 == 0)
-                    {
-                        $('#e91_ae4').val(empty);
-                    }
-
-                    var ag1 = $('#e91_ag1').val();
-                    if (ag1 == '0.00' || ag1 == 0)
-                    {
-                        $('#e91_ag1').val(empty);
-                    }
-
-                    var ag2 = $('#e91_ag2').val();
-                    if (ag2 == '0.00' || ag2 == 0)
-                    {
-                        $('#e91_ag2').val(empty);
-                    }
-
-                    var ag3 = $('#e91_ag3').val();
-                    if (ag3 == '0.00' || ag3 == 0)
-                    {
-                        $('#e91_ag3').val(empty);
-                    }
-
-                    var ag4 = $('#e91_ag4').val();
-                    if (ag4 == '0.00' || ag4 == 0)
-                    {
-                        $('#e91_ag4').val(empty);
-                    }
-
+                    // @endif
 
                 });
             </script>
+            // <script>
+            //     $(document).ready(function() {
+            //         @if ($kilang->a91_aa2 == null && $kilang->e91_aa2 != '0.00')
+            //         console.log('masukkilang');
+            //             $('#e91_aa2').val(empty);
+            //         @endif
+
+
+            //         var aa2 = $('#e91_aa2').val();
+            //         if (aa2 == '0.00' || aa2 == 0)
+            //         {
+            //             $('#e91_aa2').val(empty);
+            //         }
+
+            //         var aa3 = $('#e91_aa3').val();
+            //         if (aa3 == '0.00' || aa3 == 0)
+            //         {
+            //             $('#e91_aa3').val(empty);
+            //         }
+
+            //         var aa4 = $('#e91_aa4').val();
+            //         if (aa4 == '0.00' || aa4 == 0)
+            //         {
+            //             $('#e91_aa4').val(empty);
+            //         }
+
+            //         var ab1 = $('#e91_ab1').val();
+            //         if (ab1 == '0.00' || ab1 == 0)
+            //         {
+            //             $('#e91_ab1').val(empty);
+            //         }
+
+            //         var ab2 = $('#e91_ab2').val();
+            //         if (ab2 == '0.00' || ab2 == 0)
+            //         {
+            //             $('#e91_ab2').val(empty);
+            //         }
+
+            //         var ab3 = $('#e91_ab3').val();
+            //         if (ab3 == '0.00' || ab3 == 0)
+            //         {
+            //             $('#e91_ab3').val(empty);
+            //         }
+
+            //         var ab4 = $('#e91_ab4').val();
+            //         if (ab4 == '0.00' || ab4 == 0)
+            //         {
+            //             $('#e91_ab4').val(empty);
+            //         }
+
+            //         var ac1 = $('#e91_ac1').val();
+            //         if (ac1 == '0.00' || ac1 == 0)
+            //         {
+            //             $('#e91_ac1').val(empty);
+            //         }
+
+            //         var ad1 = $('#e91_ad1').val();
+            //         if (ad1 == '0.00' || ad1 == 0)
+            //         {
+            //             $('#e91_ad1').val(empty);
+            //         }
+
+            //         var ad2 = $('#e91_ad2').val();
+            //         if (ad2 == '0.00' || ad2 == 0)
+            //         {
+            //             $('#e91_ad2').val(empty);
+            //         }
+
+            //         var ad3 = $('#e91_ad3').val();
+            //         if (ad3 == '0.00' || ad3 == 0)
+            //         {
+            //             $('#e91_ad3').val(empty);
+            //         }
+
+            //         var ae1 = $('#e91_ae1').val();
+            //         if (ae1 == '0.00' || ae1 == 0)
+            //         {
+            //             $('#e91_ae1').val(empty);
+            //         }
+
+            //         var ae2 = $('#e91_ae2').val();
+            //         if (ae2 == '0.00' || ae2 == 0)
+            //         {
+            //             $('#e91_ae2').val(empty);
+            //         }
+
+            //         var ae3 = $('#e91_ae3').val();
+            //         if (ae3 == '0.00' || ae3 == 0)
+            //         {
+            //             $('#e91_ae3').val(empty);
+            //         }
+
+            //         var ae4 = $('#e91_ae4').val();
+            //         if (ae4 == '0.00' || ae4 == 0)
+            //         {
+            //             $('#e91_ae4').val(empty);
+            //         }
+
+            //         var ag1 = $('#e91_ag1').val();
+            //         if (ag1 == '0.00' || ag1 == 0)
+            //         {
+            //             $('#e91_ag1').val(empty);
+            //         }
+
+            //         var ag2 = $('#e91_ag2').val();
+            //         if (ag2 == '0.00' || ag2 == 0)
+            //         {
+            //             $('#e91_ag2').val(empty);
+            //         }
+
+            //         var ag3 = $('#e91_ag3').val();
+            //         if (ag3 == '0.00' || ag3 == 0)
+            //         {
+            //             $('#e91_ag3').val(empty);
+            //         }
+
+            //         var ag4 = $('#e91_ag4').val();
+            //         if (ag4 == '0.00' || ag4 == 0)
+            //         {
+            //             $('#e91_ag4').val(empty);
+            //         }
+
+
+            //     });
+            // </script>
             <script>
                     function autozero() {
                         let zero = '0';
