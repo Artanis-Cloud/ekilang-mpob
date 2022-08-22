@@ -1048,7 +1048,7 @@
             </script>
             <script type="text/javascript">
                 function showDetail() {
-                    var produk = $('#ebio_c3').val();
+                    var produk = $('#produk').val();
                     // const total = $produk2;
 
                     if (produk == "AW") {
