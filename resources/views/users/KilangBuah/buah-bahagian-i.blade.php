@@ -5,33 +5,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    {{-- <h4 class="page-title">Kemasukan Penyata Bulanan
-                        @if ($bulan == 1)
-                            JANUARI
-                        @elseif($bulan == 2)
-                            FEBRUARI
-                        @elseif($bulan == 3)
-                            MAC
-                        @elseif($bulan == 4)
-                            APRIL
-                        @elseif($bulan == 5)
-                            MEI
-                        @elseif($bulan == 6)
-                            JUN
-                        @elseif($bulan == 7)
-                            JULAI
-                        @elseif($bulan == 8)
-                            OGOS
-                        @elseif($bulan == 9)
-                            SEPTEMBER
-                        @elseif($bulan == 10)
-                            OKTOBER
-                        @elseif($bulan == 11)
-                            NOVEMBER
-                        @elseif($bulan == 12)
-                            DISEMBER
-                        @endif {{ $tahun }}
-                    </h4> --}}
+
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -61,459 +35,788 @@
         </div>
         <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
-          <b>  KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
+            <b> KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
-        BULAN :&nbsp;&nbsp;
-        @if ($bulan == 1)
-            JANUARI
-        @elseif($bulan == 2)
-            FEBRUARI
-        @elseif($bulan == 3)
-            MAC
-        @elseif($bulan == 4)
-            APRIL
-        @elseif($bulan == 5)
-            MEI
-        @elseif($bulan == 6)
-            JUN
-        @elseif($bulan == 7)
-            JULAI
-        @elseif($bulan == 8)
-            OGOS
-        @elseif($bulan == 9)
-            SEPTEMBER
-        @elseif($bulan == 10)
-            OKTOBER
-        @elseif($bulan == 11)
-            NOVEMBER
-        @elseif($bulan == 12)
-            DISEMBER
-        @endif
-        &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
-          </b>
+                BULAN :&nbsp;&nbsp;
+                @if ($bulan == 1)
+                    JANUARI
+                @elseif($bulan == 2)
+                    FEBRUARI
+                @elseif($bulan == 3)
+                    MAC
+                @elseif($bulan == 4)
+                    APRIL
+                @elseif($bulan == 5)
+                    MEI
+                @elseif($bulan == 6)
+                    JUN
+                @elseif($bulan == 7)
+                    JULAI
+                @elseif($bulan == 8)
+                    OGOS
+                @elseif($bulan == 9)
+                    SEPTEMBER
+                @elseif($bulan == 10)
+                    OKTOBER
+                @elseif($bulan == 11)
+                    NOVEMBER
+                @elseif($bulan == 12)
+                    DISEMBER
+                @endif
+                &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+            </b>
         </p>
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
 
 
-            <div class="card" style="margin-right:2%; margin-left:2%">
-                <div class="card-body">
-                <div class="pl-3">
+                <div class="card" style="margin-right:2%; margin-left:2%">
+                    <div class="card-body">
+                        <div class="pl-3">
 
-                    <div class=" text-center">
-
-
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h3>
-                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Stok Awal, Belian, Proses,
-                            Pengeluaran,
-                            Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
-                    </div>
-                    <hr>
+                            <div class=" text-center">
 
 
-
-
-                    <div class="col-12 mt-3">
-                        <div class="row col-12">
-                            <div class="mb-2 col-8" style="text-align: left">
-                                <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h3>
+                                <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Stok Awal, Belian, Proses,
+                                    Pengeluaran,
+                                    Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
                             </div>
-                            {{-- <div class="mb-2 col-4" style="text-align: right">
+                            <hr>
+
+
+
+
+                            <div class="col-12 mt-3">
+                                <div class="row col-12">
+                                    <div class="mb-2 col-8" style="text-align: left">
+                                        <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan &
+                                                Seterusnya’</i></p>
+                                    </div>
+                                    {{-- <div class="mb-2 col-4" style="text-align: right">
                                 <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
                                     style="text-align:right"><i><u>Panduan
                                             Mengisi Maklumat Bahagian I</u></i></a>
                             </div> --}}
 
-                        </div>
-                        <form action="{{ route('buah.update.bahagian.i', $kilang->e91_reg) }}" method="post"
-                            class="sub-form">
-                            @csrf
-                            <div class="card">
-
-                                <div class="card-content">
-
-
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered mb-0">
-                                            <thead style="text-align: center">
-                                                <tr>
-                                                    <th>Butiran</th>
-                                                    <th>Buah Tandan Segar (FFB) <br>
-                                                        Kod 52</th>
-                                                    <th>Minyak Sawit Mentah (CPO)
-                                                        <br> Kod 01
-                                                    </th>
-                                                    <th>Isirung (PK) <br> Kod 51
-                                                    </th>
-                                                    <th>Minyak Keladak (Sludge Oil)
-                                                        <br> Kod 49
-                                                    </th>
-
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-bold-500 ">A.
-                                                        Stok Awal Di Premis &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Lapor stok fizikal di premis sahaja"></i></td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" name='e91_aa1' id='e91_aa1'
-                                                            style="text-align: center" onchange="aa1();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc(); "
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_aa1 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" name='e91_aa2'
-                                                            id='e91_aa2'required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
-                                                            onchange="aa2();FormatCurrency(this)"
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ number_format($kilang->e91_aa2 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" name='e91_aa3'
-                                                            id='e91_aa3'required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
-                                                            onchange="aa3();FormatCurrency(this)"
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ number_format($kilang->e91_aa3 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" name='e91_aa4'
-                                                            id='e91_aa4'required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
-                                                            onchange="aa4();FormatCurrency(this)"
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ number_format($kilang->e91_aa4 ?? 0, 2) }}">
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500 ">B.
-                                                        Belian/Terimaan  &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Belian - Urusniaga yang melibatkan pembayaran.
-Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan)."></i></td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" name='e91_ab1'
-                                                            id='e91_ab1'id="number" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
-                                                            onchange="ab1();FormatCurrency(this)"
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ number_format($kilang->e91_ab1 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ab2();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc6()"
-                                                            name='e91_ab2' id='e91_ab2'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ab2 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ab3();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc7()"
-                                                            name='e91_ab3'
-                                                            id='e91_ab3'onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ab3 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ab4();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc8()"
-                                                            name='e91_ab4'
-                                                            id='e91_ab4'onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ab4 ?? 0, 2) }}">
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500 ">C.
-                                                        Diproses  &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Jumlah BKS daripada stok awal/belian/penerimaan yang diproses termasuk proses untuk 'Tol'."></i></td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ac1();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc9()"
-                                                            name='e91_ac1' id='e91_ac1'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ac1 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"> --}}
-                                                    </td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"> --}}
-                                                    </td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"> --}}
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500 ">D.
-                                                        Pengeluaran &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Pengeluaran minyak sawit mentah (CPO), isirong kelapa sawit (PK) dan minyak keladak
-termasuk pengeluaran untuk 'Tol'."></i></td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"> --}}
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ad1();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc10()"
-                                                            name='e91_ad1' id='e91_ad1' onkeyup="FormatCurrency(this)"
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ad1 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ad2();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc11()"
-                                                            name='e91_ad2' id='e91_ad2' onkeyup="FormatCurrency(this)"
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ad2 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ad3();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc12()"
-                                                            name='e91_ad3' id='e91_ad3'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ad3 ?? 0, 2) }}">
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500 ">E.
-                                                        Jualan/Edaran Tempatan &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Jualan Tempatan merujuk kepada urusniaga yang dilakukan secara tempatan yang melibatkan pembayaran."></i></td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ae1();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc13()"
-                                                            name='e91_ae1' id='e91_ae1'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ae1 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ae2();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc14()"
-                                                            name='e91_ae2' id='e91_ae2'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ae2 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ae3();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc15()"
-                                                            name='e91_ae3'
-                                                            id='e91_ae3'onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ae3 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ae4();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc16()"
-                                                            name='e91_ae4' id='e91_ae4'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ae4 ?? 0, 2) }}">
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500 ">F.
-                                                        Eksport &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Hanya lapor, jika keluaran dieksport terus dari premis."></i></td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
-                                                    </td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
-                                                    </td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
-                                                    </td>
-                                                    <td style="text-align:center; background-color:#808080b8">
-                                                        {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500 ">G.
-                                                        Stok Akhir Di Premis  &nbsp; <i class="fa fa-exclamation-circle"
-                                                        style="color: red; cursor: pointer;"
-                                                        title="Laporkan stok akhir pada akhir bulan di premis (termasuk pusat simpanan dan gudang sendiri). "></i></td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ag1();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc17()"
-                                                            name='e91_ag1'
-                                                            id='e91_ag1'onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ag1 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ag2();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc18()"
-                                                            name='e91_ag2' id='e91_ag2'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            value="{{ number_format($kilang->e91_ag2 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ag3();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc19()"
-                                                            name='e91_ag3' id='e91_ag3'
-                                                            onkeypress="return isNumberKey(event)" required
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="setTwoNumberDecimal()"
-                                                            value="{{ number_format($kilang->e91_ag3 ?? 0, 2) }}">
-                                                    </td>
-                                                    <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center"
-                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onchange="ag4();FormatCurrency(this)"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                            name='e91_ag4' id='e91_ag4'
-                                                            onchange="setTwoNumberDecimal()" required
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ number_format($kilang->e91_ag4 ?? 0, 2) }}">
-                                                    </td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
+                                <form action="{{ route('buah.update.bahagian.i', $kilang->e91_reg) }}" method="post"
+                                    class="sub-form">
+                                    @csrf
+                                    <div class="card">
 
-                            </div>
+                                        <div class="card-content">
 
 
-                            <div class="row" style=" float:right">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered mb-0">
+                                                    <thead style="text-align: center">
+                                                        <tr>
+                                                            <th>Butiran</th>
+                                                            <th>Buah Tandan Segar (FFB) <br>
+                                                                Kod 52</th>
+                                                            <th>Minyak Sawit Mentah (CPO)
+                                                                <br> Kod 01
+                                                            </th>
+                                                            <th>Isirung (PK) <br> Kod 51
+                                                            </th>
+                                                            <th>Minyak Keladak (Sludge Oil)
+                                                                <br> Kod 49
+                                                            </th>
 
-                                <div class="col-md-12">
-                                    <div class="row form-group" style="padding-top: 10px; ">
-                                        <div class="text-right col-md-12">
-                                            <button type="submit" class="btn btn-primary ">Simpan &
-                                                Seterusnya</button>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">A.
+                                                                Stok Awal Di Premis &nbsp; <i
+                                                                    class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Lapor stok fizikal di premis sahaja"></i></td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10" name='e91_aa1'
+                                                                    id='e91_aa1' style="text-align: center"
+                                                                    onchange="aa1();FormatCurrency(this)"
+                                                                    oninput="setCustomValidity(''); invokeFunc()"
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10" name='e91_aa2'
+                                                                    id='e91_aa2'required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    style="text-align: center"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
+                                                                    onchange="aa2();FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($kilang->e91_aa2 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10" name='e91_aa3'
+                                                                    id='e91_aa3'required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    style="text-align: center"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
+                                                                    onchange="aa3();FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($kilang->e91_aa3 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10" name='e91_aa4'
+                                                                    id='e91_aa4'required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    style="text-align: center"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
+                                                                    onchange="aa4();FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($kilang->e91_aa4 ?? 0, 2) }}">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">B.
+                                                                Belian/Terimaan &nbsp; <i class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Belian - Urusniaga yang melibatkan pembayaran.
+Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan)."></i>
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10" name='e91_ab1'
+                                                                    id='e91_ab1'id="number" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    style="text-align: center"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
+                                                                    onchange="ab1();FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($kilang->e91_ab1 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ab2();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc6()"
+                                                                    name='e91_ab2' id='e91_ab2'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ab2 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ab3();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc7()"
+                                                                    name='e91_ab3'
+                                                                    id='e91_ab3'onkeypress="return isNumberKey(event)"
+                                                                    required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ab3 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ab4();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc8()"
+                                                                    name='e91_ab4'
+                                                                    id='e91_ab4'onkeypress="return isNumberKey(event)"
+                                                                    required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ab4 ?? 0, 2) }}">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">C.
+                                                                Diproses &nbsp; <i class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Jumlah BKS daripada stok awal/belian/penerimaan yang diproses termasuk proses untuk 'Tol'."></i>
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ac1();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc9()"
+                                                                    name='e91_ac1' id='e91_ac1'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ac1 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"> --}}
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"> --}}
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"> --}}
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">D.
+                                                                Pengeluaran &nbsp; <i class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Pengeluaran minyak sawit mentah (CPO), isirong kelapa sawit (PK) dan minyak keladak
+termasuk pengeluaran untuk 'Tol'."></i>
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"> --}}
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ad1();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc10()"
+                                                                    name='e91_ad1' id='e91_ad1'
+                                                                    onkeyup="FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ad1 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ad2();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc11()"
+                                                                    name='e91_ad2' id='e91_ad2'
+                                                                    onkeyup="FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ad2 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ad3();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc12()"
+                                                                    name='e91_ad3' id='e91_ad3'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ad3 ?? 0, 2) }}">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">E.
+                                                                Jualan/Edaran Tempatan &nbsp; <i
+                                                                    class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Jualan Tempatan merujuk kepada urusniaga yang dilakukan secara tempatan yang melibatkan pembayaran."></i>
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ae1();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc13()"
+                                                                    name='e91_ae1' id='e91_ae1'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ae1 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ae2();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc14()"
+                                                                    name='e91_ae2' id='e91_ae2'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ae2 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ae3();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc15()"
+                                                                    name='e91_ae3'
+                                                                    id='e91_ae3'onkeypress="return isNumberKey(event)"
+                                                                    required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ae3 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ae4();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc16()"
+                                                                    name='e91_ae4' id='e91_ae4'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ae4 ?? 0, 2) }}">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">F.
+                                                                Eksport &nbsp; <i class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Hanya lapor, jika keluaran dieksport terus dari premis."></i>
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
+                                                            </td>
+                                                            <td style="text-align:center; background-color:#808080b8">
+                                                                {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500 ">G.
+                                                                Stok Akhir Di Premis &nbsp; <i
+                                                                    class="fa fa-exclamation-circle"
+                                                                    style="color: red; cursor: pointer;"
+                                                                    title="Laporkan stok akhir pada akhir bulan di premis (termasuk pusat simpanan dan gudang sendiri). "></i>
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ag1();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc17()"
+                                                                    name='e91_ag1'
+                                                                    id='e91_ag1'onkeypress="return isNumberKey(event)"
+                                                                    required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ag1 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ag2();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc18()"
+                                                                    name='e91_ag2' id='e91_ag2'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    value="{{ number_format($kilang->e91_ag2 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ag3();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc19()"
+                                                                    name='e91_ag3' id='e91_ag3'
+                                                                    onkeypress="return isNumberKey(event)" required
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="setTwoNumberDecimal()"
+                                                                    value="{{ number_format($kilang->e91_ag3 ?? 0, 2) }}">
+                                                            </td>
+                                                            <td style="text-align:center;">
+                                                                <input type="text" size="10"
+                                                                    style="text-align: center"
+                                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                    onchange="ag4();FormatCurrency(this)"
+                                                                    oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                    name='e91_ag4' id='e91_ag4'
+                                                                    onchange="setTwoNumberDecimal()" required
+                                                                    onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($kilang->e91_ag4 ?? 0, 2) }}">
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
+
                                     </div>
-                                    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+
+
+                                    <div class="row" style=" float:right">
+
+                                        <div class="col-md-12">
+                                            <div class="row form-group" style="padding-top: 10px; ">
+                                                <div class="text-right col-md-12">
+                                                    <button type="submit" class="btn btn-primary " id="checkBtn" onclick="autozero()">Simpan &
+                                                        Seterusnya</button>
+                                                </div>
+                                            </div>
+                                            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter">
                                                         Simpan & Seterusnya
                                                     </button> --}}
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
+                                            <!-- Vertically Centered modal Modal -->
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                PENGESAHAN</h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menyimpan maklumat ini?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block"
+                                                                    style="color:#275047">Tidak</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary ml-1"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Ya</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+
+
+                                </form>
+
                             </div>
-
-
-                        </form>
-
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
             </div>
         @endsection
 
         <!-- ======= Footer ======= -->
 
         @section('scripts')
-        <script language="Javascript">
-            function IsEmpty() {
+            <script>
+                $(document).ready(function() {
+                    let empty = '';
+                    var aa1 = $('#e91_aa1').val();
+                    if (aa1 == '0.00' || aa1 == 0)
+                    {
+                        $('#e91_aa1').val(empty);
+                    }
 
-              if (document.form.question.value == "") {
-                alert("empty");
-              }
-              return;
-            }
-          </script>
+                    var aa2 = $('#e91_aa2').val();
+                    if (aa2 == '0.00' || aa2 == 0)
+                    {
+                        $('#e91_aa2').val(empty);
+                    }
+
+                    var aa3 = $('#e91_aa3').val();
+                    if (aa3 == '0.00' || aa3 == 0)
+                    {
+                        $('#e91_aa3').val(empty);
+                    }
+
+                    var aa4 = $('#e91_aa4').val();
+                    if (aa4 == '0.00' || aa4 == 0)
+                    {
+                        $('#e91_aa4').val(empty);
+                    }
+
+                    var ab1 = $('#e91_ab1').val();
+                    if (ab1 == '0.00' || ab1 == 0)
+                    {
+                        $('#e91_ab1').val(empty);
+                    }
+
+                    var ab2 = $('#e91_ab2').val();
+                    if (ab2 == '0.00' || ab2 == 0)
+                    {
+                        $('#e91_ab2').val(empty);
+                    }
+
+                    var ab3 = $('#e91_ab3').val();
+                    if (ab3 == '0.00' || ab3 == 0)
+                    {
+                        $('#e91_ab3').val(empty);
+                    }
+
+                    var ab4 = $('#e91_ab4').val();
+                    if (ab4 == '0.00' || ab4 == 0)
+                    {
+                        $('#e91_ab4').val(empty);
+                    }
+
+                    var ac1 = $('#e91_ac1').val();
+                    if (ac1 == '0.00' || ac1 == 0)
+                    {
+                        $('#e91_ac1').val(empty);
+                    }
+
+                    var ad1 = $('#e91_ad1').val();
+                    if (ad1 == '0.00' || ad1 == 0)
+                    {
+                        $('#e91_ad1').val(empty);
+                    }
+
+                    var ad2 = $('#e91_ad2').val();
+                    if (ad2 == '0.00' || ad2 == 0)
+                    {
+                        $('#e91_ad2').val(empty);
+                    }
+
+                    var ad3 = $('#e91_ad3').val();
+                    if (ad3 == '0.00' || ad3 == 0)
+                    {
+                        $('#e91_ad3').val(empty);
+                    }
+
+                    var ae1 = $('#e91_ae1').val();
+                    if (ae1 == '0.00' || ae1 == 0)
+                    {
+                        $('#e91_ae1').val(empty);
+                    }
+
+                    var ae2 = $('#e91_ae2').val();
+                    if (ae2 == '0.00' || ae2 == 0)
+                    {
+                        $('#e91_ae2').val(empty);
+                    }
+
+                    var ae3 = $('#e91_ae3').val();
+                    if (ae3 == '0.00' || ae3 == 0)
+                    {
+                        $('#e91_ae3').val(empty);
+                    }
+
+                    var ae4 = $('#e91_ae4').val();
+                    if (ae4 == '0.00' || ae4 == 0)
+                    {
+                        $('#e91_ae4').val(empty);
+                    }
+
+                    var ag1 = $('#e91_ag1').val();
+                    if (ag1 == '0.00' || ag1 == 0)
+                    {
+                        $('#e91_ag1').val(empty);
+                    }
+
+                    var ag2 = $('#e91_ag2').val();
+                    if (ag2 == '0.00' || ag2 == 0)
+                    {
+                        $('#e91_ag2').val(empty);
+                    }
+
+                    var ag3 = $('#e91_ag3').val();
+                    if (ag3 == '0.00' || ag3 == 0)
+                    {
+                        $('#e91_ag3').val(empty);
+                    }
+
+                    var ag4 = $('#e91_ag4').val();
+                    if (ag4 == '0.00' || ag4 == 0)
+                    {
+                        $('#e91_ag4').val(empty);
+                    }
+
+
+                });
+            </script>
+            <script>
+                    function autozero() {
+                        let zero = '0';
+                        var aa1 = document.getElementById('e91_aa1');
+                        if (aa1.value == '0.00' || aa1.value == 0) {
+                            aa1.value = zero;
+
+                        }
+
+                        var aa2 = document.getElementById('e91_aa2');
+                        if (aa2.value == '0.00' || aa2.value == 0) {
+                            aa2.value = zero;
+
+                        }
+
+                        var aa3 = document.getElementById('e91_aa3');
+                        if (aa3.value == '0.00' || aa3.value == 0) {
+                            aa3.value = zero;
+
+                        }
+
+                        var aa4 = document.getElementById('e91_aa4');
+                        if (aa4.value == '0.00' || aa4.value == 0) {
+                            aa4.value = zero;
+
+                        }
+
+                        var ab1 = document.getElementById('e91_ab1');
+                        if (ab1.value == '0.00' || ab1.value == 0) {
+                            ab1.value = zero;
+
+                        }
+
+                        var ab2 = document.getElementById('e91_ab2');
+                        if (ab2.value == '0.00' || ab2.value == 0) {
+                            ab2.value = zero;
+
+                        }
+
+                        var ab3 = document.getElementById('e91_ab3');
+                        if (ab3.value == '0.00' || ab3.value == 0) {
+                            ab3.value = zero;
+
+                        }
+
+                        var ab4 = document.getElementById('e91_ab4');
+                        if (ab4.value == '0.00' || ab4.value == 0) {
+                            ab4.value = zero;
+
+                        }
+
+                        var ac1 = document.getElementById('e91_ac1');
+                        if (ac1.value == '0.00' || ac1.value == 0) {
+                            ac1.value = zero;
+
+                        }
+
+                        var ad1 = document.getElementById('e91_ad1');
+                        if (ad1.value == '0.00' || ad1.value == 0) {
+                            ad1.value = zero;
+
+                        }
+
+                        var ad2 = document.getElementById('e91_ad2');
+                        if (ad2.value == '0.00' || ad2.value == 0) {
+                            ad2.value = zero;
+
+                        }
+
+                        var ad3 = document.getElementById('e91_ad3');
+                        if (ad3.value == '0.00' || ad3.value == 0) {
+                            ad3.value = zero;
+
+                        }
+
+                        var ae1 = document.getElementById('e91_ae1');
+                        if (ae1.value == '0.00' || ae1.value == 0) {
+                            ae1.value = zero;
+
+                        }
+
+                        var ae2 = document.getElementById('e91_ae2');
+                        if (ae2.value == '0.00' || ae2.value == 0) {
+                            ae2.value = zero;
+
+                        }
+
+                        var ae3 = document.getElementById('e91_ae3');
+                        if (ae3.value == '0.00' || ae3.value == 0) {
+                            ae3.value = zero;
+
+                        }
+
+                        var ae4 = document.getElementById('e91_ae4');
+                        if (ae4.value == '0.00' || ae4.value == 0) {
+                            ae4.value = zero;
+
+                        }
+
+                        var ag1 = document.getElementById('e91_ag1');
+                        if (ag1.value == '0.00' || ag1.value == 0) {
+                            ag1.value = zero;
+
+                        }
+
+                        var ag2 = document.getElementById('e91_ag2');
+                        if (ag2.value == '0.00' || ag2.value == 0) {
+                            ag2.value = zero;
+
+                        }
+
+                        var ag3 = document.getElementById('e91_ag3');
+                        if (ag3.value == '0.00' || ag3.value == 0) {
+                            ag3.value = zero;
+
+                        }
+
+                        var ag4 = document.getElementById('e91_ag4');
+                        if (ag4.value == '0.00' || ag4.value == 0) {
+                            ag4.value = zero;
+
+                        }
+                        console.log(aa1.value);
+                }
+
+                </script>
+            {{-- <script>
+                $("checkBtn").click(function() {
+                    let zero = '0';
+                    var aa1 = $('#e91_aa1').val();
+                    if (aa1 == '0.00' || aa1 == 0)
+                    {
+                        $('#e91_aa1').val(zero);
+                    }
+
+                    var aa2 = $('#e91_aa2').val();
+                    if (aa2 == '0.00' || aa2 == 0)
+                    {
+                        $('#e91_aa2').val(zero);
+                    }
+
+                    var aa3 = $('#e91_aa3').val();
+                    if (aa3 == '0.00' || aa3 == 0)
+                    {
+                        $('#e91_aa3').val(zero);
+                    }
+
+                    var aa4 = $('#e91_aa4').val();
+                    if (aa4 == '0.00' || aa4 == 0)
+                    {
+                        $('#e91_aa4').val(zero);
+                    }
+
+                    var ab1 = $('#e91_ab1').val();
+                    if (ab1 == '0.00' || ab1 == 0)
+                    {
+                        $('#e91_ab1').val(zero);
+                    }
+
+                    var ab2 = $('#e91_ab2').val();
+                    if (ab2 == '0.00' || ab2 == 0)
+                    {
+                        $('#e91_ab2').val(zero);
+                    }
+
+                    var ab3 = $('#e91_ab3').val();
+                    if (ab3 == '0.00' || ab3 == 0)
+                    {
+                        $('#e91_ab3').val(zero);
+                    }
+
+                    var ab4 = $('#e91_ab4').val();
+                    if (ab4 == '0.00' || ab4 == 0)
+                    {
+                        $('#e91_ab4').val(zero);
+                    }
+
+
+                });
+            </script> --}}
             <script>
                 function invokeFunc() {
                     addEventListener('keydown', function(evt) {
@@ -1292,5 +1595,4 @@ termasuk pengeluaran untuk 'Tol'."></i></td>
 
                 });
             </script>
-
         @endsection
