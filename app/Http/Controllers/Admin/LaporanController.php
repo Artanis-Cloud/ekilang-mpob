@@ -133,7 +133,7 @@ class LaporanController extends Controller
         //RINGKASAN URUSNIAGA
         $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->groupBy('ebio_nl')->get();
-
+        // dd($result);
 
         if ($request->tahun) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
@@ -169,6 +169,10 @@ class LaporanController extends Controller
         }
 
 
+        foreach($result as $key =>  $res_daerah){
+            $data_daerah[$key] = Daerah::where('kod_negeri',$res_daerah->e_negeri)->where('kod_daerah',$res_daerah->e_daerah)->first();
+         }
+    // dd($data_daerah);
         $layout = 'layouts.admin';
 
         $array = [
@@ -180,6 +184,7 @@ class LaporanController extends Controller
             'result' => $result,
             'tahun' => $tahun,
             'kembali' => $kembali,
+            'data_daerah'=> $data_daerah,
 
             'returnArr' => $returnArr,
             'layout' => $layout,
@@ -211,60 +216,95 @@ class LaporanController extends Controller
         //dapatkan no batch
         $no_batches = HBioInit::where('ebio_nl', $ebio_nl)->where('ebio_thn', $tahun)->get();
 
-        for ($i=1; $i <= 12; $i++) {
-            $data_bulanan_ebio_b3[$i] = 0;
-            $data_bulanan_ebio_b4[$i] = 0;
-            $data_bulanan_ebio_b5[$i] = 0;
-            $data_bulanan_ebio_b6[$i] = 0;
-            $data_bulanan_ebio_b7[$i] = 0;
-            $data_bulanan_ebio_b8[$i] = 0;
-            $data_bulanan_ebio_b9[$i] = 0;
-            $data_bulanan_ebio_b10[$i] = 0;
-            $data_bulanan_ebio_b11[$i] = 0;
-            $data_bulanan_ebio_b13[$i] = 0;
-            $data_bulanan_ebio_date[$i] = 0;
+        foreach ($no_batches as  $no_batch) {
+            $hbiob = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
+            ->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
+            ->get();
 
+            for ($i=1; $i <= 12; $i++) {
+            if($i == $no_batch->ebio_bln)
+
+                foreach ($hbiob as  $data3) {
+
+                    $data_bulanan_ebio_b5[$data3->ebio_b4][$i] = $data3->ebio_b5 ?? 0;
+                    $data_bulanan_ebio_b6[$data3->ebio_b4][$i] = $data3->ebio_b6 ?? 0;
+                    $data_bulanan_ebio_b7[$data3->ebio_b4][$i] = $data3->ebio_b7 ?? 0;
+                    $data_bulanan_ebio_b8[$data3->ebio_b4][$i] = $data3->ebio_b8 ?? 0;
+                    $data_bulanan_ebio_b9[$data3->ebio_b4][$i] = $data3->ebio_b9 ?? 0;
+                    $data_bulanan_ebio_b10[$data3->ebio_b4][$i] = $data3->ebio_b10 ?? 0;
+                    $data_bulanan_ebio_b11[$data3->ebio_b4][$i] = $data3->ebio_b11 ?? 0;
+                }
+
+            }
+        }
+        foreach ($data_bulanan_ebio_b5 as $key=> $v):
+
+            $total5[$key] = array_sum($v);
+
+        endforeach;
+        foreach ($data_bulanan_ebio_b6 as $key=> $v):
+
+            $total6[$key] = array_sum($v);
+
+        endforeach;
+        foreach ($data_bulanan_ebio_b7 as $key=> $v):
+
+            $total7[$key] = array_sum($v);
+
+        endforeach;
+        foreach ($data_bulanan_ebio_b8 as $key=> $v):
+
+            $total8[$key] = array_sum($v);
+
+        endforeach;
+        foreach ($data_bulanan_ebio_b9 as $key=> $v):
+
+            $total9[$key] = array_sum($v);
+
+        endforeach;
+        foreach ($data_bulanan_ebio_b10 as $key=> $v):
+
+            $total10[$key] = array_sum($v);
+
+        endforeach;
+        foreach ($data_bulanan_ebio_b11 as $key=> $v):
+
+            $total11[$key] = array_sum($v);
+
+        endforeach;
+
+
+
+        //loop untuk dapatkan tarikh by format
+        foreach ($no_batches as  $list_result) {
+
+            $date= DB::table('h_bio_inits')->where('ebio_nobatch', $list_result->ebio_nobatch)->get();
+            for ($i=1; $i <= 12; $i++) {
+
+                if($i == $list_result->ebio_bln)
+                foreach ($date as $hbiob) {
+                    $myDateTime = DateTime::createFromFormat('Y-m-d', $hbiob->ebio_sdate);
+                    $formatteddate = $myDateTime->format('d-m-Y');
+                    $ebio_sdate[$i] = $formatteddate ?? 0;
+
+                }
+            }
         }
 
 
-        foreach ($no_batches as $key =>  $no_batch) {
-            $hbiob[] = DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
-            ->first();
-
-            $data_bulanan_ebio_b3[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b3 ?? 0;
-            $data_bulanan_ebio_b4[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b4 ?? 0;
-            $data_bulanan_ebio_b5[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b5 ?? 0;
-            $data_bulanan_ebio_b6[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b6 ?? 0;
-            $data_bulanan_ebio_b7[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b7 ?? 0;
-            $data_bulanan_ebio_b8[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b8 ?? 0;
-            $data_bulanan_ebio_b9[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b9 ?? 0;
-            $data_bulanan_ebio_b10[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b10 ?? 0;
-            $data_bulanan_ebio_b11[$no_batch->ebio_bln] = $hbiob[$key]->ebio_b11 ?? 0;
-            // $test[] = $data_bulanan_ebio_b5;
-        }
-
-        foreach($no_batches as    $batch){
-            // $hbiodate[] = DB::table('h_bio_inits')->where('ebio_nl', $ebio_nl)->where('ebio_thn', $tahun)->first();
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $batch->ebio_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
-                $data_bulanan_ebio_date[$batch->ebio_bln] = $formatteddate ?? '-';
-
-
-           }
-
-            // dd($data_bulanan_ebio_date);
         $data2 = HBioInit::find($ebio_nl);
         $data = Pelesen::where('e_nl', $ebio_nl)->first();
         $negeri = Negeri::where('kod_negeri', $data->e_negeri)->first();
+        $data_daerah = Daerah::where('kod_negeri',$data->e_negeri)->where('kod_daerah',$data->e_daerah)->first();
+        // dd($data_daerah);
 
 
         $array = [
 
             'negeri' => $negeri,
             'data' => $data,
-            'data_bulanan_ebio_date'=> $data_bulanan_ebio_date,
-            // 'i'=> $i,
-            'data_bulanan_ebio_b4'=> $data_bulanan_ebio_b4,
+            'ebio_sdate'=> $ebio_sdate,
+            'data_daerah'=> $data_daerah,
             'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
             'data_bulanan_ebio_b6'=> $data_bulanan_ebio_b6,
             'data_bulanan_ebio_b7'=> $data_bulanan_ebio_b7,
@@ -274,11 +314,16 @@ class LaporanController extends Controller
             'data_bulanan_ebio_b11'=> $data_bulanan_ebio_b11,
             'hbiob' => $hbiob,
             'no_batches' => $no_batches,
-            // 'formatteddate' => $formatteddate,
             'data2' => $data2,
-
+            'data3' => $data3,
+            'total5' => $total5,
+            'total6' => $total6,
+            'total7' => $total7,
+            'total8' => $total8,
+            'total9' => $total9,
+            'total10' => $total10,
+            'total11' => $total11,
             'kembali' => $kembali,
-
             'returnArr' => $returnArr,
             'layout' => $layout,
 
@@ -399,7 +444,7 @@ class LaporanController extends Controller
         //     ->where('ebio_thn',$tahun)->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')
         //     ->where('prodname', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         // }
-            dd( $result);
+            // dd( $result);
 
 
 
@@ -417,6 +462,7 @@ class LaporanController extends Controller
                         if($i == $no_batch->ebio_bln)
                         foreach ($hbiob_s as $hbiob) {
                             $ebio_b5[$list_result->ebio_nl][$hbiob->ebio_b4][$i] = $hbiob->ebio_b5 ?? 0;
+
                         }
                     }
                 }
@@ -425,7 +471,6 @@ class LaporanController extends Controller
                 // $test_hari[] = $data_hari_operasi;
 
         }
-
         // dd($ebio_b5);
 
         $layout = 'layouts.admin';

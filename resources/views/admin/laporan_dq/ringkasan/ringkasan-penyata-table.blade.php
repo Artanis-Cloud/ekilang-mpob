@@ -210,7 +210,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($result as $data)
+                                                    @foreach ($result as $key => $data)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             {{-- <td>{{ $data->ebio_thn }}</td> --}}
@@ -220,7 +220,7 @@
 
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data->e_daerah }}</th>
+                                                            <th>{{ $data_daerah[$key]->nama_daerah }}</th>
 
 
                                                         </tr>
