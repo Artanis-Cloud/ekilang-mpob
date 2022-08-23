@@ -171,7 +171,7 @@
                                     <input type="text" class="form-control" name='e91_ah2'
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                         style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah2();FormatCurrency(this)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required maxlength="6"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required maxlength="6" readonly
                                         title="Sila isikan butiran ini." value="{{ number_format($oer ?? 0, 2) }}">
                                 </div>
                                 <div class="mt-2">%</div>
@@ -187,10 +187,10 @@
                                         title="       Jumlah pengeluaran isirung &#010;____________________________________   x 100 &#010;Jumlah buah kelapa sawit di proses"></i></label>
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
+                                    <input type="text" class="form-control" name='e91_ah3'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                         oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
-                                        style="  text-align:right; width:97%; margin-left:6%" onkeypress="return isNumberKey(event)" id="e91_ah1" required
-                                        title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
+                                        style="  text-align:right; width:97%; margin-left:6%" onkeypress="return isNumberKey(event)" id="e91_ah3" required
+                                        title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}" readonly>
                                 </div>
                                 {{-- <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah3'
@@ -352,7 +352,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2" style=""><button
-                                                                    class="btn btn-primary" type="reset"
+                                                                    class="btn btn-primary" type="reset" id="reset" onclick="reset_meningkat()"
                                                                     style="background-color: transparent; color:#275047; float:right;">Padam</button>
                                                             </td>
                                                             {{-- <button class="btn btn-primary">Padam</button> --}}
@@ -476,7 +476,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2" style=""><button
-                                                                    class="btn btn-primary" type="reset"
+                                                                    class="btn btn-primary" type="reset" onclick="reset_menurun()"
                                                                     style="background-color: transparent; color:#275047; float:right;">Padam</button>
                                                             </td>
                                                             {{-- <button class="btn btn-primary">Padam</button> --}}
@@ -787,6 +787,28 @@
                 document.getElementById("checkbox6").checked = false;
             }
         </script>
+
+        <script>
+            function reset_meningkat() {
+                document.getElementById("checkbox1").checked = false;
+                document.getElementById("checkbox2").checked = false;
+                document.getElementById("checkbox3").checked = false;
+                document.getElementById("checkbox4").checked = false;
+                document.getElementById("checkbox5").checked = false;
+                document.getElementById("checkbox6").checked = false;
+            }
+            </script>
+        <script>
+            function reset_menurun() {
+                document.getElementById("checkbox7").checked = false;
+                document.getElementById("checkbox8").checked = false;
+                document.getElementById("checkbox9").checked = false;
+                document.getElementById("checkbox10").checked = false;
+                document.getElementById("checkbox11").checked = false;
+                document.getElementById("checkbox12").checked = false;
+                document.getElementById("checkbox13").checked = false;
+            }
+            </script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#checkBtn').click(function() {

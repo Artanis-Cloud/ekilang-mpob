@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use DB;
 class tryController extends Controller
 {
 
@@ -14,6 +14,8 @@ class tryController extends Controller
         return view('loginArx');
     }
     public function testing3(){
+        $loginmills = DB::connection('mysql4')->select("Show tables");
+        dd($loginmills);
         return view('users.users-dashboard');
     }
     public function dashArx(){

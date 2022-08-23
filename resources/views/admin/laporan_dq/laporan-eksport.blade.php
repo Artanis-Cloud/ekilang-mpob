@@ -173,6 +173,7 @@
                                                 @foreach ($eksport as $data)
                                                     @php
                                                         $total_bulan = 0;
+                                                        $jumlah = 0;
                                                     @endphp
                                                     <tr class="text-right">
                                                         <td scope="row" class="text-left">{{ $loop->iteration }}</td>
@@ -292,6 +293,9 @@
                                                 @endforeach
                                             @else
                                                 @foreach ($eksport as $key => $data)
+                                                @php
+                                                $total_bulan[$i] = 0;
+                                                @endphp
                                                     <tr class="text-right">
                                                         <td scope="row" class="text-left">{{ $loop->iteration }}</td>
                                                         <td scope="row" class="text-left">{{ $data->e_np }}</td>
@@ -306,12 +310,14 @@
                                                                 <td>0.00</td>
                                                             @endif
 
-                                                            @php
-                                                                $jumlah = $total_bulan[$i];
-                                                            @endphp
-                                                        @endfor
 
-                                                        <td><b>{{ number_format($jumlah ?? 0, 2) }}</b></td>
+                                                        @endfor
+                                                        @php
+                                                                $jumlah = $total_bulan[$i];
+                                                                // {{ dd( $jumlah); }}
+                                                        @endphp
+
+                                                        <td><b>{{ number_format( $jumlah ?? 0, 2) }}</b></td>
 
                                                     </tr>
                                                 @endforeach
