@@ -141,7 +141,12 @@
                                                                     oninput="setCustomValidity(''); invokeFunc()"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}">
+                                                                    @if($kilang->e91_aa1 == null)
+                                                                    value=""
+                                                                    @else
+                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}"
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_aa2'
@@ -151,7 +156,15 @@
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                                     onchange="aa2();FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
-                                                                    value="{{ number_format($kilang->e91_aa2 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_aa2 == null)
+                                                                    value=""
+                                                                    @elseif ($kilang->e91_aa2 == '0')
+                                                                    value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
+                                                                    @else
+                                                                    value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
+
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_aa3'

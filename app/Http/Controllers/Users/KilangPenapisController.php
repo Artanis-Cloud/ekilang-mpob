@@ -227,21 +227,28 @@ class KilangPenapisController extends Controller
     public function penapis_update_password(Request $request, $id)
     {
         $user = User::findOrFail(auth()->user()->id);
+
         //compare password
         if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->route('penapis.tukarpassword')
                 ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
-
-        if (!Hash::check($request->old_password, $request->new_password)) {
+        if ($request->new_password != $request->password_confirmation) {
             return redirect()->route('penapis.tukarpassword')
-                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+                ->with('error', 'Sila sahkan kata laluan');
         }
 
-        $password = Hash::make($request->new_password);
-        $user->password = $password;
-        $user->save();
+        if ($request->old_password == $request->new_password) {
+            return redirect()->route('penapis.tukarpassword')
+                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+        } else {
+            $password = Hash::make($request->new_password);
+            $user->password = $password;
+            $user->save();
+        }
+
+
 
         return redirect()->route('penapis.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
