@@ -282,14 +282,19 @@ class PusatSimpananController extends Controller
                 ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
-        if (!Hash::check($request->old_password, $request->new_password)) {
+        if ($request->new_password != $request->password_confirmation) {
             return redirect()->route('pusatsimpan.tukarpassword')
-                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+                ->with('error', 'Sila sahkan kata laluan');
         }
 
-        $password = Hash::make($request->new_password);
-        $user->password = $password;
-        $user->save();
+        if ($request->old_password == $request->new_password) {
+            return redirect()->route('pusatsimpan.tukarpassword')
+                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+        } else {
+            $password = Hash::make($request->new_password);
+            $user->password = $password;
+            $user->save();
+        }
 
         return redirect()->route('pusatsimpan.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
