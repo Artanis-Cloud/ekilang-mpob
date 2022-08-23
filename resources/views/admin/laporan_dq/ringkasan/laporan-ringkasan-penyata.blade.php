@@ -88,7 +88,7 @@
                                                             <th>Negeri</th>
                                                             <td>{{ $negeri->nama_negeri }}</td>
                                                             <th>Daerah</th>
-                                                            <td>{{ $data->e_daerah }}</td>
+                                                            <td>{{ $data_daerah->nama_daerah }}</td>
 
                                                         </tr>
                                                     </thead>
@@ -118,25 +118,12 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            {{-- <td> {{ $value[$key]->prodid }}</td> --}}
 
-                                                            {{-- @foreach ($no_batches as $key =>  $no_batch) --}}
-                                                            <tr>
-
-
-                                                                @foreach ( $data_bulanan_ebio_date as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{$data }}</td>
-                                                                @endforeach
-
-                                                            </tr>
-                                                            {{-- @endforeach --}}
-
-
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$ebio_sdate[$i] ?? 0 }}</td>
+                                                            @endfor
 
                                                         </tr>
-
-
-
                                                     </tbody>
                                                 </table>
                                             </div><br>
@@ -161,33 +148,26 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {{-- @foreach($no_batches as $key =>  $no_batch) --}}
-                                                            {{-- @foreach($hbiob as $key =>  $value) --}}
-                                                            <tr>
-                                                                {{-- <td> {{ $value[$key]->prodid }}</td> --}}
 
-                                                                {{-- @foreach ($no_batches as $key =>  $no_batch) --}}
-                                                                <tr>
+                                                        @foreach ($data_bulanan_ebio_b5 as $keyProduk => $data_ebio_b5)
 
 
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                    @foreach ( $data_bulanan_ebio_b5 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                    @endforeach
-                                                                    <td class="text-center" style="width:auto">-</td>
-                                                                </tr>
-                                                                {{-- @endforeach --}}
+                                                        <tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b5[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
 
+                                                            <td>{{ $total5[$keyProduk] }}</td>
 
+                                                        </tr>
 
-                                                            </tr>
-                                                            {{-- @endforeach --}}
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
 
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
@@ -231,26 +211,23 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
+                                                        @foreach ($data_bulanan_ebio_b6 as $keyProduk => $data_ebio_b6)
+
+
                                                         <tr>
-                                                            {{-- <td> {{ $value[$key]->prodid }}</td> --}}
-                                                            <tr>
-
-
-                                                                <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                @foreach ( $data_bulanan_ebio_b6 as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                @endforeach
-                                                                <td class="text-center" style="width:auto">-</td>
-
-                                                            </tr>
-
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b6[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
+                                                            <td>{{ $total6[$keyProduk] }}</td>
                                                         </tr>
+                                                        @endforeach
 
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
@@ -294,26 +271,23 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
+                                                        @foreach ($data_bulanan_ebio_b7 as $keyProduk => $data_ebio_b7)
+
+
                                                         <tr>
-                                                            {{-- <td> {{ $value[$key]->prodid }}</td> --}}
-                                                            <tr>
-
-
-                                                                <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                @foreach ( $data_bulanan_ebio_b7 as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                @endforeach
-                                                                <td class="text-center" style="width:auto">-</td>
-
-                                                            </tr>
-
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b7[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
+                                                            <td>{{ $total7[$keyProduk] }}</td>
                                                         </tr>
+                                                        @endforeach
 
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
@@ -357,24 +331,23 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
+                                                        @foreach ($data_bulanan_ebio_b8 as $keyProduk => $data_ebio_b8)
+
+
                                                         <tr>
-                                                            <tr>
-
-
-                                                                <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                @foreach ( $data_bulanan_ebio_b8 as  $data )
-                                                                    <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                @endforeach
-                                                                <td class="text-center" style="width:auto">-</td>
-
-                                                            </tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b8[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
+                                                            <td>{{ $total8[$keyProduk] }}</td>
                                                         </tr>
+                                                        @endforeach
 
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
@@ -418,28 +391,23 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
+                                                        @foreach ($data_bulanan_ebio_b9 as $keyProduk => $data_ebio_b9)
+
+
                                                         <tr>
-                                                            <tr>
-                                                                {{-- <td> {{ $value[$key]->prodid }}</td> --}}
-                                                                <tr>
-
-
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                    @foreach ( $data_bulanan_ebio_b9 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                    @endforeach
-                                                                    <td class="text-center" style="width:auto">-</td>
-
-                                                                </tr>
-
-                                                            </tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b9[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
+                                                            <td>{{ $total9[$keyProduk] }}</td>
                                                         </tr>
+                                                        @endforeach
 
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
@@ -483,28 +451,23 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
+                                                        @foreach ($data_bulanan_ebio_b10 as $keyProduk => $data_ebio_b10)
+
+
                                                         <tr>
-                                                            <tr>
-                                                                {{-- <td> {{ $value[$key]->prodid }}</td> --}}
-                                                                <tr>
-
-
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                    @foreach ( $data_bulanan_ebio_b10 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                    @endforeach
-                                                                    <td class="text-center" style="width:auto">-</td>
-
-                                                                </tr>
-
-                                                            </tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b10[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
+                                                            <td>{{ $total10[$keyProduk] }}</td>
                                                         </tr>
+                                                        @endforeach
 
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
@@ -548,38 +511,27 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Purata</th>
+                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
+                                                        @foreach ($data_bulanan_ebio_b11 as $keyProduk => $data_ebio_b11)
+
+
                                                         <tr>
-                                                            <tr>
-                                                                {{-- <td> {{ $value[$key]->prodid }}</td> --}}
-                                                                <tr>
-                                                                    @php
-
-                                                                    $total_bulan = 0;
-                                                                @endphp
-
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->ebio_b4 ?? 0 }}</td>
-                                                                    <td style="text-align: left"> {{ $hbiob[0]->proddesc ?? 0 }}</td>
-                                                                    @foreach ( $data_bulanan_ebio_b11 as  $data )
-                                                                        <td class="text-center" style="width:auto"> {{number_format($data ?? 0,2) }}</td>
-                                                                    @endforeach
-                                                                    <td class="text-center" style="width:auto">-</td>
-
-                                                                    {{-- @php
-                                                                    $total_bulan+= $data->ebio_b11;
-                                                                    @endphp --}}
-                                                                </tr>
-
-                                                            </tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b11[$keyProduk][$i] ?? 0 }}</td>
+                                                            @endfor
+                                                            <td>{{ $total11[$keyProduk] }}</td>
                                                         </tr>
-
+                                                        @endforeach
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
                                                         <th colspan="2">Jumlah</th>
+                                                        {{-- <td>{{ $total_bulan }}</td>
                                                         <td>{{ $total_bulan }}</td>
                                                         <td>{{ $total_bulan }}</td>
                                                         <td>{{ $total_bulan }}</td>
@@ -591,8 +543,7 @@
                                                         <td>{{ $total_bulan }}</td>
                                                         <td>{{ $total_bulan }}</td>
                                                         <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
+                                                        <td>{{ $total_bulan }}</td> --}}
                                                     </tr>
                                                     </tbody>
                                                 </table>
