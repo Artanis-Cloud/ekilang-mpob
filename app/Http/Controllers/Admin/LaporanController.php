@@ -447,31 +447,53 @@ class LaporanController extends Controller
             // dd( $result);
 
 
-
-        for ($i=1; $i <= 12; $i++) {
-            // $ebio_b5[$i] = 0;
-            $data_kapasiti[$i] = 0;
-        }
-
         foreach ($result as  $list_result) {
-                $no_batches = DB::table('h_bio_inits')->where('ebio_nl',$list_result->ebio_nl)->where('ebio_thn',$tahun)->get();
+            $no_batches = DB::table('h_bio_inits')->where('ebio_nl',$list_result->ebio_nl)->where('ebio_thn',$tahun)->get();
 
-                foreach ($no_batches as $no_batch) {
-                    $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
-                    for ($i=1; $i <= 12; $i++) {
-                        if($i == $no_batch->ebio_bln)
-                        foreach ($hbiob_s as $hbiob) {
+            foreach ($no_batches as $no_batch) {
+                if($request->kod_produk){
+
+                    $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_b4',$request->kod_produk)->get();
+                }
+                else{
+                $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
+                }
+                // dd($hbiob_s);
+                for ($i=1; $i <= 12; $i++) {
+                    if($i == $no_batch->ebio_bln){
+                        foreach ($hbiob_s as $key => $hbiob) {
                             $ebio_b5[$list_result->ebio_nl][$hbiob->ebio_b4][$i] = $hbiob->ebio_b5 ?? 0;
-
+                            $ebio_b6[$list_result->ebio_nl][$hbiob->ebio_b4][$i] = $hbiob->ebio_b6 ?? 0;
                         }
                     }
                 }
-                // $data_kapasiti[$list_result->bulan] = $hbiob->kapasiti ?? 0;
-                // $test[] = $data_kapasiti;
-                // $test_hari[] = $data_hari_operasi;
-
+            }
         }
-        // dd($ebio_b5);
+
+        $sum_b5 = 0;
+        foreach($ebio_b5 as  $key =>  $test) {
+            foreach($test as $key => $datas) {
+
+            $sum_b5 =  array_sum($datas);
+            $sums_b5[$key] = $sum_b5;
+            }
+        }
+
+
+
+//         foreach($ebio_b5 as   $lam) {
+//                 foreach($lam as $test)
+//                 for ($i = $start_month; $i <= $end_month; $i++) {
+// dd($test);
+//             }
+
+
+//                 }
+
+
+
+
+
 
         $layout = 'layouts.admin';
 
@@ -490,7 +512,9 @@ class LaporanController extends Controller
             'laporan' => $laporan,
             'start_month' => $start_month,
             'end_month' => $end_month,
-            'ebio_b5' => $ebio_b5
+            'ebio_b5' => $ebio_b5,
+            'ebio_b6' => $ebio_b6,
+            'sums_b5' => $sums_b5
         ];
 
         return view('admin.laporan_dq.ringkasan.ringkasan-bahagian1-table', $array);

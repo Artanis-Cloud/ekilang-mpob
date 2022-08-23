@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
+
 @section('content')
+
     <!-- ======= Hero Section ======= -->
     <div class="page-wrapper">
 
@@ -81,13 +83,13 @@
                                                 <table border="1" class="table table-bordered" style="font-size: 13px">
                                                     <thead style="text-align: center">
                                                         <tr>
-                                                            <th>Nama Syarikat</th>
+                                                            <th style="background-color: #d3d3d34d">Nama Syarikat</th>
                                                             <td>{{ $data->e_np }}</td>
-                                                            <th>No. Lesen</th>
+                                                            <th style="background-color: #d3d3d34d">No. Lesen</th>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <th>Negeri</th>
+                                                            <th style="background-color: #d3d3d34d">Negeri</th>
                                                             <td>{{ $negeri->nama_negeri }}</td>
-                                                            <th>Daerah</th>
+                                                            <th style="background-color: #d3d3d34d">Daerah</th>
                                                             <td>{{ $data_daerah->nama_daerah }}</td>
 
                                                         </tr>
@@ -101,7 +103,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center" >
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Feb</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Mac</th>
@@ -133,7 +135,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -152,7 +154,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b5[$i] = 0;
+                                                            @endphp
+                                                        @endfor
                                                         @foreach ($data_bulanan_ebio_b5 as $keyProduk => $data_ebio_b5)
 
 
@@ -161,30 +167,28 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b5[$keyProduk][$i] ?? 0 }}</td>
+
+                                                                @php
+                                                                    $total_col_bulan_b5[$i] += $data_bulanan_ebio_b5[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
                                                             @endfor
 
-                                                            <td>{{ $total5[$keyProduk] }}</td>
+                                                            <td class="font-weight-bold text-center">{{ $total5[$keyProduk] }}</td>
 
                                                         </tr>
-
+                                                        {{-- @php
+                                                            $total_b5+= $data_ebio_b5;
+                                                        @endphp --}}
                                                         @endforeach
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
+                                                    <tr style="background-color: #d3d3d34d" >
                                                         <th colspan="2">Jumlah</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
+                                                        @for ($i = 1; $i <= 13; $i++)
+
+                                                        <td class="text-center">{{ $total_col_bulan_b5[$i] }}</td>
+
+                                                        @endfor
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -196,7 +200,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -215,7 +219,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b6[$i] = 0;
+                                                            @endphp
+                                                        @endfor
                                                         @foreach ($data_bulanan_ebio_b6 as $keyProduk => $data_ebio_b6)
 
 
@@ -224,28 +232,24 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b6[$keyProduk][$i] ?? 0 }}</td>
+
+                                                                @php
+                                                                    $total_col_bulan_b6[$i] += $data_bulanan_ebio_b6[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
                                                             @endfor
-                                                            <td>{{ $total6[$keyProduk] }}</td>
+                                                            <td class="font-weight-bold text-center">{{ $total6[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
-                                                        <th colspan="2">Jumlah</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                    </tr>
+                                                        <tr style="background-color: #d3d3d34d" >
+                                                            <th colspan="2">Jumlah</th>
+                                                            @for ($i = 1; $i <= 13; $i++)
+
+                                                            <td class="text-center">{{ $total_col_bulan_b6[$i] }}</td>
+
+                                                            @endfor
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -256,7 +260,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -275,6 +279,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b7[$i] = 0;
+                                                            @endphp
+                                                        @endfor
 
                                                         @foreach ($data_bulanan_ebio_b7 as $keyProduk => $data_ebio_b7)
 
@@ -284,28 +293,23 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b7[$keyProduk][$i] ?? 0 }}</td>
-                                                            @endfor
-                                                            <td>{{ $total7[$keyProduk] }}</td>
+                                                                @php
+                                                                    $total_col_bulan_b7[$i] += $data_bulanan_ebio_b7[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
+                                                        @endfor
+                                                            <td class="font-weight-bold text-center">{{ $total7[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
-                                                        <th colspan="2">Jumlah</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                    </tr>
+                                                        <tr style="background-color: #d3d3d34d" >
+                                                            <th colspan="2">Jumlah</th>
+                                                            @for ($i = 1; $i <= 13; $i++)
+
+                                                            <td class="text-center">{{ $total_col_bulan_b7[$i] }}</td>
+
+                                                            @endfor
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -316,7 +320,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -335,6 +339,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b8[$i] = 0;
+                                                            @endphp
+                                                        @endfor
 
                                                         @foreach ($data_bulanan_ebio_b8 as $keyProduk => $data_ebio_b8)
 
@@ -344,28 +353,23 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b8[$keyProduk][$i] ?? 0 }}</td>
+                                                                @php
+                                                                    $total_col_bulan_b8[$i] += $data_bulanan_ebio_b8[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
                                                             @endfor
-                                                            <td>{{ $total8[$keyProduk] }}</td>
+                                                            <td class="font-weight-bold text-center">{{ $total8[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
-                                                        <th colspan="2">Jumlah</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                    </tr>
+                                                        <tr style="background-color: #d3d3d34d" >
+                                                            <th colspan="2">Jumlah</th>
+                                                            @for ($i = 1; $i <= 13; $i++)
+
+                                                            <td class="text-center">{{ $total_col_bulan_b8[$i] }}</td>
+
+                                                            @endfor
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -376,7 +380,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -395,6 +399,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b9[$i] = 0;
+                                                            @endphp
+                                                        @endfor
 
                                                         @foreach ($data_bulanan_ebio_b9 as $keyProduk => $data_ebio_b9)
 
@@ -404,28 +413,23 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b9[$keyProduk][$i] ?? 0 }}</td>
+                                                                @php
+                                                                    $total_col_bulan_b9[$i] += $data_bulanan_ebio_b9[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
                                                             @endfor
-                                                            <td>{{ $total9[$keyProduk] }}</td>
+                                                            <td class="font-weight-bold text-center">{{ $total9[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
-                                                        <th colspan="2">Jumlah</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                    </tr>
+                                                        <tr style="background-color: #d3d3d34d" >
+                                                            <th colspan="2">Jumlah</th>
+                                                            @for ($i = 1; $i <= 13; $i++)
+
+                                                            <td class="text-center">{{ $total_col_bulan_b9[$i] }}</td>
+
+                                                            @endfor
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -436,7 +440,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -455,6 +459,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b10[$i] = 0;
+                                                            @endphp
+                                                        @endfor
 
                                                         @foreach ($data_bulanan_ebio_b10 as $keyProduk => $data_ebio_b10)
 
@@ -464,28 +473,23 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b10[$keyProduk][$i] ?? 0 }}</td>
+                                                                @php
+                                                                    $total_col_bulan_b10[$i] += $data_bulanan_ebio_b10[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
                                                             @endfor
-                                                            <td>{{ $total10[$keyProduk] }}</td>
+                                                            <td class="font-weight-bold text-center">{{ $total10[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
-                                                        <th colspan="2">Jumlah</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                    </tr>
+                                                        <tr style="background-color: #d3d3d34d" >
+                                                            <th colspan="2">Jumlah</th>
+                                                            @for ($i = 1; $i <= 13; $i++)
+
+                                                            <td class="text-center">{{ $total_col_bulan_b10[$i] }}</td>
+
+                                                            @endfor
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -496,7 +500,7 @@
                                             <div class="col-12 table-responsive ">
                                                 <table class="table table-bordered table-responsive-lg text-center">
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #d3d3d34d">
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 10%">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -515,6 +519,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_b11[$i] = 0;
+                                                            @endphp
+                                                        @endfor
 
                                                         @foreach ($data_bulanan_ebio_b11 as $keyProduk => $data_ebio_b11)
 
@@ -524,27 +533,22 @@
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto"> {{$data_bulanan_ebio_b11[$keyProduk][$i] ?? 0 }}</td>
+                                                                @php
+                                                                    $total_col_bulan_b11[$i] += $data_bulanan_ebio_b11[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
                                                             @endfor
-                                                            <td>{{ $total11[$keyProduk] }}</td>
+                                                            <td class="font-weight-bold text-center">{{ $total11[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
-                                                    <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
-                                                        <th colspan="2">Jumlah</th>
-                                                        {{-- <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td>
-                                                        <td>{{ $total_bulan }}</td> --}}
-                                                    </tr>
+                                                        <tr style="background-color: #d3d3d34d" >
+                                                            <th colspan="2">Jumlah</th>
+                                                            @for ($i = 1; $i <= 13; $i++)
+
+                                                            <td class="text-center">{{ $total_col_bulan_b11[$i] }}</td>
+
+                                                            @endfor
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
