@@ -1534,6 +1534,7 @@ class LaporanController extends Controller
                 $bulan_sql = "";
             }
             $bulan = $request->bulan;
+            $bulan2 = $request->start;
             $tahun2 = $request->tahun;
             $start_month = $request->start_month;
             $end_month = $request->end_month;
@@ -1569,6 +1570,7 @@ class LaporanController extends Controller
                 'tahun_sql' => $tahun_sql,
                 'tahun2' => $tahun2,
                 'bulan' => $bulan,
+                'bulan2' => $bulan2,
 
                 'pengeluaran' => $pengeluaran,
 

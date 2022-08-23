@@ -141,7 +141,7 @@
                                                                     oninput="setCustomValidity(''); invokeFunc()"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ $kilang->e91_aa1 }}">
+                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}">
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_aa2'
@@ -514,14 +514,18 @@ termasuk pengeluaran untuk 'Tol'."></i>
             <script>
                 $(document).ready(function() {
                     let empty = '';
-                    let zero = '2.00';
+                    let zero = '0.00';
 
                     var aa1 = $('#e91_aa1').val();
-                    console.log(aa1);
+                    // console.log(aa1);
                     if (aa1 === null) {
                         console.log('aa1');
                         $('#e91_aa1').val(empty);
+                    }else if (aa1 == '0.00') {
+                        console.log('masukkmana');
+                        $('#e91_aa2').val(zero);
                     }
+
 
                     // if(!aa1 == null)
                     // {

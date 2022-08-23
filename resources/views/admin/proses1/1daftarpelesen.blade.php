@@ -46,18 +46,19 @@
                     <div class="card">
                         <div class="row" style="padding: 20px">
                             <div class="col-1 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i
+                                        class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
-                        <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post" onsubmit="return check()" novalidate>
+                        <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post" onsubmit="return check()"
+                            novalidate>
                             @csrf
                             <div class="card-body">
                                 <div class=" text-center">
                                     <h3 style="color: rgb(39, 80, 71); margin-top:-50px">Daftar Pelesen Baru</h3><br>
                                 </div>
                                 <hr>
-                                <div class="row justify-content-center" >
+                                <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
                                         {{-- @if ($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
@@ -65,12 +66,12 @@
                                         <label for="fname" class="control-label col-form-label required">
                                             Jenis Kilang</label>
                                     </div>
-                                    <div class="col-md-6" >
+                                    <div class="col-md-6">
                                         <fieldset class="form-group" style="margin-bottom: 20px">
                                             <select class="form-control" name="e_kat" id="e_kat" required
-                                                onchange="showDetail()"
+                                                onchange="poma()"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
+                                                oninput="setCustomValidity(''); valid_kat()">
                                                 <option selected hidden disabled value="">Sila Pilih Kilang</option>
                                                 @if (auth()->user()->sub_cat)
                                                     @foreach (json_decode(auth()->user()->sub_cat) as $cat)
@@ -111,6 +112,9 @@
                                                 @endif
 
                                             </select>
+                                            <p type="hidden" id="err_kat" style="color: red; display:none"><i>Sila buat
+                                                    pilihan di
+                                                    bahagian ini!</i></p>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -122,11 +126,14 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <select class="form-control" name="e_status" required id="e_status"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="setCustomValidity('')">
-                                            <option selected hidden disabled value="">Sila Pilih</option>
+                                            oninput="setCustomValidity(''); valid_status()">
+                                            <option selected value="">Sila Pilih</option>
                                             <option value="1">Aktif</option>
                                             <option value="2">Tidak Aktif</option>
                                         </select>
+                                        <p type="hidden" id="err_status" style="color: red; display:none"><i>Sila buat
+                                                pilihan di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -135,13 +142,16 @@
                                         <label class="control-label col-form-label required">Status e-Mingguan</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_stock" required id="e_stock"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
-                                                <option selected hidden disabled value="">Sila Pilih</option>
-                                                <option value="1">Aktif</option>
-                                                <option value="2">Tidak Aktif</option>
-                                            </select>
+                                        <select class="form-control" name="e_stock" required id="e_stock"
+                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                            oninput="setCustomValidity(''); valid_stock()">
+                                            <option selected hidden disabled value="">Sila Pilih</option>
+                                            <option value="1">Aktif</option>
+                                            <option value="2">Tidak Aktif</option>
+                                        </select>
+                                        <p type="hidden" id="err_stock" style="color: red; display:none"><i>Sila buat
+                                                pilihan di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -152,11 +162,14 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <select class="form-control" name="directory" required id="directory"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="setCustomValidity('')">
+                                            oninput="setCustomValidity(''); valid_dir()">
                                             <option selected hidden disabled value="">Sila Pilih</option>
                                             <option value="Y">Ya</option>
                                             <option value="N">Tidak</option>
                                         </select>
+                                        <p type="hidden" id="err_dir" style="color: red; display:none"><i>Sila buat
+                                                pilihan di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -167,7 +180,7 @@
                                     <div class="col-md-6" style="margin-bottom: 20px">
                                         <select class="form-control" name="kodpgw" required id="kodpgw"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="setCustomValidity('')">
+                                            oninput="setCustomValidity(''); valid_kodpgw()">
                                             <option selected hidden disabled value="">Sila Pilih</option>
                                             <option value="JJ">JJ</option>
                                             <option value="KB">KB</option>
@@ -183,30 +196,43 @@
                                             <option value="TT">TT</option>
                                             <option value="WP">WP</option>
                                         </select>
+                                        <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
+                                                pilihan di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                        <label for="inputcom" class="control-label col-form-label required">Nombor Siri</label>
+                                        <label for="inputcom" class="control-label col-form-label required">Nombor
+                                            Siri</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="nosiri" class="form-control" required
+                                            onkeypress="return isNumberKey(event)"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
-                                            oninput="setCustomValidity(''); invokeFunc()" placeholder="Nombor Siri" name="nosiri"
-                                            value="{{ old('nombor_siri') }}">
+                                            oninput="setCustomValidity(''); invokeFunc(); valid_nosiri()"
+                                            placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
+                                        <p type="hidden" id="err_nosiri" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                        <label for="inputcom" class="control-label col-form-label required">Nombor Lesen</label>
+                                        <label for="inputcom" class="control-label col-form-label required">Nombor
+                                            Lesen</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_nl" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="12"
-                                            oninput="setCustomValidity(''); invokeFunc2()" placeholder="Nombor Lesen" name="e_nl"
-                                            value="{{ old('nombor_lesen') }}">
+                                            onkeypress="return isNumberKey(event)"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="12"
+                                            oninput="setCustomValidity(''); invokeFunc2(); valid_nl()"
+                                            placeholder="Nombor Lesen" name="e_nl" value="{{ old('nombor_lesen') }}">
+                                        <p type="hidden" id="err_nl" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                         @error('e_nl')
                                             <div class="col-12 alert alert-danger">
                                                 <strong>No. lesen sudah wujud!</strong>
@@ -220,39 +246,48 @@
                                         <label for="inputcom" class="control-label col-form-label required">Nama
                                             Premis</label>
                                     </div>
-                                     <div class="col-md-6" style="margin-bottom: 20px;">
+                                    <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_np" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="60"
-                                            oninput="setCustomValidity(''); invokeFunc3()" placeholder="Nama Premis" name="e_np"
-                                            value="{{ old('nama_premis') }}">
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
+                                            oninput="setCustomValidity(''); invokeFunc3(); valid_np()"
+                                            placeholder="Nama Premis" name="e_np" value="{{ old('nama_premis') }}">
+                                        <p type="hidden" id="err_np" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Alamat
-                                                Premis
-                                                Berlesen</label>
+                                        <label for="inputcom" class="control-label col-form-label required">Alamat
+                                            Premis
+                                            Berlesen</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 10px;">
                                         <div class="form-group" style="margin-bottom: 10px">
                                             <input type="text" id="e_ap1" maxlength=60 class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc4()" placeholder="Alamat Premis 1" name="e_ap1"
-                                                required value="{{ old('alamat_premis_1') }}">
+                                                oninput="setCustomValidity(''); invokeFunc4(); valid_ap()"
+                                                placeholder="Alamat Premis 1" name="e_ap1" required
+                                                value="{{ old('alamat_premis_1') }}">
+                                            <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                         </div>
                                         <div class="form-group" style="margin-bottom: 10px">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="e_ap2" maxlength=60 class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc5()" placeholder="Alamat Premis 2" name="e_ap2"
+                                                oninput="setCustomValidity(''); invokeFunc5()"
+                                                placeholder="Alamat Premis 2" name="e_ap2"
                                                 value="{{ old('alamat_premis_1') }}">
                                         </div>
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                oninput="setCustomValidity(''); invokeFunc6()" placeholder="Alamat Premis 3" name="e_ap3"
+                                                oninput="setCustomValidity(''); invokeFunc6()"
+                                                placeholder="Alamat Premis 3" name="e_ap3"
                                                 value="{{ old('alamat_premis_1') }}">
                                         </div>
                                     </div>
@@ -260,30 +295,37 @@
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Alamat Surat
-                                                Menyurat</label>
+                                        <label for="inputcom" class="control-label col-form-label required">Alamat Surat
+                                            Menyurat</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 10px;">
                                         <div class="form-group" style="margin-bottom: 10px;">
                                             <input type="text" id="e_as1" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc7()" placeholder="Alamat Surat Menyurat 1"
-                                                name="e_as1" required value="{{ old('alamat_surat_1') }}">
+                                                oninput="setCustomValidity(''); invokeFunc7(); valid_as()"
+                                                placeholder="Alamat Surat Menyurat 1" name="e_as1" required
+                                                value="{{ old('alamat_surat_1') }}">
+                                            <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                         </div>
                                         <div class="form-group" style="margin-bottom: 10px;">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="e_as2" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc8()" placeholder="Alamat Surat Menyurat 2"
-                                                name="e_as2" value="{{ old('alamat_surat_1') }}">
+                                                oninput="setCustomValidity(''); invokeFunc8()"
+                                                placeholder="Alamat Surat Menyurat 2" name="e_as2"
+                                                value="{{ old('alamat_surat_1') }}">
+
                                         </div>
 
-                                        <div class="form-group" >
+                                        <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="e_as3" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc9()" placeholder="Alamat Surat Menyurat 3"
-                                                name="e_as3" value="{{ old('alamat_surat_1') }}">
+                                                oninput="setCustomValidity(''); invokeFunc9()"
+                                                placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                                value="{{ old('alamat_surat_1') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -296,8 +338,12 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_notel" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                            oninput="setCustomValidity(''); invokeFunc10()" placeholder="No. Telefon Kilang"
-                                            name="e_notel" required value="{{ old('no_tel_kilang') }}">
+                                            oninput="setCustomValidity(''); invokeFunc10(); valid_notel()"
+                                            placeholder="No. Telefon Kilang" name="e_notel" required
+                                            value="{{ old('no_tel_kilang') }}">
+                                        <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -309,8 +355,8 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_nofax" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                            oninput="setCustomValidity(''); invokeFunc11()" placeholder="No. Faks Kilang" name="e_nofax"
-                                            value="{{ old('no_faks_kilang') }}">
+                                            oninput="setCustomValidity(''); invokeFunc11()" placeholder="No. Faks Kilang"
+                                            name="e_nofax" value="{{ old('no_faks_kilang') }}">
                                     </div>
                                 </div>
 
@@ -322,8 +368,16 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_email" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                            oninput="setCustomValidity(''); invokeFunc12()" placeholder="Alamat Emel Kilang"
-                                            name="e_email" required value="{{ old('emel_kilang') }}">
+                                            oninput="setCustomValidity(''); invokeFunc12(); valid_email(); ValidateEmail()"
+                                            placeholder="Alamat Emel Kilang" name="e_email" required
+                                            value="{{ old('emel_kilang') }}">
+                                        <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
+                                        <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila
+                                                masukkan
+                                                alamat emel yang betul!</i></p>
+
                                     </div>
                                 </div>
 
@@ -335,46 +389,64 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_npg" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                            oninput="setCustomValidity(''); invokeFunc13()" placeholder="Nama Pegawai Melapor"
-                                            name="e_npg" required value="{{ old('nama_pegawai_lapor') }}">
+                                            oninput="setCustomValidity(''); invokeFunc13(); valid_npg()"
+                                            placeholder="Nama Pegawai Melapor" name="e_npg" required
+                                            value="{{ old('nama_pegawai_lapor') }}">
+                                        <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                        <label for="inputcom" class="control-label col-form-label required">Jawatan Pegawai Melapor</label>
+                                        <label for="inputcom" class="control-label col-form-label required">Jawatan
+                                            Pegawai Melapor</label>
                                     </div>
-                                    <div class="col-md-6" >
-                                        <input type="text" id="e_jpg" style="margin-bottom: 10px;" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                            oninput="setCustomValidity(''); invokeFunc14()" placeholder="Jawatan Pegawai Melapor"
-                                            name="e_jpg" required value="{{ old('jawatan_pegawai_lapor') }}">
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_jpg" style="margin-bottom: 10px;"
+                                            class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            maxlength="60" oninput="setCustomValidity(''); invokeFunc14(); valid_jpg()"
+                                            placeholder="Jawatan Pegawai Melapor" name="e_jpg" required
+                                            value="{{ old('jawatan_pegawai_lapor') }}">
+                                        <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                        <label for="inputcom" class="control-label col-form-label required">No. Telefon Pegawai Melapor</label>
+                                        <label for="inputcom" class="control-label col-form-label required">No. Telefon
+                                            Pegawai Melapor</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_notel_pg" class="form-control" required
                                             placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg'
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="40"
-                                            oninput="setCustomValidity(''); invokeFunc15()" value="{{ old('e_notel_pg') }}">
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
+                                            oninput="setCustomValidity(''); invokeFunc15(); valid_notelpg()"
+                                            value="{{ old('e_notel_pg') }}">
+                                        <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Nama
-                                                Pegawai
-                                                Bertanggungjawab</label>
+                                        <label for="inputcom" class="control-label col-form-label required">Nama
+                                            Pegawai
+                                            Bertanggungjawab</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_npgtg" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                            oninput="setCustomValidity(''); invokeFunc16()" placeholder="Nama Pegawai Bertanggungjawab"
-                                            name="e_npgtg" required value="{{ old('nama_pegawai_jawab') }}">
+                                            oninput="setCustomValidity(''); invokeFunc16(); valid_npgtg()"
+                                            placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg" required
+                                            value="{{ old('nama_pegawai_jawab') }}">
+                                        <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -387,9 +459,12 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_jpgtg" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                            oninput="setCustomValidity(''); invokeFunc17()" maxlength="60"
+                                            oninput="setCustomValidity(''); invokeFunc17(); valid_jpgtg()" maxlength="60"
                                             placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" required
                                             value="{{ old('jawatan_pegawai_jawab') }}">
+                                        <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -401,8 +476,12 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_email_pengurus" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                            oninput="setCustomValidity(''); invokeFunc18()" placeholder="Alamat Emel Pengurus"
-                                            name="e_email_pengurus" required value="{{ old('eemel_pengurus') }}">
+                                            oninput="setCustomValidity(''); invokeFunc18(); valid_emailpengurus()"
+                                            placeholder="Alamat Emel Pengurus" name="e_email_pengurus" required
+                                            value="{{ old('eemel_pengurus') }}">
+                                        <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila
+                                                isi butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -411,11 +490,11 @@
                                         <label for="inputcom" class="control-label col-form-label required">
                                             Negeri</label>
                                     </div>
-                                    <div class="col-md-6" >
+                                    <div class="col-md-6">
                                         <fieldset class="form-group" style="margin-bottom: 20px;">
                                             <select class="form-control" id="negeri_id" name="e_negeri"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity(''); invokeFunc19()"
+                                                oninput="setCustomValidity(''); invokeFunc19(); valid_negeri()"
                                                 onchange="ajax_daerah(this);ajax_kawasan(this)" required>
                                                 <option selected hidden disabled value="">Sila Pilih</option>
                                                 @foreach ($negeri as $data)
@@ -424,6 +503,9 @@
                                                     </option>
                                                 @endforeach
                                             </select>
+                                            <p type="hidden" id="err_negeri" style="color: red; display:none"><i>Sila
+                                                    buat pilihan di
+                                                    bahagian ini!</i></p>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -438,10 +520,14 @@
                                             <select class="form-control" id="daerah_id" name='e_daerah' required
                                                 placeholder="Daerah"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity(''); invokeFunc20()">
-                                                <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
+                                                oninput="setCustomValidity(''); invokeFunc20(); valid_daerah()">
+                                                <option selected hidden disabled value="">Sila Pilih Negeri Terlebih
+                                                    Dahulu
                                                 </option>
                                             </select>
+                                            <p type="hidden" id="err_daerah" style="color: red; display:none"><i>Sila
+                                                    buat pilihan di
+                                                    bahagian ini!</i></p>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -455,10 +541,13 @@
                                         <fieldset class="form-group" style="margin-bottom: 20px;">
                                             <select class="form-control" id="kawasan_id" name='e_kawasan' required
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity(''); invokeFunc21()">
+                                                oninput="setCustomValidity(''); invokeFunc21(); valid_kawasan()">
                                                 <option value="" selected hidden disabled>Sila Pilih
                                                     Daerah Terlebih Dahulu</option>
                                             </select>
+                                            <p type="hidden" id="err_kawasan" style="color: red; display:none"><i>Sila
+                                                    buat pilihan di
+                                                    bahagian ini!</i></p>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -470,9 +559,12 @@
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_syktinduk" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="60"
-                                            oninput="setCustomValidity(''); invokeFunc22()" placeholder="Syarikat Induk"
-                                            name="e_syktinduk">
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
+                                            oninput="setCustomValidity(''); invokeFunc22(); valid_syktinduk()"
+                                            placeholder="Syarikat Induk" name="e_syktinduk">
+                                        <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -484,8 +576,11 @@
                                     <div class="col-md-6" style="margin-bottom: 20px;">
                                         <input type="text" id="e_year" class="form-control" required
                                             oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
-                                            oninput="setCustomValidity(''); invokeFunc23()" placeholder="Tahun Mula Beroperasi"
-                                            name="e_year">
+                                            oninput="setCustomValidity(''); invokeFunc23(); valid_year()"
+                                            placeholder="Tahun Mula Beroperasi" name="e_year">
+                                        <p type="hidden" id="err_year" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
                                     </div>
                                 </div>
 
@@ -495,33 +590,40 @@
                                             Kumpulan</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <fieldset class="form-group"  style="margin-bottom: 20px;">
+                                        <fieldset class="form-group" style="margin-bottom: 20px;">
                                             <select class="form-control" name="e_group" required id="e_group"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity(''); invokeFunc24()">
+                                                oninput="setCustomValidity(''); invokeFunc24(); valid_kumpulan()">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
                                                 <option value="GOV">Kerajaan</option>
                                                 <option value="IND">Swasta</option>
                                             </select>
+                                            <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                         </fieldset>
                                     </div>
                                 </div>
-
-                                <div class="row justify-content-center">
-                                    <div class="col-sm-2 form-group" style="margin: 0px">
-                                        <label for="inputcom" class="control-label col-form-label required">
-                                            POMA</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <fieldset class="form-group"  style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_poma" required id="e_poma"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity(''); invokeFunc25()">
-                                                <option selected hidden disabled value="">Sila Pilih</option>
-                                                <option value="poma">Ya</option>
-                                                <option value="NULL">Tidak</option>
-                                            </select>
-                                        </fieldset>
+                                <div id="poma" style="display:none">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-2 form-group" style="margin: 0px">
+                                            <label for="inputcom" class="control-label col-form-label required">
+                                                POMA</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group" style="margin-bottom: 20px;">
+                                                <select class="form-control" name="e_poma" id="e_poma"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" required
+                                                    oninput="setCustomValidity(''); invokeFunc25(); valid_poma()">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option value="poma">Ya</option>
+                                                    <option value="NULL">Tidak</option>
+                                                </select>
+                                                <p type="hidden" id="err_poma" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -534,16 +636,21 @@
                                         <input type="text" id="kap_proses" class="form-control"
                                             placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                            onkeypress="return isNumberKey(event)"  maxlength="10"
-                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc26()" required>
+                                            onkeypress="return isNumberKey(event)" maxlength="10"
+                                            oninput="validate_two_decimal(this);setCustomValidity('');  valid_proses()"
+                                            required>
+                                        <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
+                                                butiran di
+                                                bahagian ini!</i></p>
 
                                     </div>
                                 </div>
 
-                                <div class="row form-group justify-content-center" style="padding-top: 10px; text-align: center ">
+                                <div class="row form-group justify-content-center"
+                                    style="padding-top: 10px; text-align: center ">
                                     <div class="text-right">
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            data-target="#myModal">Tambah</button>
+                                        <button type="button" class="btn btn-primary " id="checkBtn"
+                                            onclick="check()">Tambah</button>
                                     </div>
                                 </div>
                                 {{-- <div class="row form-group" style="padding-top: 10px; ">
@@ -568,11 +675,13 @@
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                <button type="button" class="btn btn-light-secondary"
+                                                    data-dismiss="modal">
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" ata-bs-dismiss="modal">
+                                                <button type="submit" class="btn btn-primary ml-1"
+                                                    ata-bs-dismiss="modal">
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Ya</span>
                                                 </button>
@@ -589,22 +698,27 @@
                 </div>
             </div>
         </div>
-        <!-- End row -->
-        <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right sidebar -->
-        <!-- ============================================================== -->
-        <!-- .right-sidebar -->
-        <!-- ============================================================== -->
-        <!-- End Right sidebar -->
-        <!-- ============================================================== -->
+
     </div>
 @endsection
 
 @section('scripts')
     {{-- ajax daerah --}}
+    <script>
+        function poma() {
+            var buah = document.getElementById('e_kat');
+
+            if (buah.value == 'PL91')
+            {
+                document.getElementById('poma').style.display = "block";
+
+            } else {
+                document.getElementById('poma').style.display = "none";
+
+            }
+
+        }
+        </script>
     <script>
         function ajax_daerah(select) {
             negeri = select.value;
@@ -708,47 +822,438 @@
 
         }
     </script>
-    {{-- <script>
-        function validation_jumlah() {
-            var bil_tangki_cpo = $("#bil_tangki_cpo").val();
-            var bil_tangki_ppo = $("#bil_tangki_ppo").val();
-            var bil_tangki_cpko = $("#bil_tangki_cpko").val();
-            var bil_tangki_ppko = $("#bil_tangki_ppko").val();
-            var bil_tangki_others = $("#bil_tangki_others").val();
+    <script>
+        var input = document.getElementById("kap_proses");
+        var lastValue = "";
 
-            var jumlah = $("#jumlah").val();
-            var jumlah_input = 0;
+        input.addEventListener("keydown", valueCheck);
+        input.addEventListener("keyup", valueCheck);
 
-            jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
-                parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
-                    bil_tangki_others));
-
-            document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        function valueCheck() {
+            if (input.value.match(/^[0-9]*$/))
+                lastValue = input.value;
+            else
+                input.value = lastValue;
         }
     </script>
     <script>
-        function validation_jumlah2() {
-            var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-            var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-            var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-            var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-            var kap_tangki_others = $("#kap_tangki_others").val();
+        function valid_kat() {
 
-            var jumlah = $("#jumlah2").val();
-            var jumlah_input = 0;
+            if ($('#e_kat').val() == '') {
+                $('#e_kat').css('border-color', 'red');
+                document.getElementById('err_kat').style.display = "block";
 
-            jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                    kap_tangki_others));
 
-            document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+            } else {
+                $('#e_kat').css('border-color', '');
+                document.getElementById('err_kat').style.display = "none";
+
+            }
+
         }
-    </script> --}}
+    </script>
+    <script>
+        function valid_status() {
+
+            if ($('#e_status').val() == '') {
+                $('#e_status').css('border-color', 'red');
+                document.getElementById('err_status').style.display = "block";
 
 
-    {{-- toaster --}}
-    <script src="{{ asset('theme/libs/toastr/build/toastr.min.js') }}"></script>
-    <script src="{{ asset('theme/extra-libs/toastr/toastr-init.js') }}"></script>
+            } else {
+                $('#e_status').css('border-color', '');
+                document.getElementById('err_status').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_stock() {
+
+            if ($('#e_stock').val() == '') {
+                $('#e_stock').css('border-color', 'red');
+                document.getElementById('err_stock').style.display = "block";
+
+
+            } else {
+                $('#e_stock').css('border-color', '');
+                document.getElementById('err_stock').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_dir() {
+
+            if ($('#directory').val() == '') {
+                $('#directory').css('border-color', 'red');
+                document.getElementById('err_dir').style.display = "block";
+
+
+            } else {
+                $('#directory').css('border-color', '');
+                document.getElementById('err_dir').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_kodpgw() {
+
+            if ($('#kodpgw').val() == '') {
+                $('#kodpgw').css('border-color', 'red');
+                document.getElementById('err_kodpgw').style.display = "block";
+
+
+            } else {
+                $('#kodpgw').css('border-color', '');
+                document.getElementById('err_kodpgw').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_nosiri() {
+
+            if ($('#nosiri').val() == '') {
+                $('#nosiri').css('border-color', 'red');
+                document.getElementById('err_nosiri').style.display = "block";
+
+
+            } else {
+                $('#nosiri').css('border-color', '');
+                document.getElementById('err_nosiri').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_nl() {
+
+            if ($('#e_nl').val() == '') {
+                $('#e_nl').css('border-color', 'red');
+                document.getElementById('err_nl').style.display = "block";
+
+
+            } else {
+                $('#e_nl').css('border-color', '');
+                document.getElementById('err_nl').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_np() {
+
+            if ($('#e_np').val() == '') {
+                $('#e_np').css('border-color', 'red');
+                document.getElementById('err_np').style.display = "block";
+
+
+            } else {
+                $('#e_np').css('border-color', '');
+                document.getElementById('err_np').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_ap() {
+
+            if ($('#e_ap1').val() == '') {
+                $('#e_ap1').css('border-color', 'red');
+                document.getElementById('err_ap').style.display = "block";
+
+
+            } else {
+                $('#e_ap1').css('border-color', '');
+                document.getElementById('err_ap').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_as() {
+
+            if ($('#e_as1').val() == '') {
+                $('#e_as1').css('border-color', 'red');
+                document.getElementById('err_as').style.display = "block";
+
+
+            } else {
+                $('#e_as1').css('border-color', '');
+                document.getElementById('err_as').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_notel() {
+
+            if ($('#e_notel').val() == '') {
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
+
+
+            } else {
+                $('#e_notel').css('border-color', '');
+                document.getElementById('err_notel').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_email() {
+
+            if ($('#e_email').val() == '') {
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email').style.display = "block";
+                document.getElementById('err_email2').style.display = "none";
+                console.log('sini');
+
+            } else {
+                $('#e_email').css('border-color', '');
+                document.getElementById('err_email').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_npg() {
+
+            if ($('#e_npg').val() == '') {
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
+
+
+            } else {
+                $('#e_npg').css('border-color', '');
+                document.getElementById('err_npg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_jpg() {
+
+            if ($('#e_jpg').val() == '') {
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
+
+
+            } else {
+                $('#e_jpg').css('border-color', '');
+                document.getElementById('err_jpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_notelpg() {
+
+            if ($('#e_notel_pg').val() == '') {
+                $('#e_notel_pg').css('border-color', 'red');
+                document.getElementById('err_notelpg').style.display = "block";
+
+
+            } else {
+                $('#e_notel_pg').css('border-color', '');
+                document.getElementById('err_notelpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_npgtg() {
+
+            if ($('#e_npgtg').val() == '') {
+                $('#e_npgtg').css('border-color', 'red');
+                document.getElementById('err_npgtg').style.display = "block";
+
+
+            } else {
+                $('#e_npgtg').css('border-color', '');
+                document.getElementById('err_npgtg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_jpgtg() {
+
+            if ($('#e_jpgtg').val() == '') {
+                $('#e_jpgtg').css('border-color', 'red');
+                document.getElementById('err_jpgtg').style.display = "block";
+
+
+            } else {
+                $('#e_jpgtg').css('border-color', '');
+                document.getElementById('err_jpgtg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_emailpengurus() {
+
+            if ($('#e_email_pengurus').val() == '') {
+                $('#e_email_pengurus').css('border-color', 'red');
+                document.getElementById('err_emailpengurus').style.display = "block";
+
+
+            } else {
+                $('#e_email_pengurus').css('border-color', '');
+                document.getElementById('err_emailpengurus').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_negeri() {
+
+            if ($('#negeri_id').val() == '') {
+                $('#negeri_id').css('border-color', 'red');
+                document.getElementById('err_negeri').style.display = "block";
+
+
+            } else {
+                $('#negeri_id').css('border-color', '');
+                document.getElementById('err_negeri').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_daerah() {
+
+            if ($('#daerah_id').val() == '') {
+                $('#daerah_id').css('border-color', 'red');
+                document.getElementById('err_daerah').style.display = "block";
+
+
+            } else {
+                $('#daerah_id').css('border-color', '');
+                document.getElementById('err_daerah').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_kawasan() {
+
+            if ($('#kawasan_id').val() == '') {
+                $('#kawasan_id').css('border-color', 'red');
+                document.getElementById('err_kawasan').style.display = "block";
+
+
+            } else {
+                $('#kawasan_id').css('border-color', '');
+                document.getElementById('err_kawasan').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_syktinduk() {
+
+            if ($('#e_syktinduk').val() == '') {
+                $('#e_syktinduk').css('border-color', 'red');
+                document.getElementById('err_syktinduk').style.display = "block";
+
+
+            } else {
+                $('#e_syktinduk').css('border-color', '');
+                document.getElementById('err_syktinduk').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_year() {
+
+            if ($('#e_year').val() == '') {
+                $('#e_year').css('border-color', 'red');
+                document.getElementById('err_year').style.display = "block";
+
+
+            } else {
+                $('#e_year').css('border-color', '');
+                document.getElementById('err_year').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_kumpulan() {
+
+            if ($('#e_group').val() == '') {
+                $('#e_group').css('border-color', 'red');
+                document.getElementById('err_group').style.display = "block";
+
+
+            } else {
+                $('#e_group').css('border-color', '');
+                document.getElementById('err_group').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_poma() {
+
+            if ($('#e_poma').val() == '') {
+                $('#e_poma').css('border-color', 'red');
+                document.getElementById('err_poma').style.display = "block";
+
+
+            } else {
+                $('#e_poma').css('border-color', '');
+                document.getElementById('err_poma').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_proses() {
+
+            if ($('#kap_proses').val() == '') {
+                $('#kap_proses').css('border-color', 'red');
+                document.getElementById('err_proses').style.display = "block";
+
+
+            } else {
+                $('#kap_proses').css('border-color', '');
+                document.getElementById('err_proses').style.display = "none";
+
+            }
+
+        }
+    </script>
 
     <script>
         function check() {
@@ -756,187 +1261,286 @@
             var error = "",
                 field = "";
 
-            // kategori
+            // kap proses
             field = document.getElementById("e_kat");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_kat').css('border-color', 'red');
+                document.getElementById('err_kat').style.display = "block";
             }
-            // status e-kilang
+
+            // kap proses
             field = document.getElementById("e_status");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_status').css('border-color', 'red');
+                document.getElementById('err_status').style.display = "block";
             }
-            // status e-mingguan
+
+            // kap proses
             field = document.getElementById("e_stock");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_stock').css('border-color', 'red');
+                document.getElementById('err_stock').style.display = "block";
             }
-            // directory
+
+            // kap proses
             field = document.getElementById("directory");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#directory').css('border-color', 'red');
+                document.getElementById('err_dir').style.display = "block";
             }
-            // alamat premis 1
-            field = document.getElementById("e_ap1");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            }
-            // kod pegawai
+
+            // kap proses
             field = document.getElementById("kodpgw");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#kodpgw').css('border-color', 'red');
+                document.getElementById('err_kodpgw').style.display = "block";
             }
-            // no siri
+
+            // kap proses
             field = document.getElementById("nosiri");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#nosiri').css('border-color', 'red');
+                document.getElementById('err_nosiri').style.display = "block";
             }
-            // no lesen
+
+            // kap proses
             field = document.getElementById("e_nl");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_nl').css('border-color', 'red');
+                document.getElementById('err_nl').style.display = "block";
             }
-            // nama premis
+
+            // kap proses
             field = document.getElementById("e_np");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_np').css('border-color', 'red');
+                document.getElementById('err_np').style.display = "block";
             }
+
+            // kap proses
+            field = document.getElementById("kap_proses");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_proses').css('border-color', 'red');
+                document.getElementById('err_proses').style.display = "block";
+            }
+
             // alamat premis 1
             field = document.getElementById("e_ap1");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_ap1').css('border-color', 'red');
+                document.getElementById('err_ap').style.display = "block";
             }
 
             // alamat surat-menyurat 1
             field = document.getElementById("e_as1");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_as1').css('border-color', 'red');
+                document.getElementById('err_as').style.display = "block";
             }
 
             // no tel kilang
             field = document.getElementById("e_notel");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
             }
 
             // email kilang
             field = document.getElementById("e_email");
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email').style.display = "block";
+                // document.getElementById('err_email2').style.display = "none";
+            } else if (!field.value.match(mailformat)) {
+                error += "Name must be 2-4 characters\r\n";
+                // alert("You have entered an invalid email address!");
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email2').style.display = "block";
+                console.log('error');
             }
 
             // nama pegawai melapor
             field = document.getElementById("e_npg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
             }
 
             // jawatan pegawai melapor
             field = document.getElementById("e_jpg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
             }
 
             // no tel pegawai melapor
             field = document.getElementById("e_notel_pg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_notel_pg').css('border-color', 'red');
+                document.getElementById('err_notelpg').style.display = "block";
             }
-
-            // // email pegawai melapor
-            // field = document.getElementById("e_email_pg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters\r\n";
-            // }
 
             // nama pegawai bertanggungjawab
             field = document.getElementById("e_npgtg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_npgtg').css('border-color', 'red');
+                document.getElementById('err_npgtg').style.display = "block";
             }
 
             // jawatan pegawai bertanggungjawab
             field = document.getElementById("e_jpgtg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_jpgtg').css('border-color', 'red');
+                document.getElementById('err_jpgtg').style.display = "block";
             }
 
             // emel pengurus
             field = document.getElementById("e_email_pengurus");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_email_pengurus').css('border-color', 'red');
+                document.getElementById('err_emailpengurus').style.display = "block";
             }
 
-            // enegeri
+            // emel pengurus
             field = document.getElementById("negeri_id");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#negeri_id').css('border-color', 'red');
+                document.getElementById('err_negeri').style.display = "block";
             }
 
-            // daerah
+            // emel pengurus
             field = document.getElementById("daerah_id");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#daerah_id').css('border-color', 'red');
+                document.getElementById('err_daerah').style.display = "block";
             }
 
-            // kawasan
+            // emel pengurus
             field = document.getElementById("kawasan_id");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#kawasan_id').css('border-color', 'red');
+                document.getElementById('err_kawasan').style.display = "block";
             }
 
             // syarikat induk
             field = document.getElementById("e_syktinduk");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_syktinduk').css('border-color', 'red');
+                document.getElementById('err_syktinduk').style.display = "block";
             }
 
-            // tahun mula beroperasi
+            // syarikat induk
             field = document.getElementById("e_year");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_year').css('border-color', 'red');
+                document.getElementById('err_year').style.display = "block";
             }
+
             // kumpulan
             field = document.getElementById("e_group");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
+                $('#e_group').css('border-color', 'red');
+                document.getElementById('err_group').style.display = "block";
             }
 
-           // POMA
-            field = document.getElementById("e_poma");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            }
-           // kap proses
-            field = document.getElementById("kap_proses");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+            // POMA
+            var buah = document.getElementById('e_kat');
+            if (buah.value == 'PL91') {
+                     field = document.getElementById("e_poma");
+                        if (!field.checkValidity()) {
+                            error += "Name must be 2-4 characters\r\n";
+                            $('#e_poma').css('border-color', 'red');
+                            document.getElementById('err_poma').style.display = "block";
+                        }
             }
 
-            // (B4) RESULT
-            if (error == "") {
+
+
+                // POMA
+                // field = document.getElementById("e_poma");
+                // if (!field.checkValidity()) {
+                // error += "Name must be 2-4 characters\r\n";
+                // }
+
+                // (B4) RESULT
+                if (error == "") {
+                    $('#myModal').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+                // if (error == "") {
+                // return true;
+                // } else {
+                // toastr.error(
+                // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                // 'Ralat!', {
+                // "progressBar": true
+                // })
+                // return false;
+                // }
+            }
+
+    </script>
+    <script>
+        function ValidateEmail() {
+            var inputText = document.getElementById('e_email');
+            console.log(inputText.value);
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                // alert("Valid email address!");
+                // document.myform.e_email.focus();
+                document.getElementById('err_email2').style.display = "none";
+
                 return true;
             } else {
-                toastr.error(
-                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                    'Ralat!', {
-                        "progressBar": true
-                    })
-                return false;
+                if (inputText.value != '') {
+                    // alert("You have entered an invalid email address!");
+                    $('#e_email').css('border-color', 'red');
+                    document.getElementById('err_email2').style.display = "block";
+                    return false;
+                }
             }
-
-            // if (error == "") {
-            //     return true;
-            // } else {
-            //     toastr.error(
-            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-            //         'Ralat!', {
-            //             "progressBar": true
-            //         })
-            //     return false;
-            // }
         }
     </script>
+
+    {{-- toaster --}}
+    <script src="{{ asset('theme/libs/toastr/build/toastr.min.js') }}"></script>
+    <script src="{{ asset('theme/extra-libs/toastr/toastr-init.js') }}"></script>
+
+
     <script>
         function invokeFunc() {
             addEventListener('keydown', function(evt) {
