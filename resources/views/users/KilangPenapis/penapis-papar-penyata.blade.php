@@ -1057,6 +1057,8 @@
                                     name="e101_notel" value="{{ $penyataiii->e101_notel }}">
                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
+                                        <p type="hidden" id="err_notel2" style="color: red; display:none"><i>Sila masukkan nombor telefon yang betul!</i></p>
+                            </p>
                                     @error('e101_notel')
                                 <div class="alert alert-danger">
                                     <strong>{{ $message }}</strong>
@@ -1148,6 +1150,7 @@
                             // alamat premis 1
                             field = document.getElementById("e101_jpg");
                             if (!field.checkValidity()) {
+                                error += "Name must be 2-4 characters\r\n";
                                 $('#e101_jpg').css('border-color', 'red');
                                 document.getElementById('err_jpg').style.display = "block";
                             }
@@ -1155,9 +1158,21 @@
                             // alamat surat-menyurat 1
                             field = document.getElementById("e101_notel");
                             if (!field.checkValidity()) {
+                                error += "Name must be 2-4 characters\r\n";
                                 $('#e101_notel').css('border-color', 'red');
                                 document.getElementById('err_notel').style.display = "block";
-                            }
+                            } else if (field.value.length > 13 || field.value.length < 10) {
+                                console.log(field.value.length);
+                                error += "Name must be 2-4 characters\r\n";
+                                $('#e101_notel').css('border-color', 'red');
+                                document.getElementById('err_notel2').style.display = "block";
+                                document.getElementById('err_notel').style.display = "none";
+                             }
+                            else {
+                                $('#e101_notel').css('border-color', '');
+                                document.getElementById('err_notel').style.display = "none";
+                                document.getElementById('err_notel2').style.display = "none";
+                        }
 
                             // (B4) RESULT
                             if (error == "") {
@@ -1220,16 +1235,26 @@
         <script>
             function valid_notel() {
 
-                if ($('#e101_notel').val() == '') {
-                    $('#e101_notel').css('border-color', 'red');
-                    document.getElementById('err_notel').style.display = "block";
+                var str = document.getElementById('e101_notel');
+                    // console.log(str.value.length);
+
+                    if ($('#e101_notel').val() == '') {
+                        $('#e101_notel').css('border-color', 'red');
+                        document.getElementById('err_notel').style.display = "block";
+                        document.getElementById('err_notel2').style.display = "none";
 
 
-                } else {
-                    $('#e101_notel').css('border-color', '');
-                    document.getElementById('err_notel').style.display = "none";
+                    } else if (str.value.length > 13 || str.value.length < 10) {
+                        $('#e101_notel').css('border-color', 'red');
+                        document.getElementById('err_notel2').style.display = "block";
+                        document.getElementById('err_notel').style.display = "none";
+                    }
+                    else {
+                        $('#e101_notel').css('border-color', '');
+                        document.getElementById('err_notel').style.display = "none";
+                        document.getElementById('err_notel2').style.display = "none";
 
-                }
+                    }
 
             }
         </script>

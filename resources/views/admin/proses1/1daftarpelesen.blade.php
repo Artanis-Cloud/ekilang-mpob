@@ -60,9 +60,9 @@
                                 <hr>
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                        {{-- @if ($errors->any())
+                                        @if ($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
-                                        @endif --}}
+                                        @endif
                                         <label for="fname" class="control-label col-form-label required">
                                             Jenis Kilang</label>
                                     </div>
@@ -613,7 +613,7 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
                                                 <select class="form-control" name="e_poma" id="e_poma"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" 
                                                     oninput="setCustomValidity(''); invokeFunc25(); valid_poma()">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     <option value="poma">Ya</option>

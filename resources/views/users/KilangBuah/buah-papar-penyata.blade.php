@@ -1129,6 +1129,8 @@
                                 name="e_notel_pg" value="">
                                 <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                     butiran di bahagian ini!</i></p>
+                                    <p type="hidden" id="err_notel2" style="color: red; display:none"><i>Sila masukkan nombor telefon yang betul!</i></p>
+                            </p>
                             </p>
 
 
@@ -1247,6 +1249,7 @@
                     // alamat premis 1
                     field = document.getElementById("e_jpg");
                     if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                         $('#e_jpg').css('border-color', 'red');
                         document.getElementById('err_jpg').style.display = "block";
                     }
@@ -1254,8 +1257,20 @@
                     // alamat surat-menyurat 1
                     field = document.getElementById("e_notel");
                     if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                         $('#e_notel').css('border-color', 'red');
                         document.getElementById('err_notel').style.display = "block";
+                    } else if (field.value.length > 13 || field.value.length < 10) {
+                        console.log(field.value.length);
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_notel').css('border-color', 'red');
+                        document.getElementById('err_notel2').style.display = "block";
+                        document.getElementById('err_notel').style.display = "none";
+                    }
+                    else {
+                        $('#e_notel').css('border-color', '');
+                        document.getElementById('err_notel').style.display = "none";
+                        document.getElementById('err_notel2').style.display = "none";
                     }
 
                     // (B4) RESULT
@@ -1263,7 +1278,7 @@
                         $('#exampleModalCenter').modal('show');
                         return true;
                     } else {
-                        // $('#next').modal('hide');
+                        $('#next').modal('hide');
                         toastr.error(
                             'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
                             'Ralat!', {
@@ -1319,16 +1334,27 @@
 <script>
     function valid_notel_pg() {
 
+        var str = document.getElementById('e_notel');
+                    // console.log(str.value.length);
+
         if ($('#e_notel').val() == '') {
             $('#e_notel').css('border-color', 'red');
             document.getElementById('err_notel').style.display = "block";
+            document.getElementById('err_notel2').style.display = "none";
 
 
-        } else {
+        } else if (str.value.length > 13 || str.value.length < 10) {
+            $('#e_notel').css('border-color', 'red');
+            document.getElementById('err_notel2').style.display = "block";
+            document.getElementById('err_notel').style.display = "none";
+        }
+        else {
             $('#e_notel').css('border-color', '');
             document.getElementById('err_notel').style.display = "none";
+            document.getElementById('err_notel2').style.display = "none";
 
         }
+
 
     }
 </script>
