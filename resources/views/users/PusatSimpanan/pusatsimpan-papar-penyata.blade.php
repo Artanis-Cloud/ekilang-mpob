@@ -444,6 +444,8 @@
                                                     name="e07_notel" value="{{ $user->e07_notel }}">
                                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                                         butiran di bahagian ini!</i></p>
+                                                        <p type="hidden" id="err_notel2" style="color: red; display:none"><i>Sila masukkan nombor telefon yang betul!</i></p>
+                                                        </p>
                                             </p>
 
 
@@ -472,6 +474,12 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+                                    <span style="font-size: 16px; margin-bottom:0; text-align: justify; text-justify: inter-word"><b>
+                                        Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                        benar, lengkap dan selaras dengan rekod harian.
+                                    </b></span>
+                                    <br>
+                                    <br>
                                     <p>
                                         Anda pasti mahu menghantar penyata ini?
                                     </p>
@@ -522,7 +530,7 @@
             var error = "",
                 field = "";
 
-            // alamat premis 1500403125000
+            // nama pegawai
             field = document.getElementById("e_npg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
@@ -530,18 +538,31 @@
                 document.getElementById('err_npg').style.display = "block";
             }
 
-            // alamat premis 1
+            // jawatan pegawai
             field = document.getElementById("e_jpg");
             if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
                 $('#e_jpg').css('border-color', 'red');
                 document.getElementById('err_jpg').style.display = "block";
             }
 
-            // alamat surat-menyurat 1
+            // no tel
             field = document.getElementById("e_notel");
             if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
                 $('#e_notel').css('border-color', 'red');
                 document.getElementById('err_notel').style.display = "block";
+            } else if (field.value.length > 13 || field.value.length < 10) {
+                console.log(field.value.length);
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel2').style.display = "block";
+                document.getElementById('err_notel').style.display = "none";
+            }
+            else {
+                $('#e_notel').css('border-color', '');
+                document.getElementById('err_notel').style.display = "none";
+                document.getElementById('err_notel2').style.display = "none";
             }
 
             // (B4) RESULT
@@ -604,16 +625,26 @@ if ($('#e_jpg').val() == '') {
 </script>
 <script>
 function valid_notel(){
-if ($('#e_notel').val() == '') {
-    $('#e_notel').css('border-color', 'red');
-    document.getElementById('err_notel').style.display = "block";
+    var str = document.getElementById('e_notel');
+                    // console.log(str.value.length);
+
+        if ($('#e_notel').val() == '') {
+            $('#e_notel').css('border-color', 'red');
+            document.getElementById('err_notel').style.display = "block";
+            document.getElementById('err_notel2').style.display = "none";
 
 
-} else {
-    $('#e_notel').css('border-color', '');
-    document.getElementById('err_notel').style.display = "none";
+        } else if (str.value.length > 13 || str.value.length < 10) {
+            $('#e_notel').css('border-color', 'red');
+            document.getElementById('err_notel2').style.display = "block";
+            document.getElementById('err_notel').style.display = "none";
+        }
+        else {
+            $('#e_notel').css('border-color', '');
+            document.getElementById('err_notel').style.display = "none";
+            document.getElementById('err_notel2').style.display = "none";
 
-}
+        }
 
 }
 </script>

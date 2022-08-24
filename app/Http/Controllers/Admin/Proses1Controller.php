@@ -110,7 +110,7 @@ class Proses1Controller extends Controller
             'e_syktinduk' => ['required', 'string'],
             'e_year' => ['required', 'string'],
             'e_group' => ['required', 'string'],
-            'e_poma' => ['required', 'string'],
+            // 'e_poma' => ['required', 'string'],
             'kap_proses' => ['required', 'string'],
             // 'bil_tangki_cpo' => ['required', 'string'],
             // 'bil_tangki_ppo' => ['required', 'string'],
@@ -162,7 +162,7 @@ class Proses1Controller extends Controller
             'e_kawasan' => $data['e_kawasan'],
             'e_syktinduk' => $data['e_syktinduk'],
             'e_group' => $data['e_group'],
-            'e_poma' => $data['e_poma'],
+            'e_poma' => null,
             'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],
@@ -407,7 +407,7 @@ class Proses1Controller extends Controller
             'jumlah4'
         ));
 
-       
+
     }
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)

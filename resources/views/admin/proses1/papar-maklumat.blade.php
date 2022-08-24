@@ -59,10 +59,10 @@
                     <hr>
                     <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id] ) }}" method="post"  onsubmit="return check()" novalidate>
                         @csrf
-                        <div class="container center mt-5 mb-2">
+                        <div class="container center" style="margin-left: 14%">
                             <div class="row">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label  align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label  align-items-center">
                                     Jenis Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -85,7 +85,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Status e-Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -100,7 +100,7 @@
                             </div>
                             <div class="row"  style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Status e-Mingguan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Status Direktori </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -128,7 +128,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Kod Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -166,7 +166,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nombor Siri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -179,7 +179,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nombor Lesen </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -192,7 +192,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nama Premis </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -204,7 +204,7 @@
                             </div>
                             <div class="row" style="margin-bottom:2.5%; ">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label required col-form-label align-items-center">
+                                    class="text-left col-sm-3 control-label required col-form-label align-items-center">
                                     Alamat Premis Berlesen</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_ap1" class="form-control" maxlength="60"
@@ -216,7 +216,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6" style="margin-left: 41.6%; ">
+                                <div class="col-md-6" style="margin-left: 25%; ">
                                     <input type="text" id="e_ap2" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2"
                                         value="{{ $pelesen->e_ap2 }}">
@@ -226,7 +226,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6" style="margin-left: 41.6%;">
+                                <div class="col-md-6" style="margin-left: 25%;">
                                     <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3"
                                         value="{{ $pelesen->e_ap3 }}">
@@ -240,7 +240,7 @@
 
                             <div class="row" style="margin-bottom:2.5%">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Alamat Surat Menyurat</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_as1" class="form-control" required maxlength="60"
@@ -252,7 +252,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6" style="margin-left: 41.6%">
+                                <div class="col-md-6" style="margin-left: 25%">
                                     <input type="text" id="e_as2" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                         value="{{ $pelesen->e_as2 }}">
@@ -262,7 +262,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-6" style="margin-left: 41.6%">
+                                <div class="col-md-6" style="margin-left: 25%">
                                     <input type="text" id="e_as3" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                         value="{{ $pelesen->e_as3 }}">
@@ -276,7 +276,7 @@
 
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     No. Telefon (Pejabat / Kilang)</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel" class="form-control" maxlength="40"
@@ -292,7 +292,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label align-items-center">
                                     No. Faks</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_nofax" class="form-control" maxlength="40"
@@ -307,7 +307,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Alamat Emel Kilang</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email" class="form-control"
@@ -322,7 +322,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nama Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_npg" class="form-control" required maxlength="60"
@@ -337,7 +337,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Jawatan Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_jpg" class="form-control" required maxlength="60"
@@ -352,7 +352,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     No. Telefon Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel_pg" class="form-control"
@@ -368,7 +368,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Alamat Emel Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pg" class="form-control"
@@ -383,7 +383,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nama Pegawai Bertanggungjawab</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_npgtg" class="form-control" required maxlength="60"
@@ -398,7 +398,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Jawatan Pegawai
                                     Bertanggungjawab</label>
                                 <div class="col-md-6">
@@ -414,7 +414,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Alamat Emel Pengurus</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pengurus" class="form-control" required maxlength="40"
@@ -431,7 +431,7 @@
                             </div>
                             <div class="row">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -450,7 +450,7 @@
                             </div>
                             <div class="row"  style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Daerah </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -469,7 +469,7 @@
                             </div>
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Kawasan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -482,7 +482,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Syarikat Induk</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_syktinduk" class="form-control" required maxlength="60"
@@ -497,7 +497,7 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Tahun Mula Beroperasi</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_year" class="form-control" required
@@ -507,7 +507,7 @@
                             </div>
                             <div class="row">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -531,7 +531,7 @@
 
                                 <div class="row ,b-2" style="margin-top: -7px">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                         POMA </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
@@ -553,7 +553,7 @@
                             @endif
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control" required maxlength="10"
@@ -573,7 +573,7 @@
                             @if ($reg_pelesen->e_kat == 'PL91')
 
                                 <div class="row mt-3 " style="text-align: center; font-size: 12px">
-                                    <div class="col-md-5">
+                                    <div class="col-md-3">
                                         <span ></span>
                                     </div>
 
@@ -584,12 +584,12 @@
 
                                 </div>
                                 <div class="row mt-3 text-right">
-                                    <div class="col-md-5">
+                                    {{-- <div class="col-md-3"> --}}
                                         <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                         Bilangan Tangki</label>
                                         {{-- <span class="required">Bilangan Tangki</span> --}}
-                                    </div>
+                                    {{-- </div> --}}
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='bil_tangki_cpo'
                                             style="width:100%" id="bil_tangki_cpo" required
@@ -605,12 +605,12 @@
 
                                 </div>
                                 <div class="row mt-3 text-right">
-                                    <div class="col-md-5">
+                                    {{-- <div class="col-md-3"> --}}
                                         <label for="fname"
-                                        class="text-right control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                         Kapasiti Tangki Simpanan (Tan)</label>
                                         {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
-                                    </div>
+                                    {{-- </div> --}}
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='kap_tangki_cpo'
                                             style="width:100%" id="kap_tangki_cpo" required
@@ -625,7 +625,7 @@
 
 
                                 </div>
-                                <div class="row mx-3" style="margin-left:14%">
+                                <div class="row col-10">
                                     <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
                                         khusus untuk sesuatu produk. Sila campurkan kesemua
                                         bilangan dan kapasiti tangki dan lapor dalam kategori Others
@@ -1079,6 +1079,7 @@
 
 
 
+                        </div>
                         </div>
 
 

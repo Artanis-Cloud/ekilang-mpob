@@ -873,6 +873,12 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
+                                            <span style="font-size: 16px; margin-bottom:0; text-align: justify; text-justify: inter-word"><b>
+                                                Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                                benar, lengkap dan selaras dengan rekod harian.
+                                            </b></span>
+                                        {{-- </div> --}}
+                                            <br><br>
                                             <p>
                                                 Anda pasti mahu menghantar penyata ini?
                                             </p>
