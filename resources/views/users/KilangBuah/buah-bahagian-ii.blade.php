@@ -138,7 +138,7 @@
 
 
                     <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post" class="sub-form"
-                        id="form">
+                        id="form" novalidate>
                         @csrf
                         <div class="container center ">
                             <div class="row">
@@ -173,6 +173,7 @@
                                         style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah2();FormatCurrency(this)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2" required maxlength="6" readonly
                                         title="Sila isikan butiran ini." value="{{ number_format($oer ?? 0, 2) }}">
+                                        <p type="hidden" id="err_ah2" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%. Sila betulkan nilai di bahagian 1</i></p>
                                 </div>
                                 <div class="mt-2">%</div>
 
@@ -187,18 +188,14 @@
                                         title="       Jumlah pengeluaran isirung &#010;____________________________________   x 100 &#010;Jumlah buah kelapa sawit di proses"></i></label>
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name='e91_ah3'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
-                                        oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
-                                        style="  text-align:right; width:97%; margin-left:6%" onkeypress="return isNumberKey(event)" id="e91_ah3" required
-                                        title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}" readonly>
-                                </div>
-                                {{-- <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah3'
-                                    oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
-                                    style=" text-align:right;  margin-left:6%" onkeypress="return isNumberKey(event)" onchange="ah3();FormatCurrency(this)"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3" required maxlength="5"
-                                    title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0, 2) }}">
-                                </div> --}}
+                                        oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
+                                        style="  text-align:right; width:97%; margin-left:6%" onkeypress="return isNumberKey(event)" id="e91_ah3" required
+                                        title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0,2) }}" readonly>
+                                        <p  id="err_ah3" style="color: red; display:none; width:97%; margin-left:6%"><i>Nilai hendaklah <br> kurang dari 100%. <br>Sila betulkan nilai <br> di bahagian 1</i></p>
+
+                                </div>
+
                                 <div class="mt-2" style="margin-left: 10px">%</div>
 
                             </div>
@@ -518,7 +515,7 @@
                         <div class="form-group" style="margin-bottom: 70px; width: 100%">
                             <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary">Sebelumnya</a>
 
-                            <button type="submit" class="btn btn-primary" style="float: right" id="checkBtn">Simpan &
+                            <button type="button" class="btn btn-primary" style="float: right" id="checkBtn" onclick="check()">Simpan &
                                 Seterusnya</button>
                         </div>
 
@@ -565,6 +562,91 @@
 
 
     @section('scripts')
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+
+            //e91_ah2
+            field = document.getElementById("e91_ah2");
+            if (field.value >= 100) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e91_ah2').css('border-color', 'red');
+                document.getElementById('err_ah2').style.display = "block";
+                console.log('error');
+            } else {
+                $('#e91_ah2').css('border-color', '');
+                document.getElementById('err_ah2').style.display = "none";
+
+            }
+
+
+            //e91_ah3
+            field = $('#e91_ah3').val();
+            val = parseFloat(Number(field.replace(/,/g, "")))
+            console.log(val);
+            if (val >= 100) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e91_ah3').css('border-color', 'red');
+                document.getElementById('err_ah3').style.display = "block";
+                console.log('error');
+            } else {
+                $('#e91_ah3').css('border-color', '');
+                document.getElementById('err_ah3').style.display = "none";
+
+            }
+
+
+
+
+            // (B4) RESULT
+            if (error == "") {
+                console.log('modal');
+
+                document.getElementById("checkBtn").setAttribute("type", "submit");
+                return true;
+            } else {
+                document.getElementById("checkBtn").setAttribute("type", "button");
+
+                return false;
+            }
+
+
+
+        }
+    </script>
+    <script>
+        function valid_ah2() {
+
+            if ($('#e91_ah2').val() >= 100) {
+                $('#e91_ah2').css('border-color', 'red');
+                document.getElementById('err_ah2').style.display = "block";
+
+
+            } else {
+                $('#e91_ah2').css('border-color', '');
+                document.getElementById('err_ah2').style.display = "none";
+            }
+
+        }
+    </script>
+    <script>
+        function valid_ah3() {
+
+            if ($('#e91_ah3').val() >= 100) {
+                $('#e91_ah3').css('border-color', 'red');
+                document.getElementById('err_ah3').style.display = "block";
+
+
+            } else {
+                $('#e91_ah3').css('border-color', '');
+                document.getElementById('err_ah3').style.display = "none";
+            }
+
+        }
+    </script>
     <script language="javascript" type="text/javascript">
         function FormatCurrency(ctrl) {
             //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
@@ -814,7 +896,7 @@
                 $('#checkBtn').click(function() {
                     checked = $("input[type=checkbox]:checked").length;
                     lain = $('#lain-sebab').val();
-                    console.log('lain');
+                    // console.log('lain');
 
                     if (!checked && !lain) {
                         toastr.error(

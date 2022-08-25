@@ -212,6 +212,9 @@ class KilangIsirungController extends Controller
 
     public function isirung_update_bahagian_i(Request $request, $id)
     {
+
+        $e102_aa2 = $request->e102_aa2;
+        $aa2 = str_replace(',', '', $e102_aa2);
         // dd($request->all());
         $penyata = E102Init::findOrFail($id);
         $penyata->e102_aa1 = $request->e102_aa1;
@@ -480,13 +483,16 @@ class KilangIsirungController extends Controller
         $total3 = floatval($request->total3);
 
         $jumlah = floatval($request->jumlah);
+        // dd($jumlah);
 
-        if ($total3 != $request->jumlah) {
-            return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
-        } else {
+
+        if ($total3 == $jumlah) {
             return redirect()->route('isirung.bahagianiv')
                 ->with('success', 'Maklumat telah disimpan');
+
+        } else {
+            return redirect()->back()->withInput()
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         }
     }
 
@@ -535,12 +541,13 @@ class KilangIsirungController extends Controller
 
         //semak jumlah bahagian iii
 
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first();
 
         $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
         $total2 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
 
         $total3 = $total + $total2;
+        // dd($user->e102_ac1);
 
         if ($total3 != $user->e102_ac1) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
@@ -711,7 +718,7 @@ class KilangIsirungController extends Controller
 
         //semak jumlah bahagian iii
 
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first();
 
         $total_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
         $total2_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
@@ -723,6 +730,7 @@ class KilangIsirungController extends Controller
         $total2_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '2')->sum('e102_b6');
 
         $total3_bhg4 = $total_bhg4 + $total2_bhg4;
+        // dd($total3_bhg4);
 
         if ($total3_bhg3 != $user->e102_ac1) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');

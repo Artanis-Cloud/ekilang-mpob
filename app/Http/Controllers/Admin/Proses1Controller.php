@@ -68,7 +68,7 @@ class Proses1Controller extends Controller
         $this->validation_daftar_pelesen($request->all())->validate();
 
         $this->store_daftar_pelesen($request->all());
-        // $this->store_kapasiti($request->all());
+        $this->store_kapasiti($request->all());
         $custom_pass = $this->store_daftar_pelesen2($request->all());
         $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
 
@@ -183,45 +183,45 @@ class Proses1Controller extends Controller
         ]);
     }
 
-    // protected function store_kapasiti(array $data)
-    // {
+    protected function store_kapasiti(array $data)
+    {
 
-    //     // $count = Kapasiti::max('id');
+        // $count = Kapasiti::max('id');
 
-    //     // dd($data['kap_proses']);
-    //     return Kapasiti::create([
-    //         // 'id' => $count+ 1,
-    //         'e_nl' => $data['e_nl'],
-    //         'tahun' => date("Y"),
-    //         'jan' => $data['kap_proses'],
-    //         'feb' => $data['kap_proses'],
-    //         'mac' => $data['kap_proses'],
-    //         'apr' => $data['kap_proses'],
-    //         'mei' => $data['kap_proses'],
-    //         'jun' => $data['kap_proses'],
-    //         'jul' => $data['kap_proses'],
-    //         'ogs' => $data['kap_proses'],
-    //         'sept' => $data['kap_proses'],
-    //         'okt' => $data['kap_proses'],
-    //         'nov' => $data['kap_proses'],
-    //         'dec' => $data['kap_proses'],
-    //         // 'e_nl' => $request->e_nl,
-    //         // 'tahun' => date("Y"),
-    //         // 'jan' => $request->kap_proses,
-    //         // 'feb' => $request->kap_proses,
-    //         // 'mac' => $request->kap_proses,
-    //         // 'apr' => $request->kap_proses,
-    //         // 'mei' => $request->kap_proses,
-    //         // 'jun' => $request->kap_proses,
-    //         // 'jul' => $request->kap_proses,
-    //         // 'ogs' => $request->kap_proses,
-    //         // 'sept' => $request->kap_proses,
-    //         // 'okt' => $request->kap_proses,
-    //         // 'nov' => $request->kap_proses,
-    //         // 'dec' => $request->kap_proses,
+        // dd($data['kap_proses']);
+        return Kapasiti::create([
+            // 'id' => $count+ 1,
+            'e_nl' => $data['e_nl'],
+            'tahun' => date("Y"),
+            'jan' => $data['kap_proses'],
+            'feb' => $data['kap_proses'],
+            'mac' => $data['kap_proses'],
+            'apr' => $data['kap_proses'],
+            'mei' => $data['kap_proses'],
+            'jun' => $data['kap_proses'],
+            'jul' => $data['kap_proses'],
+            'ogs' => $data['kap_proses'],
+            'sept' => $data['kap_proses'],
+            'okt' => $data['kap_proses'],
+            'nov' => $data['kap_proses'],
+            'dec' => $data['kap_proses'],
+            // 'e_nl' => $request->e_nl,
+            // 'tahun' => date("Y"),
+            // 'jan' => $request->kap_proses,
+            // 'feb' => $request->kap_proses,
+            // 'mac' => $request->kap_proses,
+            // 'apr' => $request->kap_proses,
+            // 'mei' => $request->kap_proses,
+            // 'jun' => $request->kap_proses,
+            // 'jul' => $request->kap_proses,
+            // 'ogs' => $request->kap_proses,
+            // 'sept' => $request->kap_proses,
+            // 'okt' => $request->kap_proses,
+            // 'nov' => $request->kap_proses,
+            // 'dec' => $request->kap_proses,
 
-    //     ]);
-    // }
+        ]);
+    }
     protected function store_daftar_pelesen2(array $data)
     {
         $custom_pass = Str::random(8);

@@ -292,7 +292,6 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     onchange="ad1();FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc10()"
                                                                     name='e91_ad1' id='e91_ad1'
-                                                                    onkeyup="FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     value="{{ number_format($kilang->e91_ad1 ?? 0, 2) }}">
@@ -304,7 +303,6 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     onchange="ad2();FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc11()"
                                                                     name='e91_ad2' id='e91_ad2'
-                                                                    onkeyup="FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     value="{{ number_format($kilang->e91_ad2 ?? 0, 2) }}">
