@@ -411,14 +411,18 @@ class PusatSimpananController extends Controller
 
     public function pusatsimpan_edit_bahagian_a(Request $request, $id)
     {
+
+        // dd($request->all());
         $e07bt_stokawal = $request->e07bt_stokawal;
         $e07bt_terima = $request->e07bt_terima;
         $e07bt_edaran = $request->e07bt_edaran;
+        $e07bt_pelarasan = $request->e07bt_pelarasan;
         $e07bt_stokakhir = $request->e07bt_stokakhir;
         $bt2 = str_replace(',', '', $e07bt_stokawal);
         $bt3 = str_replace(',', '', $e07bt_terima);
         $bt4 = str_replace(',', '', $e07bt_edaran);
         $bt5 = str_replace(',', '', $e07bt_stokakhir);
+        $bt6 = str_replace(',', '', $e07bt_pelarasan);
 
 
 
@@ -432,6 +436,7 @@ class PusatSimpananController extends Controller
         // $penyata->e07bt_eksport = $request->e07bt_eksport;
         // $penyata->e07bt_pelarasan = $request->e07bt_pelarasan;
         $penyata->e07bt_stokakhir = $bt5;
+        $penyata->e07bt_pelarasan = $bt6;
         $penyata->save();
 
 

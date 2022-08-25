@@ -68,7 +68,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                     placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc(); valid_ap()">
-                                    <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                                 <input type="text" id="e_ap2" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -103,7 +103,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc4(); valid_as()">
-                                    <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                                 <input type="text" id="e_as2" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -125,9 +125,9 @@
                                 <input type="text" id="e_notel" class="form-control" maxlength=40
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
-                                    oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()" value="{{ $pelesen->e_notel }}"
-                                    onkeypress="return isNumberKey(event)" required>
-                                    <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
+                                    oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()"
+                                    value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
+                                <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -139,10 +139,8 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_nofax" class="form-control" maxlength=40
-                                    placeholder="No. Faks"
-                                    name="e_nofax" value="{{ $pelesen->e_nofax }}"
-                                    onkeypress="return isNumberKey(event)"
-                                    oninput=" invokeFunc8()">
+                                    placeholder="No. Faks" name="e_nofax" value="{{ $pelesen->e_nofax }}"
+                                    onkeypress="return isNumberKey(event)" oninput=" invokeFunc8()">
                             </div>
                         </div>
 
@@ -157,10 +155,10 @@
                                     oninvalid="setCustomValidity('Sila isi Alamat Emel Kilang dengan betul')"
                                     name="e_email" value="{{ $pelesen->e_email }}" required
                                     oninput="this.setCustomValidity(''); invokeFunc9(); valid_email(); ValidateEmail()">
-                                    <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
-                                        <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
-                                            alamat emel yang betul!</i></p>
+                                <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila masukkan
+                                        alamat emel yang betul!</i></p>
                             </div>
                         </div>
 
@@ -175,7 +173,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_npg"
                                     value="{{ $pelesen->e_npg }}" required
                                     oninput="this.setCustomValidity(''); invokeFunc10(); valid_npg()">
-                                    <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -191,7 +189,7 @@
                                     oninput="this.setCustomValidity(''); invokeFunc11(); valid_jpg()"
                                     placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}"
                                     required>
-                                    <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -207,9 +205,10 @@
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                     oninput="this.setCustomValidity(''); invokeFunc12(); valid_notelpg()"
                                     value="{{ $pelesen->e_notel_pg }}" onkeypress="return isNumberKey(event)" required>
-                                    <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi butiran
+                                        di
                                         bahagian ini!</i></p>
-                                </div>
+                            </div>
                         </div>
 
                         <div class="row justify-content-center" style="margin:20px 0px">
@@ -223,7 +222,8 @@
                                     placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
                                     oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg()"
                                     value="{{ $pelesen->e_email_pg }}" required multiple>
-                                    <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran
+                                        di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -237,9 +237,9 @@
                                 <input type="text" id="e_npgtg" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                    oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg()" value="{{ $pelesen->e_npgtg }}"
-                                    required>
-                                    <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi butiran di
+                                    oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg()"
+                                    value="{{ $pelesen->e_npgtg }}" required>
+                                <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -254,9 +254,9 @@
                                 <input type="text" id="e_jpgtg" class="form-control" maxlength=60
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                    oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg()" value="{{ $pelesen->e_jpgtg }}"
-                                    required>
-                                    <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi butiran di
+                                    oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg()"
+                                    value="{{ $pelesen->e_jpgtg }}" required>
+                                <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -272,7 +272,8 @@
                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                     oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus()"
                                     value="{{ $pelesen->e_email_pengurus }}" required multiple>
-                                    <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi
+                                        butiran di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -288,7 +289,8 @@
                                     placeholder="Syarikat Induk" name="e_syktinduk"
                                     oninput="this.setCustomValidity(''); invokeFunc17(); valid_syktinduk()"
                                     value="{{ $pelesen->e_syktinduk }}" required>
-                                    <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi butiran
+                                        di
                                         bahagian ini!</i></p>
                             </div>
                         </div>
@@ -310,8 +312,9 @@
                                         <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
                                             Swasta</option>
                                     </select>
-                                    <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila buat pilihan di
-                                        bahagian ini!</i></p>
+                                    <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila buat
+                                            pilihan di
+                                            bahagian ini!</i></p>
                                 </fieldset>
                             </div>
                         </div>
@@ -325,21 +328,20 @@
                                 <input type="text" id="kap_proses" class="form-control"
                                     onkeyup="FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                    onchange="validation_jumlah()" oninput="this.setCustomValidity(''); valid_proses(); invokeFunc18()"
+                                    onchange="validation_jumlah()"
+                                    oninput="this.setCustomValidity(''); valid_proses(); invokeFunc18()"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}" required>
-                                    <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
+                                <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
-                                </div>
+                            </div>
                         </div>
 
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <span><br></span><label for="fname"
-                                    class="control-label col-form-label required">
+                                <span><br></span><label for="fname" class="control-label col-form-label required">
                                     Bilangan Tangki</label><br>
-                                    <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Kapasiti tangki Simpanan (Tan)</label>
                             </div>
                             <div class="col-md-7">
@@ -355,10 +357,12 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
-                                            size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc19()"
-                                                value="{{ $pelesen->bil_tangki_cpo ?? '' }}" onchange="validation_jumlah()"
-                                                required>
+                                            <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                style="width:100%" size="15" id="bil_tangki_cpo"
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc19()"
+                                                value="{{ $pelesen->bil_tangki_cpo ?? '' }}"
+                                                onchange="validation_jumlah()" required>
                                             @error('kap_tangki')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -367,9 +371,11 @@
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
-                                                onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc20()" style="width:100%" id="bil_tangki_ppo"
-                                                title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo ?? '' }}"
-                                                required onchange="validation_jumlah()">
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc20(); valid_ppo()"
+                                                style="width:100%" id="bil_tangki_ppo" title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_ppo ?? '' }}" required
+                                                onchange="validation_jumlah()">
                                             @error('bil_tangki_ppo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -378,9 +384,11 @@
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc21()" style="width:100%" id="bil_tangki_cpko"
-                                            title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko ?? '' }}"
-                                            required onchange="validation_jumlah()">
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc21()" style="width:100%"
+                                                id="bil_tangki_cpko" title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_cpko ?? '' }}" required
+                                                onchange="validation_jumlah()">
                                             @error('bil_tangki_cpko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -388,9 +396,11 @@
                                             @enderror
                                         </td>
                                         <td><input type="text" class="form-control" name='bil_tangki_ppko'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc22()" style="width:100%" id="bil_tangki_ppko"
-                                            title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko ?? '' }}"
-                                            required onchange="validation_jumlah()">
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc22()" style="width:100%"
+                                                id="bil_tangki_ppko" title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_ppko ?? '' }}" required
+                                                onchange="validation_jumlah()">
                                             @error('bil_tangki_ppko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -398,9 +408,11 @@
                                             @enderror
                                         </td>
                                         <td> <input type="text" class="form-control" name='bil_tangki_oleo'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc23()" style="width:100%" id="bil_tangki_oleo"
-                                            title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_oleo ?? '' }}"
-                                            required onchange="validation_jumlah()">
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc23()" style="width:100%"
+                                                id="bil_tangki_oleo" title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_oleo ?? '' }}" required
+                                                onchange="validation_jumlah()">
                                             @error('bil_tangki_oleo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -408,9 +420,11 @@
                                             @enderror
                                         </td>
                                         <td><input type="text" class="form-control" name='bil_tangki_others'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc24()" style="width:100%" id="bil_tangki_others"
-                                            title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others ?? '' }}"
-                                            required onchange="validation_jumlah()">
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc24()" style="width:100%"
+                                                id="bil_tangki_others" title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_others ?? '' }}" required
+                                                onchange="validation_jumlah()">
                                             @error('bil_tangki_others')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -419,71 +433,101 @@
                                         </td>
                                         <td>
                                             <b><span id="bil_tangki_jumlah">
-                                                {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
-                                            </span>
-                                        </b>
+                                                    {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
+                                                </span>
+                                            </b>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc25()" style="width:100%" id="kap_tangki_cpo"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini." required
-                                            value="{{ $pelesen->kap_tangki_cpo ?? '' }}">
-                                        @error('kap_tangki_cpo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc25(); valid_cpo()"
+                                                style="width:100%" id="kap_tangki_cpo" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_cpo ?? '' }}">
+                                            <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_cpo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
                                         </td>
-                                        <td>  <input type="text" class="form-control" name='kap_tangki_ppo'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc26()" style="width:100%" id="kap_tangki_ppo"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini." required
-                                            value="{{ $pelesen->kap_tangki_ppo ?? '' }}">
-                                        @error('kap_tangki_ppo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
+                                        <td> <input type="text" class="form-control" name='kap_tangki_ppo'
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc26(); valid_ppo()"
+                                                style="width:100%" id="kap_tangki_ppo" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_ppo ?? '' }}">
+                                            <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_ppo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc27()" style="width:100%" id="kap_tangki_cpko"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini." required
-                                            value="{{ $pelesen->kap_tangki_cpko ?? '' }}">
-                                        @error('kap_tangki_cpko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc27(); valid_cpko()"
+                                                style="width:100%" id="kap_tangki_cpko" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_cpko ?? '' }}">
+                                            <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_cpko')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
                                         </td>
-                                        <td>  <input type="text" class="form-control" name='kap_tangki_ppko'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc28()" style="width:100%" id="kap_tangki_ppko"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini." required
-                                            value="{{ $pelesen->kap_tangki_ppko ?? '' }}">
-                                        @error('kap_tangki_ppko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
+                                        <td> <input type="text" class="form-control" name='kap_tangki_ppko'
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc28(); valid_ppko()"
+                                                style="width:100%" id="kap_tangki_ppko" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_ppko ?? '' }}">
+                                            <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_ppko')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
                                         </td>
-                                        <td>  <input type="text" class="form-control" name='kap_tangki_oleo'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc29()" style="width:100%" id="kap_tangki_oleo"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini." required
-                                            value="{{ $pelesen->kap_tangki_oleo ?? '' }}">
-                                        @error('kap_tangki_oleo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
+                                        <td> <input type="text" class="form-control" name='kap_tangki_oleo'
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc29(); valid_oleo()"
+                                                style="width:100%" id="kap_tangki_oleo" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_oleo ?? '' }}">
+                                            <p type="hidden" id="err_koleo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_oleo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_others'
-                                            onkeypress="return isNumberKey(event)" oninput="this.setCustomValidity(''); invokeFunc30()" style="width:100%" id="kap_tangki_others"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini." required
-                                            value="{{ $pelesen->kap_tangki_others ?? '' }}">
-                                        @error('kap_tangki_others')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="this.setCustomValidity(''); invokeFunc30(); valid_others()"
+                                                style="width:100%" id="kap_tangki_others" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_others ?? '' }}">
+                                            <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila
+                                                    isi butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_others')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
                                         </td>
                                         <td> <b><span id="kap_tangki_jumlah">
                                                     {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
@@ -508,7 +552,8 @@
 
 
             <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                <button type="button" class="btn btn-primary" onclick="check()">Simpan</button>
+                <button type="button" class="btn btn-primary" id="checkBtn"
+                    onclick="check(); autozero()">Simpan</button>
             </div>
 
             <div class="modal fade" id="next" tabindex="-1" role="dialog"
@@ -529,7 +574,7 @@
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                             </button>
@@ -577,6 +622,70 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
             <script>
+                function autozero() {
+                    let zero = '0';
+                    var bcpo = document.getElementById('bil_tangki_cpo');
+                    if (bcpo.value == '0.00' || bcpo.value == 0) {
+                        bcpo.value = zero;
+                    }
+
+                    var bppo = document.getElementById('bil_tangki_ppo');
+                    if (bppo.value == '0.00' || bppo.value == 0) {
+                        bppo.value = zero;
+                    }
+
+                    var bcpko = document.getElementById('bil_tangki_cpko');
+                    if (bcpko.value == '0.00' || bcpko.value == 0) {
+                        bcpko.value = zero;
+                    }
+
+                    var bppko = document.getElementById('bil_tangki_ppko');
+                    if (bppko.value == '0.00' || bppko.value == 0) {
+                        bppko.value = zero;
+                    }
+
+                    var boleo = document.getElementById('bil_tangki_oleo');
+                    if (boleo.value == '0.00' || boleo.value == 0) {
+                        boleo.value = zero;
+                    }
+
+                    var bothers = document.getElementById('bil_tangki_others');
+                    if (bothers.value == '0.00' || bothers.value == 0) {
+                        bothers.value = zero;
+                    }
+
+                    var kcpo = document.getElementById('kap_tangki_cpo');
+                    if (kcpo.value == '0.00' || kcpo.value == 0) {
+                        kcpo.value = zero;
+                    }
+
+                    var kppo = document.getElementById('kap_tangki_ppo');
+                    if (kppo.value == '0.00' || kppo.value == 0) {
+                        kppo.value = zero;
+                    }
+
+                    var kcpko = document.getElementById('kap_tangki_cpko');
+                    if (kcpko.value == '0.00' || kcpko.value == 0) {
+                        kcpko.value = zero;
+                    }
+
+                    var kppko = document.getElementById('kap_tangki_ppko');
+                    if (kppko.value == '0.00' || kppko.value == 0) {
+                        kppko.value = zero;
+                    }
+
+                    var koleo = document.getElementById('kap_tangki_oleo');
+                    if (koleo.value == '0.00' || koleo.value == 0) {
+                        koleo.value = zero;
+                    }
+
+                    var kothers = document.getElementById('kap_tangki_others');
+                    if (kothers.value == '0.00' || kothers.value == 0) {
+                        kothers.value = zero;
+                    }
+                }
+            </script>
+            <script>
                 function validation_jumlah() {
                     var bil_tangki_cpo = $("#bil_tangki_cpo").val();
                     var bil_tangki_ppo = $("#bil_tangki_ppo").val();
@@ -614,110 +723,131 @@
             </script>
         @endsection
         @section('scripts')
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#checkBtn').click(function() {
-                    cpo = $('#bil_tangki_cpo').val();
-                    ppo = $('#bil_tangki_ppo').val();
-                    cpko = $('#bil_tangki_cpko').val();
-                    ppko = $('#bil_tangki_ppko').val();
-                    oleo = $('#bil_tangki_oleo').val();
-                    others = $('#bil_tangki_others').val();
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#checkBtn').click(function() {
+                        cpo = $('#bil_tangki_cpo').val();
+                        ppo = $('#bil_tangki_ppo').val();
+                        cpko = $('#bil_tangki_cpko').val();
+                        ppko = $('#bil_tangki_ppko').val();
+                        oleo = $('#bil_tangki_oleo').val();
+                        others = $('#bil_tangki_others').val();
 
-                    if (cpo == 0 && ppo == 0 && cpko == 0 && ppko == 0 && oleo == 0 && others == 0) {
-                        console.log('lain');
+                        if (cpo == 0 && ppo == 0 && cpko == 0 && ppko == 0 && oleo == 0 && others == 0) {
+                            console.log('lain');
 
-                        toastr.error(
-                            'Sila isi bilangan salah satu tangki produk',
-                            'Ralat!', {
-                                "progressBar": true
-                            })
-                        return false;
-                    }
+                            toastr.error(
+                                'Sila isi bilangan salah satu tangki produk',
+                                'Ralat!', {
+                                    "progressBar": true
+                                })
+                            return false;
+                        }
+
+                        // kcpo = $('#kap_tangki_cpo').val();
+                        // console.log(kcpo);
+                        // kppo = $('#kap_tangki_ppo').val();
+                        // kcpko = $('#kap_tangki_cpko').val();
+                        // kppko = $('#kap_tangki_ppko').val();
+                        // koleo = $('#kap_tangki_oleo').val();
+                        // kothers = $('#kap_tangki_others').val();
+
+                        // if (cpo != 0 && kcpo == 0) {
+                        //     // $('#next').modal('hide');
+                        //     $('#kap_tangki_cpo').css('border-color', 'red');
+                        //     document.getElementById('err_kcpo').style.display = "block";
+                        // }
+
+                        // if (ppo != 0 && kppo == 0) {
+                        //     $('#kap_tangki_ppo').css('border-color', 'red');
+                        //     document.getElementById('err_kppo').style.display = "block";
+                        // }
+
+
+                    });
 
 
                 });
-            });
-        </script>
-        <script>
-            let bil_cpo = document.querySelector("#bil_tangki_cpo");
-            let kap_cpo = document.querySelector("#kap_tangki_cpo");
-            let bil_ppo = document.querySelector("#bil_tangki_ppo");
-            let kap_ppo = document.querySelector("#kap_tangki_ppo");
-            let bil_cpko = document.querySelector("#bil_tangki_cpko");
-            let kap_cpko = document.querySelector("#kap_tangki_cpko");
-            let bil_ppko = document.querySelector("#bil_tangki_ppko");
-            let kap_ppko = document.querySelector("#kap_tangki_ppko");
-            let bil_oleo = document.querySelector("#bil_tangki_oleo");
-            let kap_oleo = document.querySelector("#kap_tangki_oleo");
-            let bil_others = document.querySelector("#bil_tangki_others");
-            let kap_others = document.querySelector("#kap_tangki_others");
-            kap_cpo.disabled = true;
-            kap_ppo.disabled = true;
-            kap_cpko.disabled = true;
-            kap_ppko.disabled = true;
-            kap_oleo.disabled = true;
-            kap_others.disabled = true;
-            bil_cpo.addEventListener("change", stateHandle);
-            bil_ppo.addEventListener("change", stateHandle);
-            bil_cpko.addEventListener("change", stateHandle);
-            bil_ppko.addEventListener("change", stateHandle);
-            bil_oleo.addEventListener("change", stateHandle);
-            bil_others.addEventListener("change", stateHandle);
+            </script>
+            <script>
+                let bil_cpo = document.querySelector("#bil_tangki_cpo");
+                let kap_cpo = document.querySelector("#kap_tangki_cpo");
+                let bil_ppo = document.querySelector("#bil_tangki_ppo");
+                let kap_ppo = document.querySelector("#kap_tangki_ppo");
+                let bil_cpko = document.querySelector("#bil_tangki_cpko");
+                let kap_cpko = document.querySelector("#kap_tangki_cpko");
+                let bil_ppko = document.querySelector("#bil_tangki_ppko");
+                let kap_ppko = document.querySelector("#kap_tangki_ppko");
+                let bil_oleo = document.querySelector("#bil_tangki_oleo");
+                let kap_oleo = document.querySelector("#kap_tangki_oleo");
+                let bil_others = document.querySelector("#bil_tangki_others");
+                let kap_others = document.querySelector("#kap_tangki_others");
+                kap_cpo.disabled = true;
+                kap_ppo.disabled = true;
+                kap_cpko.disabled = true;
+                kap_ppko.disabled = true;
+                kap_oleo.disabled = true;
+                kap_others.disabled = true;
+                bil_cpo.addEventListener("change", stateHandle);
+                bil_ppo.addEventListener("change", stateHandle);
+                bil_cpko.addEventListener("change", stateHandle);
+                bil_ppko.addEventListener("change", stateHandle);
+                bil_oleo.addEventListener("change", stateHandle);
+                bil_others.addEventListener("change", stateHandle);
 
-            // val_cpo = $('#kap_tangki_cpo').val();
+                // val_cpo = $('#kap_tangki_cpo').val();
 
-            function stateHandle() {
-                if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
-                    .value === "0") {
-                    kap_cpo.disabled = true;
-                    document.querySelector("#kap_tangki_cpo").value = "0";
+                function stateHandle() {
+                    if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
+                        .value === "0") {
+                        kap_cpo.disabled = true;
+                        document.querySelector("#kap_tangki_cpo").value = "0";
 
-                } else {
-                    kap_cpo.disabled = false;
+                    } else {
+                        kap_cpo.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_ppo").value === "" || document.querySelector("#bil_tangki_ppo")
+                        .value === "0") {
+                        kap_ppo.disabled = true;
+                        document.querySelector("#kap_tangki_ppo").value = "0";
+
+                    } else {
+                        kap_ppo.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko")
+                        .value === "0") {
+                        kap_cpko.disabled = true;
+                        document.querySelector("#kap_tangki_cpko").value = "0";
+
+                    } else {
+                        kap_cpko.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_ppko").value === "" || document.querySelector("#bil_tangki_ppko")
+                        .value === "0") {
+                        kap_ppko.disabled = true;
+                        document.querySelector("#kap_tangki_ppko").value = "0";
+
+                    } else {
+                        kap_ppko.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_oleo").value === "" || document.querySelector("#bil_tangki_oleo")
+                        .value === "0") {
+                        kap_oleo.disabled = true;
+                        document.querySelector("#kap_tangki_oleo").value = "0";
+
+                    } else {
+                        kap_oleo.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_others").value === "" || document.querySelector("#bil_tangki_others")
+                        .value === "0") {
+                        kap_others.disabled = true;
+                        document.querySelector("#kap_tangki_others").value = "0";
+
+                    } else {
+                        kap_others.disabled = false;
+                    }
                 }
-                if (document.querySelector("#bil_tangki_ppo").value === "" || document.querySelector("#bil_tangki_ppo")
-                    .value === "0") {
-                    kap_ppo.disabled = true;
-                    document.querySelector("#kap_tangki_ppo").value = "0";
-
-                } else {
-                    kap_ppo.disabled = false;
-                }
-                if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko")
-                    .value === "0") {
-                    kap_cpko.disabled = true;
-                    document.querySelector("#kap_tangki_cpko").value = "0";
-
-                } else {
-                    kap_cpko.disabled = false;
-                }
-                if (document.querySelector("#bil_tangki_ppko").value === "" || document.querySelector("#bil_tangki_ppko")
-                    .value === "0") {
-                    kap_ppko.disabled = true;
-                    document.querySelector("#kap_tangki_ppko").value = "0";
-
-                } else {
-                    kap_ppko.disabled = false;
-                }
-                if (document.querySelector("#bil_tangki_oleo").value === "" || document.querySelector("#bil_tangki_oleo")
-                    .value === "0") {
-                    kap_oleo.disabled = true;
-                    document.querySelector("#kap_tangki_oleo").value = "0";
-
-                } else {
-                    kap_oleo.disabled = false;
-                }
-                if (document.querySelector("#bil_tangki_others").value === "" || document.querySelector("#bil_tangki_others")
-                    .value === "0") {
-                    kap_others.disabled = true;
-                    document.querySelector("#kap_tangki_others").value = "0";
-
-                } else {
-                    kap_others.disabled = false;
-                }
-            }
-        </script>
+            </script>
 
             <script>
                 function valid_ap() {
@@ -928,6 +1058,133 @@
 
                 }
             </script>
+            <script>
+                function valid_cpo() {
+
+                    if ($('#bil_tangki_cpo').val() != '' || $('#bil_tangki_cpo').val() != 0) {
+                        if ($('#kap_tangki_cpo').val() == '') {
+                            $('#kap_tangki_cpo').css('border-color', 'red');
+                            document.getElementById('err_kcpo').style.display = "block";
+                        } else {
+                            $('#kap_tangki_cpo').css('border-color', '');
+                            document.getElementById('err_kcpo').style.display = "none";
+
+                        }
+
+                    } else {
+                        $('#kap_tangki_cpo').css('border-color', '');
+                        document.getElementById('err_kcpo').style.display = "none";
+                    }
+
+
+                }
+            </script>
+            <script>
+                function valid_ppo() {
+
+                    if ($('#bil_tangki_ppo').val() != '' || $('#bil_tangki_ppo').val() != 0) {
+                        if ($('#kap_tangki_ppo').val() == '') {
+                            $('#kap_tangki_ppo').css('border-color', 'red');
+                            document.getElementById('err_kppo').style.display = "block";
+                        } else {
+                            $('#kap_tangki_ppo').css('border-color', '');
+                            document.getElementById('err_kppo').style.display = "none";
+
+                        }
+
+                    } else {
+                        $('#kap_tangki_ppo').css('border-color', '');
+                        document.getElementById('err_kppo').style.display = "none";
+                    }
+
+                }
+            </script>
+            <script>
+                function valid_cpko() {
+
+                    if ($('#bil_tangki_cpko').val() != '' || $('#bil_tangki_cpko').val() != 0) {
+                        if ($('#kap_tangki_cpko').val() == '') {
+                            $('#kap_tangki_cpko').css('border-color', 'red');
+                            document.getElementById('err_kcpko').style.display = "block";
+                        } else {
+                            $('#kap_tangki_cpko').css('border-color', '');
+                            document.getElementById('err_kcpko').style.display = "none";
+
+                        }
+
+                    } else {
+                        $('#kap_tangki_cpko').css('border-color', '');
+                        document.getElementById('err_kcpko').style.display = "none";
+                    }
+
+
+                }
+            </script>
+            <script>
+                function valid_ppko() {
+
+
+                    if ($('#bil_tangki_ppko').val() != '' || $('#bil_tangki_ppko').val() != 0) {
+                        if ($('#kap_tangki_ppko').val() == '') {
+                            $('#kap_tangki_ppko').css('border-color', 'red');
+                            document.getElementById('err_kppko').style.display = "block";
+                        } else {
+                            $('#kap_tangki_ppko').css('border-color', '');
+                            document.getElementById('err_kppko').style.display = "none";
+
+                        }
+
+                    } else {
+                        $('#kap_tangki_ppko').css('border-color', '');
+                        document.getElementById('err_kppko').style.display = "none";
+                    }
+
+
+                }
+            </script>
+            <script>
+                function valid_oleo() {
+
+                    if ($('#bil_tangki_oleo').val() != '' || $('#bil_tangki_oleo').val() != 0) {
+                        if ($('#kap_tangki_oleo').val() == '') {
+                            $('#kap_tangki_oleo').css('border-color', 'red');
+                            document.getElementById('err_koleo').style.display = "block";
+                        } else {
+                            $('#kap_tangki_oleo').css('border-color', '');
+                            document.getElementById('err_koleo').style.display = "none";
+
+                        }
+
+                    } else {
+                        $('#kap_tangki_oleo').css('border-color', '');
+                        document.getElementById('err_koleo').style.display = "none";
+                    }
+
+
+
+                }
+            </script>
+            <script>
+                function valid_others() {
+
+                    if ($('#bil_tangki_others').val() != '' || $('#bil_tangki_others').val() != 0) {
+                        if ($('#kap_tangki_others').val() == '') {
+                            $('#kap_tangki_others').css('border-color', 'red');
+                            document.getElementById('err_others').style.display = "block";
+                        } else {
+                            $('#kap_tangki_others').css('border-color', '');
+                            document.getElementById('err_others').style.display = "none";
+
+                        }
+
+                    } else {
+                        $('#kap_tangki_others').css('border-color', '');
+                        document.getElementById('err_others').style.display = "none";
+                    }
+
+
+                }
+            </script>
             {{-- <script>
                 function valid_poma() {
 
@@ -961,28 +1218,7 @@
                 }
             </script>
 
-            {{-- <script>
-function validatePhoneNumber(input_str) {
-    var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
-    return re.test(input_str);
-}
-
-function validateForm(event) {
-    var phone = document.getElementById('myform_phone').value;
-    if (!validatePhoneNumber(phone)) {
-        toastr.error('Sila masukkan nombor telefon yang betul', 'Ralat!', {
-            "progressBar": true
-        })
-    } else {
-        document.getElementById('phone_error').classList.add('hidden');
-        // alert("validation success")
-    }
-    event.preventDefault();
-}
-
-document.getElementById('myform').addEventListener('submit', validateForm);
-</script> --}}
 
 
             <script>
@@ -1111,6 +1347,75 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                         error += "Name must be 2-4 characters\r\n";
                         $('#e_group').css('border-color', 'red');
                         document.getElementById('err_group').style.display = "block";
+                    }
+
+                    cpo = $('#bil_tangki_cpo').val();
+                    ppo = $('#bil_tangki_ppo').val();
+                    cpko = $('#bil_tangki_cpko').val();
+                    ppko = $('#bil_tangki_ppko').val();
+                    oleo = $('#bil_tangki_oleo').val();
+                    others = $('#bil_tangki_others').val();
+
+                    kcpo = $('#kap_tangki_cpo').val();
+                    kppo = $('#kap_tangki_ppo').val();
+                    kcpko = $('#kap_tangki_cpko').val();
+                    kppko = $('#kap_tangki_ppko').val();
+                    koleo = $('#kap_tangki_oleo').val();
+                    kothers = $('#kap_tangki_others').val();
+
+                    if (cpo != 0 && kcpo == 0) {
+                        // $('#next').modal('hide');
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_cpo').css('border-color', 'red');
+                        document.getElementById('err_kcpo').style.display = "block";
+                    } else {
+                        $('#kap_tangki_cpo').css('border-color', '');
+                        document.getElementById('err_kcpo').style.display = "none";
+                    }
+
+                    if (ppo != 0 && kppo == 0) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_ppo').css('border-color', 'red');
+                        document.getElementById('err_kppo').style.display = "block";
+                    } else {
+                        $('#kap_tangki_ppo').css('border-color', '');
+                        document.getElementById('err_kppo').style.display = "none";
+                    }
+
+                    if (cpko != 0 && kcpko == 0) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_cpko').css('border-color', 'red');
+                        document.getElementById('err_kcpko').style.display = "block";
+                    } else {
+                        $('#kap_tangki_cpko').css('border-color', '');
+                        document.getElementById('err_kcpko').style.display = "none";
+                    }
+
+                    if (ppko != 0 && kppko == 0) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_ppko').css('border-color', 'red');
+                        document.getElementById('err_kppko').style.display = "block";
+                    } else {
+                        $('#kap_tangki_ppko').css('border-color', '');
+                        document.getElementById('err_kppko').style.display = "none";
+                    }
+
+                    if (oleo != 0 && koleo == 0) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_oleo').css('border-color', 'red');
+                        document.getElementById('err_koleo').style.display = "block";
+                    } else {
+                        $('#kap_tangki_oleo').css('border-color', '');
+                        document.getElementById('err_koleo').style.display = "none";
+                    }
+
+                    if (others != 0 && kothers == 0) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_others').css('border-color', 'red');
+                        document.getElementById('err_others').style.display = "block";
+                    } else {
+                        $('#kap_tangki_others').css('border-color', '');
+                        document.getElementById('err_others').style.display = "none";
                     }
 
 

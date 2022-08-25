@@ -441,7 +441,7 @@
                                                 <div class="required">No Telefon Kilang:</div>
 
                                                 <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_notel()"
-                                                    name="e07_notel" value="{{ $user->e07_notel }}">
+                                                    name="e07_notel" value="{{ $user->e07_notel }}" onkeypress="return isNumberKey(event)">
                                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                                         butiran di bahagian ini!</i></p>
                                                         <p type="hidden" id="err_notel2" style="color: red; display:none"><i>Sila masukkan nombor telefon yang betul!</i></p>

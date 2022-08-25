@@ -143,10 +143,11 @@
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_aa1 == null)
                                                                     value=""
+                                                                    @elseif ($kilang->e91_aa1 == '0')
+                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}"
                                                                     @else
                                                                     value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}"
-                                                                    @endif
-                                                                    >
+                                                                    @endif>
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_aa2'

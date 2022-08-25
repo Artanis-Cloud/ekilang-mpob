@@ -134,7 +134,7 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al1'
                                     id="e102_al1" required onkeypress="return isNumberKey(event)" max="99" required onchange="FormatCurrency(this)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc(); valid_percent()"
+                                     oninput="this.setCustomValidity(''); invokeFunc(); valid_percent()"
                                     value="{{ number_format($cpko ?? 0, 2) }}" readonly>
                                     <p type="hidden" id="err_al1" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -157,7 +157,7 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al2'
                                     id="e102_al2" required onchange="FormatCurrency(this)" onkeypress="return isNumberKey(event)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc2()"
+                                    oninput="this.setCustomValidity(''); invokeFunc2()"
                                     value="{{ number_format($pkc ?? 0, 2) }}" readonly>
                                     <p type="hidden" id="err_al2" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>

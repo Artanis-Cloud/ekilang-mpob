@@ -12,7 +12,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Emel Pertanyaan/Pindaan/Cadangan</h4>
+                    <h4 class="page-title">Penghantaran Emel</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -44,9 +44,9 @@
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        @if ($errors->any())
+                        {{-- @if ($errors->any())
                         {{ implode('', $errors->all('<div>:message</div>')) }}
-                    @endif
+                    @endif --}}
             <div class="card-body">
                 {{-- <div class="row"> --}}
                 {{-- <div class="col-md-4 col-12"> --}}
