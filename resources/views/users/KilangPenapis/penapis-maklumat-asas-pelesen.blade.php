@@ -221,7 +221,7 @@
                                 <input type="text" id="e_email_pg" maxlength=100 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                    oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg()"
+                                    oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg(); ValidateEmail()"
                                     value="{{ $pelesen->e_email_pg }}" required multiple>
                                     <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -267,7 +267,7 @@
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_email_pengurus" class="form-control" maxlength=100
+                                <input type="email" id="e_email_pengurus" class="form-control" maxlength=100
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                     oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus()"

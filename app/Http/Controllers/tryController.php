@@ -14,6 +14,11 @@ class tryController extends Controller
         return view('loginArx');
     }
     public function testing3(){
+        $loginmills = DB::connection('mysql3')->select("Show tables");
+        dd($loginmills);
+        return view('users.users-dashboard');
+    }
+    public function testing4(){
         $loginmills = DB::connection('mysql4')->select("Show tables");
         dd($loginmills);
         return view('users.users-dashboard');

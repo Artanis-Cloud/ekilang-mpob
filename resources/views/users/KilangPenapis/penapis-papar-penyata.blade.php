@@ -301,7 +301,7 @@
                                             <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                         </b></td>
                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Belian/Terima</font><b></b>
+                                            <font size="2">Belian/Terimaan</font><b></b>
                                         </b></td>
                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Import</font><b></b>
@@ -746,7 +746,7 @@
                                 <font color="#0000FF">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     SENDIRI</font>
                             </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                        <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr  style="background-color: #d3d3d370">
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
@@ -770,7 +770,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->prodcat->catname }}</font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle">
+                                        <td style="text-align: right; vertical-align:middle">
                                             <font size="2">{{ number_format($data->e101_d5 ?? 0, 2) }}</font>
                                         </td>
                                         <td align="right">
@@ -788,7 +788,7 @@
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td style="text-align: center; vertical-align:middle">
+                                    <td style="text-align: right; vertical-align:middle">
                                         <font size="2"><b>{{ number_format($totalvad5 ?? 0, 2) }}</b></font>
                                     </td>
                                     <td align="right">
@@ -807,7 +807,7 @@
                                 <font color="#0000FF">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
                             </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                        <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr  style="background-color: #d3d3d370">
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
@@ -831,7 +831,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->prodcat->catname }}</font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle">
+                                        <td style="text-align: right; vertical-align:middle">
                                             <font size="2">{{ number_format($data->e101_d5 ?? 0, 2) }}</font>
                                         </td>
                                         <td align="right">
@@ -849,7 +849,7 @@
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td style="text-align: center; vertical-align:middle">
+                                    <td style="text-align: right; vertical-align:middle">
                                         <font size="2"><b>{{ number_format($totalvbd5 ?? 0, 2) }}</b></font>
                                     </td>
                                     <td align="right">
