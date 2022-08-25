@@ -404,7 +404,7 @@
                             </div>
                         </div>
 
-
+{{-- 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <span></span>
@@ -413,7 +413,7 @@
                                 <span>CPO</span>
                             </div>
 
-                        </div>
+                        </div> --}}
 
 
 
@@ -902,6 +902,7 @@
                     } else {
                         $('#e_email').css('border-color', '');
                         document.getElementById('err_email').style.display = "none";
+                        document.getElementById('err_email2').style.display = "none";
 
                     }
 
@@ -1336,7 +1337,7 @@
 
                 }
             </script>
-          
+
             <script>
                 document.addEventListener('keypress', function(e) {
                     if (e.keyCode === 13 || e.which === 13) {
