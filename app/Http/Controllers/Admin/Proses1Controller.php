@@ -68,7 +68,7 @@ class Proses1Controller extends Controller
         $this->validation_daftar_pelesen($request->all())->validate();
 
         $this->store_daftar_pelesen($request->all());
-        $this->store_kapasiti($request->all());
+        // $this->store_kapasiti($request->all());
         $custom_pass = $this->store_daftar_pelesen2($request->all());
         $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
 
