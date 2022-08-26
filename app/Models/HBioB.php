@@ -47,6 +47,6 @@ class HBioB extends Model
     // }
 
     // public function produk(){
-    //     return $this->hasOne(Produk::class,'prodid','ebio_c3');
+    //     return $this->hasMany(Produk::class,'prodid','ebio_b4');
     // }
 }

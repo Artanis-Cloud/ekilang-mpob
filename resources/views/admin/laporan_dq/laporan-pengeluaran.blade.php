@@ -316,7 +316,7 @@
                                                                 $total_kapasiti_2 += $data->feb;
                                                             @endphp
                                                             <td
-                                                                style="text-align: right"{{ number_format($data->feb ?? 0, 2) }}</td>
+                                                                style="text-align: right">{{ number_format($data->feb ?? 0, 2) }}</td>
                                                             @else
                                                             <td>0.00</td>
                                                         @endif
