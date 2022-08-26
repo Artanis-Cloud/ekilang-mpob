@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //forget password
-Route::get('/testinOER', [App\Http\Controllers\tryController::class, 'testing3'])->name('testing3');
+Route::get('/testingOER', [App\Http\Controllers\tryController::class, 'testing3'])->name('testing3');
 Route::get('/testingPLEID', [App\Http\Controllers\tryController::class, 'testing4'])->name('testing4');
+Route::get('/password', [App\Http\Controllers\tryController::class, 'change_pass'])->name('change');
 Route::get('/testArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('tryArx');
 Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
 
