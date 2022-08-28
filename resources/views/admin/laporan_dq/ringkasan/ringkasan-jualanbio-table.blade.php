@@ -132,35 +132,37 @@
                                         <div class="col-md-4 ml-auto">
                                             <div class="form-group">
                                                 <label class="required">Tahun</label>
-                                                <select class="form-control" name="tahun" required>
+                                                <select class="form-control" name="tahun"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')" required>
                                                     <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                    <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
+                                                    <option value="2011" {{ ($tahun == '2011') == '2011' ? 'selected' : '' }}>2011
                                                     </option>
-                                                    <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
+                                                    <option value="2012" {{ ($tahun == '2012')  == '2012' ? 'selected' : '' }}>2012
                                                     </option>
-                                                    <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
+                                                    <option value="2013" {{ ($tahun == '2013')  == '2013' ? 'selected' : '' }}>2013
                                                     </option>
-                                                    <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
+                                                    <option value="2014" {{ ($tahun == '2014')  == '2014' ? 'selected' : '' }}>2014
                                                     </option>
-                                                    <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
+                                                    <option value="2015" {{ ($tahun == '2015')  == '2015' ? 'selected' : '' }}>2015
                                                     </option>
-                                                    <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
+                                                    <option value="2016" {{ ($tahun == '2016')  == '2016' ? 'selected' : '' }}>2016
                                                     </option>
-                                                    <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
+                                                    <option value="2017" {{ ($tahun == '2017')  == '2017' ? 'selected' : '' }}>2017
                                                     </option>
-                                                    <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
+                                                    <option value="2018" {{ ($tahun == '2018')  == '2018' ? 'selected' : '' }}>2018
                                                     </option>
-                                                    <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
+                                                    <option value="2019" {{ ($tahun == '2019')  == '2019' ? 'selected' : '' }}>2019
                                                     </option>
-                                                    <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
+                                                    <option value="2020" {{ ($tahun == '2020')  == '2020' ? 'selected' : '' }}>2020
                                                     </option>
-                                                    <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
+                                                    <option value="2021" {{ ($tahun == '2021')  == '2021' ? 'selected' : '' }}>2021
                                                     </option>
-                                                    <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
+                                                    <option value="2022" {{ ($tahun == '2022')  == '2022' ? 'selected' : '' }}>2022
                                                     </option>
-                                                    <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
+                                                    <option value="2023" {{ ($tahun == '2023')  == '2023' ? 'selected' : '' }}>2023
                                                     </option>
-                                                    <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
+                                                    <option value="2024" {{ ($tahun == '2024')  == '2024' ? 'selected' : '' }}>2024
                                                     </option>
                                                     {{-- @endif --}}
 
@@ -170,9 +172,9 @@
                                             <div class="form-group">
                                                 <label>Negeri</label>
                                                 <select class="form-control" id="negeri_id" name="e_negeri">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option selected  value="">Sila Pilih Negeri</option>
                                                     @foreach ($negeri as $data)
-                                                        <option value="{{ $data->kod_negeri }}">
+                                                        <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}>
                                                             {{ $data->nama_negeri }}
                                                         </option>
                                                     @endforeach
@@ -185,9 +187,9 @@
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
                                                 <select class="form-control select2" name="e_nl" style="width: 10%">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option selected\ value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
-                                                        <option value="{{ $data->e_nl }}">
+                                                        <option value="{{ $data->e_nl }}" {{(old('e_nl', $lesen) == $data->e_nl ? 'selected' : '')}}>
                                                             {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
                                                         </option>
                                                     @endforeach
@@ -196,9 +198,9 @@
                                             <div class="form-group">
                                                 <label>Pembeli</label>
                                                 <select class="form-control select2" name="pembeli" style="width: 10%">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option selected\ value="">Sila Pilih</option>
                                                     @foreach ($pembeli as $data)
-                                                        <option value="{{ $data->id }}">
+                                                        <option value="{{ $data->id }}" {{(old('id', $pemb_req) == $data->id ? 'selected' : '')}}>
                                                             {{ $data->pembeli }}
                                                         </option>
                                                     @endforeach
@@ -219,17 +221,22 @@
                             </form>
                             <section class="section"><hr>
                                 <div class="card"><br>
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                        </div>
+                                        <div class="col-md-10">
+                                            <h6 style="color: black; text-align:center; font-weight:500">enarai Ringkasan Jualan Biodiesel</h6>
+                                            <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                        </div>
 
-                                    <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Jualan Biodiesel</h4>
-                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6><br>
-
+                                    </div>
 
                                         <div class="table-responsive " >
-                                            <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
+                                            <table  id="example4" class="table table-hover table-bordered"  style="width: 100%; font-size:13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
-                                                            rowspan="2">Bil.</th>
+
                                                         <th scope="col" style="vertical-align: middle; text-align:center"
                                                             rowspan="2">No Lesen</th>
                                                         <th scope="col" style="vertical-align: middle; text-align:center"
@@ -244,57 +251,20 @@
 
                                                 </thead>
                                                 <tbody>
-                                                    @if ($result)
+                                                    @foreach ($result as $data)
+                                                        <tr>
+                                                            <td scope="row">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                            <td scope="row">{{ $data->nama_negeri }}</td>
 
-                                                            @php
-                                                                $total_hari_1 = 0;
-                                                                $total_hari_2 = 0;
-                                                                $total_hari_3 = 0;
-                                                                $total_hari_4 = 0;
-                                                                $total_hari_5 = 0;
-                                                                $total_hari_6 = 0;
-                                                                $total_hari_7 = 0;
-                                                                $total_hari_8 = 0;
-                                                                $total_hari_9 = 0;
-                                                                $total_hari_10 = 0;
-                                                                $total_hari_11 = 0;
-                                                                $total_hari_12 = 0;
-                                                                $total_bulan = 0;
-                                                                $total_hari_operasi = 0;
-                                                            @endphp
-                                                            @foreach ($result as $data)
-                                                                <tr>
-                                                                    <td scope="row">{{ $loop->iteration }}</td>
-                                                                    <td scope="row">{{ $data->e_nl }}</td>
-                                                                    <td scope="row" class="text-left">{{ $data->e_np }}</td>
-                                                                    <td scope="row">{{ $data->nama_negeri }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->pembeli ?? '-'}}</td>
+                                                            <td style="text-align: center"> {{ number_format($jualan_bio[$data->e_nl] ?? 0,2) }}</td>
 
-                                                                    <td scope="row" class="text-left">{{ $data->pembeli ?? '-'}}</td>
-                                                                    <td scope="row">{{ $data->ebio_cc4 ?? '-' }}</td>
-
-                                                                </tr>
-                                                                @php
-                                                                    // $total_hari_operasi += $data->hari_operasi;
-                                                                @endphp
-                                                            @endforeach
-
-
-                                                    @endif
-                                                        {{-- @foreach($test as $key => $value)
-                                                            <tr>
-
-                                                                    <td>{{ $loop->iteration }}</td>
-                                                                    <td>{{ $result[$key]->e_np }} </td>
-                                                                    <td>- </td>
-
-                                                                    @foreach($value as $test2)
-                                                                        <td>{{ $test2 }} </td>
-                                                                    @endforeach
-
-
-                                                                <td>-</td>
-                                                            </tr>
-                                                        @endforeach --}}
+                                                        </tr>
+                                                        @php
+                                                            // $total_hari_operasi += $data->hari_operasi;
+                                                        @endphp
+                                                    @endforeach
 
                                                 </tbody><br>
 
@@ -535,4 +505,46 @@
             }
         };
     </script>
+             <script>
+                function ExportToExcel()
+                  {
+                      var filename = "Ringkasan"
+                      var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+                      var textRange;
+                      var j = 0;
+                      tab = document.getElementById('example4');
+
+                      for (j = 0; j < tab.rows.length; j++) {
+                      tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                      }
+
+                      tab_text = tab_text + "</table>";
+                      var a = document.createElement('a');
+                      var data_type = 'data:application/vnd.ms-excel';
+                      a.href = data_type + ', ' + encodeURIComponent(tab_text);
+                      a.download = filename + '.xls';
+                      a.click();
+                          }
+                  </script>
+              <script>
+                  $(document).ready(function() {
+                      $('#example4').DataTable( {
+                          // dom: 'Bfrtip',
+                          // buttons: [
+                          //     'copy', 'csv', 'excel', 'pdf', 'print'
+                          // ]
+                      } );
+                  } );
+              </script>
+                  {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+                  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+                  <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+                  <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+                  <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+                  <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+                  <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
 @endsection

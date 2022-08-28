@@ -123,7 +123,7 @@
                         <hr>
 
                         <div class="card-body">
-                            <form action="{{ route('admin.ringkasan.bahagian2.process') }}" method="get">
+                            <form action="{{ route('admin.ringkasan.bahagian2.process') }}"class="needs-validation"  method="get" novalidate>
                             @csrf
                                 <div class="container center">
 
@@ -132,9 +132,7 @@
 
                                             <div class="form-group">
                                                 <label class="required">Tahun</label>
-                                                <select class="form-control" name="tahun"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')" required>
+                                                <select class="form-control" name="tahun" required id="tahun_id" oninput="valid_tahun()">
                                                     <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                     <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                     </option>
@@ -164,10 +162,10 @@
                                                     </option>
                                                     <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
                                                     </option>
-                                                    {{-- @endif --}}
-
-
                                                 </select>
+                                                <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat
+                                                    pilihan di
+                                                    bahagian ini!</i></p>
                                             </div>
                                             <div class="form-group">
                                                 <label>Bulan</label>
@@ -279,13 +277,16 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Data</label>
+                                                <label class="required">Data</label>
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan">
-                                                        <option selected hidden disabled>Semua Jenis Data</option>
+                                                    <select class="form-control" name="laporan" required  id="laporan_id" oninput=" valid_laporan()">
+                                                        <option selected hidden disabled value="">Semua Jenis Data</option>
                                                         <option value="hari_operasi">Jumlah Hari Kilang Beroperasi Sebulan</option>
                                                         <option value="kapasiti">Kadar Penggunaan Kapasiti Sebulan</option>
                                                     </select>
+                                                    <p type="hidden" id="err_laporan" style="color: red; display:none">
+                                                        <i>Sila buat pilihan di bahagian ini!</i>
+                                                    </p>
                                                 </fieldset>
                                             </div>
 
@@ -294,8 +295,8 @@
 
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
-                                    <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Carian</button>
+                                    <button type="submit" class="btn btn-primary" style="margin-left:90%"  onclick="check()"
+                                        >Carian</button>
                                 </div>
                             </form>
 
@@ -529,4 +530,94 @@
             }
         };
     </script>
+    <script>
+        function valid_tahun() {
+
+            if ($('#tahun_id').val() == '') {
+                $('#tahun_id').css('border-color', 'red');
+                document.getElementById('err_tahun').style.display = "block";
+
+
+            } else {
+                $('#tahun_id').css('border-color', '');
+                document.getElementById('err_tahun').style.display = "none";
+
+            }
+
+        }
+    </script>
+     <script>
+        function valid_laporan() {
+
+            if ($('#laporan_id').val() == '') {
+                $('#laporan_id').css('border-color', 'red');
+                document.getElementById('err_laporan').style.display = "block";
+
+
+            } else {
+                $('#laporan_id').css('border-color', '');
+                document.getElementById('err_laporan').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kap proses
+            field = document.getElementById("tahun_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#tahun_id').css('border-color', 'red');
+                document.getElementById('err_tahun').style.display = "block";
+
+            }field = document.getElementById("laporan_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#laporan_id').css('border-color', 'red');
+                document.getElementById('err_laporan').style.display = "block";
+            }
+
+
+
+                if (error == "") {
+                    $('#myModal').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+
+            }
+
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        // form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+        </script>
 @endsection
