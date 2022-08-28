@@ -150,7 +150,6 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -173,7 +172,6 @@
                                                                 @endphp
                                                             @endfor
 
-                                                            <td class="font-weight-bold text-center">{{ $total5[$keyProduk] }}</td>
 
                                                         </tr>
                                                         {{-- @php
@@ -184,7 +182,7 @@
 
                                                     <tr style="background-color: #d3d3d34d" >
                                                         <th colspan="2">Jumlah</th>
-                                                        @for ($i = 1; $i <= 13; $i++)
+                                                        @for ($i = 1; $i <= 12; $i++)
 
                                                         <td class="text-center">{{ $total_col_bulan_b5[$i] }}</td>
 
@@ -515,7 +513,6 @@
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Okt</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Nov</th>
                                                             <th scope="col" style="vertical-align: middle; width: 5%">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle; width: 5%">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -537,13 +534,12 @@
                                                                     $total_col_bulan_b11[$i] += $data_bulanan_ebio_b11[$keyProduk][$i] ?? 0 ;
                                                                 @endphp
                                                             @endfor
-                                                            <td class="font-weight-bold text-center">{{ $total11[$keyProduk] }}</td>
                                                         </tr>
                                                         @endforeach
 
                                                         <tr style="background-color: #d3d3d34d" >
                                                             <th colspan="2">Jumlah</th>
-                                                            @for ($i = 1; $i <= 13; $i++)
+                                                            @for ($i = 1; $i <= 12; $i++)
 
                                                             <td class="text-center">{{ $total_col_bulan_b11[$i] }}</td>
 

@@ -39,7 +39,7 @@
 
 /* .wrapper {
 } */
-.table {
+/* .table {
 
   overflow-x:scroll;
   width:100%;
@@ -57,7 +57,7 @@ td, th {
   text-align: left;
   width:150px;
   padding: 5px;
-}
+} */
 </style>
 
 @section('content')
@@ -356,7 +356,8 @@ td, th {
                                         @if ($laporan == 'ebio_b5' )
                                             <div class="row">
                                                 <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel" >
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
                                                 </div>
                                                 <div class="col-md-10">
                                                     <h6 style="color: black; text-align:center; font-weight:500">Stok Awal Di Premis</h6>
@@ -366,104 +367,100 @@ td, th {
                                             </div>
 
                                             <div class="table-responsive">
-
-
-                                                <table id="example" class="table table-striped table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px;" >
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:1% "
-                                                                rowspan="2">Bil.</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">No. Pemegang Lesen</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:50%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                            <th style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                            <th  style="vertical-align: middle; text-align:center; "
                                                                 colspan="13">{{ $tahun }}</th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jan
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Feb
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Mac
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Apr
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Mei
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jun
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jul
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Ogos
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Sept
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Okt
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Nov
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Dis
                                                                 </th>
 
-                                                                <th scope="col" rowspan="2" style="vertical-align: middle; text-align:center; "
+                                                                <th style="vertical-align: middle; text-align:center; "
                                                                 >Jumlah</th>
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
                                                                     @if ($equal_month == '1')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
                                                                     @elseif($equal_month == '2')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
                                                                     @elseif($equal_month == '3')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
                                                                     @elseif($equal_month == '4')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
                                                                     @elseif($equal_month == '5')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
                                                                     @elseif($equal_month == '6')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
                                                                     @elseif($equal_month == '7')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
                                                                     @elseif($equal_month == '8')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
                                                                     @elseif($equal_month == '9')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
                                                                     @elseif($equal_month == '10')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Okt
                                                                         </th>
                                                                     @elseif($equal_month == '11')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Nov
                                                                         </th>
                                                                     @elseif($equal_month == '12')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Dis
                                                                         </th>
                                                                     @endif
@@ -475,57 +472,324 @@ td, th {
 
                                                                     @endphp
                                                                     @if ($i == '1')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
                                                                     @elseif($i == '2')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
                                                                     @elseif($i == '3')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
                                                                     @elseif($i == '4')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
                                                                     @elseif($i == '5')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
                                                                     @elseif($i == '6')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
                                                                     @elseif($i == '7')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
                                                                     @elseif($i == '8')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
                                                                     @elseif($i == '9')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
                                                                     @elseif($i == '10')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Okt
                                                                         </th>
                                                                     @elseif($i == '11')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Nov
                                                                         </th>
                                                                     @elseif($i == '12')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Dis
                                                                         </th>
                                                                     @endif
                                                                 @endfor
 
-                                                                <th scope="col" rowspan="2" style="vertical-align: middle; text-align:center; "
+                                                                <th style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_b5[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+
+                                                                    <tr>
+                                                                        @foreach ($ebio_b5_bhg1[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_b5 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_b5 += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_b5[$i] += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_b5 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_b5[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+
+                                        @elseif($laporan == 'ebio_b6')
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Belian / Terimaan</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px;" >
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            <th  style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th  style="vertical-align: middle; text-align:center; width:50%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th  style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th  style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th  style="vertical-align: middle; text-align:center; "
+                                                                colspan="13">{{ $tahun }}</th>
+                                                        </tr>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
+
+                                                                <th style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan6[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th style="vertical-align: middle; text-align:center; "
                                                                     >Jumlah</th>
 
 
@@ -761,117 +1025,179 @@ td, th {
                                                 </table>
 
                                             </div>
-                                        @elseif($laporan == 'ebio_b6')
-                                            <h6 style="color: black; text-align:center; margin-bottom:auto">Belian / Terimaan</h6>
 
-                                            {{-- <div class="wrapper " > --}}
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
 
-                                                <table  class="table table-bordered text-center" style="font-size:13px; ">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Stok Akhir Dilapor</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px;" >
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:1% "
-                                                                rowspan="2">Bil.</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">No. Pemegang Lesen</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:50%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                            <th  style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
+                                                            <th style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="12">{{ $tahun }}</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
-                                                                rowspan="2">Jumlah</th>
+                                                            <th  style="vertical-align: middle; text-align:center; "
+                                                                colspan="13">{{ $tahun }}</th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jan
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Feb
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Mac
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Apr
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Mei
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jun
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Jul
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Ogos
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Sept
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Okt
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Nov
                                                                 </th>
-                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                <th style="vertical-align: middle; text-align:center; width:30px">Dis
                                                                 </th>
+
+                                                                <th style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
                                                             @else
                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                     @php
-                                                                        $total_bulan[$i] = 0;
-                                                                        $total_kapasiti[$i] = 0;
-                                                                        $total_kapasiti_bio = 0;
-                                                                        $total_hari_3 = 0;
-                                                                        $total_hari_6 = 0;
+                                                                        $total_bulan6[$i] = 0;
 
                                                                     @endphp
                                                                     @if ($i == '1')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
                                                                     @elseif($i == '2')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
                                                                     @elseif($i == '3')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
                                                                     @elseif($i == '4')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
                                                                     @elseif($i == '5')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
                                                                     @elseif($i == '6')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
                                                                     @elseif($i == '7')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
                                                                     @elseif($i == '8')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
                                                                     @elseif($i == '9')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
                                                                     @elseif($i == '10')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Okt
                                                                         </th>
                                                                     @elseif($i == '11')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Nov
                                                                         </th>
                                                                     @elseif($i == '12')
-                                                                        <th scope="col"
+                                                                        <th
                                                                             style="vertical-align: middle; text-align:center">Dis
                                                                         </th>
                                                                     @endif
                                                                 @endfor
+
+                                                                <th style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
                                                             @endif
                                                         </tr>
                                                     </thead>
@@ -881,15 +1207,15 @@ td, th {
                                                             @if ($bulan == null)
                                                                 @for ($i = 1; $i <= 13; $i++)
                                                                     @php
-                                                                        $total_col_bulan_b6[$i] = 0;
+                                                                        $total_col_bulan_b11[$i] = 0;
                                                                     @endphp
                                                                 @endfor
                                                                 @foreach ($result as $data)
+
                                                                     <tr>
-                                                                        @foreach ($ebio_b6[$data->e_nl] as $kodProduk => $test)
+                                                                        @foreach ($ebio_b11_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
-                                                                                <td scope="row">{{ $loop->iteration }}</td>
-                                                                                <td class="text-left">{{ $data->e_nl }}</td>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
                                                                                 <td class="text-left">{{ $data->e_np }}</td>
 
                                                                                 @if ($data->e_negeri == '01')
@@ -921,139 +1247,54 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-                                                                                {{-- <td>
-                                                                                    {{ number_format($data->ebio_b6 ?? 0, 2) }}
-                                                                                </td> --}}
-                                                                                <td> {{ $kodProduk }}</td>
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_b11 = 0;
+                                                                                @endphp
                                                                                 <td> {{ $data->proddesc }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center"> {{ $ebio_b6[$data->e_nl][$kodProduk][$i] ?? 0 }}</td>
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_b11_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
 
                                                                                     @php
-                                                                                        $total_col_bulan_b6[$i] += $ebio_b6[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                        $jumlah_b11 += $ebio_b11_bhg1[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_b11[$i] += $ebio_b11_bhg1[$data->e_nl][$kodProduk][$i] ?? 0  ;
                                                                                     @endphp
                                                                                 @endfor
 
-                                                                                <td class="text-center">{{ $sums_b6[$kodProduk]}}</td>
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_b11 ?? 0,2)}}</b></td>
+
                                                                             </tr>
                                                                         @endforeach
 
-
-
                                                                     </tr>
-                                                                @endforeach
-                                                                <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="6">Jumlah</th>
-                                                                    @for ($i = 1; $i <= 13; $i++)
 
-                                                                    <td class="text-center">{{ $total_col_bulan_b6[$i] }}</td>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_b11[$i] ?? 0,2) }}</td>
 
                                                                     @endfor
+                                                                    <td style="background-color: lightgray"></td>
                                                                 </tr>
-                                                            @else
-                                                                @foreach ($result as $key => $data)
-                                                                <tr>
-                                                                    @foreach ($ebio_b6[$data->e_nl] as $kodProduk => $ebio_b6_data)
-                                                                        <tr>
-                                                                            <td class="text-center">{{ $loop->iteration }}</td>
-                                                                            <td class="text-left">{{ $data->e_nl }}</td>
-                                                                            <td class="text-left">{{ $data->e_np }}</td>
 
-                                                                            @if ($data->e_negeri == '01')
-                                                                                <td>JOHOR</td>
-                                                                            @elseif ($data->e_negeri == '02')
-                                                                                <td>KEDAH</td>
-                                                                            @elseif ($data->e_negeri == '03')
-                                                                                <td>KELANTAN</td>
-                                                                            @elseif ($data->e_negeri == '04')
-                                                                                <td>MELAKA</td>
-                                                                            @elseif ($data->e_negeri == '05')
-                                                                                <td>NEGERI SEMBILAN</td>
-                                                                            @elseif ($data->e_negeri == '06')
-                                                                                <td>PAHANG</td>
-                                                                            @elseif ($data->e_negeri == '07')
-                                                                                <td>PERAK</td>
-                                                                            @elseif ($data->e_negeri == '08')
-                                                                                <td>PERLIS</td>
-                                                                            @elseif ($data->e_negeri == '09')
-                                                                                <td>PULAU PINANG</td>
-                                                                            @elseif ($data->e_negeri == '10')
-                                                                                <td>SELANGOR</td>
-                                                                            @elseif ($data->e_negeri == '11')
-                                                                                <td>TERENGGANU</td>
-                                                                            @elseif ($data->e_negeri == '12')
-                                                                                <td>WILAYAH PERSEKUTUAN</td>
-                                                                            @elseif ($data->e_negeri == '13')
-                                                                                <td>SABAH</td>
-                                                                            @elseif ($data->e_negeri == '14')
-                                                                                <td>SARAWAK</td>
-                                                                            @endif
-                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
-
-                                                                            <td> {{ $data->proddesc }}</td>
-
-                                                                            @php
-                                                                                $jumlah = 0;
-                                                                            @endphp
-                                                                            @for ($i = $start_month; $i <= $end_month; $i++)
-                                                                                {{-- @if ($data->ebio_bln == $i && $data->ebio_b5 != 0) --}}
-
-                                                                                <td style="text-align: center"> {{ $ebio_b6[$data->e_nl][$kodProduk][$i] ?? 0 }}</td>
-
-                                                                                {{--@endif --}}
-                                                                                    @php
-                                                                                        $jumlah += $ebio_b6[$data->e_nl][$kodProduk][$i] ?? 0;
-                                                                                        $jumlah_bulan[$i] += $ebio_b6[$data->e_nl][$kodProduk][$i] ?? 0;
-                                                                                    @endphp
-
-
-                                                                            @endfor
-                                                                            <td class="text-center">{{ $jumlah ?? 0 }}</td>
-
-                                                                        </tr>
-                                                                    @endforeach
-                                                                </tr>
-                                                            @endforeach
-
-                                                            <tr style="background-color: #d3d3d34d"
-                                                                class="font-weight-bold text-center">
-                                                                <th class="text-right" colspan="6">Jumlah</th>
-
-                                                                @for ($i = $start_month; $i <= $end_month; $i++)
-
-                                                                <td class="text-center">{{ $jumlah_bulan[$i] }}</td>
-
-                                                                @endfor
-                                                            </tr>
 
                                                             @endif
                                                         @endif
-                                                            {{-- @foreach($test as $key => $value)
-                                                                <tr>
-
-                                                                        <td>{{ $loop->iteration }}</td>
-                                                                        <td>{{ $result[$key]->e_np }} </td>
-                                                                        <td>- </td>
-
-                                                                        @foreach($value as $test2)
-                                                                            <td>{{ $test2 }} </td>
-                                                                        @endforeach
-
-
-                                                                    <td>-</td>
-                                                                </tr>
-                                                            @endforeach --}}
 
                                                     </tbody><br>
 
                                                 </table>
 
-                                            {{-- </div> --}}
+                                            </div>
                                         @endif
                                         <br>
                                         <br>
-
+                                    </div>
 
                                 </section>
                             </div>
@@ -1067,10 +1308,7 @@ td, th {
     </div>
 
 
-    @if ($result)
 
-
-@endif
 
     </div>
 @endsection
@@ -1098,7 +1336,7 @@ td, th {
 
 
 <script>
-    function ajax_daerah(select) {
+       function ajax_daerah(select) {
         negeri = select.value;
         console.log(negeri);
         //clear jenis_data selection
@@ -1287,9 +1525,9 @@ td, th {
             }
         };
     </script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
-    <script>
+    {{-- <script>
         $('#exportExcel').on('click', function(){
             var wb = XLSX.utils.table_to_book(document.getElementById('example4'),{sheet: "Sheet name"})
 
@@ -1307,30 +1545,50 @@ td, th {
             saveAs(new Blob([s2ab(wbout)], {type:"application/octet-stream"}), 'Senarai Ringkasan Stok Awal.xlsx');
         })
     </script> --}}
+
+    <script>
+      function ExportToExcel()
+        {
+            var filename = "Ringkasan"
+            var tab_text = "<table border='2px'><tr bgcolor='#00b09c'>";
+            var textRange;
+            var j = 0;
+            tab = document.getElementById('example4');
+
+            for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            }
+
+            tab_text = tab_text + "</table>";
+            var a = document.createElement('a');
+            var data_type = 'data:application/vnd.ms-excel';
+            a.href = data_type + ', ' + encodeURIComponent(tab_text);
+            a.download = filename + '.xls';
+            a.click();
+                }
+        </script>
     <script>
         $(document).ready(function() {
-        $('#example').DataTable( {
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
+            $('#example4').DataTable( {
+                // dom: 'Bfrtip',
+                // buttons: [
+                //     'copy', 'csv', 'excel', 'pdf', 'print'
+                // ]
+            } );
         } );
-    } );
     </script>
-    <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" > --}}
-    {{-- <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap4.min.css"rel="stylesheet" > --}}
+        {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
-    {{-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+        <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script> --}}
-    {{-- <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"rel="stylesheet" >
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
 
 @endsection

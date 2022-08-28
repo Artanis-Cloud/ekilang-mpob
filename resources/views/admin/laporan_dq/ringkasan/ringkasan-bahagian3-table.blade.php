@@ -132,35 +132,37 @@
 
                                             <div class="form-group">
                                                 <label class="required">Tahun</label>
-                                                <select class="form-control" name="tahun" required>
-                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                    <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
+                                                <select class="form-control" name="tahun"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')" required>
+                                                    <option  selected hidden disabled value=''>Sila Pilih Tahun</option>
+                                                    <option value="2011" {{ ($tahun == '2011') ? 'selected' : '' }}>2011
                                                     </option>
-                                                    <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
+                                                    <option value="2012" {{ ($tahun == '2012') ? 'selected' : '' }}>2012
                                                     </option>
-                                                    <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
+                                                    <option value="2013" {{ ($tahun == '2013') ? 'selected' : '' }}>2013
                                                     </option>
-                                                    <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
+                                                    <option value="2014" {{ ($tahun == '2014') ? 'selected' : '' }}>2014
                                                     </option>
-                                                    <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
+                                                    <option value="2015" {{ ($tahun == '2015') ? 'selected' : '' }}>2015
                                                     </option>
-                                                    <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
+                                                    <option value="2016" {{ ($tahun == '2016') ? 'selected' : '' }}>2016
                                                     </option>
-                                                    <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
+                                                    <option value="2017" {{ ($tahun == '2017') ? 'selected' : '' }}>2017
                                                     </option>
-                                                    <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
+                                                    <option value="2018" {{ ($tahun == '2018') ? 'selected' : '' }}>2018
                                                     </option>
-                                                    <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
+                                                    <option value="2019" {{ ($tahun == '2019') ? 'selected' : '' }}>2019
                                                     </option>
-                                                    <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
+                                                    <option value="2020" {{ ($tahun == '2020') ? 'selected' : '' }}>2020
                                                     </option>
-                                                    <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
+                                                    <option value="2021" {{ ($tahun == '2021') ? 'selected' : '' }}>2021
                                                     </option>
-                                                    <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
+                                                    <option value="2022" {{ ($tahun == '2022') ? 'selected' : '' }}>2022
                                                     </option>
-                                                    <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
+                                                    <option value="2023" {{ ($tahun == '2023') ? 'selected' : '' }}>2023
                                                     </option>
-                                                    <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
+                                                    <option value="2024" {{ ($tahun == '2024') ? 'selected' : '' }}>2024
                                                     </option>
                                                     {{-- @endif --}}
 
@@ -180,8 +182,8 @@
                                                 <div class="row">
                                                     <div class="col-md-12 ">
                                                         <div class="form-group">
-                                                            <label>&nbsp;</label>
-                                                            <select class="form-control" name="bulan" >
+                                                            <label>Pada</label>
+                                                            <select class="form-control" name="start" >
                                                                 <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                                 <option value="1">Januari</option>
                                                                 <option value="2">Februari</option>
@@ -252,9 +254,9 @@
                                             <div class="form-group">
                                                 <label>Negeri</label>
                                                 <select class="form-control" id="negeri_id" name="e_negeri">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option selected  value="">Sila Pilih Negeri</option>
                                                     @foreach ($negeri as $data)
-                                                        <option value="{{ $data->kod_negeri }}">
+                                                        <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}>
                                                             {{ $data->nama_negeri }}
                                                         </option>
                                                     @endforeach
@@ -267,21 +269,23 @@
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
                                                 <select class="form-control select2" name="e_nl" style="width: 10%">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
-                                                    @foreach ($users2 as $data)
-                                                        <option value="{{ $data->e_nl }}">
-                                                            {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
-                                                        </option>
-                                                    @endforeach
+                                                    <option value=""  >Sila Pilih Jenis Data</option>
+                                                        {{-- <option selected hidden>{{ $result[0]->ebio_nl  }} - {{  $result[0]->e_np }}</option> --}}
+                                                        @foreach ($users2 as $data)
+                                                            <option value="{{ $data->e_nl }}"  {{(old('e_nl', $lesen) == $data->e_nl ? 'selected' : '')}} >
+                                                                {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                            </option>
+                                                            {{-- <option value="{{ $data->e_nl }}" {{ old('e_nl', $data->e_nl)  }}>{{ $data->e_nl }}</option> --}}
+
+                                                        @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Kumpulan Produk</label>
-                                                <select class="form-control" id="kumpproduk" name="kumpproduk"  onchange="ajax_produk_b2(this);" >
-                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                <select class="form-control" id="kumpproduk" name="kumpproduk"  onchange="ajax_produk(this);" >
+                                                    <option selected value="">Sila Pilih Kumpulan Produk</option>
                                                     @foreach ($kumpproduk as $data)
-                                                    {{-- @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin') --}}
-                                                        <option value="{{ $data->kumpulan }}">
+                                                        <option value="{{ $data->kumpulan }}"  {{(old('kumpproduk', $kump_prod) == $data->kumpulan ? 'selected' : '')}} >
                                                             {{ $data->kumpulan }} - {{ $data->nama_kumpulan }}
                                                         </option>
                                                     @endforeach
@@ -290,30 +294,30 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Kod Produk</label>
-                                                <select class="form-control select2" id="kod_produk2" name="kod_produk" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')" style="width: 10%">
-                                                    <option selected hidden disabled value="">Sila Pilih Kumpulan Terlebih Dahulu
-                                                    </option>
-                                                    {{-- @foreach ($produk as $data)
-                                                        <option value="{{ $data->nama_produk }}">
-                                                            {{ $data->nama_produk }} - {{ $data->kod_produk }}  - {{ $data->namapanjang_produk }}
+                                                <select class="form-control select2" id="kod_produk" name="kod_produk" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')" style="width: 10%">
+                                                        <option selected value="">Sila Pilih Kumpulan Terlebih Dahulu
                                                         </option>
-                                                    @endforeach --}}
+                                                        {{-- @foreach ($produk as $data)
+                                                            <option value="{{ $data->nama_produk }}">
+                                                                {{ $data->nama_produk }} - {{ $data->kod_produk }}  - {{ $data->namapanjang_produk }}
+                                                            </option>
+                                                        @endforeach --}}
 
-                                                </select>
+                                                    </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Data</label>
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Data</option>
-                                                        <option value="ebio_c5">Stok Awal Di Premis</option>
-                                                        <option value="ebio_b6">Belian / Terimaan</option>
-                                                        <option value="ebio_b7">Pengeluaran</option>
-                                                        <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
-                                                        <option value="ebio_b9">Jualan / Edaran Tempatan</option>
-                                                        <option value="ebio_b10">Eksport</option>
-                                                        <option value="ebio_b11">Stok Akhir Dilapor</option>
+                                                    <select class="form-control" name="laporan" required>
+                                                        <option selected hidden disabled value=''>Sila Pilih Jenis Data</option>
+                                                        <option value="ebio_c5" {{ ($laporan == 'ebio_c5') ? 'selected' : '' }}>Stok Awal Di Premis</option>
+                                                        <option value="ebio_c6" {{ ($laporan == 'ebio_c6') ? 'selected' : '' }}>Belian / Terimaan</option>
+                                                        <option value="ebio_c7" {{ ($laporan == 'ebio_c7') ? 'selected' : '' }}>Pengeluaran</option>
+                                                        <option value="ebio_c8" {{ ($laporan == 'ebio_c8') ? 'selected' : '' }}>Digunakan Untuk Proses Selanjutnya</option>
+                                                        <option value="ebio_c9" {{ ($laporan == 'ebio_c9') ? 'selected' : '' }}>Jualan / Edaran Tempatan</option>
+                                                        <option value="ebio_c10" {{ ($laporan == 'ebio_c10') ? 'selected' : '' }}>Eksport</option>
+                                                        <option value="ebio_c11" {{ ($laporan == 'ebio_c11') ? 'selected' : '' }}>Stok Akhir Dilapor</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -330,402 +334,2872 @@
                             <section class="section"><hr>
                                 <div class="card"><br>
 
-                                    <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Produk Biodiesel dan Glycerine</h4>
-                                    <h6 style="color: rgb(30, 28, 28); text-align:center"><b>Tahun: {{ $tahun }}</b></h6><br>
+                                    <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h4><br>
+                                        @if ($laporan == 'ebio_c5' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Stok Awal Di Premis</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
 
-                                    <h6 style="color: black; text-align:center; margin-bottom:auto">Stok Awal Di Premis</h6>
+                                            </div>
 
-                                    <div class="table-responsive " >
-                                        <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
-                                            <thead>
-                                                <tr style="background-color: #d3d3d34d">
-                                                    <th scope="col" style="vertical-align: middle; text-align:center; width:1% "
-                                                    rowspan="2">Bil.</th>
-                                                <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
-                                                    rowspan="2">Nama Pemegang Lesen</th>
-                                                <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                    rowspan="2">Negeri</th>
-                                                <th scope="col" style="vertical-align: middle; text-align:center; width:10%"
-                                                    rowspan="2">Nama Produk</th>
-                                                <th scope="col" style="vertical-align: middle; text-align:center"
-                                                    colspan="12">{{ $tahun }}</th>
-                                                </tr>
-                                                <tr style="background-color: #d3d3d34d">
-                                                    @if ($bulan == null)
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Jan
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Feb
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Mac
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Apr
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Mei
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Jun
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Jul
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Ogos
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Sept
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Okt
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Nov
-                                                        </th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5%">Dis
-                                                        </th>
-                                                    @else
-                                                        @for ($i = $start_month; $i <= $end_month; $i++)
-                                                            @php
-                                                                $total_bulan[$i] = 0;
-                                                                $total_kapasiti[$i] = 0;
-                                                                $total_kapasiti_bio = 0;
-                                                                $total_hari_1 = 0;
-                                                                $total_hari_2 = 0;
-                                                                $total_hari_3 = 0;
-                                                                $total_hari_4 = 0;
-                                                                $total_hari_5 = 0;
-                                                                $total_hari_6 = 0;
-                                                                $total_hari_7 = 0;
-                                                                $total_hari_8 = 0;
-                                                                $total_hari_9 = 0;
-                                                                $total_hari_10 = 0;
-                                                                $total_hari_11 = 0;
-                                                                $total_hari_12 = 0;
+                                            <div class="table-responsive">
 
-                                                            @endphp
-                                                            @if ($i == '1')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Jan
-                                                                </th>
-                                                            @elseif($i == '2')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Feb
-                                                                </th>
-                                                            @elseif($i == '3')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Mac
-                                                                </th>
-                                                            @elseif($i == '4')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Apr
-                                                                </th>
-                                                            @elseif($i == '5')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Mei
-                                                                </th>
-                                                            @elseif($i == '6')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Jun
-                                                                </th>
-                                                            @elseif($i == '7')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Jul
-                                                                </th>
-                                                            @elseif($i == '8')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Ogos
-                                                                </th>
-                                                            @elseif($i == '9')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Sept
-                                                                </th>
-                                                            @elseif($i == '10')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Okt
-                                                                </th>
-                                                            @elseif($i == '11')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Nov
-                                                                </th>
-                                                            @elseif($i == '12')
-                                                                <th scope="col"
-                                                                    style="vertical-align: middle; text-align:center">Dis
-                                                                </th>
-                                                            @endif
-                                                        @endfor
-                                                    @endif
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @if ($result)
 
-                                                    @if ($bulan == null)
-                                                        @php
-                                                            $total_hari_1 = 0;
-                                                            $total_hari_2 = 0;
-                                                            $total_hari_3 = 0;
-                                                            $total_hari_4 = 0;
-                                                            $total_hari_5 = 0;
-                                                            $total_hari_6 = 0;
-                                                            $total_hari_7 = 0;
-                                                            $total_hari_8 = 0;
-                                                            $total_hari_9 = 0;
-                                                            $total_hari_10 = 0;
-                                                            $total_hari_11 = 0;
-                                                            $total_hari_12 = 0;
-                                                            $total_bulan = 0;
-                                                            $total_ebio_c5 = 0;
-                                                        @endphp
-                                                        @foreach ($result as $data)
-                                                            <tr>
-                                                                <td scope="row">{{ $loop->iteration }}</td>
-                                                                <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
 
-                                                                @if ($data->e_negeri == '01')
-                                                                    <td>JOHOR</td>
-                                                                @elseif ($data->e_negeri == '02')
-                                                                    <td>KEDAH</td>
-                                                                @elseif ($data->e_negeri == '03')
-                                                                    <td>KELANTAN</td>
-                                                                @elseif ($data->e_negeri == '04')
-                                                                    <td>MELAKA</td>
-                                                                @elseif ($data->e_negeri == '05')
-                                                                    <td>NEGERI SEMBILAN</td>
-                                                                @elseif ($data->e_negeri == '06')
-                                                                    <td>PAHANG</td>
-                                                                @elseif ($data->e_negeri == '07')
-                                                                    <td>PERAK</td>
-                                                                @elseif ($data->e_negeri == '08')
-                                                                    <td>PERLIS</td>
-                                                                @elseif ($data->e_negeri == '09')
-                                                                    <td>PULAU PINANG</td>
-                                                                @elseif ($data->e_negeri == '10')
-                                                                    <td>SELANGOR</td>
-                                                                @elseif ($data->e_negeri == '11')
-                                                                    <td>TERENGGANU</td>
-                                                                @elseif ($data->e_negeri == '12')
-                                                                    <td>WILAYAH PERSEKUTUAN</td>
-                                                                @elseif ($data->e_negeri == '13')
-                                                                    <td>SABAH</td>
-                                                                @elseif ($data->e_negeri == '14')
-                                                                    <td>SARAWAK</td>
-                                                                @endif
-                                                                {{-- <td class="text-right">
-                                                                    {{ number_format($data->ebio_c5 ?? 0, 2) }}
-                                                                </td> --}}
-                                                                <td class="text-left"> {{ $data->proddesc }}</td>
-                                                                @if ($data->ebio_bln == '1' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_1 += $data->ebio_c5;
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0, 2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '2' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_2 += $data->ebio_c5;
-                                                                    @endphp
-                                                                    <td style="text-align: center">/</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '3' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_3 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '4' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                    $total_hari_4 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '5' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_5 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '6' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_6 += $data->ebio_c5;
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '7' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_7 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '8' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_8 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '9' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_9 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '10' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_10 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '11' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_11 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-                                                                @if ($data->ebio_bln == '12' && $data->ebio_c5 != 0)
-                                                                    @php
-                                                                        $total_hari_12 += $data->ebio_c5;
-
-                                                                    @endphp
-                                                                    <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
-                                                                @else
-                                                                    <td></td>
-                                                                @endif
-
-                                                            </tr>
-                                                            @php
-                                                                // $total_ebio_c5 += $data->ebio_c5;
-                                                            @endphp
-                                                        @endforeach
-                                                        <tr style="background-color: #d3d3d34d"
-                                                            class="font-weight-bold text-center">
-                                                            <th colspan="4"></th>
-
-                                                            <td>{{ number_format( $total_hari_1 ?? 0,2)  }}</td>
-                                                            <td>{{ number_format( $total_hari_2 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_3 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_4 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_5 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_6 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_7 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_8 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_9 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_10 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_11 ?? 0,2) }}</td>
-                                                            <td>{{ number_format( $total_hari_12 ?? 0,2) }}</td>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
                                                         </tr>
-                                                    @else
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
 
-                                                        @foreach ($result as $key => $data)
-                                                            <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $data->e_np }}</td>
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
 
-
-                                                                @if ($data->e_negeri == '01')
-                                                                    <td class="text-left">JOHOR</td>
-                                                                @elseif ($data->e_negeri == '02')
-                                                                    <td class="text-left">KEDAH</td>
-                                                                @elseif ($data->e_negeri == '03')
-                                                                    <td class="text-left">KELANTAN</td>
-                                                                @elseif ($data->e_negeri == '04')
-                                                                    <td class="text-left">MELAKA</td>
-                                                                @elseif ($data->e_negeri == '05')
-                                                                    <td class="text-left">NEGERI SEMBILAN</td>
-                                                                @elseif ($data->e_negeri == '06')
-                                                                    <td class="text-left">PAHANG</td>
-                                                                @elseif ($data->e_negeri == '07')
-                                                                    <td class="text-left">PERAK</td>
-                                                                @elseif ($data->e_negeri == '08')
-                                                                    <td class="text-left">PERLIS</td>
-                                                                @elseif ($data->e_negeri == '09')
-                                                                    <td class="text-left">PULAU PINANG</td>
-                                                                @elseif ($data->e_negeri == '10')
-                                                                    <td class="text-left">SELANGOR</td>
-                                                                @elseif ($data->e_negeri == '11')
-                                                                    <td class="text-left">TERENGGANU</td>
-                                                                @elseif ($data->e_negeri == '12')
-                                                                    <td class="text-left">WILAYAH PERSEKUTUAN</td>
-                                                                @elseif ($data->e_negeri == '13')
-                                                                    <td class="text-left">SABAH</td>
-                                                                @elseif ($data->e_negeri == '14')
-                                                                    <td class="text-left">SARAWAK</td>
-                                                                @endif
-                                                                <td>{{ $data->proddesc }}</td>
-
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
-
-                                                                    @if ($data->ebio_bln == $i && $data->ebio_c5 != 0)
-
                                                                     @php
-                                                                        $total_bulan[$i]+= $data->ebio_c5;
-                                                                    @endphp
-                                                                        <td style="text-align: center"> {{ number_format($data->ebio_c5 ?? 0,2) }}</td>
+                                                                        $total_bulan5[$i] = 0;
 
-                                                                    @else
-                                                                        <td></td>
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
                                                                     @endif
                                                                 @endfor
-                                                            </tr>
 
-                                                        @endforeach
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
 
 
-
-                                                        <tr style="background-color: #d3d3d34d"
-                                                            class="font-weight-bold text-center">
-                                                            <th colspan="4"></th>
-
-                                                            @for ($i = $start_month; $i <= $end_month; $i++)
-                                                                <td>{{ $total_bulan[$i] }}</td>
-                                                            @endfor
+                                                            @endif
                                                         </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
 
-                                                    @endif
-                                                @endif
-                                                    {{-- @foreach($test as $key => $value)
-                                                        <tr>
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c5[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c5_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
 
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $result[$key]->e_np }} </td>
-                                                                <td>- </td>
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
 
-                                                                @foreach($value as $test2)
-                                                                    <td>{{ $test2 }} </td>
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c5 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c5 += $ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c5[$i] += $ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c5 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
                                                                 @endforeach
 
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
 
-                                                            <td>-</td>
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c5[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c5 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c5_bhg3[$data->e_nl] as $kodProduk => $ebio_c5_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c5_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c5 += $ebio_c5_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c5 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan5[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c5_bhg3[$data->e_nl] as $kodProduk => $ebio_c5_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah5 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c5 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah5 += $ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan5[$i] += $ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah5 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan5[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+                                        @elseif ($laporan == 'ebio_c6' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Belian / Terimaan</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+
+
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
                                                         </tr>
-                                                    @endforeach --}}
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
 
-                                            </tbody><br>
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
 
-                                        </table>
-                                    </div>
-                                    <br>
-                                    <br>
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan5[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c6[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c6 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c6 += $ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c6[$i] += $ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c6 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c6[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c6 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $ebio_c6_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c6_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c6 += $ebio_c6_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c6 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan6[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $ebio_c6_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah6 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c6 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah6 += $ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan6[$i] += $ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah6 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan6[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+
+                                        @elseif ($laporan == 'ebio_c7' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Pengeluaran</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+
+
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
+                                                        </tr>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan7[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c7[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c7_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c7 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c7 += $ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c7[$i] += $ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c7 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c7[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c7 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c7_bhg3[$data->e_nl] as $kodProduk => $ebio_c7_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c7_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c7 += $ebio_c7_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c7 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan7[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c7_bhg3[$data->e_nl] as $kodProduk => $ebio_c7_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah7 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c7 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah7 += $ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan7[$i] += $ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah7 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan7[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+
+                                            <!-- ebio_c8 =  DigunakanUntukProsesSelanjutnya -->
+                                        @elseif ($laporan == 'ebio_c8' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Digunakan Untuk Proses Selanjutnya</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+
+
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
+                                                        </tr>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan8[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c8[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c8_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c8 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c8 += $ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c8[$i] += $ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c8 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c8[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c8 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c8_bhg3[$data->e_nl] as $kodProduk => $ebio_c8_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c8_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c8 += $ebio_c8_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c8 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan8[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c8_bhg3[$data->e_nl] as $kodProduk => $ebio_c8_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah8 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c8 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah8 += $ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan8[$i] += $ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah8 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan8[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+
+                                        @elseif ($laporan == 'ebio_c9' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Jualan / Edaran Tempatan</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+
+
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
+                                                        </tr>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan8[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c9[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c9_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c9 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c9 += $ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c9[$i] += $ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c9 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c9[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c9 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c9_bhg3[$data->e_nl] as $kodProduk => $ebio_c9_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c9_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c9 += $ebio_c9_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c9 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan9[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c9_bhg3[$data->e_nl] as $kodProduk => $ebio_c9_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah9 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c9 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah9 += $ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan9[$i] += $ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah9 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan9[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+
+                                        @elseif ($laporan == 'ebio_c10' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Eksport</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+
+
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
+                                                        </tr>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan8[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c10[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c10_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c10 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c10 += $ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c10[$i] += $ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c10 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c10[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c10 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c10_bhg3[$data->e_nl] as $kodProduk => $ebio_c10_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c10_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c10 += $ebio_c10_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c10 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan10[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c10_bhg3[$data->e_nl] as $kodProduk => $ebio_c10_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah10 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c10 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah10 += $ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan10[$i] += $ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah10 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan10[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+
+                                        @elseif ($laporan == 'ebio_c11' )
+                                            <div class="row">
+                                                <div class="col-md-1">
+                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <h6 style="color: black; text-align:center; font-weight:500">Stok Akhir Dipremis</h6>
+                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+
+
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                    <thead>
+                                                        <tr style="background-color: #d3d3d34d">
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
+                                                                rowspan="2">Nama Pemegang Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
+                                                                rowspan="2">Kod Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
+                                                                rowspan="2">Nama Produk</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                                colspan="13">{{ $tahun }}</th>
+                                                        </tr>
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            @if ($bulan == null)
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                                </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                                </th>
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                >Jumlah</th>
+
+                                                            @elseif ($bulan == 'equal')
+                                                                {{-- @for ($i = $equal_month;) --}}
+                                                                    @if ($equal_month == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($equal_month == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($equal_month == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($equal_month == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($equal_month == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($equal_month == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($equal_month == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($equal_month == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($equal_month == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($equal_month == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($equal_month == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($equal_month == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                {{-- @endfor --}}
+                                                            @else
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $total_bulan8[$i] = 0;
+
+                                                                    @endphp
+                                                                    @if ($i == '1')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jan
+                                                                        </th>
+                                                                    @elseif($i == '2')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Feb
+                                                                        </th>
+                                                                    @elseif($i == '3')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mac
+                                                                        </th>
+                                                                    @elseif($i == '4')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Apr
+                                                                        </th>
+                                                                    @elseif($i == '5')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Mei
+                                                                        </th>
+                                                                    @elseif($i == '6')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jun
+                                                                        </th>
+                                                                    @elseif($i == '7')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Jul
+                                                                        </th>
+                                                                    @elseif($i == '8')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Ogos
+                                                                        </th>
+                                                                    @elseif($i == '9')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Sept
+                                                                        </th>
+                                                                    @elseif($i == '10')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Okt
+                                                                        </th>
+                                                                    @elseif($i == '11')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Nov
+                                                                        </th>
+                                                                    @elseif($i == '12')
+                                                                        <th scope="col"
+                                                                            style="vertical-align: middle; text-align:center">Dis
+                                                                        </th>
+                                                                    @endif
+                                                                @endfor
+
+                                                                <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                                    >Jumlah</th>
+
+
+                                                            @endif
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @if ($result)
+
+                                                            @if ($bulan == null)
+                                                                @for ($i = 1; $i <= 13; $i++)
+                                                                    @php
+                                                                        $total_col_bulan_c11[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+                                                                @foreach ($result as $data)
+                                                                    <tr>
+                                                                        @foreach ($ebio_c11_bhg3[$data->e_nl] as $kodProduk => $test)
+                                                                            <tr>
+                                                                                <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                                <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                                @if ($data->e_negeri == '01')
+                                                                                    <td>JOHOR</td>
+                                                                                @elseif ($data->e_negeri == '02')
+                                                                                    <td>KEDAH</td>
+                                                                                @elseif ($data->e_negeri == '03')
+                                                                                    <td>KELANTAN</td>
+                                                                                @elseif ($data->e_negeri == '04')
+                                                                                    <td>MELAKA</td>
+                                                                                @elseif ($data->e_negeri == '05')
+                                                                                    <td>NEGERI SEMBILAN</td>
+                                                                                @elseif ($data->e_negeri == '06')
+                                                                                    <td>PAHANG</td>
+                                                                                @elseif ($data->e_negeri == '07')
+                                                                                    <td>PERAK</td>
+                                                                                @elseif ($data->e_negeri == '08')
+                                                                                    <td>PERLIS</td>
+                                                                                @elseif ($data->e_negeri == '09')
+                                                                                    <td>PULAU PINANG</td>
+                                                                                @elseif ($data->e_negeri == '10')
+                                                                                    <td>SELANGOR</td>
+                                                                                @elseif ($data->e_negeri == '11')
+                                                                                    <td>TERENGGANU</td>
+                                                                                @elseif ($data->e_negeri == '12')
+                                                                                    <td>WILAYAH PERSEKUTUAN</td>
+                                                                                @elseif ($data->e_negeri == '13')
+                                                                                    <td>SABAH</td>
+                                                                                @elseif ($data->e_negeri == '14')
+                                                                                    <td>SARAWAK</td>
+                                                                                @endif
+
+                                                                                <td style="text-align: center"> {{ $kodProduk }}</td>
+                                                                                @php
+                                                                                    $jumlah_c11 = 0;
+                                                                                @endphp
+                                                                                <td> {{ $data->proddesc }}</td>
+
+                                                                                @for ($i=1; $i<=12;$i++)
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c11_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    @php
+                                                                                        $jumlah_c11 += $ebio_c11_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $total_col_bulan_c11[$i] += $ebio_c11_bhg3[$data->e_nl][$kodProduk][$i] ?? 0  ;
+                                                                                    @endphp
+                                                                                @endfor
+
+                                                                                <td class="text-center"><b>{{ number_format($jumlah_c11 ?? 0,2)}}</b></td>
+
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                    </tr>
+
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d" >
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    @for ($i = 1; $i <= 12; $i++)
+
+                                                                    <td class="text-center">{{ number_format($total_col_bulan_c11[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgray"></td>
+                                                                </tr>
+                                                            @elseif ($bulan == 'equal')
+                                                                @php
+                                                                    $total_bulan_c11 = 0;
+                                                                @endphp
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c11_bhg3[$data->e_nl] as $kodProduk => $ebio_c11_bhg3_data)
+                                                                        <tr>
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td style="text-align: center"> {{ number_format($ebio_c11_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            @php
+                                                                                $total_bulan_c11 += $ebio_c11_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                            @endphp
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <td class="text-center">{{ number_format($total_bulan_c11 ?? 0,2) }}</td>
+
+                                                                </tr>
+                                                            @else
+
+                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                    @php
+                                                                        $jumlah_bulan11[$i] = 0;
+                                                                    @endphp
+                                                                @endfor
+
+                                                                @foreach ($result as $key => $data)
+                                                                <tr>
+                                                                    @foreach ($ebio_c11_bhg3[$data->e_nl] as $kodProduk => $ebio_c11_bhg3_data)
+                                                                        <tr>
+
+                                                                            <td class="text-left">{{ $data->e_nl }}</td>
+                                                                            <td class="text-left">{{ $data->e_np }}</td>
+
+                                                                            @if ($data->e_negeri == '01')
+                                                                                <td>JOHOR</td>
+                                                                            @elseif ($data->e_negeri == '02')
+                                                                                <td>KEDAH</td>
+                                                                            @elseif ($data->e_negeri == '03')
+                                                                                <td>KELANTAN</td>
+                                                                            @elseif ($data->e_negeri == '04')
+                                                                                <td>MELAKA</td>
+                                                                            @elseif ($data->e_negeri == '05')
+                                                                                <td>NEGERI SEMBILAN</td>
+                                                                            @elseif ($data->e_negeri == '06')
+                                                                                <td>PAHANG</td>
+                                                                            @elseif ($data->e_negeri == '07')
+                                                                                <td>PERAK</td>
+                                                                            @elseif ($data->e_negeri == '08')
+                                                                                <td>PERLIS</td>
+                                                                            @elseif ($data->e_negeri == '09')
+                                                                                <td>PULAU PINANG</td>
+                                                                            @elseif ($data->e_negeri == '10')
+                                                                                <td>SELANGOR</td>
+                                                                            @elseif ($data->e_negeri == '11')
+                                                                                <td>TERENGGANU</td>
+                                                                            @elseif ($data->e_negeri == '12')
+                                                                                <td>WILAYAH PERSEKUTUAN</td>
+                                                                            @elseif ($data->e_negeri == '13')
+                                                                                <td>SABAH</td>
+                                                                            @elseif ($data->e_negeri == '14')
+                                                                                <td>SARAWAK</td>
+                                                                            @endif
+                                                                            <td style="text-align: center"> {{ $kodProduk }}</td>
+
+                                                                            <td> {{ $data->proddesc }}</td>
+
+                                                                            @php
+                                                                                $jumlah11 = 0;
+                                                                            @endphp
+                                                                                @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_c11 != 0) --}}
+
+                                                                                    <td style="text-align: center"> {{ number_format($ebio_c11_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
+
+                                                                                    {{--@endif --}}
+                                                                                        @php
+                                                                                            $jumlah11 += $ebio_c11_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                            $jumlah_bulan11[$i] += $ebio_c11_bhg3[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        @endphp
+
+
+                                                                                @endfor
+                                                                            <td class="text-center"><b>{{ number_format($jumlah11 ?? 0,2) }}</b></td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                </tr>
+                                                                @endforeach
+
+                                                                <tr style="background-color: #d3d3d34d"
+                                                                    class="font-weight-bold text-center">
+                                                                    <th class="text-right" colspan="5">Jumlah</th>
+
+                                                                    @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                    <td class="text-center">{{ number_format($jumlah_bulan11[$i] ?? 0,2) }}</td>
+
+                                                                    @endfor
+                                                                    <td style="background-color: lightgrey"></td>
+
+                                                                </tr>
+
+                                                            @endif
+                                                        @endif
+
+                                                    </tbody><br>
+
+                                                </table>
+
+                                            </div>
+                                        @endif
+                                        <br>
+                                        <br>
 
 
                             </section>
@@ -960,4 +3434,48 @@
             }
         };
     </script>
+         <script>
+            function ExportToExcel()
+              {
+                  var filename = "Ringkasan"
+                  var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+                  var textRange;
+                  var j = 0;
+                  tab = document.getElementById('example4');
+
+                  for (j = 0; j < tab.rows.length; j++) {
+                  tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                  }
+
+                  tab_text = tab_text + "</table>";
+                  var a = document.createElement('a');
+                  var data_type = 'data:application/vnd.ms-excel';
+                  a.href = data_type + ', ' + encodeURIComponent(tab_text);
+                  a.download = filename + '.xls';
+                  a.click();
+                      }
+              </script>
+          <script>
+              $(document).ready(function() {
+                  $('#example4').DataTable( {
+                      // dom: 'Bfrtip',
+                      // buttons: [
+                      //     'copy', 'csv', 'excel', 'pdf', 'print'
+                      // ]
+                  } );
+              } );
+          </script>
+              {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+              <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+              <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+              <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+              <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+              <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+              <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
+
+
 @endsection

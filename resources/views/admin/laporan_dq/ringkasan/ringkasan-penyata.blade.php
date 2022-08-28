@@ -124,7 +124,7 @@
                             <hr>
 
                             <div class="card-body">
-                                <form action="{{ route('admin.ringkasan.penyata.process') }}" method="get">
+                                <form action="{{ route('admin.ringkasan.penyata.process') }}" class="needs-validation"  method="get" novalidate>
                                     @csrf
                                     <div class="container center">
 
@@ -132,13 +132,40 @@
                                             <div class="col-md-4 ml-auto">
                                                 <div class="form-group">
                                                     <label class="required">Tahun</label>
-                                                    <select class="form-control" name="tahun" id="date-dropdown" required
-                                                    oninput="setCustomValidity(''); valid_tahun()"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" >
+                                                    <select class="form-control" name="tahun" required id="tahun_id" oninput="valid_tahun()">
                                                         <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                        <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
+                                                        </option>
+                                                        <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
+                                                        </option>
+                                                        <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
+                                                        </option>
+                                                        <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
+                                                        </option>
+                                                        <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
+                                                        </option>
+                                                        <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
+                                                        </option>
+                                                        <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
+                                                        </option>
+                                                        <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
+                                                        </option>
+                                                        <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
+                                                        </option>
+                                                        <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
+                                                        </option>
+                                                        <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
+                                                        </option>
+                                                        <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
+                                                        </option>
+                                                        <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
+                                                        </option>
+                                                        <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
+                                                        </option>
                                                     </select>
                                                     <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat
-                                                        pilihan di bahagian ini!</i></p>
+                                                        pilihan di
+                                                        bahagian ini!</i></p>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Negeri</label>
@@ -146,7 +173,7 @@
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                         oninput="setCustomValidity('')"
                                                         onchange="ajax_daerah(this)" >
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option selected value="">Sila Pilih</option>
                                                         @foreach ($negeri as $data)
                                                             <option value="{{ $data->kod_negeri }}">
                                                                 {{ $data->nama_negeri }}
@@ -170,10 +197,10 @@
 
                                             <div class="col-md-5 mr-auto ">
                                                 <div class="form-group" >
-                                                    <label>No. Pelesen</label>
+                                                    <label>Pemegang Pelesen</label>
                                                     <select class="form-control select2" name="e_nl">
 
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option selected value="">Sila Pilih</option>
                                                         @foreach ($users2 as $data)
                                                             <option value="{{ $data->e_nl }}">
                                                                 {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
@@ -188,7 +215,8 @@
 
                                     </div>
                                     <div class="text-right col-md-6 mb-4 mt-4">
-                                        <button type="submit" class="btn btn-primary" style="margin-left:90%">Carian</button>
+                                        <button type="submit" class="btn btn-primary" style="margin-left:90%"  onclick="check()"
+                                            >Carian</button>
                                     </div>
 
                                 </form>
@@ -427,35 +455,72 @@
             }
         };
     </script>
-    {{-- <script>
-        function check() {
-            // (B1) INIT
-            var error = "",
-                field = "";
+    <script>
+        function valid_tahun() {
 
-            function valid_tahun() {
-
-                if ($('#date-dropdown').val() == '') {
-                    $('#date-dropdown').css('border-color', 'red');
-                    document.getElementById('err_tahun').style.display = "block";
+            if ($('#tahun_id').val() == '') {
+                $('#tahun_id').css('border-color', 'red');
+                document.getElementById('err_tahun').style.display = "block";
 
 
-                } else {
-                    $('#date-dropdown').css('border-color', '');
-                    document.getElementById('err_tahun').style.display = "none";
-
-                }
+            } else {
+                $('#tahun_id').css('border-color', '');
+                document.getElementById('err_tahun').style.display = "none";
 
             }
+
         }
     </script>
-    <script>
+        <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
 
-        field = document.getElementById("date-dropdown");
+                // kap proses
+                field = document.getElementById("tahun_id");
                 if (!field.checkValidity()) {
-                    $('#date-dropdown').css('border-color', 'red');
-                    document.getElementById('date-dropdown').style.display = "block";
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#tahun_id').css('border-color', 'red');
+                    document.getElementById('err_tahun').style.display = "block";
+
                 }
 
-    </script> --}}
+
+                    if (error == "") {
+                        $('#myModal').modal('show');
+                        return true;
+                    } else {
+                        toastr.error(
+                            'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                            'Ralat!', {
+                                "progressBar": true
+                            })
+                        return false;
+                    }
+
+
+                }
+
+        </script>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            // form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+            </script>
 @endsection
