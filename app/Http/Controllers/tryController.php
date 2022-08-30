@@ -36,6 +36,13 @@ class tryController extends Controller
         dd($loginmills);
         return view('users.users-dashboard');
     }
+
+    public function testdb_pldb(){
+
+        $loginmills = DB::connection('mysql4')->select("SELECT * FROM PL911P3");
+        dd($loginmills);
+        return view('users.users-dashboard');
+    }
     public function testing4(){
 
         $e91init = E91Init::where('e91_flg', '2')->get();
@@ -149,7 +156,7 @@ class tryController extends Controller
 
 
         }
-        dd($insertpl91);
+        // dd($insertpl91);
 
         // $loginmills = DB::connection('mysql4')->select("SELECT e91_reg, e91_nl, e91_bln, e91_thn, e91_flg, e91_sdate,
         // e91_ddate, e91_aa1, e91_aa2, e91_aa3, e91_aa4, e91_ab1, e91_ab2, e91_ab3, e91_ab4, e91_ac1, e91_ad1, e91_ad2, e91_ad3,
