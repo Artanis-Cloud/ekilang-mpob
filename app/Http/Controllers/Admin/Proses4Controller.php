@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
@@ -21,8 +22,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"] ,
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"] ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama  ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID  ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -55,7 +56,7 @@ class Proses4Controller extends Controller
 
     public function porting_pl91()
     {
-
+        //data from e91_init
         $e91init = E91Init::where('e91_flg', '2')->get();
         // dd($e91init);
 
@@ -149,6 +150,7 @@ class Proses4Controller extends Controller
         $ah18 = str_replace($findstr, $rplace, $ah18);
             // dd($ah18);
 
+            // insert data to pldb pl91
         $insertpl91 = DB::connection('mysql4')->insert("INSERT into PL911P3 (F911A,F911B,F911C,F911D,F911E,F911F,F911G1,F911G2,F911G3,F911G4,F911H1,F911H2,
                     F911H3,F911H4,F911I ,F911J1,F911J2,F911J3,F911K1,F911K2,F911K3,F911K4,F911L1,F911L2,F911L3,F911N1,F911N2,F911N3,F911N4,F911O,F911P,F911Q,F911R,F911S1,
                     F911S2,F911S3,F911S4,F911S5,F911S6,F911T1,F911T2,F911T3,F911T4,F911T5,F911T6,F911T7,F911T8,F911U1,F911U2,F911U3,F911V,F911W,F911AA,F911AA_date,
@@ -163,7 +165,59 @@ class Proses4Controller extends Controller
                     $aj7,$aj8,$ak1,$ak2,$ak3,NULL,NULL,NULL,NULL,
                     '$ah5','$ah6','$ah7','$ah8','$ah9','$ah10','$ah11','$ah12','$ah13','$ah14','$ah15','$ah16','$ah17','$ah18')");
 
-                    dd($insertpl91);
+                    // dd($insertpl91);
+
+                    if ($insertpl91) {
+                        $totalpl91 = $totalpl91 + 1;
+
+                        $str="'";
+                        $npg = str_replace($str, "\'", $npg);
+
+                        //insert data to h91_init
+                        $inserth91 = DB::insert("INSERT into h91_init values ('$nobatch','$nolesen',
+                        '$bulan','$tahun','3','$tarikh','$tarikh1',
+                        $aa1,$aa2,$aa3,$aa4,$ab1,$ab2,$ab3,$ab4,
+                        $ac1,$ad1,$ad2,$ad3,
+                        $ae1,$ae2,$ae3,$ae4,$af1,$af2,$af3,$ag1,$ag2,
+                        $ag3,$ag4,$ah1,$ah2,$ah3,$ah4,$ai1,$ai2,$ai3,
+                        $ai4,$ai5,$ai6,$aj1,$aj2,$aj3,$aj4,$aj5,$aj6,
+                        $aj7,$aj8,$ak1,$ak2,$ak3,'$npg','$jpg',
+                        '$ah5','$ah6','$ah7','$ah8','$ah9','$ah10','$ah11','$ah12','$ah13','$ah14','$ah15','$ah16','$ah17','$ah18')");
+
+                       $updatee91 = DB::update("UPDATE e91_init
+                       set e91_flg = '3'
+                       WHERE e91_nl = '$nolesen'");
+
+
+                    }
+                    $e91b = E91b::where('e91_b2', $regno)->get();
+
+                    foreach ($e91b as $rowe91b)
+                    {
+                        $b6 =  $rowe91b->e91_b6 ;
+                        $b7 =  $rowe91b->e91_b7 ;
+                        $b8 =  $rowe91b->e91_b8 ;
+                        $b9 = (float)  $rowe91b->e91_b9 ;
+                        $b10 = (float)  $rowe91b->e91_b10 ;
+                        $b11 =  $rowe91b->e91_b11 ;
+
+                        // insert into mysqli history e91b
+                        //calculate total row
+                        $jum91b = $jum91b + 1;
+
+                        $idmax = E91Init::max('e91_reg');
+                        // dd($idmax);
+
+                        if ($idmax)
+                        {
+                            $idno = $idmax + 1;
+                            // dd($idno);
+                        }
+
+                    }
+
+
+
 
 
 

@@ -275,7 +275,7 @@ class KilangBuahController extends Controller
             $user->password = $password;
             $user->save();
         }
-       
+
         return redirect()->route('buah.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
     }
@@ -797,7 +797,11 @@ class KilangBuahController extends Controller
 
         $tahun = date("Y");
 
-        $date = date("d-m-Y");
+        // $date = date("d-m-Y");
+
+        $penyata2 = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata2->e91_sdate);
+        $date = $myDateTime->format('d-m-Y');
         // dd($date);
 
         $user = User::first();
