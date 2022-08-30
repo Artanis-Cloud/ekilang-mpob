@@ -156,8 +156,10 @@ class tryController extends Controller
                 // $maxno =  $row[0];
                 // dd($maxno);
                 $idno = $idmax + 1;
-                dd($idno);
+                // dd($idno);
             }
+            // $date = now()->format('m');
+            // dd($date);
 
             // $insertpl91 = DB::connection('mysql4')->insert("INSERT into PL911P3 (F911A,F911B,F911C,F911D,F911E,F911F,F911G1,F911G2,F911G3,F911G4,F911H1,F911H2,
             //             F911H3,F911H4,F911I ,F911J1,F911J2,F911J3,F911K1,F911K2,F911K3,F911K4,F911L1,F911L2,F911L3,F911N1,F911N2,F911N3,F911N4,F911O,F911P,F911Q,F911R,F911S1,

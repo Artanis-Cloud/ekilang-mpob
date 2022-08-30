@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E101B;
+use App\Models\E101Init;
 use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\H91Init;
@@ -22,8 +24,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"] ,
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"] ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama  ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID  ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -45,7 +47,7 @@ class Proses4Controller extends Controller
     {
         // dd($request->e_tahun);
         $this->porting_pl91($request->all());
-        // $this->porting_pl101($request->e_ddate);
+        $this->porting_pl101($request->all());
         // $this->porting_pl102($request->e_ddate);
         // $this->porting_pl104($request->e_ddate);
         // $this->porting_pl111($request->e_ddate);
@@ -201,6 +203,103 @@ class Proses4Controller extends Controller
                         $b9 = (float)  $rowe91b->e91_b9 ;
                         $b10 = (float)  $rowe91b->e91_b10 ;
                         $b11 =  $rowe91b->e91_b11 ;
+
+                        // insert into mysqli history e91b
+                        //calculate total row
+                        $jum91b = $jum91b + 1;
+
+                        $idmax = E91Init::max('e91_reg');
+                        // dd($idmax);
+
+                        if ($idmax)
+                        {
+                            $idno = $idmax + 1;
+                            // dd($idno);
+                        }
+
+                        $insert2h91 = DB::insert("INSERT into h91b values ($idno,'$nobatch','$b6',
+                        '$b7','$b8',$b9, $b10, '$b11')");
+                    }
+        }
+    }
+
+    public function porting_pl101()
+    {
+        //data from e101_init
+        $e101init = E101Init::where('e101_flg', '2')->get();
+        // dd($e91init);
+
+        $totalpl101 = 0;
+
+        foreach ($e101init as $key => $selects) {
+
+            $regno =  $selects->e101_reg ;
+            $nolesen =  $selects->e101_nl ;
+            $tahun =  $selects->e101_thn ;
+            $bulan =  $selects->e101_bln ;
+            $tarikh = date( $selects->e101_sdate );
+            $tarikh1 = date( $selects->e101_ddate );
+            $a1 = (integer)  $selects->e101_a1 ;
+            $a2 = (double)  $selects->e101_a2 ;
+            $a3 = (double)  $selects->e101_a3 ;
+
+            $npg =  $selects->e101_npg ;
+            $jpg =  $selects->e101_jpg ;
+
+
+            $regpelesen101 = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PL101')->get();
+
+            foreach ($regpelesen101 as $row)
+          {
+            $kodpgw = $row->kodpgw;
+            $nosiri = $row->nosiri;
+
+            $nobatch = "$bulan$tahun$kodpgw$nosiri";
+            // dd($nobatch);
+
+          }
+
+            // insert data to pldb pl101
+        $insertpl101 = DB::connection('mysql4')->insert("INSERT into pl101ap3 (F101A1,F101A2,F101A3,F101A4,F101A5,F101A6,F101A7,F101A8,F101A9,F101AA1,F101AA1_date)
+                    values ('$nolesen','$tarikh','$tarikh',
+                    '$nobatch','$bulan',
+                    '$tahun',$a1,$a2,$a3,NULL,NULL)");
+
+                    // dd($insertpl91);
+
+                    if ($insertpl101) {
+                        $totalpl101 = $totalpl101 + 1;
+
+                        $str="'";
+                        $npg = str_replace($str, "\'", $npg);
+
+                        //insert data to h101_init
+                        $inserth101 = DB::insert("INSERT into h101_init values ('$nobatch','$nolesen',
+                        '$bulan','$tahun','3','$tarikh','$tarikh1', $a1, $a2, $a3,'$npg','$jpg')");
+
+                       $updatee101 = DB::update("UPDATE e101_init
+                       set e101_flg = '3'
+                       WHERE e101_nl = '$nolesen'");
+
+
+                    }
+                    $e101b = E101B::where('e101_reg', $regno)->get();
+                    // $jum91b = 0;
+
+                    foreach ($e101b as $rowe101b)
+                    {
+                        $b3 =  $rowe101b->e101_b3 ;
+                        $b4 =  $rowe101b->e101_b4 ;
+                        $b5 = (float)  $rowe101b->e101_b5 ;
+                        $b6 = (float)  $rowe101b->e101_b6 ;
+                        $b7 = (float)  $rowe101b->e101_b7 ;
+                        $b8 = (float)  $rowe101b->e101_b8 ;
+                        $b9 = (float)  $rowe101b->e101_b9 ;
+                        $b10 = (float)  $rowe101b->e101_b10 ;
+                        $b11 = (float)  $rowe101b->e101_b11 ;
+                        $b12 = (float)  $rowe101b->e101_b12 ;
+                        $b13 = (float)  $rowe101b->e101_b13 ;
+                        $b14 = (float)  $rowe101b->e101_b14 ;
 
                         // insert into mysqli history e91b
                         //calculate total row
