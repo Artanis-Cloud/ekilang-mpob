@@ -107,6 +107,7 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/4-EKilang-PLEID', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');
+        Route::get('admin/4-EKilang-PLEID/process', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_porting'])->name('admin.porting.process');
         Route::get('admin/4-EKilang-PLEID-penapis', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidpenapis'])->name('admin.4ekilangpleidpenapis');
         Route::get('admin/4-EKilang-PLEID-isirung', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidisirung'])->name('admin.4ekilangpleidisirung');
         Route::get('admin/4-EKilang-PLEID-oleokimia', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidoleokimia'])->name('admin.4ekilangpleidoleokimia');

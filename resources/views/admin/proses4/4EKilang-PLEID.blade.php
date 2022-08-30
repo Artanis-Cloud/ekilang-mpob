@@ -64,14 +64,16 @@
                         <div class="card-body">
                             <div class="container center ">
 
-
+                                <form action="{{ route('admin.porting.process') }}" method="get">
+                                    @csrf
                                 <div class="row center">
                                     <div class="col-md-12 center mb-3">
                                         <button type="submit" class="btn btn-primary center" style="margin-left:45%"
-                                        data-toggle="modal" data-target="#myModal">Porting</button>
+                                        data-toggle="modal" data-target="#">Porting</button>
                                         {{-- <button type="submit">YA</button> --}}
                                     </div>
                                 </div>
+                                </form>
 
                                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
