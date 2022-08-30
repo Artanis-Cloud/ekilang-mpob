@@ -24,8 +24,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama  ,
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID  ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"]  ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"]  ,
         ];
 
         $kembali = route('admin.dashboard');
