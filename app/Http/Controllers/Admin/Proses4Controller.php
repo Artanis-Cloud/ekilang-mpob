@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\Negeri;
@@ -20,8 +21,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"] ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"] ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -38,123 +39,138 @@ class Proses4Controller extends Controller
     }
 
 
+
     public function admin_porting(Request $request)
     {
         // dd($request->e_tahun);
-        $this->porting_pl91($request->e_ddate);
-        $this->porting_pl101($request->e_ddate);
-        $this->porting_pl102($request->e_ddate);
-        $this->porting_pl104($request->e_ddate);
-        $this->porting_pl111($request->e_ddate);
-        $this->porting_plbio($request->e_ddate);
+        $this->porting_pl91($request->all());
+        // $this->porting_pl101($request->e_ddate);
+        // $this->porting_pl102($request->e_ddate);
+        // $this->porting_pl104($request->e_ddate);
+        // $this->porting_pl111($request->e_ddate);
+        // $this->porting_plbio($request->e_ddate);
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata telah dipindahkan ke PLEID');
     }
 
-    public function porting_pl91($e_ddate)
+    public function porting_pl91()
     {
 
-        // $select = DB::connection('mysql4')->select("SELECT e91_reg, e91_nl, e91_bln, e91_thn, e91_flg, e91_sdate,
-        // e91_ddate, e91_aa1, e91_aa2, e91_aa3, e91_aa4, e91_ab1, e91_ab2, e91_ab3, e91_ab4, e91_ac1, e91_ad1, e91_ad2, e91_ad3,
-        // e91_ae1, e91_ae2, e91_ae3, e91_ae4, e91_af1, e91_af2, e91_af3, e91_ag1, e91_ag2,
-        // e91_ag3, e91_ag4, e91_ah1, e91_ah2, e91_ah3, e91_ah4, e91_ai1, e91_ai2, e91_ai3,
-        // e91_ai4, e91_ai5, e91_ai6, e91_aj1, e91_aj2, e91_aj3, e91_aj4, e91_aj5, e91_aj6,
-        // e91_aj7, e91_aj8, e91_ak1, e91_ak2, e91_ak3, e91_npg, e91_jpg,
-        // e91_ah5,e91_ah6,e91_ah7,e91_ah8,e91_ah9,e91_ah10,e91_ah11,e91_ah12,e91_ah13,
-        // e91_ah14,e91_ah15,e91_ah16,e91_ah17,e91_ah18
-        // FROM e91_init
-        // WHERE e91_flg = '2'");
-        $select = DB::connection('mysql4')->select("SELECT e91_reg, e91_nl, e91_bln, e91_thn, e91_flg, e91_sdate,
-        e91_ddate, e91_aa1, e91_aa2, e91_aa3, e91_aa4, e91_ab1, e91_ab2, e91_ab3, e91_ab4, e91_ac1, e91_ad1, e91_ad2, e91_ad3,
-        e91_ae1, e91_ae2, e91_ae3, e91_ae4, e91_af1, e91_af2, e91_af3, e91_ag1, e91_ag2,
-        e91_ag3, e91_ag4, e91_ah1, e91_ah2, e91_ah3, e91_ah4, e91_ai1, e91_ai2, e91_ai3,
-        e91_ai4, e91_ai5, e91_ai6, e91_aj1, e91_aj2, e91_aj3, e91_aj4, e91_aj5, e91_aj6,
-        e91_aj7, e91_aj8, e91_ak1, e91_ak2, e91_ak3, e91_npg, e91_jpg,
-        e91_ah5,e91_ah6,e91_ah7,e91_ah8,e91_ah9,e91_ah10,e91_ah11,e91_ah12,e91_ah13,
-        e91_ah14,e91_ah15,e91_ah16,e91_ah17,e91_ah18
-        FROM e91_init
-        WHERE e91_flg = '2'");
+        $e91init = E91Init::where('e91_flg', '2')->get();
+        // dd($e91init);
 
         $totalpl91 = 0;
 
-        $reg_pelesen = RegPelesen::where('e_kat', 'PL91')->where('e_status', '1')->get();
+        foreach ($e91init as $key => $selects) {
 
-        $e91_init = DB::table('e91_init')->delete();
-        $e91b = DB::table('e91b')->delete();
+            $regno = $selects->e91_reg;
+            $nolesen = $selects->e91_nl;
+            $tahun = $selects->e91_thn;
+            $bulan = $selects->e91_bln;
+            $tarikh = $selects->e91_sdate;
+            $tarikh1 = $selects->e91_ddate;
+            $aa1 = (float) $selects->e91_aa1;
+            $aa2 = (float) $selects->e91_aa2;
+            $aa3 = (float) $selects->e91_aa3;
+            $aa4 = (float) $selects->e91_aa4;
+            $ab1 = (float) $selects->e91_ab1;
+            $ab2 = (float) $selects->e91_ab2;
+            $ab3 = (float) $selects->e91_ab3;
+            $ab4 = (float) $selects->e91_ab4;
+            $ac1 = (float) $selects->e91_ac1;
+            $ad1 = (float) $selects->e91_ad1 ;
+            $ad2 = (float) $selects->e91_ad2 ;
+            $ad3 = (float) $selects->e91_ad3 ;
+            $ae1 = (float) $selects->e91_ae1 ;
+            $ae2 = (float) $selects->e91_ae2 ;
+            $ae3 = (float) $selects->e91_ae3 ;
+            $ae4 = (float) $selects->e91_ae4 ;
+            $af1 = (float) $selects->e91_af1 ;
+            $af2 = (float) $selects->e91_af2 ;
+            $af3 = (float) $selects->e91_af3 ;
+            $ag1 = (float) $selects->e91_ag1 ;
+            $ag2 = (float) $selects->e91_ag2 ;
+            $ag3 = (float) $selects->e91_ag3 ;
+            $ag4 = (float) $selects->e91_ag4 ;
+            $ah1 = (float) $selects->e91_ah1 ;
+            $ah2 = (float) $selects->e91_ah2 ;
+            $ah3 = (float) $selects->e91_ah3 ;
+            $ah4 = (float) $selects->e91_ah4 ;
+            $ai1 = (float) $selects->e91_ai1 ;
+            $ai2 = (float) $selects->e91_ai2 ;
+            $ai3 = (float) $selects->e91_ai3 ;
+            $ai4 = (float) $selects->e91_ai4 ;
+            $ai5 = (float) $selects->e91_ai5 ;
+            $ai6 = (float) $selects->e91_ai6 ;
+            $aj1 = (float) $selects->e91_aj1 ;
+            $aj2 = (float) $selects->e91_aj2 ;
+            $aj3 = (float) $selects->e91_aj3 ;
+            $aj4 = (float) $selects->e91_aj4 ;
+            $aj5 = (float) $selects->e91_aj5 ;
+            $aj6 = (float) $selects->e91_aj6 ;
+            $aj7 = (float) $selects->e91_aj7 ;
+            $aj8 = (float) $selects->e91_aj8 ;
+            $ak1 = (float) $selects->e91_ak1 ;
+            $ak2 = (float) $selects->e91_ak2 ;
+            $ak3 = (float) $selects->e91_ak3 ;
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E91Init::create([
-                'e91_reg' => $key + 1,
-                'e91_nl' => $e_nl,
-                'e91_bln' => now()->month,
-                'e91_thn' => now()->year,
-                'e91_flg' => '1',
-                'e91_sdate' => NULL,
-                'e91_ddate' => $e_ddate,
-                'e91_aa1' => NULL,
-                'e91_aa2' => NULL,
-                'e91_aa3' => NULL,
-                'e91_aa4' => NULL,
-                'e91_ab1' => NULL,
-                'e91_ab2' => NULL,
-                'e91_ab3' => NULL,
-                'e91_ab4' => NULL,
-                'e91_ac1' => NULL,
-                'e91_ad1' => NULL,
-                'e91_ad2' => NULL,
-                'e91_ad3' => NULL,
-                'e91_ae1' => NULL,
-                'e91_ae2' => NULL,
-                'e91_ae3' => NULL,
-                'e91_ae4' => NULL,
-                'e91_af1' => NULL,
-                'e91_af2' => NULL,
-                'e91_af3' => NULL,
-                'e91_ag1' => NULL,
-                'e91_ag2' => NULL,
-                'e91_ag3' => NULL,
-                'e91_ag4' => NULL,
-                'e91_ah1' => NULL,
-                'e91_ah2' => NULL,
-                'e91_ah3' => NULL,
-                'e91_ah4' => NULL,
-                'e91_ai1' => NULL,
-                'e91_ai2' => NULL,
-                'e91_ai3' => NULL,
-                'e91_ai4' => NULL,
-                'e91_ai5' => NULL,
-                'e91_ai6' => NULL,
-                'e91_aj1' => NULL,
-                'e91_aj2' => NULL,
-                'e91_aj3' => NULL,
-                'e91_aj4' => NULL,
-                'e91_aj5' => NULL,
-                'e91_aj6' => NULL,
-                'e91_aj7' => NULL,
-                'e91_aj8' => NULL,
-                'e91_ak1' => NULL,
-                'e91_ak2' => NULL,
-                'e91_ak3' => NULL,
-                'e91_npg' => NULL,
-                'e91_jpg' => NULL,
-                'e91_flagcetak' => NULL,
-                'e91_ah5' => NULL,
-                'e91_ah6' => NULL,
-                'e91_ah7' => NULL,
-                'e91_ah8' => NULL,
-                'e91_ah9' => NULL,
-                'e91_ah10' => NULL,
-                'e91_ah11' => NULL,
-                'e91_ah12' => NULL,
-                'e91_ah13' => NULL,
-                'e91_ah14' => NULL,
-                'e91_ah15' => NULL,
-                'e91_ah16' => NULL,
-                'e91_ah17' => NULL,
-                'e91_ah18' => NULL,
-            ]);
+            $npg = $selects->e91_npg ;
+            $jpg = $selects->e91_jpg ;
+
+            $ah5 = $selects->e91_ah5 ;
+            $ah6 = $selects->e91_ah6 ;
+            $ah7 = $selects->e91_ah7 ;
+            $ah8 = $selects->e91_ah8 ;
+            $ah9 = $selects->e91_ah9 ;
+            $ah10 = $selects->e91_ah10 ;
+            $ah11 = $selects->e91_ah11 ;
+            $ah12 = $selects->e91_ah12 ;
+            $ah13 = $selects->e91_ah13 ;
+            $ah14 = $selects->e91_ah14 ;
+            $ah15 = $selects->e91_ah15 ;
+            $ah16 = $selects->e91_ah16 ;
+            $ah17 = $selects->e91_ah17 ;
+            $ah18 = $selects->e91_ah18 ;
+
+            $regpelesen91 = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PL91')->get();
+
+            foreach ($regpelesen91 as $row)
+          {
+            $kodpgw = $row->kodpgw;
+            $nosiri = $row->nosiri;
+
+            $nobatch = "$bulan$tahun$kodpgw$nosiri";
+            // dd($nobatch);
+
+          }
+
+        $findstr= array("\'", "'");
+        $rplace= array("", "");
+        $ah18 = str_replace($findstr, $rplace, $ah18);
+            // dd($ah18);
+
+        $insertpl91 = DB::connection('mysql4')->insert("INSERT into PL911P3 (F911A,F911B,F911C,F911D,F911E,F911F,F911G1,F911G2,F911G3,F911G4,F911H1,F911H2,
+                    F911H3,F911H4,F911I ,F911J1,F911J2,F911J3,F911K1,F911K2,F911K3,F911K4,F911L1,F911L2,F911L3,F911N1,F911N2,F911N3,F911N4,F911O,F911P,F911Q,F911R,F911S1,
+                    F911S2,F911S3,F911S4,F911S5,F911S6,F911T1,F911T2,F911T3,F911T4,F911T5,F911T6,F911T7,F911T8,F911U1,F911U2,F911U3,F911V,F911W,F911AA,F911AA_date,
+                    F911P1,F911P2,F911P3,F911P4,F911P5,F911P6,F911P7,F911P8,F911P9,F911P10,F911P11,
+                    F911P12,F911P13,F911P14) values ('$nolesen','$nobatch','$bulan',
+                    '$tahun','$tarikh','$tarikh',
+                    $aa1,$aa2,$aa3,$aa4,$ab1,$ab2,$ab3,$ab4,
+                    $ac1,$ad1,$ad2,$ad3,
+                    $ae1,$ae2,$ae3,$ae4,$af1,$af2,$af3,$ag1,$ag2,
+                    $ag3,$ag4,$ah1,$ah2,$ah3,$ah4,$ai1,$ai2,$ai3,
+                    $ai4,$ai5,$ai6,$aj1,$aj2,$aj3,$aj4,$aj5,$aj6,
+                    $aj7,$aj8,$ak1,$ak2,$ak3,NULL,NULL,NULL,NULL,
+                    '$ah5','$ah6','$ah7','$ah8','$ah9','$ah10','$ah11','$ah12','$ah13','$ah14','$ah15','$ah16','$ah17','$ah18')");
+
+                    dd($insertpl91);
+
+
+
         }
+
+
+
     }
 
     public function initialize_proses_pl101($e_ddate)
@@ -586,90 +602,90 @@ class Proses4Controller extends Controller
     }
 
 
-    public function admin_4ekilangpleidpenapis()
-    {
+    // public function admin_4ekilangpleidpenapis()
+    // {
 
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
-        ];
+    //     $breadcrumbs    = [
+    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
+    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
+    //     ];
 
-        $kembali = route('admin.dashboard');
+    //     $kembali = route('admin.dashboard');
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-
-
-
-        return view('admin.proses4.4EKilang-PLEID-penapis', compact('returnArr', 'layout'));
-    }
-
-
-    public function admin_4ekilangpleidisirung()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.admin';
 
 
 
-        return view('admin.proses4.4EKilang-PLEID-isirung', compact('returnArr', 'layout'));
-    }
+    //     return view('admin.proses4.4EKilang-PLEID-penapis', compact('returnArr', 'layout'));
+    // }
 
 
-    public function admin_4ekilangpleidoleokimia()
-    {
+    // public function admin_4ekilangpleidisirung()
+    // {
 
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
-        ];
+    //     $breadcrumbs    = [
+    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
+    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
+    //     ];
 
-        $kembali = route('admin.dashboard');
+    //     $kembali = route('admin.dashboard');
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-
-
-
-        return view('admin.proses4.4EKilang-PLEID-oleokimia', compact('returnArr', 'layout'));
-    }
-
-
-    public function admin_4ekilangpleidsimpanan()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.admin';
 
 
 
-        return view('admin.proses4.4EKilang-PLEID-simpanan', compact('returnArr', 'layout'));
-    }
+    //     return view('admin.proses4.4EKilang-PLEID-isirung', compact('returnArr', 'layout'));
+    // }
+
+
+    // public function admin_4ekilangpleidoleokimia()
+    // {
+
+    //     $breadcrumbs    = [
+    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
+    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
+    //     ];
+
+    //     $kembali = route('admin.dashboard');
+
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.admin';
+
+
+
+    //     return view('admin.proses4.4EKilang-PLEID-oleokimia', compact('returnArr', 'layout'));
+    // }
+
+
+    // public function admin_4ekilangpleidsimpanan()
+    // {
+
+    //     $breadcrumbs    = [
+    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
+    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
+    //     ];
+
+    //     $kembali = route('admin.dashboard');
+
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.admin';
+
+
+
+    //     return view('admin.proses4.4EKilang-PLEID-simpanan', compact('returnArr', 'layout'));
+    // }
 }
