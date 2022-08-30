@@ -5,11 +5,19 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\E101B;
+use App\Models\E101C;
+use App\Models\E101D;
+use App\Models\E101E;
 use App\Models\E101Init;
 use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\H101B;
+use App\Models\H101C;
+use App\Models\H101D;
+use App\Models\H101E;
+use App\Models\H91b;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -24,8 +32,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"]  ,
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"]  ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama   ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID   ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -208,7 +216,7 @@ class Proses4Controller extends Controller
                         //calculate total row
                         $jum91b = $jum91b + 1;
 
-                        $idmax = E91Init::max('e91_reg');
+                        $idmax = H91b::max('e91_b1');
                         // dd($idmax);
 
                         if ($idmax)
@@ -260,7 +268,7 @@ class Proses4Controller extends Controller
           }
 
             // insert data to pldb pl101
-        $insertpl101 = DB::connection('mysql4')->insert("INSERT into pl101ap3 (F101A1,F101A2,F101A3,F101A4,F101A5,F101A6,F101A7,F101A8,F101A9,F101AA1,F101AA1_date)
+            $insertpl101 = DB::connection('mysql4')->insert("INSERT into pl101ap3 (F101A1,F101A2,F101A3,F101A4,F101A5,F101A6,F101A7,F101A8,F101A9,F101AA1,F101AA1_date)
                     values ('$nolesen','$tarikh','$tarikh',
                     '$nobatch','$bulan',
                     '$tahun',$a1,$a2,$a3,NULL,NULL)");
@@ -283,6 +291,7 @@ class Proses4Controller extends Controller
 
 
                     }
+
                     $e101b = E101B::where('e101_reg', $regno)->get();
                     // $jum91b = 0;
 
@@ -303,26 +312,137 @@ class Proses4Controller extends Controller
 
                         // insert into mysqli history e91b
                         //calculate total row
-                        $jum91b = $jum91b + 1;
+                        // $jum91b = $jum91b + 1;
 
-                        $idmax = E91Init::max('e91_reg');
+                         // insert data to pldb pl101
+                    $insertpl101b = DB::connection('mysql4')->insert("INSERT into pl101bp3 (F101B1,F101B2,F101B3,F101B4,
+                        F101B5,F101B6,F101B7,F101B8,F101B9,F101B10,F101B11,F101B12,F101B13,F101B14,F101BB1,F101BB1_date)
+                        values ('$nolesen','$nobatch','$b3','$b4',$b5,$b6,
+                        $b7,$b8,$b9,$b10,$b11,$b12,$b13,$b14,NULL,NULL)");
+
+                        $idmax101b = H101B::max('e101_b1');
                         // dd($idmax);
 
-                        if ($idmax)
+                        if ($idmax101b)
                         {
-                            $idno = $idmax + 1;
+                            $idno = $idmax101b + 1;
                             // dd($idno);
                         }
 
-                        $insert2h91 = DB::insert("INSERT into h91b values ($idno,'$nobatch','$b6',
-                        '$b7','$b8',$b9, $b10, '$b11')");
+                        $inserth101b = DB::insert("INSERT into h101_b values ($idno,'$nobatch',
+                        '$b3','$b4',$b5,$b6,
+                        $b7,$b8,$b9,$b10,$b11,$b12,$b13,$b14)");
 
 
                     }
 
-        }
+                    $e101c = E101C::where('e101_reg', $regno)->get();
+
+                    foreach ($e101c as $rowe101_c)
+                    {
+                        $c3 = $rowe101_c->e101_c3 ;
+                        $c4 = $rowe101_c->e101_c4 ;
+                        $c5 = (float) $rowe101_c->e101_c5 ;
+                        $c6 = (float) $rowe101_c->e101_c6 ;
+                        $c7 = (float) $rowe101_c->e101_c7 ;
+                        $c8 = (float) $rowe101_c->e101_c8 ;
+                        $c9 = (float) $rowe101_c->e101_c9 ;
+                        $c10 = (float) $rowe101_c->e101_c10 ;
+
+                        $insertpl101c = DB::connection('mysql4')->insert("INSERT into pl101cp3 (F101C1,F101C2,F101C3,F101C4,F101C5,
+                        F101C6,F101C7,F101C8,F101C9,F101C10,F101CC1,F101CC1_date) values ('$nolesen','$nobatch',
+                        '$c3','$c4', $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
 
 
+                        $idmax101c = H101C::max('e101_c1');
+                        // dd($idmax);
+
+                        if ($idmax101c)
+                        {
+                            $idno = $idmax101c + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth101c = DB::insert("INSERT into h101_c values ($idno,'$nobatch',
+                        '$c3','$c4',$c5,$c6,$c7,$c8,$c9,$c10)");
+                    }
+
+                    $e101d = E101D::where('e101_reg', $regno)->get();
+
+                    foreach ($e101d as $rowe101_d)
+                    {
+                        $d3 =  $rowe101_d->e101_d3 ;
+                        $d4 =  $rowe101_d->e101_d4 ;
+                        $d5 = (float)  $rowe101_d->e101_d5 ;
+                        $d6 = (float)  $rowe101_d->e101_d6 ;
+                        $d7 = (float)  $rowe101_d->e101_d7 ;
+                        $d8 = (float)  $rowe101_d->e101_d8 ;
+
+                        $insertpl101d = DB::connection('mysql4')->insert("INSERT into pl101dp3 (F101D1,F101D2,F101D3,F101D4,
+                        F101D5,F101D6,F101D7,F101D8,F101DD1,F101DD1_date) values ('$nolesen','$nobatch','$d3',
+                        '$d4',$d5,$d6,$d7,$d8,NULL,NULL)");
+
+
+                        $idmax101d = H101D::max('e101_d1');
+                        // dd($idmax);
+
+                        if ($idmax101d)
+                        {
+                            $idno = $idmax101d + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth101d = DB::insert("INSERT into h101_d values ($idno,'$nobatch','$d3',
+                        '$d4',$d5,$d6, $d7, $d8)");
+                    }
+
+
+                    $e101e = E101E::where('e101_reg', $regno)->get();
+
+                    foreach ($e101e as $rowe101_e)
+                    {
+                        $e3 = $rowe101_e->e101_e3 ;
+                        $e4 = $rowe101_e->e101_e4 ;
+                        $e5 = $rowe101_e->e101_e5 ;
+                        $e6 = $rowe101_e->e101_e6 ;
+                        $e7 = (float) $rowe101_e->e101_e7 ;
+                        $e8 = (float) $rowe101_e->e101_e8 ;
+                        $e9 = $rowe101_e->e101_e9 ;
+                        $nokontrak = $rowe101_e->nokontrak ;
+                        $port = $rowe101_e->port ;
+                        $portdest = $rowe101_e->portdest ;
+                        $matawang = $rowe101_e->matawang ;
+                        $nilai = $rowe101_e->nilai ;
+                        $nolesensykt = $rowe101_e->nolesen_sykt ;
+                        $namasykt = $rowe101_e->nama_sykt ;
+                        $namaproduk = $rowe101_e->nama_produk ;
+                        $namapel = $rowe101_e->nama_pelabuhan ;
+                        $kenderaan = $rowe101_e->kenderaan ;
+                        $nodafkend = $rowe101_e->kenderaan_nodaftar ;
+                        $namadestport = $rowe101_e->nama_destport ;
+                        $namadestnegara = $rowe101_e->nama_destnegara ;
+                        $namasykt1 = $rowe101_e->nama_sykt1 ;
+                        $bungkusan = $rowe101_e->mpobq_bungkusan ;
+                        $nilairm = $rowe101_e->mpobq_nilai_2 ;
+
+                        $idmax101e = H101E::max('e101_e1');
+                        // dd($idmax);
+
+                        if ($idmax101e)
+                        {
+                            $idno = $idmax101e + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth101e = DB::insert("INSERT into h101_e values ($idno,'$nobatch','$e3',
+                        '$e4','$e5','$e6', $e7, $e8, '$e9','$nokontrak',
+                        '$port','$portdest','$matawang','$nilai',
+                        '$nolesensykt','$namasykt','$namaproduk',
+                        '$namapel','$kenderaan','$nodafkend','$namadestport',
+                        '$namadestnegara','$namasykt1','$bungkusan','$nilairm')");
+                    }
+
+                }
 
     }
 
