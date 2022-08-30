@@ -145,11 +145,12 @@ class tryController extends Controller
                     $aj7,$aj8,$ak1,$ak2,$ak3,NULL,NULL,NULL,NULL,
                     '$ah5','$ah6','$ah7','$ah8','$ah9','$ah10','$ah11','$ah12','$ah13','$ah14','$ah15','$ah16','$ah17','$ah18')");
 
-                    dd($insertpl91);
 
 
 
         }
+        dd($insertpl91);
+
         // $loginmills = DB::connection('mysql4')->select("SELECT e91_reg, e91_nl, e91_bln, e91_thn, e91_flg, e91_sdate,
         // e91_ddate, e91_aa1, e91_aa2, e91_aa3, e91_aa4, e91_ab1, e91_ab2, e91_ab3, e91_ab4, e91_ac1, e91_ad1, e91_ad2, e91_ad3,
         // e91_ae1, e91_ae2, e91_ae3, e91_ae4, e91_af1, e91_af2, e91_af3, e91_ag1, e91_ag2,
@@ -161,7 +162,7 @@ class tryController extends Controller
         // FROM e91_init
         // WHERE e91_flg = '2'");
         // dd($loginmills[0]->e91_reg);
-        return view('users.users-dashboard');
+        // return view('users.users-dashboard');
     }
     public function change_pass(){
 
