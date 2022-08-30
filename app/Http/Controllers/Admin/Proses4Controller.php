@@ -22,8 +22,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama  ,
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID  ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"] ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"] ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -191,6 +191,7 @@ class Proses4Controller extends Controller
 
                     }
                     $e91b = E91b::where('e91_b2', $regno)->get();
+                    $jum91b = 0;
 
                     foreach ($e91b as $rowe91b)
                     {
@@ -214,12 +215,11 @@ class Proses4Controller extends Controller
                             // dd($idno);
                         }
 
+                        $insert2h91 = DB::insert("INSERT into h91b values ($idno,'$nobatch','$b6',
+                        '$b7','$b8',$b9, $b10, '$b11')");
+
+
                     }
-
-
-
-
-
 
         }
 
