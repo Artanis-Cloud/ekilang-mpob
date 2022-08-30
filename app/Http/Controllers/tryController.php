@@ -39,7 +39,7 @@ class tryController extends Controller
 
     public function testdb_pldb(){
 
-        $loginmills = DB::connection('mysql4')->select("SELECT * FROM PL911P3");
+        $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         dd($loginmills);
         return view('users.users-dashboard');
     }
