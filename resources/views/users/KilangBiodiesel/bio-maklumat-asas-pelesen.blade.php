@@ -404,7 +404,7 @@
                             </div>
                         </div>
 
-{{-- 
+{{--
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <span></span>
@@ -441,7 +441,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpo'
                                                 style="width:100%" size="15" id="bil_tangki_cpo" required
                                                 title="Sila isikan butiran ini." onkeypress="return isNumberKey(event)"
-                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc20()">
+                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_cpo()">
                                             @error('bil_tangki_cpo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -452,7 +452,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_ppo" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc21()">
+                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_ppo()">
                                             @error('bil_tangki_ppo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -463,7 +463,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_cpko" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc22()">
+                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_cpko()">
                                             @error('bil_tangki_cpko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -473,7 +473,7 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_ppko'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_ppko" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc23()">
+                                                value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput();valid_ppko()">
                                             @error('bil_tangki_ppko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -483,7 +483,7 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_oleo'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_oleo" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc24()">
+                                                value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput();  valid_oleo()">
                                             @error('bil_tangki_oleo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -494,7 +494,7 @@
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_others" required title="Sila isikan butiran ini."
                                                 value="{{ $pelesen->bil_tangki_others }}"
-                                                onchange="validation_jumlah()" oninput="this.setCustomValidity(''); invokeFunc25()">
+                                                onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_others()">
                                             @error('bil_tangki_others')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -506,13 +506,16 @@
                                                 </span>
                                             </b></td>
                                     </tr>
-                                    <tr>
+                                    <tr style="vertical-align: top">
 
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_cpo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc26()"
+                                                id="kap_tangki_cpo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');valid_cpo()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_cpo }}">
+                                                <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('kap_tangki_cpo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -521,9 +524,12 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_ppo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc27()"
+                                                id="kap_tangki_ppo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');  valid_ppo()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_ppo }}">
+                                                <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('kap_tangki_ppo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -532,9 +538,12 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_cpko" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc28()"
+                                                id="kap_tangki_cpko" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');  valid_cpko()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_cpko }}">
+                                                <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('kap_tangki_cpko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -543,9 +552,12 @@
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_ppko'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_ppko" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc29()"
+                                                id="kap_tangki_ppko" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); valid_ppko()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_ppko }}">
+                                                <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('kap_tangki_ppko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -554,9 +566,12 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_oleo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_oleo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc30()"
+                                                id="kap_tangki_oleo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); valid_oleo()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_oleo }}">
+                                                <p type="hidden" id="err_koleo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('kap_tangki_oleo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -565,9 +580,12 @@
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_others'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_others" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); invokeFunc31()"
+                                                id="kap_tangki_others" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); valid_others()"
                                                 title="Sila isikan butiran ini." required
                                                 value="{{ $pelesen->kap_tangki_others }}">
+                                                <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('kap_tangki_others')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -586,7 +604,7 @@
 
                         </div>
                         <div class="row justify-content-center">
-                            <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                            <i style="margin-left:13%;margin-right:8%">Nota: Sekiranya kilang/pelesen tiada tangki simpanan
                                 khusus untuk sesuatu produk. Sila campurkan kesemua
                                 bilangan dan kapasiti tangki dan lapor dalam kategori Others
                             </i>
@@ -664,84 +682,138 @@
 
         @section('scripts')
         <script>
-            let bil_cpo = document.querySelector("#bil_tangki_cpo");
-            let kap_cpo = document.querySelector("#kap_tangki_cpo");
-            let bil_ppo = document.querySelector("#bil_tangki_ppo");
-            let kap_ppo = document.querySelector("#kap_tangki_ppo");
-            let bil_cpko = document.querySelector("#bil_tangki_cpko");
-            let kap_cpko = document.querySelector("#kap_tangki_cpko");
-            let bil_ppko = document.querySelector("#bil_tangki_ppko");
-            let kap_ppko = document.querySelector("#kap_tangki_ppko");
-            let bil_oleo = document.querySelector("#bil_tangki_oleo");
-            let kap_oleo = document.querySelector("#kap_tangki_oleo");
-            let bil_others = document.querySelector("#bil_tangki_others");
-            let kap_others = document.querySelector("#kap_tangki_others");
-            kap_cpo.disabled = true;
-            kap_ppo.disabled = true;
-            kap_cpko.disabled = true;
-            kap_ppko.disabled = true;
-            kap_oleo.disabled = true;
-            kap_others.disabled = true;
-            bil_cpo.addEventListener("change", stateHandle);
-            bil_ppo.addEventListener("change", stateHandle);
-            bil_cpko.addEventListener("change", stateHandle);
-            bil_ppko.addEventListener("change", stateHandle);
-            bil_oleo.addEventListener("change", stateHandle);
-            bil_others.addEventListener("change", stateHandle);
+            $(document).ready(function() {
+                // console.log('ready');
 
-            // val_cpo = $('#kap_tangki_cpo').val();
+                let bil_cpo = document.querySelector("#bil_tangki_cpo");
+                let kap_cpo = document.querySelector("#kap_tangki_cpo");
+                let bil_ppo = document.querySelector("#bil_tangki_ppo");
+                let kap_ppo = document.querySelector("#kap_tangki_ppo");
+                let bil_cpko = document.querySelector("#bil_tangki_cpko");
+                let kap_cpko = document.querySelector("#kap_tangki_cpko");
+                let bil_ppko = document.querySelector("#bil_tangki_ppko");
+                let kap_ppko = document.querySelector("#kap_tangki_ppko");
+                let bil_oleo = document.querySelector("#bil_tangki_oleo");
+                let kap_oleo = document.querySelector("#kap_tangki_oleo");
+                let bil_others = document.querySelector("#bil_tangki_others");
+                let kap_others = document.querySelector("#kap_tangki_others");
 
-            function stateHandle() {
-                if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
-                    .value === "0") {
+                // console.log(bil_cpko.value);
+                if (bil_cpo.value != 0) {
+                    kap_cpo.disabled = false;
+                } else {
                     kap_cpo.disabled = true;
+                }
+
+                if (bil_ppo.value != 0) {
+                    kap_ppo.disabled = false;
+                } else {
+                    kap_ppo.disabled = true;
+                }
+
+                if (bil_cpko.value != 0) {
+                    kap_cpko.disabled = false;
+                } else {
+                    kap_cpko.disabled = true;
+                }
+
+                if (bil_ppko.value != 0) {
+                    kap_ppko.disabled = false;
+                } else {
+                    kap_ppko.disabled = true;
+
+                }
+
+                if (bil_oleo.value != 0) {
+                    kap_oleo.disabled = false;
+                } else {
+                    kap_oleo.disabled = true;
+
+                }
+                if (bil_others.value != 0) {
+                    kap_others.disabled = false;
+                } else {
+                    kap_others.disabled = true;
+                }
+
+
+            });
+            </script>
+            <script>
+            function ableInput() {
+
+                // console.log('ready');
+
+                let bil_cpo = document.querySelector("#bil_tangki_cpo");
+                let kap_cpo = document.querySelector("#kap_tangki_cpo");
+                let bil_ppo = document.querySelector("#bil_tangki_ppo");
+                let kap_ppo = document.querySelector("#kap_tangki_ppo");
+                let bil_cpko = document.querySelector("#bil_tangki_cpko");
+                let kap_cpko = document.querySelector("#kap_tangki_cpko");
+                let bil_ppko = document.querySelector("#bil_tangki_ppko");
+                let kap_ppko = document.querySelector("#kap_tangki_ppko");
+                let bil_oleo = document.querySelector("#bil_tangki_oleo");
+                let kap_oleo = document.querySelector("#kap_tangki_oleo");
+                let bil_others = document.querySelector("#bil_tangki_others");
+                let kap_others = document.querySelector("#kap_tangki_others");
+
+                if (bil_cpo.value == '' || bil_cpo.value == '0') {
+                    kap_cpo.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
                     document.querySelector("#kap_tangki_cpo").value = "0";
 
                 } else {
                     kap_cpo.disabled = false;
                 }
-                if (document.querySelector("#bil_tangki_ppo").value === "" || document.querySelector("#bil_tangki_ppo")
-                    .value === "0") {
+
+                if (bil_ppo.value == '' || bil_ppo.value == '0') {
                     kap_ppo.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
                     document.querySelector("#kap_tangki_ppo").value = "0";
 
                 } else {
                     kap_ppo.disabled = false;
                 }
-                if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko")
-                    .value === "0") {
+
+                if (bil_cpko.value == '' || bil_cpko.value == '0') {
                     kap_cpko.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
                     document.querySelector("#kap_tangki_cpko").value = "0";
 
                 } else {
                     kap_cpko.disabled = false;
                 }
-                if (document.querySelector("#bil_tangki_ppko").value === "" || document.querySelector("#bil_tangki_ppko")
-                    .value === "0") {
+
+                if (bil_ppko.value == '' || bil_ppko.value == '0') {
                     kap_ppko.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
                     document.querySelector("#kap_tangki_ppko").value = "0";
 
                 } else {
                     kap_ppko.disabled = false;
                 }
-                if (document.querySelector("#bil_tangki_oleo").value === "" || document.querySelector("#bil_tangki_oleo")
-                    .value === "0") {
+
+                if (bil_oleo.value == '' || bil_oleo.value == '0') {
                     kap_oleo.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
                     document.querySelector("#kap_tangki_oleo").value = "0";
 
                 } else {
                     kap_oleo.disabled = false;
                 }
-                if (document.querySelector("#bil_tangki_others").value === "" || document.querySelector("#bil_tangki_others")
-                    .value === "0") {
+
+                if (bil_others.value == '' || bil_others.value == '0') {
                     kap_others.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
                     document.querySelector("#kap_tangki_others").value = "0";
 
                 } else {
                     kap_others.disabled = false;
                 }
-            }
-        </script>
+
+            };
+            </script>
+
          <script type="text/javascript">
             $(document).ready(function() {
                 $('#checkBtn').click(function() {
@@ -1069,7 +1141,140 @@
 
                 }
             </script>
+   <script>
+    function valid_cpo() {
+        if ($('#bil_tangki_cpo').val() == '' || $('#bil_tangki_cpo').val() == '0') {
+            $('#kap_tangki_cpo').css('border-color', '');
+            document.getElementById('err_kcpo').style.display = "none";
 
+        } else {
+            if ($('#kap_tangki_cpo').val() == '' || $('#kap_tangki_cpo').val() == '0') {
+                console.log($('#kap_tangki_cpo').val());
+                $('#kap_tangki_cpo').css('border-color', 'red');
+                document.getElementById('err_kcpo').style.display = "block";
+            } else {
+                console.log('kap_tangki no');
+                $('#kap_tangki_cpo').css('border-color', '');
+                document.getElementById('err_kcpo').style.display = "none";
+
+            }
+        }
+
+    }
+</script>
+<script>
+    function valid_ppo() {
+
+        if ($('#bil_tangki_ppo').val() == '' || $('#bil_tangki_ppo').val() == '0') {
+
+            $('#kap_tangki_ppo').css('border-color', '');
+            document.getElementById('err_kppo').style.display = "none";
+        }
+
+         else {
+
+            if ($('#kap_tangki_ppo').val() == '' || $('#kap_tangki_ppo').val() == 0) {
+                $('#kap_tangki_ppo').css('border-color', 'red');
+                document.getElementById('err_kppo').style.display = "block";
+            } else {
+                $('#kap_tangki_ppo').css('border-color', '');
+                document.getElementById('err_kppo').style.display = "none";
+
+            }
+    }
+}
+</script>
+<script>
+    function valid_cpko() {
+        // $( document ).ready(function() {
+// console.log( "ready!" );
+
+        if ($('#bil_tangki_cpko').val() == '' || $('#bil_tangki_cpko').val() == '0') {
+            $('#kap_tangki_cpko').css('border-color', '');
+            document.getElementById('err_kcpko').style.display = "none";
+
+
+        } else {
+            if ($('#kap_tangki_cpko').val() == '' || $('#kap_tangki_cpko').val() == '0') {
+                $('#kap_tangki_cpko').css('border-color', 'red');
+                document.getElementById('err_kcpko').style.display = "block";
+            } else {
+                $('#kap_tangki_cpko').css('border-color', '');
+                document.getElementById('err_kcpko').style.display = "none";
+
+            }
+
+        }
+// });
+
+    }
+</script>
+<script>
+    function valid_ppko() {
+
+
+        if ($('#bil_tangki_ppko').val() == '' || $('#bil_tangki_ppko').val() == '0') {
+            $('#kap_tangki_ppko').css('border-color', '');
+            document.getElementById('err_kppko').style.display = "none";
+
+
+        } else {
+            if ($('#kap_tangki_ppko').val() == '' || $('#kap_tangki_ppko').val() == '0') {
+                $('#kap_tangki_ppko').css('border-color', 'red');
+                document.getElementById('err_kppko').style.display = "block";
+            } else {
+                $('#kap_tangki_ppko').css('border-color', '');
+                document.getElementById('err_kppko').style.display = "none";
+
+            }
+
+        }
+
+
+    }
+</script>
+<script>
+    function valid_oleo() {
+
+
+        if ($('#bil_tangki_oleo').val() == '' || $('#bil_tangki_oleo').val() == '0') {
+            $('#kap_tangki_oleo').css('border-color', '');
+            document.getElementById('err_koleo').style.display = "none";
+
+
+        } else {
+            if ($('#kap_tangki_oleo').val() == '' || $('#kap_tangki_oleo').val() == '0') {
+                $('#kap_tangki_oleo').css('border-color', 'red');
+                document.getElementById('err_koleo').style.display = "block";
+            } else {
+                $('#kap_tangki_oleo').css('border-color', '');
+                document.getElementById('err_koleo').style.display = "none";
+            }
+        }
+    }
+</script>
+<script>
+    function valid_others() {
+
+        if ($('#bil_tangki_others').val() == '' || $('#bil_tangki_others').val() == '0') {
+            $('#kap_tangki_others').css('border-color', '');
+            document.getElementById('err_others').style.display = "none";
+
+        } else {
+            if ($('#kap_tangki_others').val() == '' || $('#kap_tangki_others').val() == '0') {
+                $('#kap_tangki_others').css('border-color', 'red');
+                document.getElementById('err_others').style.display = "block";
+            } else {
+                $('#kap_tangki_others').css('border-color', '');
+                document.getElementById('err_others').style.display = "none";
+
+            }
+
+        }
+
+
+    }
+</script>
             {{-- <script>
             function validatePhoneNumber(input_str) {
                 var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -1233,6 +1438,74 @@
             }
 
 
+            cpo = $('#bil_tangki_cpo').val();
+            ppo = $('#bil_tangki_ppo').val();
+            cpko = $('#bil_tangki_cpko').val();
+            ppko = $('#bil_tangki_ppko').val();
+            oleo = $('#bil_tangki_oleo').val();
+            others = $('#bil_tangki_others').val();
+
+            kcpo = $('#kap_tangki_cpo').val();
+            kppo = $('#kap_tangki_ppo').val();
+            kcpko = $('#kap_tangki_cpko').val();
+            kppko = $('#kap_tangki_ppko').val();
+            koleo = $('#kap_tangki_oleo').val();
+            kothers = $('#kap_tangki_others').val();
+
+            if (cpo != 0 && kcpo == 0) {
+                // $('#next').modal('hide');
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_cpo').css('border-color', 'red');
+                document.getElementById('err_kcpo').style.display = "block";
+            } else {
+                $('#kap_tangki_cpo').css('border-color', '');
+                document.getElementById('err_kcpo').style.display = "none";
+            }
+
+            if (ppo != 0 && kppo == 0) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_ppo').css('border-color', 'red');
+                document.getElementById('err_kppo').style.display = "block";
+            } else {
+                $('#kap_tangki_ppo').css('border-color', '');
+                document.getElementById('err_kppo').style.display = "none";
+            }
+
+            if (cpko != 0 && kcpko == 0) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_cpko').css('border-color', 'red');
+                document.getElementById('err_kcpko').style.display = "block";
+            } else {
+                $('#kap_tangki_cpko').css('border-color', '');
+                document.getElementById('err_kcpko').style.display = "none";
+            }
+
+            if (ppko != 0 && kppko == 0) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_ppko').css('border-color', 'red');
+                document.getElementById('err_kppko').style.display = "block";
+            } else {
+                $('#kap_tangki_ppko').css('border-color', '');
+                document.getElementById('err_kppko').style.display = "none";
+            }
+
+            if (oleo != 0 && koleo == 0) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_oleo').css('border-color', 'red');
+                document.getElementById('err_koleo').style.display = "block";
+            } else {
+                $('#kap_tangki_oleo').css('border-color', '');
+                document.getElementById('err_koleo').style.display = "none";
+            }
+
+            if (others != 0 && kothers == 0) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_others').css('border-color', 'red');
+                document.getElementById('err_others').style.display = "block";
+            } else {
+                $('#kap_tangki_others').css('border-color', '');
+                document.getElementById('err_others').style.display = "none";
+            }
 
             // POMA
             // field = document.getElementById("e_poma");

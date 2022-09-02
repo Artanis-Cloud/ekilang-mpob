@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
-                                        oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
+                                        oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc();" maxlength="7" onchange="autodecimal(this);FormatCurrency(this)"
                                         style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
                                 </div>
@@ -950,9 +950,14 @@
                         $penyata->e91_ah17)
                     document.getElementById('menurun_container').style.display = "block";
                     document.getElementById('lain_container').style.display = "block";
-                @else
+                @elseif ($penyata->e91_ah18)
                     document.getElementById('menurun_container').style.display = "none";
-                    document.getElementById('lain_container').style.display = "none";
+                    document.getElementById('menurun_container').style.display = "none";
+                    document.getElementById('lain_container').style.display = "block";
+                @else
+                document.getElementById('menurun_container').style.display = "none";
+                document.getElementById('menurun_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "none";
                 @endif
             });
         </script>
