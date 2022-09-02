@@ -1111,21 +1111,21 @@
 
                             <p>
                             <div class="required">Nama Pegawai Melapor:</div> &nbsp;&nbsp;
-                            <input type="text" id="e_npg" style="margin-top: -2%" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg()"
+                            <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg()"
                                 name='e_npg' value="">
                                 <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
                                     butiran di bahagian ini!</i></p>
                             </p>
                             <p>
                             <div class="required">Jawatan Pegawai Melapor:</div> &nbsp;&nbsp;
-                            <input type="text" id="e_jpg" style="margin-top: -2%" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg()"
+                            <input type="text" id="e_jpg"class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg()"
                                 name='e_jpg' value="">
                                 <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
                                     butiran di bahagian ini!</i></p>
                             <p>
                             <div class="required">No Telefon Kilang:</div> &nbsp;&nbsp;
 
-                            <input type="text" id="e_notel" style="margin-top: -2%" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_notel_pg()"
+                            <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_notel_pg()"
                                 name="e_notel_pg" value="">
                                 <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                     butiran di bahagian ini!</i></p>

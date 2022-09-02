@@ -227,8 +227,8 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_notel_pg" maxlength=40 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    onkeypress="return isNumberKey(event)"
-                                    oninput="invokeFunc12();setCustomValidity(''); valid_notelpg()"
+                                    {{-- onkeypress="return isNumberKey(event)" --}}
+                                    oninput="invokeFunc12();setCustomValidity(''); valid_notelpg(); phonenumber()"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                     value="{{ $pelesen->e_notel_pg ?? '' }}" required>
                                 <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi
@@ -426,12 +426,12 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%"
-                                    oninput="invokeFunc19();setCustomValidity('')" id="bil_tangki_cpo" required
+                                    oninput="invokeFunc19();setCustomValidity(''); ableInput(); valid_cpo()" id="bil_tangki_cpo" required
                                     title="Sila isikan butiran ini." min="1"
                                     oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
                                     required>
-                                <p type="hidden" id="err_bil_tangki" style="color: red; display:none"><i>Sila isi
+                                <p type="hidden" id="err_bcpo" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
                                 {{-- @error('bil_tangki_cpo')
                                     <div class="alert alert-danger">
@@ -449,14 +449,12 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%"
-
-                                    oninput="nodecimal(); invokeFunc20();setCustomValidity(''); " id="kap_tangki_cpo"
+                                    oninput="nodecimal(); setCustomValidity(''); valid_cpo() " id="kap_tangki_cpo"
                                     title="Sila isikan butiran ini." min="0"
-
                                     oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
                                     required>
-                                <p type="hidden" id="err_kap_tangki" style="color: red; display:none"><i>Sila isi
+                                <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
                                 {{-- @error('kap_tangki_cpo')
                                     <div class="alert alert-danger">
@@ -478,7 +476,7 @@
 
 
                     <div class="row form-group justify-content-center" style="margin-top: 2%">
-                        <button type="button" class="btn btn-primary" onclick="check();">Simpan</button>
+                        <button type="button" class="btn btn-primary" onclick="check(); phonenumber()">Simpan</button>
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
@@ -545,6 +543,24 @@
         @endsection
 
         @section('scripts')
+        <script>
+            function phonenumber()
+            {
+                var userno = document.getElementById("e_notel_pg");
+                // console.log(userno.value);
+                var phoneno = /(?:^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}(?:,(?!$)|$))+$/im;
+                // (?:03[0-9]{9}(?:,|$))+$
+                if(userno.value.match(phoneno))
+                {
+                return true;
+                }
+                else
+                {
+                alert("Not a valid Phone Number");
+                return false;
+                }
+            }
+            </script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".floatNumberField").change(function() {
@@ -831,7 +847,27 @@
             document.getElementById('myform').addEventListener('submit', validateForm);
         </script> --}}
 
+        <script>
+            function valid_cpo() {
+                if ($('#bil_tangki_cpo').val() == '' || $('#bil_tangki_cpo').val() == '0') {
+                    $('#kap_tangki_cpo').css('border-color', '');
+                    document.getElementById('err_kcpo').style.display = "none";
 
+                } else {
+                    if ($('#kap_tangki_cpo').val() == '' || $('#kap_tangki_cpo').val() == '0') {
+                        console.log($('#kap_tangki_cpo').val());
+                        $('#kap_tangki_cpo').css('border-color', 'red');
+                        document.getElementById('err_kcpo').style.display = "block";
+                    } else {
+                        console.log('kap_tangki no');
+                        $('#kap_tangki_cpo').css('border-color', '');
+                        document.getElementById('err_kcpo').style.display = "none";
+
+                    }
+                }
+
+            }
+        </script>
             <script>
                 function check() {
                     // (B1) INIT
@@ -891,142 +927,151 @@
 
 
 
-            // nama pegawai melapor
-            field = document.getElementById("e_npg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_npg').css('border-color', 'red');
-            document.getElementById('err_npg').style.display = "block";
-            }
+                    // nama pegawai melapor
+                    field = document.getElementById("e_npg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_npg').css('border-color', 'red');
+                        document.getElementById('err_npg').style.display = "block";
+                    }
 
-            // jawatan pegawai melapor
-            field = document.getElementById("e_jpg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_jpg').css('border-color', 'red');
-            document.getElementById('err_jpg').style.display = "block";
-            }
+                    // jawatan pegawai melapor
+                    field = document.getElementById("e_jpg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_jpg').css('border-color', 'red');
+                        document.getElementById('err_jpg').style.display = "block";
+                    }
 
-            // no tel pegawai melapor
-            field = document.getElementById("e_notel_pg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_notel_pg').css('border-color', 'red');
-            document.getElementById('err_notelpg').style.display = "block";
-            }
+                    // no tel pegawai melapor
+                    field = document.getElementById("e_notel_pg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_notel_pg').css('border-color', 'red');
+                        document.getElementById('err_notelpg').style.display = "block";
+                    }
 
-            // email pegawai melapor
-            field = document.getElementById("e_email_pg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_email_pg').css('border-color', 'red');
-            document.getElementById('err_emailpg').style.display = "block";
-            }
+                    // email pegawai melapor
+                    field = document.getElementById("e_email_pg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_email_pg').css('border-color', 'red');
+                        document.getElementById('err_emailpg').style.display = "block";
+                    }
 
-            // nama pegawai bertanggungjawab
-            field = document.getElementById("e_npgtg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_npgtg').css('border-color', 'red');
-            document.getElementById('err_npgtg').style.display = "block";
-            }
+                    // nama pegawai bertanggungjawab
+                    field = document.getElementById("e_npgtg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_npgtg').css('border-color', 'red');
+                        document.getElementById('err_npgtg').style.display = "block";
+                    }
 
-            // jawatan pegawai bertanggungjawab
-            field = document.getElementById("e_jpgtg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_jpgtg').css('border-color', 'red');
-            document.getElementById('err_jpgtg').style.display = "block";
-            }
+                    // jawatan pegawai bertanggungjawab
+                    field = document.getElementById("e_jpgtg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_jpgtg').css('border-color', 'red');
+                        document.getElementById('err_jpgtg').style.display = "block";
+                    }
 
-            // emel pengurus
-            field = document.getElementById("e_email_pengurus");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_email_pengurus').css('border-color', 'red');
-            document.getElementById('err_emailpengurus').style.display = "block";
-            }
+                    // emel pengurus
+                    field = document.getElementById("e_email_pengurus");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_email_pengurus').css('border-color', 'red');
+                        document.getElementById('err_emailpengurus').style.display = "block";
+                    }
 
-            // syarikat induk
-            field = document.getElementById("e_syktinduk");
-            if (!field.checkValidity()) {
-            error += "Name must be 2-4 characters\r\n";
-            $('#e_syktinduk').css('border-color', 'red');
-            document.getElementById('err_syktinduk').style.display = "block";
-            }
+                    // syarikat induk
+                    field = document.getElementById("e_syktinduk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_syktinduk').css('border-color', 'red');
+                        document.getElementById('err_syktinduk').style.display = "block";
+                    }
 
-            // kumpulan
-            field = document.getElementById("e_group");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_group').css('border-color', 'red');
-            document.getElementById('err_group').style.display = "block";
-            }
+                    // kumpulan
+                    field = document.getElementById("e_group");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_group').css('border-color', 'red');
+                        document.getElementById('err_group').style.display = "block";
+                    }
 
-            // poma
-            field = document.getElementById("e_poma");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-            $('#e_poma').css('border-color', 'red');
-            document.getElementById('err_poma').style.display = "block";
-            }
+                    // poma
+                    field = document.getElementById("e_poma");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_poma').css('border-color', 'red');
+                        document.getElementById('err_poma').style.display = "block";
+                    }
 
-            // POMA
-            // field = document.getElementById("e_poma");
-            // if (!field.checkValidity()) {
-            // error += "Name must be 2-4 characters\r\n";
-            // }
+                    cpo = $('#bil_tangki_cpo').val();
+                    kcpo = $('#kap_tangki_cpo').val();
 
-            // (B4) RESULT
-            if (error == "") {
-                $('#next').modal('show');
-            return true;
-            } else {
-                toastr.error(
-                'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                'Ralat!', {
-                "progressBar": true
-                })
-            return false;
-            }
+                    if (cpo != 0 && kcpo == 0) {
+                        // $('#next').modal('hide');
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_cpo').css('border-color', 'red');
+                        document.getElementById('err_kcpo').style.display = "block";
+                    } else {
+                        $('#kap_tangki_cpo').css('border-color', '');
+                        document.getElementById('err_kcpo').style.display = "none";
+                    }
 
-            // if (error == "") {
-            // return true;
-            // } else {
-            // toastr.error(
-            // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-            // 'Ralat!', {
-            // "progressBar": true
-            // })
-            // return false;
-            // }
-            }
+                    // POMA
+                    // field = document.getElementById("e_poma");
+                    // if (!field.checkValidity()) {
+                    // error += "Name must be 2-4 characters\r\n";
+                    // }
+
+                    // (B4) RESULT
+                    if (error == "") {
+                        $('#next').modal('show');
+                        return true;
+                    } else {
+                        toastr.error(
+                            'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                            'Ralat!', {
+                                "progressBar": true
+                            })
+                        return false;
+                    }
+
+                    // if (error == "") {
+                    // return true;
+                    // } else {
+                    // toastr.error(
+                    // 'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    // 'Ralat!', {
+                    // "progressBar": true
+                    // })
+                    // return false;
+                    // }
+                }
             </script>
             <script>
-                function ValidateEmail()
-                {
-                var inputText = document.getElementById('e_email');
-                console.log(inputText.value);
-                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                if(inputText.value.match(mailformat))
-                {
-                // alert("Valid email address!");
-                // document.myform.e_email.focus();
-                document.getElementById('err_email2').style.display = "none";
+                function ValidateEmail() {
+                    var inputText = document.getElementById('e_email');
+                    console.log(inputText.value);
+                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (inputText.value.match(mailformat)) {
+                        // alert("Valid email address!");
+                        // document.myform.e_email.focus();
+                        document.getElementById('err_email2').style.display = "none";
 
-                return true;
-                }
-                else
-                {
-                    if(inputText.value != ''){
-                    // alert("You have entered an invalid email address!");
-                    $('#e_email').css('border-color', 'red');
-                    document.getElementById('err_email2').style.display = "block";
-                    return false;
+                        return true;
+                    } else {
+                        if (inputText.value != '') {
+                            // alert("You have entered an invalid email address!");
+                            $('#e_email').css('border-color', 'red');
+                            document.getElementById('err_email2').style.display = "block";
+                            return false;
+                        }
                     }
                 }
-                }
-                </script>
+            </script>
             <script>
                 function alamat() {
                     var x = $("#alamat_sama").is(":checked");
@@ -1103,22 +1148,41 @@
 
                 });
             </script>
-            <script>
-                let bilangan = document.querySelector("#bil_tangki_cpo");
-                let kapasiti = document.querySelector("#kap_tangki_cpo");
-                kapasiti.disabled = true;
-                bilangan.addEventListener("change", stateHandle);
+           <script>
+            $(document).ready(function() {
+                // console.log('ready');
 
-                function stateHandle() {
-                    if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
-                        .value === "0") {
-                        kapasiti.disabled = true;
-                        document.querySelector("#kap_tangki_cpo").value = "0";
+                let bil_cpo = document.querySelector("#bil_tangki_cpo");
+                let kap_cpo = document.querySelector("#kap_tangki_cpo");
 
-                    } else {
-                        kapasiti.disabled = false;
-                    }
+                // console.log(bil_cpko.value);
+                if (bil_cpo.value != 0) {
+                    kap_cpo.disabled = false;
+                } else {
+                    kap_cpo.disabled = true;
                 }
+
+            });
+            </script>
+            <script>
+            function ableInput() {
+
+                // console.log('ready');
+
+                let bil_cpo = document.querySelector("#bil_tangki_cpo");
+                let kap_cpo = document.querySelector("#kap_tangki_cpo");
+
+                if (bil_cpo.value == '' || bil_cpo.value == '0') {
+                    kap_cpo.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
+                    document.querySelector("#kap_tangki_cpo").value = "0";
+
+                } else {
+                    kap_cpo.disabled = false;
+                }
+
+
+            };
             </script>
 
 
@@ -1469,18 +1533,18 @@
                 }
             </script>
 
-<script>
-    function nodecimal() {
-        // let decimal = ".00"
-        var x = parseFloat(document.getElementById("kap_tangki_cpo").value);
-        if(isNaN(x)){
-            x = 0;
-        }
-        const removedDecimal = Math.round(x);
-        document.querySelector("#kap_tangki_cpo").value = removedDecimal;
-        console.log(removedDecimal);
-    }
-</script>
+            <script>
+                function nodecimal() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("kap_tangki_cpo").value);
+                    if (isNaN(x)) {
+                        x = 0;
+                    }
+                    const removedDecimal = Math.round(x);
+                    document.querySelector("#kap_tangki_cpo").value = removedDecimal;
+                    console.log(removedDecimal);
+                }
+            </script>
 
 
             </body>

@@ -429,7 +429,7 @@
 
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" name='bil_tangki_cpko' style="width:20%"
-                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); invokeFunc20()"
+                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_cpko()"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko }}"
                                         required>
                                     @error('bil_tangki_cpko')
@@ -446,9 +446,13 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" name='kap_tangki_cpko'
-                                        style="width:20%" id="kap_tangki_cpko" oninput="this.setCustomValidity(''); invokeFunc21()"
-                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                        style="width:20%" id="kap_tangki_cpko"
+                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); valid_cpko()"
+                                        title="Sila isikan butiran ini."
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->kap_tangki_cpko}}" required>
+                                        <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
+                                            butiran di
+                                            bahagian ini!</i></p>
                                     @error('kap_tangki_cpko')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -551,20 +555,40 @@
                     });
                 });
             </script>
-            <script>
-                let bilangan = document.querySelector("#bil_tangki_cpko");
-                let kapasiti = document.querySelector("#kap_tangki_cpko");
-                kapasiti.disabled = true;
-                bilangan.addEventListener("change", stateHandle);
+           <script>
+            $(document).ready(function() {
+                // console.log('ready');
 
-                function stateHandle() {
-                    if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko").value === "0") {
-                        kapasiti.disabled = true;
-                    } else {
-                        kapasiti.disabled = false;
-                    }
+                let bil_cpko = document.querySelector("#bil_tangki_cpko");
+                let kap_cpko = document.querySelector("#kap_tangki_cpko");
+                if (bil_cpko.value != 0) {
+                    kap_cpko.disabled = false;
+                } else {
+                    kap_cpko.disabled = true;
                 }
 
+
+            });
+            </script>
+            <script>
+            function ableInput() {
+
+                let bil_cpko = document.querySelector("#bil_tangki_cpko");
+                let kap_cpko = document.querySelector("#kap_tangki_cpko");
+
+
+                if (bil_cpko.value == '' || bil_cpko.value == '0') {
+                    kap_cpko.disabled = true;
+                    // $('#kap_tangki_cpo').val() == 0;
+                    document.querySelector("#kap_tangki_cpko").value = "0";
+
+                } else {
+                    kap_cpko.disabled = false;
+                }
+
+
+
+            };
             </script>
 
             {{-- <script>
@@ -838,6 +862,31 @@
 
         }
     </script>
+    <script>
+        function valid_cpko() {
+            // $( document ).ready(function() {
+    // console.log( "ready!" );
+
+            if ($('#bil_tangki_cpko').val() == '' || $('#bil_tangki_cpko').val() == '0') {
+                $('#kap_tangki_cpko').css('border-color', '');
+                document.getElementById('err_kcpko').style.display = "none";
+
+
+            } else {
+                if ($('#kap_tangki_cpko').val() == '' || $('#kap_tangki_cpko').val() == '0') {
+                    $('#kap_tangki_cpko').css('border-color', 'red');
+                    document.getElementById('err_kcpko').style.display = "block";
+                } else {
+                    $('#kap_tangki_cpko').css('border-color', '');
+                    document.getElementById('err_kcpko').style.display = "none";
+
+                }
+
+            }
+// });
+
+        }
+    </script>
 
 
 
@@ -970,6 +1019,17 @@
                 document.getElementById('err_group').style.display = "block";
             }
 
+                    cpko = $('#bil_tangki_cpko').val();
+                    kcpko = $('#kap_tangki_cpko').val();
+
+                    if (cpko != 0 && kcpko == 0) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#kap_tangki_cpko').css('border-color', 'red');
+                        document.getElementById('err_kcpko').style.display = "block";
+                    } else {
+                        $('#kap_tangki_cpko').css('border-color', '');
+                        document.getElementById('err_kcpko').style.display = "none";
+                    }
 
 
 
