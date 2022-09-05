@@ -142,12 +142,25 @@
                                         Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
-                                    <input type="text" class="form-control" style="text-align:right" max="31"
-                                        name='e101_a1'
-                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1();valid_a1()"
+                                    @if ($cpo->e101_b10 == null || $cpko->e101_b10 == null || $cpo->e101_b10 == '0.0' || $cpko->e101_b10 == '0.0' || $cpo->e101_b10 == '0' || $cpo->e101_b10 == '0')
+                                        <input type="text" class="form-control" style="text-align:right" max="31"
+                                        name='e101_a1' onchange=""
+                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1(); valid_a1(); input_a1()"
                                         id="e101_a1" required max="31" onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
+                                    @else
+                                    <input type="text" class="form-control" style="text-align:right" max="31"
+                                        name='e101_a1' required
+                                        oninput="nodecimal(this); setCustomValidity(''); invoke_a1(); valid_a1(); input_a1()"
+                                        id="e101_a1" required max="31" onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
+                                        title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
+                                    @endif
+
+                                    {{-- <input type="text" class="form-control" style="text-align:right"
+                                        id='e101a1_hidden' value=""> --}}
+
                                     <p type="hidden" id="err_a1" style="color: red; display:none"><i>Nilai mestilah
                                             melebihi 0!</i></p>
 
@@ -272,7 +285,17 @@
                 });
             });
         </script> --}}
-                <script type="text/javascript">
+        <script>
+            function input_a1() {
+               var a1 = document.getElementById('e101_a1');
+               var a1_hidden = document.getElementById('e101a1_hidden');
+               console.log(a1);
+               a1_hidden.value = a1.value;
+
+            }
+        </script>
+
+                {{-- <script type="text/javascript">
                     $(document).ready(function() {
                         @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpo == '0')
                             console.log('tiada');
@@ -290,22 +313,22 @@
                             // $("#tutup").modal('show');
                         @endif
                     });
-                </script>
+                </script> --}}
                 <script>
                     function check() {
                         // (B1) INIT
                         var error = "",
                             field = "";
-                        @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpko == '0')
-                           // kod produk
-                           field = document.getElementById("e101_a1");
-                            if (field.value > 31) {
-                                error += "Name must be 2-4 characters\r\n";
-                                $('#e101_a1').css('border-color', 'red');
-                                document.getElementById('err_a1').style.display = "none";
-                                document.getElementById('err_a12').style.display = "block";
-                            }
-                        @else
+                        // @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpko == '0')
+                        //    // kod produk
+                        //    field = document.getElementById("e101_a1");
+                        //     if (field.value > 31) {
+                        //         error += "Name must be 2-4 characters\r\n";
+                        //         $('#e101_a1').css('border-color', 'red');
+                        //         document.getElementById('err_a1').style.display = "none";
+                        //         document.getElementById('err_a12').style.display = "block";
+                        //     }
+                        // @else
                             // kod produk
                             console.log('lebih dari kosong');
                             field = document.getElementById("e101_a1");
@@ -353,7 +376,7 @@
                                 document.getElementById('err_a3').style.display = "none";
                                 document.getElementById('err_a32').style.display = "block";
                             }
-                        @endif
+                        // @endif
 
 
 
@@ -471,7 +494,7 @@
 
 
                     function checkKey(evt) {
-                        console.log(evt.which);
+                        //console.log(evt.which);
                         return evt.which;
                     }
                 </script>
@@ -484,7 +507,7 @@
                         }
                         const removedDecimal = Math.round(x);
                         data.value = removedDecimal;
-                        console.log(removedDecimal);
+                        //console.log(removedDecimal);
                     }
                 </script>
                 <script type="text/javascript">
