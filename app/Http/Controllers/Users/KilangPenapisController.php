@@ -789,7 +789,7 @@ class KilangPenapisController extends Controller
         // $cpko = E101B::where($produk->e101_b4, '04')->first();
         // dd($cpo);
         if ($penyata) {
-            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'cpo', 'cpko','layout', 'penyata', 'bulan', 'tahun'));
+            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr',' cpo_b10', 'cpko_b10', 'cpo', 'cpko','layout', 'penyata', 'bulan', 'tahun'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
