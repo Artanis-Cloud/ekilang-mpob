@@ -296,9 +296,18 @@
                         // (B1) INIT
                         var error = "",
                             field = "";
-                        @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
+                        @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpko == '0')
+                           // kod produk
+                           field = document.getElementById("e101_a1");
+                            if (field.value > 31) {
+                                error += "Name must be 2-4 characters\r\n";
+                                $('#e101_a1').css('border-color', 'red');
+                                document.getElementById('err_a1').style.display = "none";
+                                document.getElementById('err_a12').style.display = "block";
+                            }
                         @else
                             // kod produk
+                            console.log('lebih dari kosong');
                             field = document.getElementById("e101_a1");
                             if (!field.checkValidity() || field.value == '0') {
                                 error += "Name must be 2-4 characters\r\n";
