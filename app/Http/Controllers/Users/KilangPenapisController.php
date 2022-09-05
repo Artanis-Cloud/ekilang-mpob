@@ -781,7 +781,7 @@ class KilangPenapisController extends Controller
         $cpko = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','04')->first('e101_b10');
         // $produk2 = $penyata->e101b->e101_b4;
         // $json = json_encode($produk);
-        dd($cpko);
+        // dd($cpko);
 
         // $cpo = E101B::where($produk->e101_b4, '01')->first();
         // $cpko = E101B::where($produk->e101_b4, '04')->first();
