@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/testingOER', [App\Http\Controllers\tryController::class, 'testing3'])->name('testing3');
 Route::get('/testingPLEID', [App\Http\Controllers\tryController::class, 'testing4'])->name('testing4');
 Route::get('/testingpldb', [App\Http\Controllers\tryController::class, 'testDB_PLDB'])->name('testingPLDB');
+Route::get('/testingcodedb', [App\Http\Controllers\tryController::class, 'test_codedb'])->name('testingcodedb');
 Route::get('/password', [App\Http\Controllers\tryController::class, 'change_pass'])->name('change');
 Route::get('/testArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('tryArx');
 Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
@@ -154,6 +155,8 @@ Route::middleware('auth')->group(function () {
         // Route::get('admin/6-papar-buah/{id}', [App\Http\Controllers\Admin\Proses6Controller::class, 'show_admin_6penyatapaparcetakbuah'])->name('admin.6papar.buah');
 
         Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\Proses7Controller::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
+        Route::get('admin/7-porting-maklumat/process', [App\Http\Controllers\Admin\Proses7Controller::class, 'admin_portingmaklumat'])->name('admin.porting.maklumat.process');
+
         Route::get('admin/8-port-data', [App\Http\Controllers\Admin\Proses8Controller::class, 'admin_8portdata'])->name('admin.8portdata');
 
         Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');

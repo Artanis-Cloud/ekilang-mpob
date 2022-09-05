@@ -55,7 +55,8 @@
                                     <h4 style="color: rgb(39, 80, 71)">Pindahan Maklumat Produk dan Negara</h4>
                                 </div>
                                 <hr>
-
+                                <form action="{{ route('admin.porting.maklumat.process') }}" method="get">
+                                    @csrf
                                 <div class="card-body">
                                     <div class="container center ">
 
@@ -66,12 +67,12 @@
                                                     Jenis Maklumat</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-control" id="basicSelect">
+                                                        <select class="form-control" id="maklumat" name="maklumat">
                                                             <option selected hidden disabled>Sila Pilih Jenis Maklumat</option>
 
-                                                            <option>Produk Sawit</option>
-                                                            <option>Negara</option>
-                                                            <option>Daerah</option>
+                                                            <option value="produk_sawit">Produk Sawit</option>
+                                                            <option value="negara">Negara</option>
+                                                            <option value="daerah">Daerah</option>
 
 
                                                         </select>
@@ -118,6 +119,7 @@
                                     </div>
                                     <!-- /.modal-dialog -->
                                 </div>
+                            </form>
 
                                     </div>
                                 </div>
