@@ -274,9 +274,8 @@
         </script> --}}
                 <script type="text/javascript">
                     $(document).ready(function() {
-                        console.log('cpko',
-                            {{ $cpko }}
-                        );
+                        var dd = {{ $cpko }};
+                        console.log(dd);
                         @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
                             console.log('tiada');
                             document.getElementById("e101_a1").removeAttribute('required');
