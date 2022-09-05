@@ -34,85 +34,85 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <!-- row -->
-            <div class="row">
+        <div class="card" style="margin-right:3%; margin-left:3%">
+
+            <div class="card-body">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card" style="padding: 3%" >
+                    <div class="card" >
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan</h3>
-                        </div>
-                    <hr>
+                        </div><hr>
 
-                    <form method="POST" action="{{ route('buah.update.password', [$user[0]->id]) }}">
-                        {{ csrf_field() }}
+                        <form method="POST" action="{{ route('buah.update.password', [$user[0]->id]) }}">
+                            {{ csrf_field() }}
 
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                class="control-label col-form-label required">Kata
-                                Laluan Terdahulu <i>(8 Aksara)</i></label>
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">Kata
+                                    Laluan Terdahulu <i>(8 Aksara)</i></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" class="form-control" name='old_password' id="myInput"  length="8"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
+                                    @error('old_password')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+
                             </div>
-                            <div class="col-md-4">
-                                <input type="password" class="form-control" name='old_password' id="myInput"  length="8"
-                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                    placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
-                                @error('old_password')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">Kata
+                                    Laluan Baru <i>(8 Aksara)</i></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
+                                    oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                    oninput="this.setCustomValidity('')"
+                                        placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
+                                    @error('new_password')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
+                                </div>
+                            </div>
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">Sahkan
+                                    Kata Laluan Baru <i>(8 Aksara)</i></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8"
+                                        placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
+                                    @error('password_confirmation')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
+                                </div>
+                            </div>
+                            <div class="row justify-content-center" style="margin:0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname" class="control-label col-form-label"></i></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" onclick="myFunction()">&nbsp;Tunjuk Kata Laluan
+                                </div>
                             </div>
 
-                        </div>
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                class="control-label col-form-label required">Kata
-                                Laluan Baru <i>(8 Aksara)</i></label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
-                                oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
-                                oninput="this.setCustomValidity('')"
-                                    placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
-                                @error('new_password')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror
-                            </div>
-                        </div>
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                class="control-label col-form-label required">Sahkan
-                                Kata Laluan Baru <i>(8 Aksara)</i></label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8"
-                                    placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
-                                @error('password_confirmation')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror
-                            </div>
-                        </div>
-                        <div class="row justify-content-center" style="margin:0px">
-                            <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname" class="control-label col-form-label"></i></label>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="checkbox" onclick="myFunction()">&nbsp;Tunjuk Kata Laluan
-                            </div>
-                        </div>
 
-
-                        <div class="row justify-content-center" style="margin: 50px 0px">
-                            <button type="button" class="btn btn-primary"
-                                data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
-                        </div>
+                            <div class="row justify-content-center" style="margin: 50px 0px">
+                                <button type="button" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
+                            </div>
+                        </form>
                 </div>
 
 
@@ -152,9 +152,8 @@
                     </div>
                 </div>
 
-                </form>
             </div>
-            </div>
+        </div>
             {{-- </div> --}}
             {{-- </div> --}}
             {{-- </div> --}}

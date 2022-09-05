@@ -77,10 +77,10 @@
                             <div class=" text-center">
 
 
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h3>
+                                <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Bahagian 1</h3>
                                 <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Stok Awal, Belian, Proses,
                                     Pengeluaran,
-                                    Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
+                                    Jualan/Edaran, Eksport, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
                             </div>
                             <hr>
 

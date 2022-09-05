@@ -72,7 +72,7 @@
 
                                     </body>
 
-                                    <div class="row " style=" float:left">
+                                    {{-- <div class="row " style=" float:left">
                                         <div class="text-left col-md-1">
                                             <a href="{{ asset('manual/admin/Kod dan Nama Negara.pdf') }}" class="btn btn-primary ">
                                                 PDF
@@ -83,11 +83,11 @@
                                                 EXCEL
                                             </a>
                                         </div>
-                                    </div><br><br>
+                                    </div><br><br> --}}
 
 
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-striped table-bordered" style="width: 100%;">
+                                        <table id="example4" class="table table-striped table-bordered" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th>Kod Negara</th>
@@ -123,34 +123,27 @@
 @endsection
 
 @section('scripts')
-    {{-- <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
 
-        function myPrint(myfrm) {
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-    </script> --}}
+    <script>
+        $(document).ready(function() {
+            $('#example4').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            } );
+        } );
+    </script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
 
 @endsection

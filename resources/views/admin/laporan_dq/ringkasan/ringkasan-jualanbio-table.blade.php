@@ -37,6 +37,30 @@
         border-top: none;
     }
 
+    tr {
+    border-top: 1px solid #ccc;
+    }
+    td, th {
+    vertical-align: top;
+    text-align: left;
+    width:150px;
+    padding: 5px;
+    }
+
+    @media screen
+    {
+        .noPrint{}
+        .noScreen{display:none;}
+    }
+
+    @media print
+    {
+        @page {size: auto !important}
+        .noPrint{display:none;}
+        .noScreen{}
+    }
+
+
 
 </style>
 
@@ -171,13 +195,27 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Negeri</label>
-                                                <select class="form-control" id="negeri_id" name="e_negeri">
+                                                <select class="form-control" id="negeri_id" name="e_negeri"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')"
+                                                onchange="ajax_daerah(this)" >
                                                     <option selected  value="">Sila Pilih Negeri</option>
                                                     @foreach ($negeri as $data)
                                                         <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}>
                                                             {{ $data->nama_negeri }}
                                                         </option>
                                                     @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Daerah</label>
+                                                <select class="form-control" id="daerah_id" name='e_daerah'
+                                                    placeholder="Daerah"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">
+                                                        Sila Pilih Negeri Terlebih Dahulu
+                                                    </option>
                                                 </select>
                                             </div>
 
@@ -214,64 +252,75 @@
 
 
                                 </div>
-                                <div class="text-right col-md-6 mb-4 mt-4">
+                                <div class="text-right col-md-6 mb-4 mt-4" id="scroll-section" >
                                     <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
                             <section class="section"><hr>
-                                <div class="card"><br>
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
-                                        </div>
-                                        <div class="col-md-10">
-                                            <h6 style="color: black; text-align:center; font-weight:500">enarai Ringkasan Jualan Biodiesel</h6>
-                                            <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
-                                        </div>
-
+                                <div class="card">
+                                    <div class="text-center">
+                                        <h4 style="color: black; text-align:center; font-weight:500">Senarai Ringkasan Jualan Biodiesel
+                                        </h4>
+                                        <h4 style="color: rgb(30, 28, 28); text-align:center">Tahun:  {{ $tahun }} </h4>
                                     </div>
 
-                                        <div class="table-responsive " >
-                                            <table  id="example4" class="table table-hover table-bordered"  style="width: 100%; font-size:13px">
-                                                <thead>
-                                                    <tr style="background-color: #d3d3d34d">
-
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
-                                                            rowspan="2">No Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
-                                                            rowspan="2">Nama Pemegang Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
-                                                            rowspan="2">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
-                                                            rowspan="2">Pembeli</th>
-                                                        <th scope="col" style="vertical-align: middle; text-align:center"
-                                                            rowspan="2">Kuantiti</th>
-                                                    </tr>
-
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($result as $data)
-                                                        <tr>
-                                                            <td scope="row">{{ $data->e_nl }}</td>
-                                                            <td scope="row" class="text-left">{{ $data->e_np }}</td>
-                                                            <td scope="row">{{ $data->nama_negeri }}</td>
-
-                                                            <td scope="row" class="text-left">{{ $data->pembeli ?? '-'}}</td>
-                                                            <td style="text-align: center"> {{ number_format($jualan_bio[$data->e_nl] ?? 0,2) }}</td>
-
-                                                        </tr>
-                                                        @php
-                                                            // $total_hari_operasi += $data->hari_operasi;
-                                                        @endphp
-                                                    @endforeach
-
-                                                </tbody><br>
-
-                                            </table>
+                                    <div class="table-responsive " id="printableArea" >
+                                        <div class="noScreen text-center">
+                                            <h4 style="color: black; text-align:center; font-weight:500">Senarai Ringkasan Jualan Biodiesel</h4>
+                                            <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                         </div>
-                                        <br>
-                                        <br>
+                                        <div class="noPrint">
+                                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                style="background-color:white; color: #f90a0a; " >
+                                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                            </button>
+                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                style="background-color: white; color: #0a7569; ">
+                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                            </button>
+                                        </div>
+
+
+                                        <table  id="example4" class="table table-hover table-bordered"  style="width: 100%; font-size:13px">
+                                            <thead>
+                                                <tr style="background-color: #d3d3d34d">
+
+                                                    <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        rowspan="2">No Lesen</th>
+                                                    <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        rowspan="2">Nama Pemegang Lesen</th>
+                                                    <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        rowspan="2">Negeri</th>
+                                                    <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        rowspan="2">Pembeli</th>
+                                                    <th scope="col" style="vertical-align: middle; text-align:center"
+                                                        rowspan="2">Kuantiti</th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($result as $data)
+                                                    <tr>
+                                                        <td scope="row">{{ $data->e_nl }}</td>
+                                                        <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                        <td scope="row">{{ $data->nama_negeri }}</td>
+
+                                                        <td scope="row" class="text-left">{{ $data->pembeli ?? '-'}}</td>
+                                                        <td style="text-align: center"> {{ number_format($jualan_bio[$data->e_nl] ?? 0,2) }}</td>
+
+                                                    </tr>
+                                                    @php
+                                                        // $total_hari_operasi += $data->hari_operasi;
+                                                    @endphp
+                                                @endforeach
+
+                                            </tbody><br>
+
+                                        </table>
+                                    </div>
+                                    <br>
+                                    <br>
 
                                 </div>
 
@@ -309,6 +358,19 @@
 
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
 </script>
 
 
@@ -505,46 +567,52 @@
             }
         };
     </script>
-             <script>
-                function ExportToExcel()
-                  {
-                      var filename = "Ringkasan"
-                      var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
-                      var textRange;
-                      var j = 0;
-                      tab = document.getElementById('example4');
+    <script>
+        function ExportToExcel()
+            {
+                var filename = "Ringkasan"
+                var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+                var textRange;
+                var j = 0;
+                tab = document.getElementById('example4');
 
-                      for (j = 0; j < tab.rows.length; j++) {
-                      tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
-                      }
+                for (j = 0; j < tab.rows.length; j++) {
+                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                }
 
-                      tab_text = tab_text + "</table>";
-                      var a = document.createElement('a');
-                      var data_type = 'data:application/vnd.ms-excel';
-                      a.href = data_type + ', ' + encodeURIComponent(tab_text);
-                      a.download = filename + '.xls';
-                      a.click();
-                          }
-                  </script>
-              <script>
-                  $(document).ready(function() {
-                      $('#example4').DataTable( {
-                          // dom: 'Bfrtip',
-                          // buttons: [
-                          //     'copy', 'csv', 'excel', 'pdf', 'print'
-                          // ]
-                      } );
-                  } );
-              </script>
-                  {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
-                  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-                  <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+                tab_text = tab_text + "</table>";
+                var a = document.createElement('a');
+                var data_type = 'data:application/vnd.ms-excel';
+                a.href = data_type + ', ' + encodeURIComponent(tab_text);
+                a.download = filename + '.xls';
+                a.click();
+                    }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('html, body').animate({
+                scrollTop: $("#scroll-section").offset().top
+                }, 1000);
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#example4').DataTable( {
+                // dom: 'Bfrtip',
+                // buttons: [
+                //     'copy', 'csv', 'excel', 'pdf', 'print'
+                // ]
+            } );
+        } );
+    </script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
-                  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-                  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-                  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-                  <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-                  <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-                  <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-                  <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
 @endsection

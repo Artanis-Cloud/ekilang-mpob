@@ -4,7 +4,7 @@
     <div class="page-wrapper">
 
         <div class="page-breadcrumb mb-3">
-            <div class="row" style="margin-bottom: -2%">
+            <div class="row" >
                 <div class="col-5 align-self-center">
                     <h4 class="page-title">Maklumat Pelesen</h4>
                 </div>
@@ -34,11 +34,11 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <!-- row -->
-            <div class="row">
+        <div class="card" style="margin-right:3%; margin-left:3%">
+
+            <div class="card-body">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card" style="padding: 2%">
+                    <div class="card" >
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan</h3>
                         </div>
@@ -120,6 +120,8 @@
                                 <button type="button" class="btn btn-primary"  data-toggle="modal"
                                     data-target="#next">Tukar Kata Laluan</button>
                             </div>
+                        </form>
+
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
@@ -154,9 +156,8 @@
                         </div>
                     </div>
 
-                    </form>
-                </div>
             </div>
+        </div>
         @endsection
         @section('scripts')
             <script>

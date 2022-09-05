@@ -37,8 +37,6 @@
         border-top: none;
     }
 
-/* .wrapper {
-} */
 
     tr {
     border-top: 1px solid #ccc;
@@ -364,14 +362,14 @@
                                         </div>
 
                                     </div>
-                                    <div class="text-right col-md-6 mb-4 mt-4">
+                                    <div class="text-right col-md-6 mb-4 mt-4" id="scroll-section" >
                                         <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
                                             data-target="#next">Carian</button>
                                     </div>
                                 </form>
                                 <section class="section"><hr>
 
-                                    <div class="card" ><br>
+                                    <div class="card"><br>
                                         <h3 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h3>
                                         <div class="text-center">
                                             <h4 style="color: black; text-align:center; font-weight:500">
@@ -805,10 +803,10 @@
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
-                                                                    <td class="text-center">{{ number_format($jumlah_bulan5[$i] ?? 0,2) }}</td>
-                                                                    @php
-                                                                        $total_between_bulan_b5 += $jumlah_bulan5[$i] ?? 0 ;
-                                                                    @endphp
+                                                                        <td class="text-center">{{ number_format($jumlah_bulan5[$i] ?? 0,2) }}</td>
+                                                                        @php
+                                                                            $total_between_bulan_b5 += $jumlah_bulan5[$i] ?? 0 ;
+                                                                        @endphp
 
                                                                     @endfor
                                                                     <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b5 ?? 0,2) }}</td>
@@ -2359,10 +2357,10 @@
                                                                     <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b9[$i] ?? 0,2) }}</td>
-                                                                    @php
-                                                                        $total_all_bulan_b9 += $total_col_bulan_b9[$i] ?? 0 ;
-                                                                    @endphp
+                                                                        <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b9[$i] ?? 0,2) }}</td>
+                                                                        @php
+                                                                            $total_all_bulan_b9 += $total_col_bulan_b9[$i] ?? 0 ;
+                                                                        @endphp
 
                                                                     @endfor
                                                                     <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b9 ?? 0,2) }}</td>
@@ -2717,7 +2715,7 @@
                                                                         $total_col_bulan_b10[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key => $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b10_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -3417,16 +3415,16 @@
         document.getElementById("defaultOpen").click();
     </script>
     <script>
-    function printDiv(printableArea) {
-        var printContents = document.getElementById(printableArea).innerHTML;
-        var originalContents = document.body.innerHTML;
+        function printDiv(printableArea) {
+            var printContents = document.getElementById(printableArea).innerHTML;
+            var originalContents = document.body.innerHTML;
 
-        document.body.innerHTML = printContents;
+            document.body.innerHTML = printContents;
 
-        window.print();
+            window.print();
 
-        document.body.innerHTML = originalContents;
-    }
+            document.body.innerHTML = originalContents;
+        }
     </script>
 
 
@@ -3623,7 +3621,7 @@
      <script>
       function ExportToExcel()
         {
-            var filename = "Ringkasan"
+            var filename = "Ringkasan Bahagian 1"
             var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
             var textRange;
             var j = 0;
@@ -3650,6 +3648,13 @@
                 // ]
             } );
         } );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('html, body').animate({
+                scrollTop: $("#scroll-section").offset().top
+                }, 1000);
+        })
     </script>
         {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>

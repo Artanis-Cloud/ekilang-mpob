@@ -259,6 +259,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($penyata && !$penyata->isEmpty())
                                 @foreach ($penyata as $data)
                                     <tr style="text-align: right">
 
@@ -432,6 +433,11 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                    <tr>
+                                    <td colspan="8" class="text-center" style="height:40px">Tiada Rekod</td>
+                                    </tr>
+                                @endif
                                 <tr>
 
                                     <td colspan="2"><b>JUMLAH (SENDIRI)</b></td>

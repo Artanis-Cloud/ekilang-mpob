@@ -256,8 +256,8 @@
 
 
                         <p><b>
-                                <font size="2.7" color="#0000FF">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
-                                    PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
+                                <font size="2.7" color="#0000FF">BAHAGIAN 1 : MAKLUMAT STOK AWAL, BELIAN, PROSES,
+                                    PENGELUARAN, JUALAN/EDARAN, EKSPORT, STOK AKHIR
                                     (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                             </b> </p>
 
@@ -524,7 +524,7 @@
                                 </tr>
                                 <tr>
                                     <td width="1000">
-                                        <font size="2.7">iv. Harga Purata Belian Buah Kelapa Sawit
+                                        <font size="2.7">iv. Harga Purata Belian Buah Tandan Segar
                                             (FFB)
                                         </font>
                                     </td>

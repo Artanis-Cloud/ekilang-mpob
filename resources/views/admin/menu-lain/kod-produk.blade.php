@@ -74,7 +74,7 @@
 
                                     </body>
 
-                                    <div class="row " style=" float:left">
+                                    {{-- <div class="row " style=" float:left">
                                         <div class="text-left col-md-1">
                                             <a href="{{ asset('manual/admin/Kod dan Nama Produk.pdf') }}" class="btn btn-primary ">
                                                 PDF
@@ -85,7 +85,7 @@
                                                 EXCEL
                                             </a>
                                         </div>
-                                    </div><br><br>
+                                    </div><br><br> --}}
 
                                     <div class="table-responsive">
                                         <table id="example4" class="table table-striped table-bordered" style="width: 100%;">
@@ -145,6 +145,7 @@
 @endsection
 
 @section('scripts')
+
 <script>
     $(document).ready(function() {
         $('#example4').DataTable( {
@@ -153,8 +154,12 @@
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ]
         } );
+
     } );
-        </script>
+</script>
+
+
+
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>

@@ -107,7 +107,7 @@
                 <div class="card-body">
                     <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1</h3>
+                            <h3 style="color: rgb(39, 80, 71);  margin-top:-2%">Bahagian 1</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
                             </h5>
                         </div>
@@ -334,7 +334,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                             <thead style="text-align: center">
-                                <tr>
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
@@ -352,6 +352,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($penyata && !$penyata->isEmpty())
                                 @foreach ($penyata as $data)
                                     <tr style="text-align: right">
 
@@ -598,6 +599,11 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                    <tr>
+                                    <td colspan="14" class="text-center" style="height:40px">Tiada Rekod</td>
+                                    </tr>
+                                @endif
                                 <tr>
 
                                     <td colspan="2"><b>JUMLAH</b></td>

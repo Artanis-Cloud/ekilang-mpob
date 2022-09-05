@@ -37,6 +37,19 @@
         border-top: none;
     }
 
+    @media screen
+    {
+        .noPrint{}
+        .noScreen{display:none;}
+    }
+
+    @media print
+    {
+        @page {size: auto !important}
+        .noPrint{display:none;}
+        .noScreen{}
+    }
+
 
 </style>
 
@@ -253,13 +266,27 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Negeri</label>
-                                                <select class="form-control" id="negeri_id" name="e_negeri">
+                                                <select class="form-control" id="negeri_id" name="e_negeri"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')"
+                                                onchange="ajax_daerah(this)" >
                                                     <option selected  value="">Sila Pilih Negeri</option>
                                                         @foreach ($negeri as $data)
                                                             <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}>
                                                                 {{ $data->nama_negeri }}
                                                             </option>
                                                         @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Daerah</label>
+                                                <select class="form-control" id="daerah_id" name='e_daerah'
+                                                    placeholder="Daerah"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">
+                                                        Sila Pilih Negeri Terlebih Dahulu
+                                                    </option>
                                                 </select>
                                             </div>
 
@@ -293,26 +320,42 @@
                                     </div>
 
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center"  id="scroll-section" >
                                     <button type="submit" class="btn btn-primary"  data-toggle="modal"
                                         data-target="#next">Carian</button>
                                 </div>
                             </form>
                             <section class="section"><hr>
                                 <div class="card"><br>
+                                    <h3 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 2</h3>
+                                    <div class="text-center">
+                                        <h4 style="color: black; text-align:center; font-weight:500">
+                                            @if ($laporan == 'hari_operasi')
+                                            Jumlah Hari Kilang Beroperasi Sebulan
+                                            @elseif($laporan == 'kapasiti')
+                                            Kadar Penggunaan Kapasiti Sebulan
+                                            @endif
+                                        </h4>
+                                        <h4 style="color: rgb(30, 28, 28); text-align:center">Tahun:  {{ $tahun }} </h4>
+                                    </div>
 
                                     @if($laporan=='hari_operasi')
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
-                                            </div>
-                                            <div class="col-md-10">
-                                                <h6 style="color: black; text-align:center; font-weight:500">Jumlah Hari Kilang Beroperasi Sebulan</h6>
-                                                <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
-                                            </div>
 
-                                        </div>
-                                        <div class="table-responsive " >
+                                        <div class="table-responsive"  id="printableArea">
+                                            <div class="noScreen text-center">
+                                                <h4 style="color: black; text-align:center; font-weight:500">Jumlah Hari Kilang Beroperasi Sebulan</h4>
+                                                <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
+                                            </div>
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <table id="example4" class="table table-hover table-bordered" style="width: 100%; font-size:13px">
 
                                                 <thead>
@@ -323,6 +366,8 @@
                                                             rowspan="2">Nama Pemegang Lesen</th>
                                                         <th scope="col" style="vertical-align: middle; text-align:center; width:5% "
                                                             rowspan="2">Negeri</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5% "
+                                                            rowspan="2">Daerah</th>
                                                         <th scope="col" style="vertical-align: middle; text-align:center;"
                                                             colspan="13">{{ $tahun }}</th>
                                                     </tr>
@@ -477,7 +522,7 @@
                                                                     $total_col_hari[$i] = 0;
                                                                 @endphp
                                                             @endfor
-                                                            @foreach ($result as $data)
+                                                            @foreach ($result as $key => $data)
                                                             <tr>
                                                                 {{-- @foreach ($data_hari_operasi[$data->e_nl] as $test) --}}
                                                                     <tr>
@@ -513,9 +558,11 @@
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
                                                                         @endif
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
 
                                                                         @php
                                                                             $jumlah_hari = 0;
+                                                                            $total_all_hari = 0;
                                                                         @endphp
 
                                                                         @for ($i=1; $i<=12;$i++)
@@ -539,13 +586,16 @@
                                                             @endforeach
 
                                                             <tr style="background-color: #d3d3d34d" >
-                                                                <th class="text-right" colspan="3">Jumlah</th>
+                                                                <th class="font-weight-bold text-right" colspan="4">Jumlah</th>
                                                                 @for ($i = 1; $i <= 12; $i++)
 
-                                                                <td class="text-center">{{ number_format($total_col_hari[$i] ?? 0,2) }}</td>
-
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_hari[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_hari += $total_col_hari[$i] ?? 0 ;
+                                                                    @endphp
                                                                 @endfor
-                                                                <td style="background-color: lightgray"></td>
+                                                                <td class="font-weight-bold text-center">{{ number_format( $total_all_hari ?? 0,2) }}</td>
+
                                                             </tr>
                                                         @elseif ($bulan == 'equal')
                                                             @php
@@ -589,6 +639,7 @@
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ number_format($data_hari_operasi[$data->e_nl][$equal_month] ?? 0,2) }}</td>
                                                                                 @php
                                                                                     $total_hari_row_eq += $data_hari_operasi[$data->e_nl][$equal_month] ?? 0;
@@ -601,7 +652,7 @@
 
                                                             <tr style="background-color: #d3d3d34d"
                                                                 class="font-weight-bold text-center">
-                                                                <th class="text-right" colspan="3">Jumlah</th>
+                                                                <th class="font-weight-bold text-right" colspan="4">Jumlah</th>
                                                                 <td class="text-center">{{ number_format($total_hari_row_eq ?? 0,2) }}</td>
 
                                                             </tr>
@@ -649,10 +700,11 @@
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
                                                                         @endif
-
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
 
                                                                         @php
                                                                             $jumlah_hari_col = 0;
+                                                                            $total_between_hari = 0;
                                                                         @endphp
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_b5 != 0) --}}
@@ -676,14 +728,18 @@
 
                                                             <tr style="background-color: #d3d3d34d"
                                                                 class="font-weight-bold text-center">
-                                                                <th class="text-right" colspan="3">Jumlah</th>
+                                                                <th class="font-weight-bold text-right" colspan="4">Jumlah</th>
 
                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
 
-                                                                <td class="text-center">{{ number_format($jumlah_hari_row[$i] ?? 0,2) }}</td>
-
+                                                                    <td class="text-center">{{ number_format($jumlah_hari_row[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_hari += $jumlah_hari_row[$i] ?? 0 ;
+                                                                    @endphp
                                                                 @endfor
-                                                                <td style="background-color: lightgrey"></td>
+                                                                <td class="font-weight-bold text-center">{{ number_format( $total_between_hari ?? 0,2) }}</td>
+
+
 
                                                             </tr>
 
@@ -697,18 +753,24 @@
                                         <br>
                                         <br>
                                     @elseif($laporan == 'kapasiti')
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
-                                            </div>
-                                            <div class="col-md-10">
-                                                <h6 style="color: black; text-align:center; font-weight:500">Jumlah Hari Kilang Beroperasi Sebulan</h6>
-                                                <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
-                                            </div>
 
-                                        </div>
-                                        <div class="table-responsive " >
+                                        <div class="table-responsive"  id="printableArea">
+                                            <div class="noScreen text-center">
+                                                <h4 style="color: black; text-align:center; font-weight:500">Kadar Penggunaan Kapasiti Sebulan</h4>
+                                                <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
+                                            </div>
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <table id="example4" class="table table-hover table-bordered" style="width: 100%; font-size:13px">
+
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; text-align:center; width:15% "
@@ -717,6 +779,8 @@
                                                             rowspan="2">Nama Pemegang Lesen</th>
                                                         <th scope="col" style="vertical-align: middle; text-align:center; width:5% "
                                                             rowspan="2">Negeri</th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:5% "
+                                                            rowspan="2">Daerah</th>
                                                         <th scope="col" style="vertical-align: middle; text-align:center;"
                                                             colspan="13">{{ $tahun }}</th>
                                                     </tr>
@@ -871,7 +935,7 @@
                                                                     $total_col_kap[$i] = 0;
                                                                 @endphp
                                                             @endfor
-                                                            @foreach ($result as $data)
+                                                            @foreach ($result as $key => $data)
                                                             <tr>
                                                                 {{-- @foreach ($data_hari_operasi[$data->e_nl] as $test) --}}
                                                                     <tr>
@@ -907,9 +971,11 @@
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
                                                                         @endif
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
 
                                                                         @php
                                                                             $jumlah_kap = 0;
+                                                                            $total_all_kap = 0;
                                                                         @endphp
 
                                                                         @for ($i=1; $i<=12;$i++)
@@ -933,13 +999,15 @@
                                                             @endforeach
 
                                                             <tr style="background-color: #d3d3d34d" >
-                                                                <th class="text-right" colspan="3">Jumlah</th>
+                                                                <th class="font-weight-bold text-right" colspan="4">Jumlah</th>
                                                                 @for ($i = 1; $i <= 12; $i++)
 
-                                                                <td class="text-center">{{ number_format($total_col_kap[$i] ?? 0,2) }}</td>
-
+                                                                <td class="font-weight-bold text-center">{{ number_format($total_col_kap[$i] ?? 0,2) }}</td>
+                                                                @php
+                                                                    $total_all_kap += $total_col_kap[$i] ?? 0 ;
+                                                                @endphp
                                                                 @endfor
-                                                                <td style="background-color: lightgray"></td>
+                                                                <td class="font-weight-bold text-center">{{ number_format( $total_all_kap ?? 0,2) }}</td>
                                                             </tr>
                                                         @elseif ($bulan == 'equal')
                                                             @php
@@ -983,6 +1051,7 @@
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ number_format($data_kapasiti[$data->e_nl][$equal_month] ?? 0,2) }}</td>
                                                                                 @php
                                                                                     $total_kap_row_eq += $data_kapasiti[$data->e_nl][$equal_month] ?? 0;
@@ -995,7 +1064,7 @@
 
                                                             <tr style="background-color: #d3d3d34d"
                                                                 class="font-weight-bold text-center">
-                                                                <th class="text-right" colspan="3">Jumlah</th>
+                                                                <th class="font-weight-bold text-right" colspan="4">Jumlah</th>
                                                                 <td class="text-center">{{ number_format($total_kap_row_eq ?? 0,2) }}</td>
 
                                                             </tr>
@@ -1043,10 +1112,12 @@
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
                                                                         @endif
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
 
 
                                                                         @php
                                                                             $jumlah_kap_col = 0;
+                                                                            $total_between_kap = 0;
                                                                         @endphp
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_b5 != 0) --}}
@@ -1070,14 +1141,16 @@
 
                                                             <tr style="background-color: #d3d3d34d"
                                                                 class="font-weight-bold text-center">
-                                                                <th class="text-right" colspan="3">Jumlah</th>
+                                                                <th class="text-right" colspan="4">Jumlah</th>
 
                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                 <td class="text-center">{{ number_format($jumlah_kap_row[$i] ?? 0,2) }}</td>
-
+                                                                @php
+                                                                    $total_between_kap += $jumlah_kap_row[$i] ?? 0 ;
+                                                                @endphp
                                                                 @endfor
-                                                                <td style="background-color: lightgrey"></td>
+                                                                <td class="font-weight-bold text-center">{{ number_format( $total_between_kap ?? 0,2) }}</td>
 
                                                             </tr>
 
@@ -1325,7 +1398,9 @@
     </script>
     <script>
         $(document).ready(function() {
-           $('html,body').animate({scrollTop: document.body.scrollHeight},"slow");
+            $('html, body').animate({
+                scrollTop: $("#scroll-section").offset().top
+                }, 1000);
         })
     </script>
 <script>
@@ -1359,6 +1434,18 @@
           } );
       } );
   </script>
+<script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
       {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
       <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>

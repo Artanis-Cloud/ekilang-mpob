@@ -265,7 +265,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0" style="font-size: 13px">
                             <thead>
-                                <tr style="text-align: center">
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
@@ -280,6 +280,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($penyata && !$penyata->isEmpty())
                                 @foreach ($penyata as $data)
                                     <tr style="text-align: right">
                                         <td style="text-align: left">{{ $data->produk->proddesc }}</td>
@@ -445,6 +446,11 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                    <tr>
+                                    <td colspan="10" class="text-center" style="height:40px">Tiada Rekod</td>
+                                    </tr>
+                                @endif
                                 <tr>
 
                                     <td colspan="2"><b>JUMLAH</b></td>

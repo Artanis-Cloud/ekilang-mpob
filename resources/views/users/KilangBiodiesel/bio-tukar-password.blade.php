@@ -34,15 +34,15 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <!-- row -->
-            <div class="row">
+        <div class="card" style="margin-right:3%; margin-left:3%">
+
+            <div class="card-body">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card" style="padding: 3%" >
+                    <div class="card" >
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan</h3>
                         </div>
-                    <hr>
+                        <hr>
 
                     <form method="POST" action="{{ route('bio.update.password', [$user[0]->id]) }}">
                         {{ csrf_field() }}
