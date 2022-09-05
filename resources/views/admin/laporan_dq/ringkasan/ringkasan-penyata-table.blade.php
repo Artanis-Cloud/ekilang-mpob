@@ -201,7 +201,7 @@
                                         <div class="table-responsive " >
                                             <table  class="table table-bordered text-center" style="width: 100%; font-size:13px">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style= "background-color:#d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
                                                         <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                                         <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
@@ -220,7 +220,7 @@
 
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data_daerah[$key]->nama_daerah }}</th>
+                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
 
 
                                                         </tr>

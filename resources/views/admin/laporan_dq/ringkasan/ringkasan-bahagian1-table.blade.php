@@ -39,25 +39,31 @@
 
 /* .wrapper {
 } */
-.table {
 
-  overflow-x:scroll;
-  width:100%;
-  table-layout: fixed;
-  width: auto;
-  border-collapse: collapse;
-  background: white;
-  display: block;
-}
-tr {
-  border-top: 1px solid #ccc;
-}
-td, th {
-  vertical-align: top;
-  text-align: left;
-  width:150px;
-  padding: 5px;
-}
+    tr {
+    border-top: 1px solid #ccc;
+    }
+    td, th {
+    vertical-align: top;
+    text-align: left;
+    width:150px;
+    padding: 5px;
+    }
+
+    @media screen
+    {
+        .noPrint{}
+        .noScreen{display:none;}
+    }
+
+    @media print
+    {
+        @page {size: auto !important}
+        .noPrint{display:none;}
+        .noScreen{}
+    }
+
+
 </style>
 
 @section('content')
@@ -273,13 +279,27 @@ td, th {
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Negeri</label>
-                                                    <select class="form-control" id="negeri_id" name="e_negeri">
+                                                    <select class="form-control" id="negeri_id" name="e_negeri"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')"
+                                                    onchange="ajax_daerah(this)" >
                                                         <option selected  value="">Sila Pilih Negeri</option>
                                                         @foreach ($negeri as $data)
                                                             <option value="{{ $data->kod_negeri }}" {{(old('e_negeri', $negeri_req) == $data->kod_negeri ? 'selected' : '')}}>
                                                                 {{ $data->nama_negeri }}
                                                             </option>
                                                         @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Daerah</label>
+                                                    <select class="form-control" id="daerah_id" name='e_daerah'
+                                                        placeholder="Daerah"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')">
+                                                        <option selected hidden disabled value="">
+                                                            Sila Pilih Negeri Terlebih Dahulu
+                                                        </option>
                                                     </select>
                                                 </div>
 
@@ -350,40 +370,66 @@ td, th {
                                     </div>
                                 </form>
                                 <section class="section"><hr>
-                                    <div class="card"><br>
 
-                                        <h4 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h4><br>
+                                    <div class="card" ><br>
+                                        <h3 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h3>
+                                        <div class="text-center">
+                                            <h4 style="color: black; text-align:center; font-weight:500">
+                                                @if ($laporan == 'ebio_b5')
+                                                Stok Awal Di Premis
+                                                @elseif($laporan == 'ebio_b6')
+                                                Belian / Terimaan
+                                                @elseif($laporan == 'ebio_b7')
+                                                Pengeluaran
+                                                @elseif($laporan == 'ebio_b8')
+                                                Digunakan Untuk Proses Selanjutnya
+                                                @elseif($laporan == 'ebio_b9')
+                                                Jualan / Edaran Tempatan
+                                                @elseif($laporan == 'ebio_b10')
+                                                Eksport
+                                                @elseif($laporan == 'ebio_b11')
+                                                Stok Akhir Dilapor
+                                                @endif
+                                            </h4>
+                                            <h4 style="color: rgb(30, 28, 28); text-align:center">Tahun:  {{ $tahun }} </h4>
+                                        </div>
+
                                         @if ($laporan == 'ebio_b5' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Stok Awal Di Premis</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Stok Awal Di Premis</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -540,7 +586,7 @@ td, th {
                                                                         $total_col_bulan_b5[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key => $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b5_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -576,12 +622,17 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
+
                                                                                 @php
                                                                                     $jumlah_b5 = 0;
+                                                                                    $total_all_bulan_b5 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                {{-- @foreach ($proddesc as $item) --}}
+                                                                                    <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
+
+                                                                                {{-- @endforeach --}}
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -602,13 +653,17 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b5[$i] ?? 0,2) }}</td>
+                                                                        <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b5[$i] ?? 0,2) }}</td>
+                                                                        @php
+                                                                            $total_all_bulan_b5 += $total_col_bulan_b5[$i] ?? 0 ;
+                                                                        @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b5 ?? 0,2) }}</td>
+
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -650,10 +705,11 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
-                                                                            <td style="text-align: center"> {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
+                                                                            <td  style="text-align: center; width:500px"> {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b5 += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
                                                                             @endphp
@@ -664,7 +720,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b5 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -713,12 +769,15 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
+
 
                                                                             @php
                                                                                 $jumlah5 = 0;
+                                                                                $total_between_bulan_b5 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b5 != 0) --}}
@@ -742,14 +801,17 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan5[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b5 += $jumlah_bulan5[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b5 ?? 0,2) }}</td>
 
                                                                 </tr>
 
@@ -762,36 +824,41 @@ td, th {
 
                                             </div>
                                         @elseif ($laporan == 'ebio_b6' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Belian / Penerimaan</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Belian / Terimaan</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -948,7 +1015,7 @@ td, th {
                                                                         $total_col_bulan_b6[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key =>  $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b6_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -984,12 +1051,13 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b6 = 0;
+                                                                                    $total_all_bulan_b6 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b6_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -1010,13 +1078,17 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b6[$i] ?? 0,2) }}</td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b6[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_bulan_b6 += $total_col_bulan_b6[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b6 ?? 0,2) }}</td>
+
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -1058,9 +1130,10 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                             <td style="text-align: center"> {{ number_format($ebio_b6_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b6 += $ebio_b6_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
@@ -1072,7 +1145,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b6 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -1121,12 +1194,14 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @php
                                                                                 $jumlah6 = 0;
+                                                                                $total_between_bulan_b6 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b6 != 0) --}}
@@ -1150,14 +1225,17 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan6[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b6 += $jumlah_bulan6[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b6 ?? 0,2) }}</td>
 
                                                                 </tr>
 
@@ -1171,36 +1249,41 @@ td, th {
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b7' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Pengeluaran</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Pengeluaran</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -1357,7 +1440,7 @@ td, th {
                                                                         $total_col_bulan_b7[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key => $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b7_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -1393,12 +1476,14 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b7 = 0;
+                                                                                    $total_all_bulan_b7 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
+
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b7_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -1419,13 +1504,15 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b7[$i] ?? 0,2) }}</td>
-
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b7[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_bulan_b7 += $total_col_bulan_b7[$i] ?? 0 ;
+                                                                    @endphp
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b7 ?? 0,2) }}</td>
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -1467,9 +1554,10 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                             <td style="text-align: center"> {{ number_format($ebio_b7_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b7 += $ebio_b7_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
@@ -1481,7 +1569,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b7 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -1530,12 +1618,14 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @php
                                                                                 $jumlah7 = 0;
+                                                                                $total_between_bulan_b7 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b7 != 0) --}}
@@ -1559,14 +1649,18 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan7[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b7 += $jumlah_bulan7[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b7 ?? 0,2) }}</td>
+
 
                                                                 </tr>
 
@@ -1581,36 +1675,41 @@ td, th {
 
                                             <!-- ebio_b8 =  DigunakanUntukProsesSelanjutnya -->
                                         @elseif ($laporan == 'ebio_b8' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Digunakan Untuk Proses Selanjutnya</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Digunakan Untuk Proses Selanjutnya</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -1767,7 +1866,7 @@ td, th {
                                                                         $total_col_bulan_b8[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key => $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b8_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -1803,12 +1902,13 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b8 = 0;
+                                                                                    $total_all_bulan_b8 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b8_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -1829,13 +1929,17 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b8[$i] ?? 0,2) }}</td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b8[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_bulan_b8 += $total_col_bulan_b8[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b8 ?? 0,2) }}</td>
+
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -1877,9 +1981,10 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                             <td style="text-align: center"> {{ number_format($ebio_b8_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b8 += $ebio_b8_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
@@ -1891,7 +1996,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b8 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -1940,12 +2045,14 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @php
                                                                                 $jumlah8 = 0;
+                                                                                $total_between_bulan_b8 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b8 != 0) --}}
@@ -1969,14 +2076,18 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan8[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b8 += $jumlah_bulan8[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b8 ?? 0,2) }}</td>
+
 
                                                                 </tr>
 
@@ -1990,36 +2101,41 @@ td, th {
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b9' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Jualan / Edaran Tempatan</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Jualan / Edaran Tempatan</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -2176,7 +2292,7 @@ td, th {
                                                                         $total_col_bulan_b9[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key => $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b9_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -2212,12 +2328,14 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b9 = 0;
+                                                                                    $total_all_bulan_b9 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
+
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b9_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -2238,13 +2356,17 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b9[$i] ?? 0,2) }}</td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b9[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_bulan_b9 += $total_col_bulan_b9[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b9 ?? 0,2) }}</td>
+
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -2286,9 +2408,10 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                             <td style="text-align: center"> {{ number_format($ebio_b9_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b9 += $ebio_b9_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
@@ -2300,7 +2423,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b9 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -2349,12 +2472,13 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
-
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @php
                                                                                 $jumlah9 = 0;
+                                                                                $total_between_bulan_b9 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b9 != 0) --}}
@@ -2378,14 +2502,17 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan9[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b9 += $jumlah_bulan9[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b9 ?? 0,2) }}</td>
 
                                                                 </tr>
 
@@ -2399,36 +2526,41 @@ td, th {
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b10' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Eksport</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Eksport</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -2621,12 +2753,13 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b10 = 0;
+                                                                                    $total_all_bulan_b10 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b10_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -2647,13 +2780,17 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b10[$i] ?? 0,2) }}</td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b10[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_bulan_b10 += $total_col_bulan_b10[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b10 ?? 0,2) }}</td>
+
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -2695,9 +2832,10 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                             <td style="text-align: center"> {{ number_format($ebio_b10_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b10 += $ebio_b10_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
@@ -2709,7 +2847,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b10 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -2758,12 +2896,14 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @php
                                                                                 $jumlah10 = 0;
+                                                                                $total_between_bulan_b10 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b10 != 0) --}}
@@ -2787,14 +2927,17 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="ont-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan10[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b10 += $jumlah_bulan10[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b10 ?? 0,2) }}</td>
 
                                                                 </tr>
 
@@ -2808,36 +2951,41 @@ td, th {
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b11' )
-                                            <div class="row">
-                                                <div class="col-md-1">
-                                                    <img src="{{ asset('excel_icon.jpg') }}" alt="user" width="30" id="exportExcel"  onclick="ExportToExcel()">
+
+                                            <div class="table-responsive"  id="printableArea">
+                                                <div class="noScreen text-center">
+                                                    <h4 style="color: black; text-align:center; font-weight:500">Stok Akhir Di Premis</h4>
+                                                    <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <h6 style="color: black; text-align:center; font-weight:500">Stok Akhir Dipremis</h6>
-                                                    <h6 style="color: rgb(30, 28, 28); text-align:center">Tahun: {{ $tahun }}</h6>
+                                                <div class="noPrint">
+                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                        style="background-color:white; color: #f90a0a; " >
+                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                    </button>
+                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                        style="background-color: white; color: #0a7569; ">
+                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                    </button>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="table-responsive">
-
-
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; ">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
-                                                                rowspan="2">No. Pemegang Lesen</th>
+                                                                rowspan="2">No. Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:30%"
                                                                 rowspan="2">Nama Pemegang Lesen</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
                                                                 rowspan="2">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; width:5%"
+                                                                rowspan="2">Daerah</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:3%"
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">{{ $tahun }}</th>
+                                                                colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -2994,7 +3142,7 @@ td, th {
                                                                         $total_col_bulan_b11[$i] = 0;
                                                                     @endphp
                                                                 @endfor
-                                                                @foreach ($result as $data)
+                                                                @foreach ($result as $key => $data)
                                                                     <tr>
                                                                         @foreach ($ebio_b11_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
@@ -3030,12 +3178,13 @@ td, th {
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
                                                                                 @endif
-
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                                 <td style="text-align: center"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b11 = 0;
+                                                                                    $total_all_bulan_b11 = 0;
                                                                                 @endphp
-                                                                                <td> {{ $data->proddesc }}</td>
+                                                                                <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
                                                                                     <td style="text-align: center"> {{ number_format($ebio_b11_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</td>
@@ -3056,13 +3205,17 @@ td, th {
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" >
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
                                                                     @for ($i = 1; $i <= 12; $i++)
 
-                                                                    <td class="text-center">{{ number_format($total_col_bulan_b11[$i] ?? 0,2) }}</td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format($total_col_bulan_b11[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_all_bulan_b11 += $total_col_bulan_b11[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgray"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_all_bulan_b11 ?? 0,2) }}</td>
+
                                                                 </tr>
                                                             @elseif ($bulan == 'equal')
                                                                 @php
@@ -3104,9 +3257,10 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                             <td style="text-align: center"> {{ number_format($ebio_b11_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
                                                                             @php
                                                                                 $total_bulan_b11 += $ebio_b11_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
@@ -3118,7 +3272,7 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold ttext-right" colspan="6">Jumlah</th>
                                                                     <td class="text-center">{{ number_format($total_bulan_b11 ?? 0,2) }}</td>
 
                                                                 </tr>
@@ -3167,12 +3321,14 @@ td, th {
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
                                                                             @endif
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
                                                                             <td style="text-align: center"> {{ $kodProduk }}</td>
 
-                                                                            <td> {{ $data->proddesc }}</td>
+                                                                            <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @php
                                                                                 $jumlah11 = 0;
+                                                                                $total_between_bulan_b11 = 0;
                                                                             @endphp
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b11 != 0) --}}
@@ -3196,14 +3352,18 @@ td, th {
 
                                                                 <tr style="background-color: #d3d3d34d"
                                                                     class="font-weight-bold text-center">
-                                                                    <th class="text-right" colspan="5">Jumlah</th>
+                                                                    <th class="font-weight-bold text-right" colspan="6">Jumlah</th>
 
                                                                     @for ($i = $start_month; $i <= $end_month; $i++)
 
                                                                     <td class="text-center">{{ number_format($jumlah_bulan11[$i] ?? 0,2) }}</td>
+                                                                    @php
+                                                                        $total_between_bulan_b11 += $jumlah_bulan11[$i] ?? 0 ;
+                                                                    @endphp
 
                                                                     @endfor
-                                                                    <td style="background-color: lightgrey"></td>
+                                                                    <td class="font-weight-bold text-center">{{ number_format( $total_between_bulan_b11 ?? 0,2) }}</td>
+
 
                                                                 </tr>
 
@@ -3219,7 +3379,7 @@ td, th {
                                         <br>
                                         <br>
 
-
+                                    </div>
                                 </section>
                             </div>
 
@@ -3238,25 +3398,36 @@ td, th {
 @endsection
 
 @section('scripts')
-<script>
-    function openInit(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+    <script>
+        function openInit(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
     }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
-
+    </script>
 
 
 <script>
