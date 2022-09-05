@@ -56,7 +56,7 @@ class Proses4Controller extends Controller
         // dd($request->e_tahun);
         $this->porting_pl91($request->all());
         $this->porting_pl101($request->all());
-        // $this->porting_pl102($request->e_ddate);
+        $this->porting_pl102($request->all());
         // $this->porting_pl104($request->e_ddate);
         // $this->porting_pl111($request->e_ddate);
         // $this->porting_plbio($request->e_ddate);
@@ -445,6 +445,62 @@ class Proses4Controller extends Controller
                 }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function initialize_proses_pl101($e_ddate)
     {
