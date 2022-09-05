@@ -143,9 +143,12 @@
                                 </div>
                                 <div class="col-md-2">
                                         <input type="text" class="form-control" style="text-align:right" max="31"
-                                        {{-- @if ($cpo->e101_b10 || $cpko->e101_b10 )
-                                            required
-                                        @endif --}}
+                                    <?php
+                                        if ($cpo->e101_b10 || $cpko->e101_b10 ){
+                                        ?> required <?php
+                                        }
+
+                                        ?>
                                         name='e101_a1'
                                         oninput="nodecimal(this); setCustomValidity(''); invoke_a1(); valid_a1(); input_a1()"
                                         id="e101_a1i" required max="31" onkeypress="return isNumberKey(event)"
