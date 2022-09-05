@@ -118,7 +118,8 @@
                         <div class="mb-2 col-8" style="text-align: left">
                             <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                         </div>
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container col-8 ml-auto mr-auto center mt-4">
+
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">

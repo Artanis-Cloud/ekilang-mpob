@@ -100,7 +100,7 @@
                 </b>
             </p>
         </div>
-        <div class="card" style="margin-right:2%; margin-left:2%; padding: 2%">
+        <div class="card" style="margin-right:2%; margin-left:2%;">
             <form action="{{ route('penapis.add.bahagian.iva') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body">
@@ -115,7 +115,7 @@
                         <div class="mb-2 col-8" style="text-align: left">
                             <p><i>Nota: Sila isikan butiran dibawah dalam tan metrik dan tekan butang ‘Simpan & Seterusnya’</i></p>
                         </div>
-                        <div class="container col-10 ml-auto mr-auto center mt-4">
+                        <div class="container col-8 ml-auto mr-auto center mt-4" >
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
