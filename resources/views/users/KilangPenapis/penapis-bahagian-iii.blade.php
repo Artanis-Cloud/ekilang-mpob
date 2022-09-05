@@ -143,20 +143,12 @@
                                 </div>
                                 <div class="col-md-2">
                                         <input type="text" class="form-control" style="text-align:right" max="31"
-                                    <?php
-                                        if ($cpo->e101_b10 || $cpko->e101_b10 ){
-                                        ?> required <?php
-                                        }
-
-                                        ?>
                                         name='e101_a1'
                                         oninput="nodecimal(this); setCustomValidity(''); invoke_a1(); valid_a1(); input_a1()"
-                                        id="e101_a1i" required max="31" onkeypress="return isNumberKey(event)"
+                                        id="e101_a1" required max="31" onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
 
-                                    {{-- <input type="text" class="form-control" style="text-align:right"
-                                        id='e101a1_hidden' value=""> --}}
 
                                     <p type="hidden" id="err_a1" style="color: red; display:none"><i>Nilai mestilah
                                             melebihi 0!</i></p>
@@ -228,6 +220,11 @@
 
                                 </div>
 
+                                <input type="hidden" class="form-control" style="text-align:right"
+                                id='cpo_hidden' value="{{ $cpo->e101_b10 ?? 0 }}">
+                                <input type="hidden" class="form-control" style="text-align:right"
+                                id='cpko_hidden' value="{{ $cpko->e101_b10 ?? 0 }}">
+
                                 <div class="form-group" style="padding: 2%; margin-bottom: 10%">
                                     <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
@@ -282,7 +279,7 @@
                 });
             });
         </script> --}}
-        <script>
+        {{-- <script>
             function input_a1() {
                var a1 = document.getElementById('e101_a1');
                var a1_hidden = document.getElementById('e101a1_hidden');
@@ -290,42 +287,50 @@
                a1_hidden.value = a1.value;
 
             }
-        </script>
+        </script> --}}
 
-                {{-- <script type="text/javascript">
+                <script type="text/javascript">
                     $(document).ready(function() {
-                        @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpo == '0')
+                        var cpo = document.getElementById('cpo_hidden');
+                        var cpko = document.getElementById('cpko_hidden');
+                        console.log('cpo', cpo.value);
+                        console.log('cpko', cpko.value);
+                        if(cpo.value == 0 && cpko.value == 0){
                             console.log('tiada');
                             document.getElementById("e101_a1").removeAttribute('required');
                             document.getElementById("e101_a2").removeAttribute('required');
                             document.getElementById("e101_a3").removeAttribute('required');
-
-                            // document.getElementById('meningkat_container').style.display = "block";
-                            // document.getElementById('lain_container').style.display = "block";
-                        @else
+                        } else{
                             console.log('ada');
                             document.getElementById("e101_a1").setAttribute('required', '');
                             document.getElementById("e101_a2").setAttribute('required', '');
                             document.getElementById("e101_a3").setAttribute('required', '');
                             // $("#tutup").modal('show');
-                        @endif
+                        }
+
                     });
-                </script> --}}
+                </script>
                 <script>
                     function check() {
                         // (B1) INIT
                         var error = "",
                             field = "";
-                        // @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpko == '0')
-                        //    // kod produk
-                        //    field = document.getElementById("e101_a1");
-                        //     if (field.value > 31) {
-                        //         error += "Name must be 2-4 characters\r\n";
-                        //         $('#e101_a1').css('border-color', 'red');
-                        //         document.getElementById('err_a1').style.display = "none";
-                        //         document.getElementById('err_a12').style.display = "block";
-                        //     }
-                        // @else
+
+                        var cpo = document.getElementById('cpo_hidden');
+                        var cpko = document.getElementById('cpko_hidden');
+                        console.log('cpo', cpo.value);
+                        console.log('cpko', cpko.value);
+
+                        if(cpo.value == 0 && cpko.value == 0){
+                           // kod produk
+                           field = document.getElementById("e101_a1");
+                            if (field.value > 31) {
+                                error += "Name must be 2-4 characters\r\n";
+                                $('#e101_a1').css('border-color', 'red');
+                                document.getElementById('err_a1').style.display = "none";
+                                document.getElementById('err_a12').style.display = "block";
+                            }
+                        } else {
                             // kod produk
                             console.log('lebih dari kosong');
                             field = document.getElementById("e101_a1");
@@ -373,9 +378,7 @@
                                 document.getElementById('err_a3').style.display = "none";
                                 document.getElementById('err_a32').style.display = "block";
                             }
-                        // @endif
-
-
+                        }
 
                         // (B4) RESULT
                         if (error == "") {
@@ -390,10 +393,27 @@
 
                     }
                 </script>
-                {{-- <script>
+                <script>
                     function valid_a1() {
-                        @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
-                        @else
+
+                        var cpo = document.getElementById('cpo_hidden');
+                        var cpko = document.getElementById('cpko_hidden');
+                        console.log('cpo', cpo.value);
+                        console.log('cpko', cpko.value);
+
+                        if(cpo.value == 0 && cpko.value == 0){
+                            if ($('#e101_a1').val() > 31) {
+                                $('#e101_a1').css('border-color', 'red');
+                                document.getElementById('err_a1').style.display = "none";
+                                document.getElementById('err_a12').style.display = "block";
+
+                            } else {
+                                $('#e101_a1').css('border-color', '');
+                                document.getElementById('err_a1').style.display = "none";
+                                document.getElementById('err_a12').style.display = "none";
+
+                            }
+                        } else {
 
                             if ($('#e101_a1').val() == '' || $('#e101_a1').val() == '0') {
                                 $('#e101_a1').css('border-color', 'red');
@@ -412,13 +432,32 @@
                                 document.getElementById('err_a12').style.display = "none";
 
                             }
-                        @endif
+                        }
+
                     }
                 </script>
                 <script>
                     function valid_a2() {
-                        @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
-                        @else
+
+                        var cpo = document.getElementById('cpo_hidden');
+                        var cpko = document.getElementById('cpko_hidden');
+                        console.log('cpo', cpo.value);
+                        console.log('cpko', cpko.value);
+
+                        if(cpo.value == 0 && cpko.value == 0){
+                            if ($('#e101_a2').val() >= 100) {
+                                console.log($('#e101_a2').val());
+                                $('#e101_a2').css('border-color', 'red');
+                                document.getElementById('err_a2').style.display = "none";
+                                document.getElementById('err_a22').style.display = "block";
+
+                            } else {
+                                $('#e101_a2').css('border-color', '');
+                                document.getElementById('err_a2').style.display = "none";
+                                document.getElementById('err_a22').style.display = "none";
+
+                            }
+                        } else {
                             if ($('#e101_a2').val() == '' || $('#e101_a2').val() == 0) {
                                 $('#e101_a2').css('border-color', 'red');
                                 document.getElementById('err_a2').style.display = "block";
@@ -437,13 +476,32 @@
                                 document.getElementById('err_a22').style.display = "none";
 
                             }
-                        @endif
+                        }
+
                     }
                 </script>
                 <script>
                     function valid_a3() {
-                        @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
-                        @else
+
+                        var cpo = document.getElementById('cpo_hidden');
+                        var cpko = document.getElementById('cpko_hidden');
+                        console.log('cpo', cpo.value);
+                        console.log('cpko', cpko.value);
+
+                        if(cpo.value == 0 && cpko.value == 0){
+                            if ($('#e101_a3').val() >= 100) {
+                                $('#e101_a3').css('border-color', 'red');
+                                document.getElementById('err_a3').style.display = "none";
+                                document.getElementById('err_a32').style.display = "block";
+
+                            } else {
+                                $('#e101_a3').css('border-color', '');
+                                document.getElementById('err_a3').style.display = "none";
+                                document.getElementById('err_a32').style.display = "none";
+
+                            }
+                        } else {
+
                             if ($('#e101_a3').val() == '' || $('#e101_a3').val() == 0) {
                                 $('#e101_a3').css('border-color', 'red');
                                 document.getElementById('err_a3').style.display = "block";
@@ -461,9 +519,9 @@
                                 document.getElementById('err_a32').style.display = "none";
 
                             }
-                        @endif
+                        }
                     }
-                </script> --}}
+                </script>
                 <script>
                     function invoke_a1() {
                         addEventListener('keydown', function(evt) {
