@@ -777,11 +777,13 @@ class KilangPenapisController extends Controller
         $tahun = date("Y");
 
         $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->first();
-        $cpo = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','01')->first('e101_b10');
-        $cpko = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','04')->first('e101_b10');
+        $cpo_b10 = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','01')->first('e101_b10');
+        $cpko_b10 = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','04')->first('e101_b10');
+        $cpo= $cpo_b10->e101_b10;
+        $cpko = $cpko_b10->e101_b10;
         // $produk2 = $penyata->e101b->e101_b4;
         // $json = json_encode($produk);
-        // dd($cpko);
+        // dd($cpo);
 
         // $cpo = E101B::where($produk->e101_b4, '01')->first();
         // $cpko = E101B::where($produk->e101_b4, '04')->first();

@@ -274,7 +274,8 @@
         </script> --}}
                 <script type="text/javascript">
                     $(document).ready(function() {
-                        @if ($cpo == null || $cpko == null || $cpo->e101_b10 == '0.00' || $cpko->e101_b10 == '0.00' || $cpo->e101_b10 == '0' || $cpo->e101_b10 == '0')
+                        {{ dd($cpko->e101_b10) }}
+                        @if ($cpo == null || $cpko == null || $cpo == '0.0' || $cpko == '0.0' || $cpo == '0' || $cpo == '0')
                             console.log('tiada');
                             document.getElementById("e101_a1").removeAttribute('required');
                             document.getElementById("e101_a2").removeAttribute('required');
