@@ -142,21 +142,21 @@
                                         Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
-                                    {{-- @if ($cpo->e101_b10 == null || $cpko->e101_b10 == null || $cpo->e101_b10 == '0.0' || $cpko->e101_b10 == '0.0' || $cpo->e101_b10 == '0' || $cpo->e101_b10 == '0')
+                                    @if (!$cpo->e101_b10)
                                         <input type="text" class="form-control" style="text-align:right" max="31"
                                         name='e101_a1' onchange=""
                                         oninput="nodecimal(this); setCustomValidity(''); invoke_a1(); valid_a1(); input_a1()"
                                         id="e101_a1i" required max="31" onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
-                                    @else --}}
+                                    @else
                                     <input type="text" class="form-control" style="text-align:right" max="31"
                                         name='e101_a1' required
                                         oninput="nodecimal(this); setCustomValidity(''); invoke_a1(); valid_a1(); input_a1()"
                                         id="e101_a1e" required max="31" onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila pastikan nilai tidak melebihi 31 hari')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
-                                    {{-- @endif --}}
+                                    @endif
 
                                     {{-- <input type="text" class="form-control" style="text-align:right"
                                         id='e101a1_hidden' value=""> --}}
