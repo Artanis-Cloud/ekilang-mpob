@@ -4,19 +4,36 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E07Btranshipment;
+use App\Models\E07Init;
+use App\Models\E07Transhipment;
 use App\Models\E101B;
 use App\Models\E101C;
 use App\Models\E101D;
 use App\Models\E101E;
 use App\Models\E101Init;
+use App\Models\E102b;
+use App\Models\E102c;
+use App\Models\E102Init;
+use App\Models\E104B;
+use App\Models\E104C;
+use App\Models\E104D;
+use App\Models\E104Init;
 use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\H07Btranshipment;
+use App\Models\H07Transhipment;
 use App\Models\H101B;
 use App\Models\H101C;
 use App\Models\H101D;
 use App\Models\H101E;
+use App\Models\H102b;
+use App\Models\H102c;
+use App\Models\H104B;
+use App\Models\H104C;
+use App\Models\H104D;
 use App\Models\H91b;
 use App\Models\Negeri;
 use App\Models\Pelesen;
@@ -32,8 +49,8 @@ class Proses4Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama   ,
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID   ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama "] ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID  "]   ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -57,10 +74,8 @@ class Proses4Controller extends Controller
         $this->porting_pl91($request->all());
         $this->porting_pl101($request->all());
         $this->porting_pl102($request->all());
-        // $this->porting_pl104($request->e_ddate);
-        // $this->porting_pl111($request->e_ddate);
-        // $this->porting_plbio($request->e_ddate);
-        // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
+        $this->porting_pl104($request->all());
+        $this->porting_pl111($request->all());
         return redirect()->back()->with('success', 'Penyata telah dipindahkan ke PLEID');
     }
 
@@ -446,575 +461,483 @@ class Proses4Controller extends Controller
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function initialize_proses_pl101($e_ddate)
+    public function porting_pl102()
     {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PL101')->where('e_status', '1')->get();
+        //data from e102_init
+        $e102init = E102Init::where('e102_flg', '2')->get();
+        // dd($e91init);
 
-        $e101_init = DB::table('e101_init')->delete();
-        $e101_b = DB::table('e101_b')->delete();
-        $e101_c = DB::table('e101_c')->delete();
-        $e101_d = DB::table('e101_d')->delete();
-        $e101_e = DB::table('e101_e')->delete();
+        $totalpl102 = 0;
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E101Init::create([
-                'e101_reg' => $key + 1,
-                'e101_nl' => $e_nl,
-                'e101_bln' => now()->month,
-                'e101_thn' => now()->year,
-                'e101_flg' => '1',
-                'e101_sdate' => NULL,
-                'e101_ddate' => $e_ddate,
-                'e101_a1' => NULL,
-                'e101_a2' => NULL,
-                'e101_a3' => NULL,
-                'e101_npg' => NULL,
-                'e101_jpg' => NULL,
-                'e101_flagcetak' => NULL,
-            ]);
-        }
+        foreach ($e102init as $key => $selects) {
+
+            $regno = $selects->e102_reg ;
+            $nolesen = $selects->e102_nl ;
+            $tahun = $selects->e102_thn ;
+            $bulan = $selects->e102_bln ;
+            $tarikh = $selects->e102_sdate ;
+            $tarikh1 = $selects->e102_ddate ;
+            $aa1 = (float) $selects->e102_aa1 ;
+            $aa2 = (float) $selects->e102_aa2 ;
+            $aa3 = (float) $selects->e102_aa3 ;
+            $ab1 = (float) $selects->e102_ab1 ;
+            $ab2 = (float) $selects->e102_ab2 ;
+            $ab3 = (float) $selects->e102_ab3 ;
+            $ac1 = (float) $selects->e102_ac1 ;
+            $ac2 = (float) $selects->e102_ac2 ;
+            $ac3 = (float) $selects->e102_ac3 ;
+            $ad1 = (float) $selects->e102_ad1 ;
+            $ad2 = (float) $selects->e102_ad2 ;
+            $ad3 = (float) $selects->e102_ad3 ;
+            $ae1 = (float) $selects->e102_ae1 ;
+            $af2 = (float) $selects->e102_af2 ;
+            $af3 = (float) $selects->e102_af3 ;
+            $ag1 = (float) $selects->e102_ag1 ;
+            $ag2 = (float) $selects->e102_ag2 ;
+            $ag3 = (float) $selects->e102_ag3 ;
+            $ah1 = (float) $selects->e102_ah1 ;
+            $ah2 = (float) $selects->e102_ah2 ;
+            $ah3 = (float) $selects->e102_ah3 ;
+            $ai1 = (float) $selects->e102_ai1 ;
+            $ai2 = (float) $selects->e102_ai2 ;
+            $ai3 = (float) $selects->e102_ai3 ;
+            $aj1 = (float) $selects->e102_aj1 ;
+            $aj2 = (float) $selects->e102_aj2 ;
+            $aj3 = (float) $selects->e102_aj3 ;
+            $ak1 = (float) $selects->e102_ak1 ;
+            $ak2 = (float) $selects->e102_ak2 ;
+            $ak3 = (float) $selects->e102_ak3 ;
+            $al1 = (float) $selects->e102_al1 ;
+            $al2 = (float) $selects->e102_al2 ;
+            $al3 = (float) $selects->e102_al3 ;
+            $al4 = (float) $selects->e102_al4 ;
+
+            $npg = $selects->e102_npg ;
+            $jpg = $selects->e102_jpg ;
+
+            $ae3 = (float) $selects->e102_ae3 ;
+
+
+            $regpelesen102 = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PL102')->get();
+
+            foreach ($regpelesen102 as $row)
+          {
+            $kodpgw = $row->kodpgw;
+            $nosiri = $row->nosiri;
+
+            $nobatch = "$bulan$tahun$kodpgw$nosiri";
+            // dd($nobatch);
+
+          }
+
+            // insert data to pldb pl102
+            $insertpl102 = DB::connection('mysql4')->insert("INSERT into pl1021p3 (F1021A,F1021B,F1021C,F1021D,F1021E,F1021F,F1021G1,F1021G2,F1021G3,F1021H1,F1021H2,F1021H3,F1021I1,F1021I2,F1021I3,F1021J1,F1021J2,
+            F1021J3,F1021K,F1021L1,F1021L2,F1021M1,F1021M2,F1021M3,F1021N1,F1021N2,F1021N3,F1021O1,F1021O2,F1021O3,F1021Q1,F1021Q2,F1021Q3,
+            F1021R1,F1021R2,F1021R3,F1021S1,F1021S2,F1021S3,F1021S4,F1021AA,F1021AA_date,F1021K2) values ('$nolesen','$nobatch',
+                                 '$bulan','$tahun','$tarikh','$tarikh',
+                                $aa1,$aa2,$aa3,$ab1,$ab2,$ab3,$ac1,
+                                $ac2,$ac3,$ad1,$ad2,$ad3,
+                                $ae1,$af2,$af3,$ag1,$ag2,$ag3,$ah1,$ah2,$ah3,
+                                $ai1,$ai2,$ai3,$aj1,$aj2,$aj3,$ak1,$ak2,$ak3,
+                                $al1,$al2,$al3,$al4, NULL, NULL,$ae3)");
+
+                    // dd($insertpl91);
+
+                    if ($insertpl102) {
+                        $totalpl102 = $totalpl102 + 1;
+
+                        $str="'";
+                        $npg = str_replace($str, "\'", $npg);
+
+                        //update flg to 3 (ported)
+                       $updatee102 = DB::update("UPDATE e102_init
+                       set e102_flg = '3'
+                       WHERE e102_nl = '$nolesen'");
+
+                        //insert data to h102_init
+                        $inserth102 = DB::insert("INSERT into h102_init values ('$nobatch','$nolesen',
+                        '$bulan','$tahun','3','$tarikh','$tarikh1',
+                       $aa1,$aa2,$aa3,$ab1,$ab2,$ab3,$ac1,
+                       $ac2,$ac3,$ad1,$ad2,$ad3,
+                       $ae1,$af2,$af3,$ag1,$ag2,$ag3,$ah1,$ah2,$ah3,
+                       $ai1,$ai2,$ai3,$aj1,$aj2,$aj3,$ak1,$ak2,$ak3,
+                       $al1,$al2,$al3,$al4,'$npg','$jpg','$ae3')");
+
+
+
+                    }
+
+                    $e102b = E102b::where('e102_b2', $regno)->get();
+                    // $jum91b = 0;
+
+                    foreach ($e102b as $rowe102b)
+                    {
+                        $b3 =  $rowe102b->e102_b3 ;
+                        $b4 =  $rowe102b->e102_b4 ;
+                        $b5 =  $rowe102b->e102_b5 ;
+                        $b6 = (float)  $rowe102b->e102_b6 ;
+
+                        // insert into mysqli history e91b
+                        //calculate total row
+                        // $jum91b = $jum91b + 1;
+
+                         // insert data to pldb pl101
+                    $insertpl102b = DB::connection('mysql4')->insert("INSERT into pl1022p3 (F1022A,F1022B,F1022C,F1022D,F1022E,F1022F,F1022AA,F1022AA_date) values ('$nolesen','$nobatch',
+                    '$b3','$b4','$b5',$b6,NULL,NULL)");
+
+                        $idmax102b = H102b::max('e102_b1');
+                        // dd($idmax);
+
+                        if ($idmax102b)
+                        {
+                            $idno = $idmax102b + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth101b = DB::insert("INSERT into h102b values ('$idno','$nobatch',
+                        '$b3','$b4','$b5',$b6)");
+                    }
+
+                    $e102c = E102c::where('e102_c2', $regno)->get();
+
+                    foreach ($e102c as $rowe102c)
+                    {
+                        $c3 = $rowe102c->e102_c3 ;
+                        $c4 = $rowe102c->e102_c4 ;
+                        $c5 = $rowe102c->e102_c5 ;
+                        $c6 = $rowe102c->e102_c6 ;
+                        $c7 = (float) $rowe102c->e102_c7 ;
+                        $c8 = (float) $rowe102c->e102_c8 ;
+                        $c9 = $rowe102c->e102_c9 ;
+                        $nokontrak = $rowe102c->nokontrak ;
+                        $port = $rowe102c->port ;
+                        $portdest = $rowe102c->portdest ;
+                        $matawang = $rowe102c->matawang ;
+                        $nilai = $rowe102c->nilai ;
+                        $nolesensykt = $rowe102c->nolesen_sykt ;
+                        $namasykt = $rowe102c->nama_sykt ;
+                        $namaproduk = $rowe102c->nama_produk ;
+                        $namapel = $rowe102c->nama_pelabuhan ;
+                        $kenderaan = $rowe102c->kenderaan ;
+                        $nodafkend = $rowe102c->kenderaan_nodaftar ;
+                        $namadestport = $rowe102c->nama_destport ;
+                        $namadestnegara = $rowe102c->nama_destnegara ;
+                        $namasykt1 = $rowe102c->nama_sykt1 ;
+                        $bungkusan = $rowe102c->mpobq_bungkusan ;
+                        $nilairm = $rowe102c->mpobq_nilai_2 ;
+
+                        $idmax102c = H102c::max('e102_c1');
+                        // dd($idmax);
+
+                        if ($idmax102c)
+                        {
+                            $idno = $idmax102c + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth102c = DB::insert("INSERT into h102c values ($idno,'$nobatch','$c3',
+                        '$c4','$c5','$c6', $c7, $c8, '$c9','$nokontrak',
+                        '$port','$portdest','$matawang','$nilai',
+                        '$nolesensykt','$namasykt','$namaproduk',
+                        '$namapel','$kenderaan','$nodafkend','$namadestport',
+                        '$namadestnegara','$namasykt1','$bungkusan','$nilairm')");
+                    }
+
+                }
+
     }
 
-    public function initialize_proses_pl102($e_ddate)
+    public function porting_pl104()
     {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PL102')->where('e_status', '1')->get();
+        //data from e104_init
+        $e104init = E104Init::where('e104_flg', '2')->get();
+        // dd($e91init);
 
-        $e102_init = DB::table('e102_init')->delete();
-        $e102b = DB::table('e102b')->delete();
-        $e102c = DB::table('e102c')->delete();
+        $totalpl104 = 0;
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E102Init::create([
-                'e102_reg' => $key + 1,
-                'e102_nl' => $e_nl,
-                'e102_bln' => now()->month,
-                'e102_thn' => now()->year,
-                'e102_flg' => '1',
-                'e102_sdate' => NULL,
-                'e102_ddate' => $e_ddate,
-                'e102_aa1' => NULL,
-                'e102_aa2' => NULL,
-                'e102_aa3' => NULL,
-                'e102_ab1' => NULL,
-                'e102_ab2' => NULL,
-                'e102_ab3' => NULL,
-                'e102_ac1' => NULL,
-                'e102_ac2' => NULL,
-                'e102_ac3' => NULL,
-                'e102_ad1' => NULL,
-                'e102_ad2' => NULL,
-                'e102_ad3' => NULL,
-                'e102_ae1' => NULL,
-                'e102_af2' => NULL,
-                'e102_af3' => NULL,
-                'e102_ag1' => NULL,
-                'e102_ag2' => NULL,
-                'e102_ag3' => NULL,
-                'e102_ah1' => NULL,
-                'e102_ah2' => NULL,
-                'e102_ah3' => NULL,
-                'e102_ai1' => NULL,
-                'e102_ai2' => NULL,
-                'e102_ai3' => NULL,
-                'e102_aj1' => NULL,
-                'e102_aj2' => NULL,
-                'e102_aj3' => NULL,
-                'e102_ak1' => NULL,
-                'e102_ak2' => NULL,
-                'e102_ak3' => NULL,
-                'e102_al1' => NULL,
-                'e102_al2' => NULL,
-                'e102_al3' => NULL,
-                'e102_al4' => NULL,
-                'e102_npg' => NULL,
-                'e102_jpg' => NULL,
-                'e102_flagcetak' => NULL,
-                'e102_ae3' => NULL,
-            ]);
-        }
-    }
-    public function initialize_proses_pl104($e_ddate)
-    {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PL104')->where('e_status', '1')->get();
+        foreach ($e104init as $key => $selects) {
 
-        $e101_init = DB::table('e104_init')->delete();
-        $e104_b = DB::table('e104_b')->delete();
-        $e104_c = DB::table('e104_c')->delete();
-        $e104_d = DB::table('e104_d')->delete();
-
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E104Init::create([
-                'e104_reg' => $key + 1,
-                'e104_nl' => $e_nl,
-                'e104_bln' => now()->month,
-                'e104_thn' => now()->year,
-                'e104_flg' => '1',
-                'e104_sdate' => NULL,
-                'e104_ddate' => $e_ddate,
-                'e104_a5' => NULL,
-                'e104_a6' => NULL,
-                'e104_npg' => NULL,
-                'e104_jpg' => NULL,
-                'e104_flagcetak' => NULL,
-            ]);
-        }
-    }
-    public function initialize_proses_pl111($e_ddate)
-    {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PL111')->where('e_status', '1')->get();
-
-        $e07_init = DB::table('e07_init')->delete();
-        $e07_btranshipment = DB::table('e07_btranshipment')->delete();
-        $e07_transhipment = DB::table('e07_transhipment')->delete();
-
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E07Init::create([
-                'e07_reg' => $key + 1,
-                'e07_nl' => $e_nl,
-                'e07_bln' => now()->month,
-                'e07_thn' => now()->year,
-                'e07_flg' => '1',
-                'e07_sdate' => NULL,
-                'e07_ddate' => $e_ddate,
-                'e07_npg' => NULL,
-                'e07_jpg' => NULL,
-                'e07_flagcetak' => NULL,
-            ]);
-        }
-    }
-    public function initialize_proses_plbio($e_ddate)
-    {
-        $reg_pelesen = RegPelesen::where('e_kat', 'PLBIO')->where('e_status', '1')->get();
-
-        $ebio_init = DB::table('e_bio_inits')->delete();
-        $ebio_b = DB::table('e_bio_b_s')->delete();
-        $ebio_c = DB::table('e_bio_c_s')->delete();
-        $ebio_cc = DB::table('e_bio_cc')->delete();
-
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = EBioInit::create([
-                'ebio_reg' => $key + 1,
-                'ebio_nl' => $e_nl,
-                'ebio_bln' => now()->month,
-                'ebio_thn' => now()->year,
-                'ebio_flg' => '1',
-                'ebio_sdate' => NULL,
-                'ebio_ddate' => $e_ddate,
-                'ebio_a5' => $e_ddate,
-                'ebio_a6' => $e_ddate,
-                'ebio_npg' => NULL,
-                'ebio_jpg' => NULL,
-                'ebio_notel' => NULL,
-                'ebio_flagcetak' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ]);
-        }
-    }
-
-    public function admin_initialize_satu(Request $request)
-    {
-        // dd($request->e_tahun);
-        $reg_pelesen = RegPelesen::where('e_nl', $request->e_initlesen)->first();
-        // dd($reg_pelesen);
-        // $count = RegPelesen::count();
-        $e91_init = E91Init::where('e91_nl', $request->e_initlesen)->first();
-        $e101_init = E101Init::where('e101_nl', $request->e_initlesen)->first();
-        $e102_init = E102Init::where('e102_nl', $request->e_initlesen)->first();
-        $e104_init = E104Init::where('e104_nl', $request->e_initlesen)->first();
-        $e07_init = E07Init::where('e07_nl', $request->e_initlesen)->first();
-        $ebio_init = EBioInit::where('ebio_nl', $request->e_initlesen)->first();
+            $regno = $selects->e104_reg ;
+            $nolesen = $selects->e104_nl ;
+            $tahun = $selects->e104_thn ;
+            $bulan = $selects->e104_bln ;
+            $tarikh = $selects->e104_sdate ;
+            $tarikh1 = $selects->e104_ddate ;
+            $a5 = (float) $selects->e104_a5 ;
+            $a6 = (float) $selects->e104_a6 ;
+            $npg = $selects->e104_npg ;
+            $jpg = $selects->e104_jpg ;
 
 
-        if ($reg_pelesen->e_status == '1') {
-            if ($reg_pelesen->e_kat == 'PL91') {
-                if ($e91_init) {
-                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-                } else {
-                    $e_nl = $reg_pelesen->e_nl;
-                    $count = E91Init::max('e91_reg');
-                    // dd($count);
-                    $count2 = E91b::count();
+            $regpelesen104 = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PL104')->get();
 
-                    $query = E91Init::create([
-                        'e91_reg' => $count + 1,
-                        'e91_nl' => $request->e_initlesen,
-                        'e91_bln' => now()->month,
-                        'e91_thn' => now()->year,
-                        'e91_flg' => '1',
-                        'e91_sdate' => NULL,
-                        'e91_ddate' => $request->e_ddate,
-                        'e91_aa1' => NULL,
-                        'e91_aa2' => NULL,
-                        'e91_aa3' => NULL,
-                        'e91_aa4' => NULL,
-                        'e91_ab1' => NULL,
-                        'e91_ab2' => NULL,
-                        'e91_ab3' => NULL,
-                        'e91_ab4' => NULL,
-                        'e91_ac1' => NULL,
-                        'e91_ad1' => NULL,
-                        'e91_ad2' => NULL,
-                        'e91_ad3' => NULL,
-                        'e91_ae1' => NULL,
-                        'e91_ae2' => NULL,
-                        'e91_ae3' => NULL,
-                        'e91_ae4' => NULL,
-                        'e91_af1' => NULL,
-                        'e91_af2' => NULL,
-                        'e91_af3' => NULL,
-                        'e91_ag1' => NULL,
-                        'e91_ag2' => NULL,
-                        'e91_ag3' => NULL,
-                        'e91_ag4' => NULL,
-                        'e91_ah1' => NULL,
-                        'e91_ah2' => NULL,
-                        'e91_ah3' => NULL,
-                        'e91_ah4' => NULL,
-                        'e91_ai1' => NULL,
-                        'e91_ai2' => NULL,
-                        'e91_ai3' => NULL,
-                        'e91_ai4' => NULL,
-                        'e91_ai5' => NULL,
-                        'e91_ai6' => NULL,
-                        'e91_aj1' => NULL,
-                        'e91_aj2' => NULL,
-                        'e91_aj3' => NULL,
-                        'e91_aj4' => NULL,
-                        'e91_aj5' => NULL,
-                        'e91_aj6' => NULL,
-                        'e91_aj7' => NULL,
-                        'e91_aj8' => NULL,
-                        'e91_ak1' => NULL,
-                        'e91_ak2' => NULL,
-                        'e91_ak3' => NULL,
-                        'e91_npg' => NULL,
-                        'e91_jpg' => NULL,
-                        'e91_flagcetak' => NULL,
-                        'e91_ah5' => NULL,
-                        'e91_ah6' => NULL,
-                        'e91_ah7' => NULL,
-                        'e91_ah8' => NULL,
-                        'e91_ah9' => NULL,
-                        'e91_ah10' => NULL,
-                        'e91_ah11' => NULL,
-                        'e91_ah12' => NULL,
-                        'e91_ah13' => NULL,
-                        'e91_ah14' => NULL,
-                        'e91_ah15' => NULL,
-                        'e91_ah16' => NULL,
-                        'e91_ah17' => NULL,
-                        'e91_ah18' => NULL,
-                    ]);
-                    $query2 = E91b::create([
-                        'e91_b1' => $count2 + 1,
-                        'e91_b2' => $query->e91_reg,
-                        'e91_b6' => 0,
-                        'e91_b7' => 0,
-                        'e91_b8' => NULL,
-                        'e91_b9' => 0,
-                        'e91_b10' => 0,
-                        'e91_b11' => NULL,
-                    ]);
+            foreach ($regpelesen104 as $row)
+          {
+            $kodpgw = $row->kodpgw;
+            $nosiri = $row->nosiri;
+
+            $nobatch = "$bulan$tahun$kodpgw$nosiri";
+            // dd($nobatch);
+
+          }
+
+            // insert data to pldb pl104
+            $insertpl104 = DB::connection('mysql4')->insert("INSERT into pl104ap1 (F104A1,F104A2,F104A3,F104A4,F104A5,F104A6,F104A7,F104A8,kodnegeri,F104AA1,F104AA1_date) values
+            ('$nolesen','$tarikh','$tarikh','$nobatch','$bulan','$tahun',$a5,$a6,NULL,NULL,NULL)");
+
+                    // dd($insertpl91);
+
+                    if ($insertpl104) {
+                        $totalpl104 = $totalpl104 + 1;
+
+                        $str="'";
+                        $npg = str_replace($str, "\'", $npg);
+
+                        //update flg to 3 (ported)
+                       $updatee104 = DB::update("UPDATE e104_init
+                       set e104_flg = '3'
+                       WHERE e104_nl = '$nolesen'");
+
+                        //insert data to h102_init
+                        $inserth104 = DB::insert("INSERT into h104_init values ('$nobatch','$nolesen',
+                        '$bulan','$tahun','3','$tarikh','$tarikh1', $a5, $a6, '$npg', '$jpg')");
+
+                    }
+
+                    $e104b = E104B::where('e104_reg', $regno)->get();
+                    // $jum91b = 0;
+
+                    foreach ($e104b as $rowe104_b)
+                    {
+                        $b3 = $rowe104_b ->e104_b3 ;
+                        $b4 = $rowe104_b ->e104_b4 ;
+                        $b5 = (float) $rowe104_b ->e104_b5 ;
+                        $b6 = (float) $rowe104_b ->e104_b6 ;
+                        $b7 = (float) $rowe104_b ->e104_b7 ;
+                        $b8 = (float) $rowe104_b ->e104_b8 ;
+                        $b9 = (float) $rowe104_b ->e104_b9 ;
+                        $b10 = (float) $rowe104_b ->e104_b10 ;
+                        $b11 = (float) $rowe104_b ->e104_b11 ;
+                        $b12 = (float) $rowe104_b ->e104_b12 ;
+                        $b13 = (float) $rowe104_b ->e104_b13 ;
+
+                        // insert into mysqli history e91b
+                        //calculate total row
+                        // $jum91b = $jum91b + 1;
+
+                         // insert data to pldb pl101
+                    $insertpl104b = DB::connection('mysql4')->insert("INSERT into pl104bp1 (F104B1,F104B2,F104B3,F104B4,F104B5,F104B6,F104B7,F104B8,F104B9,F104B10,F104B11,F104B12,F104B13,F104BB1,F104BB1_date)
+                    values ('$nolesen','$nobatch','$b3','$b4',$b5,$b6,$b7,$b8,$b9,$b10,$b11,$b12,$b13,NULL,NULL)");
+
+                        $idmax104b = H104B::max('e104_b1');
+                        // dd($idmax);
+
+                        if ($idmax104b)
+                        {
+                            $idno = $idmax104b + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth104b = DB::insert("INSERT into h104_b values ($idno,'$nobatch',
+                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b12,$b13)");
+                    }
+
+                    $e104c = E104C::where('e104_reg', $regno)->orderBy('e104_c3')->get();
+
+                    foreach ($e104c as $rowe104_c)
+                    {
+                        $c3 = $rowe104_c->e104_c3 ;
+                        $c4 = (float) $rowe104_c->e104_c4 ;
+                        $c5 = (float) $rowe104_c->e104_c5 ;
+                        $c6 = (float) $rowe104_c->e104_c6 ;
+                        $c7 = (float) $rowe104_c->e104_c7 ;
+                        $c8 = (float) $rowe104_c->e104_c8 ;
+
+                        $insertpl104c = DB::connection('mysql4')->insert("INSERT into pl104cp1 (F104C1,F104C2,F104C3,F104C4,F104C5,F104C6,F104C7,F104C8,F104CC1,F104CC1_date) values ('$nolesen','$nobatch','$c3',
+                        $c4, $c5, $c6, $c7, $c8, NULL, NULL)");
+
+                        $idmax104c = H104C::max('e104_c1');
+                        // dd($idmax);
+
+                        if ($idmax104c)
+                        {
+                            $idno = $idmax104c + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth104c = DB::insert("INSERT into h104_c values ($idno,'$nobatch',
+                        '$c3',$c4,
+                         $c5,$c6,$c7,$c8)");
+                    }
+
+                    $e104d = E104D::where('e104_reg', $regno)->get();
+
+                    foreach ($e104d as $rowe104_d)
+                    {
+                        $d3 = $rowe104_d->e104_d3 ;
+                        $d4 = $rowe104_d->e104_d4 ;
+                        $d5 = $rowe104_d->e104_d5 ;
+                        $d6 = $rowe104_d->e104_d6 ;
+                        $d7 = (float) $rowe104_d->e104_d7 ;
+                        $d8 = (float) $rowe104_d->e104_d8 ;
+                        $d9 = $rowe104_d->e104_d9 ;
+                        $nokontrak = $rowe104_d->nokontrak ;
+                        $port = $rowe104_d->port ;
+                        $portdest = $rowe104_d->portdest ;
+                        $matawang = $rowe104_d->matawang ;
+                        $nilai = $rowe104_d->nilai ;
+                        $nolesensykt = $rowe104_d->nolesen_sykt ;
+                        $namasykt = $rowe104_d->nama_sykt ;
+                        $namaproduk = $rowe104_d->nama_produk ;
+                        $namapel = $rowe104_d->nama_pelabuhan ;
+                        $kenderaan = $rowe104_d->kenderaan ;
+                        $nodafkend = $rowe104_d->kenderaan_nodaftar ;
+                        $namadestport = $rowe104_d->nama_destport ;
+                        $namadestnegara = $rowe104_d->nama_destnegara ;
+                        $namasykt1 = $rowe104_d->nama_sykt1 ;
+                        $bungkusan = $rowe104_d->mpobq_bungkusan ;
+                        $nilairm = $rowe104_d->mpobq_nilai_2 ;
+
+                        $idmax104d = H104D::max('e104_d1');
+                        // dd($idmax);
+
+                        if ($idmax104d)
+                        {
+                            $idno = $idmax104d + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth104d = DB::insert("INSERT into h104_d values ($idno,'$nobatch','$d3',
+                        '$d4','$d5','$d6', $d7, $d8, '$d9',
+                        '$nokontrak',
+                        '$port','$portdest','$matawang','$nilai',
+                        '$nolesensykt','$namasykt','$namaproduk',
+                        '$namapel','$kenderaan','$nodafkend','$namadestport',
+                        '$namadestnegara','$namasykt1','$bungkusan','$nilairm')");
+                    }
+
                 }
-            } elseif ($reg_pelesen->e_kat == 'PL101') {
-                if ($e101_init) {
-                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-                } else {
-                    $count = E101Init::max('e101_reg');
 
-                    $query = E101Init::create([
-                        'e101_reg' => $count + 1,
-                        'e101_nl' => $request->e_initlesen,
-                        'e101_bln' => now()->month,
-                        'e101_thn' => now()->year,
-                        'e101_flg' => '1',
-                        'e101_sdate' => NULL,
-                        'e101_ddate' => $request->e_ddate,
-                        'e101_a1' => NULL,
-                        'e101_a2' => NULL,
-                        'e101_a3' => NULL,
-                        'e101_npg' => NULL,
-                        'e101_jpg' => NULL,
-                        'e101_flagcetak' => NULL,
-                    ]);
-                }
-            } elseif ($reg_pelesen->e_kat == 'PL102') {
-
-                if ($e102_init) {
-                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-                } else {
-                    $count = E102Init::max('e102_reg');
-
-                    $query = E102Init::create([
-                        'e102_reg' => $count + 1,
-                        'e102_nl' => $request->e_initlesen,
-                        'e102_bln' => now()->month,
-                        'e102_thn' => now()->year,
-                        'e102_flg' => '1',
-                        'e102_sdate' => NULL,
-                        'e102_ddate' => $request->e_ddate,
-                        'e102_aa1' => NULL,
-                        'e102_aa2' => NULL,
-                        'e102_aa3' => NULL,
-                        'e102_ab1' => NULL,
-                        'e102_ab2' => NULL,
-                        'e102_ab3' => NULL,
-                        'e102_ac1' => NULL,
-                        'e102_ac2' => NULL,
-                        'e102_ac3' => NULL,
-                        'e102_ad1' => NULL,
-                        'e102_ad2' => NULL,
-                        'e102_ad3' => NULL,
-                        'e102_ae1' => NULL,
-                        'e102_af2' => NULL,
-                        'e102_af3' => NULL,
-                        'e102_ag1' => NULL,
-                        'e102_ag2' => NULL,
-                        'e102_ag3' => NULL,
-                        'e102_ah1' => NULL,
-                        'e102_ah2' => NULL,
-                        'e102_ah3' => NULL,
-                        'e102_ai1' => NULL,
-                        'e102_ai2' => NULL,
-                        'e102_ai3' => NULL,
-                        'e102_aj1' => NULL,
-                        'e102_aj2' => NULL,
-                        'e102_aj3' => NULL,
-                        'e102_ak1' => NULL,
-                        'e102_ak2' => NULL,
-                        'e102_ak3' => NULL,
-                        'e102_al1' => NULL,
-                        'e102_al2' => NULL,
-                        'e102_al3' => NULL,
-                        'e102_al4' => NULL,
-                        'e102_npg' => NULL,
-                        'e102_jpg' => NULL,
-                        'e102_flagcetak' => NULL,
-                        'e102_ae3' => NULL,
-                    ]);
-                }
-            } elseif ($reg_pelesen->e_kat == 'PL104') {
-
-                if ($e104_init) {
-                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-                } else {
-                    $count = E104Init::max('e104_reg');
-
-                    $query = E104Init::create([
-                        'e104_reg' => $count + 1,
-                        'e104_nl' => $request->e_initlesen,
-                        'e104_bln' => now()->month,
-                        'e104_thn' => now()->year,
-                        'e104_flg' => '1',
-                        'e104_sdate' => NULL,
-                        'e104_ddate' => $request->e_ddate,
-                        'e104_a5' => NULL,
-                        'e104_a6' => NULL,
-                        'e104_npg' => NULL,
-                        'e104_jpg' => NULL,
-                        'e104_flagcetak' => NULL,
-                    ]);
-                }
-            } elseif ($reg_pelesen->e_kat == 'PL111') {
-                if ($e07_init) {
-                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-                } else {
-                    $count = E07Init::max('e07_reg');
-
-                    $query = E07Init::create([
-                        'e07_reg' => $count + 1,
-                        'e07_nl' => $request->e_initlesen,
-                        'e07_bln' => now()->month,
-                        'e07_thn' => now()->year,
-                        'e07_flg' => '1',
-                        'e07_sdate' => NULL,
-                        'e07_ddate' => $request->e_ddate,
-                        'e07_npg' => NULL,
-                        'e07_jpg' => NULL,
-                        'e07_flagcetak' => NULL,
-                    ]);
-                }
-            } elseif ($reg_pelesen->e_kat == 'PLBIO') {
-                if ($ebio_init) {
-                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-                } else {
-                    $count = EBioInit::max('ebio_reg');
-
-                    $query = EBioInit::create([
-                        'ebio_reg' => $count + 1,
-                        'ebio_nl' => $request->e_initlesen,
-                        'ebio_bln' => now()->month,
-                        'ebio_thn' => now()->year,
-                        'ebio_flg' => '1',
-                        'ebio_sdate' => NULL,
-                        'ebio_ddate' => $request->e_ddate,
-                        'ebio_a5' => NULL,
-                        'ebio_a6' => NULL,
-                        'ebio_npg' => NULL,
-                        'ebio_jpg' => NULL,
-                        'ebio_notel' => NULL,
-                        'ebio_flagcetak' => NULL,
-                        'created_at' => NULL,
-                        'updated_at' => NULL,
-                    ]);
-                }
-            }
-        } elseif ($reg_pelesen->e_status == '2') {
-            return redirect()->back()->with('error', 'Pelesen tidak aktif');
-        }
-
-
-        // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
-        return redirect()->back()->with('success', 'Penyata pelesen ini telah diinitialize');
     }
 
+    public function porting_pl111()
+    {
+        //data from e104_init
+        $e111init = E07Init::where('e07_flg', '2')->get();
+        // dd($e91init);
 
-    // public function admin_4ekilangpleidpenapis()
-    // {
+        $totalpl111 = 0;
 
-    //     $breadcrumbs    = [
-    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
-    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
-    //     ];
+        foreach ($e111init as $key => $selects) {
 
-    //     $kembali = route('admin.dashboard');
+            $regno =  $selects->e07_reg ;
+            $nolesen =  $selects->e07_nl ;
+            $tahun =  $selects->e07_thn ;
+            $bulan =  $selects->e07_bln ;
+            $tarikh =  $selects->e07_sdate ;
+            $tarikh1 =  $selects->e07_ddate ;
 
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.admin';
-
-
-
-    //     return view('admin.proses4.4EKilang-PLEID-penapis', compact('returnArr', 'layout'));
-    // }
+            $npg =  $selects->e07_npg ;
+            $jpg =  $selects->e07_jpg ;
 
 
-    // public function admin_4ekilangpleidisirung()
-    // {
+            $regpelesen111 = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PL111')->get();
 
-    //     $breadcrumbs    = [
-    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
-    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
-    //     ];
+            foreach ($regpelesen111 as $row)
+          {
+            $kodpgw = $row->kodpgw;
+            $nosiri = $row->nosiri;
 
-    //     $kembali = route('admin.dashboard');
+            $nobatch = "$bulan$tahun$kodpgw$nosiri";
+            $nobatch1 = "$bulan$tahun$kodpgw";
 
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.admin';
+            // dd($nobatch);
 
+          }
 
+            // insert data to pldb pl111
+            $insertpl111 = DB::connection('mysql4')->insert("INSERT into mpb_insp3a (INS_IA,INS_IB,INS_IC,INS_ID,INS_IE,INS_IF,INS_IAA,INS_IAA_date) values ('$nolesen','$bulan','$tahun',
+            '$tarikh','$tarikh','$nobatch1',NULL,NULL)");
 
-    //     return view('admin.proses4.4EKilang-PLEID-isirung', compact('returnArr', 'layout'));
-    // }
+            $totalpl111 = $totalpl111 + 1;
 
+            // $str="'";
+            // $npg = str_replace($str, "\'", $npg);
 
-    // public function admin_4ekilangpleidoleokimia()
-    // {
+            //update flg to 3 (ported)
+            $updatee111 = DB::update("UPDATE e07_init
+            set e07_flg = '3'
+            WHERE e07_nl = '$nolesen'");
 
-    //     $breadcrumbs    = [
-    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
-    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
-    //     ];
-
-    //     $kembali = route('admin.dashboard');
-
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.admin';
+            //insert data to h102_init
+            $inserth111 = DB::insert("INSERT into h07_init values ('$nobatch','$nolesen',
+            '$bulan','$tahun','3','$tarikh','$tarikh1','$npg','$jpg')");
 
 
+            $e111b = E07Btranshipment::where('e07bt_idborang', $regno)->get();
+                    // $jum91b = 0;
 
-    //     return view('admin.proses4.4EKilang-PLEID-oleokimia', compact('returnArr', 'layout'));
-    // }
+                    foreach ($e111b as $rowe111b)
+                    {
+                        $b3 = $rowe111b->e07bt_produk ;
+                        $b4 = (float) $rowe111b->e07bt_stokawal ;
+                        $b5 = (float) $rowe111b->e07bt_terima ;
+                        $b6 = (float) $rowe111b->e07bt_import ;
+                        $b7 = (float) $rowe111b->e07bt_edaran ;
+                        $b8 = (float) $rowe111b->e07bt_eksport ;
+                        $b9 = (float) $rowe111b->e07bt_pelarasan ;
+                        $b10 = (float) $rowe111b->e07bt_stokakhir ;
 
+                        // insert into mysqli history e91b
+                        //calculate total row
+                        // $jum91b = $jum91b + 1;
 
-    // public function admin_4ekilangpleidsimpanan()
-    // {
+                         // insert data to pldb pl101
+                    $insertpl111b = DB::connection('mysql4')->insert("INSERT into mpb_insp3b (INS_KA,INS_KB,INS_KC,INS_KD,INS_KE,INS_KF,INS_KG,INS_KH,INS_KI,INS_KJ,INS_KAA,INS_KAA_date) values ('$nolesen',
+                    '$bulan','$tahun','$b3',$b4,$b5,$b6,$b7,$b8,$b10,NULL,NULL)");
 
-    //     $breadcrumbs    = [
-    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama ,
-    //         ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID ,
-    //     ];
+                        $idmax111b = H07Btranshipment::max('e07bt_id');
+                        // dd($idmax);
 
-    //     $kembali = route('admin.dashboard');
+                        if ($idmax111b)
+                        {
+                            $idno = $idmax111b + 1;
+                            // dd($idno);
+                        }
 
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.admin';
+                        $inserth111b = DB::insert("INSERT into h07_btranshipment values ($idno,'$nobatch',
+                        '$b3','$b4',$b5,$b6,$b7,$b8,$b9,$b10)");
+                    }
 
+                    $e111c = E07Transhipment::where('e07t_idborang', $regno)->get();
 
+                    foreach ($e111c as $rowe111c)
+                    {
+                        $c3 =  $rowe111c->e07t_produk ;
+                        $c4 = (float)  $rowe111c->e07t_stokawal ;
+                        $c5 = (float)  $rowe111c->e07t_terima ;
+                        $c6 = (float)  $rowe111c->e07t_edaran ;
+                        $c7 = (float)  $rowe111c->e07t_eksport ;
+                        $c8 = (float)  $rowe111c->e07t_pelarasan ;
+                        $c9 = (float)  $rowe111c->e07t_stokakhir ;
 
-    //     return view('admin.proses4.4EKilang-PLEID-simpanan', compact('returnArr', 'layout'));
-    // }
+                        $insertpl111c = DB::connection('mysql4')->insert("INSERT into mpb_insp3c (INS_TA,INS_TB,INS_TC,INS_TD,INS_TE,INS_TF,INS_TG,INS_TH,INS_TI,INS_TAA,INS_TAA_date) values ('$nolesen',
+                        '$bulan','$tahun','$c3',$c4,$c5,$c6,$c7,$c9,NULL,NULL)");
+
+                        $idmax111c = H07Transhipment::max('e07t_id');
+                        // dd($idmax);
+
+                        if ($idmax111c)
+                        {
+                            $idno = $idmax111c + 1;
+                            // dd($idno);
+                        }
+
+                        $inserth111c = DB::insert("INSERT into h07_transhipment values ($idno,'$nobatch',
+                        '$c3',$c4,$c5,$c6,$c7,$c8,$c9)");
+                    }
+
+                }
+
+    }
 }
