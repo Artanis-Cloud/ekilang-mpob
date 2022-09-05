@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div>
-                <p style="text-align: center; vertical-align:middle; font-size: 18px">
+                <p style="text-align: center; vertical-align:middle; font-size: 20px">
 
                     <b>KEMASUKAN PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
@@ -202,7 +202,7 @@
                             <div class="row justify-content-center" >
                                 <div class="col-sm-6 form-group " >
                                     <label for="fname" class="control-label col-form-label">iv.
-                                        Harga Purata Belian Buah Kelapa Sawit (FFB) &nbsp; <i class="fa fa-exclamation-circle "
+                                        Harga Purata Belian Buah Tandan Segar (FFB) &nbsp; <i class="fa fa-exclamation-circle "
                                         style="color: red; cursor: pointer;"
                                         title="Purata harga belian buah satu tan metrik &#010;____________________________________________    x 100 &#010;Purata OER yang ditetapkan semasa belian"></i></label>
                                 {{-- <div class="mt-2">%</div> --}}

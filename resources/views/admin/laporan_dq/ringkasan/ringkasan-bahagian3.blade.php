@@ -254,13 +254,27 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Negeri</label>
-                                                <select class="form-control" id="negeri_id" name="e_negeri">
+                                                <select class="form-control" id="negeri_id" name="e_negeri"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')"
+                                                onchange="ajax_daerah(this)" >
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($negeri as $data)
                                                         <option value="{{ $data->kod_negeri }}">
                                                             {{ $data->nama_negeri }}
                                                         </option>
                                                     @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Daerah</label>
+                                                <select class="form-control" id="daerah_id" name='e_daerah'
+                                                    placeholder="Daerah"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">
+                                                        Sila Pilih Negeri Terlebih Dahulu
+                                                    </option>
                                                 </select>
                                             </div>
 

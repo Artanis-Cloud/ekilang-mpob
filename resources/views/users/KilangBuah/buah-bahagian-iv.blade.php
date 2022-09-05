@@ -144,7 +144,7 @@
                                                 <tr>
                                                     <td class="text-bold-500">1. Kilang Buah</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc" name='e91_aj1'
+                                                        <input type="text" size="10" class="calc" name='e91_aj1'
                                                             id='e91_aj1' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj1()"
@@ -163,7 +163,7 @@
                                                 <tr>
                                                     <td class="text-bold-500">2. Kilang Penapis</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc" name='e91_aj2'
+                                                        <input type="text" size="10" class="calc" name='e91_aj2'
                                                             id='e91_aj2' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj2()"
@@ -182,7 +182,7 @@
                                                 <tr>
                                                     <td class="text-bold-500">3. Kilang Oleokimia</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc" name='e91_aj3'
+                                                        <input type="text" size="10" class="calc" name='e91_aj3'
                                                             id='e91_aj3' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj3()"
@@ -201,7 +201,7 @@
                                                 <tr>
                                                     <td class="text-bold-500">4. Peniaga</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc" name='e91_aj4'
+                                                        <input type="text" size="10" class="calc" name='e91_aj4'
                                                             id='e91_aj4' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj4()"
@@ -220,7 +220,7 @@
                                                 <tr>
                                                     <td class="text-bold-500">5. Pusat Simpanan</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc" name='e91_aj5'
+                                                        <input type="text" size="10" class="calc" name='e91_aj5'
                                                             id='e91_aj5' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj5()"
@@ -239,7 +239,7 @@
                                                 <tr>
                                                     <td class="text-bold-500">6. Lain-Lain</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="15" class="calc"
+                                                        <input type="text" size="10" class="calc"
                                                             name='e91_aj8' id='e91_aj8' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"

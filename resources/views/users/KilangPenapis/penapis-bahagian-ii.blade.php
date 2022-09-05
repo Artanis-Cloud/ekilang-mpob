@@ -109,7 +109,7 @@
 
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71);">Bahagian 2</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Bahagian 2</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Minyak Isirung Sawit
                             </h5>
                             {{-- <p>Maklumat Kilang</p> --}}
@@ -344,7 +344,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0" style="font-size: 13px">
                             <thead style="text-align: center">
-                                <tr>
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
@@ -362,6 +362,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($b && !$b->isEmpty())
                                 @foreach ($b as $data)
                                     <tr style="text-align: right">
 
@@ -592,6 +593,11 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                    <tr>
+                                    <td colspan="14" class="text-center" style="height:40px">Tiada Rekod</td>
+                                    </tr>
+                                @endif
 
 
                                 <tr>

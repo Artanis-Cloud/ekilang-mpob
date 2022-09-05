@@ -126,7 +126,7 @@
 
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 3</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2% ">Bahagian 3</h3>
                             <h5 style="color: rgb(39, 80, 71)">Hari Beroperasi dan Kadar Penggunaan Kapasiti
                             </h5>
 
@@ -211,10 +211,10 @@
                                                     melebihi 100!</i></p>
 
                                         @error('e101_a3')
-        <div class="alert alert-danger">
-                                                    <strong>Sila isi butiran ini</strong>
-                                                </div>
-    @enderror
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi butiran ini</strong>
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mt-2">%</div>
 

@@ -106,7 +106,7 @@
                 <div class="card-body">
                     <div class="">
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71);">Bahagian 4 (a)</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Bahagian 4 (a)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
                                 Minyak Isirung Sawit
                                 - Bahan Makanan</h5>
@@ -278,9 +278,9 @@
                 <div class="card">
 
                     <div class="table-responsive">
-                        <table class="table table-bordered mb-0" style="font-size: 13px">
+                        <table id="table4" class="table table-bordered mb-0" style="font-size: 13px"  data-detail-view="true">
                             <thead>
-                                <tr style="text-align: center">
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
@@ -295,9 +295,12 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if($penyata && !$penyata->isEmpty())
+
                                 @foreach ($penyata as $data)
+
                                     <tr style="text-align: right">
-                                        <td style="text-align: left">{{ $data->produk->proddesc }}</td>
+                                        <td style="text-align: left"  data-field="proddesc">{{ $data->produk->proddesc }}</td>
                                         <td>{{ $data->produk->prodid }}</td>
                                         <td>{{ number_format($data->e101_c5 ?? 0, 2) }}</td>
                                         <td>{{ number_format($data->e101_c6 ?? 0, 2) }}</td>
@@ -323,6 +326,8 @@
                                             </div>
                                         </td>
                                     </tr>
+
+
 
                                     <div class="col-md-6 col-12">
 
@@ -480,6 +485,11 @@
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                    <tr>
+                                    <td colspan="10" class="text-center" style="height:40px">Tiada Rekod</td>
+                                    </tr>
+                                @endif
                                 <tr>
 
                                     <td colspan="2"><b>JUMLAH</b></td>
@@ -880,6 +890,25 @@
                     return false;
                 }
 
+            });
+        </script>
+        <script>
+            $(document).ready(function(){
+            $("#table4").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr:not('.no-records')").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                var trSel =  $("#myTable tr:not('.no-records'):visible")
+                // Check for number of rows & append no records found row
+                if(trSel.length == 0){
+                    $("#myTable").html('<tr class="no-records"><td colspan="3">No record found.</td></tr>')
+                }
+                else{
+                    $('.no-records').remove()
+                }
+
+            });
             });
         </script>
     @endsection
