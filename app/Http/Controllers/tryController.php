@@ -51,6 +51,17 @@ class tryController extends Controller
         // dd($e91b);
         return view('users.users-dashboard');
     }
+
+    public function test_codedb()
+    {
+
+        $loginmills = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group from commodity_l");
+
+        // $e91b = E91b::where('e91_b2', $regno)->get();
+
+        dd($loginmills);
+        return view('users.users-dashboard');
+    }
     public function testing4()
     {
 
