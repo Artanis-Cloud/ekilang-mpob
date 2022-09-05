@@ -393,7 +393,7 @@
 
                     }
                 </script>
-                <script>
+                {{-- <script>
                     function valid_a1() {
                         @if ($cpo == null || $cpko == null || $cpo == '0.00' || $cpko == '0.00' || $cpo == '0' || $cpo == '0')
                         @else
@@ -466,7 +466,7 @@
                             }
                         @endif
                     }
-                </script>
+                </script> --}}
                 <script>
                     function invoke_a1() {
                         addEventListener('keydown', function(evt) {
