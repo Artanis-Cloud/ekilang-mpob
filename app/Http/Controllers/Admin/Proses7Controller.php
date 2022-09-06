@@ -152,8 +152,8 @@ class Proses7Controller extends Controller
 
         }
 
-        $result = Negara::get();
-        dd($result);
+        // $result = Negara::get();
+        // dd($result);
 
     }
 }
