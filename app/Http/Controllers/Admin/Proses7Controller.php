@@ -82,7 +82,7 @@ class Proses7Controller extends Controller
         $totalprod = $totalprod + 1;
 
         }
-        $result = Produk::get();
-        dd($result);
+        // $result = Produk::get();
+        // dd($result);
     }
 }
