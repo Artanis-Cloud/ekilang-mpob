@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-bordered mb-0">
-                                            <thead style="text-align: center">
+                                            <thead style="text-align: center; background-color: #d3d3d34d">
                                                 <tr>
                                                     <th>Sumber Bekalan</th>
                                                     <th>Kuantiti (Tan Metrik)</th>
@@ -268,7 +268,7 @@
                                                         <input type="hidden" id="jumlah" name="jumlah"
                                                             onchange="return validation_jum()"
                                                             value="{{ $penyata->e91_ab1 }}">
-
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>

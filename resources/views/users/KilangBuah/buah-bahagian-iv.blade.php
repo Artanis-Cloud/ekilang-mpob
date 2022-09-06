@@ -130,13 +130,11 @@
                                         </div>
                                     </div>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered mb-0">
-                                            <thead style="text-align: center">
+                                        <table class="table table-bordered mb-0" style="font-size: 14px">
+                                            <thead style="text-align: center; background-color: #d3d3d34d">
                                                 <tr>
                                                     <th>Pembeli / Penerima</th>
                                                     <th>Kuantiti (Tan Metrik)</th>
-
-
 
                                                 </tr>
                                             </thead>

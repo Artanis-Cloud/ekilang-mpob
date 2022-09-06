@@ -88,8 +88,8 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:20px 0px">
-                            <div class="col-sm-3 form-group" style="margin: 0px"></div>
+                        <div class="row justify-content-center" style="margin-left:30px">
+                            <div class="col-sm-3 form-group"></div>
                             <div class="col-md-7">
                                 <input onchange="alamat();" type="checkbox" class="custom-control-input" id="alamat_sama"
                                     name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
