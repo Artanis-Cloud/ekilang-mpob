@@ -110,17 +110,17 @@
 
                                             <div class="table-responsive">
                                                 <table class="table table-bordered mb-0">
-                                                    <thead style="text-align: center">
+                                                    <thead style="text-align: center; background-color: #d3d3d34d">
                                                         <tr>
-                                                            <th>Butiran</th>
-                                                            <th>Buah Tandan Segar (FFB) <br>
+                                                            <th style="vertical-align: middle">Butiran</th>
+                                                            <th style="vertical-align: middle">Buah Tandan Segar (FFB) <br>
                                                                 Kod 52</th>
-                                                            <th>Minyak Sawit Mentah (CPO)
+                                                            <th style="vertical-align: middle">Minyak Sawit Mentah (CPO)
                                                                 <br> Kod 01
                                                             </th>
-                                                            <th>Isirung (PK) <br> Kod 51
+                                                            <th style="vertical-align: middle">Isirung (PK) <br> Kod 51
                                                             </th>
-                                                            <th>Minyak Keladak (Sludge Oil)
+                                                            <th style="vertical-align: middle">Minyak Keladak (Sludge Oil)
                                                                 <br> Kod 49
                                                             </th>
 

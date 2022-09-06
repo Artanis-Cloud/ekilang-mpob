@@ -286,33 +286,36 @@
                                             <thead>
                                                 <tr style="background-color: #d3d3d34d">
 
-                                                    <th scope="col" style="vertical-align: middle; text-align:center"
-                                                        rowspan="2">No Lesen</th>
-                                                    <th scope="col" style="vertical-align: middle; text-align:center"
-                                                        rowspan="2">Nama Pemegang Lesen</th>
-                                                    <th scope="col" style="vertical-align: middle; text-align:center"
-                                                        rowspan="2">Negeri</th>
-                                                    <th scope="col" style="vertical-align: middle; text-align:center"
-                                                        rowspan="2">Pembeli</th>
-                                                    <th scope="col" style="vertical-align: middle; text-align:center"
-                                                        rowspan="2">Kuantiti</th>
+                                                    <th style="vertical-align: middle; text-align:center"
+                                                        >No Lesen</th>
+                                                    <th style="vertical-align: middle; text-align:center"
+                                                       >Nama Pemegang Lesen</th>
+                                                    <th style="vertical-align: middle; text-align:center"
+                                                        >Negeri</th>
+                                                    <th style="vertical-align: middle; text-align:center"
+                                                        >Daerah</th>
+                                                    <th style="vertical-align: middle; text-align:center"
+                                                        >Pembeli</th>
+                                                    <th style="vertical-align: middle; text-align:center"
+                                                        >Kuantiti</th>
                                                 </tr>
 
                                             </thead>
                                             <tbody>
-                                                @foreach ($result as $data)
+                                                @foreach ($result as $key => $data)
                                                     <tr>
-                                                        <td scope="row">{{ $data->e_nl }}</td>
-                                                        <td scope="row" class="text-left">{{ $data->e_np }}</td>
-                                                        <td scope="row">{{ $data->nama_negeri }}</td>
+                                                        <td>{{ $data->e_nl }}</td>
+                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                        <td>{{ $data->nama_negeri }}</td>
+                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
 
-                                                        <td scope="row" class="text-left">{{ $data->pembeli ?? '-'}}</td>
-                                                        <td style="text-align: center"> {{ number_format($jualan_bio[$data->e_nl] ?? 0,2) }}</td>
+                                                        <td class="text-left">{{ $data->pembeli ?? '-'}}</td>
+                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                            <b>{{ number_format($jualan_bio[$data->e_nl] ?? 0,2) }}</b>
+                                                        </td>
 
                                                     </tr>
-                                                    @php
-                                                        // $total_hari_operasi += $data->hari_operasi;
-                                                    @endphp
+
                                                 @endforeach
 
                                             </tbody><br>
@@ -571,7 +574,7 @@
         function ExportToExcel()
             {
                 var filename = "Ringkasan"
-                var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+                var tab_text = "<table border='2px'><tr bgcolor=''>";
                 var textRange;
                 var j = 0;
                 tab = document.getElementById('example4');
@@ -595,16 +598,7 @@
                 }, 1000);
         })
     </script>
-    <script>
-        $(document).ready(function() {
-            $('#example4').DataTable( {
-                // dom: 'Bfrtip',
-                // buttons: [
-                //     'copy', 'csv', 'excel', 'pdf', 'print'
-                // ]
-            } );
-        } );
-    </script>
+
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
