@@ -58,7 +58,8 @@
                                     </h6>
                                 </div>
                                 <hr>
-
+                                <form action="{{ route('admin.porting.data.process') }}" method="get">
+                                    @csrf
                                 <div class="card-body">
                                     <div class="container center ">
 
@@ -68,33 +69,17 @@
                                             </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
-
-                                                        <option>2003</option>
-                                                        <option>2004</option>
-                                                        <option>2005</option>
-                                                        <option>2006</option>
-                                                        <option>2007</option>
-                                                        <option>2008</option>
-                                                        <option>2009</option>
-                                                        <option>2010</option>
-                                                        <option>2011</option>
-                                                        <option>2012</option>
-                                                        <option>2013</option>
-                                                        <option>2014</option>
-                                                        <option>2015</option>
-                                                        <option>2016</option>
-                                                        <option>2017</option>
-                                                        <option>2018</option>
-                                                        <option>2019</option>
-                                                        <option>2020</option>
-                                                        <option>2021</option>
-                                                        <option>2022</option>
+                                                    <select class="form-control" id="tahun" name="tahun" required oninput="valid_tahun()">
+                                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                        @for ($i = 2003; $i <= date('Y'); $i++)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                        @endfor
 
 
 
                                                     </select>
+                                                    <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di bahagian ini!</i></p>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
@@ -110,24 +95,26 @@
                                             </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                        <option>Januari</option>
-                                                        <option>Februari</option>
-                                                        <option>Mac</option>
-                                                        <option>April</option>
-                                                        <option>Mei</option>
-                                                        <option>Jun</option>
-                                                        <option>Julai</option>
-                                                        <option>Ogos</option>
-                                                        <option>September</option>
-                                                        <option>Oktober</option>
-                                                        <option>November</option>
-                                                        <option>Disember</option>
+                                                    <select class="form-control" id="bulan" name="bulan" required oninput="valid_bulan()">
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
 
 
 
                                                     </select>
+                                                    <p type="hidden" id="err_bulan" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di bahagian ini!</i></p>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
@@ -143,14 +130,16 @@
                                             </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Destinasi</option>
-                                                        <option>Stat Admin</option>
-                                                        <option>Stat Homepage</option>
+                                                    <select class="form-control" id="destinasi" name="destinasi" required oninput="valid_destinasi()">
+                                                        <option selected hidden disabled value="">Sila Pilih Destinasi</option>
+                                                        <option value="admin">Stat Admin</option>
+                                                        <option value="homepage">Stat Homepage</option>
 
 
 
                                                     </select>
+                                                    <p type="hidden" id="err_destinasi" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di bahagian ini!</i></p>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
@@ -163,8 +152,7 @@
 
                                     <div class="row center mt-3">
                                         <div class="col-md-12 center mb-3">
-                                            <button type="submit" class="btn btn-primary center" style="margin-left:45%"
-                                            data-toggle="modal" data-target="#myModal">Porting</button>
+                                            <button type="button" class="btn btn-primary center" style="margin-left:45%" id="checkBtn" onclick="check()">Port</button>
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>
@@ -214,25 +202,101 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-    </script>
+<script>
+    function valid_tahun() {
+
+        if ($('#tahun').val() == '') {
+            $('#tahun').css('border-color', 'red');
+            document.getElementById('err_tahun').style.display = "block";
+
+
+        } else {
+            $('#tahun').css('border-color', '');
+            document.getElementById('err_tahun').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function valid_bulan() {
+
+        if ($('#bulan').val() == '') {
+            $('#bulan').css('border-color', 'red');
+            document.getElementById('err_bulan').style.display = "block";
+
+
+        } else {
+            $('#bulan').css('border-color', '');
+            document.getElementById('err_bulan').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function valid_destinasi() {
+
+        if ($('#destinasi').val() == '') {
+            $('#destinasi').css('border-color', 'red');
+            document.getElementById('err_destinasi').style.display = "block";
+
+
+        } else {
+            $('#destinasi').css('border-color', '');
+            document.getElementById('err_destinasi').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function check() {
+        // (B1) INIT
+        var error = "",
+            field = "";
+
+        // kap proses
+        field = document.getElementById("tahun");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#tahun').css('border-color', 'red');
+            document.getElementById('err_tahun').style.display = "block";
+        }
+
+        // kap proses
+        field = document.getElementById("bulan");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#bulan').css('border-color', 'red');
+            document.getElementById('err_bulan').style.display = "block";
+        }
+
+        // kap proses
+        field = document.getElementById("destinasi");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#destinasi').css('border-color', 'red');
+            document.getElementById('err_destinasi').style.display = "block";
+        }
+
+
+            // (B4) RESULT
+            if (error == "") {
+                $('#myModal').modal('show');
+                return true;
+            } else {
+                toastr.error(
+                    'Lengkapkan semua butiran bertanda (*) sebelum tekan butang Port',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+
+        }
+
+</script>
+
 @endsection

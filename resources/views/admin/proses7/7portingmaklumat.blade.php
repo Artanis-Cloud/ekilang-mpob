@@ -67,8 +67,8 @@
                                                     Jenis Maklumat</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-control" id="maklumat" name="maklumat">
-                                                            <option selected hidden disabled>Sila Pilih Jenis Maklumat</option>
+                                                        <select class="form-control" id="maklumat" name="maklumat" required>
+                                                            <option selected hidden disabled value="">Sila Pilih Jenis Maklumat</option>
 
                                                             <option value="produk_sawit">Produk Sawit</option>
                                                             <option value="negara">Negara</option>
@@ -76,6 +76,8 @@
 
 
                                                         </select>
+                                                        <p type="hidden" id="err_maklumat" style="color: red; display:none"><i>Sila buat
+                                                            pilihan di bahagian ini!</i></p>
                                                     </fieldset>
                                                 </div>
                                             </div>
@@ -84,8 +86,7 @@
 
                                     <div class="row center">
                                         <div class="col-md-12 center mb-3">
-                                            <button type="submit" class="btn btn-primary center" style="margin-left:45%"
-                                            data-toggle="modal" data-target="#myModal">Porting</button>
+                                            <button type="button" class="btn btn-primary center" style="margin-left:45%" id="checkBtn" onclick="check()">Port</button>
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>
@@ -136,25 +137,52 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-    </script>
+<script>
+    function valid_maklumat() {
+
+        if ($('#maklumat').val() == '') {
+            $('#maklumat').css('border-color', 'red');
+            document.getElementById('err_maklumat').style.display = "block";
+
+
+        } else {
+            $('#maklumat').css('border-color', '');
+            document.getElementById('err_maklumat').style.display = "none";
+
+        }
+
+    }
+</script>
+<script>
+    function check() {
+        // (B1) INIT
+        var error = "",
+            field = "";
+
+        // kap proses
+        field = document.getElementById("maklumat");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#maklumat').css('border-color', 'red');
+            document.getElementById('err_maklumat').style.display = "block";
+        }
+
+            // (B4) RESULT
+            if (error == "") {
+                $('#myModal').modal('show');
+                return true;
+            } else {
+                toastr.error(
+                    'Lengkapkan semua butiran bertanda (*) sebelum tekan butang Port',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+
+        }
+
+</script>
+
 @endsection
