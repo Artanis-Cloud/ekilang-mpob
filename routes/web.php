@@ -158,6 +158,8 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/7-porting-maklumat/process', [App\Http\Controllers\Admin\Proses7Controller::class, 'admin_portingmaklumat'])->name('admin.porting.maklumat.process');
 
         Route::get('admin/8-port-data', [App\Http\Controllers\Admin\Proses8Controller::class, 'admin_8portdata'])->name('admin.8portdata');
+        Route::get('admin/8-port-data/process', [App\Http\Controllers\Admin\Proses8Controller::class, 'admin_portingdata'])->name('admin.porting.data.process');
+
 
         Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');
         Route::get('admin/9-penyata-terdahulu-penapis', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulupenapis'])->name('admin.9penyataterdahulupenapis');
