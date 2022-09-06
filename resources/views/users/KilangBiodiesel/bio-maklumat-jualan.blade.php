@@ -340,7 +340,7 @@
         document.getElementById("new_syarikat_hidden" + (no - 1)).value = "";
     }
 </script>
-    <script>
+    {{-- <script>
         function add_row1(key) {
             console.log("new_syarikat" + key + "[]");
             var new_syarikat1 = document.getElementById("new_syarikat" + key + "[]").value;
@@ -376,7 +376,7 @@
             document.getElementById("jumlah_row_hidden1" + (no - 1)).value = "";
             document.getElementById("new_syarikat_hidden1" + (no - 1)).value = "";
         }
-    </script>
+    </script> --}}
     <script>
         document.addEventListener('keypress', function (e) {
             if (e.keyCode === 13 || e.which === 13) {
