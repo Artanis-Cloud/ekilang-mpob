@@ -67,7 +67,7 @@
                                                     Jenis Maklumat</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-control" id="maklumat" name="maklumat" required>
+                                                        <select class="form-control" id="maklumat" name="maklumat" required oninput="valid_maklumat()">
                                                             <option selected hidden disabled value="">Sila Pilih Jenis Maklumat</option>
 
                                                             <option value="produk_sawit">Produk Sawit</option>
