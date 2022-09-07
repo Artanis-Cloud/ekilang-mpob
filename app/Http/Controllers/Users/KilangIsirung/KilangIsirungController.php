@@ -948,7 +948,7 @@ class KilangIsirungController extends Controller
         $tahun = date("Y");
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianvi'), 'name' => "Bahagian 6"],
+            ['link' => route('isirung.bahagianvi'), 'name' => "Bahagian 7"],
         ];
 
         $kembali = route('isirung.bahagianv');

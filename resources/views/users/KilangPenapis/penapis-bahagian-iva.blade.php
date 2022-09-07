@@ -104,7 +104,7 @@
             <form action="{{ route('penapis.add.bahagian.iva') }}" method="post" class="sub-form" novalidate>
                 @csrf
                 <div class="card-body">
-                    <div class="">
+                    <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Bahagian 4 (a)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
@@ -257,7 +257,6 @@
                             </div>
 
                         </div><br>
-
 
                     </div>
                     <div class="row justify-content-center form-group" style="margin-top: 2%; ">
@@ -516,7 +515,7 @@
 
                 <div class="form-group" style="padding-top: 10px; ">
                     <a href="{{ route('penapis.bahagianiii') }}" class="btn btn-primary"
-                        style="float: left">Sebelumnya</a>
+                        >Sebelumnya</a>
                     <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                         data-target="#next">Simpan &
                         Seterusnya</button>

@@ -114,16 +114,16 @@
 
                             <tbody>
                                 <tr>
-                                    <td width="25%" height="19">Nombor Lesen
+                                    <td width="25%" height="19" style="font-size: 13px">Nombor Lesen
                                     </td>
-                                    <td width="88%" height="19"><b>
+                                    <td width="88%" height="19" style="font-size: 13px"><b>
                                             {{ auth()->user()->username }}
                                         </b></td>
                                 </tr>
                                 <tr>
-                                    <td width="25%" height="19">Nama Premis
+                                    <td width="25%" height="19" style="font-size: 13px">Nama Premis
                                     </td>
-                                    <td width="88%" height="19"><b>{{ auth()->user()->name }}
+                                    <td width="88%" height="19" style="font-size: 13px"><b>{{ auth()->user()->name }}
                                         </b></td>
                                 </tr>
                             </tbody>
@@ -135,10 +135,10 @@
 
 
                         <p align="left"><b>
-                                <font color="#045b62">MAKLUMAT PELESEN </font>
+                                <font color="#045b62" size="2.8" >MAKLUMAT PELESEN </font>
                             </b></p>
 
-                        <table border="0" width="73%" cellpadding="0" cellspacing="0" style="font-size: 15px">
+                        <table border="0" width="73%" cellpadding="2" cellspacing="2" style="font-size: 13px">
 
                             <tbody>
 
@@ -256,7 +256,7 @@
 
 
                         <p><b>
-                                <font size="2.7" color="#045b62">BAHAGIAN 1 : MAKLUMAT STOK AWAL, BELIAN, PROSES,
+                                <font size="2.8" color="#045b62">BAHAGIAN 1 : MAKLUMAT STOK AWAL, BELIAN, PROSES,
                                     PENGELUARAN, JUALAN/EDARAN, EKSPORT, STOK AKHIR
                                     (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                             </b> </p>
@@ -486,7 +486,7 @@
                         <br><hr>
 
                         <p><b>
-                                <font size="2.7" color="045b62">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
+                                <font size="2.8" color="045b62">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
                                     KADAR PERAHAN DAN HARGA </font>
                             </b> </p>
 
@@ -763,13 +763,13 @@
                         <p>
                             <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                 {{ $penyata->e91_ah18 ?? '-' }}</font>
-                        </p>
+                        </p><br><hr>
 
 
 
 
                         <p align="left">
-                            <font size="2.7" color="#045b62"><b>BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN
+                            <font size="2.8" color="#045b62"><b>BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN
                                     BUAH
                                     KELAPA SAWIT (FFB) (52)</b>
                             </font>
@@ -860,11 +860,11 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br><hr>
 
 
                         <p align="left">
-                            <font size="2.7" color="#045b62"><b>BAHAGIAN 4 : JUALAN/EDARAN MINYAK SAWIT
+                            <font size="2.8" color="#045b62"><b>BAHAGIAN 4 : JUALAN/EDARAN MINYAK SAWIT
                                     MENTAH (CPO) (01) </b></font>
                         </p>
 
@@ -972,11 +972,11 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br><hr>
 
 
                         <p align="left">
-                            <font size="2.7" color="#045b62"><b>BAHAGIAN 5 : JUALAN/EDARAN ISIRUNG SAWIT
+                            <font size="2.8" color="#045b62"><b>BAHAGIAN 5 : JUALAN/EDARAN ISIRUNG SAWIT
                                     (PK) DALAM NEGERI
                                     (51)</b></font>
                         </p>
@@ -1030,7 +1030,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br><hr>
 
                         <p><b>
                                 <font size="2.7" color="#045b62">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1097,12 +1097,22 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
-                            <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
-                        <p style="font-size: 16px; margin-bottom:0"><b>
-                                Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
-                                benar, lengkap dan selaras dengan rekod harian.
-                            </b></p>
+                        </table><br><hr>
+                        <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
+
+                            <div class="row">
+                                {{-- <div class="col-md-1" style="margin: auto; padding-left: 30px;" >
+                                    <i class="fas fa-exclamation-triangle" style="font-size:40px; color:red" ></i>
+                                </div> --}}
+                                <div class="col-md-11">
+                                    <p style="font-size: 18px; margin-bottom:0; padding-left: 20px; color:red"><b>
+                                        Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                        benar, lengkap dan selaras dengan rekod harian.
+                                    </b></p>
+                                </div>
+                            </div>
+
+
                         </div>
                         <form action="{{ route('buah.update.papar.penyata') }}" method="post" id="myform" novalidate
                             required>

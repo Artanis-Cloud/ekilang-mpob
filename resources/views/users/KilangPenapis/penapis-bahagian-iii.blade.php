@@ -167,7 +167,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-sm-5 form-group">
                                     <label for="fname" class="control-label col-form-label">
-                                        Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
+                                        Kadar Penggunaan Kapasiti (Refining) Sebulan</label>
                                 </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
@@ -193,10 +193,10 @@
                                 <div class="mt-2">%</div>
                             </div>
 
-                            <div class="row justify-content-center" ">
+                            <div class="row justify-content-center" >
                                     <div class="col-sm-5 form-group" >
                                         <label for="fname" class="control-label col-form-label">
-                                            Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
+                                            Kadar Penggunaan Kapasiti (Fractionation) Sebulan</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" style="text-align:right" name='e101_a3'

@@ -108,7 +108,7 @@
                     <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71);">Bahagian 4</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Bahagian 4</h3>
                             <h5 style="color: rgb(39, 80, 71)">Jualan/Edaran Minyak Isirung Sawit Mentah -
                                 (CPKO) (04)
                             </h5>
@@ -214,9 +214,9 @@
 
                     {{-- <div class="card-body"> --}}
                     <div class="table-responsive">
-                        <table class="table table-bordered mb-0">
+                        <table class="table table-bordered mb-0" style="font-size: 13px">
                             <thead>
-                                <tr style="text-align: center">
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Jualan/Edaran</th>
                                     <th>Ke</th>
                                     <th>Kuantiti</th>

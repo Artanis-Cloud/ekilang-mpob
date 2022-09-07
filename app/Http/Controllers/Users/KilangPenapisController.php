@@ -1413,7 +1413,7 @@ class KilangPenapisController extends Controller
         $tahun = date("Y");
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian 6"],
+            ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian 7"],
         ];
 
         $kembali = route('penapis.bahagianv');

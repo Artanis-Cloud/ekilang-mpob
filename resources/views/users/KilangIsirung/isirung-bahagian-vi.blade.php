@@ -106,7 +106,7 @@
                 <div class="card-body">
                     <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 6</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2% ">Bahagian 6</h3>
                             <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                             </h5>
                         </div>
@@ -231,7 +231,7 @@
                 <div class="card">
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
-                            <thead style="text-align: center">
+                            <thead style="text-align: center; background-color: #d3d3d34d">
                                 <tr>
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>

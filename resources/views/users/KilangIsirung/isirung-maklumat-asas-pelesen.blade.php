@@ -103,8 +103,8 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px"></div>
+                            <div class="row justify-content-center"style="margin-left:30px">
+                                <div class="col-sm-3 form-group" ></div>
                                 <div class="col-md-7">
                                     <input onchange="alamat();" type="checkbox" class="custom-control-input"
                                         id="alamat_sama" name="alamat_sama"
@@ -309,9 +309,8 @@
 
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label required">
-                                        Jawatan Pegawai
-                                        Bertanggungjawab</label>
+                                    <label for="fname" class="control-label col-form-label ">
+                                        Jawatan Pegawai Bertanggungjawab<span  style="color:red">*</span></label>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
@@ -441,8 +440,8 @@
                             </div>
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label required">
-                                        Kapasiti Tangki Simpanan (Tan)</label>
+                                    <label for="fname" class="control-label col-form-label">
+                                        Kapasiti Tangki Simpanan (Tan)<span  style="color:red">*</span></label>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" name='kap_tangki_cpko'
@@ -478,7 +477,7 @@
 
             </div>
 
-            <div class="modal fade" id="next" tabindex="-1" role="dialog"
+            <div class="modal fade hide" id="next" tabindex="-1" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                     role="document">
@@ -496,7 +495,7 @@
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                             </button>
