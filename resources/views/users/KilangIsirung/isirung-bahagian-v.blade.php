@@ -210,7 +210,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0">
                             <thead>
-                                <tr style="text-align: center">
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Jualan/Edaran</th>
                                     <th>Ke</th>
                                     <th>Kuantiti</th>

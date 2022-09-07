@@ -142,32 +142,25 @@
                         @csrf
                         <div class="container center ">
                             <div class="row">
-                            <div class="row justify-content-center" >
-                                <div class="col-sm-6 form-group">
-                                    <label for="fname" class="align-items-center">i.
-
-                                        Jumlah Jam Pengilangan <i class="fa fa-exclamation-circle"
+                                <div class="col-md-3 mt-3">
+                                    <span class="">i. Jumlah Jam Pengilangan  &nbsp; <i class="fa fa-exclamation-circle"
                                         style="color: red; cursor: pointer;"
-                                        title="Jumlah jam pengilangan = Jumlah jam beroperasi sebulan."></i></label>
-
+                                        title="Jumlah jam pengilangan = Jumlah jam beroperasi sebulan."></i></span>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                         oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc();" maxlength="7" onchange="autodecimal(this);FormatCurrency(this)"
                                         style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
                                 </div>
-                                <div class="mt-2">&nbsp;&nbsp;</div>
-                            </div>
-                            <div class="row justify-content-center" >
-                                <div class="col-sm-6 form-group " >
-                                    <label for="fname" class="control-label col-form-label" >&nbsp;ii.
+                                <div class="col-md-3 mt-3">
+                                    <span class="">ii.
                                         Kadar
                                         Perahan MSM (OER) Yang Diperolehi &nbsp; <i class="fa fa-exclamation-circle "
                                         style="color: red; cursor: pointer;"
-                                        title="Jumlah pengeluaran minyak sawit mentah &#010; ____________________________________________    x 100 &#010;      Jumlah buah kelapa sawit di proses"></i></label>
+                                        title="Jumlah pengeluaran minyak sawit mentah &#010; ____________________________________________    x 100 &#010;      Jumlah buah kelapa sawit di proses"></i></span>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e91_ah2'
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                         style=" text-align:right" onkeypress="return isNumberKey(event)" onchange="ah2();FormatCurrency(this)"
@@ -175,41 +168,32 @@
                                         title="Sila isikan butiran ini." value="{{ number_format($oer ?? 0, 2) }}">
                                         <p type="hidden" id="err_ah2" style="color: red; display:none"><i>Nilai hendaklah kurang dari 100%. Sila betulkan nilai di bahagian 1</i></p>
                                 </div>
-                                <div class="mt-2">%</div>
+                                <div style="margin-top: 25px; margin-left: -5px">%</div>
 
                             </div>
-                        </div>
+
                             <div class="row">
-                            <div class="row justify-content-center" >
-                                <div class="col-sm-6 form-group">
-                                    <label for="fname" class="align-items-center">iii.
+                                <div class="col-md-3 mt-3">
+                                    <span class="">iii.
                                         Kadar Perolehan Isirung <br> (KER) &nbsp; <i class="fa fa-exclamation-circle "
                                         style="color: red; cursor: pointer;"
-                                        title="       Jumlah pengeluaran isirung &#010;____________________________________   x 100 &#010;Jumlah buah kelapa sawit di proses"></i></label>
+                                        title="       Jumlah pengeluaran isirung &#010;____________________________________   x 100 &#010;Jumlah buah kelapa sawit di proses"></i></span>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e91_ah3'
                                         oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
-                                        style="  text-align:right; width:97%; margin-left:6%" onkeypress="return isNumberKey(event)" id="e91_ah3" required
+                                        style="  text-align:right; width:97%; " onkeypress="return isNumberKey(event)" id="e91_ah3" required
                                         title="Sila isikan butiran ini." value="{{ number_format($ker ?? 0,2) }}" readonly>
-                                        <p  id="err_ah3" style="color: red; display:none; width:97%; margin-left:6%"><i>Nilai hendaklah <br> kurang dari 100%. <br>Sila betulkan nilai <br> di bahagian 1</i></p>
-
+                                        <p  id="err_ah3" style="color: red; display:none; width:97%; margin-left:-10%"><i>Nilai hendaklah <br> kurang dari 100%. <br>Sila betulkan nilai <br> di bahagian 1</i></p>
                                 </div>
+                                <div style="margin-top: 25px; margin-left: -5px">%</div>
 
-                                <div class="mt-2" style="margin-left: 10px">%</div>
-
-                            </div>
-                            <div class="row justify-content-center" >
-                                <div class="col-sm-6 form-group " >
-                                    <label for="fname" class="control-label col-form-label">iv.
-                                        Harga Purata Belian Buah Tandan Segar (FFB) &nbsp; <i class="fa fa-exclamation-circle "
+                                <div class="col-md-3 mt-3">
+                                    <span class="">v. Harga Purata Belian Buah Tandan Segar (FFB) &nbsp; <i class="fa fa-exclamation-circle "
                                         style="color: red; cursor: pointer;"
-                                        title="Purata harga belian buah satu tan metrik &#010;____________________________________________    x 100 &#010;Purata OER yang ditetapkan semasa belian"></i></label>
-                                {{-- <div class="mt-2">%</div> --}}
-
-                                    </div>
-
-                                <div class="col-md-5">
+                                        title="Purata harga belian buah satu tan metrik &#010;____________________________________________    x 100 &#010;Purata OER yang ditetapkan semasa belian"></i></span>
+                                </div>
+                                <div class="col-md-2 mt-3">
                                     <span class="currency-code" &nbsp;>RM</span>
                                     <input type="text" class="form-control text-currency" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
@@ -221,36 +205,35 @@
                                 </div>
 
                             </div>
-                        </div>
-                            <div class="row">
-                                <div class="row justify-content-center" >
-                                    <div class="col-sm-6 form-group">
-                                        <label for="fname" class="align-items-center" style="margin-left:8%">v.
+
+                            <div class="content-center">
+                                <div class="row" >
+                                    <div class="col-md-3 mt-3">
+                                        <label for="fname" class="align-items-center">v.
                                             Prestasi OER  </label>
                                     </div>
-                                    <div class="col-md-6">
-                                                <select name="kadar_oer" class="form-control" id="kadar_oer" required style="margin-left: 40%;width:105%"
-                                                    onchange="showTable()" >
-                                                    <option selected hidden disabled value="">Sila Pilih Prestasi OER
-                                                    </option>
-                                                    <option {{ $status_prestasi == 'Meningkat' ? 'selected' : '' }}
-                                                        value="Meningkat">Meningkat</option>
-                                                    <option {{ $status_prestasi == 'Menurun' ? 'selected' : '' }} value="Menurun">
-                                                        Menurun</option>
-                                                </select>
+                                    <div class="col-md-2 mt-3">
+                                            <select name="kadar_oer" class="form-control" id="kadar_oer" required style="width:100%"
+                                                onchange="showTable()" >
+                                                <option selected hidden disabled value="">Sila Pilih Prestasi OER
+                                                </option>
+                                                <option {{ $status_prestasi == 'Meningkat' ? 'selected' : '' }}
+                                                    value="Meningkat">Meningkat</option>
+                                                <option {{ $status_prestasi == 'Menurun' ? 'selected' : '' }} value="Menurun">
+                                                    Menurun</option>
+                                            </select>
 
-                                            {{-- <input type="text" class="form-control" name='kadar_oer'
-                                                        id="kadar_oer" placeholder="Harga Purata Belian Buah Kelapa Sawit (FFB)"
-                                                        required title="Sila isikan butiran ini."> --}}
-                                            {{-- @error('alamat_kilang_1')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror --}}
-                                        </div>
-
-                                    <div class="mt-2">&nbsp;&nbsp;</div>
+                                        {{-- <input type="text" class="form-control" name='kadar_oer'
+                                                    id="kadar_oer" placeholder="Harga Purata Belian Buah Kelapa Sawit (FFB)"
+                                                    required title="Sila isikan butiran ini."> --}}
+                                        {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                    </div>
                                 </div>
+                            </div>
                         </div>
 
                         {{-- kadar oer meningkat --}}

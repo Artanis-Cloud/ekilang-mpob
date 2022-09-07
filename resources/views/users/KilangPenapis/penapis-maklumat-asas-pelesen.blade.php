@@ -81,7 +81,7 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:0px">
+                        <div class="row justify-content-center" style="margin-left:10px">
                             <div class="col-sm-3 " style="margin: 0px">
                                 <label for="fname" class="control-label col-form-label"></i></label>
                             </div>
@@ -337,8 +337,8 @@
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <span><br></span><label for="fname" class="control-label col-form-label required">
                                     Bilangan Tangki</label><br>
-                                <label for="fname" class="control-label col-form-label required">
-                                    Kapasiti tangki Simpanan (Tan)</label>
+                                <label for="fname" class="control-label col-form-label ">
+                                    Kapasiti tangki Simpanan (Tan)<span  style="color:red">*</span></label>
                             </div>
                             <div class="col-md-7">
                                 <table style="width:100%; text-align: center; font-size: 10px">
@@ -767,7 +767,7 @@
                 } else {
                     kap_others.disabled = false;
                 }
-              
+
             };
             </script>
 

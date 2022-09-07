@@ -127,15 +127,15 @@
 
                                 <div class="table-responsive">
                                     <table class="table table-bordered mb-0">
-                                        <thead style="text-align: center">
+                                        <thead style="text-align: center; background-color: #d3d3d34d">
                                             <tr>
-                                                <th>Butiran</th>
-                                                <th>Isirung (PK) <br> Kod 51
+                                                <th style="vertical-align: middle">Butiran</th>
+                                                <th style="vertical-align: middle">Isirung (PK) <br> Kod 51
                                                 </th>
-                                                <th>Minyak Isirung Sawit Mentah (CPKO)
+                                                <th style="vertical-align: middle">Minyak Isirung Sawit Mentah (CPKO)
                                                     <br> Kod 04
                                                 </th>
-                                                <th>Dedak Isirung (PKC)
+                                                <th style="vertical-align: middle">Dedak Isirung (PKC)
                                                     <br> Kod 33
                                                 </th>
 
