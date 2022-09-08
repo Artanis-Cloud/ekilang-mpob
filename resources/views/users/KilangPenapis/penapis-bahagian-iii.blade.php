@@ -173,7 +173,7 @@
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
                                         id="e101_a2" required onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
+                                        title="Sila isikan butiran ini." onchange="autodecimal(this); "
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_a2();valid_a2()"
                                         value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
 
@@ -201,10 +201,10 @@
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" style="text-align:right" name='e101_a3'
                                             id="e101_a3" onkeypress="return isNumberKey(event)" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                            title="Sila isikan butiran ini." onchange="autodecimal(this); FormatCurrency(this)"
-                                            oninput="validate_two_decimal(this);setCustomValidity('');valid_a3()"
-                                            value="{{ number_format($penyata->e101_a3 ?? 0, 2) }}">
+                                            oninvalid="this.setCustomValidity('Sila isi butiran ini')"
+                                            title="Sila isikan butiran ini." onchange="autodecimal(this); "
+                                            oninput="this.setCustomValidity('');valid_a3()"
+                                            value="{{ $penyata->e101_a3 }}">
                                         <p type="hidden" id="err_a3" style="color: red; display:none"><i>Nilai mestilah
                                                 melebihi 0!</i></p>
                                                 <p type="hidden" id="err_a32" style="color: red; display:none"><i>Nilai mestilah tidak

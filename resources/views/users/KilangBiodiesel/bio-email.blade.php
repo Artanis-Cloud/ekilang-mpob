@@ -55,7 +55,7 @@
                                     @csrf
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Emel Pertanyaan / Pindaan /
                                             Cadangan </h3>
                                         {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                                         </h5> --}}

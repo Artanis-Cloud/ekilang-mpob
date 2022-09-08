@@ -246,7 +246,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0" style="font-size: 13px">
                             <thead>
-                                <tr style="text-align: center">
+                                <tr style="text-align: center; background-color: #d3d3d34d">
                                     <th>Sendiri/Luar</th>
                                     <th>Belian/Terimaan dari</th>
                                     <th>CPO</th>

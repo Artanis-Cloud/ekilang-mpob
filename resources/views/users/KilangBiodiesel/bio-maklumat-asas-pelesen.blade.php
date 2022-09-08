@@ -404,7 +404,7 @@
                             </div>
                         </div>
 
-{{--
+                        {{--
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <span></span>
@@ -441,7 +441,8 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpo'
                                                 style="width:100%" size="15" id="bil_tangki_cpo" required
                                                 title="Sila isikan butiran ini." onkeypress="return isNumberKey(event)"
-                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_cpo()">
+                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');
+                                                validate_two_decimal(this); ableInput(); valid_cpo()">
                                             @error('bil_tangki_cpo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>

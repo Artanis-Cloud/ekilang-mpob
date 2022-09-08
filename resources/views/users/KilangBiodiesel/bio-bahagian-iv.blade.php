@@ -106,7 +106,7 @@
                 <div class="card-body">
                     <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 4</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2% ">Bahagian 4</h3>
                             <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                             </h5>
                         </div>

@@ -99,7 +99,7 @@
                     <div class="">
 
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(b)</h3>
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1 (b)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Minyak Isirung Sawit
                             </h5>
                         </div>
@@ -172,7 +172,7 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
                                         style="color: red; cursor: pointer;"
-                                        title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
+                                        title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan."></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e104_b7' onchange="autodecimal(this); FormatCurrency(this)"

@@ -1031,7 +1031,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagianiv'), 'name' => "Bahagian 4"],
+            ['link' => route('oleo.bahagianiv'), 'name' => "Bahagian 5"],
         ];
 
         $kembali = route('oleo.bahagianiii');

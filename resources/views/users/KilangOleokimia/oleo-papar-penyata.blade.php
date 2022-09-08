@@ -45,15 +45,9 @@
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
-
-
-
-
                         <body>
                             {{-- <p align="left">
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-
-
 
                             <div align="right">
                                 <table border="0" width="25%">
@@ -75,22 +69,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div><br>
 
-                            {{-- <div align="right">
-                                            <table border="0" width="25%" id="table1">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> --}}
+
 
                             <p style="text-align: center; vertical-align:middle">
                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
@@ -171,7 +152,7 @@
 
 
                             <p align="left"><b>
-                                    <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                    <font color="#0c7c85">MAKLUMAT PELESEN </font>
                                 </b></p>
 
                             <table border="0" width="72%" cellpadding="0" cellspacing="0">
@@ -289,9 +270,9 @@
 
                                 </tbody>
                             </table>
-                            <br>
+                            <br><hr>
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 1(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                    <font color="#0c7c85">BAHAGIAN 1(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                         SAWIT</font>
                                 </b> </p>
                             <table border="1" class="table table-bordered" width="100%" bordercolor="#000000"
@@ -409,7 +390,7 @@
                                 </tbody>
                             </table>
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 1(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                    <font color="#0c7c85">BAHAGIAN 1(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                         MINYAK ISIRUNG SAWIT</font>
                                 </b> </p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -526,7 +507,7 @@
                             </table>
 
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
+                                    <font color="#0c7c85">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
                                 </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                 <tbody>
@@ -642,19 +623,19 @@
                             </table>
 
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN
-                                        PENGGUNAAN KADAR KAPASITI
+                                    <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN
+                                        KADAR PENGGUNAAN KAPASITI PEMPROSESAN
                                     </font>
                                 </b> </p>
-                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <table border="0" width="40%" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
-                                        <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                        <td width="40%"><b>{{ $penyataii->e104_a5 }} Hari</b></td>
+                                        <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
+                                        <td width="70">: {{ $penyataii->e104_a5 }} Hari</td>
                                     </tr>
                                     <tr>
-                                        <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
-                                        <td width="40%"><b>{{ $penyataii->e104_a6 }} %</b></td>
+                                        <td width="380">Kadar Penggunaan Kapasiti Sebulan</td>
+                                        <td width="70">: {{ $penyataii->e104_a6 }} %</td>
                                     </tr>
 
                                 </tbody>
@@ -663,7 +644,7 @@
 
 
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA
+                                    <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA
                                     </font>
                                 </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered"
@@ -745,7 +726,7 @@
                             </table>
 
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN
+                                    <font color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN
                                         LAIN-LAIN PRODUK SAWIT
 
                                     </font>
@@ -813,7 +794,7 @@
                                 </tbody>
                             </table>
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
+                                    <font color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
 
                                     </font>
                                 </b></p>
@@ -880,8 +861,8 @@
                                 </tbody>
                             </table><br>
 
-                            <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
-                                <p style="font-size: 16px; margin-bottom:0"><b>
+                            <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
+                                <p style="font-size: 17px; margin-bottom:0; padding-left: 20px; color:red"><b>
                                         Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
                                         benar, lengkap dan selaras dengan rekod harian.
                                     </b></p>

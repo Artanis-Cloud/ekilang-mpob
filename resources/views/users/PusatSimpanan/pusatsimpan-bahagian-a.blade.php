@@ -272,14 +272,15 @@
                     </form>
                     <hr>
                     <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:-2%">Senarai
-                        Instolasi Keluaran Minyak
+                        Instolasi Keluaran Minyak - Aktiviti
+                        Bukan Peralihan (Non Transhipment)
                         Sawit</h5>
 
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0" style="font-size: 13px">
                                 <thead>
-                                    <tr style="text-align: center">
+                                    <tr style="text-align: center; background-color: #d3d3d34d">
                                         <th style="vertical-align: middle">Nama Produk Sawit</th>
                                         <th style="vertical-align: middle">Kod Produk </th>
                                         <th style="vertical-align: middle">Stok Awal</th>

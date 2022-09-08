@@ -151,7 +151,7 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="text" class="form-control text-right" name='e104_a6'
-                                                            onkeypress="return isNumberKey(event)" id="e104_a6"  onchange="autodecimal(this); FormatCurrency(this)"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a6"  onchange="autodecimal(this);"
                                                             oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_a6()"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
                                                             <p type="hidden" id="err_a6" style="color: red; display:none"><i>Sila isi butiran di

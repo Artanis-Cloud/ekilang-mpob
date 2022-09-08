@@ -81,15 +81,15 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:0px">
-                            <div class="col-sm-3 " style="margin: 0px">
-                                <label for="fname" class="control-label col-form-label"></i></label>
-                            </div>
-                            <div class="custom-control custom-checkbox col-md-7">
-                                <input onchange="alamat();" type="checkbox" class="custom-control-input" id="alamat_sama"
-                                    name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                        <div class="row justify-content-center" style="margin-left:30px">
+                            <div class="col-sm-3 form-group" ></div>
+                            <div class="col-md-7">
+                                <input onchange="alamat();" type="checkbox" class="custom-control-input"
+                                    id="alamat_sama" name="alamat_sama"
+                                    {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="alamat_sama">Alamat sama seperti di
                                     atas</label>
+
                             </div>
                         </div>
 
@@ -246,9 +246,9 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname" class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label">
                                     Jawatan Pegawai
-                                    Bertanggungjawab</label>
+                                    Bertanggungjawab<span  style="color:red">*</span></label>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_jpgtg" class="form-control" maxlength=60
@@ -341,8 +341,8 @@
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <span><br></span><label for="fname" class="control-label col-form-label required">
                                     Bilangan Tangki</label><br>
-                                <label for="fname" class="control-label col-form-label required">
-                                    Kapasiti tangki Simpanan (Tan)</label>
+                                <label for="fname" class="control-label col-form-label">
+                                    Kapasiti tangki Simpanan (Tan)<span  style="color:red">*</span></label>
                             </div>
                             <div class="col-md-7">
                                 <table style="width:100%; text-align: center; font-size: 10px">
