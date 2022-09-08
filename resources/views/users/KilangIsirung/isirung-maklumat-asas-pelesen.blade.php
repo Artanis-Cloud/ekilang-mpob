@@ -103,7 +103,7 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center"style="margin-left:30px">
+                            <div class="row justify-content-center" style="margin-left:30px">
                                 <div class="col-sm-3 form-group" ></div>
                                 <div class="col-md-7">
                                     <input onchange="alamat();" type="checkbox" class="custom-control-input"

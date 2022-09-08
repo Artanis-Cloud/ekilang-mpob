@@ -162,7 +162,7 @@
 
 
                         <p align="left"><b>
-                                <font color="#198b93">MAKLUMAT PELESEN </font>
+                                <font color="#0c7c85">MAKLUMAT PELESEN </font>
                             </b></p>
 
                         <table border="0" width="73%" cellpadding="0" cellspacing="0">
@@ -281,7 +281,7 @@
                         </table>
                         <br><hr>
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                <font color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     SAWIT</font>
                             </b> </p>
                         <table border="1" class="table table-bordered" width="100%" bordercolor="#000000" cellspacing="0"
@@ -409,7 +409,7 @@
                             </tbody>
                         </table><hr>
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     MINYAK ISIRUNG SAWIT</font>
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -535,7 +535,7 @@
                         </table><hr>
 
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     HARI BEROPERASI DAN KADAR PENGGUNAAN KAPASITI
                                 </font>
                             </b> </p>
@@ -560,7 +560,7 @@
                         </table>
                         <br><hr>
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font color="#0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN MAKANAN</font>
@@ -651,7 +651,7 @@
                         </table><hr>
 
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN BUKAN MAKANAN</font>
@@ -743,7 +743,7 @@
                         </table><hr>
 
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
+                                <font color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     SENDIRI</font>
                             </b></p>
                         <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -804,7 +804,7 @@
                             </tbody>
                         </table><hr>
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
+                                <font color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
                             </b></p>
                         <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -865,7 +865,7 @@
                             </tbody>
                         </table><hr>
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -955,7 +955,7 @@
                                 </tr>
                         </table><hr>
                         <p><b>
-                                <font color="#198b93">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -1017,8 +1017,8 @@
                                 </tr>
                         </table><hr>
 
-                        <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
-                            <p style="font-size: 16px; margin-bottom:0"><b>
+                        <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
+                            <p style="font-size: 18px; margin-bottom:0; padding-left: 20px; color:red"><b>
                                     Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
                                     benar, lengkap dan selaras dengan rekod harian.
                                 </b></p>

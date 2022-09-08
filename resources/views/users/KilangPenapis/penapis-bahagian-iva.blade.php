@@ -280,16 +280,16 @@
                         <table id="table4" class="table table-bordered mb-0" style="font-size: 13px"  data-detail-view="true">
                             <thead>
                                 <tr style="text-align: center; background-color: #d3d3d34d">
-                                    <th>Nama Produk</th>
-                                    <th>Kod Produk</th>
-                                    <th>Stok Awal Di Premis</th>
-                                    <th>Belian/Terimaan</th>
-                                    <th>Pengeluaran</th>
-                                    <th>Jualan/Edaran Tempatan</th>
-                                    <th>Eksport</th>
-                                    <th>Stok Akhir Di Proses</th>
-                                    <th>Kemaskini</th>
-                                    <th>Hapus?</th>
+                                    <th style="vertical-align: middle">Nama Produk</th>
+                                    <th style="vertical-align: middle">Kod Produk</th>
+                                    <th style="vertical-align: middle">Stok Awal Di Premis</th>
+                                    <th style="vertical-align: middle">Belian/Terimaan</th>
+                                    <th style="vertical-align: middle">Pengeluaran</th>
+                                    <th style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                    <th style="vertical-align: middle">Eksport</th>
+                                    <th style="vertical-align: middle">Stok Akhir Di Proses</th>
+                                    <th style="vertical-align: middle">Kemaskini</th>
+                                    <th style="vertical-align: middle">Hapus?</th>
 
                                 </tr>
                             </thead>

@@ -121,7 +121,7 @@
 
 
                                             <p align="left"><b>
-                                                    <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                                    <font color="#0c7c85">MAKLUMAT PELESEN </font>
                                                 </b></p>
 
                                             <table border="0" width="72%" cellpadding="0" cellspacing="0">
@@ -239,9 +239,9 @@
 
                                                 </tbody>
                                             </table>
-                                            <br>
+                                            <br><hr>
                                             <p><b>
-                                                    <font color="#0000FF">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
+                                                    <font color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
                                                         TRANSHIPMENT)</font>
                                                 </b> </p>
@@ -340,9 +340,9 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><hr>
                                             <p><b>
-                                                    <font color="#0000FF">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
+                                                    <font color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
                                                         LUARAN MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>
                                                 </b> </p>
@@ -406,14 +406,14 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><hr>
 
-                                            <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
-                                                <p style="font-size: 16px; margin-bottom:0"><b>
+                                            <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
+                                                <p style="font-size: 17px; margin-bottom:0; padding-left: 20px; color:red"><b>
                                                         Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
                                                         benar, lengkap dan selaras dengan rekod harian.
                                                     </b></p>
-                                                </div>
+                                            </div>
                                             {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                                 <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>

@@ -225,7 +225,7 @@
             <hr>
             <br>
             <br>
-            <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-3%; margin-bottom:3%">Senarai Eksport Produk
+            <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-3%; margin-bottom:3%">Senarai Import Produk
                 Sawit</h5>
 
             <section class="section">

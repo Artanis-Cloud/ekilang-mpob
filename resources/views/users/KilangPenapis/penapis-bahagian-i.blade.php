@@ -335,20 +335,20 @@
                         <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                             <thead style="text-align: center">
                                 <tr style="text-align: center; background-color: #d3d3d34d">
-                                    <th>Nama Produk</th>
-                                    <th>Kod Produk</th>
-                                    <th>Stok Awal Di Premis</th>
-                                    <th>Stok Awal Di Pusat Simpanan</th>
-                                    <th>Belian/<br>Terimaan</th>
-                                    <th>Import</th>
-                                    <th>Pengeluaran</th>
-                                    <th>Digunakan Untuk Proses Selanjutnya</th>
-                                    <th>Jualan/Edaran Tempatan</th>
-                                    <th>Eksport</th>
-                                    <th>Stok Akhir Di Premis</th>
-                                    <th>Stok Akhir Di Pusat Simpanan</th>
-                                    <th>Kemaskini</th>
-                                    <th>Hapus?</th>
+                                    <th style="vertical-align: middle">Nama Produk</th>
+                                    <th style="vertical-align: middle">Kod Produk</th>
+                                    <th style="vertical-align: middle">Stok Awal Di Premis</th>
+                                    <th style="vertical-align: middle">Stok Awal Di Pusat Simpanan</th>
+                                    <th style="vertical-align: middle">Belian/<br>Terimaan</th>
+                                    <th style="vertical-align: middle">Import</th>
+                                    <th style="vertical-align: middle">Pengeluaran</th>
+                                    <th style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                    <th style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                    <th style="vertical-align: middle">Eksport</th>
+                                    <th style="vertical-align: middle">Stok Akhir Di Premis</th>
+                                    <th style="vertical-align: middle">Stok Akhir Di Pusat Simpanan</th>
+                                    <th style="vertical-align: middle">Kemaskini</th>
+                                    <th style="vertical-align: middle">Hapus?</th>
                                 </tr>
                             </thead>
                             <tbody>

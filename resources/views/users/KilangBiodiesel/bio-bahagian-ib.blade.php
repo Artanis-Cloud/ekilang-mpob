@@ -163,7 +163,7 @@
 
                                 </div>
                                <div class="col-md-3 mt-3">
-                                    <span class="">Belian / Terimaan &nbsp;<i class="fa fa-exclamation-circle"
+                                    <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
                                         style="color: red; cursor: pointer;"
                                         title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
@@ -218,7 +218,7 @@
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Jualan / Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='ebio_b9'

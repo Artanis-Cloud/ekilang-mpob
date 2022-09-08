@@ -242,7 +242,7 @@
                                 <div id="meningkat_container" style="display:none">
                                     <div class="card">
 
-                                        <div class="card-content">
+                                        <div class="card-content"><br>
 
 
                                             <div class="table-responsive">
@@ -351,7 +351,7 @@
 
                                     <div class="card">
 
-                                        <div class="card-content">
+                                        <div class="card-content"><br>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered mb-0">
                                                     <thead style="text-align: center">
@@ -475,7 +475,7 @@
                                 <div id="lain_container" style="display:none">
 
                                     <div class="row">
-                                        <div class="col-12">
+                                        <div class="col-10 m-auto">
                                             <div class="form-group">
                                                 <label class="control-label col-form-label" for="lain-sebab">Lain-Lain
                                                     Sebab OER, Sila Nyatakan

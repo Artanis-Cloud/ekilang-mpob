@@ -57,14 +57,13 @@
                         @csrf
                         <div class="text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Emel Pertanyaan / Pindaan /
                                 Cadangan </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                             </h5> --}}
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-
 
 
                         <div class="container center mt-2">
@@ -74,7 +73,7 @@
                                     Jenis Emel</label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="TypeOfEmail" required
+                                        <select class="form-control" id="TypeOfEmail" name="TypeOfEmail" required
                                         oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('')">
                                             <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan

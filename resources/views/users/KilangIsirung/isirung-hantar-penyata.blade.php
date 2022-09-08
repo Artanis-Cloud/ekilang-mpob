@@ -146,7 +146,7 @@
 
 
                         <p align="left"><b>
-                                <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                <font color="#0c7c85">MAKLUMAT PELESEN </font>
                             </b></p>
 
                         <table border="0" width="72%" cellpadding="0" cellspacing="0">
@@ -263,11 +263,11 @@
                                 </tr>
 
                             </tbody>
-                        </table>
+                        </table><hr>
 
                         <br>
                         <p><b>
-                                <font color="#000FF0">BAHAGIAN 1 : MAKLUMAT IMBANGAN </font>
+                                <font color="#0c7c85">BAHAGIAN 1 : MAKLUMAT IMBANGAN </font>
                             </b> </p>
 
                         <table border="1" style="width: 65%" cellspacing="0" cellpadding="0"
@@ -614,11 +614,11 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><hr>
 
 
                         <p><b>
-                                <font color="#000FF0">BAHAGIAN 2 : KADAR PERAHAN CPKO, KADAR PEROLEHAN
+                                <font color="#0c7c85">BAHAGIAN 2 : KADAR PERAHAN CPKO, KADAR PEROLEHAN
                                     PKC, JAM PENGILANGAN DAN PENGGUNAAN
                                     KAPASITI PEMPROSESAN</font>
                             </b> </p>
@@ -651,9 +651,9 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br>
+                        <br><hr>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
+                                <font color="#0c7c85">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                     SAWIT (PK) (51)</font>
                             </b></p>
                         <table border="1" style="width: 50%" cellspacing="0" cellpadding="0"
@@ -698,10 +698,10 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><hr>
 
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
+                                <font color="#0c7c85">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
                                     MENTAH (CPKO) (04)</font>
                             </b></p>
                         <table border="1" style="width: 50%" cellspacing="0" cellpadding="0"
@@ -746,9 +746,9 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><hr>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
+                                <font color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                     (PKC) (33)</font>
                             </b></p>
                         <table border="1" style="width: 50%" cellspacing="0" cellpadding="0"
@@ -793,9 +793,9 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><hr>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
+                                <font color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" style="width: 100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
@@ -858,9 +858,9 @@
                                     </td>
                                 </tr>
 
-                        </table>
+                        </table><hr>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 7 : IMPORT PRODUK SAWIT</font>
+                                <font color="#0c7c85">BAHAGIAN 7 : IMPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" style="width: 100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
@@ -924,7 +924,7 @@
                                 </tr>
 
                             </tbody>
-                        </table><br>
+                        </table><br><hr>
 
                         <div class="card"
                             style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">

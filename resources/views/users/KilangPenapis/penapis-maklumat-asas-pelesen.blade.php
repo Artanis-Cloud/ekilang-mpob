@@ -352,7 +352,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name='bil_tangki_cpo'
+                                            <input type="text" class="form-control" name='bil_tangki_cpo' min="0"
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc19(); ableInput(); valid_cpo()"
                                                 size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
