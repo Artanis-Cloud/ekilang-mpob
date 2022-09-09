@@ -194,7 +194,7 @@
                                                 <tr class="text-left">
                                                     {{-- <td>{{ $loop->iteration }}</td> --}}
                                                     <td>
-                                                        <a href="{{ route('admin.papar.maklumat', $data->e_nl) }}"><u>
+                                                        <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                 {{ $data->e_nl }}</u></a>
                                                     </td>
                                                     <td>{{ $data->pelesen->e_np ?? '-' }}</td>
