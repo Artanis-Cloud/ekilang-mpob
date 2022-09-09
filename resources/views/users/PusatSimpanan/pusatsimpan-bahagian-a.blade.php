@@ -154,7 +154,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokawal'
                                         onkeypress="return isNumberKey(event)" id="e07bt_stokawal" required
-                                        onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
+                                        onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokawal')
@@ -171,7 +171,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_terima' style="width: 100%"
                                         onkeypress="return isNumberKey(event)" id="e07bt_terima" required
-                                        onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
+                                        onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc2()"
                                         title="Sila isikan butiran ini.">
@@ -205,7 +205,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%"
                                         onkeypress="return isNumberKey(event)" id="e07bt_edaran" required
-                                        onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
+                                        onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc3()"
                                         title="Sila isikan butiran ini.">
@@ -252,7 +252,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokakhir'
                                         style="width: 100%" onkeypress="return isNumberKey(event)" id="e07bt_stokakhir"
-                                        required  onchange="autodecimal(this); FormatCurrency(this); pelarasan()"
+                                        required  onchange="autodecimal(this); pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokakhir')
@@ -581,8 +581,8 @@
                 var  stokakhir =   document.getElementById('e07bt_stokakhir');
 
 
-                pelarasan_input = parseFloat(Number(stokawal)) + parseFloat(Number(penerimaan)) -
-                        parseFloat(Number(edaran));
+                pelarasan_input = parseFloat(Number(stokawal.replace(/,/g, ""))) + parseFloat(Number(penerimaan.replace(/,/g, ""))) -
+                        parseFloat(Number(edaran.replace(/,/g, "")));
 
                 pelarasan_diff = pelarasan_input - stokakhir.value;
 

@@ -544,22 +544,31 @@
 
         @section('scripts')
         <script>
-            function phonenumber()
-            {
-                var userno = document.getElementById("e_notel_pg");
-                // console.log(userno.value);
-                var phoneno = /(?:^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}(?:,(?!$)|$))+$/im;
-                // (?:03[0-9]{9}(?:,|$))+$
-                if(userno.value.match(phoneno))
-                {
-                return true;
+
+            function phoneNumber(input){
+                var value = input.val();
+                var values = value.split("");
+                var update = "";
+                var transition = "";
+
+                var expression=/(^\d+$)|(^\d+\.\d+$)|[,\.]/;
+                var finalExpression=/^([0-9][0-9]*[,\.]?\d{0,12})$/;
+
+                for(id in values){
+                    if (expression.test(values[id])==true && values[id]!=''){
+                        transition+=''+values[id].replace('.',',');
+                        if(finalExpression.test(transition) == true){
+                            update+=''+values[id].replace('.',',');
+                        }
+                    }
                 }
-                else
-                {
-                alert("Not a valid Phone Number");
-                return false;
-                }
+                input.val(update);
             }
+
+            $('#e_notel_pg').keyup(function (e) {
+                phoneNumber($(this));
+            });
+
             </script>
             <script type="text/javascript">
                 $(document).ready(function() {
