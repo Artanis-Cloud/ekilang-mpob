@@ -56,23 +56,23 @@ class tryController extends Controller
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
-        $qrynegeri101ppko =  DB::connection('mysql4')->select("SELECT sum(b.F101B13) stk101_ppko
-                from pl101ap3 a, pl101bp3 b, licensedb.license l
-                where a.F101A1 = b.F101B1 and
-                    a.F101A4 = b.F101B2 and
-                    a.F101A1 = l.F201A and
-                    a.F101A6 = '2016' and
-                    a.F101A5 = '07' and
-                    b.F101B3 = '2' and
-                    b.F101B4 != '04' and
-                    b.F101B13 not in (0) and
-                    b.F101B13 is not NULL");
+        $qry6 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus,
+                    (sum(m.cap_lulus * p.F1021S4) / sum(m.cap_lulus)) crsutilrate,
+                    count(m.cap_lulus) crsno
+            from pl1021p3 p, licensedb.license l, lesen_master.mpku_caps m
+            where p.F1021D = '2015' and
+                    p.F1021C = '07' and
+                    p.F1021A = l.F201A and
+                    p.F1021A = m.cap_lesen and
+                    m.cap_kat = '05' and
+                    m.cap_lulus not in (0.00) and
+                    m.cap_lulus is not NULL");
 
-        // $adnegeri101ppko = mysqli_fetch_assoc($qrynegeri101ppko);
-        foreach ($qrynegeri101ppko as $select) {
-            $stk101_ppko = (float) $select->stk101_ppko;
+        foreach ($qry6 as $sum) {
+            $crscap = (float)  $sum->cap_lulus ;
+            $crsutilrate = (float)  $sum->crsutilrate ;
+            $crsno =  $sum->crsno ;
         }
-
 
 
         // if ($loginmills) {
@@ -83,7 +83,7 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($stk101_ppko);
+        dd($qry6);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
         // dd($loginmills);
