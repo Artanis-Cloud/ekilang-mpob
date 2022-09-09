@@ -83,7 +83,7 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($qry6);
+        dd($crsno);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
         // dd($loginmills);
