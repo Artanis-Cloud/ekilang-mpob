@@ -68,7 +68,7 @@ class tryController extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adnegeri101ppko = mysqli_fetch_assoc($qrynegeri101ppko);
+        // $adnegeri101ppko = mysqli_fetch_assoc($qrynegeri101ppko);
         $stk101_ppko = (float) $adnegeri101ppko["stk101_ppko"];
 
 
