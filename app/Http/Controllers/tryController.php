@@ -69,7 +69,10 @@ class tryController extends Controller
                     b.F101B13 is not NULL");
 
         // $adnegeri101ppko = mysqli_fetch_assoc($qrynegeri101ppko);
-        $stk101_ppko = (float) $qrynegeri101ppko->stk101_ppko;
+        foreach ($qrynegeri101ppko as $select) {
+            $stk101_ppko = (float) $select->stk101_ppko;
+        }
+
 
 
         // if ($loginmills) {
@@ -80,7 +83,7 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($qrynegeri101ppko);
+        dd($stk101_ppko);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
         // dd($loginmills);
