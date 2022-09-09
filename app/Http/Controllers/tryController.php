@@ -69,7 +69,7 @@ class tryController extends Controller
                     b.F101B13 is not NULL");
 
         // $adnegeri101ppko = mysqli_fetch_assoc($qrynegeri101ppko);
-        $stk101_ppko = (float) $adnegeri101ppko["stk101_ppko"];
+        $stk101_ppko = (float) $qrynegeri101ppko->stk101_ppko;
 
 
         // if ($loginmills) {
