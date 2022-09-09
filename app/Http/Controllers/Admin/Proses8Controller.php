@@ -759,8 +759,10 @@ class Proses8Controller extends Controller
                     b.F101B9 not in (0) and
                     b.F101B9 is not null");
 
-        $adprodrbdpl = mysqli_fetch_assoc($qryprodrbdpl);
-        $prod101_rbdpl = (float) $adprodrbdpl["prod101_rbdpl ;
+        foreach ($qryprodrbdpl as $sum) {
+            $prod101_rbdpl = (float)  $sum->prod101_rbdpl ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -778,8 +780,10 @@ class Proses8Controller extends Controller
                     b.F101B9 not in (0) and
                     b.F101B9 is not NULL");
 
-        $adprodpfad = mysqli_fetch_assoc($qryprodpfad);
-        $prod101_pfad = (float) $adprodpfad["prod101_pfad ;
+        foreach ($qryprodpfad as $sum) {
+            $prod101_pfad = (float)  $sum->prod101_pfad ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -797,8 +801,10 @@ class Proses8Controller extends Controller
                     b.F101B9 not in (0) and
                     b.F101B9 is not NULL");
 
-        $adprodco = mysqli_fetch_assoc($qryprodco);
-        $prod101_co = (float) $adprodco["prod101_co ;
+        foreach ($qryprodco as $sum) {
+            $prod101_co = (float)  $sum->prod101_co ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -816,8 +822,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodmar = mysqli_fetch_assoc($qryprodmar);
-        $prod101_mar = (float) $adprodmar["prod101_mar ;
+        foreach ($qryprodmar as $sum) {
+            $prod101_mar = (float) $sum->prod101_mar ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -835,8 +843,9 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodghee = mysqli_fetch_assoc($qryprodghee);
-        $prod101_ghee = (float) $adprodghee["prod101_ghee ;
+        foreach ($qryprodghee as $sum) {
+            $prod101_ghee = (float) $sum->prod101_ghee ;
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -854,8 +863,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not null");
 
-        $adprodfat = mysqli_fetch_assoc($qryprodfat);
-        $prod101_fat = (float) $adprodfat["prod101_fat ;
+        foreach ($qryprodfat as $sum) {
+            $prod101_fat = (float) $sum->prod101_fat ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -873,8 +884,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodshort = mysqli_fetch_assoc($qryprodshort);
-        $prod101_short = (float) $adprodshort["prod101_short ;
+        foreach ($qryprodshort as $sum) {
+            $prod101_short = (float) $sum->prod101_short ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -892,8 +905,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodcoco = mysqli_fetch_assoc($qryprodcoco);
-        $prod101_coco = (float) $adprodcoco["prod101_coco ;
+        foreach ($qryprodcoco as $sum) {
+            $prod101_coco = (float) $sum->prod101_coco ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -911,8 +926,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodsoap = mysqli_fetch_assoc($qryprodsoap);
-        $prod101_soap = (float) $adprodsoap["qryprodsoap ;
+        foreach ($qryprodsoap as $sum) {
+            $prod101_soap = (float) $sum->qryprodsoap ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -930,8 +947,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodredol = mysqli_fetch_assoc($qryprodredol);
-        $prod101_redol = (float) $adprodredol["prod101_redol ;
+        foreach ($qryprodredol as $sum) {
+            $prod101_redol = (float) $sum->prod101_redol ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -949,8 +968,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodpry = mysqli_fetch_assoc($qryprodpry);
-        $prod101_pry = (float) $adprodpry["prod101_pry ;
+        foreach ($qryprodpry as $sum) {
+            $prod101_pry = (float) $sum->prod101_pry ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -968,8 +989,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodblend = mysqli_fetch_assoc($qryprodblend);
-        $prod101_blend = (float) $adprodblend["prod101_blend ;
+        foreach ($qryprodblend as $sum) {
+            $prod101_blend = (float) $sum->prod101_blend ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -987,8 +1010,10 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodotheredb = mysqli_fetch_assoc($qryprodotheredb);
-        $prod101_otheredb = (float) $adprodotheredb["prod101_otheredb ;
+        foreach ($qryprodotheredb as $sum) {
+            $prod101_otheredb = (float) $sum->prod101_otheredb ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1006,8 +1031,9 @@ class Proses8Controller extends Controller
                     b.F101C7 not in (0) and
                     b.F101C7 is not NULL");
 
-        $adprodothernot = mysqli_fetch_assoc($qryprodothernot);
-        $prod101_othernot = (float) $adprodothernot["prod101_othernot ;
+        foreach ($qryprodothernot as $sum) {
+            $prod101_othernot = (float) $sum->prod101_othernot ;
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1025,8 +1051,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkcps = mysqli_fetch_assoc($qrystkcps);
-        $stk101_cps = (float) $adstkcps["stk101_cps ;
+        foreach ($qrystkcps as $sum) {
+            $stk101_cps = (float) $sum->stk101_cps ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1044,8 +1072,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkcpl = mysqli_fetch_assoc($qrystkcpl);
-        $stk101_cpl = (float) $adstkcpl["stk101_cpl ;
+        foreach ($qrystkcpl as $sum) {
+            $stk101_cpl = (float) $sum->stk101_cpl ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1063,8 +1093,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkrbdpo = mysqli_fetch_assoc($qrystkrbdpo);
-        $stk101_rbdpo = (float) $adstkrbdpo["stk101_rbdpo ;
+        foreach ($qrystkrbdpo as $sum) {
+            $stk101_rbdpo = (float) $sum->stk101_rbdpo ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1082,8 +1114,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkrbdps = mysqli_fetch_assoc($qrystkrbdps);
-        $stk101_rbdps = (float) $adstkrbdps["stk101_rbdps ;
+        foreach ($qrystkrbdps as $sum) {
+            $stk101_rbdps = (float) $sum->stk101_rbdps ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1101,8 +1135,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkrbdpl = mysqli_fetch_assoc($qrystkrbdpl);
-        $stk101_rbdpl = (float) $adstkrbdpl["stk101_rbdpl ;
+        foreach ($qrystkrbdpl as $sum) {
+            $stk101_rbdpl = (float) $sum->stk101_rbdpl ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1120,8 +1156,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkpfad = mysqli_fetch_assoc($qrystkpfad);
-        $stk101_pfad = (float) $adstkpfad["stk101_pfad ;
+        foreach ($qrystkpfad as $sum) {
+            $stk101_pfad = (float) $sum->stk101_pfad ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1139,8 +1177,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkco = mysqli_fetch_assoc($qrystkco);
-        $stk101_co = (float) $adstkco["stk101_co ;
+        foreach ($qrystkco as $sum) {
+            $stk101_co = (float) $sum->stk101_co ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1158,8 +1198,9 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkmar = mysqli_fetch_assoc($qrystkmar);
-        $stk101_mar = (float) $adstkmar["stk101_mar ;
+        foreach ($qrystkmar as $sum) {
+            $stk101_mar = (float) $sum->stk101_mar ;
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1177,8 +1218,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkghee = mysqli_fetch_assoc($qrystkghee);
-        $stk101_ghee = (float) $adstkghee["stk101_ghee ;
+        foreach ($qrystkghee as $sum) {
+            $stk101_ghee = (float) $sum->stk101_ghee ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1196,8 +1239,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkfat = mysqli_fetch_assoc($qrystkfat);
-        $stk101_fat = (float) $adstkfat["stk101_fat ;
+        foreach ($qrystkfat as $sum) {
+            $stk101_fat = (float) $sum->stk101_fat ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1215,8 +1260,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkshort = mysqli_fetch_assoc($qrystkshort);
-        $stk101_short = (float) $adstkshort["stk101_short ;
+        foreach ($qrystkshort as $sum) {
+            $stk101_short = (float) $sum->stk101_short ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1234,8 +1281,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkcoco = mysqli_fetch_assoc($qrystkcoco);
-        $stk101_coco = (float) $adstkcoco["stk101_coco ;
+        foreach ($qrystkcoco as $sum) {
+            $stk101_coco = (float) $sum->stk101_coco ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1253,8 +1302,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstksoap = mysqli_fetch_assoc($qrystkcoco);
-        $stk101_soap = (float) $adstksoap["stk101_soap ;
+        foreach ($qrystkcoco as $sum) {
+            $stk101_soap = (float) $sum->stk101_soap ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1272,8 +1323,9 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkredol = mysqli_fetch_assoc($qrystkredol);
-        $stk101_redol = (float) $adstkredol["stk101_redol ;
+        foreach ($qrystkredol as $sum) {
+            $stk101_redol = (float) $sum->stk101_redol ;
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1291,8 +1343,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkpry = mysqli_fetch_assoc($qrystkpry);
-        $stk101_pry = (float) $adstkpry["stk101_pry ;
+        foreach ($qrystkpry as $sum) {
+            $stk101_pry = (float) $sum->stk101_pry ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1310,8 +1364,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkblend = mysqli_fetch_assoc($qrystkblend);
-        $stk101_blend = (float) $adstkblend["stk101_blend ;
+        foreach ($qrystkblend as $sum) {
+            $stk101_blend = (float) $sum->stk101_blend ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1329,8 +1385,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkotheredb = mysqli_fetch_assoc($qrystkotheredb);
-        $stk101_otheredb = (float) $adstkotheredb["stk101_otheredb ;
+        foreach ($qrystkotheredb as $sum) {
+            $stk101_otheredb = (float) $sum->stk101_otheredb ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1348,8 +1406,10 @@ class Proses8Controller extends Controller
                     b.F101C10 not in (0) and
                     b.F101C10 is not NULL");
 
-        $adstkothernot = mysqli_fetch_assoc($qrystkothernot);
-        $stk101_othernot = (float) $adstkothernot["stk101_othernot ;
+        foreach ($qrystkothernot as $sum) {
+            # code...
+        }
+        $stk101_othernot = (float) $sum->stk101_othernot ;
 
         //start-->
         //odbc_close($conn_odbc);
@@ -1658,7 +1718,7 @@ class Proses8Controller extends Controller
 
         $reprodrbdpl = mysqli_query($conn_odbc,$qryprodrbdpl);
         $adprodrbdpl = mysqli_fetch_assoc($reprodrbdpl);
-        $prod104_rbdpl = (float) $adprodrbdpl["prod104_rbdpl ;
+        $prod104_rbdpl = (float)  $sum->prod104_rbdpl ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1678,7 +1738,7 @@ class Proses8Controller extends Controller
 
         $reprodpfad = mysqli_query($conn_odbc,$qryprodpfad);
         $adprodpfad = mysqli_fetch_assoc($reprodpfad);
-        $prod104_pfad = (float) $adprodpfad["prod104_pfad ;
+        $prod104_pfad = (float)  $sum->prod104_pfad ;
 
         /*        $qryprodsoap = "select sum(b.F104B9) prod104_soap
                     from pl104ap1 a, pl104bp1 b, licensedb.license l
@@ -1694,7 +1754,7 @@ class Proses8Controller extends Controller
 
         $reprodsoap = mysqli_query($qryprodsoap, $conn_odbc);
         $adprodsoap = mysqli_fetch_assoc($reprodsoap);
-        $prod104_soap = (float) $adprodsoap["prod104_soap ;
+        $prod104_soap = (float) $sum->prod104_soap ;
         */
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1714,7 +1774,7 @@ class Proses8Controller extends Controller
 
         $restkcps = mysqli_query($conn_odbc,$qrystkcps);
         $adstkcps = mysqli_fetch_assoc($restkcps);
-        $stk104_cps = (float) $adstkcps["stk104_cps ;
+        $stk104_cps = (float) $sum->stk104_cps ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1734,7 +1794,7 @@ class Proses8Controller extends Controller
 
         $restkcpl = mysqli_query($conn_odbc,$qrystkcpl);
         $adstkcpl = mysqli_fetch_assoc($restkcpl);
-        $stk104_cpl = (float) $adstkcpl["stk104_cpl ;
+        $stk104_cpl = (float) $sum->stk104_cpl ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1754,7 +1814,7 @@ class Proses8Controller extends Controller
 
         $restkrbdpo = mysqli_query($conn_odbc,$qrystkrbdpo);
         $adstkrbdpo = mysqli_fetch_assoc($restkrbdpo);
-        $stk104_rbdpo = (float) $adstkrbdpo["stk104_rbdpo ;
+        $stk104_rbdpo = (float) $sum->stk104_rbdpo ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1774,7 +1834,7 @@ class Proses8Controller extends Controller
 
         $restkrbdps = mysqli_query($conn_odbc,$qrystkrbdps);
         $adstkrbdps = mysqli_fetch_assoc($restkrbdps);
-        $stk104_rbdps = (float) $adstkrbdps["stk104_rbdps ;
+        $stk104_rbdps = (float) $sum->stk104_rbdps ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1794,7 +1854,7 @@ class Proses8Controller extends Controller
 
         $restkrbdpl = mysqli_query($conn_odbc,$qrystkrbdpl);
         $adstkrbdpl = mysqli_fetch_assoc($restkrbdpl);
-        $stk104_rbdpl = (float) $adstkrbdpl["stk104_rbdpl ;
+        $stk104_rbdpl = (float) $sum->stk104_rbdpl ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -1814,7 +1874,7 @@ class Proses8Controller extends Controller
 
         $restkpfad = mysqli_query($conn_odbc,$qrystkpfad);
         $adstkpfad = mysqli_fetch_assoc($restkpfad);
-        $stk104_pfad = (float) $adstkpfad["stk104_pfad ;
+        $stk104_pfad = (float) $sum->stk104_pfad ;
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
