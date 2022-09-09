@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\E91b;
 use App\Models\E91Init;
+use App\Models\Oerdaerah;
 use App\Models\RegPelesen;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,18 +38,52 @@ class tryController extends Controller
         // f.negeri = n.negeri
         // order by f.tahun, f.bulan");
         $loginmills = DB::connection('mysql3')->select("show databases");
-        dd($loginmills);
+        if ($loginmills) {
+            $idno_daerah = $loginmills->maxoerdaerah_id    ;
+            $oerdaerah_id = $idno_daerah + 1;
+
+            // dd($idno);
+        } else {
+            $idno_daerah = 1;
+        }
+        dd($idno_daerah);
         return view('users.users-dashboard');
     }
 
     public function testdb_pldb()
     {
 
-        $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
+        // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
+        // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
+        $qrynegeri101ppko =  DB::connection('mysql4')->select("SELECT sum(b.F101B13) stk101_ppko
+                from pl101ap3 a, pl101bp3 b, licensedb.license l
+                where a.F101A1 = b.F101B1 and
+                    a.F101A4 = b.F101B2 and
+                    a.F101A1 = l.F201A and
+                    a.F101A6 = '2016' and
+                    a.F101A5 = '07' and
+                    b.F101B3 = '2' and
+                    b.F101B4 != '04' and
+                    b.F101B13 not in (0) and
+                    b.F101B13 is not NULL");
+
+        $adnegeri101ppko = mysqli_fetch_assoc($qrynegeri101ppko);
+        $stk101_ppko = (float) $adnegeri101ppko["stk101_ppko"];
+
+
+        // if ($loginmills) {
+        //     $idno_daerah = $loginmills[0]->maxoerdaerah_id    ;
+        //     $oerdaerah_id = $idno_daerah + 1;
+
+        //     // dd($idno);
+        // } else {
+        //     $idno_daerah = 1;
+        // }
+        dd($stk101_ppko);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
-        // dd($e91b);
+        // dd($loginmills);
         return view('users.users-dashboard');
     }
 
