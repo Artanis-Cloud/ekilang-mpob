@@ -260,6 +260,8 @@ class Proses1Controller extends Controller
     {
 
         $reg_pelesen = RegPelesen::find($e_id);
+        // $reg_pelesen = RegPelesen::where('e_nl', );
+        // dd($reg_pelesen);
         $pelesen = Pelesen::with('daerah','negeri')->where('e_nl', $reg_pelesen->e_nl)->first();
         // dd($pelesen);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
