@@ -630,32 +630,32 @@ class LaporanController extends Controller
         $negeri_req = $request->e_negeri;
 
         //RINGKASAN OPERASI
-        $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$request->tahun)
+        $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$request->tahun)
         ->groupBy('lesen')->get();
 
     //  dd($result);
         if ($request->e_nl) {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
             ->where('lesen', 'LIKE', '%' . $request->e_nl . '%') ->groupBy('lesen')->get();
 
         }
         if ($request->bulan == 'equal') {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
             ->where('bulan', 'LIKE', '%' . $request->start . '%')->groupBy('lesen')->get();
 
         }
         if ($request->bulan == 'between') {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
             ->whereBetween('bulan', [$start_month. '%', $end_month.'%'] )->groupBy('lesen')->get();
 
         }
         if ($request->e_negeri) {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
             ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%') ->groupBy('lesen')->get();
 
         }
         if ($request->e_daerah) {
-            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
                 ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')
                 ->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('e_negeri')->get();
         }
@@ -672,7 +672,7 @@ class LaporanController extends Controller
         foreach ($result as $key =>  $list_result) {
         // dd( $list_result);
 
-                $hbiob_s= DB::table('h_hari')->where('lesen', $list_result->lesen)->where('tahun',$tahun)->get();
+                $hbiob_s= DB::table('h_hari')->where('lesen', $list_result->lesen)->where('tahunbhg2',$tahun)->get();
                 $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->e_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
                 foreach ($hbiob_s as  $hbiob) {
