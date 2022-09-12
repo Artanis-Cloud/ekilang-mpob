@@ -1428,8 +1428,10 @@ class Proses8Controller extends Controller
                     b.F101B13 not in (0) and
                     b.F101B13 is not NULL");
 
-        $adstkrbdpko = mysqli_fetch_assoc($qrystkrbdpko);
-        $stk101_rbdpko = (float) $adstkrbdpko["stk101_rbdpko ;
+        foreach ($qrystkrbdpko as $sum) {
+            $stk101_rbdpko = (float) $sum->stk101_rbdpko ;
+
+        }
 
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
