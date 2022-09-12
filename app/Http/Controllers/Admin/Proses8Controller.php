@@ -21,8 +21,8 @@ class Proses8Controller extends Controller
     public function admin_8portdata()
     {
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama     ,
-            ['link' => route('admin.8portdata'), 'name' => "Pindahan Penyata Bulanan ke Stat Admin/Homepage    ,
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama "]    ,
+            ['link' => route('admin.8portdata'), 'name' => "Pindahan Penyata Bulanan ke Stat Admin/Homepage  "]  ,
         ];
 
         $kembali = route('admin.dashboard');
@@ -362,7 +362,7 @@ class Proses8Controller extends Controller
             and p.F911I not in (0)
             and p.F911I is not null");
 
-            foreach ($qry1 as $sum {
+            foreach ($qry1 as $sum) {
                 $oer_cpo = (float) $sum->oer_cpo;
                 $ker_pk = (float)  $sum->ker_pk ;
                 $cpo = (float)  $sum->cpo ;
@@ -2565,9 +2565,10 @@ class Proses8Controller extends Controller
                     a.penyata = 'bekalan_import' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdpl5 = mysqli_query($conn_odbc,$qrynegeribio_rbdpl5);
-        $adnegeribio_rbdpl5 = mysqli_fetch_assoc($renegeribio_rbdpl5);
-        $bekalan_import_rbdpl = (float) $sum->bekalan_import_rbdpl ;
+        foreach ($qrynegeribio_rbdpl5 as $sum){
+                $bekalan_import_rbdpl = (float) $sum->bekalan_import_rbdpl ;
+        }
+
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2580,9 +2581,10 @@ class Proses8Controller extends Controller
                     a.penyata = 'ppo_proses' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdpl6 = mysqli_query($conn_odbc,$qrynegeribio_rbdpl6);
-        $adnegeribio_rbdpl6 = mysqli_fetch_assoc($renegeribio_rbdpl6);
-        $ppo_proses_rbdpl = (float) $sum->ppo_proses_rbdpl ;
+        foreach ($qrynegeribio_rbdpl6 as $sum){
+            $ppo_proses_rbdpl = (float) $sum->ppo_proses_rbdpl ;
+
+        }
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2595,9 +2597,10 @@ class Proses8Controller extends Controller
                     a.penyata = 'jualan_jualan' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdpl7 = mysqli_query($conn_odbc,$qrynegeribio_rbdpl7);
-        $adnegeribio_rbdpl7 = mysqli_fetch_assoc($renegeribio_rbdpl7);
-        $jualan_jualan_rbdpl = (float) $sum->jualan_rbdpl ;
+        foreach ($qrynegeribio_rbdpl7 as $sum){
+            $jualan_jualan_rbdpl = (float) $sum->jualan_rbdpl ;
+        }
+
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2610,9 +2613,10 @@ class Proses8Controller extends Controller
                     a.penyata = 'jualan_edaran' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdpl8 = mysqli_query($conn_odbc,$qrynegeribio_rbdpl8);
-        $adnegeribio_rbdpl8 = mysqli_fetch_assoc($renegeribio_rbdpl8);
-        $jualan_edaran_rbdpl = (float) $sum->jualan_edaran_rbdpl ;
+        foreach ($qrynegeribio_rbdpl8 as $sum){
+            $jualan_edaran_rbdpl = (float) $sum->jualan_edaran_rbdpl ;
+        }
+
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2625,10 +2629,9 @@ class Proses8Controller extends Controller
                     a.penyata = 'jualan_eksport' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdpl9 = mysqli_query($conn_odbc,$qrynegeribio_rbdpl9);
-        $adnegeribio_rbdpl9 = mysqli_fetch_assoc($renegeribio_rbdpl9);
-        $jualan_eksport_rbdpl = (float) $sum->jualan_eksport_rbdpl ;
-
+        foreach ($qrynegeribio_rbdpl9 as $sum){
+            $jualan_eksport_rbdpl = (float) $sum->jualan_eksport_rbdpl ;
+        }
 
 
         //odbc_close($conn_odbc);
@@ -2644,9 +2647,9 @@ class Proses8Controller extends Controller
                     a.penyata = 'ppo_hasil' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdps1 = mysqli_query($conn_odbc,$qrynegeribio_rbdps1);
-        $adnegeribio_rbdps1 = mysqli_fetch_assoc($renegeribio_rbdps1);
-        $ppo_hasil_rbdps = (float) $sum->ppo_hasil_rbdps ;
+        foreach ($qrynegeribio_rbdps1 as $sum){
+            $ppo_hasil_rbdps = (float) $sum->ppo_hasil_rbdps ;
+        }
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2659,9 +2662,9 @@ class Proses8Controller extends Controller
                     a.penyata = 'stok_awal' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdps2 = mysqli_query($conn_odbc,$qrynegeribio_rbdps2);
-        $adnegeribio_rbdps2 = mysqli_fetch_assoc($renegeribio_rbdps2);
-        $stk_awl_rbdps = (float) $sum->stok_awl_rbdps ;
+        foreach ($qrynegeribio_rbdps2 as $sum){
+            $stk_awl_rbdps = (float) $sum->stok_awl_rbdps ;
+        }
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2674,9 +2677,9 @@ class Proses8Controller extends Controller
                     a.penyata = 'bekalan_belian' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdps3 = mysqli_query($conn_odbc,$qrynegeribio_rbdps3);
-        $adnegeribio_rbdps3 = mysqli_fetch_assoc($renegeribio_rbdps3);
-        $bekalan_belian_rbdps = (float) $sum->bekalan_belian_rbdps ;
+        foreach ($qrynegeribio_rbdps3 as $sum){
+            $bekalan_belian_rbdps = (float) $sum->bekalan_belian_rbdps ;
+        }
         //odbc_close($conn_odbc);
 
 
@@ -2690,9 +2693,9 @@ class Proses8Controller extends Controller
                     a.penyata = 'bekalan_penerimaan' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdps4 = mysqli_query($conn_odbc,$qrynegeribio_rbdps4);
-        $adnegeribio_rbdps4 = mysqli_fetch_assoc($renegeribio_rbdps4);
-        $bekalan_penerimaan_rbdps = (float) $sum->bekalan_penerimaan_rbdps ;
+        foreach ($qrynegeribio_rbdps4 as $sum){
+            $bekalan_penerimaan_rbdps = (float) $sum->bekalan_penerimaan_rbdps ;
+        }
         //odbc_close($conn_odbc);
 
 
@@ -2706,9 +2709,9 @@ class Proses8Controller extends Controller
                     a.penyata = 'bekalan_import' and
                     l.F201U4 = $ngr");
 
-        $renegeribio_rbdps5 = mysqli_query($conn_odbc,$qrynegeribio_rbdps5);
-        $adnegeribio_rbdps5 = mysqli_fetch_assoc($renegeribio_rbdps5);
-        $bekalan_import_rbdps = (float) $sum->bekalan_import_rbdps ;
+        foreach ($qrynegeribio_rbdps5 as $sum){
+            $bekalan_import_rbdps = (float) $sum->bekalan_import_rbdps ;
+        }
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2880,7 +2883,7 @@ class Proses8Controller extends Controller
 
         $renegeribio_pfad7 = mysqli_query($conn_odbc,$qrynegeribio_pfad7);
         $adnegeribio_pfad7 = mysqli_fetch_assoc($renegeribio_pfad7);
-        $jualan_jualan_pfad = (float) $adnegeribio_pfad7["jualan_pfad ;
+        $jualan_jualan_pfad = (float) $sum->jualan_pfad ;
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
