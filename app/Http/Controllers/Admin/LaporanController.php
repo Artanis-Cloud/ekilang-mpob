@@ -1168,11 +1168,16 @@ class LaporanController extends Controller
         // LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
         // WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 10");
         // dd($list_penyata);
-        $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        // $list_penyata = DB::raw("SELECT e.ebio_sdate AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        // FROM e_bio_inits e
+        // LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+        // LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+        // WHERE e.ebio_sdate BETWEEN $sdate AND $edate");
+        $list_penyata = DB::select("SELECT e.ebio_sdate AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
         FROM e_bio_inits e
         LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
         LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
-        WHERE DAY(e.ebio_sdate) BETWEEN $sdate AND $edate");
+        WHERE e.ebio_sdate BETWEEN '$sdate' AND '$edate'");
 
         // if ($kategori == "tepat") {
         //     $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
@@ -2813,7 +2818,15 @@ class LaporanController extends Controller
     {
 
         // $count = Pelesen::max('e_id');
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
 
+        $check = HebahanStokAkhir::where('tahun', $tahun)->where('bulan', $bulan)->first();
+        // dd($check);
+        if ($check) {
+            return redirect()->back()
+            ->with('error', 'Maklumat stok akhir sudah tersedia');
+        } else {
         //
         $hebahan = HebahanStokAkhir::create([
             // 'e_id' => $count+ 1,
@@ -2831,12 +2844,10 @@ class LaporanController extends Controller
             'ppo_srwk' => $request->ppo_srwk,
             'cpko_srwk' => $request->cpko_srwk,
             'ppko_srwk' => $request->ppko_srwk,
-
-
-
         ]);
 
         return redirect()->back()->with('success', 'Maklumat stok akhir sudah ditambah');
+    }
     }
 
     // public function admin_validasi_stok_akhir(Request $request)
