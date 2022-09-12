@@ -370,7 +370,7 @@
                                 <section class="section"><hr>
 
                                     <div class="card"><br>
-                                        <h3 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h3>
+                                        <h3 style="color: rgb(30, 28, 28); text-align:center; font-size:20px">Senarai Ringkasan Bahagian 1</h3>
                                         <div class="text-center">
                                             <h4 style="color: black; text-align:center; font-weight:500">
                                                 @if ($laporan == 'ebio_b5')

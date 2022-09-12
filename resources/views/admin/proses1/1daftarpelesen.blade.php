@@ -598,9 +598,9 @@
                                                 <option value="GOV">Kerajaan</option>
                                                 <option value="IND">Swasta</option>
                                             </select>
-                                            <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila isi
-                                                    butiran di
-                                                    bahagian ini!</i></p>
+                                            <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila
+                                                buat pilihan di
+                                                bahagian ini!</i></p>
                                         </fieldset>
                                     </div>
                                 </div>
@@ -613,7 +613,7 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
                                                 <select class="form-control" name="e_poma" id="e_poma"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" 
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); invokeFunc25(); valid_poma()">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     <option value="poma">Ya</option>

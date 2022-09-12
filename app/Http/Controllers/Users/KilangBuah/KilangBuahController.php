@@ -791,7 +791,7 @@ class KilangBuahController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        // $layout = 'layouts.kbuah';
 
         $bulan = date("m") - 1;
 
@@ -821,7 +821,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-hantar-penyata', compact('layout', 'date', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
+        return view('users.KilangBuah.buah-hantar-penyata', compact( 'date', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
     }
 
     public function buah_email()
