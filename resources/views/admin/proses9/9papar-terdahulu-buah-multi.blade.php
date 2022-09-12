@@ -1051,7 +1051,7 @@
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            <table border="1" width="342" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
