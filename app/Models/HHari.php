@@ -17,10 +17,11 @@ class HHari extends Model
      *
      */
     protected $table = 'h_hari';
-    protected $primaryKey = 'lesen';
+    protected $primaryKey = 'id';
     public $timestamps = false;
 
     protected $fillable = [
+        'id',
         'lesen',
         'tahun',
         'bulan',

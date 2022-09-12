@@ -630,7 +630,7 @@ class LaporanController extends Controller
         $negeri_req = $request->e_negeri;
 
         //RINGKASAN OPERASI
-        $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$tahun)
+        $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahun',$request->tahun)
         ->groupBy('lesen')->get();
 
     //  dd($result);
