@@ -54,7 +54,7 @@
                         </div>
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Pengurusan Pentadbir</h3>
-                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Daftar Akaun Pentadbir</h4>
+                            <h4 style="color: rgb(39, 80, 71); margin-top:1%">Daftar Akaun Pentadbir</h4>
                         </div>
                         <hr>
                         <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post">

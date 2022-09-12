@@ -65,20 +65,14 @@
                                 {{-- <p>Maklumat Kilang</p> --}}
                             </div>
                             <hr>
-                            <section class="section">
-                                <div class="col-md-12">
+                            {{-- <section class="section"> --}}
+                                <div>
                                     <a href="{{ route('admin.pengurusan.pentadbir') }}" class="btn btn-primary"
-                                        style="float: left"> Tambah Pentadbir Baru</a>
-                                </div>
-                                <div class="card">
+                                        style="float: left; margin-bottom: 2%"> Tambah Pentadbir Baru</a>
                                 </div>
 
-                                <div class="table-responsive" style="margin-top: -7%">
-                                    {{-- <div class="col-md-3">
-                                        <a href="{{ route('admin.pengurusan.pentadbir') }}" class="btn btn-primary"
-                                            style="margin-bottom:15px"> Tambah Pentadbir Baru</a>
-                                    </div> --}}
-                                    <table id="example" class="table table-bordered" style="width: 100%;">
+                                <div class="table-responsive" >
+                                    <table id="example" class="table table-bordered" style="width: 100%;  ">
                                         <thead>
                                             <tr class="text-center" style="background-color: #e9ecefbd">
                                                 {{-- <th>Bil.</th> --}}
@@ -161,648 +155,637 @@
                                                     </td>
                                                 </tr>
 
-                                                <div class="col-md-6 col-12">
 
-                                                    <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
-                                                        role="dialog" aria-labelledby="exampleModalScrollableTitle"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                            @if (auth()->user()->role == 'Superadmin')
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="exampleModalScrollableTitle">
-                                                                            Kemaskini Maklumat Pentadbir</h5>
-                                                                        <button type="button" class="close"
-                                                                            data-dismiss="modal" aria-label="Close">
-                                                                            <i data-feather="x"></i>
+                                            @endforeach
+                                        </tbody>
+
+                                    </table>
+
+                                    @foreach ( $admin as $data )
+                                        <div class="col-md-6 col-12">
+
+                                            <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalScrollableTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                    @if (auth()->user()->role == 'Superadmin')
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="exampleModalScrollableTitle">
+                                                                    Kemaskini Maklumat Pentadbir</h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+
+
+                                                                <form
+                                                                    action="{{ route('admin.edit.pentadbir', [$data->id]) }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <label>Nama </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='name'
+                                                                                class="form-control"
+                                                                                value="{{ $data->name }}">
+                                                                        </div>
+                                                                        <label>Emel </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='email'
+                                                                                class="form-control"
+                                                                                value="{{ old('email') ?? $data->email }}">
+                                                                        </div>
+                                                                        <label>Username </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='username'
+                                                                                class="form-control"
+                                                                                value="{{ $data->username }}">
+                                                                        </div>
+                                                                        <label>Kategori </label>
+                                                                        <div class="form-group">
+                                                                            <fieldset class="form-group">
+                                                                                <select class="form-control"
+                                                                                    name="role">
+                                                                                    <option
+                                                                                        {{ $data->role == 'Admin' ? 'selected' : '' }}>
+                                                                                        Admin</option>
+                                                                                    {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
+                                                                                    <option
+                                                                                        {{ $data->role == 'Manager' ? 'selected' : '' }}>
+                                                                                        Manager</option>
+                                                                                    <option
+                                                                                        {{ $data->role == 'Superadmin' ? 'selected' : '' }}>
+                                                                                        Superadmin</option>
+                                                                                    <option
+                                                                                        {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
+                                                                                        Supervisor</option>
+                                                                                        <option hidden disabled
+                                                                                            {{ $data->role == '' ? 'selected' : '' }}
+                                                                                            value="">
+                                                                                            Sila Pilih Kategori
+                                                                                        </option>
+                                                                                </select>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <label>Sub-Kategori </label>
+                                                                        <div class="form-group">
+                                                                            <fieldset class="form-group">
+                                                                                <select multiple="multiple"
+                                                                                    size="10"
+                                                                                    class="duallistbox-no-filter"
+                                                                                    name="sub_cat[]">
+                                                                                    <option value="PL91" {{ json_encode($data->sub_cat) == 'PL91' ? 'selected' : '' }}>Kilang Buah
+                                                                                    </option>
+                                                                                    <option value="PL101" {{ json_encode($data->sub_cat) == 'PL101' ? 'selected' : '' }}>Kilang
+                                                                                        Penapis</option>
+                                                                                    <option value="PL102" {{ json_encode($data->sub_cat) == 'PL102' ? 'selected' : '' }}>Kilang
+                                                                                        Isirung</option>
+                                                                                    <option value="PL104" {{ json_encode($data->sub_cat) == 'PL104' ? 'selected' : '' }}>Kilang
+                                                                                        Oleokimia</option>
+                                                                                    <option value="PL111" {{ json_encode($data->sub_cat) == 'PL111' ? 'selected' : '' }}>Pusat
+                                                                                        Simpanan</option>
+                                                                                    <option value="PLBIO" {{ json_encode($data->sub_cat) == 'PLBIO' ? 'selected' : '' }}>Kilang
+                                                                                        Biodiesel</option>
+                                                                                </select>
+                                                                            </fieldset>
+                                                                        </div>
+
+                                                                        <label>Status </label>
+                                                                        <div class="form-group">
+                                                                            <fieldset class="form-group">
+                                                                                <select class="form-control"
+                                                                                    name="status">
+                                                                                    {{-- @if ($data->status == null)
+                                                                                        <option hidden selected
+                                                                                            disabled>
+                                                                                            Sila Pilih Status
+                                                                                        </option>
+                                                                                    @else
+                                                                                        <option hidden selected
+                                                                                            disabled>
+                                                                                            {{ $data->status }}
+                                                                                        </option>
+                                                                                    @endif --}}
+                                                                                    <option
+                                                                                        {{ $data->status == '1' ? 'selected' : '' }}
+                                                                                        value="1">
+                                                                                        Aktif</option>
+                                                                                    {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
+                                                                                    <option
+                                                                                        {{ $data->status == '2' ? 'selected' : '' }}
+                                                                                        value="2">
+                                                                                        Tidak Aktif</option>
+                                                                                        <option hidden disabled
+                                                                                            {{ $data->status == '' ? 'selected' : '' }}
+                                                                                            value="">
+                                                                                            Sila Pilih Status
+                                                                                        </option>
+                                                                                </select>
+                                                                            </fieldset>
+                                                                        </div>
+
+
+                                                                    </div>
+
+
+
+
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-light-secondary"
+                                                                            data-dismiss="modal">
+                                                                            <i
+                                                                                class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span
+                                                                                class="d-none d-sm-block">Batal</span>
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary ml-1">
+                                                                            <i
+                                                                                class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span
+                                                                                class="d-none d-sm-block">Kemaskini</span>
                                                                         </button>
                                                                     </div>
-
-                                                                    <div class="modal-body">
-
-
-                                                                        <form
-                                                                            action="{{ route('admin.edit.pentadbir', [$data->id]) }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            <div class="modal-body">
-                                                                                <label>Nama </label>
-                                                                                <div class="form-group">
-                                                                                    <input type="text" name='name'
-                                                                                        class="form-control"
-                                                                                        value="{{ $data->name }}">
-                                                                                </div>
-                                                                                <label>Emel </label>
-                                                                                <div class="form-group">
-                                                                                    <input type="text" name='email'
-                                                                                        class="form-control"
-                                                                                        value="{{ old('email') ?? $data->email }}">
-                                                                                </div>
-                                                                                <label>Username </label>
-                                                                                <div class="form-group">
-                                                                                    <input type="text" name='username'
-                                                                                        class="form-control"
-                                                                                        value="{{ $data->username }}">
-                                                                                </div>
-                                                                                <label>Kategori </label>
-                                                                                <div class="form-group">
-                                                                                    <fieldset class="form-group">
-                                                                                        <select class="form-control"
-                                                                                            name="role">
-                                                                                            <option
-                                                                                                {{ $data->role == 'Admin' ? 'selected' : '' }}>
-                                                                                                Admin</option>
-                                                                                            {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
-                                                                                            <option
-                                                                                                {{ $data->role == 'Manager' ? 'selected' : '' }}>
-                                                                                                Manager</option>
-                                                                                            <option
-                                                                                                {{ $data->role == 'Superadmin' ? 'selected' : '' }}>
-                                                                                                Superadmin</option>
-                                                                                            <option
-                                                                                                {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
-                                                                                                Supervisor</option>
-                                                                                                <option hidden disabled
-                                                                                                    {{ $data->role == '' ? 'selected' : '' }}
-                                                                                                    value="">
-                                                                                                    Sila Pilih Kategori
-                                                                                                </option>
-                                                                                        </select>
-                                                                                    </fieldset>
-                                                                                </div>
-                                                                                <label>Sub-Kategori </label>
-                                                                                <div class="form-group">
-                                                                                    <fieldset class="form-group">
-                                                                                        <select multiple="multiple"
-                                                                                            size="10"
-                                                                                            class="duallistbox-no-filter"
-                                                                                            name="sub_cat[]">
-                                                                                            <option value="PL91" {{ json_encode($data->sub_cat) == 'PL91' ? 'selected' : '' }}>Kilang Buah
-                                                                                            </option>
-                                                                                            <option value="PL101" {{ json_encode($data->sub_cat) == 'PL101' ? 'selected' : '' }}>Kilang
-                                                                                                Penapis</option>
-                                                                                            <option value="PL102" {{ json_encode($data->sub_cat) == 'PL102' ? 'selected' : '' }}>Kilang
-                                                                                                Isirung</option>
-                                                                                            <option value="PL104" {{ json_encode($data->sub_cat) == 'PL104' ? 'selected' : '' }}>Kilang
-                                                                                                Oleokimia</option>
-                                                                                            <option value="PL111" {{ json_encode($data->sub_cat) == 'PL111' ? 'selected' : '' }}>Pusat
-                                                                                                Simpanan</option>
-                                                                                            <option value="PLBIO" {{ json_encode($data->sub_cat) == 'PLBIO' ? 'selected' : '' }}>Kilang
-                                                                                                Biodiesel</option>
-                                                                                        </select>
-                                                                                    </fieldset>
-                                                                                </div>
-
-                                                                                <label>Status </label>
-                                                                                <div class="form-group">
-                                                                                    <fieldset class="form-group">
-                                                                                        <select class="form-control"
-                                                                                            name="status">
-                                                                                            {{-- @if ($data->status == null)
-                                                                                                <option hidden selected
-                                                                                                    disabled>
-                                                                                                    Sila Pilih Status
-                                                                                                </option>
-                                                                                            @else
-                                                                                                <option hidden selected
-                                                                                                    disabled>
-                                                                                                    {{ $data->status }}
-                                                                                                </option>
-                                                                                            @endif --}}
-                                                                                            <option
-                                                                                                {{ $data->status == '1' ? 'selected' : '' }}
-                                                                                                value="1">
-                                                                                                Aktif</option>
-                                                                                            {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
-                                                                                            <option
-                                                                                                {{ $data->status == '2' ? 'selected' : '' }}
-                                                                                                value="2">
-                                                                                                Tidak Aktif</option>
-                                                                                                <option hidden disabled
-                                                                                                    {{ $data->status == '' ? 'selected' : '' }}
-                                                                                                    value="">
-                                                                                                    Sila Pilih Status
-                                                                                                </option>
-                                                                                        </select>
-                                                                                    </fieldset>
-                                                                                </div>
-
-
-                                                                            </div>
-
-
-
-
-
-                                                                            <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-light-secondary"
-                                                                                    data-dismiss="modal">
-                                                                                    <i
-                                                                                        class="bx bx-x d-block d-sm-none"></i>
-                                                                                    <span
-                                                                                        class="d-none d-sm-block">Batal</span>
-                                                                                </button>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary ml-1">
-                                                                                    <i
-                                                                                        class="bx bx-check d-block d-sm-none"></i>
-                                                                                    <span
-                                                                                        class="d-none d-sm-block">Kemaskini</span>
-                                                                                </button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            @elseif (auth()->user()->role == 'Manager')
-                                                                @if ($data->role != 'Superadmin')
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalScrollableTitle">
-                                                                                Kemaskini Maklumat Pentadbir</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="modal" aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-
-                                                                            <form
-                                                                                action="{{ route('admin.edit.pentadbir', [$data->id]) }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                <div class="modal-body">
-                                                                                    <label>Nama </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='name'
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->name }}">
-                                                                                    </div>
-                                                                                    <label>Emel </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='email'
-                                                                                            class="form-control"
-                                                                                            value="{{ old('email') ?? $data->email }}">
-                                                                                    </div>
-                                                                                    <label>Username </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='username'
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->username }}">
-                                                                                    </div>
-                                                                                    <label>Kategori </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select class="form-control"
-                                                                                                name="role">
-                                                                                                <option
-                                                                                                    {{ $data->role == 'Admin' ? 'selected' : '' }}>
-                                                                                                    Admin</option>
-                                                                                                <option
-                                                                                                    {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
-                                                                                                    Supervisor</option>
-                                                                                                <option hidden disabled
-                                                                                                    {{ $data->role == '' ? 'selected' : '' }}
-                                                                                                    value="">
-                                                                                                    Sila Pilih Kategori
-                                                                                                </option>
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                    </div>
-                                                                                    <label>Sub-Kategori </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select multiple="multiple"
-                                                                                                size="10"
-                                                                                                class="duallistbox-no-filter"
-                                                                                                name="sub_cat[]">
-                                                                                                <option value="PL91">Kilang
-                                                                                                    Buah
-                                                                                                </option>
-                                                                                                <option value="PL101">Kilang
-                                                                                                    Penapis</option>
-                                                                                                <option value="PL102">Kilang
-                                                                                                    Isirung</option>
-                                                                                                <option value="PL104">Kilang
-                                                                                                    Oleokimia</option>
-                                                                                                <option value="PL111">Pusat
-                                                                                                    Simpanan</option>
-                                                                                                <option value="PLBIO">Kilang
-                                                                                                    Biodiesel</option>
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                    </div>
-
-                                                                                    <label>Status </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select class="form-control"
-                                                                                                name="status">
-                                                                                                {{-- @if ($data->status == null)
-                                                                                                    <option hidden selected
-                                                                                                        disabled>
-                                                                                                        Sila Pilih Status
-                                                                                                    </option>
-                                                                                                @else
-                                                                                                    <option hidden selected
-                                                                                                        disabled>
-                                                                                                        {{ $data->status }}
-                                                                                                    </option>
-                                                                                                @endif --}}
-                                                                                                <option
-                                                                                                    {{ $data->status == '1' ? 'selected' : '' }}
-                                                                                                    value="1">
-                                                                                                    Aktif</option>
-                                                                                                {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
-                                                                                                <option
-                                                                                                    {{ $data->status == '2' ? 'selected' : '' }}
-                                                                                                    value="2">
-                                                                                                    Tidak Aktif</option>
-                                                                                                <option hidden disabled
-                                                                                                    {{ $data->status == '' ? 'selected' : '' }}
-                                                                                                    value="">
-                                                                                                    Sila Pilih Status
-                                                                                                </option>
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                    </div>
-
-
-
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button"
-                                                                                        class="btn btn-light-secondary"
-                                                                                        data-dismiss="modal">
-                                                                                        <i
-                                                                                            class="bx bx-x d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Batal</span>
-                                                                                    </button>
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary ml-1">
-                                                                                        <i
-                                                                                            class="bx bx-check d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Kemaskini</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                            </form>
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                @else
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalScrollableTitle">
-                                                                                Kemaskini Maklumat Pentadbir</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="modal" aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-                                                                            <label>Nama </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='name'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->name }}" readonly>
-                                                                            </div>
-                                                                            <label>Emel </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='email'
-                                                                                    class="form-control"
-                                                                                    value="{{ old('email') ?? $data->email }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label>Username </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='username'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->username }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label>Kategori </label>
-                                                                            <div class="form-group">
-                                                                                <fieldset class="form-group">
-                                                                                    <input type="text" name='username'
-                                                                                        class="form-control"
-                                                                                        value="{{ $data->role }}"
-                                                                                        readonly>
-
-                                                                                </fieldset>
-                                                                            </div>
-
-
-
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                @endif
-                                                            @elseif (auth()->user()->role == 'Supervisor')
-                                                                @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin')
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalScrollableTitle">
-                                                                                Kemaskini Maklumat Pentadbir</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="modal" aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-
-                                                                            <form
-                                                                                action="{{ route('admin.edit.pentadbir', [$data->id]) }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                <div class="modal-body">
-                                                                                    <label>Nama </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='name'
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->name }}">
-                                                                                    </div>
-                                                                                    <label>Emel </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='email'
-                                                                                            class="form-control"
-                                                                                            value="{{ old('email') ?? $data->email }}">
-                                                                                    </div>
-                                                                                    <label>Username </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='username'
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->username }}">
-                                                                                    </div>
-                                                                                    <label>Kategori </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select class="form-control"
-                                                                                                name="role">
-                                                                                                <option
-                                                                                                    {{ $data->role == 'Admin' ? 'selected' : '' }}>
-                                                                                                    Admin</option>
-                                                                                                <option
-                                                                                                    {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
-                                                                                                    Supervisor</option>
-                                                                                                <option hidden disabled
-                                                                                                    {{ $data->role == '' ? 'selected' : '' }}
-                                                                                                    value="">
-                                                                                                    Sila Pilih Kategori
-                                                                                                </option>
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                    </div>
-                                                                                    <label>Sub-Kategori </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select multiple="multiple"
-                                                                                                size="10"
-                                                                                                class="duallistbox-no-filter"
-                                                                                                name="sub_cat[]">
-                                                                                                <option value="PL91">Kilang
-                                                                                                    Buah
-                                                                                                </option>
-                                                                                                <option value="PL101">Kilang
-                                                                                                    Penapis</option>
-                                                                                                <option value="PL102">Kilang
-                                                                                                    Isirung</option>
-                                                                                                <option value="PL104">Kilang
-                                                                                                    Oleokimia</option>
-                                                                                                <option value="PL111">Pusat
-                                                                                                    Simpanan</option>
-                                                                                                <option value="PLBIO">Kilang
-                                                                                                    Biodiesel</option>
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                    </div>
-
-                                                                                    <label>Status </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select class="form-control"
-                                                                                                name="status">
-                                                                                                {{-- @if ($data->status == null)
-                                                                                                    <option hidden selected
-                                                                                                        disabled>
-                                                                                                        Sila Pilih Status
-                                                                                                    </option>
-                                                                                                @else
-                                                                                                    <option hidden selected
-                                                                                                        disabled>
-                                                                                                        {{ $data->status }}
-                                                                                                    </option>
-                                                                                                @endif --}}
-                                                                                                <option
-                                                                                                    {{ $data->status == '1' ? 'selected' : '' }}
-                                                                                                    value="1">
-                                                                                                    Aktif</option>
-                                                                                                {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
-                                                                                                <option
-                                                                                                    {{ $data->status == '2' ? 'selected' : '' }}
-                                                                                                    value="2">
-                                                                                                    Tidak Aktif</option>
-                                                                                                <option hidden disabled
-                                                                                                    {{ $data->status == '' ? 'selected' : '' }}
-                                                                                                    value="">
-                                                                                                    Sila Pilih Status
-                                                                                                </option>
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                    </div>
-
-
-
-                                                                                </div>
-
-
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button"
-                                                                                        class="btn btn-light-secondary"
-                                                                                        data-dismiss="modal">
-                                                                                        <i
-                                                                                            class="bx bx-x d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Batal</span>
-                                                                                    </button>
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary ml-1">
-                                                                                        <i
-                                                                                            class="bx bx-check d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Kemaskini</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                            </form>
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                @else
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalScrollableTitle">
-                                                                                Kemaskini Maklumat Pentadbir</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="modal" aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="modal-body">
-                                                                            <label>Nama </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='name'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->name }}" readonly>
-                                                                            </div>
-                                                                            <label>Emel </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='email'
-                                                                                    class="form-control"
-                                                                                    value="{{ old('email') ?? $data->email }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label>Username </label>
-                                                                            <div class="form-group">
-                                                                                <input type="text" name='username'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->username }}"
-                                                                                    readonly>
-                                                                            </div>
-                                                                            <label>Kategori </label>
-                                                                            <div class="form-group">
-                                                                                <fieldset class="form-group">
-                                                                                    <input type="text" name='username'
-                                                                                        class="form-control"
-                                                                                        value="{{ $data->role }}"
-                                                                                        readonly>
-
-                                                                                </fieldset>
-                                                                            </div>
-
-
-                                                                        </div>
-
-                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
-                                            @endif
-                                        @elseif (auth()->user()->role == 'Admin' || auth()->user()->role == '')
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                        Kemaskini Maklumat Pentadbir</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
+                                                    @elseif (auth()->user()->role == 'Manager')
+                                                        @if ($data->role != 'Superadmin')
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Pentadbir</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+
+                                                                    <form
+                                                                        action="{{ route('admin.edit.pentadbir', [$data->id]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Nama </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='name'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->name }}">
+                                                                            </div>
+                                                                            <label>Emel </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='email'
+                                                                                    class="form-control"
+                                                                                    value="{{ old('email') ?? $data->email }}">
+                                                                            </div>
+                                                                            <label>Username </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='username'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->username }}">
+                                                                            </div>
+                                                                            <label>Kategori </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-control"
+                                                                                        name="role">
+                                                                                        <option
+                                                                                            {{ $data->role == 'Admin' ? 'selected' : '' }}>
+                                                                                            Admin</option>
+                                                                                        <option
+                                                                                            {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
+                                                                                            Supervisor</option>
+                                                                                        <option hidden disabled
+                                                                                            {{ $data->role == '' ? 'selected' : '' }}
+                                                                                            value="">
+                                                                                            Sila Pilih Kategori
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                            </div>
+                                                                            <label>Sub-Kategori </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select multiple="multiple"
+                                                                                        size="10"
+                                                                                        class="duallistbox-no-filter"
+                                                                                        name="sub_cat[]">
+                                                                                        <option value="PL91">Kilang
+                                                                                            Buah
+                                                                                        </option>
+                                                                                        <option value="PL101">Kilang
+                                                                                            Penapis</option>
+                                                                                        <option value="PL102">Kilang
+                                                                                            Isirung</option>
+                                                                                        <option value="PL104">Kilang
+                                                                                            Oleokimia</option>
+                                                                                        <option value="PL111">Pusat
+                                                                                            Simpanan</option>
+                                                                                        <option value="PLBIO">Kilang
+                                                                                            Biodiesel</option>
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                            </div>
+
+                                                                            <label>Status </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-control"
+                                                                                        name="status">
+                                                                                        {{-- @if ($data->status == null)
+                                                                                            <option hidden selected
+                                                                                                disabled>
+                                                                                                Sila Pilih Status
+                                                                                            </option>
+                                                                                        @else
+                                                                                            <option hidden selected
+                                                                                                disabled>
+                                                                                                {{ $data->status }}
+                                                                                            </option>
+                                                                                        @endif --}}
+                                                                                        <option
+                                                                                            {{ $data->status == '1' ? 'selected' : '' }}
+                                                                                            value="1">
+                                                                                            Aktif</option>
+                                                                                        {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
+                                                                                        <option
+                                                                                            {{ $data->status == '2' ? 'selected' : '' }}
+                                                                                            value="2">
+                                                                                            Tidak Aktif</option>
+                                                                                        <option hidden disabled
+                                                                                            {{ $data->status == '' ? 'selected' : '' }}
+                                                                                            value="">
+                                                                                            Sila Pilih Status
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                            </div>
+
+
+
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-light-secondary"
+                                                                                data-dismiss="modal">
+                                                                                <i
+                                                                                    class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span
+                                                                                    class="d-none d-sm-block">Batal</span>
+                                                                            </button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary ml-1">
+                                                                                <i
+                                                                                    class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span
+                                                                                    class="d-none d-sm-block">Kemaskini</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+
+                                                                </div>
+
+                                                            </div>
+                                                        @else
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Pentadbir</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    <label>Nama </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='name'
+                                                                            class="form-control"
+                                                                            value="{{ $data->name }}" readonly>
+                                                                    </div>
+                                                                    <label>Emel </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='email'
+                                                                            class="form-control"
+                                                                            value="{{ old('email') ?? $data->email }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                    <label>Username </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='username'
+                                                                            class="form-control"
+                                                                            value="{{ $data->username }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                    <label>Kategori </label>
+                                                                    <div class="form-group">
+                                                                        <fieldset class="form-group">
+                                                                            <input type="text" name='username'
+                                                                                class="form-control"
+                                                                                value="{{ $data->role }}"
+                                                                                readonly>
+
+                                                                        </fieldset>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        @endif
+                                                    @elseif (auth()->user()->role == 'Supervisor')
+                                                        @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin')
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Pentadbir</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+
+                                                                    <form
+                                                                        action="{{ route('admin.edit.pentadbir', [$data->id]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Nama </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='name'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->name }}">
+                                                                            </div>
+                                                                            <label>Emel </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='email'
+                                                                                    class="form-control"
+                                                                                    value="{{ old('email') ?? $data->email }}">
+                                                                            </div>
+                                                                            <label>Username </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='username'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->username }}">
+                                                                            </div>
+                                                                            <label>Kategori </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-control"
+                                                                                        name="role">
+                                                                                        <option
+                                                                                            {{ $data->role == 'Admin' ? 'selected' : '' }}>
+                                                                                            Admin</option>
+                                                                                        <option
+                                                                                            {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
+                                                                                            Supervisor</option>
+                                                                                        <option hidden disabled
+                                                                                            {{ $data->role == '' ? 'selected' : '' }}
+                                                                                            value="">
+                                                                                            Sila Pilih Kategori
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                            </div>
+                                                                            <label>Sub-Kategori </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select multiple="multiple"
+                                                                                        size="10"
+                                                                                        class="duallistbox-no-filter"
+                                                                                        name="sub_cat[]">
+                                                                                        <option value="PL91">Kilang
+                                                                                            Buah
+                                                                                        </option>
+                                                                                        <option value="PL101">Kilang
+                                                                                            Penapis</option>
+                                                                                        <option value="PL102">Kilang
+                                                                                            Isirung</option>
+                                                                                        <option value="PL104">Kilang
+                                                                                            Oleokimia</option>
+                                                                                        <option value="PL111">Pusat
+                                                                                            Simpanan</option>
+                                                                                        <option value="PLBIO">Kilang
+                                                                                            Biodiesel</option>
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                            </div>
+
+                                                                            <label>Status </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-control"
+                                                                                        name="status">
+                                                                                        {{-- @if ($data->status == null)
+                                                                                            <option hidden selected
+                                                                                                disabled>
+                                                                                                Sila Pilih Status
+                                                                                            </option>
+                                                                                        @else
+                                                                                            <option hidden selected
+                                                                                                disabled>
+                                                                                                {{ $data->status }}
+                                                                                            </option>
+                                                                                        @endif --}}
+                                                                                        <option
+                                                                                            {{ $data->status == '1' ? 'selected' : '' }}
+                                                                                            value="1">
+                                                                                            Aktif</option>
+                                                                                        {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
+                                                                                        <option
+                                                                                            {{ $data->status == '2' ? 'selected' : '' }}
+                                                                                            value="2">
+                                                                                            Tidak Aktif</option>
+                                                                                        <option hidden disabled
+                                                                                            {{ $data->status == '' ? 'selected' : '' }}
+                                                                                            value="">
+                                                                                            Sila Pilih Status
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                            </div>
+
+
+
+                                                                        </div>
+
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-light-secondary"
+                                                                                data-dismiss="modal">
+                                                                                <i
+                                                                                    class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span
+                                                                                    class="d-none d-sm-block">Batal</span>
+                                                                            </button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary ml-1">
+                                                                                <i
+                                                                                    class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span
+                                                                                    class="d-none d-sm-block">Kemaskini</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+
+                                                                </div>
+
+                                                            </div>
+                                                        @else
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Pentadbir</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    <label>Nama </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='name'
+                                                                            class="form-control"
+                                                                            value="{{ $data->name }}" readonly>
+                                                                    </div>
+                                                                    <label>Emel </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='email'
+                                                                            class="form-control"
+                                                                            value="{{ old('email') ?? $data->email }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                    <label>Username </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" name='username'
+                                                                            class="form-control"
+                                                                            value="{{ $data->username }}"
+                                                                            readonly>
+                                                                    </div>
+                                                                    <label>Kategori </label>
+                                                                    <div class="form-group">
+                                                                        <fieldset class="form-group">
+                                                                            <input type="text" name='username'
+                                                                                class="form-control"
+                                                                                value="{{ $data->role }}"
+                                                                                readonly>
+
+                                                                        </fieldset>
+                                                                    </div>
+
+
+                                                                </div>
+
+                                                            </div>
+                                                        @endif
+                                                    @elseif (auth()->user()->role == 'Admin' || auth()->user()->role == '')
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                    Kemaskini Maklumat Pentadbir</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+
+                                                            <div class="modal-body">
+                                                                <label>Nama </label>
+                                                                <div class="form-group">
+                                                                    <input type="text" name='name' class="form-control"
+                                                                        value="{{ $data->name }}" readonly>
+                                                                </div>
+                                                                <label>Emel </label>
+                                                                <div class="form-group">
+                                                                    <input type="text" name='email' class="form-control"
+                                                                        value="{{ old('email') ?? $data->email }}" readonly>
+                                                                </div>
+                                                                <label>Username </label>
+                                                                <div class="form-group">
+                                                                    <input type="text" name='username' class="form-control"
+                                                                        value="{{ $data->username }}" readonly>
+                                                                </div>
+                                                                <label>Kategori </label>
+                                                                <div class="form-group">
+                                                                    <fieldset class="form-group">
+                                                                        <input type="text" name='username' class="form-control"
+                                                                            value="{{ $data->role }}" readonly>
+
+                                                                    </fieldset>
+                                                                </div>
+
+
+                                                            </div>
+
+                                                        </div>
+                                                    @endif
+
                                                 </div>
-
-                                                <div class="modal-body">
-                                                    <label>Nama </label>
-                                                    <div class="form-group">
-                                                        <input type="text" name='name' class="form-control"
-                                                            value="{{ $data->name }}" readonly>
-                                                    </div>
-                                                    <label>Emel </label>
-                                                    <div class="form-group">
-                                                        <input type="text" name='email' class="form-control"
-                                                            value="{{ old('email') ?? $data->email }}" readonly>
-                                                    </div>
-                                                    <label>Username </label>
-                                                    <div class="form-group">
-                                                        <input type="text" name='username' class="form-control"
-                                                            value="{{ $data->username }}" readonly>
-                                                    </div>
-                                                    <label>Kategori </label>
-                                                    <div class="form-group">
-                                                        <fieldset class="form-group">
-                                                            <input type="text" name='username' class="form-control"
-                                                                value="{{ $data->role }}" readonly>
-
-                                                        </fieldset>
-                                                    </div>
-
-
-                                                </div>
-
                                             </div>
-    @endif
+                                        </div>
+                                        <div class="modal fade" id="next2{{ $data->id }}" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menghapus pentadbir ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <a href="{{ route('admin.delete.pentadbir', [$data->id]) }}" type="button"
+                                                            class="btn btn-primary ml-1">
+
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
 
 
+                            {{-- </section> --}}
+                        </div>
 
-
-    </div>
-    </div>
-
-
-
-    </div>
-
-    <div class="modal fade" id="next2{{ $data->id }}" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                        PENGESAHAN</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i data-feather="x"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Anda pasti mahu menghapus pentadbir ini?
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                    </button>
-                    <a href="{{ route('admin.delete.pentadbir', [$data->id]) }}" type="button"
-                        class="btn btn-primary ml-1">
-
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Ya</span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    @endforeach
-
-    </tbody>
-
-    </table>
-    </div>
-
-
-
-
-    </div>
-    </section>
-    </div>
-
-
-    </div>
-    </div>
-    </div>
-@else
-    <div class="container-fluid">
-        RALAT
-    </div>
+    @else
+        <div class="container-fluid">
+            RALAT
+        </div>
     @endif
 
 @endsection

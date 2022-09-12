@@ -2,7 +2,7 @@
 
 <style>
     /* Style the tab */
-    @media print { @page {size: auto !important} 
+    @media print { @page {size: auto !important}
 }
 /* body {
      height: calc(100vh - 4rem);
@@ -108,10 +108,10 @@
                                             </table>
                                         </div><br>
                                         <p align="center">
-                                        <font size="2"><b>TARIKH TERIMA PENYATA BULANAN</b><br></font>
+                                        <font size="2.5"><b>TARIKH TERIMA PENYATA BULANAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" >
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" >
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -140,10 +140,10 @@
                                             </table>
                                         </div><br>
                                         <p align="center">
-                                        <font size="2"><b>STOK AWAL BULAN DI PREMIS</b><br></font>
+                                        <font size="2.5"><b>STOK AWAL BULAN DI PREMIS</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -204,10 +204,10 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2"><b>BELIAN / TERIMAAN</b><br></font>
+                                        <font size="2.5"><b>BELIAN / TERIMAAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -235,13 +235,13 @@
                                                             $total_all_bulan_b6 = 0;
                                                         @endphp
                                                     @endfor
-                                                        
+
                                                     @foreach ($data_bulanan_ebio_b6 as $keyProduk => $data_ebio_b6)
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
                                                             <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
-                                                                <td class="text-center" style="width:auto"> 
+                                                                <td class="text-center" style="width:auto">
                                                                     {{ number_format($data_bulanan_ebio_b6[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                                 @php
@@ -252,11 +252,11 @@
                                                             <td class="font-weight-bold text-center">{{ number_format($total6[$keyProduk] ?? 0,2) }}</td>
                                                         </tr>
                                                     @endforeach
-                                                    
+
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="2">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
-                                                        
+
                                                             <td class="text-center">{{ number_format( $total_col_bulan_b6[$i] ?? 0,2) }}</td>
                                                             @php
                                                                 $total_all_bulan_b6 += $total_col_bulan_b6[$i] ?? 0 ;
@@ -270,10 +270,10 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2"><b>DIGUNAKAN UNTUK PROSES SELANJUTNYA</b><br></font>
+                                        <font size="2.5"><b>DIGUNAKAN UNTUK PROSES SELANJUTNYA</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -328,7 +328,7 @@
                                                             @php
                                                                 $total_all_bulan_b7 += $total_col_bulan_b7[$i] ?? 0 ;
                                                             @endphp
-                                                            
+
                                                         @endfor
                                                         <td class="text-center">{{number_format( $total_all_bulan_b7 ?? 0,2) }}</td>
                                                     </tr>
@@ -337,10 +337,10 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2"><b>PENGELUARAN</b><br></font>
+                                        <font size="2.5"><b>PENGELUARAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -375,7 +375,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto"> 
+                                                            <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b8[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
@@ -395,7 +395,7 @@
                                                             @php
                                                                 $total_all_bulan_b8 += $total_col_bulan_b8[$i] ?? 0 ;
                                                             @endphp
-                                                            
+
                                                         @endfor
                                                         <td class="text-center">{{number_format( $total_all_bulan_b8 ?? 0,2) }}</td>
 
@@ -405,10 +405,10 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2"><b>JUALAN / EDARAN TEMPATAN</b><br></font>
+                                        <font size="2.5"><b>JUALAN / EDARAN TEMPATAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -443,7 +443,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto"> 
+                                                            <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b9[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
@@ -463,7 +463,7 @@
                                                             @php
                                                                 $total_all_bulan_b9 += $total_col_bulan_b9[$i] ?? 0 ;
                                                             @endphp
-                                                            
+
                                                         @endfor
                                                         <td class="text-center">{{ number_format( $total_all_bulan_b9 ?? 0,2) }}</td>
 
@@ -473,10 +473,10 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2"><b>EKSPORT</b><br></font>
+                                        <font size="2.5"><b>EKSPORT</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -511,7 +511,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto"> 
+                                                            <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b10[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
@@ -531,7 +531,7 @@
                                                             @php
                                                                 $total_all_bulan_b10 += $total_col_bulan_b10[$i] ?? 0 ;
                                                             @endphp
-                                                            
+
                                                         @endfor
                                                         <td class="text-center">{{ number_format($total_all_bulan_b10 ?? 0,2) }}</td>
 
@@ -541,10 +541,10 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2"><b>STOK AKHIR BULAN DILAPOR</b><br></font>
+                                        <font size="2.5"><b>STOK AKHIR BULAN DILAPOR</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -577,7 +577,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto"> 
+                                                            <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b11[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
@@ -679,5 +679,5 @@
             newwin.close();
         }
     </script> --}}
-    
+
 @endsection

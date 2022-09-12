@@ -1425,7 +1425,7 @@
     function ExportToExcel()
       {
           var filename = "Laporan Ringkasan Bahagian 2"
-          var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+          var tab_text = "<table border='2px'><tr bgcolor=''>";
           var textRange;
           var j = 0;
           tab = document.getElementById('example4');

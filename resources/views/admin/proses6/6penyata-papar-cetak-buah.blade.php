@@ -160,7 +160,7 @@
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
-                                                        <th>Email Pegawai</th>
+                                                        <th>Em3l Pegawai</th>
                                                         <th>No. Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
@@ -172,7 +172,7 @@
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
-                                                        <th>Email Pegawai</th>
+                                                        <th>Emel Pegawai</th>
                                                         <th>No. Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
@@ -207,8 +207,6 @@
                                             </table>
                                             <div class="text-left col-md-8">
                                                 <button type="submit" class="btn btn-primary ">Papar</button>
-
-
 
                                             </div>
                                         </div>
