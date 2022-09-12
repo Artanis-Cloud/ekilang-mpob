@@ -1656,7 +1656,7 @@ class LaporanController extends Controller
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             WHERE h.ebio_c3 = 'AW';");
 
-            // dd($operasi);
+            dd($operasi);
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
