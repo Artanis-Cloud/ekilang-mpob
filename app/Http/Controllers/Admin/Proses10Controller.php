@@ -526,10 +526,11 @@ class Proses10Controller extends Controller
         foreach ($qrycapp101 as $select) {
             $refkap = $select->cap_lulus ;
 
+            if (!$refkap)
+            $refkap = 0;
         }
 
-        if (!$refkap)
-        $refkap = 0;
+
 
 
        $qrystatus101 = DB::connection('mysql4')->select("SELECT F220D
