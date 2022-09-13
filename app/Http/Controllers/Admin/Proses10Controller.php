@@ -52,6 +52,44 @@ class Proses10Controller extends Controller
     public function porting_data($tahun, $bulan) {
 
 
+        if ($bulan == '01')
+        $bulan_int = 1;
+    elseif ($bulan == '02')
+        $bulan_int = 2;
+    elseif ($bulan == '03')
+        $bulan_int = 3;
+    elseif ($bulan == '04')
+        $bulan_int = 4;
+    elseif ($bulan == '05')
+        $bulan_int = 5;
+    elseif ($bulan == '06')
+        $bulan_int = 6;
+    elseif ($bulan == '07')
+        $bulan_int = 7;
+    elseif ($bulan == '08')
+        $bulan_int = 8;
+    elseif ($bulan == '09')
+        $bulan_int = 9;
+    elseif ($bulan == '10')
+        $bulan_int = 10;
+    elseif ($bulan == '11')
+        $bulan_int = 11;
+    elseif ($bulan == '12')
+        $bulan_int = 12;
+
+
+    $blnthn = $bulan . $tahun;
+    $brg = 'PL91';
+    $trans = array(
+        "/" => "",
+        "'" => "",
+        "(" => "",
+        ")" => "",
+        "," => "",
+        "-" => ""
+    );
+
+
     $qrydelpl =DB::delete("DELETE from pl91_individual
           where tahun = '$tahun' and
             bulan = '$bulan'");
