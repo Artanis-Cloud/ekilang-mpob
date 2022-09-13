@@ -157,7 +157,7 @@
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar?</th>
-                                                        <th>Sudah Cetak?<br></th>
+                                                        {{-- <th>Sudah Cetak?<br></th> --}}
                                                         <th>No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -169,7 +169,7 @@
                                                 <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar?</th>
-                                                        <th>Sudah Cetak?<br></th>
+                                                        {{-- <th>Sudah Cetak?<br></th> --}}
                                                         <th>No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -179,6 +179,29 @@
                                                     </tr>
                                                 </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                    <tr>
+                                                        <td>
+                                                            <input name="papar_ya[]" type="checkbox" required
+                                                                value="{{ $data->ebio_reg }}">&nbspYa
+                                                        </td>
+                                                        {{-- <td>
+                                                            x
+                                                        </td> --}}
+                                                        <td>
+                                                            {{-- <a href="#"> --}}
+                                                            {{ $data->e_nl }}
+                                                        </td>
+                                                        <td>{{ $data->e_np ?? '-' }}</td>
+                                                        <td>{{ $data->kodpgw }}</td>
+
+                                                        <td>{{ $data->e_email ?? '-' }}</td>
+                                                        <td>{{ $data->nosiri }}</td>
+
+                                                        <td>{{ $data->sdate }}</td>
+
+                                                    </tr>
+                                                @endforeach
                                                     {{-- @foreach ($users as $data)
                                                         <tr>
                                                             <td>
