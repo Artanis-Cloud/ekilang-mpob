@@ -386,7 +386,7 @@ class Proses10Controller extends Controller
 
     }
 
-    if (is_null($crs_capacity))
+    if (!$crs_capacity)
     $crs_capacity = 0;
 
 
@@ -528,7 +528,7 @@ class Proses10Controller extends Controller
 
         }
 
-        if (is_null($refkap))
+        if (!$refkap)
         $refkap = 0;
 
 
@@ -544,7 +544,7 @@ class Proses10Controller extends Controller
 
         }
 
-        if (is_null($status101))
+        if (!$status101)
         $status101 = 0;
 
 
@@ -703,8 +703,14 @@ class Proses10Controller extends Controller
           where tahun = '$tahun' and bulan = '$bulan' and ppko_proc is NULL ");
 
 
-	$updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
+    // if ($refkap == 0) {
+    //     $updatep101n = DB::update("UPDATE p101_master set refutilrate = 0
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // } else {
+    //     $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // }
+
     $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
         where tahun = '$tahun' and bulan = '$bulan'");
     $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = (cpko_proc / (refkap / 12)) * 100
@@ -723,6 +729,28 @@ class Proses10Controller extends Controller
         where tahun = '$tahun' and bulan = '$bulan' and refutilrateppo is NULL");
     $updatep101w = DB::update("UPDATE p101_master set refutilrateppko = 0
         where tahun = '$tahun' and bulan = '$bulan' and refutilrateppko is NULL");
+
+
+	// $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = (cpko_proc / (refkap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = (ppo_proc  / (refkap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = (ppko_proc / (refkap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    // $updatep101s = DB::update("UPDATE p101_master set refutilrate = 0
+    //     where tahun = '$tahun' and bulan = '$bulan' and refutilrate is NULL");
+    // $updatep101t = DB::update("UPDATE p101_master set refutilratecpo = 0
+    //     where tahun = '$tahun' and bulan = '$bulan' and refutilratecpo is NULL");
+    // $updatep101u = DB::update("UPDATE p101_master set refutilratecpko = 0
+    //     where tahun = '$tahun' and bulan = '$bulan' and refutilratecpko is NULL");
+    // $updatep101v = DB::update("UPDATE p101_master set refutilrateppo = 0
+    //     where tahun = '$tahun' and bulan = '$bulan' and refutilrateppo is NULL");
+    // $updatep101w = DB::update("UPDATE p101_master set refutilrateppko = 0
+    //     where tahun = '$tahun' and bulan = '$bulan' and refutilrateppko is NULL");
 
 
 	$mthstatep101 = DB::insert("INSERT INTO p101_monthly_state (
@@ -2562,11 +2590,11 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
      $oleokap = 0;
 
      foreach ($qrycapp104 as $ad9) {
-        $oleokap = $ad9->cap_lulus ;
+        $oleokap = $ad9->cap_lulus ;:insert("INSERT
 
      }
 
-     if (is_null($oleokap))
+     if (!$oleokap)
        $oleokap = 0;
 
     $qrystatus104 = DB::connection('mysql4')->select("SELECT F220D
@@ -2582,7 +2610,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
 
      }
 
-     if (is_null($status104))
+     if (!$status104))
        $status104 = 0;
 
      $qinsindp104a = DB::insert("INSERT into p104_master values ('$ind_idp104a','$nolesen','$tahun','$bulan', $harioperasi, $capacity_dec,

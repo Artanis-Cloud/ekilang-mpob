@@ -56,23 +56,30 @@ class tryController extends Controller
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
-        $qry6 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus,
-                    (sum(m.cap_lulus * p.F1021S4) / sum(m.cap_lulus)) crsutilrate,
-                    count(m.cap_lulus) crsno
-            from pl1021p3 p, licensedb.license l, lesen_master.mpku_caps m
-            where p.F1021D = '2015' and
-                    p.F1021C = '07' and
-                    p.F1021A = l.F201A and
-                    p.F1021A = m.cap_lesen and
-                    m.cap_kat = '05' and
-                    m.cap_lulus not in (0.00) and
-                    m.cap_lulus is not NULL");
+        $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
 
-        foreach ($qry6 as $sum) {
-            $crscap = (float)  $sum->cap_lulus ;
-            $crsutilrate = (float)  $sum->crsutilrate ;
-            $crsno =  $sum->crsno ;
-        }
+        if (!$refkap)
+        $refkap = 2;
+        // $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
+		// 	where tahun = '2017' and bulan = '07'");
+
+        // $query1 = DB::connection('mysql3')->select("SELECT max(oerind_id) as maxoerind_id from oerpelesen");
+
+        // foreach ($query1 as $result) {
+        //     $result1 = $result->maxoerind_id;
+        // // $result1 = mysqli_query($conn_mysql_econ,$query1);
+		// // $ar1 = mysqli_fetch_assoc($result1);
+
+        // }
+        // if ($result1)
+        //     {
+        //     //  $maxno =  $ar1["maxoerind_id"];
+        //      $oerind_id = $result1 + 1;
+        //     }
+        // else {
+        //      $oerind_id = 1;
+        // }
+
 
 
         // if ($loginmills) {
@@ -83,7 +90,7 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($crsno);
+        dd($refkap);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
         // dd($loginmills);
