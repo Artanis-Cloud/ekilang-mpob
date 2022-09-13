@@ -61,36 +61,19 @@
 
                                 <div class="card-body">
                                     <div class="container center ">
-
+                                        <form action="{{ route('admin.porting.data.dq.process') }}" method="get">
+                                            @csrf
                                         <div class="row"  style="margin-top:-2%" >
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
                                             </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
-
-                                                        <option>2003</option>
-                                                        <option>2004</option>
-                                                        <option>2005</option>
-                                                        <option>2006</option>
-                                                        <option>2007</option>
-                                                        <option>2008</option>
-                                                        <option>2009</option>
-                                                        <option>2010</option>
-                                                        <option>2011</option>
-                                                        <option>2012</option>
-                                                        <option>2013</option>
-                                                        <option>2014</option>
-                                                        <option>2015</option>
-                                                        <option>2016</option>
-                                                        <option>2017</option>
-                                                        <option>2018</option>
-                                                        <option>2019</option>
-                                                        <option>2020</option>
-                                                        <option>2021</option>
-                                                        <option>2022</option>
+                                                    <select class="form-control" id="basicSelect" name="tahun">
+                                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                        @for ($i = 2003; $i <= date('Y'); $i++)
+                                                        <option value="{{ $i }}">{{ $i }}</option>
+                                                        @endfor
 
 
 
@@ -110,20 +93,20 @@
                                             </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                        <option>Januari</option>
-                                                        <option>Februari</option>
-                                                        <option>Mac</option>
-                                                        <option>April</option>
-                                                        <option>Mei</option>
-                                                        <option>Jun</option>
-                                                        <option>Julai</option>
-                                                        <option>Ogos</option>
-                                                        <option>September</option>
-                                                        <option>Oktober</option>
-                                                        <option>November</option>
-                                                        <option>Disember</option>
+                                                    <select class="form-control" id="basicSelect" name="bulan">
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
 
 
 
@@ -141,8 +124,8 @@
 
                                     <div class="row center mt-3">
                                         <div class="col-md-12 center mb-3">
-                                            <button type="submit" class="btn btn-primary center" style="margin-left:45%"
-                                            data-toggle="modal" data-target="#myModal">Porting</button>
+                                            <button type="button" class="btn btn-primary center" style="margin-left:45%"
+                                            data-toggle="modal" data-target="#myModal">Port</button>
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>
@@ -176,6 +159,7 @@
                                     </div>
                                     <!-- /.modal-dialog -->
                                 </div>
+                                        </form>
 
                                     </div>
                                 </div>

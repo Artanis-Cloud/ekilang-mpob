@@ -22,7 +22,7 @@ class Proses8Controller extends Controller
     {
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama "]    ,
-            ['link' => route('admin.8portdata'), 'name' => "Pindahan Penyata Bulanan ke Stat Admin/Homepage  "]  
+            ['link' => route('admin.8portdata'), 'name' => "Pindahan Penyata Bulanan ke Stat Admin/Homepage  "]
         ];
 
         $kembali = route('admin.dashboard');
@@ -44,14 +44,16 @@ class Proses8Controller extends Controller
         // dd($maklumat);
         if ($destinasi == 'admin') {
             $this->porting_admin($request->tahun, $request->bulan);
-            return redirect()->back()->with('success', 'Maklumat produk sawit telah dipindahkan dari PLEID ke eKilang');
+            return redirect()->back()->with('success', 'Data telah dipindahkan ke Stat Admin');
         } else {
-            $this->porting_homepage($request->all());
-            return redirect()->back()->with('success', 'Maklumat daerah telah dipindahkan dari PLEID ke eKilang');
+            $this->porting_homepage($request->tahun, $request->bulan);
+            return redirect()->back()->with('success', 'Data telah dipindahkan ke Stat Homepage');
         }
     }
 
-    public function porting_admin($tahun, $bulan)
+
+    // copy for stat homepage
+    public function porting_homepage($tahun, $bulan)
     {
         if ($bulan == '01')
             $bulan_int = 1;
