@@ -25,6 +25,8 @@
 </head>
 
 <body>
+
+
     <div id="auth" style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
     height: auto;">
 

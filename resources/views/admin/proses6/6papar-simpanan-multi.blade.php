@@ -45,25 +45,18 @@
                     <div class="col-1 align-self-center">
                         <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
-                    <div class="col-2 align-self-center">
-                        <button type="button" class="btn btn-primary "
-                                onclick="myPrint('myfrm')" value="print">Cetak</button>
-                    </div>
                 </div>
-                <form method="get" action="" id="myfrm">
 
-                    <div class="card" style="margin-right:2%; margin-left:2%">
-                        @foreach ($pelesens as $data)
-                            {{-- @foreach (array_merge($pelesens, $penyata) as $data) --}}
+                <div class="card" style="margin-right:2%; margin-left:2%">
+                    <div class="card-body">
 
+                        <form method="get" action="" id="myfrm">
 
+                            @foreach ($pelesens as $data)
 
-                            <div class="card-body">
                                 <div class="pl-3">
 
-
-
-                                    <body>
+                                    <body><h1 style="page-break-before:always"></h1>
                                         {{-- <p align="left">
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
@@ -150,10 +143,10 @@
 
 
                                         <p align="left"><b>
-                                                <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                             </b></p>
 
-                                        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                        <table border="0" width="72%" cellpadding="0" cellspacing="0">
 
                                             <tbody>
 
@@ -209,11 +202,15 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->e_notel }}</b>
+                                                    <td width="65%"><b>{{ $data->e_notel }}</b></td>
 
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
-                                                        <b>{{ $data->e_nofax }}</b>
-                                                    </td>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">No Faks </td>
+
+                                                    <td width="65%"><b>{{ $data->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -259,16 +256,16 @@
 
                                             </tbody>
                                         </table>
-                                        <br>
+                                        <br><hr>
                                         <p><b>
-                                                    <font color="#0000FF">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
+                                                    <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
                                                         TRANSHIPMENT)</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr>
+                                                    <tr style="background-color: #d3d3d370">
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Nama Produk</font>
                                                             </b></td>
@@ -297,37 +294,44 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyatai as $data)
+                                                    @if($penyatai && !$penyatai->isEmpty())
+                                                        @foreach ($penyatai as $data)
+                                                            <tr>
+                                                                <td align="left">
+                                                                    <font size="2">{{ $data->produk->prodname }}</font>
+                                                                </td>
+                                                                <td align="center">
+                                                                    <font size="2">{{ $data->produk->prodid }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_stokawal }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_terima }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_import }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_edaran }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_eksport }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_pelarasan }}</font>
+                                                                </td>
+                                                                <td align="right">
+                                                                    <font size="2">{{ $data->e07bt_stokakhir }}</font>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
                                                         <tr>
-                                                            <td align="left">
-                                                                <font size="2">{{ $data->produk->prodname }}</font>
-                                                            </td>
-                                                            <td align="center">
-                                                                <font size="2">{{ $data->produk->prodid }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_stokawal }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_terima }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_import }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_edaran }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_eksport }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_pelarasan }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ $data->e07bt_stokakhir }}</font>
-                                                            </td>
+                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                         </tr>
-                                                    @endforeach
+                                                    @endif
+
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -360,16 +364,16 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><hr>
                                             <p><b>
-                                                    <font color="#0000FF">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
+                                                    <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
                                                         LUARAN MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr>
+                                                    <tr style="background-color: #d3d3d370">
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Nama Produk</font>
                                                             </b></td>
@@ -396,33 +400,11 @@
                                                             </b></td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="center">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                        <td align="center" colspan="8">Tiada Rekod
                                                         </td>
                                                     </tr>
                                             </tbody>
-                                        </table>
+                                        </table><hr>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
@@ -442,20 +424,18 @@
                                     </body>
                                 </div>
 
-                            </div>
+                                <br><hr>
 
-                            <br><hr>
-
-                        @endforeach
-
+                            @endforeach
+                        </form>
                     </div>
-                </form>
+                    <div class="row justify-content-center ">
+                        <button type="button" class="btn btn-primary " style="margin: 1%"
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
+
+                </div>
             </div>
-
-
-            <h1 style="page-break-before:always"></h1>
-
-
 
         </div>
 

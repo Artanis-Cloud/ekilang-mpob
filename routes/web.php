@@ -151,6 +151,8 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/6-papar-oleo/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakoleo_form'])->name('admin.6papar-oleo-multi');
         Route::post('admin/6-papar-simpanan/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetaksimpanan_form'])->name('admin.6papar.simpanan.form');
         Route::get('admin/6-papar-simpanan/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetaksimpanan_form'])->name('admin.6papar-simpanan-multi');
+        Route::post('admin/6-papar-bio/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakbio_form'])->name('admin.6papar.bio.form');
+        Route::get('admin/6-papar-bio/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakbio_form'])->name('admin.6papar-bio-multi');
 
         // Route::get('admin/6-papar-buah/{id}', [App\Http\Controllers\Admin\Proses6Controller::class, 'show_admin_6penyatapaparcetakbuah'])->name('admin.6papar.buah');
 

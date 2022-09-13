@@ -42,9 +42,11 @@
 
     {{-- SweetAlert2 --}}
     <link href="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('nice-admin/assets/libs/jquery-steps/jquery.steps.css') }}"
+        rel="stylesheet">
+        <link href="{{ asset('nice-admin/assets/libs/jquery-steps/steps.css') }}"
+        rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

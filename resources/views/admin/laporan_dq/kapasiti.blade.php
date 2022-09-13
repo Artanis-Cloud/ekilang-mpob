@@ -47,8 +47,13 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row" style="padding: 10px">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Kapasiti Kilang Biodiesel
+                            <h3 style="color: rgb(39, 80, 71); margin-top:1%; margin-bottom:1%">Kapasiti Kilang Biodiesel
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                         </div>
@@ -3584,17 +3589,13 @@
                                                 @endforeach
 
                                             </div>
-                                            <div class="col-12 mb-4 mt-4">
-                                                {{-- <div class="text-left"> --}}
+                                            {{-- <div class="col-12 mb-4 mt-4">
                                                 <a href="{{ route('admin.kapasiti') }}" type="button"
                                                     class="btn btn-primary">Kembali</a>
-                                                {{-- </div> --}}
-                                                {{-- <div class="text-right ml-auto"> --}}
 
                                                 <button type="submit" class="btn btn-primary float-right"
                                                     data-toggle="modal" data-target="#next">Simpan</button>
-                                                {{-- </div> --}}
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>

@@ -160,7 +160,7 @@
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
-                                                        <th>Em3l Pegawai</th>
+                                                        <th>Emel Pegawai</th>
                                                         <th>No. Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>

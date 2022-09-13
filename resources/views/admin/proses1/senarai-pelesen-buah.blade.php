@@ -141,9 +141,9 @@
                                         </div>
 
                                         {{-- <div class="col-md-8 text-left "> --}}
-                                        <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
+                                        {{-- <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
                                             style="margin: 1%">Senarai
-                                            Pelesen Batal</a>
+                                            Pelesen Batal</a> --}}
 
                                         <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                             style=" margin: 1%"> Tambah Pelesen Baru</a>

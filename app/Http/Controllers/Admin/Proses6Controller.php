@@ -19,8 +19,13 @@ use App\Models\E104C;
 use App\Models\E104D;
 use App\Models\E104Init;
 use App\Models\E91Init;
+use App\Models\EBioB;
+use App\Models\EBioC;
+use App\Models\EBioD;
+use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Hari;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -357,6 +362,11 @@ class Proses6Controller extends Controller
             $totalvbd8 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
 
             $penyatavii = E101E::with('e101init', 'produk')->where('e101_reg', $penyata->e101_reg)->where('e101_e3', 1)->get();
+
+
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e101_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
 
 
@@ -367,6 +377,7 @@ class Proses6Controller extends Controller
         // $data = DB::table('pelesen')->get();
         return view('admin.proses6.6papar-penapis-multi', compact(
             'returnArr',
+            'formatteddate',
             'layout',
             'tahun',
             'bulan',
@@ -518,6 +529,9 @@ class Proses6Controller extends Controller
             $totalv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
 
             $penyatavi = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e102_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
 
         $layout = 'layouts.main';
@@ -527,6 +541,7 @@ class Proses6Controller extends Controller
         return view('admin.proses6.6papar-isirung-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -695,6 +710,9 @@ class Proses6Controller extends Controller
             $totaliv = DB::table("e104_d")->where('e104_reg',  $penyata->e104_reg)->where('e104_d3', '1')->sum('e104_d7');
 
             $totaliv2 = DB::table("e104_d")->where('e104_reg',  $penyata->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e104_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
 
 
@@ -706,6 +724,7 @@ class Proses6Controller extends Controller
         return view('admin.proses6.6papar-oleo-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -813,6 +832,9 @@ class Proses6Controller extends Controller
             $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_edaran');
             $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_pelarasan');
             $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_stokakhir');
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e07_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
 
         $layout = 'layouts.main';
@@ -822,6 +844,7 @@ class Proses6Controller extends Controller
         return view('admin.proses6.6papar-simpanan-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -846,6 +869,15 @@ class Proses6Controller extends Controller
         and k.e_kat = 'PLBIO'
         order by k.kodpgw, k.nosiri");
 
+        $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg,
+        k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e_bio_inits e, reg_pelesen k
+        WHERE p.e_nl = e.ebio_nl
+        and e.ebio_flg in ('2','3')
+        and p.e_nl = k.e_nl
+        and k.e_kat = 'PLBIO'
+        order by k.kodpgw, k.nosiri");
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
@@ -861,7 +893,75 @@ class Proses6Controller extends Controller
 
 
 
-        return view('admin.proses6.6penyata-papar-cetak-bio', compact('returnArr', 'layout','users'));
+        return view('admin.proses6.6penyata-papar-cetak-bio', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function process_admin_6penyatapaparcetakbio_form(Request $request)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.6penyatapaparcetakbio');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        foreach ($request->papar_ya as $key => $ebio_reg) {
+            $pelesens[$key] = (object)[];
+            $penyata = EBioInit::find($ebio_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata->ebio_nl)->first();
+
+            $penyataia = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+
+            $penyataib = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
+
+            $penyataic = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', ['03', '06', '08']);
+            })->get();
+
+            $penyataii = Hari::where('lesen',  $penyata->ebio_nl)->first();
+            // dd($penyataiva);
+
+            $penyataiii = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
+            })->get();
+
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->ebio_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+
+        }
+
+        $layout = 'layouts.main';
+
+        // dd($pelesens);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses6.6papar-bio-multi', compact(
+            'returnArr',
+            'layout',
+            'formatteddate',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'penyataia',
+            'penyataib',
+            'penyataic',
+            'penyataii',
+            'penyataiii',
+        ));
     }
 
     public function admin_6papar_buah()
