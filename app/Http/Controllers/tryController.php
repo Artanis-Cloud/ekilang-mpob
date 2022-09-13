@@ -55,11 +55,15 @@ class tryController extends Controller
 
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
+        $qrycapp101 = DB::connection('mysql4')->select("SELECT m.cap_lulus
+                       from lesen_master.mpku_caps m
+                       where
+                       m.cap_mmyyyy = '072017' and
+                       m.cap_kat = '06'");
+        // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
 
-        $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
-
-        if (!$refkap)
-        $refkap = 2;
+        // if (!$refkap)
+        // $refkap = 2;
         // $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
 		// 	where tahun = '2017' and bulan = '07'");
 
@@ -90,7 +94,7 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($refkap);
+        dd($qrycapp101);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
         // dd($loginmills);
