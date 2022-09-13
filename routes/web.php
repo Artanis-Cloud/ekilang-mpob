@@ -191,6 +191,9 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\Proses10Controller::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
+        Route::get('admin/10-port-data-to-dq/process', [App\Http\Controllers\Admin\Proses10Controller::class, 'admin_portingdata'])->name('admin.porting.data.dq.process');
+
+
         Route::get('admin/11-emel', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11emel'])->name('admin.11emel');
         Route::get('admin/11-emel/data', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11emel_data'])->name('admin.11emel.data');
         Route::get('admin/11-papar-emel/{Id}', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11paparemel'])->name('admin.11paparemel');

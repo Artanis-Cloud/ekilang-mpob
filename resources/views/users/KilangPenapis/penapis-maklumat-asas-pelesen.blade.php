@@ -439,8 +439,8 @@
                                                     butiran di
                                                     bahagian ini!</i></p>
                                         </td>
-                                        <td> <input type="text" class="form-control" name='kap_tangki_others'
-                                                style="width:100%" oninput="this.setCustomValidity(''); valid_others()"
+                                        <td> <input type="text" class="form-control" name='kap_tangki_others' min=0
+                                                style="width:100%" oninput="this.setCustomValidity(''); valid_others(); validity.valid||(value='');"
                                                 id="kap_tangki_others" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
@@ -541,6 +541,19 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+                $("#bil_tangki_cpo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_ppo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+            </script>
             <script>
                 function autozero() {
                     let zero = '0';
