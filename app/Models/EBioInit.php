@@ -45,4 +45,8 @@ class EBioInit extends Model
     return $this->hasOne(User::class,'ebio_nl', 'username');
 }
 
+public function ebiob(){
+    return $this->hasOne(EBioB::class,'ebio_reg', 'ebio_reg');
+}
+
 }

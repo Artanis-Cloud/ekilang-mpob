@@ -976,6 +976,10 @@
                                             <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
+                                            <p>Tarikh Penghantaran: &nbsp;&nbsp;
+                                                {{ $formatteddate }}
+                                            </p>
+
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 {{ $penyata->e101_npg }}
                                             </p>

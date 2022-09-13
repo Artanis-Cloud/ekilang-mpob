@@ -468,6 +468,9 @@ class Proses9Controller extends Controller
             $totalvbd6 = DB::table("h101_d")->where('e101_nobatch', $penyata->e101_nobatch)->where('e101_d3', '2')->sum('e101_d6');
             $totalvbd7 = DB::table("h101_d")->where('e101_nobatch', $penyata->e101_nobatch)->where('e101_d3', '2')->sum('e101_d7');
             $totalvbd8 = DB::table("h101_d")->where('e101_nobatch', $penyata->e101_nobatch)->where('e101_d3', '2')->sum('e101_d8');
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e101_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
         $layout = 'layouts.main';
 
@@ -477,6 +480,7 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-terdahulu-penapis-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -572,6 +576,9 @@ class Proses9Controller extends Controller
             // dd($vi);
 
             $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $penyata->e102_nobatch)->where('e102_c3', '2')->get();
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e102_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
         $layout = 'layouts.main';
 
@@ -580,6 +587,7 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-terdahulu-isirung-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -697,6 +705,7 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-terdahulu-oleo-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -781,6 +790,9 @@ class Proses9Controller extends Controller
             $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata->e07_nobatch)->sum('e07bt_edaran');
             $total4 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata->e07_nobatch)->sum('e07bt_pelarasan');
             $total5 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata->e07_nobatch)->sum('e07bt_stokakhir');
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e07_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
         $layout = 'layouts.main';
 
@@ -789,6 +801,7 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-terdahulu-simpanan-multi', compact(
             'returnArr',
             'layout',
+            'formatteddate',
             'tahun',
             'bulan',
             'pelesens',

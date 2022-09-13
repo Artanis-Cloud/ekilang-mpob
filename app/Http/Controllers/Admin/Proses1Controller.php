@@ -536,7 +536,7 @@ class Proses1Controller extends Controller
                 }else{
 
                     // dd($pelesen);
-                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
+                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
                     // dd($users);
                     // $pelesen = Pelesen::get();
 
@@ -560,7 +560,7 @@ class Proses1Controller extends Controller
             }
              else {
                 # code...// dd($pelesen);
-               $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
+               $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
                // dd($users);
                // $pelesen = Pelesen::get();
 
@@ -589,7 +589,7 @@ class Proses1Controller extends Controller
     public function admin_senaraipelesenpenapis()
     {
 
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->where('e_status', 1)->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->get();
         // dd($users);
 
         $breadcrumbs    = [
@@ -612,7 +612,7 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenisirung()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL102')->where('e_status', 1)->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL102')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -634,7 +634,7 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenoleokimia()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->where('e_status', 1)->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -656,7 +656,7 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesensimpanan()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->where('e_status', 1)->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -678,7 +678,7 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenbio()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->where('e_status', 1)->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

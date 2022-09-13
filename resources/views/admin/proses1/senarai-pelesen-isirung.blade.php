@@ -137,9 +137,9 @@
                                     </div>
 
 
-                                    <a href="{{ route('admin.senarai.pelesen.batal.isirung') }}" class="btn btn-primary"
+                                    {{-- <a href="{{ route('admin.senarai.pelesen.batal.isirung') }}" class="btn btn-primary"
                                         style="margin: 1%">Senarai
-                                        Pelesen Batal</a>
+                                        Pelesen Batal</a> --}}
 
                                     <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                         style="margin: 1%"> Tambah Pelesen Baru</a>

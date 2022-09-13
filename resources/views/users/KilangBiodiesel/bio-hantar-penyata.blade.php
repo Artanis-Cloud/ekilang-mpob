@@ -461,7 +461,7 @@
                         </table><hr>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp;
-                                    LAIN-LAIN MINYAK SAWIT</font>
+                                    MINYAK LAIN-LAIN </font>
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
@@ -493,7 +493,7 @@
                                         </b></td>
                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir Dilapor</font>
-                                        </b></td>
+                                    </b></td>
                                 </tr>
                                 @foreach ($ic as $data)
                                     <tr>

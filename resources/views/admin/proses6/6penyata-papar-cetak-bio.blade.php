@@ -149,45 +149,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                    <form action="#" method="post">
-                                        @csrf
-                                        <div class="table-responsive">
-                                            <table id="example" class="table table-bordered"
-                                                style="width: 100%;">
-                                                <thead>
-                                                    <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar?</th>
-                                                        {{-- <th>Sudah Cetak?<br></th> --}}
-                                                        <th>No. Lesen<br></th>
-                                                        <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>Email Pegawai</th>
-                                                        <th>No. Siri</th>
-                                                        <th>Tarikh Hantar</th>
-                                                    </tr>
-                                                </thead>
-                                                <tfoot>
-                                                    <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar?</th>
-                                                        {{-- <th>Sudah Cetak?<br></th> --}}
-                                                        <th>No. Lesen<br></th>
-                                                        <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>Email Pegawai</th>
-                                                        <th>No. Siri</th>
-                                                        <th>Tarikh Hantar</th>
-                                                    </tr>
-                                                </tfoot>
-                                                <tbody style="word-break: break-word; font-size:12px">
-                                                    @foreach ($users as $data)
+                                <form action="{{ route('admin.6papar.bio.form') }}" method="post">
+                                    @csrf
+                                    <div class="table-responsive">
+                                        <table id="example" class="table table-bordered"
+                                            style="width: 100%;">
+                                            <thead>
+                                                <tr style="background-color: #e9ecefbd">
+                                                    <th>Papar?</th>
+                                                    <th>Sudah Cetak?<br></th>
+                                                    <th>No. Lesen<br></th>
+                                                    <th>Nama Premis</th>
+                                                    <th>Kod Pegawai</th>
+                                                    <th>Email Pegawai</th>
+                                                    <th>No. Siri</th>
+                                                    <th>Tarikh Hantar</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr style="background-color: #e9ecefbd">
+                                                    <th>Papar?</th>
+                                                    <th>Sudah Cetak?<br></th>
+                                                    <th>No. Lesen<br></th>
+                                                    <th>Nama Premis</th>
+                                                    <th>Kod Pegawai</th>
+                                                    <th>Email Pegawai</th>
+                                                    <th>No. Siri</th>
+                                                    <th>Tarikh Hantar</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody style="word-break: break-word; font-size:12px">
+                                                @foreach ($users as $data)
                                                     <tr>
                                                         <td>
                                                             <input name="papar_ya[]" type="checkbox" required
                                                                 value="{{ $data->ebio_reg }}">&nbspYa
                                                         </td>
-                                                        {{-- <td>
+                                                        <td>
                                                             x
-                                                        </td> --}}
+                                                        </td>
                                                         <td>
                                                             {{-- <a href="#"> --}}
                                                             {{ $data->e_nl }}
@@ -202,41 +202,18 @@
 
                                                     </tr>
                                                 @endforeach
-                                                    {{-- @foreach ($users as $data)
-                                                        <tr>
-                                                            <td>
-                                                                {{-- <input name="papar_ya[]" type="checkbox"
-                                                                    value="{{ $data->e91_reg }}">&nbspYa --}}
-                                                            {{-- </td>
-                                                            <td>
-                                                                x
-                                                            </td>
-                                                            <td>
-                                                                {{-- <a href="#"> --}}
-                                                                {{-- {{ $data->e_nl }}
-                                                            </td>
-                                                            <td>{{ $data->e_np ?? '-' }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
 
-                                                            <td>{{ $data->e_email ?? '-' }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
+                                            </tbody>
 
-                                                            <td>{{ $data->sdate }}</td>
-
-                                                        </tr>
-                                                    @endforeach --}}
-
-                                                </tbody>
-
-                                            </table>
-                                            <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
+                                        </table>
+                                        <div class="text-left col-md-8">
+                                            <button type="submit" class="btn btn-primary ">Papar</button>
 
 
 
-                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+                                </form>
                                 </div>
                             </section>
                         </div>
