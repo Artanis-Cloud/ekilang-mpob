@@ -2590,7 +2590,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
      $oleokap = 0;
 
      foreach ($qrycapp104 as $ad9) {
-        $oleokap = $ad9->cap_lulus ;:insert("INSERT
+        $oleokap = $ad9->cap_lulus ;
 
      }
 
@@ -2610,7 +2610,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
 
      }
 
-     if (!$status104))
+     if (!$status104)
        $status104 = 0;
 
      $qinsindp104a = DB::insert("INSERT into p104_master values ('$ind_idp104a','$nolesen','$tahun','$bulan', $harioperasi, $capacity_dec,
