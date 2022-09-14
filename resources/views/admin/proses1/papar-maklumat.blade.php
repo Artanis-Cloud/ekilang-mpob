@@ -500,7 +500,7 @@
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Tahun Mula Beroperasi</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)" 
+                                    <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)"
                                     placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4"
                                     value="{{ $pelesen->e_year ?? '-' }}">
                                 </div>
@@ -885,7 +885,7 @@
                             @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')<br>
 
                                 <div class="row mt-2" style="text-align: center; font-size: 12px">
-                                    <div class="col-md-2">
+                                    <div class="col-md-2" style="margin-left: -1.2%">
                                         <span></span>
                                     </div>
                                     <div class="col-md-1">
@@ -918,7 +918,7 @@
                                     <label for="fname"
                                         class="text-right  control-label col-form-label required align-items-center">
                                         Bilangan Tangki</label>
-                                        <div class="col-md-1 " style="margin-left:4.5%">
+                                        <div class="col-md-1 " style="margin-left:5%">
                                             {{-- <span></span> --}}
                                         </div>
                                     <div class="col-md-1">
@@ -1004,7 +1004,7 @@
                                     <label for="fname"
                                         class="text-right  control-label col-form-label required align-items-center">
                                         Kapasiti Tangki Simpanan (Tan)</label>
-                                        <div  style="margin-left:2%">
+                                        <div  style="margin-left:4%">
                                             {{-- <span></span> --}}
                                         </div>
                                     <div class="col-md-1">
@@ -1290,6 +1290,15 @@
 
 @section('scripts')
     {{-- ajax daerah --}}
+    <script>
+
+
+        $("#e_year").keypress(function(event) {
+        if ( event.which == 45 ) {
+            event.preventDefault();
+        }
+        });
+    </script>
     <script>
         function ajax_daerah(select) {
             negeri = select.value;
