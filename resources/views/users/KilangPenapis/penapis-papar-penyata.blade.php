@@ -47,7 +47,6 @@
                         </div> --}}
 
             <div class="card-body">
-                <div class="row">
                     <div class="" style="padding: 2%">
                         <div align="right">
                             <table border="0" width="25%">
@@ -71,21 +70,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
 
                         <p style="text-align: center; vertical-align:middle">
                             <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
@@ -162,7 +146,7 @@
 
 
                         <p align="left"><b>
-                                <font color="#0c7c85">MAKLUMAT PELESEN </font>
+                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                             </b></p>
 
                         <table border="0" width="73%" cellpadding="0" cellspacing="0">
@@ -281,7 +265,7 @@
                         </table>
                         <br><hr>
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     SAWIT</font>
                             </b> </p>
                         <table border="1" class="table table-bordered" width="100%" bordercolor="#000000" cellspacing="0"
@@ -409,7 +393,7 @@
                             </tbody>
                         </table><hr>
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     MINYAK ISIRUNG SAWIT</font>
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -535,7 +519,7 @@
                         </table><hr>
 
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     HARI BEROPERASI DAN KADAR PENGGUNAAN KAPASITI
                                 </font>
                             </b> </p>
@@ -560,7 +544,7 @@
                         </table>
                         <br><hr>
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN MAKANAN</font>
@@ -651,7 +635,7 @@
                         </table><hr>
 
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN BUKAN MAKANAN</font>
@@ -743,7 +727,7 @@
                         </table><hr>
 
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     SENDIRI</font>
                             </b></p>
                         <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -804,7 +788,7 @@
                             </tbody>
                         </table><hr>
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
                             </b></p>
                         <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -865,7 +849,7 @@
                             </tbody>
                         </table><hr>
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -955,7 +939,7 @@
                                 </tr>
                         </table><hr>
                         <p><b>
-                                <font color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -1121,7 +1105,6 @@
                             </div>
                         </form>
                     </div>
-                </div>
             </div>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
 
