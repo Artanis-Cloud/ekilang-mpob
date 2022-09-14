@@ -135,7 +135,7 @@
                             <div class="col-md-3">
                                 <input type="text" class="form-control" id="hari" style="text-align: right"
                                 name='hari_operasi' min="0" max="31" oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
-                                oninput="this.setCustomValidity(''); invokeFunc(); valid_a5()"
+                                oninput="this.setCustomValidity(''); invokeFunc(); valid_a5(); nodecimal()"
                                 required
                                     title="Sila isikan butiran ini." value="{{ $penyata->hari_operasi ?? 0 }}">
                                     <p type="hidden" id="err_a5" style="color: red; display:none"><i>Sila isi butiran di
@@ -230,6 +230,19 @@
                 </div>
             </div>
             <script>
+                function nodecimal() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("hari").value);
+                    if(isNaN(x)){
+                        x = 0;
+                    }
+                    const removedDecimal = Math.round(x);
+                    document.querySelector("#hari").value = removedDecimal;
+                    console.log(removedDecimal);
+                }
+            </script>
+            <script>
+
                 function check() {
                     // (B1) INIT
                     var error = "",
