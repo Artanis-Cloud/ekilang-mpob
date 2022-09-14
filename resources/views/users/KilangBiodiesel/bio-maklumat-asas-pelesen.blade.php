@@ -441,7 +441,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpo'
                                                 style="width:100%" size="15" id="bil_tangki_cpo" required
                                                 title="Sila isikan butiran ini." onkeypress="return isNumberKey(event)"
-                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');
+                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); FormatCurrency();
                                                 validate_two_decimal(this); ableInput(); valid_cpo()">
                                             @error('bil_tangki_cpo')
                                                 <div class="alert alert-danger">

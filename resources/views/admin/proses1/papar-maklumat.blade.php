@@ -635,8 +635,8 @@
 
                             @elseif ($reg_pelesen->e_kat == 'PL101')<br>
 
-                                <div class="row mt-2" style="text-align: center; font-size: 12px">
-                                    <div class="col-md-4">
+                                <div class="row mt-2" style=" font-size: 12px">
+                                    <div class="col-md-2" style="margin-left: 1.5%">
                                         <span></span>
                                     </div>
                                     <div class="col-md-1">
@@ -664,9 +664,11 @@
                                 </div>
                                 <div class="row mt-2 mb-4">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-right control-label col-form-label required align-items-center">
                                         Bilangan Tangki</label>
-
+                                        <div class="col-md-1 " style="margin-left:4.5%">
+                                            {{-- <span></span> --}}
+                                        </div>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
                                             size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -737,9 +739,11 @@
 
                                 <div class="row mt-2 mb-4">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-right control-label col-form-label required align-items-center">
                                         Kapasiti Tangki Simpanan (Tan)</label>
-
+                                        <div style="margin-left:2%">
+                                            {{-- <span></span> --}}
+                                        </div>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
                                             id="kap_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -813,8 +817,8 @@
                             @elseif ($reg_pelesen->e_kat == 'PL102')
 
                                 <div class="row mt-3 " style="text-align: center; font-size: 12px">
-                                    <div class="col-md-5">
-                                        <span ></span>
+                                    <div class="col-md-3" >
+                                        <span></span>
                                     </div>
 
 
@@ -824,11 +828,14 @@
 
                                 </div>
                                 <div class="row mt-3 text-right">
-                                    <div class="col-md-5">
+                                    {{-- <div class="col-md-5"> --}}
                                         <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-right control-label col-form-label required align-items-center">
                                         Bilangan Tangki</label>
                                         {{-- <span class="required">Bilangan Tangki</span> --}}
+                                    {{-- </div> --}}
+                                    <div class="col-md-1" style="margin-left: 4.5%">
+                                        <span></span>
                                     </div>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='bil_tangki_cpo'
@@ -845,11 +852,14 @@
 
                                 </div>
                                 <div class="row mt-3 text-right">
-                                    <div class="col-md-5">
+                                    {{-- <div class="col-md-5"> --}}
                                         <label for="fname"
                                         class="text-right control-label col-form-label required align-items-center">
                                         Kapasiti Tangki Simpanan (Tan)</label>
                                         {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
+                                    {{-- </div> --}}
+                                    <div  style="margin-left: 2%">
+                                        <span></span>
                                     </div>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='kap_tangki_cpo'
@@ -875,7 +885,7 @@
                             @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')<br>
 
                                 <div class="row mt-2" style="text-align: center; font-size: 12px">
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <span></span>
                                     </div>
                                     <div class="col-md-1">
@@ -906,9 +916,11 @@
                                 </div>
                                 <div class="row mt-2 mb-4">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-right  control-label col-form-label required align-items-center">
                                         Bilangan Tangki</label>
-
+                                        <div class="col-md-1 " style="margin-left:4.5%">
+                                            {{-- <span></span> --}}
+                                        </div>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
                                             size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -990,9 +1002,11 @@
 
                                 <div class="row mt-2 mb-4">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        class="text-right  control-label col-form-label required align-items-center">
                                         Kapasiti Tangki Simpanan (Tan)</label>
-
+                                        <div  style="margin-left:2%">
+                                            {{-- <span></span> --}}
+                                        </div>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
                                             id="kap_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
