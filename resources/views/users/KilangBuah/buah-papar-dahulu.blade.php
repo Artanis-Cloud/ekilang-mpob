@@ -141,7 +141,7 @@
 
 
                             <p align="left"><b>
-                                    <font color="#0c7c85">MAKLUMAT PELESEN </font>
+                                    <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                 </b></p>
 
                             <table border="0" width="72%" cellpadding="0" cellspacing="0">
@@ -256,9 +256,9 @@
 
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table><br><hr>
                             <p><b>
-                                <font size="2.8" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
                                 PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
                                 (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                             </b> </p>
@@ -458,10 +458,10 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <br>
+                            <br><hr>
                             <div  style='page-break-after:always'></div>
                             <p><b>
-                                    <font size="2.8" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
+                                    <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
                                         PERAHAN DAN HARGA </font>
                                 </b> </p>
 
@@ -514,7 +514,7 @@
                                 </tbody>
                             </table>
 
-                            <br>
+                            <br><hr>
 
 
 
@@ -730,13 +730,13 @@
                             <p>
                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                     {{ $penyata->e91_ah18 ?? '-' }}</font>
-                            </p>
+                            </p><hr>
 
 
 
 
                             <p align="left">
-                                <font size="2.8" color="#0c7c85"><b>BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN BUAH
+                                <font style="font-size: 15px" color="#0c7c85"><b>BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN BUAH
                                         KELAPA SAWIT (FFB) (52)</b>
                                 </font>
                             </p>
@@ -814,11 +814,11 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><hr>
 
 
                             <p align="left">
-                                <font size="2.8" color="#0c7c85"><b>BAHAGIAN 4 : JUALAN/EDARAN MINYAK SAWIT
+                                <font style="font-size: 15px" color="#0c7c85"><b>BAHAGIAN 4 : JUALAN/EDARAN MINYAK SAWIT
                                         MENTAH (CPO) (01) </b></font>
                             </p>
 
@@ -911,11 +911,11 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><hr>
 
 
                             <p align="left">
-                                <font size="2.8" color="#0c7c85"><b>BAHAGIAN 5 : JUALAN/EDARAN  ISIRUNG SAWIT
+                                <font style="font-size: 15px" color="#0c7c85"><b>BAHAGIAN 5 : JUALAN/EDARAN  ISIRUNG SAWIT
                                         (PK) DALAM NEGERI
                                         (51)</b></font>
                             </p>
@@ -968,10 +968,10 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><hr>
                             <div  style='page-break-after:always'></div>
                             <p><b>
-                                    <font size="2.8" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                 </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
@@ -1033,10 +1033,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
-
-
-                            <br><h1 style="page-break-before:always"></h1>
+                            </table><hr>
 
                             <p style="font-size: 16px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
