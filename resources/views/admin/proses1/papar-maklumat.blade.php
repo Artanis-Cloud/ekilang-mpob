@@ -666,7 +666,7 @@
                                     <label for="fname"
                                         class="text-right control-label col-form-label required align-items-center">
                                         Bilangan Tangki</label>
-                                        <div class="col-md-1 " style="margin-left:4.5%">
+                                        <div class="col-md-1 " style="margin-left:6%">
                                             {{-- <span></span> --}}
                                         </div>
                                     <div class="col-md-1">
@@ -741,7 +741,7 @@
                                     <label for="fname"
                                         class="text-right control-label col-form-label required align-items-center">
                                         Kapasiti Tangki Simpanan (Tan)</label>
-                                        <div style="margin-left:2%">
+                                        <div style="margin-left:5%">
                                             {{-- <span></span> --}}
                                         </div>
                                     <div class="col-md-1">
@@ -834,7 +834,7 @@
                                         Bilangan Tangki</label>
                                         {{-- <span class="required">Bilangan Tangki</span> --}}
                                     {{-- </div> --}}
-                                    <div class="col-md-1" style="margin-left: 4.5%">
+                                    <div class="col-md-1" style="margin-left: 6%">
                                         <span></span>
                                     </div>
                                     <div class="col-md-1">
@@ -858,7 +858,7 @@
                                         Kapasiti Tangki Simpanan (Tan)</label>
                                         {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
                                     {{-- </div> --}}
-                                    <div  style="margin-left: 2%">
+                                    <div  style="margin-left: 5%">
                                         <span></span>
                                     </div>
                                     <div class="col-md-1">
