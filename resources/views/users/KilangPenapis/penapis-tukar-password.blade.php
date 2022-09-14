@@ -57,8 +57,10 @@
                                     <input type="password" class="form-control" name='old_password' id="myInput"
                                      placeholder="Kata Laluan Terdahulu" required
                                      oninvalid="this.setCustomValidity('Sila isi butiran ini')"
-                                     oninput="this.setCustomValidity('')"
+                                     oninput="this.setCustomValidity(''); valid_ps()"
                                         title="Sila isikan butiran ini.">
+                                        <p type="hidden" id="err_ps" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
                                     @error('old_password')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -76,8 +78,11 @@
                                     <input type="password" class="form-control" name='new_password' id="myInput2"
                                          placeholder="Kata Laluan Baru" required
                                          oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
-                                         oninput="this.setCustomValidity('')" minlength="8"
+                                         oninput="this.setCustomValidity(''); valid_nps()"
                                         title="Sila isikan butiran ini.">
+                                        <p type="hidden" id="err_nps" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
+                                        <p type="hidden" id="err_nps2" style="color: red; display:none"><i>Kata laluan kurang dari 8 aksara!</i></p>
                                         <span id = "message" style="color:red"> </span>
                                     {{-- @error('new_password')
                                         <div class="alert alert-danger">
@@ -94,9 +99,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name='password_confirmation' id="myInput3"
-                                        minlength="8" placeholder="Sahkan Kata Laluan Baru" required
-                                        oninput="this.setCustomValidity('')"
+                                         placeholder="Sahkan Kata Laluan Baru" required
+                                        oninput="this.setCustomValidity(''); valid_cps()"
                                         title="Sila isikan butiran ini.">
+                                        <p type="hidden" id="err_cps" style="color: red; display:none"><i>Sila isi butiran di
+                                            bahagian ini!</i></p>
+                                            <p type="hidden" id="err_cps2" style="color: red; display:none"><i>Kata laluan kurang dari 8 aksara!</i></p>
+                                            <p type="hidden" id="err_cps3" style="color: red; display:none"><i>Kata laluan tidak sama!</i></p>
                                     {{-- @error('password_confirmation')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -117,10 +126,8 @@
 
 
                             <div class="row justify-content-center">
-                                <button type="button" class="btn btn-primary"  data-toggle="modal"
-                                    data-target="#next">Tukar Kata Laluan</button>
+                                <button type="button" class="btn btn-primary"  id="checkBtn" onclick="check()">Tukar Kata Laluan</button>
                             </div>
-                        </form>
 
                     </div>
 
@@ -155,11 +162,196 @@
                             </div>
                         </div>
                     </div>
+                </form>
+
 
             </div>
         </div>
         @endsection
         @section('scripts')
+        <script>
+            function valid_ps() {
+
+                if ($('#myInput').val() == '') {
+                    $('#myInput').css('border-color', 'red');
+                    document.getElementById('err_ps').style.display = "block";
+
+
+                } else {
+                    $('#myInput').css('border-color', '');
+                    document.getElementById('err_ps').style.display = "none";
+
+                }
+
+            }
+        </script>
+        <script>
+            function valid_nps() {
+
+                if ($('#myInput2').val() == '' ) {
+                    $('#myInput2').css('border-color', 'red');
+                    document.getElementById('err_nps').style.display = "block";
+                    document.getElementById('err_nps2').style.display = "none";
+
+
+                } else if ($('#myInput2').val().length < 8 ) {
+                    $('#myInput2').css('border-color', 'red');
+                    document.getElementById('err_nps').style.display = "none";
+                    document.getElementById('err_nps2').style.display = "block";
+
+                }
+
+                else {
+                    $('#myInput2').css('border-color', '');
+                    document.getElementById('err_nps').style.display = "none";
+                    document.getElementById('err_nps2').style.display = "none";
+
+                }
+
+            }
+        </script>
+        <script>
+            function valid_cps() {
+
+
+
+                if ($('#myInput3').val() == '') {
+                    $('#myInput3').css('border-color', 'red');
+                    document.getElementById('err_cps').style.display = "block";
+                    document.getElementById('err_cps2').style.display = "none";
+                    document.getElementById('err_cps3').style.display = "none";
+
+                } else if ($('#myInput3').val().length < 8 ) {
+                    if ($('#myInput3').val() !=  $('#myInput2').val() ) {
+                    $('#myInput3').css('border-color', 'red');
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "block";
+                    document.getElementById('err_cps3').style.display = "block";
+                    } else {
+                        $('#myInput3').css('border-color', 'red');
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "block";
+                    document.getElementById('err_cps3').style.display = "none";
+                    }
+
+                } else if ($('#myInput3').val() !=  $('#myInput2').val() ) {
+                    $('#myInput3').css('border-color', 'red');
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "block";
+                    document.getElementById('err_cps3').style.display = "block";
+
+                } else {
+                    $('#myInput3').css('border-color', '');
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "none";
+                    document.getElementById('err_cps3').style.display = "none";
+
+                }
+
+            }
+        </script>
+          <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // alamat premis 1500403125000
+                if ($('#myInput').val() == '') {
+                    $('#myInput').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+
+                    document.getElementById('err_ps').style.display = "block";
+
+
+                } else {
+                    $('#myInput').css('border-color', '');
+                    document.getElementById('err_ps').style.display = "none";
+
+                }
+
+                // alamat premis 1
+
+                if ($('#myInput2').val() == '' ) {
+                    $('#myInput2').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+                    document.getElementById('err_nps').style.display = "block";
+                    document.getElementById('err_nps2').style.display = "none";
+
+
+                } else if ($('#myInput2').val().length < 8 ) {
+                    $('#myInput2').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+                    document.getElementById('err_nps').style.display = "none";
+                    document.getElementById('err_nps2').style.display = "block";
+
+                }
+
+                else {
+                    $('#myInput2').css('border-color', '');
+                    document.getElementById('err_nps').style.display = "none";
+                    document.getElementById('err_nps2').style.display = "none";
+
+                }
+
+                // alamat premis 1
+
+
+                if ($('#myInput3').val() == '') {
+                    $('#myInput3').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+                    document.getElementById('err_cps').style.display = "block";
+                    document.getElementById('err_cps2').style.display = "none";
+                    document.getElementById('err_cps3').style.display = "none";
+
+                } else if ($('#myInput3').val().length < 8 ) {
+                    if ($('#myInput3').val() !=  $('#myInput2').val() ) {
+                    $('#myInput3').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "block";
+                    document.getElementById('err_cps3').style.display = "block";
+                    } else {
+                        $('#myInput3').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "block";
+                    document.getElementById('err_cps3').style.display = "none";
+                    }
+
+                } else if ($('#myInput3').val() !=  $('#myInput2').val() ) {
+                    $('#myInput3').css('border-color', 'red');
+                    error += "Name must be 2-4 characters\r\n";
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "block";
+                    document.getElementById('err_cps3').style.display = "block";
+
+                } else {
+                    $('#myInput3').css('border-color', '');
+                    document.getElementById('err_cps').style.display = "none";
+                    document.getElementById('err_cps2').style.display = "none";
+                    document.getElementById('err_cps3').style.display = "none";
+
+                }
+
+
+
+                // (B4) RESULT
+                if (error == "") {
+                    $('#next').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+
+            }
+        </script>
             <script>
                 var password = document.getElementById("myInput2"), confirm_password = document.getElementById("myInput3");
 
