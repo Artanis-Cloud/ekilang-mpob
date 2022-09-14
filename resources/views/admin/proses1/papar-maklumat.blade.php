@@ -500,7 +500,7 @@
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Tahun Mula Beroperasi</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_year" class="form-control" required
+                                    <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)" 
                                     placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4"
                                     value="{{ $pelesen->e_year ?? '-' }}">
                                 </div>
