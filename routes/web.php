@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/migrate/data/profilebulanan', [App\Http\Controllers\DataMigrationController::class, 'transfer_profilebulanans_to_pelesen'])->name('transfer_profilebulanans_to_pelesen');
     Route::get('/migrate/data/reguser', [App\Http\Controllers\DataMigrationController::class, 'transfer_reguser_to_users'])->name('transfer_reguser_to_users');
     Route::get('/migrate/data/hebahan-stok-akhir', [App\Http\Controllers\DataMigrationController::class, 'transfer_hebahansa_to_ekilang'])->name('transfer_hebahansa_to_ekilang');
+    Route::get('/change_eyear', [App\Http\Controllers\DataMigrationController::class, 'change_eyear'])->name('change.eyear');
 
     //AJAX
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');

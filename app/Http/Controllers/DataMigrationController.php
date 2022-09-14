@@ -17,6 +17,20 @@ use DB;
 
 class DataMigrationController extends Controller
 {
+    public function change_eyear()
+    {
+        $pelesens = Pelesen::get();
+        $year = null;
+
+        foreach ($pelesens as $pelesen) {
+            // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
+
+            // $password = Hash::make($reg_pelesen->e_pwd);
+//
+        $pelesen->e_year = $year;
+        $pelesen->save();
+        }
+    }
     public function transfer_pelesen_to_users()
     {
         $reg_pelesens = RegPelesen::get();
