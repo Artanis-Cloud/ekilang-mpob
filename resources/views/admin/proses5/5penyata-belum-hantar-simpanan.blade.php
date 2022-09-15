@@ -157,7 +157,7 @@
                                                     @endif
 
                                                 </div>
-                                           
+
                                                 <button style="font-size:14px; background-color:#265960;color: white; border: 0px; float: right; border-radius: 2px; padding:7px 35px;"
                                                 onclick="exportTableToCSV('Senarai Penyata Belum Hantar Pusat Simpanan.csv')">Excel <i class="fa fa-file-excel" style="color: #fff"></i></button>
 
@@ -172,7 +172,7 @@
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
-                                                            <th>Email Pegawai</th>
+                                                            <th>Emel Pegawai</th>
                                                             <th>No. Siri</th>
                                                         </tr>
                                                     </thead>
@@ -182,7 +182,7 @@
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
-                                                            <th>Email Pegawai</th>
+                                                            <th>Emel Pegawai</th>
                                                             <th>No. Siri</th>
                                                         </tr>
                                                     </tfoot>

@@ -166,7 +166,7 @@
                                                         <th>No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
-                                                        <th>Email Pegawai</th>
+                                                        <th>Emel Pegawai</th>
                                                         <th>No. Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
@@ -178,7 +178,7 @@
                                                         <th>No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
-                                                        <th>Email Pegawai</th>
+                                                        <th>Emel Pegawai</th>
                                                         <th>No. Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
