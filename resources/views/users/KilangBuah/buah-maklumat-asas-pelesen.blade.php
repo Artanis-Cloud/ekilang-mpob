@@ -60,7 +60,7 @@
                 @endif --}}
                 <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red">
                     *</b><i>'</i>
-                <form action="{{ route('buah.update.maklumat.asas.pelesen.cuba') }}" method="post" id="myform"
+                <form action="{{ route('buah.update.maklumat.asas.pelesen.cuba') }}" method="post" id="myform" class="sub-form"
                     novalidate>
                     @csrf
                     <div class="container center" style="padding: 0%">
@@ -426,7 +426,7 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%"
-                                    oninput="invokeFunc19();setCustomValidity(''); ableInput(); valid_cpo()" id="bil_tangki_cpo" required
+                                    oninput="invokeFunc19();setCustomValidity(''); ableInput(); valid_cpo(); FormatCurrency(this)" id="bil_tangki_cpo" required
                                     title="Sila isikan butiran ini." min="1"
                                     oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
@@ -449,7 +449,7 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%"
-                                    oninput="nodecimal(); setCustomValidity(''); valid_cpo() " id="kap_tangki_cpo"
+                                    oninput="nodecimal(); setCustomValidity(''); valid_cpo(); FormatCurrency(this) " id="kap_tangki_cpo"
                                     title="Sila isikan butiran ini." min="0"
                                     oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
@@ -543,6 +543,26 @@
         @endsection
 
         @section('scripts')
+        <script>
+            $('.sub-form').submit(function() {
+
+                var x = $('#bil_tangki_cpo').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#bil_tangki_cpo').val(x);
+
+                var x = $('#kap_tangki_cpo').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#kap_tangki_cpo').val(x);
+
+
+
+
+                return true;
+
+            });
+        </script>
         <script>
 
             function phoneNumber(input){
@@ -1132,10 +1152,13 @@
                 $(document).ready(function() {
                     $('#checkBtn').click(function() {
                         // checked = $("input[type=checkbox]:checked").length;
-                        tangki = $('#bil_tangki_cpo').val();
+                        // tangki = $('#bil_tangki_cpo').val();
+                        var x = $('#bil_tangki_cpo').val();
+                        x = x.replace(/,/g, '');
+                        x = parseFloat(x, 10);
 
-                        if (!tangki || !(tangki > 0)) {
-                            console.log('lain');
+                        if (!x || !(x > 0)) {
+                            console.log(x);
 
                             toastr.error(
                                 'Bilangan tangki hendaklah lebih dari 0',
