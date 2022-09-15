@@ -353,7 +353,7 @@
                                     <tr>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpo' min="0"
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc19(); ableInput(); valid_cpo()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc19(); ableInput(); valid_cpo();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpo }}"
@@ -361,7 +361,7 @@
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_ppo()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_ppo();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo }}"
@@ -369,7 +369,7 @@
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc21(); ableInput(); valid_cpko()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc21(); ableInput(); valid_cpko();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_cpko"
                                                 onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -377,7 +377,7 @@
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='bil_tangki_ppko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc22(); ableInput(); valid_ppko()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc22(); ableInput(); valid_ppko();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_ppko"
                                                 onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -385,7 +385,7 @@
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td><input type="text" class="form-control" name='bil_tangki_others'
-                                                style="width:100%" oninput="this.setCustomValidity(''); ableInput(); valid_others()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); ableInput(); valid_others();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_others"
                                                 onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -400,7 +400,7 @@
                                     </tr>
                                     <tr style="vertical-align: top">
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc24(); valid_cpo()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc24(); valid_cpo();FormatCurrency(this)"
                                                 id="kap_tangki_cpo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo }}"
@@ -410,7 +410,7 @@
                                                     bahagian ini!</i></p>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc25(); valid_ppo()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc25(); valid_ppo();FormatCurrency(this)"
                                                 id="kap_tangki_ppo" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo }}"
@@ -420,7 +420,7 @@
                                                     bahagian ini!</i></p>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc26(); valid_cpko()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc26(); valid_cpko();FormatCurrency(this)"
                                                 id="kap_tangki_cpko" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko }}"
@@ -430,7 +430,7 @@
                                                     bahagian ini!</i></p>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppko'
-                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc27(); valid_ppko()"
+                                                style="width:100%" oninput="this.setCustomValidity(''); invokeFunc27(); valid_ppko();FormatCurrency(this)"
                                                 id="kap_tangki_ppko" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko }}"
@@ -440,11 +440,11 @@
                                                     bahagian ini!</i></p>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_others' min=0
-                                                style="width:100%" oninput="this.setCustomValidity(''); valid_others(); validity.valid||(value='');"
+                                                style="width:100%" oninput="this.setCustomValidity(''); valid_others();FormatCurrency(this)"
                                                 id="kap_tangki_others" onkeypress="return isNumberKey(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->kap_tangki_others }}" onchange="validation_jumlah2()"
+                                                value="{{ $pelesen->kap_tangki_others }}" oninput="validation_jumlah2()"
                                                 required>
                                                 <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -525,7 +525,7 @@
             <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
             <script src="{{ asset('theme/js/app.js') }}"></script>
 
-            <script src="assets/js/main.js"></script>
+            {{-- <script src="assets/js/main.js"></script> --}}
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -541,6 +541,82 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+                $(document).ready(function() {
+                    $("#kap_proses").change(function() {
+                        var x = $("#kap_proses").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_proses").val(num1);
+                    });
+                    $("#kap_proses").change(function() {
+                        var x = $("#kap_proses").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_proses").val(num1);
+                    });
+                });
+                </script>
+            <script>
+                $('.sub-form').submit(function() {
+
+                    var x = $('#bil_tangki_cpo').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#bil_tangki_cpo').val(x);
+
+                    var x = $('#kap_tangki_cpo').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#kap_tangki_cpo').val(x);
+
+                    var x = $('#bil_tangki_ppo').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#bil_tangki_ppo').val(x);
+
+                    var x = $('#kap_tangki_ppo').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#kap_tangki_ppo').val(x);
+
+                    var x = $('#bil_tangki_cpko').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#bil_tangki_cpko').val(x);
+
+                    var x = $('#kap_tangki_cpko').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#kap_tangki_cpko').val(x);
+
+                    var x = $('#bil_tangki_ppko').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#bil_tangki_ppko').val(x);
+
+                    var x = $('#kap_tangki_ppko').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#kap_tangki_ppko').val(x);
+
+                    var x = $('#bil_tangki_others').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#bil_tangki_others').val(x);
+
+                    var x = $('#kap_tangki_others').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#kap_tangki_others').val(x);
+
+
+
+
+                    return true;
+
+                });
+            </script>
             <script>
                 $("#bil_tangki_cpo").keypress(function(event) {
                 if ( event.which == 45 ) {
@@ -629,6 +705,8 @@
             </script>
             <script>
                 function validation_jumlah2() {
+                // $(document).ready(function() {
+
                     var kap_tangki_cpo = $("#kap_tangki_cpo").val();
                     var kap_tangki_ppo = $("#kap_tangki_ppo").val();
                     var kap_tangki_cpko = $("#kap_tangki_cpko").val();
@@ -650,13 +728,35 @@
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#checkBtn').click(function() {
-                        cpo = $('#bil_tangki_cpo').val();
-                        ppo = $('#bil_tangki_ppo').val();
-                        cpko = $('#bil_tangki_cpko').val();
-                        ppko = $('#bil_tangki_ppko').val();
-                        others = $('#bil_tangki_others').val();
+                       var cpo = $('#bil_tangki_cpo').val();
+                       var ppo = $('#bil_tangki_ppo').val();
+                       var cpko = $('#bil_tangki_cpko').val();
+                       var ppko = $('#bil_tangki_ppko').val();
+                       var others = $('#bil_tangki_others').val();
 
-                        if (cpo == 0 && ppo == 0 && cpko == 0 && ppko == 0 && others == 0) {
+
+                        cpo = cpo.replace(/,/g, '');
+                        cpo = parseFloat(cpo, 10);
+                        console.log('cpo' + cpo);
+
+                        ppo = ppo.replace(/,/g, '');
+                        ppo = parseFloat(ppo, 10);
+                        console.log('ppo' + ppo);
+
+                        cpko = cpko.replace(/,/g, '');
+                        cpko = parseFloat(cpko, 10);
+                        console.log('cpko' + cpko);
+
+                        ppko = ppko.replace(/,/g, '');
+                        ppko = parseFloat(ppko, 10);
+                        console.log('ppko' + ppko);
+
+                        others = others.replace(/,/g, '');
+                        others = parseFloat(others, 10);
+                        console.log('others' + others);
+
+                        // !x || !(x > 0)
+                        if ((!cpo || !(cpo > 0)) && (!ppo  || !(ppo > 0)) && (!cpko  || !(cpko > 0))  && (!ppko  || !(ppko > 0))  && (!others  || !(others > 0)) ) {
                             console.log('lain');
 
                             toastr.error(
@@ -1413,7 +1513,7 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                         e_as3 = $('#e_as3').val(),
 
                         // Billing address is always sent, no matter the checkbox state
-                        billing(e_ap1, e_ap2, e_ap3);
+                        // billing(e_ap1, e_ap2, e_ap3);
 
                     // Shipping address depends on checkbox state
                     if ($("#el").is(':checked') {
