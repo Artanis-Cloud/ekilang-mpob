@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -47,6 +48,8 @@ class LoginController extends Controller
     {
         $category = auth()->user()->category;
         // dd(auth()->user()->category);
+
+        Auth::user()->log("LOGGED IN");
         switch ($category) {
             case 'PL91':
                 return '/buah/dashboard';

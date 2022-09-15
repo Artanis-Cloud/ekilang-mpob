@@ -64,13 +64,11 @@
                                         <thead>
                                             <tr class="text-center">
                                                 <th>Bil.</th>
-                                                <th>Tarikh</th>
+                                                {{-- <th>Tarikh</th> --}}
                                                 <th>Username</th>
                                                 <th>Aktiviti</th>
-                                                <th>Creator</th>
                                                 <th>IP Pengguna</th>
-                                                <th>Tindakan</th>
-                                                <th>Penerangan</th>
+                                                <th>created_at</th>
 
                                             </tr>
                                         </thead>
@@ -78,13 +76,11 @@
                                             @foreach ($log as $data)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $data->inserted_date }}</td>
+                                                    {{-- <td>{{ $data->date }}</td> --}}
                                                     <td>{{ $data->username }}</td>
-                                                    <td>{{ $data->application }}</td>
-                                                    <td>{{ $data->creator }}</td>
-                                                    <td>{{ $data->ip_user }}</td>
-                                                    <td>{{ $data->action }}</td>
-                                                    <td>{{ $data->description }}</td>
+                                                    <td>{{ $data->activity }}</td>
+                                                    <td>{{ $data->ip_address }}</td>
+                                                    <td>{{ $data->created_at }}</td>
 
                                                 </tr>
                                             @endforeach

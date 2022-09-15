@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AuditTrail;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
@@ -613,10 +614,12 @@ class MenuLainController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $admin = User::where('category','Admin')->get();
-        $log = ScLog::get();
+        // $admin = User::where('category','Admin')->get();
+        // $log = ScLog::get();
         $layout = 'layouts.main';
 
-        return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'admin', 'log'));
+        $log = AuditTrail::get();
+
+        return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'log'));
     }
 }

@@ -1764,6 +1764,7 @@
         $('#kemaskini'+key).prop("disabled", false);
     }
 </script>
+
 {{-- <script>
             $(document).ready(function() {
                 $('#example').DataTable({
@@ -1846,6 +1847,22 @@
                     });
                 });
         },
+        "language": {
+                        "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                        "zeroRecords": "Maaf, tiada rekod.",
+                        "info": "",
+                        "infoEmpty": "Tidak ada rekod yang tersedia",
+                        "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                        "search": "Carian",
+                        "previous": "Sebelum",
+                        "paginate": {
+                            "first": "Pertama",
+                            "last": "Terakhir",
+                            "next": "Seterusnya",
+                            "previous": "Sebelumnya"
+                        },
+                    },
+
     });
 });
     </script>
