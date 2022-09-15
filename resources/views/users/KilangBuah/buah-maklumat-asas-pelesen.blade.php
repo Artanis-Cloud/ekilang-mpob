@@ -1554,7 +1554,19 @@
                     console.log(removedDecimal);
                 }
             </script>
+            <script>
+                $("#bil_tangki_cpo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
 
+                $("#bil_tangki_ppo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+            </script>
 
             </body>
 
