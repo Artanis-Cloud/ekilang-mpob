@@ -1497,6 +1497,25 @@
                     return evt.which;
                 }
             </script>
+            <script>
+
+                $("#kap_proses").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+                $("#bil_tangki_cpko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_cpko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+            </script>
 
             </body>
 

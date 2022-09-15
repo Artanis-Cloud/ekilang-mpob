@@ -2099,26 +2099,85 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                     return evt.which;
                 }
             </script>
+            <script>
 
-            <!-- (B) FORM CHECK -->
-            {{-- <script>
-    function check () {
-      // (B1) INIT
-      var error = "", field = "";
+                $("#kap_proses").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
 
-      // (B2) NAME
-      field = document.getElementById("e_as1");
-      if (!field.checkValidity()) {
-        error += "Name must be 2-4 characters\r\n";
-      }
+                $("#bil_tangki_cpo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
 
+                $("#kap_tangki_cpo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
 
-      // (B4) RESULT
-      if (error=="") { return true; }
-      else {
-        alert(error);
-        return false;
-      }
-    }
-    </script> --}}
+                $("#bil_tangki_ppo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_ppo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_cpko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_cpko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_ppko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_ppko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_oleo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_oleo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_others").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_others").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+            </script>
+
         @endsection
