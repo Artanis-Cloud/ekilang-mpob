@@ -1971,18 +1971,98 @@
                 }
             </script>
 
-<script>
-    function nodecimal() {
-        // let decimal = ".00"
-        var x = parseFloat(document.getElementById("kap_tangki_cpo").value);
-        if(isNaN(x)){
-            x = 0;
-        }
-        const removedDecimal = Math.round(x);
-        document.querySelector("#kap_tangki_cpo").value = removedDecimal;
-        console.log(removedDecimal);
-    }
-</script>
+        <script>
+            function nodecimal() {
+                // let decimal = ".00"
+                var x = parseFloat(document.getElementById("kap_tangki_cpo").value);
+                if(isNaN(x)){
+                    x = 0;
+                }
+                const removedDecimal = Math.round(x);
+                document.querySelector("#kap_tangki_cpo").value = removedDecimal;
+                console.log(removedDecimal);
+            }
+        </script>
+            <script>
+
+                $("#kap_proses").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_cpo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_cpo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_ppo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_ppo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_cpko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_cpko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_ppko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_ppko").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_oleo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_oleo").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#bil_tangki_others").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+
+                $("#kap_tangki_others").keypress(function(event) {
+                if ( event.which == 45 ) {
+                    event.preventDefault();
+                }
+                });
+            </script>
 
 
             </body>

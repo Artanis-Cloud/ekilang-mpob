@@ -47,9 +47,6 @@
                 <div class="pl-3">
 
                     <body>
-                        {{-- <p align="left">
-                                            PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-
                         <div align="right">
                             <table border="0" width="25%">
                                 <tbody>

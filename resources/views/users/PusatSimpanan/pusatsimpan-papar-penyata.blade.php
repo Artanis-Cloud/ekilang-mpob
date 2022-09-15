@@ -121,7 +121,7 @@
 
 
                                             <p align="left"><b>
-                                                    <font color="#0c7c85">MAKLUMAT PELESEN </font>
+                                                    <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                                 </b></p>
 
                                             <table border="0" width="72%" cellpadding="0" cellspacing="0">
@@ -241,7 +241,7 @@
                                             </table>
                                             <br><hr>
                                             <p><b>
-                                                    <font color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
+                                                    <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
                                                         TRANSHIPMENT)</font>
                                                 </b> </p>
@@ -342,7 +342,7 @@
                                                 </tbody>
                                             </table><hr>
                                             <p><b>
-                                                    <font color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
+                                                    <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
                                                         LUARAN MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>
                                                 </b> </p>

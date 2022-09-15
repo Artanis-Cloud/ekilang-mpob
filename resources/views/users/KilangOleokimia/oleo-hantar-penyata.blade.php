@@ -172,7 +172,7 @@
 
 
                             <p align="left"><b>
-                                    <font color="#0c7c85">MAKLUMAT PELESEN </font>
+                                    <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                 </b></p>
 
                             <table border="0" width="72%" cellpadding="0" cellspacing="0">
@@ -292,7 +292,7 @@
                             </table>
                             <br><hr>
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 1(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                         SAWIT</font>
                                 </b> </p>
                             <table border="1" class="table table-bordered" width="100%" bordercolor="#000000"
@@ -410,7 +410,7 @@
                                 </tbody>
                             </table><hr>
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 1(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                         MINYAK ISIRUNG SAWIT</font>
                                 </b> </p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -527,7 +527,7 @@
                             </table><hr>
 
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
                                 </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                 <tbody>
@@ -643,7 +643,7 @@
                             </table><hr>
 
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN
                                         PENGGUNAAN KADAR KAPASITI
                                     </font>
                                 </b> </p>
@@ -664,7 +664,7 @@
 
 
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA
                                     </font>
                                 </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered"
@@ -746,7 +746,7 @@
                             </table><hr>
 
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN
                                         LAIN-LAIN PRODUK SAWIT
 
                                     </font>
@@ -814,7 +814,7 @@
                                 </tbody>
                             </table><hr>
                             <p><b>
-                                    <font color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
 
                                     </font>
                                 </b></p>
