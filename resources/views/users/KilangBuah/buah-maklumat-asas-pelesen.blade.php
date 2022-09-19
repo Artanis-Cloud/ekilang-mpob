@@ -544,6 +544,29 @@
 
         @section('scripts')
         <script>
+            $(document).ready(function() {
+                $("#kap_proses").change(function() {
+                    var x = $("#kap_proses").val();
+                    var num1 = parseInt(x, 10);
+                    console.log('num' + x);
+                    $("#kap_proses").val(num1);
+                });
+                $("#bil_tangki_cpo").change(function() {
+                    var x = $("#bil_tangki_cpo").val();
+                    var num1 = parseInt(x, 10);
+                    console.log('num' + x);
+                    $("#bil_tangki_cpo").val(num1);
+                });
+                $("#kap_tangki_cpo").change(function() {
+                    var x = $("#kap_tangki_cpo").val();
+                    var num1 = parseInt(x, 10);
+                    console.log('num' + x);
+                    $("#kap_tangki_cpo").val(num1);
+                });
+
+            });
+            </script>
+        <script>
             $('.sub-form').submit(function() {
 
                 var x = $('#bil_tangki_cpo').val();
@@ -555,7 +578,6 @@
                 x = x.replace(/,/g, '');
                 x = parseFloat(x, 10);
                 $('#kap_tangki_cpo').val(x);
-
 
 
 

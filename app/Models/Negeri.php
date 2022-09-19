@@ -25,13 +25,11 @@ class Negeri extends Model
         'nama_region',
         'nama_kumpulan',
         'kod_kumpulan',
-
     ];
 
     public function daerahs()
     {
-
-        return $this->hasOne(Daerah::class, 'kod_daerah', 'e_daerah');
+        return $this->hasMany(Daerah::class, 'kod_negeri', 'kod_negeri');
 
     }
 }

@@ -509,7 +509,7 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_year" class="form-control"
                                                         placeholder="Tahun Mula Beroperasi" name="e_year"
-                                                        value="{{ $pelesen->e_year }}">
+                                                        value="{{ $pelesen->e_year ?? ''}}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>

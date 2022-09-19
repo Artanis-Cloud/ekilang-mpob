@@ -541,7 +541,7 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-            <script>
+            {{-- <script>
                 $(document).ready(function() {
                     $("#kap_proses").change(function() {
                         var x = $("#kap_proses").val();
@@ -549,14 +549,68 @@
                         console.log('num' + x);
                         $("#kap_proses").val(num1);
                     });
-                    $("#kap_proses").change(function() {
-                        var x = $("#kap_proses").val();
+                    $("#bil_tangki_cpo").change(function() {
+                        var x = $("#bil_tangki_cpo").val();
                         var num1 = parseInt(x, 10);
                         console.log('num' + x);
-                        $("#kap_proses").val(num1);
+                        $("#bil_tangki_cpo").val(num1);
+                    });
+                    $("#kap_tangki_cpo").change(function() {
+                        var x = $("#kap_tangki_cpo").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_tangki_cpo").val(num1);
+                    });
+                    $("#bil_tangki_ppo").change(function() {
+                        var x = $("#bil_tangki_ppo").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#bil_tangki_ppo").val(num1);
+                    });
+                    $("#kap_tangki_ppo").change(function() {
+                        var x = $("#kap_tangki_ppo").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_tangki_ppo").val(num1);
+                    });
+                    $("#bil_tangki_cpko").change(function() {
+                        var x = $("#bil_tangki_cpko").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#bil_tangki_cpko").val(num1);
+                    });
+                    $("#kap_tangki_cpko").change(function() {
+                        var x = $("#kap_tangki_cpko").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_tangki_cpko").val(num1);
+                    });
+                    $("#bil_tangki_ppko").change(function() {
+                        var x = $("#bil_tangki_ppko").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#bil_tangki_ppko").val(num1);
+                    });
+                    $("#kap_tangki_ppko").change(function() {
+                        var x = $("#kap_tangki_ppko").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_tangki_ppko").val(num1);
+                    });
+                    $("#bil_tangki_others").change(function() {
+                        var x = $("#bil_tangki_others").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#bil_tangki_others").val(num1);
+                    });
+                    $("#kap_tangki_others").change(function() {
+                        var x = $("#kap_tangki_others").val();
+                        var num1 = parseInt(x, 10);
+                        console.log('num' + x);
+                        $("#kap_tangki_others").val(num1);
                     });
                 });
-                </script>
+                </script> --}}
             <script>
                 $('.sub-form').submit(function() {
 
