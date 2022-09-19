@@ -437,9 +437,8 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="negeri_id" name='e_negeri' required
                                             onchange="ajax_daerah(this);ajax_kawasan(this)" value="{{ $negeri }}">
-                                            <option selected hidden disabled>{{ $pelesen->negeri->nama_negeri ?? 'Sila Pilih Negeri' }}</option>
                                             @foreach ($negeri as $data)
-                                                <option value="{{ $data->kod_negeri }}">
+                                                <option value="{{ $data->kod_negeri }}" {{ $pelesen->negeri->kod_negeri == $data->kod_negeri ? 'selected': '' }}>
                                                     {{ $data->nama_negeri }}
                                                 </option>
                                             @endforeach
@@ -456,8 +455,15 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="daerah_id" name='e_daerah' required
                                             placeholder="Daerah">
-                                            <option selected hidden disabled> {{  $pelesen->daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
+                                            @foreach (  $pelesen->negeri->daerahs as $daerah)
+                                            {{-- <option value="{{$daerah->kod_daerah }}" {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected hidden disabled' : ''}}> {{  $pelesen->daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
+
+                                            </option> --}}
+                                            <option value="{{$daerah->kod_daerah }}" {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected' : ''}}> {{  $daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
+
                                             </option>
+                                            @endforeach
+
                                                         {{-- <option selected hidden disabled value="">POMA</option>
                                             <option {{ $pelesen->e_daerah == 'Ya' ? 'selected' : '' }} value="Ya">
                                                 Ya</option>
@@ -474,7 +480,7 @@
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="kawasan_id" name='e_kawasan' required>
-                                            <option value="" selected hidden disabled>{{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
+                                            <option value="{{ $pelesen->negeri->kod_region }}" selected hidden disabled>{{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
                                         </select>
                                     </fieldset>
 
@@ -502,7 +508,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)"
                                     placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4"
-                                    value="{{ $pelesen->e_year ?? '-' }}">
+                                    value="{{ $pelesen->e_year ?? '' }}">
                                 </div>
                             </div>
                             <div class="row">
@@ -1477,88 +1483,88 @@
             // kategori
             field = document.getElementById("e_kat");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_kat\r\n";
             }
             // status e-kilang
             field = document.getElementById("e_status");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_status\r\n";
             }
             // status e-mingguan
             field = document.getElementById("e_stock");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_stock\r\n";
             }
             // directory
             field = document.getElementById("directory");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters directory\r\n";
             }
             // alamat premis 1
             field = document.getElementById("e_ap1");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_ap1\r\n";
             }
             // kod pegawai
             field = document.getElementById("kodpgw");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters kodpgw\r\n";
             }
             // no siri
             field = document.getElementById("nosiri");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters nosiri\r\n";
             }
             // no lesen
             field = document.getElementById("e_nl");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_nl\r\n";
             }
             // nama premis
             field = document.getElementById("e_np");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_np\r\n";
             }
             // alamat premis 1
             field = document.getElementById("e_ap1");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_ap1\r\n";
             }
 
             // alamat surat-menyurat 1
             field = document.getElementById("e_as1");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_as1\r\n";
             }
 
             // no tel kilang
             field = document.getElementById("e_notel");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_notel\r\n";
             }
 
             // email kilang
             field = document.getElementById("e_email");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_email\r\n";
             }
 
             // nama pegawai melapor
             field = document.getElementById("e_npg");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_npg\r\n";
             }
 
             // jawatan pegawai melapor
             field = document.getElementById("e_jpg");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_jpg\r\n";
             }
 
             // no tel pegawai melapor
             field = document.getElementById("e_notel_pg");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_notel_pg\r\n";
             }
 
             // // email pegawai melapor
@@ -1570,71 +1576,72 @@
             // nama pegawai bertanggungjawab
             field = document.getElementById("e_npgtg");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_npgtg\r\n";
             }
 
             // jawatan pegawai bertanggungjawab
             field = document.getElementById("e_jpgtg");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_jpgtg\r\n";
             }
 
             // emel pengurus
             field = document.getElementById("e_email_pengurus");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_email_pengurus\r\n";
             }
 
             // enegeri
             field = document.getElementById("negeri_id");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters negeri_id\r\n";
             }
 
             // daerah
             field = document.getElementById("daerah_id");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters daerah_id\r\n";
             }
 
             // kawasan
             field = document.getElementById("kawasan_id");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters kawasan_id\r\n";
             }
 
             // syarikat induk
             field = document.getElementById("e_syktinduk");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_syktinduk\r\n";
             }
 
             // tahun mula beroperasi
             field = document.getElementById("e_year");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_year\r\n";
             }
             // kumpulan
             field = document.getElementById("e_group");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_group\r\n";
             }
 
            // POMA
             field = document.getElementById("e_poma");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters e_poma\r\n";
             }
            // kap proses
             field = document.getElementById("kap_proses");
             if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
+                error += "Name must be 2-4 characters kap_proses\r\n";
             }
 
             // (B4) RESULT
             if (error == "") {
                 return true;
             } else {
+                console.log('error', error);
                 toastr.error(
                     'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
                     'Ralat!', {

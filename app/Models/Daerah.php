@@ -26,4 +26,10 @@ class Daerah extends Model
         'nama_daesbsw',
         'kod_combine',
     ];
+
+
+    public function negeri()
+    {
+        return $this->belongsTo(Negeri::class, 'kod_negeri', 'kod_negeri');
+    }
 }

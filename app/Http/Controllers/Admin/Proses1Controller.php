@@ -267,8 +267,10 @@ class Proses1Controller extends Controller
         $reg_pelesen = RegPelesen::find($e_id);
         // $reg_pelesen = RegPelesen::where('e_nl', );
         // dd($reg_pelesen);
-        $pelesen = Pelesen::with('daerah','negeri')->where('e_nl', $reg_pelesen->e_nl)->first();
-        // dd($pelesen);
+        $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->first();
+        $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs','daerah.kod_daerah',$pelesen->e_daerah)->first();
+
+        // dd($pelesen->negeri->daerahs);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
             ($pelesen->bil_tangki_ppo ?? 0) +
             ($pelesen->bil_tangki_cpko ?? 0) +
@@ -419,7 +421,6 @@ class Proses1Controller extends Controller
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)
     {
-        // dd($request->all());
         $penyata = Pelesen::findOrFail($id);
         $penyata->e_status = $request->e_status;
         // $penyata->directory = $request->directory;
@@ -468,6 +469,7 @@ class Proses1Controller extends Controller
         // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
         $penyata->save();
 
+        // dd($penyata);
 
         $penyata2 = RegPelesen::findOrFail($id);
         $penyata2->e_nl = $request->e_nl;
