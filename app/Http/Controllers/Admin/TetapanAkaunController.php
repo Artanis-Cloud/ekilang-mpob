@@ -12,6 +12,7 @@ use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class TetapanAkaunController extends Controller
 {
@@ -49,6 +50,7 @@ class TetapanAkaunController extends Controller
         $admin->sub_cat =  json_encode($request['sub_cat']);
         $admin->status = $request->status;
         $admin->save();
+
 
         // dd($admin);
 

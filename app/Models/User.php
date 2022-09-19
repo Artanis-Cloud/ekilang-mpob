@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateTime;
+use DateTimeZone;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -76,13 +78,32 @@ class User extends Authenticatable
     public function log($message)
     {
         $message = ucwords($message);
+        // $dt = new DateTime();
+        // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
+        // $dt-> setTimezone($tz);
+        // $dt-> format('H:i:s');
+
         $data = [
                 'username' => $this->username,
-                'activity' => "{$this->username} $message",
-                'date' => Carbon::parse(now()) ->toDateString(),
+                'activity' => " $message",
+                'date' =>Carbon::parse(now())->toDateString(),
                 'ip_address' => request()->ip()
             ];
 
         AuditTrail::query()->create($data);
     }
+
+
 }
+//    public function log($message)
+//     {
+//         $message = ucwords($message);
+//         $data = [
+//                 'username' => $this->username,
+//                 'activity' => "{$this->username} $message",
+//                 'date' => Carbon::parse(now()) ->toDateString(),
+//                 'ip_address' => request()->ip()
+//             ];
+
+//         AuditTrail::query()->create($data);
+//     }

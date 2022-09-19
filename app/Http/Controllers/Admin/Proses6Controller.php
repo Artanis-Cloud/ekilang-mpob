@@ -33,6 +33,7 @@ use App\Models\RegPelesen;
 use DateTime;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class Proses6Controller extends Controller
 {
@@ -146,6 +147,8 @@ class Proses6Controller extends Controller
         }
         $layout = 'layouts.main';
 
+        //log audit trail admin
+        Auth::user()->log(" VIEW PENYATA {$penyata->e91_nl}" );
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses6.6papar-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata','myDateTime','formatteddate'));
@@ -373,6 +376,8 @@ class Proses6Controller extends Controller
 
         $layout = 'layouts.main';
 
+        //log audit trail admin
+        Auth::user()->log(" VIEW PENYATA {$penyata->e101_nl}" );
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses6.6papar-penapis-multi', compact(

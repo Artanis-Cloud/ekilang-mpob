@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class KonfigurasiController extends Controller
@@ -97,6 +98,9 @@ class KonfigurasiController extends Controller
             }
         }
 
+        //log audit trail admin
+        Auth::user()->log(" ADD ADMIN {$daripada->username}" );
+
         return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
     }
 
@@ -105,7 +109,7 @@ class KonfigurasiController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
-            'username' => ['required', 'string'],
+            'username' => ['required', 'string', 'unique:reg_user'],
             'role' => ['required', 'string'],
             'sub_cat[]' => ['required', 'string'],
             'status' => ['required', 'string'],
@@ -188,6 +192,8 @@ class KonfigurasiController extends Controller
         $penyata->status = $request->status;
         $penyata->save();
 
+        //log audit trail admin
+        Auth::user()->log(" UPDATE ADMIN {$penyata->username}" );
 
 
         return redirect()->route('admin.senarai.pentadbir')

@@ -618,7 +618,7 @@ class MenuLainController extends Controller
         // $log = ScLog::get();
         $layout = 'layouts.main';
 
-        $log = AuditTrail::get();
+        $log = AuditTrail::orderBy('id','DESC')->get();
 
         return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'log'));
     }

@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Validator;
 use App\Notifications\Pelesen\HantarTukarPasswordPelesenNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -57,6 +58,9 @@ class Proses2Controller extends Controller
         // dd($pelesen);
 
         $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
+
+        //log audit trail admin
+        Auth::user()->log(" UPDATE KATA LALUAN {$pelesen->username}" );
 
 
         return redirect()->back()->with('success', 'Emel tukar kata laluan sudah dihantar');
