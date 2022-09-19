@@ -846,16 +846,16 @@
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                             {{ $formatteddate }}
                                         </p>
-
+{{-- {{ dd($data->e_npg) }} --}}
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e102_npg }}
+                                            {{ $data->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e102_jpg }}
+                                            {{ $data->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->e102_notel }}
+                                            {{ $data->e_notel }}
                                         </p>
 
 

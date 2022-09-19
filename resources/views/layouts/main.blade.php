@@ -1206,10 +1206,10 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
+                            {{-- <li class="nav-small-cap">
                                 <i class="mdi mdi-dots-horizontal"></i>
                                 <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>
-                            </li>
+                            </li> --}}
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
