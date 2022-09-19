@@ -802,14 +802,14 @@
                                             </p>
 
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->e104_npg }}
+                                                {{ $data->e_npg }}
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->e104_jpg }}
+                                                {{ $data->e_jpg }}
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                {{ $data->e104_notel }}
+                                                {{ $data->e_notel }}
                                             </p>
 
 

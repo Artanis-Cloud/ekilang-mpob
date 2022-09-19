@@ -1023,14 +1023,14 @@
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e101_npg }}
+                                            {{ $data->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e101_jpg }}
+                                            {{ $data->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->e101_notel }}
+                                            {{ $data->e_notel }}
                                         </p>
 
 

@@ -2168,14 +2168,15 @@ class Proses8Controller extends Controller
                     c.group_l = '01' and
                     l.F201U4 = $ngr");
 
-            foreach ($qrynegeri111cpo as $sum) {
-                $stk111_cpo = (float) $sum->stk111_cpo;
-            }
+        foreach ($qrynegeri111cpo as $sum) {
+            $stk111_cpo = (float) $sum->stk111_cpo ;
 
-            //odbc_close($conn_odbc);
-            //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+        }
 
-            $qrynegeri111ppo = DB::connection('mysql4')->select("SELECT sum(a.INS_KJ) stk111_ppo
+        //odbc_close($conn_odbc);
+        //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+        $qrynegeri111ppo = DB::connection('mysql4')->select("SELECT sum(a.INS_KJ) stk111_ppo
                 from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
                 where a.INS_KA = l.F201A and
                     a.INS_KC = '$tahun' and
@@ -2187,9 +2188,10 @@ class Proses8Controller extends Controller
                     c.group_l = '01' and
                     l.F201U4 = $ngr");
 
-            foreach ($qrynegeri111ppo as $sum) {
-                $stk111_ppo = (float) $sum->stk111_ppo;
-            }
+        foreach ($qrynegeri111ppo as $sum) {
+            $stk111_ppo = (float) $sum->stk111_ppo ;
+
+        }
 
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
@@ -2206,14 +2208,15 @@ class Proses8Controller extends Controller
                     c.group_l = '02' and
                     l.F201U4 = $ngr");
 
-            foreach ($qrynegeri111cpko as $sum) {
-                $stk111_cpko = (float) $sum->stk111_cpko;
-            }
+        foreach ($qrynegeri111cpko as $sum) {
+            $stk111_cpko = (float) $sum->stk111_cpko ;
 
-            //odbc_close($conn_odbc);
-            //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+        }
 
-            $qrynegeri111ppko = DB::connection('mysql4')->select("SELECT sum(a.INS_KJ) stk111_ppko
+        //odbc_close($conn_odbc);
+        //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+        $qrynegeri111ppko = DB::connection('mysql4')->select("SELECT sum(a.INS_KJ) stk111_ppko
                 from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
                 where a.INS_KA = l.F201A and
                     a.INS_KC = '$tahun' and
@@ -2225,9 +2228,10 @@ class Proses8Controller extends Controller
                     c.group_l = '02' and
                     l.F201U4 = $ngr");
 
-            foreach ($qrynegeri111ppko as $sum) {
-                $stk111_ppko = (float) $sum->stk111_ppko;
-            }
+        foreach ($qrynegeri111ppko as $sum) {
+            $stk111_ppko = (float) $sum->stk111_ppko ;
+
+        }
 
             //e-biodiesel
             //         $stk_bio_rbdpo = 0;
