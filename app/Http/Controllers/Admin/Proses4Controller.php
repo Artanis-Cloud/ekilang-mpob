@@ -41,6 +41,7 @@ use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class Proses4Controller extends Controller
 {
@@ -76,6 +77,10 @@ class Proses4Controller extends Controller
         $this->porting_pl102($request->all());
         $this->porting_pl104($request->all());
         $this->porting_pl111($request->all());
+
+        //log audit trail admin
+        Auth::user()->log(" PORTING" );
+
         return redirect()->back()->with('success', 'Penyata telah dipindahkan ke PLEID');
     }
 

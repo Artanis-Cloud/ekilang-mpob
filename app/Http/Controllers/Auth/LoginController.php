@@ -49,6 +49,7 @@ class LoginController extends Controller
         $category = auth()->user()->category;
         // dd(auth()->user()->category);
 
+        //log audit trail admin
         Auth::user()->log("LOGGED IN");
         switch ($category) {
             case 'PL91':

@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -73,6 +74,10 @@ class Proses1Controller extends Controller
         $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
 
         $pelesen->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
+
+        //log audit trail admin
+        Auth::user()->log(" ADD PELESEN {$pelesen->username}" );
+
 
         return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
     }
@@ -475,6 +480,8 @@ class Proses1Controller extends Controller
         $penyata2->directory = $request->directory;
         $penyata2->save();
 
+        //log audit trail admin
+        Auth::user()->log(" UPDATE PELESEN {$penyata2->e_nl}" );
 
 
 
