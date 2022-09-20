@@ -268,9 +268,9 @@ class Proses1Controller extends Controller
         // $reg_pelesen = RegPelesen::where('e_nl', );
         // dd($reg_pelesen);
         $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->first();
-        $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs','daerah.kod_daerah',$pelesen->e_daerah)->first();
+        $pelesen2 = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs','daerah.kod_daerah',$pelesen->e_daerah)->first();
 
-        // dd($pelesen->negeri->daerahs);
+        // dd($pelesen2);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
             ($pelesen->bil_tangki_ppo ?? 0) +
             ($pelesen->bil_tangki_cpko ?? 0) +
@@ -408,6 +408,7 @@ class Proses1Controller extends Controller
             'returnArr',
             'layout',
             'pelesen',
+            'pelesen2',
             'negeri',
             'reg_pelesen',
             'jumlah',

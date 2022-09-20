@@ -51,7 +51,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($penyata as $data)
+                            @foreach ($penyata as $key => $data)
 
                                 <div class="pl-3">
                                     <body><h1 style="page-break-before:always"></h1>
