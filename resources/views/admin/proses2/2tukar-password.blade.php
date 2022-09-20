@@ -71,8 +71,12 @@
                                         <div class="col-md-6">
                                             <input type="text" id="username" class="form-control" onblur="getVal()"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                oninput="setCustomValidity('')" required placeholder=" No. Lesen"
+                                                oninput="setCustomValidity(''); valid_user()" required placeholder=" No. Lesen"
                                                 name="username">
+                                                <p type="hidden" id="err_username" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i>
+                                                </p>
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top:1%">
@@ -89,8 +93,8 @@
                                         </div>
                                     </div>
                                     <div class="text-right col-md-6 mb-4 mt-4">
-                                        <button type="button" class="btn btn-primary" style="margin-left:90%"
-                                            data-toggle="modal" data-target="#myModal">Tukar Kata Laluan</button>
+                                        <button type="button" class="btn btn-primary" style="margin-left:90%" onclick="check()"
+                                            >Tukar Kata Laluan</button>
                                     </div>
                                     <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,7 +102,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
+                                                    <button type="button" class="close" data-bs-dismiss="modal"
                                                         aria-hidden="true">×</button>
                                                 </div>
                                                 <div class="modal-body">
@@ -112,7 +116,8 @@
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                     </button>
-                                                    <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                    <button type="submit" class="btn btn-primary ml-1"
+                                                        ata-bs-dismiss="modal">
                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block">Ya</span>
                                                     </button>
@@ -175,4 +180,58 @@
             });
         }
     </script>
+
+    <script>
+        function valid_user() {
+
+            if ($('#username').val() == '') {
+                $('#username').css('border-color', 'red');
+                document.getElementById('err_username').style.display = "block";
+
+
+            } else {
+                $('#username').css('border-color', '');
+                document.getElementById('err_username').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+
+<script>
+    function check() {
+        // (B1) INIT
+        var error = "",
+            field = "";
+
+        // kap proses
+        field = document.getElementById("username");
+        if (!field.checkValidity()) {
+            error += "Name must be 2-4 characters\r\n";
+            $('#username').css('border-color', 'red');
+            document.getElementById('err_username').style.display = "block";
+        }
+
+
+
+
+
+            // (B4) RESULT
+            if (error == "") {
+                $('#myModal').modal('show');
+                return true;
+            } else {
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+
+        }
+
+</script>
 @endsection

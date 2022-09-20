@@ -186,7 +186,7 @@
                                                                 value="{{ $data->ebio_reg }}">&nbspYa
                                                         </td>
                                                         <td>
-                                                            x
+                                                            {{ $data->ebio_flagcetak }}
                                                         </td>
                                                         <td>
                                                             {{-- <a href="#"> --}}

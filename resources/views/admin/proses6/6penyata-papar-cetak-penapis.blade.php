@@ -163,9 +163,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar?</th>
-                                                        {{-- <th>Sudah Cetak?<br></th> --}}
-                                                        <th>No. Lesen<br></th>
+                                                        <th style="width: 7%">Papar?</th>
+                                                        <th style="width: 7%"\>Sudah Cetak?<br></th>
+                                                        <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
                                                         <th>Emel Pegawai</th>
@@ -175,9 +175,9 @@
                                                 </thead>
                                                 <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar?</th>
-                                                        {{-- <th>Sudah Cetak?<br></th> --}}
-                                                        <th>No. Lesen<br></th>
+                                                        <th style="width: 7%">Papar?</th>
+                                                        <th style="width: 7%">Sudah Cetak?<br></th>
+                                                        <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
                                                         <th>Emel Pegawai</th>
@@ -188,13 +188,13 @@
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
-                                                            <td>
+                                                            <td class="text-center">
                                                                 <input name="papar_ya[]" type="checkbox" required
                                                                     value="{{ $data->e101_reg }}">&nbspYa
                                                             </td>
-                                                            {{-- <td>
-                                                                x
-                                                            </td> --}}
+                                                            <td class="text-center">
+                                                                {{ $data->e101_flagcetak ?? 'N' }}
+                                                            </td>
                                                             <td>
                                                                 {{-- <a href="#"> --}}
                                                                 {{ $data->e_nl }}

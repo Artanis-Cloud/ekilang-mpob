@@ -32,4 +32,10 @@ class E07Init extends Model
         'e07_jpg',
         'e07_flagcetak',
     ];
+
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e07_nl');
+    }
 }

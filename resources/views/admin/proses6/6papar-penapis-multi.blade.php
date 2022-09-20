@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($pelesens as $data)
+                            @foreach ($penyata as $data)
 
                                 <div class="pl-3">
 
@@ -140,7 +140,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                                {{ $data->e_nl }}
+                                                                {{ $data->pelesen->e_nl }}
                                                         </b></td>
 
                                                 </tr>
@@ -152,7 +152,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            {{ $data->e_np }}
+                                                            {{ $data->pelesen->e_np }}
 
                                                         </b></td>
 
@@ -178,7 +178,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
 
                                                 </tr>
 
@@ -186,7 +186,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
 
                                                 </tr>
 
@@ -194,7 +194,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
 
                                                 </tr>
 
@@ -202,7 +202,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as1 }}</b></td>
 
                                                 </tr>
 
@@ -210,7 +210,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
 
                                                 </tr>
 
@@ -218,7 +218,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
 
                                                 </tr>
 
@@ -226,7 +226,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_notel }}</b></td>
 
                                                 </tr>
 
@@ -234,7 +234,7 @@
 
                                                     <td width="35%"> No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -243,7 +243,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_email }}</b></td>
 
                                                 </tr>
 
@@ -251,7 +251,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -259,7 +259,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -267,7 +267,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -275,7 +275,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -330,43 +330,43 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataii && !$penyataivb->isEmpty())
-                                                    @foreach ($penyatai as $data)
+                                                    @foreach ($penyatai as $datai)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                                <font size="2">{{ $datai->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $data->e101_b4 }}</font>
+                                                                <font size="2">{{ $datai->e101_b4 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b5 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b6 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b7 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">0.00</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b10 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b10 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b11 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b11 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2"> {{ number_format($data->e101_b12 ??  0,2) }}</font>
+                                                                <font size="2"> {{ number_format($datai->e101_b12 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b13 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b13 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b14 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b14 ??  0,2) }}</font>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -462,43 +462,43 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataii && !$penyataivb->isEmpty())
-                                                    @foreach ($penyataii as $data)
+                                                    @foreach ($penyataii as $dataii)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                                <font size="2">{{ $dataii->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $data->e101_b4 }}</font>
+                                                                <font size="2">{{ $dataii->e101_b4 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b5 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b6 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b7 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">0.00</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b9 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b10 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b10 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b11 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b11 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b12 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b12 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b13 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b13 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->e101_b14 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataii->e101_b14 ??  0,2) }}</font>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -558,16 +558,16 @@
                                             <tbody>
                                                 <tr>
                                                     <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                    <td width="100"><b>:{{ $penyataiii->e101_a1 ??  0}} Hari</b></td>
+                                                    <td width="100"><b>:{{ $data->e101_a1 ??  0}} Hari</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="380">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
-                                                    <td width="100"><b>:{{ number_format($penyataiii->e101_a2 ??  0,2) }} %</b></td>
+                                                    <td width="100"><b>:{{ number_format($data->e101_a2 ??  0,2) }} %</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="380">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                                     </td>
-                                                    <td width="100"><b>:{{ number_format($penyataiii->e101_a3 ??  0,2) }} %</b></td>
+                                                    <td width="100"><b>:{{ number_format($data->e101_a3 ??  0,2) }} %</b></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -608,31 +608,31 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataiva && !$penyataivb->isEmpty())
-                                                    @foreach ($penyataiva as $data)
+                                                    @foreach ($penyataiva as $dataiva)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                                            <font size="2">{{ $dataiva->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e101_c4 }}</font>
+                                                            <font size="2">{{ $dataiva->e101_c4 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c5 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataiva->e101_c5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c6 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataiva->e101_c6 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c7 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataiva->e101_c7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c8 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataiva->e101_c8 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c9 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataiva->e101_c9 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c10 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataiva->e101_c10 ??  0,2) }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -706,31 +706,31 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataivb && !$penyataivb->isEmpty())
-                                                    @foreach ($penyataivb as $data)
+                                                    @foreach ($penyataivb as $dataivb)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                                            <font size="2">{{ $dataivb->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e101_c4 }}</font>
+                                                            <font size="2">{{ $dataivb->e101_c4 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c5 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataivb->e101_c5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c6 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataivb->e101_c6 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c7 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataivb->e101_c7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c8 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataivb->e101_c8 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c9 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataivb->e101_c9 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_c10 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($dataivb->e101_c10 ??  0,2) }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -794,22 +794,22 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyatava && !$penyatavb->isEmpty())
-                                                    @foreach ($penyatava as $data)
+                                                    @foreach ($penyatava as $datava)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->prodcat->catname}}</font>
+                                                            <font size="2">{{ $datava->prodcat->catname}}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ number_format($data->e101_d5 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datava->e101_d5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_d6 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datava->e101_d6 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_d7 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datava->e101_d7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_d8 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datava->e101_d8 ??  0,2) }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -863,22 +863,22 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyatavb && !$penyatavb->isEmpty())
-                                                    @foreach ($penyatavb as $data)
+                                                    @foreach ($penyatavb as $datavb)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->prodcat->catname }}</font>
+                                                            <font size="2">{{ $datavb->prodcat->catname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ number_format($data->e101_d5 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datavb->e101_d5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_d6 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datavb->e101_d6 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_d7 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datavb->e101_d7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_d8 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datavb->e101_d8 ??  0,2) }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -939,31 +939,31 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyatavii && !$penyatavii->isEmpty())
-                                                    @foreach ($penyatavii as $data)
+                                                    @foreach ($penyatavii as $datavii)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                                            <font size="2">{{ $datavii->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e101_e4 }}</font>
+                                                            <font size="2">{{ $datavii->e101_e4 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ $data->e101_e5 }}</font>
+                                                            <font size="2">{{ $datavii->e101_e5 }}</font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2">{{ $data->e101_e6 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_e7 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datavii->e101_e7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e101_e8 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($datavii->e101_e8 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ $data->e101_e9 }}</font>
+                                                            <font size="2">{{ $datavii->e101_e9 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ $data->negara[0]->namanegara }}</font>
+                                                            <font size="2">{{ $datavii->negara[0]->namanegara }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -1023,14 +1023,14 @@
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e_npg }}
+                                            {{ $data->pelesen->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e_jpg }}
+                                            {{ $data->pelesen->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->e_notel }}
+                                            {{ $data->pelesen->e_notel }}
                                         </p>
 
 

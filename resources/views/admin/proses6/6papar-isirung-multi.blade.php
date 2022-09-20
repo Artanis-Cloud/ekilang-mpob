@@ -51,7 +51,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($pelesens as $data)
+                            @foreach ($penyata as $data)
 
                                 <div class="pl-3">
                                     <body><h1 style="page-break-before:always"></h1>
@@ -121,7 +121,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            <font>{{ $data->e_nl }}
+                                                            <font>{{ $data->pelesen->e_nl }}
                                                             </font>
                                                         </b></td>
 
@@ -134,7 +134,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            <font>{{ $data->e_np }}</font>
+                                                            <font>{{ $data->pelesen->e_np }}</font>
                                                         </b></td>
 
                                                 </tr>
@@ -160,7 +160,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
 
                                                 </tr>
 
@@ -168,7 +168,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
 
                                                 </tr>
 
@@ -176,7 +176,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
 
                                                 </tr>
 
@@ -184,7 +184,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as1 }}</b></td>
 
                                                 </tr>
 
@@ -192,7 +192,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
 
                                                 </tr>
 
@@ -200,7 +200,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
 
                                                 </tr>
 
@@ -208,7 +208,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_notel }}</b></td>
 
                                                 </tr>
 
@@ -216,7 +216,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -225,7 +225,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_email }}</b></td>
 
                                                 </tr>
 
@@ -233,7 +233,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -241,7 +241,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -249,7 +249,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -257,7 +257,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -304,7 +304,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_aa1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_aa1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -312,7 +312,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_aa2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_aa2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -320,7 +320,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_aa3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_aa3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -333,7 +333,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ab1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ab1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -341,7 +341,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ab2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ab2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -349,7 +349,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ab3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ab3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -362,7 +362,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ac1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ac1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -370,7 +370,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ac2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ac2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -378,7 +378,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ac3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ac3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -391,7 +391,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ad1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ad1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -399,7 +399,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ad2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ad2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -407,7 +407,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ad3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ad3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -420,7 +420,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ae1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ae1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -445,7 +445,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_af2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_af2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -453,7 +453,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_af3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_af3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -466,7 +466,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ag1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ag1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -474,7 +474,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ag2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ag2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -482,7 +482,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ag3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ag3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -495,7 +495,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ah1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ah1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -503,7 +503,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ah2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ah2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -511,7 +511,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ah3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ah3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -524,7 +524,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ai1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ai1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -532,7 +532,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ai2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ai2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -540,7 +540,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ai3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ai3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -553,7 +553,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_aj1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_aj1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -561,7 +561,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_aj2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_aj2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -569,7 +569,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_aj3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_aj3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -582,7 +582,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ak1 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ak1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -590,7 +590,7 @@
                                                         <td width="135">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ak2 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ak2 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -598,7 +598,7 @@
                                                         <td width="115">
                                                             <p align="center">
                                                                 <font size="2">
-                                                                    {{ number_format($penyatai->e102_ak3 ?? 0, 2) }}
+                                                                    {{ number_format($data->e102_ak3 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
@@ -620,25 +620,25 @@
                                                         <td width="380">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirong Sawit
                                                             Mentah (CPKO)&nbsp;</td>
                                                         <td width="100"><b>:
-                                                            {{ number_format($penyataii->e102_al1 ?? 0, 2) }} % </b></td>
+                                                            {{ number_format($data->e102_al1 ?? 0, 2) }} % </b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="380">ii.&nbsp; Kadar Perolehan Dedak Isirong (PKC)&nbsp;
                                                         </td>
                                                         <td width="100"><b>:
-                                                            {{ number_format($penyataii->e102_al2 ?? 0, 2) }} %</b></td>
+                                                            {{ number_format($data->e102_al2 ?? 0, 2) }} %</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="380">iii. Jumlah Jam Pengilangan Isirong (PK)</td>
                                                         <td width="100"><b>:
-                                                            {{ number_format($penyataii->e102_al3 ?? 0, 2) }} </b></td>
+                                                            {{ number_format($data->e102_al3 ?? 0, 2) }} </b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="380">iv. Kadar Penggunaan Kapasiti Sebulan
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                         </td>
                                                         <td width="100"><b>:
-                                                            {{ number_format($penyataii->e102_al4 ?? 0, 2) }} % </b></td>
+                                                            {{ number_format($data->e102_al4 ?? 0, 2) }} % </b></td>
                                                     </tr>
                                                 </tbody>
                                             </table><hr>
@@ -660,27 +660,29 @@
                                                                 <font size="2">Kuantiti</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataiii && !$penyataiii->isEmpty())
-                                                        @foreach ($penyataiii as $data)
+                                                    {{-- @if($penyataiii && !$penyataiii->isEmpty()) --}}
+
+                                                        @foreach ($penyataiii[$key] as  $dataiii)
                                                             <tr>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->kodsl->catname ?? '' }}</font>
+                                                                    <font size="2">{{ $dataiii->kodsl->catname ?? '' }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->prodcat2->catname ?? '' }}
+                                                                    <font size="2">{{ $dataiii->prodcat2->catname ?? '' }}
                                                                     </font>
                                                                 </td>
                                                                 <td align="center">
                                                                     <font size="2">
-                                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}</font>
+                                                                        {{ number_format($dataiii->e102_b6 ?? 0, 2) }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
-                                                    @else
+
+                                                    {{-- @else
                                                         <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                         </tr>
-                                                    @endif
+                                                    @endif --}}
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2"><b>-</b></font>
@@ -689,7 +691,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>{{ number_format($totaliii ?? 0, 2) }}</b>
+                                                            <font size="2"><b>{{ number_format($totaliii[0] ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -715,18 +717,18 @@
                                                             </b></td>
                                                     </tr>
                                                     @if($penyataiv && !$penyataiv->isEmpty())
-                                                        @foreach ($penyataiv as $data)
+                                                        @foreach ($penyataiv as $dataiv)
                                                             <tr>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->kodsl->catname ?? '' }}</font>
+                                                                    <font size="2">{{ $dataiv->kodsl->catname ?? '' }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->prodcat2->catname ?? '' }}
+                                                                    <font size="2">{{ $dataiv->prodcat2->catname ?? '' }}
                                                                     </font>
                                                                 </td>
                                                                 <td align="center">
                                                                     <font size="2">
-                                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}</font>
+                                                                        {{ number_format($dataiv->e102_b6 ?? 0, 2) }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -768,18 +770,18 @@
                                                             </b></td>
                                                     </tr>
                                                     @if($penyatav && !$penyatav->isEmpty())
-                                                        @foreach ($penyatav as $data)
+                                                        @foreach ($penyatav as $datav)
                                                             <tr>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->kodsl->catname ?? '' }}</font>
+                                                                    <font size="2">{{ $datav->kodsl->catname ?? '' }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->prodcat2->catname ?? '' }}
+                                                                    <font size="2">{{ $datav->prodcat2->catname ?? '' }}
                                                                     </font>
                                                                 </td>
                                                                 <td align="center">
                                                                     <font size="2">
-                                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}</font>
+                                                                        {{ number_format($datav->e102_b6 ?? 0, 2) }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -848,14 +850,14 @@
                                         </p>
 {{-- {{ dd($data->e_npg) }} --}}
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e_npg }}
+                                            {{ $data->pelesen->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e_jpg }}
+                                            {{ $data->pelesen->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->e_notel }}
+                                            {{ $data->pelesen->e_notel }}
                                         </p>
 
 
