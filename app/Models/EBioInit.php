@@ -49,4 +49,10 @@ public function ebiob(){
     return $this->hasOne(EBioB::class,'ebio_reg', 'ebio_reg');
 }
 
+public function pelesen()
+{
+
+    return $this->hasOne(Pelesen::class, 'e_nl', 'ebio_nl');
+}
+
 }

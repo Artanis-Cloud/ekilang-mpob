@@ -52,7 +52,7 @@
 
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($pelesens as $data)
+                            @foreach ($penyata as $data)
 
                                 <div class="pl-3">
 
@@ -117,7 +117,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                                {{ $data->e_nl }}
+                                                                {{ $data->pelesen->e_nl }}
                                                         </b></td>
 
                                                 </tr>
@@ -129,7 +129,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            {{ $data->e_np }}
+                                                            {{ $data->pelesen->e_np }}
                                                         </b></td>
 
                                                 </tr>
@@ -154,7 +154,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
 
                                                 </tr>
 
@@ -162,7 +162,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
 
                                                 </tr>
 
@@ -170,7 +170,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
 
                                                 </tr>
 
@@ -178,7 +178,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as1 }}</b></td>
 
                                                 </tr>
 
@@ -186,7 +186,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
 
                                                 </tr>
 
@@ -194,7 +194,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
 
                                                 </tr>
 
@@ -202,7 +202,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_notel }}</b></td>
 
                                                 </tr>
 
@@ -210,7 +210,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -218,7 +218,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_email }}</b></td>
 
                                                 </tr>
 
@@ -226,7 +226,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -234,7 +234,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -242,7 +242,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -250,7 +250,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -295,34 +295,34 @@
                                                             </b></td>
                                                     </tr>
                                                     @if($penyatai && !$penyatai->isEmpty())
-                                                        @foreach ($penyatai as $data)
+                                                        @foreach ($penyatai as $datai)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $data->produk->prodname }}</font>
+                                                                    <font size="2">{{ $datai->produk->prodname }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->produk->prodid }}</font>
+                                                                    <font size="2">{{ $datai->produk->prodid }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_stokawal }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_stokawal }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_terima }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_terima }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_import }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_import }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_edaran }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_edaran }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_eksport }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_eksport }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_pelarasan }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_pelarasan }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $data->e07bt_stokakhir }}</font>
+                                                                    <font size="2">{{ $datai->e07bt_stokakhir }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -409,15 +409,19 @@
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
+                                        <p>Tarikh Penghantaran: &nbsp;&nbsp;
+                                            {{ $formatteddate }}
+                                        </p>
+
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e07_npg }}
+                                            {{ $data->pelesen->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->e07_jpg }}
+                                            {{ $data->pelesen->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->e07_notel }}
+                                            {{ $data->pelesen->e_notel }}
                                         </p>
 
 
