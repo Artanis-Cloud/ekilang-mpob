@@ -68,4 +68,10 @@ class E102Init extends Model
         'e102_ae3',
 
     ];
+
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e102_nl');
+    }
 }

@@ -34,4 +34,10 @@ class H104Init extends Model
         'e104_jpg',
 
     ];
+
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e104_nl');
+    }
 }

@@ -39,5 +39,10 @@ class H101Init extends Model
 
     ];
 
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e101_nl');
+    }
 
 }

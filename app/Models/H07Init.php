@@ -39,4 +39,10 @@ class H07Init extends Model
 
         return $this->hasOne(H07Btranshipment::class, 'e07_nobatch', 'e07bt_nobatch');
     }
+
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e07_nl');
+    }
 }

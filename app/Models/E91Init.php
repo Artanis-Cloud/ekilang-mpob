@@ -90,4 +90,10 @@ class E91Init extends Model
         'e91_ah17',
         'e91_ah18                                                                                                                                                                                                   ',
     ];
+
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e91_nl');
+    }
 }

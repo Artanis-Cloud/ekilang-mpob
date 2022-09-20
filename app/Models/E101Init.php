@@ -43,5 +43,11 @@ class E101Init extends Model
         return $this->hasOne(E101B::class, 'e101_reg', 'e101_reg');
     }
 
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e101_nl');
+    }
+
 
 }

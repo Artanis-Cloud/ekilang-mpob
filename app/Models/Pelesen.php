@@ -101,5 +101,10 @@ class Pelesen extends Model
 
         return $this->hasOne(Negeri::class, 'kod_negeri', 'e_negeri');
     }
+    // public function h91_init()
+    // {
+
+    //     return $this->hasOne(H91Init::class, 'e91_nl', 'e_nl');
+    // }
 
 }
