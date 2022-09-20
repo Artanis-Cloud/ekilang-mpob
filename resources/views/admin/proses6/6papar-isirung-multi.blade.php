@@ -691,7 +691,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>{{ number_format($totaliii[0] ?? 0, 2) }}</b>
+                                                            <font size="2"><b>{{ number_format($totaliii[$key] ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -716,8 +716,8 @@
                                                                 <font size="2">Kuantiti</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataiv && !$penyataiv->isEmpty())
-                                                        @foreach ($penyataiv as $dataiv)
+                                                    @if($penyataiv[$key] && !$penyataiv[$key]->isEmpty())
+                                                        @foreach ($penyataiv[$key] as $dataiv)
                                                             <tr>
                                                                 <td align="center">
                                                                     <font size="2">{{ $dataiv->kodsl->catname ?? '' }}</font>
@@ -745,7 +745,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>{{ number_format($totaliv ?? 0, 2) }}</b>
+                                                            <font size="2"><b>{{ number_format($totaliv[$key] ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -769,8 +769,8 @@
                                                                 <font size="2">Kuantiti</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyatav && !$penyatav->isEmpty())
-                                                        @foreach ($penyatav as $datav)
+                                                    @if($penyatav[$key] && !$penyatav[$key]->isEmpty())
+                                                        @foreach ($penyatav[$key] as $datav)
                                                             <tr>
                                                                 <td align="center">
                                                                     <font size="2">{{ $datav->kodsl->catname ?? '' }}</font>
@@ -798,7 +798,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>{{ number_format($totalv ?? 0, 2) }}</b>
+                                                            <font size="2"><b>{{ number_format($totalv[$key] ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>

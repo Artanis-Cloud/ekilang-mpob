@@ -52,7 +52,7 @@
 
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($pelesens as $data)
+                            @foreach ($penyata as $key => $data)
 
                                 <div class="pl-3">
 
@@ -123,7 +123,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data->e_nl }}
+                                                        {{ $data->pelesen->e_nl }}
 
                                                     </b></td>
 
@@ -136,7 +136,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            {{ $data->e_np }}
+                                                            {{ $data->pelesen->e_np }}
                                                         </b></td>
 
                                                 </tr>
@@ -162,7 +162,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap1 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
 
                                                 </tr>
 
@@ -170,7 +170,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
 
                                                 </tr>
 
@@ -178,7 +178,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_ap3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
 
                                                 </tr>
 
@@ -194,7 +194,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as2 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
 
                                                 </tr>
 
@@ -202,7 +202,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as3 }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
 
                                                 </tr>
 
@@ -210,7 +210,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_notel }}</b></td>
 
                                                 </tr>
 
@@ -218,7 +218,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -226,7 +226,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_email }}</b></td>
 
                                                 </tr>
 
@@ -234,7 +234,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -242,7 +242,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -250,7 +250,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_npgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -258,7 +258,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->e_jpgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -302,7 +302,7 @@
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataia && !$penyataia->isEmpty())
+                                                    @if($penyataia[$key] && !$penyataia[$key]->isEmpty())
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -312,43 +312,43 @@
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
                                                         @endphp
-                                                        @foreach ($penyataia as $data)
+                                                        @foreach ($penyataia[$key] as $dataia)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $data->produk->proddesc }}</font>
+                                                                    <font size="2">{{ $dataia->produk->proddesc }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->ebio_b4 }}</font>
+                                                                    <font size="2">{{ $dataia->ebio_b4 }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b5 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b5 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b6 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b6 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b7 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b7 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b8 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b8 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b9 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b9 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b10 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b10 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b11 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataia->ebio_b11 ??  0,2) }}</font>
                                                                 </td>
                                                                 @php
-                                                                    $total_col_ebio_b5 += $data->ebio_b5 ?? 0  ;
-                                                                    $total_col_ebio_b6 += $data->ebio_b6 ?? 0  ;
-                                                                    $total_col_ebio_b7 += $data->ebio_b7 ?? 0  ;
-                                                                    $total_col_ebio_b8 += $data->ebio_b8 ?? 0  ;
-                                                                    $total_col_ebio_b9 += $data->ebio_b9 ?? 0  ;
-                                                                    $total_col_ebio_b10 += $data->ebio_b10 ?? 0  ;
-                                                                    $total_col_ebio_b11 += $data->ebio_b11 ?? 0  ;
+                                                                    $total_col_ebio_b5 += $dataia->ebio_b5 ?? 0  ;
+                                                                    $total_col_ebio_b6 += $dataia->ebio_b6 ?? 0  ;
+                                                                    $total_col_ebio_b7 += $dataia->ebio_b7 ?? 0  ;
+                                                                    $total_col_ebio_b8 += $dataia->ebio_b8 ?? 0  ;
+                                                                    $total_col_ebio_b9 += $dataia->ebio_b9 ?? 0  ;
+                                                                    $total_col_ebio_b10 += $dataia->ebio_b10 ?? 0  ;
+                                                                    $total_col_ebio_b11 += $dataia->ebio_b11 ?? 0  ;
 
                                                                 @endphp
 
@@ -413,7 +413,7 @@
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataib && !$penyataib->isEmpty())
+                                                    @if($penyataib[$key] && !$penyataib[$key]->isEmpty())
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -423,43 +423,43 @@
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
                                                         @endphp
-                                                        @foreach ($penyataib as $data)
+                                                        @foreach ($penyataib[$key] as $dataib)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $data->produk->proddesc }}</font>
+                                                                    <font size="2">{{ $dataib->produk->proddesc }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $data->ebio_b4 }}</font>
+                                                                    <font size="2">{{ $dataib->ebio_b4 }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b5 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b5 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b6 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b6 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b7 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b7 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b8 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b8 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b9 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b9 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b10 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b10 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($data->ebio_b11 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($dataib->ebio_b11 ??  0,2) }}</font>
                                                                 </td>
                                                                 @php
-                                                                    $total_col_ebio_b5 += $data->ebio_b5 ?? 0  ;
-                                                                    $total_col_ebio_b6 += $data->ebio_b6 ?? 0  ;
-                                                                    $total_col_ebio_b7 += $data->ebio_b7 ?? 0  ;
-                                                                    $total_col_ebio_b8 += $data->ebio_b8 ?? 0  ;
-                                                                    $total_col_ebio_b9 += $data->ebio_b9 ?? 0  ;
-                                                                    $total_col_ebio_b10 += $data->ebio_b10 ?? 0  ;
-                                                                    $total_col_ebio_b11 += $data->ebio_b11 ?? 0  ;
+                                                                    $total_col_ebio_b5 += $dataib->ebio_b5 ?? 0  ;
+                                                                    $total_col_ebio_b6 += $dataib->ebio_b6 ?? 0  ;
+                                                                    $total_col_ebio_b7 += $dataib->ebio_b7 ?? 0  ;
+                                                                    $total_col_ebio_b8 += $dataib->ebio_b8 ?? 0  ;
+                                                                    $total_col_ebio_b9 += $dataib->ebio_b9 ?? 0  ;
+                                                                    $total_col_ebio_b10 += $dataib->ebio_b10 ?? 0  ;
+                                                                    $total_col_ebio_b11 += $dataib->ebio_b11 ?? 0  ;
                                                                 @endphp
                                                             </tr>
 
@@ -521,7 +521,7 @@
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                         </b></td>
                                                     </tr>
-                                                    @if($penyataic && !$penyataic->isEmpty())
+                                                    @if($penyataic[$key] && !$penyataic[$key]->isEmpty())
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -531,43 +531,43 @@
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
                                                         @endphp
-                                                        @foreach ($penyataic as $data)
+                                                        @foreach ($penyataic[$key] as $dataic)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                                <font size="2">{{ $dataic->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $data->ebio_b4 }}</font>
+                                                                <font size="2">{{ $dataic->ebio_b4 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_b5 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataic->ebio_b5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_b6 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataic->ebio_b6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_b7 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataic->ebio_b7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_b8 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataic->ebio_b8 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_b9 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataic->ebio_b9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_b10 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataic->ebio_b10 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{number_format( $data->ebio_b11 ??  0,2) }}</font>
+                                                                <font size="2">{{number_format( $dataic->ebio_b11 ??  0,2) }}</font>
                                                             </td>
                                                             @php
-                                                                $total_col_ebio_b5 += $data->ebio_b5 ?? 0  ;
-                                                                $total_col_ebio_b6 += $data->ebio_b6 ?? 0  ;
-                                                                $total_col_ebio_b7 += $data->ebio_b7 ?? 0  ;
-                                                                $total_col_ebio_b8 += $data->ebio_b8 ?? 0  ;
-                                                                $total_col_ebio_b9 += $data->ebio_b9 ?? 0  ;
-                                                                $total_col_ebio_b10 += $data->ebio_b10 ?? 0  ;
-                                                                $total_col_ebio_b11 += $data->ebio_b11 ?? 0  ;
+                                                                $total_col_ebio_b5 += $dataic->ebio_b5 ?? 0  ;
+                                                                $total_col_ebio_b6 += $dataic->ebio_b6 ?? 0  ;
+                                                                $total_col_ebio_b7 += $dataic->ebio_b7 ?? 0  ;
+                                                                $total_col_ebio_b8 += $dataic->ebio_b8 ?? 0  ;
+                                                                $total_col_ebio_b9 += $dataic->ebio_b9 ?? 0  ;
+                                                                $total_col_ebio_b10 += $dataic->ebio_b10 ?? 0  ;
+                                                                $total_col_ebio_b11 += $dataic->ebio_b11 ?? 0  ;
                                                             @endphp
                                                         </tr>
 
@@ -603,11 +603,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii->hari_operasi }} Hari</b></td>
+                                                        <td width="100"><b>:{{ $penyataii[$key]->hari_operasi }} Hari</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="380">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii->kapasiti }} %</b></td>
+                                                        <td width="100"><b>:{{ $penyataii[$key]->kapasiti }} %</b></td>
                                                     </tr>
 
                                                 </tbody>
@@ -650,7 +650,7 @@
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataiii && !$penyataiii->isEmpty())
+                                                    @if($penyataiii[$key] && !$penyataiii[$key]->isEmpty())
                                                         @php
                                                             $total_col_ebio_c4 = 0;
                                                             $total_col_ebio_c5 = 0;
@@ -660,43 +660,43 @@
                                                             $total_col_ebio_c9 = 0;
                                                             $total_col_ebio_c10 = 0;
                                                         @endphp
-                                                        @foreach ($penyataiii as $data)
+                                                        @foreach ($penyataiii[$key] as $dataiii)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk->proddesc }}</font>
+                                                                <font size="2">{{ $dataiii->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $data->ebio_c3 }}</font>
+                                                                <font size="2">{{ $dataiii->ebio_c3 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c4 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c4 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c5 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c6 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c7 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c8 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c8 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c9 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($data->ebio_c10 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($dataiii->ebio_c10 ??  0,2) }}</font>
                                                             </td>
                                                             @php
-                                                                $total_col_ebio_c4 += $data->ebio_c4 ?? 0  ;
-                                                                $total_col_ebio_c5 += $data->ebio_c5 ?? 0  ;
-                                                                $total_col_ebio_c6 += $data->ebio_c6 ?? 0  ;
-                                                                $total_col_ebio_c7 += $data->ebio_c7 ?? 0  ;
-                                                                $total_col_ebio_c8 += $data->ebio_c8 ?? 0  ;
-                                                                $total_col_ebio_c9 += $data->ebio_c9 ?? 0  ;
-                                                                $total_col_ebio_c10 += $data->ebio_c10 ?? 0  ;
+                                                                $total_col_ebio_c4 += $dataiii->ebio_c4 ?? 0  ;
+                                                                $total_col_ebio_c5 += $dataiii->ebio_c5 ?? 0  ;
+                                                                $total_col_ebio_c6 += $dataiii->ebio_c6 ?? 0  ;
+                                                                $total_col_ebio_c7 += $dataiii->ebio_c7 ?? 0  ;
+                                                                $total_col_ebio_c8 += $dataiii->ebio_c8 ?? 0  ;
+                                                                $total_col_ebio_c9 += $dataiii->ebio_c9 ?? 0  ;
+                                                                $total_col_ebio_c10 += $dataiii->ebio_c10 ?? 0  ;
                                                             @endphp
                                                         </tr>
 
@@ -775,14 +775,14 @@
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->ebio_npg }}
+                                            {{ $data->pelesen->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->ebio_jpg }}
+                                            {{ $data->pelesen->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->ebio_notel }}
+                                            {{ $data->pelesen->e_notel }}
                                         </p>
 
 
