@@ -525,17 +525,20 @@ class Proses6Controller extends Controller
         foreach ($request->papar_ya as $key => $e102_reg) {
             $pelesens[$key] = (object)[];
             $penyata[$key] = E102Init::with('pelesen')->find($e102_reg);
+            // dd($penyata);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
 
             // $penyatai = E102Init::where('e102_nl', $penyata[$key]->e102_nl)->first();
 
             // $penyataii = E102Init::where('e102_nl', $penyata[$key]->e102_nl)->first();
-            foreach ($penyata as $key => $test) {
+            // foreach ($penyata as $key => $test) {
 
-            $penyataiii[$key] = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $test->e102_reg)->where('e102_b3', '51')->get();
-            }
+            $penyataiii[$key] = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyata[$key]->e102_reg)->where('e102_b3', '51')->get();
+        // dd($penyataiii[$key]);
+
+            // }
             // dd($penyataiii);
-            $totaliii[$key] = DB::table("e102b")->where('e102_b2', $penyata[$key]->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
+            $totaliii = DB::table("e102b")->where('e102_b2', $penyata[$key]->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
             // dd($totaliii);
 
             $penyataiv = E102b::with('e102init')->where('e102_b2', $penyata[$key]->e102_reg)->where('e102_b3', '04')->get();
@@ -556,9 +559,9 @@ class Proses6Controller extends Controller
             $query->save();
         }
 
-        dd($penyataiii);
         $layout = 'layouts.main';
 
+        // dd($penyata)
         // $data = DB::table('pelesen')->get();
         return view('admin.proses6.6papar-isirung-multi', compact(
             'returnArr',
