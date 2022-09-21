@@ -803,7 +803,7 @@
                                                         <font size="3">2. Estet Luar</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai ?? 0, 2) }}
+                                                        <font size="3">{{ number_format($penyata->e91_ai2 ?? 0, 2) }}
                                                         </font>
                                                     </td>
                                                 </tr>

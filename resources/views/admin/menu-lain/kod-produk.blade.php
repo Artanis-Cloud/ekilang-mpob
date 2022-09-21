@@ -87,8 +87,19 @@
                                         </div>
                                     </div><br><br> --}}
 
-                                    <div class="table-responsive">
-                                        <table id="example4" class="table table-striped table-bordered" style="width: 100%;">
+                                    <div class="table-responsive" id="printableArea">
+
+                                        <div class="noPrint">
+                                            <button class="dt-button buttons-excel buttons-html5" onclick="Export()"
+                                                style="background-color:white; color: #f90a0a; " >
+                                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                            </button>
+                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example22')"
+                                                style="background-color: white; color: #0a7569; ">
+                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                            </button>
+                                        </div>
+                                        <table id="example22" class="table table-striped table-bordered" style="width: 100%;">
 
                                             <thead>
                                                 <tr>
@@ -145,22 +156,78 @@
 @endsection
 
 @section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#example22').DataTable({
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
+            });
+        });
+    </script>
 
 <script>
-    $(document).ready(function() {
-        $('#example4').DataTable( {
-            dom: 'Bfrtip',
-            buttons: [
-                 'excel', 'pdf', 'print'
-            ]
-        } );
+    function Export() {
+        var sTable = document.getElementById('printableArea').innerHTML;
 
-    } );
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 17px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write('<html><head>');
+        win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
+    }
 </script>
 
+    <script>
+        function ExportToExcel()
+        {
+            var filename = "Laporan Ringkasan Bahagian 1"
+            var tab_text = "<table border='2px'><tr bgcolor=''>";
+            var textRange;
+            var j = 0;
+            tab = document.getElementById('example22');
 
+            for (j = 0; j < tab.rows.length; j++) {
+                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                console.log(tab.rows[j].innerHTML);
+            }
 
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+            tab_text = tab_text + "</table>";
+            var a = document.createElement('a');
+            var data_type = 'data:application/vnd.ms-excel';
+            a.href = data_type + ', ' + encodeURIComponent(tab_text);
+            a.download = filename + '.xls';
+            a.click();
+        }
+    </script>
+
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 
@@ -171,4 +238,5 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <link  href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
+
 @endsection

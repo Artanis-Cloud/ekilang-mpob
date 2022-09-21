@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($penyata as $data)
+                            @foreach ($penyata as $key =>  $data)
 
                                 <div class="pl-3">
 
@@ -329,8 +329,8 @@
                                                             <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataii && !$penyataivb->isEmpty())
-                                                    @foreach ($penyatai as $datai)
+                                                @if($penyatai[$key] && !$penyatai[$key]->isEmpty())
+                                                    @foreach ($penyatai[$key] as $datai)
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2">{{ $datai->produk->prodname }}</font>
@@ -351,7 +351,7 @@
                                                                 <font size="2">0.00</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($datai->e101_b ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($datai->e101_b9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">{{ number_format($datai->e101_b10 ??  0,2) }}</font>
@@ -384,34 +384,34 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib5 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib6 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib6[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib7 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib7[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib8 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib8[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib9 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib9[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib10 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib10[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib11 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib11[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib12 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib12[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib13 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib13[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib14 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalib14[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -461,8 +461,8 @@
                                                             <font size="2">Stok Akhir Di Pusat Simpanan</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataii && !$penyataivb->isEmpty())
-                                                    @foreach ($penyataii as $dataii)
+                                                @if($penyataii[$key] && !$penyataii[$key]->isEmpty())
+                                                    @foreach ($penyataii[$key] as $dataii)
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2">{{ $dataii->produk->prodname }}</font>
@@ -516,34 +516,34 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib5 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib6 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib6[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib7 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib7[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib8 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib8[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib9 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib9[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib10 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib10[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib11 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib11[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib12 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib12[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib13 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib13[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib14 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totaliib14[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -607,8 +607,8 @@
                                                             <font size="2">Stok Akhir</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataiva && !$penyataivb->isEmpty())
-                                                    @foreach ($penyataiva as $dataiva)
+                                                @if($penyataiva[$key] && !$penyataiva[$key]->isEmpty())
+                                                    @foreach ($penyataiva[$key] as $dataiva)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $dataiva->produk->prodname }}</font>
@@ -649,22 +649,22 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac5 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivac5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac6 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivac6[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac7 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivac7[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac8 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivac8[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac9 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivac9[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac10 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivac10[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -705,8 +705,8 @@
                                                             <font size="2">Stok Akhir</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataivb && !$penyataivb->isEmpty())
-                                                    @foreach ($penyataivb as $dataivb)
+                                                @if($penyataivb[$key] && !$penyataivb[$key]->isEmpty())
+                                                    @foreach ($penyataivb[$key] as $dataivb)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $dataivb->produk->prodname }}</font>
@@ -747,22 +747,22 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc5 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivbc5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc6 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivbc6[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc7 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivbc7[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc8 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivbc8[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc9 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivbc9[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc10 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalivbc10[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -793,8 +793,8 @@
                                                             <font size="2">PPKO</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatava && !$penyatavb->isEmpty())
-                                                    @foreach ($penyatava as $datava)
+                                                @if($penyatava[$key] && !$penyatava[$key]->isEmpty())
+                                                    @foreach ($penyatava[$key] as $datava)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $datava->prodcat->catname}}</font>
@@ -824,16 +824,16 @@
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
                                                     <td align="center">
-                                                        <font size="2"><b>{{ number_format($totalvad5 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvad5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad6 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvad6[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad7 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvad7[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad8 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvad8[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -862,8 +862,8 @@
                                                             <font size="2">PPKO</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatavb && !$penyatavb->isEmpty())
-                                                    @foreach ($penyatavb as $datavb)
+                                                @if($penyatavb[$key] && !$penyatavb[$key]->isEmpty())
+                                                    @foreach ($penyatavb[$key] as $datavb)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $datavb->prodcat->catname }}</font>
@@ -892,16 +892,16 @@
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
                                                     <td align="center">
-                                                        <font size="2"><b>{{ number_format($totalvbd5 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvbd5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd6 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvbd6[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd7 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvbd7[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd8 ??  0,2) }}</b></font>
+                                                        <font size="2"><b>{{ number_format($totalvbd8[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -938,8 +938,8 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatavii && !$penyatavii->isEmpty())
-                                                    @foreach ($penyatavii as $datavii)
+                                                @if($penyatavii[$key] && !$penyatavii[$key]->isEmpty())
+                                                    @foreach ($penyatavii[$key] as $datavii)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $datavii->produk->prodname }}</font>

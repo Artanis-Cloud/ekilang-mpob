@@ -52,7 +52,7 @@
 
                         <form method="get" action="" id="myfrm">
 
-                            @foreach ($penyata as $data)
+                            @foreach ($penyata as $key => $data)
 
                                 <div class="pl-3">
 
@@ -294,8 +294,8 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyatai && !$penyatai->isEmpty())
-                                                        @foreach ($penyatai as $datai)
+                                                    @if($penyatai[$key] && !$penyatai[$key]->isEmpty())
+                                                        @foreach ($penyatai[$key] as $datai)
                                                             <tr>
                                                                 <td align="left">
                                                                     <font size="2">{{ $datai->produk->prodname }}</font>
@@ -340,25 +340,25 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>{{ number_format($total ??  0,2) }}</b></font>
+                                                            <font size="2"><b>{{ number_format($total[$key] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>{{ number_format($total2 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total3 ??  0,2) }}</b></font>
+                                                            <font size="2"><b>{{ number_format($total2[$key] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>{{ number_format($total4 ??  0,2) }}</b></font>
+                                                            <font size="2"><b>{{ number_format($total3[$key] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>{{ number_format($total5 ??  0,2) }}</b></font>
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total4[$key] ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total5[$key] ??  0,2) }}</b></font>
                                                         </td>
 
 

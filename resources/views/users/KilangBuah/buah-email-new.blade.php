@@ -106,8 +106,8 @@
                                     Jenis Emel</label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                        <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninput="setCustomValidity(''); valid_type()"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"  >
                                             <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan
                                             </option>
@@ -117,6 +117,9 @@
                                             </option>
 
                                         </select>
+                                        <p type="hidden" id="err_type" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
                                         <div class="alert alert-danger">
@@ -127,63 +130,42 @@
                             </div>
 
 
-                            {{-- <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
-                                    Daripada (Alamat Emel)</label>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                            {{-- </div>
-                            </div> --}}
+
                             <div class="row">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                     Tajuk</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name='Subject' id="Subject" required oninput="setCustomValidity('')"
+                                    <input type="text" class="form-control" name='Subject' id="subject" required oninput="setCustomValidity(''); valid_subject()"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                    <p type="hidden" id="err_subject" style="color: red; display:none"><i>Sila isi butiran disini!</i></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-bottom: 5%">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kandungan</label>
-                                {{-- <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='Message'
-                                                        id="Subject" required title="Sila isikan butiran ini.">
 
-                                                </div> --}}
 
                                 <div class="col-md-6">
 
                                     <div id="editor" aria-required="true" oninput="add_message()">
                                         {{ old('Message') }}
                                     </div>
-                                    @error('Message')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
 
 
+                                <input type="hidden" id="quill_html" name="Message"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini."
+                                    oninput="setCustomValidity(''); valid_editor()" required value="{{ old('Message') }}">
+
+                                    <p type="hidden" id="err_editor" style="color: red; display:none"><i>Sila buat pilihan
+                                        di
+                                        bahagian ini!</i></p>
                                 </div>
                                 {{-- <div id="phone_error" class="error hidden">Please enter a valid phone number</div> --}}
 
 
-                                <input type="hidden" id="quill_html" name="Message" id="editor"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini."
-                                    oninput="setCustomValidity('')" required value="{{ old('Message') }}">
 
 
                             </div>
@@ -217,18 +199,16 @@
 
             <div class="row form-group" style="margin-top: 3%; ">
 
-
-
-                <div class="text-right col-md-6 mb-4 ">
-                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                        data-target="#emel">Hantar</button>
+                <div class="row justify-content-center" style="margin-left: 40%">
+                    <button type="button" class="btn btn-primary"  id="checkBtn"
+                         onclick="check();">Hantar</button>
                 </div>
 
             </div>
 
             <!-- Vertically Centered modal Modal -->
-            <div class="modal fade" id="emel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                aria-hidden="true">
+            <div class="modal fade" id="next" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                     role="document">
                     <div class="modal-content">
@@ -251,7 +231,7 @@
                             </button>
                             <button type="submit" class="btn btn-primary ml-1">
                                 <i class="bx bx-check d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Hantar</span>
+                                <span class="d-none d-sm-block">Ya</span>
                             </button>
                         </div>
                     </div>
@@ -309,35 +289,100 @@
         </script>
 
         <script>
+            function valid_type() {
+
+                if ($('#basicSelect').val() == '') {
+                    $('#basicSelect').css('border', '1px solid red');
+                    document.getElementById('err_type').style.display = "block";
+
+
+                } else {
+                    $('#basicSelect').css('border', '');
+                    document.getElementById('err_type').style.display = "none";
+
+                }
+
+            }
+        </script>
+
+        <script>
+            function valid_subject() {
+
+                if ($('#subject').val() == '') {
+                    $('#subject').css('border', '1px solid red');
+                    document.getElementById('err_subject').style.display = "block";
+
+
+                } else {
+                    $('#subject').css('border', '');
+                    document.getElementById('err_subject').style.display = "none";
+
+                }
+
+            }
+        </script>
+
+        <script>
+            function valid_editor() {
+
+                if ($('#quill_html').val() == '') {
+                    $('#quill_html').css('border', '1px solid red');
+                    document.getElementById('err_editor').style.display = "block";
+
+
+                } else {
+                    $('#quill_html').css('border', '');
+                    document.getElementById('err_editor').style.display = "none";
+
+                }
+
+            }
+        </script>
+
+
+        <script>
             function check() {
                 // (B1) INIT
                 var error = "",
                     field = "";
 
-                field = document.getElementById("editor");
+                // kod produk
+                field = document.getElementById("basicSelect");
                 if (!field.checkValidity()) {
                     error += "Name must be 2-4 characters\r\n";
-                    console.log(error);
+                    $('#basicSelect').css('border', '1px solid red');
+                    document.getElementById('err_type').style.display = "block";
+                    console.log('masuk');
                 }
 
-                // function validateForm(event) {
-                //     var phone = document.getElementById('myform_phone').value;
-                //     if (!validatePhoneNumber(phone)) {
-                //         document.getElementById('phone_error').classList.remove('hidden');
-                //     } else {
-                //         document.getElementById('phone_error').classList.add('hidden');
-                //         alert("validation success")
-                //     }
-                //     event.preventDefault();
-                // }
+                field = document.getElementById("subject");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#subject').css('border', '1px solid red');
+                    document.getElementById('err_subject').style.display = "block";
+                    console.log('masuk');
+                }
 
-                // (B4) RESULT
+                field = document.getElementById("quill_html");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#quill_html').css('border', '1px solid red');
+                    document.getElementById('err_editor').style.display = "block";
+                    console.log('masuk');
+                }
+
                 if (error == "") {
-                    document.getElementById('phone_error').classList.remove('hidden');
+                    $('#next').modal('show');
+                    return true;
                 } else {
-                    document.getElementById('phone_error').classList.add('hidden');
-                    // return false;
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
                 }
+
             }
         </script>
         <script>
