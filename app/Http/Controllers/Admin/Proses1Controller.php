@@ -379,7 +379,7 @@ class Proses1Controller extends Controller
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesenbatalpenapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
+                ['link' => route('admin.senarai.pelesen.batal.penapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];

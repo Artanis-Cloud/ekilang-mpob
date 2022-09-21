@@ -15,6 +15,8 @@ class AuditTrail extends Model
         'activity',
         'date',
         'ip_address',
+        'updated_at',
+        'created_at',
     ];
 
     public function user(){

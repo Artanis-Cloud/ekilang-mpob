@@ -73,14 +73,19 @@
                                             </tr>
                                         </thead>
                                         <tbody style="word-break: break-word; font-size:12px">
-                                            @foreach ($log as $data)
+                                            @foreach ($log as $key => $data)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     {{-- <td>{{ $data->date }}</td> --}}
                                                     <td>{{ $data->username }}</td>
                                                     <td>{{ $data->activity }}</td>
                                                     <td>{{ $data->ip_address }}</td>
-                                                    <td>{{ $data->created_at }}</td>
+                                                    {{-- @foreach ($formatteddate as $key => $date) --}}
+                                                    <td>{{ $formatteddate[$key] }}</td>
+
+                                                    {{-- @endforeach --}}
+
+
 
                                                 </tr>
                                             @endforeach
