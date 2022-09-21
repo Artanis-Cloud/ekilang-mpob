@@ -153,19 +153,20 @@
 
                                 <div class="col-md-6">
 
-                                    <div id="editor" aria-required="true" oninput="add_message()">
+                                    <div id="editor" aria-required="true" oninput="add_message()" >
                                         {{ old('Message') }}
                                     </div>
 
 
-                                <input type="hidden" id="quill_html" name="Message"
+                                <input type="hidden" id="quill_html" name="Message" style="border: 2px red"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini."
                                     oninput="setCustomValidity(''); valid_editor()" required value="{{ old('Message') }}">
 
-                                    <p type="hidden" id="err_editor" style="color: red; display:none"><i>Sila buat pilihan
-                                        di
-                                        bahagian ini!</i></p>
+
                                 </div>
+                                <p type="text" id="err_editor" style="color: red; display:none"><i>Sila buat pilihan
+                                    di
+                                    bahagian ini!</i></p>
                                 {{-- <div id="phone_error" class="error hidden">Please enter a valid phone number</div> --}}
 
 
@@ -263,7 +264,7 @@
 
         <script>
             var uploadField = document.getElementById('file');
-            uploadField.onchange = function() {=
+            uploadField.onchange = function() {
 
 
                 var filePath = uploadField.value;
