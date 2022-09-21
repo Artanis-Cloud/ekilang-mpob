@@ -107,6 +107,11 @@
                                                 {{-- <li style="text-align: justify"> {{ $data->Message }}</a> --}}
                                                 <li style="text-align: justify"> {!! $data->Message !!}</a>
 
+                                                    @if ($data->Icon_new == 'Y')
+                                                    <img src="/new.gif">
+
+                                                    @endif
+
                                                 </li>
                                                 <br>
                                                 @endforeach

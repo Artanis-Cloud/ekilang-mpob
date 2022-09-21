@@ -84,12 +84,12 @@
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Bil</th>
-                                                            <th>Mesej<br></th>
-                                                            <th>Tarikh Mula<br></th>
-                                                            <th>Tarikh Akhir</th>
-                                                            <th>Icon New</th>
-                                                            <th>Tindakan</th>
+                                                            <th style="text-align:center">Bil</th>
+                                                            <th style="text-align:center">Mesej<br></th>
+                                                            <th style="text-align:center">Tarikh Mula<br></th>
+                                                            <th style="text-align:center">Tarikh Akhir</th>
+                                                            <th style="text-align:center">Icon New</th>
+                                                            <th style="text-align:center">Tindakan</th>
 
 
                                                         </tr>
@@ -100,14 +100,14 @@
                                                             <td class="text-center">
                                                                 {{ $loop->iteration }}
                                                             </td>
-                                                            <td >
+                                                            <td style="width: 60%">
                                                                 {{-- {{$data->Message}} --}}
                                                                 {!! $data->Message !!}
                                                             </td>
-                                                            <td >
+                                                            <td  style="text-align:center">
                                                                 {{$data->Start_date}}
                                                             </td>
-                                                            <td>
+                                                            <td style="text-align:center">
                                                                 {{$data->End_date}}
                                                             </td>
                                                             <td class="text-center">
