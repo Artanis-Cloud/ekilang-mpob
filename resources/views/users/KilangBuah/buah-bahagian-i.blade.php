@@ -141,13 +141,12 @@
                                                                     oninput="setCustomValidity(''); invokeFunc()"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    @if($kilang->e91_aa1 == null)
-                                                                    value=""
-                                                                    @elseif ($kilang->e91_aa1 == '0')
-                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}"
-                                                                    @else
-                                                                    value="{{ number_format($kilang->e91_aa1 ?? 0,2) }}"
-                                                                    @endif>
+                                                                    @if($kilang->e91_aa1 || $kilang->e91_aa1 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_aa1,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 {{-- {{ $kilang->e91_aa2 }} --}}
@@ -158,15 +157,10 @@
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                                     onchange="aa2();FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
-
-                                                                    @if($kilang->e91_aa2 != null)
-                                                                        @if($kilang->e91_aa2 == 0.00)
-                                                                        value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
-                                                                        @else
-                                                                        value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
-                                                                        @endif
+                                                                    @if($kilang->e91_aa2 || $kilang->e91_aa2 == '0.00')
+                                                                        value = "{{ number_format($kilang->e91_aa2,2) }}"
                                                                     @else
-                                                                    value=""
+                                                                        value = ""
                                                                     @endif
                                                                     >
                                                             </td>
@@ -178,7 +172,12 @@
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
                                                                     onchange="aa3();FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
-                                                                    value="{{ number_format($kilang->e91_aa3 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_aa3 || $kilang->e91_aa3 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_aa3,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_aa4'
@@ -188,7 +187,12 @@
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                                                     onchange="aa4();FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
-                                                                    value="{{ number_format($kilang->e91_aa4 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_aa4 || $kilang->e91_aa4 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_aa4,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
 
                                                         </tr>
@@ -208,7 +212,12 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
                                                                     onchange="ab1();FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
-                                                                    value="{{ number_format($kilang->e91_ab1 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ab1 || $kilang->e91_ab1 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ab1,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -219,7 +228,12 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     name='e91_ab2' id='e91_ab2'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ab2 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ab2 || $kilang->e91_ab2 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ab2,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -231,7 +245,12 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     id='e91_ab3'onkeypress="return isNumberKey(event)"
                                                                     required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ab3 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ab3 || $kilang->e91_ab3 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ab3,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -243,7 +262,12 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     id='e91_ab4'onkeypress="return isNumberKey(event)"
                                                                     required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ab4 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ab4 || $kilang->e91_ab4 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ab4,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
 
                                                         </tr>
@@ -262,7 +286,12 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     name='e91_ac1' id='e91_ac1'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ac1 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ac1 || $kilang->e91_ac1 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ac1,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center; background-color:#808080b8">
                                                                 {{-- <input type="text"size="10" style="text-align: center"
@@ -298,7 +327,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ad1' id='e91_ad1'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ad1 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ad1 || $kilang->e91_ad1 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ad1,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -309,7 +343,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ad2' id='e91_ad2'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ad2 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ad2 || $kilang->e91_ad2 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ad2,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -320,7 +359,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ad3' id='e91_ad3'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ad3 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ad3 || $kilang->e91_ad3 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ad3,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
 
                                                         </tr>
@@ -340,7 +384,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ae1' id='e91_ae1'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ae1 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ae1 || $kilang->e91_ae1 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ae1,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -351,7 +400,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ae2' id='e91_ae2'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ae2 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ae2 || $kilang->e91_ae2 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ae2,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -363,7 +417,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     id='e91_ae3'onkeypress="return isNumberKey(event)"
                                                                     required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ae3 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ae3 || $kilang->e91_ae3 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ae3,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -374,7 +433,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ae4' id='e91_ae4'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ae4 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ae4 || $kilang->e91_ae4 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ae4,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
 
                                                         </tr>
@@ -415,7 +479,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     id='e91_ag1'onkeypress="return isNumberKey(event)"
                                                                     required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ag1 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ag1 || $kilang->e91_ag1 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ag1,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -426,7 +495,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ag2' id='e91_ag2'
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    value="{{ number_format($kilang->e91_ag2 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ag2 || $kilang->e91_ag2 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ag2,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -438,7 +512,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="setTwoNumberDecimal()"
-                                                                    value="{{ number_format($kilang->e91_ag3 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ag3 || $kilang->e91_ag3 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ag3,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10"
@@ -449,7 +528,12 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     name='e91_ag4' id='e91_ag4'
                                                                     onchange="setTwoNumberDecimal()" required
                                                                     onkeypress="return isNumberKey(event)"
-                                                                    value="{{ number_format($kilang->e91_ag4 ?? 0, 2) }}">
+                                                                    @if($kilang->e91_ag4 || $kilang->e91_ag4 == '0.00')
+                                                                    value = "{{ number_format($kilang->e91_ag4,2) }}"
+                                                                     @else
+                                                                    value = ""
+                                                                    @endif
+                                                                    >
                                                             </td>
 
                                                         </tr>
