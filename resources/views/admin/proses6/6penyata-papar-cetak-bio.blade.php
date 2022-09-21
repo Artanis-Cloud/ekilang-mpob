@@ -51,7 +51,7 @@
                     class="btn btn-work tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                     Terkini</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
-                <a href="{{ route('admin.5penyatabelumhantarsimpanan') }}"
+                <a href="{{ route('admin.5penyatabelumhantarbio') }}"
                     style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                 {{-- </button> --}}
