@@ -129,7 +129,26 @@
             $('#example4').DataTable( {
                 dom: 'Bfrtip',
                 buttons: [
-                     'excel', 'pdf', 'print'
+                    {
+                        extend: 'excel',
+                        title: "Senarai Kod dan Nama Negara",
+                        customize: function( xlsx ) {
+                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
+
+                            $('row c[r^="C"]', sheet).attr( 's', '52' );
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        title: "Senarai Kod dan Nama Negara",
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+                        }
+                    },
                 ]
             } );
         } );

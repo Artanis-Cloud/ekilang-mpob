@@ -578,6 +578,49 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
     }
 
+    public function admin_kod_produk_file($produk, $file_type)
+    {
+
+        $produk = Produk::orderBy('prodid')->get();
+
+
+
+        $columns = [
+            'Kod Produk',
+            'Nama Produk',
+            'Kumpulan Produk',
+            'Nama Panjang Produk',
+
+        ];
+
+        // dd($datas);
+
+        $title_laporan = "Senarai Kod dan Nama Produk Sawit";
+
+        $results = [
+            'produk' => $produk,
+            'columns' => $columns,
+            'title_laporan' => $title_laporan,
+        ];
+
+        $returnArr = [
+            'title' => $title_laporan,
+            'results' => $results,
+        ];
+
+        if ($file_type == "pdf" || $file_type == "print") {
+            $pdf_name = $title_laporan  .".pdf";
+            $pdf = PDF::loadView('admins.produk.pdf.142', $returnArr)->setPaper('a4', 'landscape');
+            if ($file_type == "print") {
+                return $pdf->stream($pdf_name);
+            }
+            return $pdf->download($pdf_name);
+            // return $pdf->stream($pdf_name);
+        } else {
+            return Exce::download(new LaporansExport($returnArr),  $title_laporan . ' Bagi Tahun ' . $tahun  . '.xlsx');
+        }
+    }
+
 
     public function admin_kod_negara()
     {

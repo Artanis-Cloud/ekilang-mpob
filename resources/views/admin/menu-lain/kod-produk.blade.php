@@ -89,17 +89,8 @@
 
                                     <div class="table-responsive" id="printableArea">
 
-                                        <div class="noPrint">
-                                            <button class="dt-button buttons-excel buttons-html5" onclick="Export()"
-                                                style="background-color:white; color: #f90a0a; " >
-                                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                            </button>
-                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example22')"
-                                                style="background-color: white; color: #0a7569; ">
-                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                            </button>
-                                        </div>
-                                        <table id="example22" class="table table-striped table-bordered" style="width: 100%;">
+
+                                        <table id="example4" class="table table-striped table-bordered" style="width: 100%;">
 
                                             <thead>
                                                 <tr>
@@ -113,7 +104,7 @@
                                             <tbody style="word-break: break-word; font-size:12px">
                                                 @foreach ($produk as $data)
                                                     <tr>
-                                                        <td>
+                                                        <td class="text-left">
                                                             {{ $data->prodid }}
                                                         </td>
                                                         <td>
@@ -156,7 +147,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example22').DataTable({
                 "language": {
@@ -176,56 +167,41 @@
                 },
             });
         });
-    </script>
-
-<script>
-    function Export() {
-        var sTable = document.getElementById('printableArea').innerHTML;
-
-        var style = "<style>";
-        style = style + "table {width: 100%;font: 17px Calibri;}";
-        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
-        style = style + "padding: 2px 3px;text-align: center;}";
-        style = style + "</style>";
-
-        // CREATE A WINDOW OBJECT.
-        var win = window.open('', '', 'height=700,width=700');
-
-        win.document.write('<html><head>');
-        win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
-        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
-        win.document.write('</head>');
-        win.document.write('<body>');
-        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
-        win.document.write('</body></html>');
-
-        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
-
-        win.print();    // PRINT THE CONTENTS.
-    }
-</script>
+    </script> --}}
 
     <script>
-        function ExportToExcel()
-        {
-            var filename = "Laporan Ringkasan Bahagian 1"
-            var tab_text = "<table border='2px'><tr bgcolor=''>";
-            var textRange;
-            var j = 0;
-            tab = document.getElementById('example22');
+        $(document).ready(function() {
+            $('#example4').DataTable( {
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'excel',
+                        title: "Senarai Kod dan Nama Produk Sawit",
+                        customize: function( xlsx ) {
+                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
 
-            for (j = 0; j < tab.rows.length; j++) {
-                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
-                console.log(tab.rows[j].innerHTML);
-            }
+                            $('row c[r^="A"]', sheet).attr( 's', '50' );
+                            $('row c[r^="B"]', sheet).attr( 's', '50' );
+                            $('row c[r^="C"]', sheet).attr( 's', '50' );
+                            $('row c[r^="D"]', sheet).attr( 's', '50' );
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        title: "Senarai Kod dan Nama Produk Sawit",
 
-            tab_text = tab_text + "</table>";
-            var a = document.createElement('a');
-            var data_type = 'data:application/vnd.ms-excel';
-            a.href = data_type + ', ' + encodeURIComponent(tab_text);
-            a.download = filename + '.xls';
-            a.click();
-        }
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        }
+                    },
+                ]
+            } );
+        } );
     </script>
 
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
