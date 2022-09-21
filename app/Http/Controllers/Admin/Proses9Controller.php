@@ -19,6 +19,7 @@ use App\Models\H104B;
 use App\Models\H104C;
 use App\Models\H104D;
 use App\Models\H104Init;
+use App\Models\HBioInit;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -225,6 +226,11 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL91'
                                 order by k.kodpgw, k.nosiri");
+                                
+                                if (!$users) {
+                                    return redirect()->back()
+                                    ->with('error', 'Penyata Tidak Wujud!');
+                                }
             } elseif ($sektor == 'PL101') {
                 $tahun = H101Init::where('tahun', $request->e101_thn);
                 $bulan = H101Init::where('tahun', $request->e101_bln);
@@ -239,6 +245,11 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL101'
                                 order by k.kodpgw, k.nosiri");
+
+                                if (!$users) {
+                                    return redirect()->back()
+                                    ->with('error', 'Penyata Tidak Wujud!');
+                                }
             } elseif ($sektor == 'PL102') {
                 $tahun = H102Init::where('tahun', $request->e102_thn);
                 $bulan = H102Init::where('tahun', $request->e102_bln);
@@ -253,6 +264,11 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL102'
                                 order by k.kodpgw, k.nosiri");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
             } elseif ($sektor == 'PL104') {
                 $tahun = H104Init::where('tahun', $request->e104_thn);
                 $bulan = H104Init::where('tahun', $request->e104_bln);
@@ -266,6 +282,11 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL104'
                                 order by k.kodpgw, k.nosiri");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
             } elseif ($sektor == 'PL111') {
                 $tahun = H104Init::where('tahun', $request->e104_thn);
                 $bulan = H104Init::where('tahun', $request->e104_bln);
@@ -279,7 +300,31 @@ class Proses9Controller extends Controller
                 and p.e_nl = k.e_nl
                 and k.e_kat = 'PL111'
                 order by k.kodpgw, k.nosiri");
+
+            if (!$users) {
+                return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
             }
+            } elseif ($sektor == 'PLBIO') {
+                $tahun = HBioInit::where('tahun', $request->ebio_thn);
+                $bulan = HBioInit::where('tahun', $request->ebio_bln);
+
+                $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, k.kodpgw, e.ebio_nobatch, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+                FROM pelesen p, h_bio_inits e, reg_pelesen k
+                WHERE e.ebio_thn = '$request->tahun'
+                and e.ebio_bln = '$request->bulan'
+                and p.e_nl = e.ebio_nl
+                and e.ebio_flg = '3'
+                and p.e_nl = k.e_nl
+                and k.e_kat = 'PLBIO'
+                order by k.kodpgw, k.nosiri");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            }
+
         } elseif ($data == 'pleid') {
             return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');

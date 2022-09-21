@@ -624,7 +624,7 @@ class MenuLainController extends Controller
             // $dt[$key] = $logged->created_at;
             // $dt->format('dd-mm-yyyy H:i:s');
             $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $log[$key]->created_at);
-            $formatteddate[$key] = $myDateTime->format('d-m-Y H:i:s');
+            $formatteddate[$key] = $myDateTime->format('d-m-Y / H:i:s');
 
 
         }

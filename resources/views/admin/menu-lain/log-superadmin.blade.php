@@ -68,7 +68,7 @@
                                                 <th>Username</th>
                                                 <th>Aktiviti</th>
                                                 <th>IP Pengguna</th>
-                                                <th>created_at</th>
+                                                <th>Jam / Waktu</th>
 
                                             </tr>
                                         </thead>
@@ -79,9 +79,9 @@
                                                     {{-- <td>{{ $data->date }}</td> --}}
                                                     <td>{{ $data->username }}</td>
                                                     <td>{{ $data->activity }}</td>
-                                                    <td>{{ $data->ip_address }}</td>
+                                                    <td style="text-align: center">{{ $data->ip_address }}</td>
                                                     {{-- @foreach ($formatteddate as $key => $date) --}}
-                                                    <td>{{ $formatteddate[$key] }}</td>
+                                                    <td style="text-align: center">{{ $formatteddate[$key] }}</td>
 
                                                     {{-- @endforeach --}}
 
