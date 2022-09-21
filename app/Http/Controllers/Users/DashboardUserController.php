@@ -39,7 +39,6 @@ class DashboardUserController extends Controller
         $penyata91 = E91Init::get();
         $now = date('Y-m-d');
 
-        // $pengumuman = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
         $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
         // $data = htmlspecialchars($pengumuman);
         // echo $data;
@@ -52,27 +51,42 @@ class DashboardUserController extends Controller
 
     public function penapis_dashboard()
     {
-        return view('users.KilangPenapis.penapis-dashboard');
+        $now = date('Y-m-d');
+
+        $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        return view('users.KilangPenapis.penapis-dashboard', compact( 'pengumuman2', 'now'));
     }
 
     public function isirung_dashboard()
     {
-        return view('users.KilangIsirung.isirung-dashboard');
+        $now = date('Y-m-d');
+
+        $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        return view('users.KilangIsirung.isirung-dashboard', compact( 'pengumuman2', 'now'));
     }
 
     public function oleo_dashboard()
     {
-        return view('users.KilangOleokimia.oleo-dashboard');
+        $now = date('Y-m-d');
+
+        $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        return view('users.KilangOleokimia.oleo-dashboard', compact( 'pengumuman2', 'now'));
     }
 
     public function pusatsimpan_dashboard()
     {
-        return view('users.PusatSimpanan.pusatsimpan-dashboard');
+        $now = date('Y-m-d');
+
+        $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        return view('users.PusatSimpanan.pusatsimpan-dashboard', compact( 'pengumuman2', 'now'));
     }
 
     public function biodiesel_dashboard()
     {
-        return view('users.KilangBiodiesel.bio-dashboard');
+        $now = date('Y-m-d');
+
+        $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        return view('users.KilangBiodiesel.bio-dashboard', compact( 'pengumuman2', 'now'));
     }
 
     public function index_form()
