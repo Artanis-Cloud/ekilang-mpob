@@ -153,62 +153,61 @@
                                     @csrf
                                     <div class="table-responsive">
                                         <table id="example" class="table table-bordered"
-                                            style="width: 100%;">
-                                            <thead>
-                                                <tr style="background-color: #e9ecefbd">
-                                                    <th>Papar?</th>
-                                                    <th>Sudah Cetak?<br></th>
-                                                    <th>No. Lesen<br></th>
-                                                    <th>Nama Premis</th>
-                                                    <th>Kod Pegawai</th>
-                                                    <th>Emel Pegawai</th>
-                                                    <th>No. Siri</th>
-                                                    <th>Tarikh Hantar</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr style="background-color: #e9ecefbd">
-                                                    <th>Papar?</th>
-                                                    <th>Sudah Cetak?<br></th>
-                                                    <th>No. Lesen<br></th>
-                                                    <th>Nama Premis</th>
-                                                    <th>Kod Pegawai</th>
-                                                    <th>Emel Pegawai</th>
-                                                    <th>No. Siri</th>
-                                                    <th>Tarikh Hantar</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody style="word-break: break-word; font-size:12px">
-                                                @foreach ($users as $data)
-                                                    <tr>
-                                                        <td>
-                                                            <input name="papar_ya[]" type="checkbox" required
-                                                                value="{{ $data->ebio_reg }}">&nbspYa
-                                                        </td>
-                                                        <td>
-                                                            {{ $data->ebio_flagcetak }}
-                                                        </td>
-                                                        <td>
-                                                            {{-- <a href="#"> --}}
-                                                            {{ $data->e_nl }}
-                                                        </td>
-                                                        <td>{{ $data->e_np ?? '-' }}</td>
-                                                        <td>{{ $data->kodpgw }}</td>
-
-                                                        <td>{{ $data->e_email ?? '-' }}</td>
-                                                        <td>{{ $data->nosiri }}</td>
-
-                                                        <td>{{ $data->sdate }}</td>
-
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th style="width: 7%">Papar?</th>
+                                                        <th style="width: 7%"\>Sudah Cetak?<br></th>
+                                                        <th style="width: 11%">No. Lesen<br></th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>Emel Pegawai</th>
+                                                        <th>No. Siri</th>
+                                                        <th>Tarikh Hantar</th>
                                                     </tr>
-                                                @endforeach
+                                                </thead>
+                                                <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th style="width: 7%">Papar?</th>
+                                                        <th style="width: 7%">Sudah Cetak?<br></th>
+                                                        <th style="width: 11%">No. Lesen<br></th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>Emel Pegawai</th>
+                                                        <th>No. Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td class="text-center">
+                                                                <input name="papar_ya[]" type="checkbox" required
+                                                                    value="{{ $data->ebio_reg }}">&nbspYa
+                                                            </td>
+                                                            <td class="text-center">
+                                                                {{ $data->ebio_flagcetak ?? 'N' }}
+                                                            </td>
+                                                            <td>
+                                                                {{-- <a href="#"> --}}
+                                                                {{ $data->e_nl }}
+                                                            </td>
+                                                            <td>{{ $data->e_np ?? '-' }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
 
-                                            </tbody>
+                                                            <td>{{ $data->e_email ?? '-' }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
 
-                                        </table>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
                                         <div class="text-left col-md-8">
                                             <button type="submit" class="btn btn-primary ">Papar</button>
-
 
 
                                         </div>
