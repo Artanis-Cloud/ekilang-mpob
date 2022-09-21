@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
 
 //forget password
@@ -661,6 +661,7 @@ Route::middleware('auth')->group(function () {
         Route::get('biodiesel/kod-negara', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_kod_negara'])->name('bio.kod.negara');
         Route::get('biodiesel/try', [App\Http\Controllers\Users\KilangBiodieselController::class, 'try'])->name('try');
     });
+});
 });
 
 
