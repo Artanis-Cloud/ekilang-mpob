@@ -15,6 +15,7 @@ use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\ScLog;
 use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -619,7 +620,21 @@ class MenuLainController extends Controller
         $layout = 'layouts.main';
 
         $log = AuditTrail::orderBy('id','DESC')->get();
+        foreach ($log as $key => $logged){
+            // $dt[$key] = $logged->created_at;
+            // $dt->format('dd-mm-yyyy H:i:s');
+            $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $log[$key]->created_at);
+            $formatteddate[$key] = $myDateTime->format('d-m-Y H:i:s');
 
-        return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'log'));
+
+        }
+        // dd($formatteddate);
+        // $dt = date('H:i:s');
+        // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
+
+        // $dt->setTimezone($tz);
+        // echo $dt->format('dd-mm-yyyy H:i:s');
+
+        return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'log', 'formatteddate', 'myDateTime'));
     }
 }

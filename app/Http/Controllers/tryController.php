@@ -44,8 +44,8 @@ class tryController extends Controller
         $tz = new DateTimeZone('Asia/Kuala_Lumpur');
 
         $dt->setTimezone($tz);
-        $dt->format('H:i:s');
-        echo $dt->format('H:i:s');
+        $dt->format('dd-mm-yyyy H:i:s');
+        // echo $dt->format('H:i:s');
         // $loginmills = DB::connection('mysql3')->select("show databases");
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;
@@ -123,7 +123,7 @@ class tryController extends Controller
     public function testing4()
     {
 
-       
+
         // return view('users.users-dashboard');
     }
     public function change_pass()
