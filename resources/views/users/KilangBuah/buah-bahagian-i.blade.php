@@ -150,6 +150,7 @@
                                                                     @endif>
                                                             </td>
                                                             <td style="text-align:center;">
+                                                                {{-- {{ $kilang->e91_aa2 }} --}}
                                                                 <input type="text" size="10" name='e91_aa2'
                                                                     id='e91_aa2'required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -157,13 +158,15 @@
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                                     onchange="aa2();FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
-                                                                    @if($kilang->e91_aa2 == null)
-                                                                    value=""
-                                                                    @elseif ($kilang->e91_aa2 == '0')
-                                                                    value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
-                                                                    @else
-                                                                    value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
 
+                                                                    @if($kilang->e91_aa2 != null)
+                                                                        @if($kilang->e91_aa2 == 0.00)
+                                                                        value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
+                                                                        @else
+                                                                        value="{{ number_format($kilang->e91_aa2 ?? 0,2) }}"
+                                                                        @endif
+                                                                    @else
+                                                                    value=""
                                                                     @endif
                                                                     >
                                                             </td>
@@ -523,20 +526,20 @@ termasuk pengeluaran untuk 'Tol'."></i>
         <!-- ======= Footer ======= -->
 
         @section('scripts')
-            <script>
-                $(document).ready(function() {
-                    let empty = '';
-                    let zero = '0.00';
+           <script>
+                // $(document).ready(function() {
+                //     let empty = '';
+                //     let zero = '0.00';
 
-                    var aa1 = $('#e91_aa1').val();
-                    // console.log(aa1);
-                    if (aa1 === null) {
-                        console.log('aa1');
-                        $('#e91_aa1').val(empty);
-                    }else if (aa1 == '0.00') {
-                        console.log('masukkmana');
-                        $('#e91_aa2').val(zero);
-                    }
+                //     var aa1 = $('#e91_aa1').val();
+                //     // console.log(aa1);
+                //     if (aa1 === null) {
+                //         console.log('aa1');
+                //         $('#e91_aa1').val(empty);
+                //     }else if (aa1 == '0.00') {
+                //         console.log('masukkmana');
+                //         $('#e91_aa2').val(zero);
+                //     }
 
 
                     // if(!aa1 == null)
@@ -563,14 +566,15 @@ termasuk pengeluaran untuk 'Tol'."></i>
 
                     // @endif
 
-                });
-            </script>
-            // <script>
-            //     $(document).ready(function() {
-            //         @if ($kilang->a91_aa2 == null && $kilang->e91_aa2 != '0.00')
-            //         console.log('masukkilang');
-            //             $('#e91_aa2').val(empty);
-            //         @endif
+            //     });
+            // </script>
+            <script>
+                // $(document).ready(function() {
+                //     let empty = '';
+                //     @if ($kilang->a91_aa2 == null && $kilang->e91_aa2 !== '0.00')
+                //     console.log('masukkilang');
+                //         $('#e91_aa2').val(empty);
+                //     @endif
 
 
             //         var aa2 = $('#e91_aa2').val();
@@ -688,8 +692,8 @@ termasuk pengeluaran untuk 'Tol'."></i>
             //         }
 
 
-            //     });
-            // </script>
+                });
+            </script>
             <script>
                     function autozero() {
                         let zero = '0';
