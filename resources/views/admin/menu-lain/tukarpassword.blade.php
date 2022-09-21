@@ -47,7 +47,7 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Tukar Kata Laluan Pentadbir</h4>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%">Tukar Kata Laluan Pentadbir</h3>
                         </div>
                         <hr>
 

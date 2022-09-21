@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <div class=" text-center">
-                                <h4 style="color: rgb(39, 80, 71);">Tambah Pengumuman</h4>
+                                <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Tambah Pengumuman</h3>
                             </div>
                             <hr>
 
@@ -68,13 +68,11 @@
                                                 Tarikh Mula</label>
                                             <div class="col-md-6">
                                                 <input type="date" class="form-control" name='Start_date' id="Start_date"
-                                                    required title="Sila isikan butiran ini."
+                                                    required title="Sila isikan butiran ini." oninput="valid_start()"
                                                     value="{{ old('Start_date') }}">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                    <p type="hidden" id="err_start" style="color: red; display:none"><i>Sila buat pilihan
+                                                        di
+                                                        bahagian ini!</i></p>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top: 1%">
@@ -83,13 +81,11 @@
                                                 Tarikh Akhir</label>
                                             <div class="col-md-6">
                                                 <input type="date" class="form-control" name='End_date' id="End_date"
-                                                    required title="Sila isikan butiran ini."
+                                                    required title="Sila isikan butiran ini." oninput="valid_end()"
                                                     value="{{ old('End_date') }}">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                    <p type="hidden" id="err_end" style="color: red; display:none"><i>Sila buat pilihan
+                                                        di
+                                                        bahagian ini!</i></p>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top: 1%">
@@ -98,21 +94,20 @@
                                                 Icon New</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="Icon_new">
-                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                    <select class="form-control" name='Icon_new'  id="basicSelect"
+                                                        required oninput="valid_icon()" >
+                                                        <option selected hidden disabled value="">Sila Pilih</option>
                                                         <option value="Y">Ya</option>
                                                         <option value="N">Tidak</option>
                                                     </select>
+                                                    <p type="hidden" id="err_icon" style="color: red; display:none"><i>Sila buat pilihan
+                                                        di
+                                                        bahagian ini!</i></p>
                                                 </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom: 5%; margin-top: 1%" ">
+                                        <div class="row" style="margin-bottom: 5%; margin-top: 1%" >
                                                 <label for=" fname"
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                             Mesej</label>
@@ -135,32 +130,34 @@
 
                                     <br>
                                     <div class="row center mt-3">
-                                        <div class="col-md-12 center mb-3">
-                                            <button type="button" class="btn btn-primary center" style="margin-left:44%"
-                                                data-toggle="modal" data-target="#myModal">Tambah Pengumuman</button>
+                                        <div class="col-md-12 center mb-3" style="margin-left: 44%">
+                                            <button type="button" class="btn btn-primary"  id="checkBtn"
+                                            onclick="check();">Tambah Pengumuman</button>
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>
 
-                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
-                                        aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                            role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-hidden="true">×</button>
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                        PENGESAHAN</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <i data-feather="x"></i>
+                                                    </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>
-                                                        Anda pasti mahu menambah pengumuman ini?
+                                                        Anda pasti mahu menambah penngumuman ini?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-dismiss="modal">
+                                                    <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                                         <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                        <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
                                                     </button>
                                                     <button type="submit" class="btn btn-primary ml-1">
                                                         <i class="bx bx-check d-block d-sm-none"></i>
@@ -168,11 +165,8 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <!-- /.modal-content -->
                                         </div>
-                                        <!-- /.modal-dialog -->
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -188,20 +182,118 @@
     </div>
 @endsection
 
-@section('scripts')
-    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+    @section('scripts')
+        <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
+        <script>
+            var quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+
+            function add_message() {
+                // var content = document.querySelector("#snow").innerHTML;
+                // alert(quill.getContents());
+                quill.on('text-change', function(delta, oldDelta, source) {
+                    document.getElementById("quill_html").value = quill.root.innerHTML;
+                });
+            }
+        </script>
 
     <script>
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
+        function valid_start() {
 
-        function add_message() {
-            // var content = document.querySelector("#snow").innerHTML;
-            // alert(quill.getContents());
-            quill.on('text-change', function(delta, oldDelta, source) {
-                document.getElementById("quill_html").value = quill.root.innerHTML;
-            });
+            if ($('#Start_date').val() == '') {
+                $('#Start_date').css('border', '1px solid red');
+                document.getElementById('err_start').style.display = "block";
+
+
+            } else {
+                $('#Start_date').css('border', '');
+                document.getElementById('err_start').style.display = "none";
+
+            }
+
         }
     </script>
+
+    <script>
+        function valid_end() {
+
+            if ($('#End_date').val() == '') {
+                $('#End_date').css('border', '1px solid red');
+                document.getElementById('err_end').style.display = "block";
+
+
+            } else {
+                $('#End_date').css('border', '');
+                document.getElementById('err_end').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_icon() {
+
+            if ($('#basicSelect').val() == '') {
+                $('#basicSelect').css('border', '1px solid red');
+                document.getElementById('err_icon').style.display = "block";
+
+
+            } else {
+                $('#basicSelect').css('border', '');
+                document.getElementById('err_icon').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kod produk
+            field = document.getElementById("Start_date");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#Start_date').css('border', '1px solid red');
+                document.getElementById('err_start').style.display = "block";
+                console.log('masuk');
+            }
+
+            field = document.getElementById("End_date");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#End_date').css('border', '1px solid red');
+                document.getElementById('err_end').style.display = "block";
+                console.log('masuk');
+            }
+
+            field = document.getElementById("basicSelect");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#basicSelect').css('border', '1px solid red');
+                document.getElementById('err_icon').style.display = "block";
+                console.log('masuk');
+            }
+
+            if (error == "") {
+                $('#next').modal('show');
+                return true;
+            } else {
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+        }
+</script>
 @endsection

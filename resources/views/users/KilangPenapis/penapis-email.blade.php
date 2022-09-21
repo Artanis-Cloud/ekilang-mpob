@@ -62,7 +62,10 @@
                                         </h5> --}}
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
-                        <hr>
+
+
+                        <hr><i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '<b style="color: red"> * </b>'</i>
+                        <br><br><br>
 
 
 
@@ -75,7 +78,7 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="TypeOfEmail" required
                                             oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="this.setCustomValidity('')">
+                                            oninput="this.setCustomValidity(''); valid_type()">
                                             <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan
                                             </option>
@@ -85,6 +88,10 @@
                                             </option>
 
                                         </select>
+                                        <p type="hidden" id="err_type" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
+                                    </fieldset>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -94,36 +101,17 @@
                                 </div>
                             </div>
 
-
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
-                                    Daripada (Alamat Emel)</label>
-                                <div class="col-md-6">
-                                    <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                </div>
-                            </div>
                             <div class="row">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                     Tajuk</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name='Subject' id="Subject" required
+                                    <input type="text" class="form-control" name='Subject' id="subject" required
                                         title="Sila isikan butiran ini."
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        oninput="this.setCustomValidity(''); valid_subject()">
+
+                                        <p type="hidden" id="err_subject" style="color: red; display:none"><i>Sila isi butiran disini!</i></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-bottom: 5%">
@@ -193,16 +181,16 @@
 
                 <div class="row form-group" style="margin-top: 3%; ">
 
-                    <div class="text-right col-md-6 mb-4 ">
-                        <button type="button" class="btn btn-primary" style="margin-left:90%"
-                            data-toggle="modal"data-target="#emel">Hantar</button>
+                    <div class="row justify-content-center" style="margin-left: 44%">
+                        <button type="button" class="btn btn-primary"  id="checkBtn"
+                             onclick="check();">Hantar</button>
                     </div>
 
                 </div>
 
                 <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="emel" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                         role="document">
                         <div class="modal-content">
@@ -225,14 +213,15 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary ml-1">
                                     <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Hantar</span>
+                                    <span class="d-none d-sm-block">Ya</span>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
                 </form>
-            </div>
+                </div>
+
 
 
             </section><!-- End Hero -->
@@ -282,30 +271,89 @@
 
                 };
             </script>
-            <script>
-                function check() {
-                    // (C1) INIT
-                    var valid = true,
-                        error = "",
-                        field = "";
+   <script>
+    function valid_type() {
 
-                    // (C2) NAME
-                    field = document.getElementById("quill_html");
-                    error = document.getElementById("cname");
-                    if (!field.checkValidity()) {
-                        valid = false;
-                        field.classList.add("err");
-                        error.innerHTML = "Name must be 2-4 characters\r\n";
-                    } else {
-                        field.classList.remove("err");
-                        error.innerHTML = "";
-                    }
+        if ($('#basicSelect').val() == '') {
+            $('#basicSelect').css('border', '1px solid red');
+            document.getElementById('err_type').style.display = "block";
 
 
-                    // (C4) RESULT
-                    return valid;
-                }
-            </script>
+        } else {
+            $('#basicSelect').css('border', '');
+            document.getElementById('err_type').style.display = "none";
+
+        }
+
+    }
+</script>
+
+    <script>
+        function valid_subject() {
+
+            if ($('#subject').val() == '') {
+                $('#subject').css('border', '1px solid red');
+                document.getElementById('err_subject').style.display = "block";
+
+
+            } else {
+                $('#subject').css('border', '');
+                document.getElementById('err_subject').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+
+
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kod produk
+            field = document.getElementById("basicSelect");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#basicSelect').css('border', '1px solid red');
+                document.getElementById('err_type').style.display = "block";
+                console.log('masuk');
+            }
+
+            field = document.getElementById("subject");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#subject').css('border', '1px solid red');
+                document.getElementById('err_subject').style.display = "block";
+                console.log('masuk');
+            }
+
+            if (error == "") {
+                $('#next').modal('show');
+                return true;
+            } else {
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+        }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
+
+    </script>
              <script>
                 document.addEventListener('keypress', function (e) {
                     if (e.keyCode === 13 || e.which === 13) {

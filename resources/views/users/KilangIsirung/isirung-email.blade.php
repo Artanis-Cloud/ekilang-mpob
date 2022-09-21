@@ -59,7 +59,10 @@
                                         </h5> --}}
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
-                        <hr>
+
+
+                        <hr><i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '<b style="color: red"> * </b>'</i>
+                        <br><br><br>
 
 
 
@@ -72,7 +75,7 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="TypeOfEmail" required
                                             oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="this.setCustomValidity('')">
+                                            oninput="this.setCustomValidity(''); valid_type()">
                                             <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan
                                             </option>
@@ -82,6 +85,9 @@
                                             </option>
 
                                         </select>
+                                        <p type="hidden" id="err_type" style="color: red; display:none"><i>Sila buat pilihan
+                                            di
+                                            bahagian ini!</i></p>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -99,13 +105,10 @@
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name='Subject'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity('')" id="Subject" required
+                                        oninput="this.setCustomValidity(''); valid_subject()" id="subject" required
                                         title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                        <p type="hidden" id="err_subject" style="color: red; display:none"><i>Sila isi butiran disini!</i></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-bottom: 3%">
@@ -167,47 +170,49 @@
                         </div>
                 </div>
                 {{-- </div> --}}
-                <div class="row form-group">
-                    <div class="text-right col-md-6 mb-4 ">
-                        <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                            data-target="#emel">Hantar</button>
+
+                    <div class="row form-group" style="margin-top: 3%; ">
+
+                        <div class="row justify-content-center" style="margin-left: 44%">
+                            <button type="button" class="btn btn-primary"  id="checkBtn"
+                                onclick="check();">Hantar</button>
+                        </div>
+
                     </div>
-                </div>
 
-
-                <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="emel" tabindex="-1" role="dialog"
+                    <!-- Vertically Centered modal Modal -->
+                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    PENGESAHAN</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Anda pasti mahu menghantar emel ini?
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
-                                </button>
-                                <button type="submit" class="btn btn-primary ml-1">
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Hantar</span>
-                                </button>
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                        PENGESAHAN</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Anda pasti mahu menghantar emel ini?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
+                                    </button>
+                                    <button type="submit" class="btn btn-primary ml-1">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Ya</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 </form>
-            </div>
+                </div>
 
             </section><!-- End Hero -->
         @endsection
@@ -293,5 +298,78 @@
 
                 });
             </script>
+
+        <script>
+            function valid_type() {
+
+                if ($('#basicSelect').val() == '') {
+                    $('#basicSelect').css('border', '1px solid red');
+                    document.getElementById('err_type').style.display = "block";
+
+
+                } else {
+                    $('#basicSelect').css('border', '');
+                    document.getElementById('err_type').style.display = "none";
+
+                }
+
+            }
+        </script>
+
+        <script>
+            function valid_subject() {
+
+                if ($('#subject').val() == '') {
+                    $('#subject').css('border', '1px solid red');
+                    document.getElementById('err_subject').style.display = "block";
+
+
+                } else {
+                    $('#subject').css('border', '');
+                    document.getElementById('err_subject').style.display = "none";
+
+                }
+
+            }
+        </script>
+
+
+        <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // kod produk
+                field = document.getElementById("basicSelect");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#basicSelect').css('border', '1px solid red');
+                    document.getElementById('err_type').style.display = "block";
+                    console.log('masuk');
+                }
+
+                field = document.getElementById("subject");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#subject').css('border', '1px solid red');
+                    document.getElementById('err_subject').style.display = "block";
+                    console.log('masuk');
+                }
+
+                if (error == "") {
+                    $('#next').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+            }
+        </script>
 
         @endsection
