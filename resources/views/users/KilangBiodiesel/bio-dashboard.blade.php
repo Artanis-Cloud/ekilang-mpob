@@ -43,7 +43,7 @@
                                         <div class="pl-3">
 
                                             <ul>
-                                                <li style="text-align: justify">Berkuatkuasa 1 Mac 2021, <b> ses minyak
+                                                {{-- <li style="text-align: justify">Berkuatkuasa 1 Mac 2021, <b> ses minyak
                                                         sawit mentah yang
                                                         perlu dibayar di bawah
                                                         Perintah Lembaga Minyak Sawit Malaysia (Ses) pindaan 2021 adalah
@@ -80,9 +80,9 @@
                                                             <br>
                                                             <br>
 
-                                                    </div>
+                                                    </div> --}}
 
-                                                    <br> Jika terdapat sebarang pertanyaan atau kemusykilan berkenaan
+                                                    {{-- <br> Jika terdapat sebarang pertanyaan atau kemusykilan berkenaan
                                                     bayaran ses, sila
                                                     hubungi
                                                     pegawai MPOB iaitu <b>Puan Nurul Asyikin (03-87694811)
@@ -105,7 +105,14 @@
                                                     Pelumat Oleokimia Sawit
                                                     (CF). <a href="#"><b>Klik Disini</b></a>
 
+                                                </li> --}}
+                                                @foreach ($pengumuman2 as $data)
+                                                {{-- <li style="text-align: justify"> {{ $data->Message }}</a> --}}
+                                                <li style="text-align: justify"> {!! $data->Message !!}</a>
+
                                                 </li>
+                                                <br>
+                                                @endforeach
                                                 <ul>
 
                                         </div>
