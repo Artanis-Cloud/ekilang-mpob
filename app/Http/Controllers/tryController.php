@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\Oerdaerah;
+use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\User;
+use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use Illuminate\Http\Request;
@@ -39,12 +41,13 @@ class tryController extends Controller
         // f.daerah = d.daerah AND
         // f.negeri = n.negeri
         // order by f.tahun, f.bulan");
-        $dt = new DateTime();
-        // $dt = date('H:i:s');
-        $tz = new DateTimeZone('Asia/Kuala_Lumpur');
+        // $dt = new DateTime();
+        // // $dt = date('H:i:s');
+        // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
 
-        $dt->setTimezone($tz);
-        $dt->format('dd-mm-yyyy H:i:s');
+        // $dt->setTimezone($tz);
+        // $dt->format('dd-mm-yyyy H:i:s');
+        // $dt = date('Y-m-d');
         // echo $dt->format('H:i:s');
         // $loginmills = DB::connection('mysql3')->select("show databases");
         // if ($loginmills) {
@@ -55,7 +58,21 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($dt);
+
+        $now = date('Y-m-d');
+
+        $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
+
+        // $date2 = Carbon::createFromFormat('Y-m-d', $now);
+
+
+        // foreach ($date as $key => $dates) {
+        //     $date1 = Carbon::createFromFormat('Y-m-d', $dates[$key]->Start_date);
+
+        //     $result = $date2->gte($date1);
+
+        // }
+        dd($date);
         return view('users.users-dashboard');
     }
 

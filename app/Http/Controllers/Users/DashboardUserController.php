@@ -9,7 +9,9 @@ use App\Models\E104Init;
 use App\Models\E91Init;
 use App\Models\E07Init;
 use App\Models\EBioInit;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
+use DB;
 
 class DashboardUserController extends Controller
 {
@@ -27,7 +29,7 @@ class DashboardUserController extends Controller
         $penyata102 = E102Init::get();
         $penyata104 =E07Init::get();
         $penyataBIO = EBioInit::get(); E104Init::get();
-       
+
 
         return view('layouts.main', compact('penyata91','penyata101','penyata102','penyata104','penyata111','penyataBIO'));
     }
@@ -35,7 +37,17 @@ class DashboardUserController extends Controller
     public function buah_dashboard()
     {
         $penyata91 = E91Init::get();
-        return view('users.KilangBuah.buah-dashboard', compact('penyata91'));
+        $now = date('Y-m-d');
+
+        // $pengumuman = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
+        $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        // $data = htmlspecialchars($pengumuman);
+        // echo $data;
+        // $data = array(
+        //     'messages' => $pengumuman->message
+        //     );
+        //     dd($data);
+        return view('users.KilangBuah.buah-dashboard', compact('penyata91', 'pengumuman2', 'now'));
     }
 
     public function penapis_dashboard()
