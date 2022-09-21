@@ -53,7 +53,7 @@
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
-                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get">
+                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get"  onsubmit="return Validate(this);check()" >
                             @csrf
                             <div class>
                                 <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:-2%; text-align:center">
@@ -64,9 +64,10 @@
                                     Terdahulu di MYSQL dan PLEID</h5>
                             </div>
 
-
                             <div class="card-body">
-                                <hr>
+
+                                <hr><i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '<b style="color: red"> * </b>'</i>
+                                <br><br><br>
                                 <div class="container center ">
 
                                     <div class="row mt-1">
@@ -76,9 +77,9 @@
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="sektor" required
+                                                <select class="form-control" id="sektor" name="sektor" required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')">
+                                                    oninput="setCustomValidity(''); valid_sektor()">
                                                     <option selected hidden disabled value="">Sila Pilih Sektor</option>
                                                     @if (auth()->user()->sub_cat)
                                                     @foreach (json_decode(auth()->user()->sub_cat) as $cat)
@@ -118,6 +119,9 @@
                                                     <option value="PL102">Kilang Biodiesel</option>
                                                 @endif
                                                 </select>
+                                                <p type="hidden" id="err_sektor" style="color: red; display:none"><i>Sila buat pilihan
+                                                    di
+                                                    bahagian ini!</i></p>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -127,14 +131,17 @@
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="tahun" required
+                                                <select class="form-control" id="tahun" name="tahun" required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')">
+                                                    oninput="setCustomValidity(''); valid_tahun()">
                                                     <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                     @for ($i = 2011; $i <= date('Y'); $i++)
                                                         <option>{{ $i }}</option>
                                                     @endfor
                                                 </select>
+                                                <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat pilihan
+                                                    di
+                                                    bahagian ini!</i></p>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -144,9 +151,9 @@
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="bulan" required
+                                                <select class="form-control" id="bulan" name="bulan" required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')">
+                                                    oninput="setCustomValidity(''); valid_bulan()">
                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                     <option value="01">Januari</option>
                                                     <option value="02">Februari</option>
@@ -161,6 +168,9 @@
                                                     <option value="11">November</option>
                                                     <option value="12">Disember</option>
                                                 </select>
+                                                <p type="hidden" id="err_bulan" style="color: red; display:none"><i>Sila buat pilihan
+                                                    di
+                                                    bahagian ini!</i></p>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -172,19 +182,22 @@
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="data" required
+                                                <select class="form-control" id="data" name="data" required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')">
+                                                    oninput="setCustomValidity(''); valid_data()">
                                                     <option selected hidden disabled value="">Sila Pilih Sumber Data</option>
                                                     <option value="ekilang">e-Kilang</option>
                                                     <option value="pleid">PLEID</option>
                                                 </select>
+                                                <p type="hidden" id="err_data" style="color: red; display:none"><i>Sila buat pilihan
+                                                    di
+                                                    bahagian ini!</i></p>
                                             </fieldset>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center" style="margin: 10px; ">
-                                        <button type="submit" class="btn btn-primary">Papar</button>
-                                        {{-- <button type="submit">YA</button> --}}
+                                        <button type="submit" id="checkBtn"  class="btn btn-primary"  onclick="check()">Papar</button>
+                                        {{-- <button >YA</button> --}}
                                     </div>
                                 </div>
                             </div>
@@ -205,25 +218,120 @@
 @endsection
 
 @section('scripts')
-    {{-- <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-    </script> --}}
+
+    <script>
+        function valid_sektor() {
+
+            if ($('#sektor').val() == '') {
+                $('#sektor').css('border', '1px solid red');
+                document.getElementById('err_sektor').style.display = "block";
+
+
+            } else {
+                $('#sektor').css('border', '');
+                document.getElementById('err_sektor').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_tahun() {
+
+            if ($('#tahun').val() == '') {
+                $('#tahun').css('border', '1px solid red');
+                document.getElementById('err_tahun').style.display = "block";
+
+
+            } else {
+                $('#tahun').css('border', '');
+                document.getElementById('err_tahun').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_bulan() {
+
+            if ($('#bulan').val() == '') {
+                $('#bulan').css('border', '1px solid red');
+                document.getElementById('err_bulan').style.display = "block";
+
+
+            } else {
+                $('#bulan').css('border', '');
+                document.getElementById('err_bulan').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_data() {
+
+            if ($('#data').val() == '') {
+                $('#data').css('border', '1px solid red');
+                document.getElementById('err_data').style.display = "block";
+
+
+            } else {
+                $('#data').css('border', '');
+                document.getElementById('err_data').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            field = document.getElementById("sektor");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#sektor').css('border', '1px solid red');
+                document.getElementById('err_sektor').style.display = "block";
+                console.log('masuk');
+            }
+            // kod produk
+            field = document.getElementById("tahun");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#tahun').css('border', '1px solid red');
+                document.getElementById('err_tahun').style.display = "block";
+                console.log('masuk');
+            }
+            // kod produk
+            field = document.getElementById("bulan");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#bulan').css('border', '1px solid red');
+                document.getElementById('err_bulan').style.display = "block";
+                console.log('masuk');
+            }
+            // kod produk
+            field = document.getElementById("data");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#data').css('border', '1px solid red');
+                document.getElementById('err_data').style.display = "block";
+                console.log('masuk');
+            }
+
+
+            if (error == "") {
+
+                document.getElementById("checkBtn").setAttribute("type", "submit");
+                return true;
+                } else {
+                document.getElementById("checkBtn").setAttribute("type", "button");
+
+                return false;
+                }
+        }
+    </script>
 @endsection

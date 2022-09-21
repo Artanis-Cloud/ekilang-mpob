@@ -95,7 +95,10 @@
                                         </h5> --}}
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
-                        <hr>
+
+
+                        <hr><i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '<b style="color: red"> * </b>'</i>
+                        <br><br><br>
 
 
 
@@ -199,7 +202,7 @@
 
             <div class="row form-group" style="margin-top: 3%; ">
 
-                <div class="row justify-content-center" style="margin-left: 40%">
+                <div class="row justify-content-center" style="margin-left: 44%">
                     <button type="button" class="btn btn-primary"  id="checkBtn"
                          onclick="check();">Hantar</button>
                 </div>
@@ -260,7 +263,7 @@
 
         <script>
             var uploadField = document.getElementById('file');
-            uploadField.onchange = function() {
+            uploadField.onchange = function() {=
 
 
                 var filePath = uploadField.value;

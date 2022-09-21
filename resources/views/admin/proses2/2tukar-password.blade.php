@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class=" text-center">
-                            <h4 style="color: rgb(39, 80, 71);">Tukar Kata Laluan</h4>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Tukar Kata Laluan</h3>
                         </div>
                         <hr>
                         @if ($errors->any())
