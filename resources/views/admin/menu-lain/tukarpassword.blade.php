@@ -61,7 +61,8 @@
                                         Kata Laluan Baru (8 Aksara)</label>
                                     <div class="col-md-6">
                                         <input type="text" id="company-column" class="form-control"
-                                            placeholder="Kata Laluan Baru (8 Aksara)" name="company-column">
+                                            placeholder="Kata Laluan Baru (8 Aksara)" name="company-column"
+                                            oninput="valid_ps()">
                                     </div>
                                 </div>
                                 <div class="row mt-2">
@@ -70,11 +71,12 @@
                                         Kata Laluan Baru Sekali Lagi (8 Aksara)</label>
                                     <div class="col-md-6">
                                         <input type="text" id="company-column" class="form-control"
-                                            placeholder=" Kata Laluan Baru Sekali Lagi (8 Aksara)" name="company-column">
+                                            placeholder=" Kata Laluan Baru Sekali Lagi (8 Aksara)" name="company-column"
+                                            >
                                     </div>
-                                </div>
+                                </div><br>
 
-                                <div class="row form-group mt-2" style="padding-top: 10px; ">
+                                <div class="row form-group mt-2" style="padding-top: 10px; margin-right:44%">
                                     <div class="text-right col-md-12 center">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#myModal">Tukar Kata Laluan</button>
