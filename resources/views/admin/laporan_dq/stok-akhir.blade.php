@@ -118,18 +118,18 @@
                                                             @elseif ($data->bulan == 12)
                                                                 <td>Disember</td>
                                                             @endif
-                                                            <td>{{ number_format($data->cpo_sm ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->ppo_sm ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->cpko_sm ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->ppko_sm ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->cpo_sbh ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->ppo_sbh ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->cpko_sbh ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->ppko_sbh ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->cpo_srwk ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->ppo_srwk ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->cpko_srwk ?? 0, 2) }}</td>
-                                                            <td>{{ number_format($data->ppko_srwk ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->cpo_sm ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->ppo_sm ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->cpko_sm ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->ppko_sm ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->cpo_sbh ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->ppo_sbh ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->cpko_sbh ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->ppko_sbh ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->cpo_srwk ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->ppo_srwk ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->cpko_srwk ?? 0, 2) }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->ppko_srwk ?? 0, 2) }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#" type="button" data-toggle="modal"

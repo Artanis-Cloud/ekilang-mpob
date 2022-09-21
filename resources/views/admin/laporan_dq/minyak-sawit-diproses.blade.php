@@ -114,10 +114,10 @@
                                                             @elseif ($data->bulan == 12)
                                                                 <td>Disember</td>
                                                             @endif
-                                                                <td>{{ $data->cpo_msia }}</td>
-                                                                <td>{{ $data->ppo_msia }}</td>
-                                                                <td>{{ $data->cpko_msia }}</td>
-                                                                <td>{{ $data->ppko_msia }}</td>
+                                                                <td style="text-align: right">{{ number_format($data->cpo_msia ?? 0,2)  }}</td>
+                                                                <td style="text-align: right">{{  number_format($data->ppo_msia ?? 0,2)  }}</td>
+                                                                <td style="text-align: right">{{  number_format($data->cpko_msia ?? 0,2)  }}</td>
+                                                                <td style="text-align: right">{{  number_format($data->ppko_msia ?? 0,2)  }}</td>
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#" type="button" data-toggle="modal"
