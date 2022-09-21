@@ -45,7 +45,7 @@ class DashboardUserController extends Controller
         // $data = array(
         //     'messages' => $pengumuman->message
         //     );
-        //     dd($data);
+            // dd($pengumuman2);
         return view('users.KilangBuah.buah-dashboard', compact('penyata91', 'pengumuman2', 'now'));
     }
 
