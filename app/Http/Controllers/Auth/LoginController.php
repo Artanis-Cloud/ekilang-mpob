@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengumuman;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +49,9 @@ class LoginController extends Controller
     public function redirectTo()
     {
         $category = auth()->user()->category;
+
+
+
         // dd(auth()->user()->category);
 
         //log audit trail admin
