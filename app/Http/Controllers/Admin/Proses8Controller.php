@@ -147,10 +147,10 @@ class Proses8Controller extends Controller
         where tahun = '$tahun'
         and bulan = '$bulan'");
 
-        $qrytransfer = DB::update("UPDATE web_current1 set public_view='T'
+        $qrytransfer = DB::connection('mysql3')->update("UPDATE web_current1 set public_view='T'
         where public_view ='Y'");
 
-        $qrytransfer2 = DB::update("UPDATE release10hb set public_view='T'
+        $qrytransfer2 = DB::connection('mysql3')->update("UPDATE release10hb set public_view='T'
         where public_view='Y'");
 
 
