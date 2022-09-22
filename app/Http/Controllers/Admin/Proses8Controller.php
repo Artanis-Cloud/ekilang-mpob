@@ -5240,7 +5240,7 @@ class Proses8Controller extends Controller
         } else
             $prodmsia_id = 1;
 
-        $qinsmsia1 = DB::select("SELECT into prodmsia values ('$prodmsia_id','$tahun','$bulan',
+        $qinsmsia1 = DB::insert("INSERT into prodmsia values ('$prodmsia_id','$tahun','$bulan',
       $millhrs,$millcap,$millutilrate,
       $crshrs,$crscap,$crsutilrate,
       $refcap, $refutilrate,
