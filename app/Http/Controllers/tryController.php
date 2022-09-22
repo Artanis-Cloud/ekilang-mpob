@@ -26,22 +26,7 @@ class tryController extends Controller
     }
     public function testing3()
     {
-        // $loginmills = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo,d.oer_cpo,n.oer_cpo,s.oer_cpo,m.oer_cpo
-        // FROM oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
-        // WHERE f.nolesen = '500008704000 ' AND
-        // (f.tahun = '2017') AND
-        // f.tahun = d.tahun AND
-        // f.bulan = d.bulan AND
-        // f.tahun = n.tahun AND
-        // f.bulan = n.bulan AND
-        // f.tahun = s.tahun AND
-        // f.bulan = s.bulan AND
-        // f.tahun = m.tahun AND
-        // f.bulan = m.bulan AND
-        // f.negeri = d.negeri AND
-        // f.daerah = d.daerah AND
-        // f.negeri = n.negeri
-        // order by f.tahun, f.bulan");
+
         // $dt = new DateTime();
         // // $dt = date('H:i:s');
         // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
@@ -50,7 +35,7 @@ class tryController extends Controller
         // $dt->format('dd-mm-yyyy H:i:s');
         // $dt = date('Y-m-d');
         // echo $dt->format('H:i:s');
-        // $loginmills = DB::connection('mysql3')->select("show databases");
+
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;
         //     $oerdaerah_id = $idno_daerah + 1;
@@ -65,7 +50,17 @@ class tryController extends Controller
         // $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
 
         // $query1 = Oernegeri::max('oernegeri_id');
-        $query1 = Oernegeri::get();
+        $qrystkcpl = DB::connection('mysql3')->select("SELECT sum(b.F101B13) stk101_cpl
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '2017' and
+              a.F101A5 = 09' and
+              b.F101B3 = '1' and
+              b.F101B4 = '03' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
@@ -76,7 +71,7 @@ class tryController extends Controller
         //     $result = $date2->gte($date1);
 
         // }
-        dd($query1);
+        dd($qrystkcpl);
         return view('users.users-dashboard');
     }
 
