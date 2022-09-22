@@ -923,7 +923,7 @@ class Proses8Controller extends Controller
                     b.F101C7 is not NULL");
 
             foreach ($qryprodsoap as $sum) {
-                $prod101_soap = (float) $sum->qryprodsoap;
+                $prod101_soap = (float) $sum->prod101_soap;
             }
 
             //odbc_close($conn_odbc);
