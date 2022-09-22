@@ -11037,7 +11037,7 @@ $qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
 
 foreach ($qry2 as $sum) {
  $millcap =  $sum->cap_lulus ;
- $millno =  $sum->millno ;
+//  $millno =  $sum->millno ;
  }
 
 if ($millcap == NULL)
