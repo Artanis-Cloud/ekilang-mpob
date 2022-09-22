@@ -398,7 +398,7 @@
                                     placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     onkeypress="return isNumberKey(event)"
-                                    oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); valid_proses()"
+                                    oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); valid_proses(); "
                                     value=" {{ $pelesen->kap_proses }}" required>
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
@@ -426,9 +426,9 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%"
-                                    oninput="invokeFunc19();setCustomValidity(''); ableInput(); valid_cpo(); FormatCurrency(this)" id="bil_tangki_cpo" required
+                                    oninput="invokeFunc19(); ableInput(); FormatCurrency(this); valid_cpo()" id="bil_tangki_cpo" required
                                     title="Sila isikan butiran ini." min="1"
-                                    oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')"
+                                    {{-- oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')" --}}
                                     onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
                                     required>
                                 <p type="hidden" id="err_bcpo" style="color: red; display:none"><i>Sila isi
@@ -543,29 +543,43 @@
         @endsection
 
         @section('scripts')
-        <script>
+        {{-- <script>
             $(document).ready(function() {
                 $("#kap_proses").change(function() {
                     var x = $("#kap_proses").val();
+                    if (x == null || x == 0) {
+                        num1 = 0;
+                    } else {
                     var num1 = parseInt(x, 10);
-                    console.log('num' + x);
+                    }
+                    // console.log('num' + x);
                     $("#kap_proses").val(num1);
                 });
                 $("#bil_tangki_cpo").change(function() {
                     var x = $("#bil_tangki_cpo").val();
+
+                    if (x == null || x == 0) {
+                        num1 = 0;
+                    } else {
                     var num1 = parseInt(x, 10);
-                    console.log('num' + x);
+
+                    }
+                    // console.log('num' + x);
                     $("#bil_tangki_cpo").val(num1);
                 });
                 $("#kap_tangki_cpo").change(function() {
                     var x = $("#kap_tangki_cpo").val();
+                    if (x == null || x == 0) {
+                        num1 = 0;
+                    } else {
                     var num1 = parseInt(x, 10);
-                    console.log('num' + x);
+                    }
+                    // console.log('num' + x);
                     $("#kap_tangki_cpo").val(num1);
                 });
 
             });
-            </script>
+            </script> --}}
         <script>
             $('.sub-form').submit(function() {
 
@@ -619,6 +633,8 @@
                     });
                 });
             </script>
+
+            {{-- remove leading zero --}}
             <script>
                 var input = document.getElementById("kap_proses");
                 var lastValue = "";
@@ -910,7 +926,7 @@
                         $('#kap_tangki_cpo').css('border-color', 'red');
                         document.getElementById('err_kcpo').style.display = "block";
                     } else {
-                        console.log('kap_tangki no');
+                        // console.log('kap_tangki no');
                         $('#kap_tangki_cpo').css('border-color', '');
                         document.getElementById('err_kcpo').style.display = "none";
 
@@ -1255,7 +1271,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1273,7 +1289,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1291,7 +1307,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1309,7 +1325,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1327,7 +1343,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1345,7 +1361,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1363,7 +1379,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1381,7 +1397,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1399,7 +1415,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1417,7 +1433,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1435,7 +1451,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1453,7 +1469,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1472,7 +1488,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1490,7 +1506,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1509,7 +1525,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1527,7 +1543,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1545,7 +1561,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1564,7 +1580,7 @@
 
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>
@@ -1582,7 +1598,7 @@
                 }
 
                 function checkKey(evt) {
-                    console.log(evt.which);
+                    //console.log(evt.which);
                     return evt.which;
                 }
             </script>

@@ -6015,6 +6015,19 @@ where p.F911A = l.F201A and
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function porting_homepage($tahun, $bulan)
     {
         if ($bulan == '01')
@@ -7484,7 +7497,7 @@ where p.F911A = l.F201A and
 
 
 
-        $qryproccpo = "select sum(b.F101B10) proc101_cpo
+        $qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpo
                    from pl101ap3 a, pl101bp3 b, licensedb.license l,lesen_master.mpku_caps m
                    where a.F101A1 = l.F201A and
                          l.F201U4 = $ngr and
@@ -7500,7 +7513,7 @@ where p.F911A = l.F201A and
                          b.F101B10 not in (0) and
 						 m.cap_lulus not in (0.00) and
 						 b.F101B10 is not NULL and
-						 m.cap_lulus is not NULL";
+						 m.cap_lulus is not NULL");
 
         foreach ($qryproccpo as $sum) {
             $proc101_cpo = (float) $sum->proc101_cpo;
@@ -7634,8 +7647,9 @@ where p.F911A = l.F201A and
 
         foreach ($qry2 as $sum) {
             $oleocap = (float) $sum->cap_lulus;
+            $oleono =  $sum->oleono;
+
       }
-        $oleono = $ad2["oleono"];
 
         if ($oleocap == NULL)
            $oleocap = 0;
@@ -8096,19 +8110,19 @@ where p.F911A = l.F201A and
           $oleoutilrate = 0;
         else
           $oleoutilrate = (float) ((($proc104_cpo + $proc104_ppo + $proc104_cpko + $proc104_ppko ) / ($oleocap/12)) * 100);
-echo "data1";
-echo "<br>";
-echo $proc104_cpo;
-echo "<br>";
-echo $proc104_ppo;
-echo "<br>";
-echo $proc104_cpko;
-echo "<br>";
-echo $proc104_ppko;
-echo "<br>";
-echo $oleocap;
-echo "<br>";
-echo $oleoutilrate;
+// echo "data1";
+// echo "<br>";
+// echo $proc104_cpo;
+// echo "<br>";
+// echo $proc104_ppo;
+// echo "<br>";
+// echo $proc104_cpko;
+// echo "<br>";
+// echo $proc104_ppko;
+// echo "<br>";
+// echo $oleocap;
+// echo "<br>";
+// echo $oleoutilrate;
 
 
         //odbc_close($conn_odbc);
