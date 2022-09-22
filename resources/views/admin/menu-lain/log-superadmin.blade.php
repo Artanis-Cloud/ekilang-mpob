@@ -68,7 +68,7 @@
                                                 <th>Username</th>
                                                 <th>Aktiviti</th>
                                                 <th>IP Pengguna</th>
-                                                <th>Jam / Waktu</th>
+                                                <th>Tarikh / Waktu</th>
 
                                             </tr>
                                         </thead>
