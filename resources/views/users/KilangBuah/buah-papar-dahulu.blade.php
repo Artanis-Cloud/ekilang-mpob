@@ -105,7 +105,7 @@
                             </p>
                             <hr>
 
-                            <table border="0" width="100%" cellspacing="0">
+                            <table border="0" width="111%" cellspacing="0">
 
                                 <tbody>
                                     <tr>
@@ -144,7 +144,7 @@
                                     <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                 </b></p>
 
-                            <table border="0" width="72%" cellpadding="0" cellspacing="0">
+                            <table border="0" width="80%" cellpadding="0" cellspacing="0">
 
                                 <tbody>
 
@@ -263,7 +263,7 @@
                                 (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                             </b> </p>
 
-                            <table border="1" style="width: 65%" bordercolor="#000000" cellspacing="0" cellpadding="0"
+                            <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0" cellpadding="0"
                                 bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                 class="table table-bordered">
                             <tbody>
@@ -461,11 +461,11 @@
                             <br><hr>
                             <div  style='page-break-after:always'></div>
                             <p><b>
-                                    <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
+                                    <font style="font-size: 15px;  color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
                                         PERAHAN DAN HARGA </font>
                                 </b> </p>
 
-                            <table border="0" width="40% " cellspacing="0" cellpadding="0">
+                            <table border="0" style="width: 40% " cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
                                         <td width="380">
@@ -518,7 +518,7 @@
 
 
 
-                            <table border="1" style="width: 65%" cellspacing="0" cellpadding="0"
+                            <table border="1" style="width: 70%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered ">
 
                                 <tbody style="border: 1px solid black;">

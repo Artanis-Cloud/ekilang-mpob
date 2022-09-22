@@ -313,7 +313,7 @@ class LaporanController extends Controller
                 ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
         }
 
-
+        dd($result);
         $layout = 'layouts.admin';
 
         $array = [

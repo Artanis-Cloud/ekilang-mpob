@@ -1,8 +1,8 @@
 @extends('layouts.main')
-<style>
+{{-- <style>
     #facebook-icon,
 #facebook-icon ~ span {display:inline-block;}
-</style>
+</style> --}}
 @section('content')
     <div class="page-wrapper">
 
@@ -40,11 +40,9 @@
         {{-- <form method="get" action="" id="myfrm"> --}}
         <div class="card" style="margin-right:2%; margin-left:2%">
 
-            <br>
-            <br>
             <div class="card-body">
 
-                <div class="pl-3">
+                <div class="pl-3" style="padding: 2%">
 
                     <body>
                         <div align="right">
@@ -57,14 +55,13 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p align="left"><b>MPOB(EL)PX-MF</b></p>
+                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
-                        </div>
-                        <br>
+                        </div><br>
                         <p style="text-align: center; vertical-align:middle">
                             <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
                         </p>
@@ -106,7 +103,7 @@
                         </p>
                         <hr>
 
-                        <table border="0" width="100%" cellspacing="0">
+                        <table border="0" width="111%" cellspacing="0">
 
                             <tbody>
                                 <tr>
@@ -146,7 +143,7 @@
                             <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                         </b></p>
 
-                        <table border="0" width="72%" cellpadding="0" cellspacing="0">
+                        <table border="0" width="80%" cellpadding="0" cellspacing="0">
 
                             <tbody>
 
@@ -507,8 +504,8 @@
                                         </font>
                                     </td>
                                     <td width="70">
-                                        <font size="2.7">:
-                                            {{ number_format($penyata->e91_ah1 ?? 0, 2) }}</font>
+                                        <font size="2.7"><b>:
+                                            {{ number_format($penyata->e91_ah1 ?? 0, 2) }}</b></font>
                                     </td>
                                 </tr>
 
@@ -518,8 +515,8 @@
                                             diperolehi&nbsp;</font>
                                     </td>
                                     <td width="100">
-                                        <font size="2.7">:
-                                            {{ number_format($penyata->e91_ah2 ?? 0, 2) }}%</font>
+                                        <font size="2.7"><b>:
+                                            {{ number_format($penyata->e91_ah2 ?? 0, 2) }}%</b></font>
                                     </td>
                                 </tr>
                                 <tr>
@@ -527,8 +524,8 @@
                                         <font size="2.7">iii. Kadar Perolehan Isirung (KER)</font>
                                     </td>
                                     <td width="100">
-                                        <font size="2.7">:
-                                            {{ number_format($penyata->e91_ah3 ?? 0, 2) }}%</font>
+                                        <font size="2.7"><b>:
+                                            {{ number_format($penyata->e91_ah3 ?? 0, 2) }}%</b></font>
                                     </td>
                                 </tr>
                                 <tr>
@@ -538,8 +535,8 @@
                                         </font>
                                     </td>
                                     <td width="150">
-                                        <font size="2.7">:&nbsp;RM
-                                            {{ number_format($penyata->e91_ah4 ?? 0, 2) }}</font>
+                                        <font size="2.7"><b>:&nbsp;RM
+                                            {{ number_format($penyata->e91_ah4 ?? 0, 2) }}</b></font>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1216,171 +1213,163 @@
 
             </div>
 
-
+        </div>
+    </div>
             <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
                     class="bi bi-arrow-up-short"></i></a>
 
-            {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-            </script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-            </script> --}}
 
-            <script>
-                $(document).ready(function() {
-                    swal("Perhatian!",
-                        "Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat pegawai melapor dan no. telefon kilang dan tekan butang Hantar."
-                        );
-                });
-            </script>
-            <script>
-                function myPrint(myfrm) {
+    <script>
+        $(document).ready(function() {
+            swal("Perhatian!",
+                "Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat pegawai melapor dan no. telefon kilang dan tekan butang Hantar."
+                );
+        });
+    </script>
+    <script>
+        function myPrint(myfrm) {
 
-                    var printdata = document.getElementById(myfrm);
-                    newwin = window.open("");
-                    newwin.document.write(printdata.outerHTML);
-                    newwin.print();
-                    newwin.close();
-                }
-            </script>
-            <script>
-                document.addEventListener('keypress', function (e) {
-                    if (e.keyCode === 13 || e.which === 13) {
-                        e.preventDefault();
-                        return false;
-                    }
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
 
-                });
-            </script>
-            <script>
-                function check() {
-                    // (B1) INIT
-                    var error = "",
-                        field = "";
+        });
+    </script>
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
 
-                    // alamat premis 1500403125000
-                    field = document.getElementById("e_npg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                        $('#e_npg').css('border-color', 'red');
-                        document.getElementById('err_npg').style.display = "block";
-                    }
+            // alamat premis 1500403125000
+            field = document.getElementById("e_npg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
+            }
 
-                    // alamat premis 1
-                    field = document.getElementById("e_jpg");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                        $('#e_jpg').css('border-color', 'red');
-                        document.getElementById('err_jpg').style.display = "block";
-                    }
+            // alamat premis 1
+            field = document.getElementById("e_jpg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
+            }
 
-                    // alamat surat-menyurat 1
-                    field = document.getElementById("e_notel");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                        $('#e_notel').css('border-color', 'red');
-                        document.getElementById('err_notel').style.display = "block";
-                    } else if (field.value.length > 13 || field.value.length < 10) {
-                        console.log(field.value.length);
-                        error += "Name must be 2-4 characters\r\n";
-                        $('#e_notel').css('border-color', 'red');
-                        document.getElementById('err_notel2').style.display = "block";
-                        document.getElementById('err_notel').style.display = "none";
-                    }
-                    else {
-                        $('#e_notel').css('border-color', '');
-                        document.getElementById('err_notel').style.display = "none";
-                        document.getElementById('err_notel2').style.display = "none";
-                    }
+            // alamat surat-menyurat 1
+            field = document.getElementById("e_notel");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
+            } else if (field.value.length > 13 || field.value.length < 10) {
+                console.log(field.value.length);
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel2').style.display = "block";
+                document.getElementById('err_notel').style.display = "none";
+            }
+            else {
+                $('#e_notel').css('border-color', '');
+                document.getElementById('err_notel').style.display = "none";
+                document.getElementById('err_notel2').style.display = "none";
+            }
 
-                    // (B4) RESULT
-                    if (error == "") {
-                        $('#exampleModalCenter').modal('show');
-                        return true;
-                    } else {
-                        $('#next').modal('hide');
-                        toastr.error(
-                            'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                            'Ralat!', {
-                                "progressBar": true
-                            })
-                        return false;
-                    }
+            // (B4) RESULT
+            if (error == "") {
+                $('#exampleModalCenter').modal('show');
+                return true;
+            } else {
+                $('#next').modal('hide');
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
 
-                    // if (error == "") {
-                    //     return true;
-                    // } else {
-                    //     toastr.error(
-                    //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                    //         'Ralat!', {
-                    //             "progressBar": true
-                    //         })
-                    //     return false;
-                    // }
-                }
-            </script>
- <script>
-    function valid_npg() {
+            // if (error == "") {
+            //     return true;
+            // } else {
+            //     toastr.error(
+            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            //         'Ralat!', {
+            //             "progressBar": true
+            //         })
+            //     return false;
+            // }
+        }
+    </script>
+    <script>
+        function valid_npg() {
 
-        if ($('#e_npg').val() == '') {
-            $('#e_npg').css('border-color', 'red');
-            document.getElementById('err_npg').style.display = "block";
+            if ($('#e_npg').val() == '') {
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
 
 
-        } else {
-            $('#e_npg').css('border-color', '');
-            document.getElementById('err_npg').style.display = "none";
+            } else {
+                $('#e_npg').css('border-color', '');
+                document.getElementById('err_npg').style.display = "none";
+
+            }
 
         }
+    </script>
+    <script>
+        function valid_jpg() {
 
-    }
-</script>
-<script>
-    function valid_jpg() {
-
-        if ($('#e_jpg').val() == '') {
-            $('#e_jpg').css('border-color', 'red');
-            document.getElementById('err_jpg').style.display = "block";
+            if ($('#e_jpg').val() == '') {
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
 
 
-        } else {
-            $('#e_jpg').css('border-color', '');
-            document.getElementById('err_jpg').style.display = "none";
+            } else {
+                $('#e_jpg').css('border-color', '');
+                document.getElementById('err_jpg').style.display = "none";
 
-        }
-
-    }
-</script>
-<script>
-    function valid_notel_pg() {
-
-        var str = document.getElementById('e_notel');
-                    // console.log(str.value.length);
-
-        if ($('#e_notel').val() == '') {
-            $('#e_notel').css('border-color', 'red');
-            document.getElementById('err_notel').style.display = "block";
-            document.getElementById('err_notel2').style.display = "none";
-
-
-        } else if (str.value.length > 13 || str.value.length < 10) {
-            $('#e_notel').css('border-color', 'red');
-            document.getElementById('err_notel2').style.display = "block";
-            document.getElementById('err_notel').style.display = "none";
-        }
-        else {
-            $('#e_notel').css('border-color', '');
-            document.getElementById('err_notel').style.display = "none";
-            document.getElementById('err_notel2').style.display = "none";
+            }
 
         }
+    </script>
+    <script>
+        function valid_notel_pg() {
+
+            var str = document.getElementById('e_notel');
+                        // console.log(str.value.length);
+
+            if ($('#e_notel').val() == '') {
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
+                document.getElementById('err_notel2').style.display = "none";
 
 
-    }
-</script>
-            </body>
+            } else if (str.value.length > 13 || str.value.length < 10) {
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel2').style.display = "block";
+                document.getElementById('err_notel').style.display = "none";
+            }
+            else {
+                $('#e_notel').css('border-color', '');
+                document.getElementById('err_notel').style.display = "none";
+                document.getElementById('err_notel2').style.display = "none";
 
-            </html>
-        @endsection
-    </div>
-</div>
+            }
+
+
+        }
+    </script>
+
+@endsection

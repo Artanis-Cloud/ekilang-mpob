@@ -125,7 +125,7 @@
                                         </p>
                                         <hr>
 
-                                        <table border="0" width="100%" cellspacing="0">
+                                        <table border="0" width="111%" cellspacing="0">
 
                                             <tbody>
                                                 <tr>
@@ -159,10 +159,10 @@
 
 
                                         <p align="left"><b>
-                                                <font color="#0c7c85">MAKLUMAT PELESEN </font>
+                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                             </b></p>
 
-                                        <table border="0" width="72%" cellpadding="0" cellspacing="0">
+                                        <table border="0" width="80%" cellpadding="0" cellspacing="0">
 
                                             <tbody>
 
@@ -280,17 +280,17 @@
 
 
                                                 <p><b>
-                                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
+                                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT STOK AWAL, BELIAN, PROSES,
                                                         PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                                 </b> </p>
 
-                                            <table border="1" width="650" bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width:70% " bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr>
-                                                        <td width="220" style="background-color: #d3d3d370">
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="220" >
                                                             <p align="center"><b>
                                                                     <font size="2.7">Butiran</font>
                                                                 </b></p>
@@ -510,7 +510,7 @@
                                                         PERAHAN DAN HARGA </font>
                                                 </b> </p>
 
-                                            <table border="0" width="460" cellspacing="0" cellpadding="0">
+                                            <table border="0"  style="width:40% " cellspacing="0" cellpadding="0">
                                                 <tbody>
                                                     <tr>
                                                         <td width="380">
@@ -569,7 +569,7 @@
 
 
 
-                                            <table border="1" width="604" cellspacing="0" cellpadding="0"
+                                            <table border="1" style="width:70% " cellspacing="0" cellpadding="0"
                                                 class="table table-bordered ">
 
                                                 <tbody style="border: 1px solid black;">
@@ -788,7 +788,7 @@
                                                 </font>
                                             </p>
 
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width:50% " bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered ">
                                                 <tbody>
@@ -882,7 +882,7 @@
                                                         MENTAH (CPO) (01) </b></font>
                                             </p>
 
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width:50% " bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -996,7 +996,7 @@
                                                         (51)</b></font>
                                             </p>
 
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width:50% " bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -1134,7 +1134,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" >
     </script>
     <script type="text/javascript">
         $(document).ready(function() {

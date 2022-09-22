@@ -116,7 +116,7 @@
                                             </p>
                                             <hr>
 
-                                            <table border="0" width="100%" cellspacing="0">
+                                            <table border="0" width="111%" cellspacing="0">
 
                                                 <tbody>
                                                     <tr>
@@ -156,7 +156,7 @@
                                                     <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                                 </b></p>
 
-                                            <table border="0" width="72%" cellpadding="0" cellspacing="0">
+                                            <table border="0" width="80%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
 

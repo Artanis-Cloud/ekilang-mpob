@@ -49,6 +49,10 @@ class Proses8Controller extends Controller
             $this->porting_homepage($request->tahun, $request->bulan);
             return redirect()->back()->with('success', 'Data telah dipindahkan ke Stat Homepage');
         }
+
+
+        //log audit trail admin
+        Auth::user()->log(" PORTING" );
     }
 
 

@@ -59,8 +59,6 @@
                                     {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 
-
-
                                         <body><h1 style="page-break-before:always"></h1>
                                             {{-- <p align="left">
                                                     PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
@@ -124,7 +122,7 @@
                                             </p>
                                             <hr>
 
-                                            <table border="0" width="100%" cellspacing="0">
+                                            <table border="0" width="111%" cellspacing="0">
 
                                                 <tbody>
                                                     <tr>
@@ -163,7 +161,7 @@
                                                     <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                                 </b></p>
 
-                                            <table border="0" width="73%" cellpadding="0" cellspacing="0">
+                                            <table border="0" width="80%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
 
@@ -286,7 +284,7 @@
                                                     </font>
                                                 </b> </p>
 
-                                            <table border="1" width="650" bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -511,7 +509,7 @@
                                                         PERAHAN DAN HARGA </font>
                                                 </b> </p>
 
-                                            <table border="0" width="460" cellspacing="0" cellpadding="0">
+                                            <table border="0"  style="width: 40%" cellspacing="0" cellpadding="0">
                                                 <tbody>
                                                     <tr>
                                                         <td width="380">
@@ -519,8 +517,8 @@
                                                             </font>
                                                         </td>
                                                         <td width="70">
-                                                            <font size="2.7">:
-                                                                {{ number_format($data->e91_ah1 ?? 0, 2) }}</font>
+                                                            <font size="2.7"><b>:
+                                                                {{ number_format($data->e91_ah1 ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
 
@@ -530,8 +528,8 @@
                                                                 diperolehi&nbsp;</font>
                                                         </td>
                                                         <td width="100">
-                                                            <font size="2.7">:
-                                                                {{ number_format($data->e91_ah2 ?? 0, 2) }}%</font>
+                                                            <font size="2.7"><b>:
+                                                                {{ number_format($data->e91_ah2 ?? 0, 2) }}%</b></font>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -539,8 +537,8 @@
                                                             <font size="2.7">iii. Kadar Perolehan Isirung (KER)</font>
                                                         </td>
                                                         <td width="100">
-                                                            <font size="2.7">:
-                                                                {{ number_format($data->e91_ah3 ?? 0, 2) }}%</font>
+                                                            <font size="2.7"><b>:
+                                                                {{ number_format($data->e91_ah3 ?? 0, 2) }}%</b></font>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -550,8 +548,8 @@
                                                             </font>
                                                         </td>
                                                         <td width="150">
-                                                            <font size="2.7">:&nbsp;RM
-                                                                {{ number_format($data->e91_ah4 ?? 0, 2) }}</font>
+                                                            <font size="2.7"><b>:&nbsp;RM
+                                                                {{ number_format($data->e91_ah4 ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -570,7 +568,7 @@
 
 
 
-                                            <table border="1" width="604" cellspacing="0" cellpadding="0"
+                                            <table border="1"  style="width: 70%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered ">
 
                                                 <tbody style="border: 1px solid black;">
@@ -788,7 +786,7 @@
                                                 </font>
                                             </p>
 
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            <table border="1"  style="width: 50%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered ">
                                                 <tbody>
@@ -882,7 +880,7 @@
                                                         MENTAH (CPO) (01) </b></font>
                                             </p>
 
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            <table border="1"  style="width: 50%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -996,7 +994,7 @@
                                                         (51)</b></font>
                                             </p>
 
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            <table border="1"  style="width: 50%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -1051,7 +1049,7 @@
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1" width="342" cellspacing="0" cellpadding="0"
+                                            <table border="1"  style="width: 100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
