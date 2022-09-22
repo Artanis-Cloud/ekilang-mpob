@@ -16,7 +16,7 @@ class Oernegeri extends Model
      * @var string
      *
      */
-    protected $table = 'aktiviti_isirong';
+    protected $table = 'oernegeri';
 
     protected $fillable = [
 
