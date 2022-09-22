@@ -2796,7 +2796,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
         $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = (ppko_proc / (oleokap / 12)) * 100
         where tahun = '$tahun' and bulan = '$bulan'");
      }
-    
+
     $updatep104s =DB::update("UPDATE p104_master set oleoutilrate = 0
     where tahun = '$tahun' and bulan = '$bulan' and oleoutilrate is NULL");
     $updatep104t =DB::update("UPDATE p104_master set oleoutilratecpo = 0
@@ -2806,7 +2806,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
     $updatep104v =DB::update("UPDATE p104_master set oleoutilrateppo = 0
     where tahun = '$tahun' and bulan = '$bulan' and oleoutilrateppo is NULL");
     $updatep104w =DB::update("UPDATE p104_master set oleoutilrateppko = 0
-    where tahun = '$tahun' and bulan = '$bulan' and oloeutilrateppko is NULL");
+    where tahun = '$tahun' and bulan = '$bulan' and oleoutilrateppko is NULL");
 
 
     $mthstatep104 = DB::insert(
