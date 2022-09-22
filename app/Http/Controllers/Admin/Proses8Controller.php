@@ -7100,7 +7100,7 @@ where p.F911A = l.F201A and
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
-        $qrystkcpl = DB::connection('mysql3')->select("SELECT sum(b.F101B13) stk101_cpl
+        $qrystkcpl = DB::connection('mysql4')->select("SELECT sum(b.F101B13) stk101_cpl
                    from pl101ap3 a, pl101bp3 b, licensedb.license l
                    where a.F101A1 = l.F201A and
                          l.F201U4 = $ngr and
