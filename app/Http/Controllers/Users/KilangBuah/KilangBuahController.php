@@ -724,7 +724,7 @@ class KilangBuahController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        // $layout = 'layouts.kbuah';
 
         $bulan = date("m") - 1;
 
@@ -746,7 +746,7 @@ class KilangBuahController extends Controller
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
 
         if ($penyata) {
-            return view('users.KilangBuah.buah-papar-penyata', compact('layout', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
+            return view('users.KilangBuah.buah-papar-penyata', compact( 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');

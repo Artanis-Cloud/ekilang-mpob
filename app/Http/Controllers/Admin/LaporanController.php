@@ -438,6 +438,7 @@ class LaporanController extends Controller
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
             ->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->groupBy('ebio_nl')->get();
+            // dd( $result);
 
         }
         if ($request->kumpproduk) {
@@ -459,7 +460,6 @@ class LaporanController extends Controller
         //     ->where('ebio_thn',$tahun)->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')
         //     ->where('prodname', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         // }
-            // dd( $result);
 
     if(!$result->isEmpty()){
 
