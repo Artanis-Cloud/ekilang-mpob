@@ -267,7 +267,10 @@ class Proses8Controller extends Controller
            and m.cap_mmyyyy = '$blnthn'
            and m.cap_kat = '04'");
 
-            $millcap = $qrycap->cap_lulus;
+            foreach ($qrycap as $qrycaps) {
+                $millcap = $qrycaps->cap_lulus;
+
+            }
 
             $insert_pelesen = DB::insert("INSERT into oerpelesen values ('$idno','$nolesen',
             '$namakilang','$negeri','$daerah','$tahun','$bulan',
