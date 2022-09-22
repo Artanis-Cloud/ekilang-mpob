@@ -2250,7 +2250,7 @@ class Proses8Controller extends Controller
             // unset($ppo_hasil_rbdpo);
             // unset($stk_awl_rbdpo);
 
-            //--> RBDPO
+            //-->RBDPO
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
             $qryrbdpo1 = DB::connection('mysql4')->select("SELECT sum(kuantiti)  ppo_hasil_rbdpo
@@ -2420,7 +2420,7 @@ class Proses8Controller extends Controller
                 $jualan_eksport_rbdpo = 0;
 
 
-            //--> RBDPL
+            //-->RBDPL
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -2564,7 +2564,7 @@ class Proses8Controller extends Controller
 
 
             //odbc_close($conn_odbc);
-            //--> RBDPS
+            //-->RBDPS
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
             $qrynegeribio_rbdps1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdps
@@ -2705,7 +2705,7 @@ class Proses8Controller extends Controller
 
 
 
-            //--> PFAD
+            //-->PFAD
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -3051,7 +3051,7 @@ class Proses8Controller extends Controller
             //biodiesel
 
 
-            //--> RBDPKO
+            //-->RBDPKO
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -3234,7 +3234,7 @@ class Proses8Controller extends Controller
                 $jualan_eksport_rbdpko = 0;
 
 
-            //--> RBDPKL
+            //-->RBDPKL
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -3414,7 +3414,7 @@ class Proses8Controller extends Controller
             if ($jualan_eksport_rbdpkl == NULL)
                 $jualan_eksport_rbdpkl = 0;
 
-            //--> RBDPKS
+            //-->RBDPKS
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -3569,7 +3569,7 @@ class Proses8Controller extends Controller
 
 
 
-            //--> PKFAD
+            //-->PKFAD
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -3990,7 +3990,7 @@ class Proses8Controller extends Controller
             //biodiesel
 
 
-            //--> RBDPKO
+            //-->RBDPKO
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -4172,7 +4172,7 @@ class Proses8Controller extends Controller
                 $jualan_eksport_rbdpko = 0;
 
 
-            //--> RBDPKL
+            //-->RBDPKL
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -4353,7 +4353,7 @@ class Proses8Controller extends Controller
                 $jualan_eksport_rbdpkl = 0;
 
 
-            //--> RBDPKS
+            //-->RBDPKS
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -4502,7 +4502,7 @@ class Proses8Controller extends Controller
 
 
 
-            //--> PKFAD
+            //-->PKFAD
             //odbc_close($conn_odbc);
             //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -4757,33 +4757,33 @@ class Proses8Controller extends Controller
 
             //   echo "Negeri $negeri <br>";
             //   echo "*** Mills <br>";
-            //   echo "----> oer cpo $oer_cpo, ker pk $ker_pk, cpo $cpo, pk $pk cpo proc $cpo ffb proc $ffb_proc  <br>";
-            //   echo "----> ffb proc $ffb_proc ffb rec $ffb_rec <br>";
-            //   echo "----> mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
-            //   echo "----> stock cpo $stk911_cpo, pk $stk911_pk <br>";
+            //   echo "---->oer cpo $oer_cpo, ker pk $ker_pk, cpo $cpo, pk $pk cpo proc $cpo ffb proc $ffb_proc  <br>";
+            //   echo "---->ffb proc $ffb_proc ffb rec $ffb_rec <br>";
+            //   echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+            //   echo "---->stock cpo $stk911_cpo, pk $stk911_pk <br>";
             //   echo "*** Crusher <br>";
-            //   echo "----> oer cpko $oer_cpko, ker pkc $ker_pkc, cpko $cpko, pkc $pkc <br>";
-            //   echo "----> pk proc $pk_proc <br>";
-            //   echo "----> crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
-            //   echo "----> stock cpko $stk102_cpko, pk $stk102_pk, pkc $stk102_pkc <br>";
+            //   echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc, cpko $cpko, pkc $pkc <br>";
+            //   echo "---->pk proc $pk_proc <br>";
+            //   echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+            //   echo "---->stock cpko $stk102_cpko, pk $stk102_pk, pkc $stk102_pkc <br>";
             //   echo "*** Refinery <br>";
-            //   echo "----> production selected process po cps $prod101_cps, cpl $prod101_cpl, rbdpo $prod101_rbdpo, rbdpl $prod101_rbdpl, rbdps $prod101_rbdps, pfad $prod101_pfad, cooking oil $prod101_co<br>";
-            //   echo "----> production finish product margerine $prod101_mar, ghee $prod101_ghee, doughfat $prod101_fat, shortening $prod101_short, coco $prod101_coco, soap $prod101_soap, red olein $prod101_redol, prayer oil $prod101_pry, blend veg oil $prod101_blend, other edible $prod101_otheredb, other nonedible $prod101_othernot<br>";
-            //   echo "----> stock selected process po cps $stk101_cps, cpl $stk101_cpl, rbdpo $stk101_rbdpo, rbdpl $stk101_rbdpl, rbdps $stk101_rbdps, pfad $stk101_pfad, cooking oil $stk101_co<br>";
-            //   echo "----> stock finish product margerine $stk101_mar, ghee $stk101_ghee, doughfat $stk101_fat, shortening $stk101_short, coco $stk101_coco, soap $stk101_soap, red olein $stk101_redol, prayer oil $stk101_pry, blend veg oil $stk101_blend, other edible $stk101_otheredb, other nonedible $stk101_othernot<br>";
-            //   echo "----> process cpo $proc101_cpo, cpko $proc101_cpko ref capacity $refcap, ref utilrate $refutilrate <br>";
-            //   echo "----> stock cpo $stk101_cpo, ppo $stk101_ppo, cpko $stk101_cpko, ppko $stk101_ppko, rbdpko $stk101_rbdpko,rbdpkl $stk101_rbdpkl,rbdpks $stk101_rbdpks,pkfad $stk101_pkfad<br>";
+            //   echo "---->production selected process po cps $prod101_cps, cpl $prod101_cpl, rbdpo $prod101_rbdpo, rbdpl $prod101_rbdpl, rbdps $prod101_rbdps, pfad $prod101_pfad, cooking oil $prod101_co<br>";
+            //   echo "---->production finish product margerine $prod101_mar, ghee $prod101_ghee, doughfat $prod101_fat, shortening $prod101_short, coco $prod101_coco, soap $prod101_soap, red olein $prod101_redol, prayer oil $prod101_pry, blend veg oil $prod101_blend, other edible $prod101_otheredb, other nonedible $prod101_othernot<br>";
+            //   echo "---->stock selected process po cps $stk101_cps, cpl $stk101_cpl, rbdpo $stk101_rbdpo, rbdpl $stk101_rbdpl, rbdps $stk101_rbdps, pfad $stk101_pfad, cooking oil $stk101_co<br>";
+            //   echo "---->stock finish product margerine $stk101_mar, ghee $stk101_ghee, doughfat $stk101_fat, shortening $stk101_short, coco $stk101_coco, soap $stk101_soap, red olein $stk101_redol, prayer oil $stk101_pry, blend veg oil $stk101_blend, other edible $stk101_otheredb, other nonedible $stk101_othernot<br>";
+            //   echo "---->process cpo $proc101_cpo, cpko $proc101_cpko ref capacity $refcap, ref utilrate $refutilrate <br>";
+            //   echo "---->stock cpo $stk101_cpo, ppo $stk101_ppo, cpko $stk101_cpko, ppko $stk101_ppko, rbdpko $stk101_rbdpko,rbdpkl $stk101_rbdpkl,rbdpks $stk101_rbdpks,pkfad $stk101_pkfad<br>";
             //   echo "*** Oleo <br>";
-            //   echo "----> prod cps $prod104_cps, cpl $prod104_cpl, rbdpo $prod104_rbdpo, rbdpl $prod104_rbdpl, rbdps $prod104_rbdps, pfad $prod104_pfad<br>";
-            //   echo "----> stock cps $stk104_cps, cpl $stk104_cpl, rbdpo $stk104_rbdpo, rbdpl $stk104_rbdpl, rbdps $stk104_rbdps, pfad $stk104_pfad<br>";
-            //   echo "----> process cpo $proc104_cpo, ppo $proc104_ppo, cpko $proc104_cpko ppko $proc104_ppko oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
-            //   echo "----> stock cpo $stk104_cpo, ppo $stk104_ppo, cpko $stk104_cpko, ppko $stk104_ppko, rbdpko $stk104_rbdpko,rbdpkl $stk104_rbdpkl,rbdpks $stk104_rbdpks,pkfad $stk104_pkfad<br> ";
+            //   echo "---->prod cps $prod104_cps, cpl $prod104_cpl, rbdpo $prod104_rbdpo, rbdpl $prod104_rbdpl, rbdps $prod104_rbdps, pfad $prod104_pfad<br>";
+            //   echo "---->stock cps $stk104_cps, cpl $stk104_cpl, rbdpo $stk104_rbdpo, rbdpl $stk104_rbdpl, rbdps $stk104_rbdps, pfad $stk104_pfad<br>";
+            //   echo "---->process cpo $proc104_cpo, ppo $proc104_ppo, cpko $proc104_cpko ppko $proc104_ppko oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+            //   echo "---->stock cpo $stk104_cpo, ppo $stk104_ppo, cpko $stk104_cpko, ppko $stk104_ppko, rbdpko $stk104_rbdpko,rbdpkl $stk104_rbdpkl,rbdpks $stk104_rbdpks,pkfad $stk104_pkfad<br> ";
             //   echo "*** e-Biodiesel";
-            //   echo "----> Stok RBDPO $stk_bio_rbdpo, RBDPL $stk_bio_rbdpl, RBDPS $stk_bio_rbdps, PFAD $stk_bio_pfad , RBDPKO $stk_bio_rbdpko, RBDPKL $stk_bio_rbdpkl, RBDPKS $stk_bio_rbdpks,PKFAD $stk_bio_pkfad <br>";
+            //   echo "---->Stok RBDPO $stk_bio_rbdpo, RBDPL $stk_bio_rbdpl, RBDPS $stk_bio_rbdps, PFAD $stk_bio_pfad , RBDPKO $stk_bio_rbdpko, RBDPKL $stk_bio_rbdpkl, RBDPKS $stk_bio_rbdpks,PKFAD $stk_bio_pkfad <br>";
             //   echo "*** Pusat Simpanan <br>";
-            //   echo "----> stock cpo $stk111_cpo, ppo $stk111_ppo, cpko $stk111_cpko, ppko $stk111_ppko, rbdpo $stk111_rbdpo,rbdpl $stk111_rbdpl, rbdps $stk111_rbdps,pfad $stk111_pfad, rbdpko $stk111_rbdpko,rbdpks $stk111_rbdpks,rbdpkl $stk111_rbdpkl,pkfad $stk111_pkfad<br>";
+            //   echo "---->stock cpo $stk111_cpo, ppo $stk111_ppo, cpko $stk111_cpko, ppko $stk111_ppko, rbdpo $stk111_rbdpo,rbdpl $stk111_rbdpl, rbdps $stk111_rbdps,pfad $stk111_pfad, rbdpko $stk111_rbdpko,rbdpks $stk111_rbdpks,rbdpkl $stk111_rbdpkl,pkfad $stk111_pkfad<br>";
             //   echo "*** Stock <br> ";
-            //   echo "----> cpo $stk_cpo, ppo $stk_ppo, pk $stk_pk, cpko $stk_cpko, ppko $stk_ppko, pkc $stk_pkc<br>";
+            //   echo "---->cpo $stk_cpo, ppo $stk_ppo, pk $stk_pk, cpko $stk_cpko, ppko $stk_ppko, pkc $stk_pkc<br>";
 
 
 
@@ -5198,15 +5198,15 @@ class Proses8Controller extends Controller
 
         //     echo "Malaysia <br>";
         //     echo "*** Mills <br>";
-        //     echo "----> oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc<br>";
-        //     echo "----> mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+        //     echo "---->oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc<br>";
+        //     echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
         //     echo "*** Crusher <br>";
-        //     echo "----> oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
-        //     echo "----> crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+        //     echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
+        //     echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
         //     echo "*** Refinery <br>";
-        //     echo "----> ref capacity $refcap, ref utilrate $refutilrate <br>";
+        //     echo "---->ref capacity $refcap, ref utilrate $refutilrate <br>";
         //     echo "*** Oleo <br>";
-        //     echo "----> oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+        //     echo "---->oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
 
         $query1 = Oermsia::max('oermsia_id');
         // "select max(oermsia_id) as maxoermsia_id from oermsia";
@@ -5572,15 +5572,15 @@ a.F101A1 = l.F201A and
 
         // echo "Semenanjung Malaysia <br>";
         // echo "*** Mills <br>";
-        // echo "----> oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc <br>";
-        // echo "----> mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+        // echo "---->oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc <br>";
+        // echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
         // echo "*** Crusher <br>";
-        // echo "----> oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
-        // echo "----> crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+        // echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
+        // echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
         // echo "*** Refinery <br>";
-        // echo "----> ref capacity $refcap, ref utilrate $refutilrate <br>";
+        // echo "---->ref capacity $refcap, ref utilrate $refutilrate <br>";
         // echo "*** Oleo <br>";
-        // echo "----> oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+        // echo "---->oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
 
         $query1 = Oersemsia::max('oersemsia_id');
         // "select max(oersemsia_id) as maxoersemsia_id from oersemsia";
@@ -5938,15 +5938,15 @@ where p.F911A = l.F201A and
 
         // echo "Sabah dan Sarawak <br>";
         // echo "*** Mills <br>";
-        // echo "----> oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc<br>";
-        // echo "----> mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+        // echo "---->oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc<br>";
+        // echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
         // echo "*** Crusher <br>";
-        // echo "----> oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
-        // echo "----> crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+        // echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
+        // echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
         // echo "*** Refinery <br>";
-        // echo "----> ref capacity $refcap, ref utilrate $refutilrate <br>";
+        // echo "---->ref capacity $refcap, ref utilrate $refutilrate <br>";
         // echo "*** Oleo <br>";
-        // echo "----> oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+        // echo "---->oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
 
         $query1 = Oerss::max('oerss_id');
         // "select max(oerss_id) as maxoerss_id from oerss";
@@ -6452,7 +6452,7 @@ where p.F911A = l.F201A and
 					   p.F911H1 is not NULL");
 
         foreach ($qry3 as $sum){
-            $ffb_rec = (float)$sum-> ffb_rec;
+            $ffb_rec = (float)$sum->ffb_rec;
         }
 
 
@@ -6503,7 +6503,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeribio_cpo as $sum) {
-            $stkbio_cpo = (float) $sum-> stok_akhir;
+            $stkbio_cpo = (float) $sum->stok_akhir;
       }
 
         //odbc_close($conn_odbc);
@@ -6520,7 +6520,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeribio_ppo as $sum) {
-            $stkbio_ppo = (float)$sum-> stok_akhir;
+            $stkbio_ppo = (float)$sum->stok_akhir;
       }
 
 
@@ -6538,7 +6538,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeribio_cpko as $sum) {
-            $stkbio_cpko = (float) $sum-> stok_akhir;
+            $stkbio_cpko = (float) $sum->stok_akhir;
       }
 
         //odbc_close($conn_odbc);
@@ -6555,7 +6555,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeribio_ppko as $sum) {
-            $stkbio_ppko = (float)  $sum-> stok_akhir;
+            $stkbio_ppko = (float)  $sum->stok_akhir;
       }
 
         //odbc_close($conn_odbc);
@@ -6571,7 +6571,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeri911pk as $sum) {
-            $stk911_pk = (float) $sum-> stk911_pk;
+            $stk911_pk = (float) $sum->stk911_pk;
       }
 
 
@@ -6593,11 +6593,11 @@ where p.F911A = l.F201A and
 					   p.F1021K is not NULL");
 
       foreach ($qry5 as $sum) {
-            $oer_cpko = (float)$sum-> oer_cpko;
-            $ker_pkc = (float) $sum-> ker_pkc;
+            $oer_cpko = (float)$sum->oer_cpko;
+            $ker_pkc = (float) $sum->ker_pkc;
             $cpko = (float) $sum->cpko;
-            $pkc = (float) $sum-> pkc;
-            $pk_proc = (float) $sum-> pk_proc;
+            $pkc = (float) $sum->pkc;
+            $pk_proc = (float) $sum->pk_proc;
       }
 
 
@@ -6619,9 +6619,9 @@ where p.F911A = l.F201A and
 					   m.cap_lulus is not NULL");
 
       foreach ($qry6 as $sum) {
-            $crscap = (float)  $sum-> cap_lulus;
-            $crsutilrate = (float) $sum-> crsutilrate;
-            $crsno = (float) $sum-> crsno;
+            $crscap = (float)  $sum->cap_lulus;
+            $crsutilrate = (float) $sum->crsutilrate;
+            $crsno = (float) $sum->crsno;
       }
 
         //odbc_close($conn_odbc);
@@ -6637,7 +6637,7 @@ where p.F911A = l.F201A and
                        l.F201U4 = $ngr");
 
       foreach ($qry7 as $sum) {
-            $crshrs = (float)$sum-> crshrs;
+            $crshrs = (float)$sum->crshrs;
       }
 
         //odbc_close($conn_odbc);
@@ -6669,7 +6669,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeri102pk as $sum) {
-            $stk102_pk = (float)$sum-> stk102_pk;
+            $stk102_pk = (float)$sum->stk102_pk;
       }
 
         //odbc_close($conn_odbc);
@@ -6685,7 +6685,7 @@ where p.F911A = l.F201A and
                          l.F201U4 = $ngr");
 
       foreach ($qrynegeri102pkc as $sum) {
-            $stk102_pkc = (float)$sum-> stk102_pkc;
+            $stk102_pkc = (float)$sum->stk102_pkc;
       }
 
 // Kilang Penapis
@@ -6705,7 +6705,7 @@ where p.F911A = l.F201A and
 						m.cap_lulus is not NULL");
 
       foreach ($qry2 as $sum) {
-            $refcap = (float)$sum-> cap_lulus;
+            $refcap = (float)$sum->cap_lulus;
             $refno = $sum->refno+;
 
       }
@@ -6731,7 +6731,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
         foreach ($qryprodcps as $sum) {
-            $prod101_cps = (float) $sum-> prod101_cps;
+            $prod101_cps = (float) $sum->prod101_cps;
       }
 
         //odbc_close($conn_odbc);
@@ -6751,7 +6751,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
       foreach ($qryprodcpl as $sum) {
-            $prod101_cpl = (float)$sum-> prod101_cpl;
+            $prod101_cpl = (float)$sum->prod101_cpl;
       }
 
         //odbc_close($conn_odbc);
@@ -6771,7 +6771,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
         foreach ($qryprodrbdpo as $sum) {
-            $prod101_rbdpo = (float) $sum-> prod101_rbdpo;
+            $prod101_rbdpo = (float) $sum->prod101_rbdpo;
       }
 
         //odbc_close($conn_odbc);
@@ -6791,7 +6791,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
         foreach ($qryprodrbdps as $sum) {
-            $prod101_rbdps = (float) $sum-> prod101_rbdps;
+            $prod101_rbdps = (float) $sum->prod101_rbdps;
       }
 
         //odbc_close($conn_odbc);
@@ -6811,7 +6811,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
         foreach ($qryprodrbdpl as $sum) {
-            $prod101_rbdpl = (float) $sum-> prod101_rbdpl;
+            $prod101_rbdpl = (float) $sum->prod101_rbdpl;
       }
 
         //odbc_close($conn_odbc);
@@ -6831,7 +6831,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
         foreach ($qryprodpfad as $sum) {
-            $prod101_pfad = (float)$sum-> prod101_pfad;
+            $prod101_pfad = (float)$sum->prod101_pfad;
       }
 
         //odbc_close($conn_odbc);
@@ -6851,7 +6851,7 @@ where p.F911A = l.F201A and
 						 b.F101B9 is not NULL");
 
         foreach ($qryprodco as $sum) {
-            $prod101_co = (float) $sum-> prod101_co;
+            $prod101_co = (float) $sum->prod101_co;
       }
 
         //odbc_close($conn_odbc);
@@ -6871,7 +6871,7 @@ where p.F911A = l.F201A and
 						 b.F101C7 is not NULL");
 
        foreach ($qryprodmar as $sum) {
-            $prod101_mar = (float)$sum-> prod101_mar;
+            $prod101_mar = (float)$sum->prod101_mar;
       }
 
         //odbc_close($conn_odbc);
@@ -6891,7 +6891,7 @@ where p.F911A = l.F201A and
 						 b.F101C7 is not NULL");
 
         foreach ($qryprodghee as $sum) {
-            $prod101_ghee = (float) $sum-> prod101_ghee;
+            $prod101_ghee = (float) $sum->prod101_ghee;
       }
 
         //odbc_close($conn_odbc);
@@ -6991,7 +6991,7 @@ where p.F911A = l.F201A and
 						 b.F101C7 is not NULL");
 
         foreach ($qryprodredol as $sum) {
-            $prod101_redol = (float) $sum-> prod101_redol;
+            $prod101_redol = (float) $sum->prod101_redol;
       }
 
         //odbc_close($conn_odbc);
@@ -7011,7 +7011,7 @@ where p.F911A = l.F201A and
 						 b.F101C7 is not NULL");
 
        foreach ($qryprodpry as $sum) {
-            $prod101_pry = (float) $sum-> prod101_pry;
+            $prod101_pry = (float) $sum->prod101_pry;
       }
 
         //odbc_close($conn_odbc);
@@ -7031,7 +7031,7 @@ where p.F911A = l.F201A and
 						 b.F101C7 is not NULL");
 
          foreach ($qryprodblend as $sum) {
-            $prod101_blend = (float) $sum-> prod101_blend;
+            $prod101_blend = (float) $sum->prod101_blend;
       }
 
         //odbc_close($conn_odbc);
@@ -7051,7 +7051,7 @@ where p.F911A = l.F201A and
 						 b.F101C7 is not NULL");
 
         foreach ($qryprodotheredb as $sum) {
-            $prod101_otheredb = (float) $sum-> prod101_otheredb;
+            $prod101_otheredb = (float) $sum->prod101_otheredb;
       }
 
         //odbc_close($conn_odbc);
@@ -7111,7 +7111,7 @@ where p.F911A = l.F201A and
 						 b.F101B13 is not NULL");
 
          foreach ($qrystkcpl as $sum) {
-            $stk101_cpl = (float)  $sum-> stk101_cpl;
+            $stk101_cpl = (float)  $sum->stk101_cpl;
       }
 
         //odbc_close($conn_odbc);
@@ -8298,7 +8298,7 @@ where p.F911A = l.F201A and
         // unset($ppo_hasil_rbdpo);
         // unset($stk_awl_rbdpo);
 
-        //--> RBDPO
+        //-->RBDPO
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
         $qryrbdpo1 = DB::connection('mysql4')->select("SELECT sum(kuantiti)  ppo_hasil_rbdpo
@@ -8470,7 +8470,7 @@ where p.F911A = l.F201A and
           $jualan_eksport_rbdpo = 0;
 
 
-        //--> RBDPL
+        //-->RBDPL
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -8612,7 +8612,7 @@ where p.F911A = l.F201A and
 
 
         //odbc_close($conn_odbc);
-        //--> RBDPS
+        //-->RBDPS
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
         $qrynegeribio_rbdps1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdps
@@ -8753,7 +8753,7 @@ where p.F911A = l.F201A and
 
 
 
-        //--> PFAD
+        //-->PFAD
         //odbc_close($conn_odbc);
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
 
@@ -8899,10 +8899,10 @@ where p.F911A = l.F201A and
           $stk_bio_rbdpo1 = ($ppo_hasil_rbdpo + $stk_awl_rbdpo + $bekalan_belian_rbdpo + $bekalan_penerimaan_rbdpo + $bekalan_import_rbdpo);
           $stk_bio_rbdpo2 =($ppo_proses_rbdpo + $jualan_jualan_rbdpo + $jualan_edaran_rbdpo + $jualan_eksport_rbdpo);
           $stk_bio_rbdpo = $stk_bio_rbdpo1 - $stk_bio_rbdpo2;
-          echo  "bio check  -",$stk_bio_rbdpo1;
-          echo "<br>";
-          echo $stk_bio_rbdpo2;
-          echo "<br>";
+        //   echo  "bio check  -",$stk_bio_rbdpo1;
+        //   echo "<br>";
+        //   echo $stk_bio_rbdpo2;
+        //   echo "<br>";
 
           $stk_bio_rbdpl1 = ($ppo_hasil_rbdpl + $stk_awl_rbdpl + $bekalan_belian_rbdpl + $bekalan_penerimaan_rbdpl + $bekalan_import_rbdpl);
           $stk_bio_rbdpl2 = ($ppo_proses_rbdpl + $jualan_jualan_rbdpl + $jualan_edaran_rbdpl + $jualan_eksport_rbdpl);
@@ -8921,6 +8921,3228 @@ where p.F911A = l.F201A and
         if ($stk_bio_rbdpo==NULL)
            $stk_bio_rbdpo = 0 ;
 
+
+
+
+        //odbc_close($conn_odbc);
+        //pusat simpanan - RBDPO
+        //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+        $qrynegeribulk1 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_rbdpo
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '25' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '01' and
+              l.F201U4 = $ngr");
+
+foreach ($qrynegeribulk1 as $sum){
+       $stk111_rbdpo = (float)$sum->stk111_rbdpo;
+ }
+
+//odbc_close($conn_odbc);
+
+
+//pusat simpanan - RBDPL
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk2 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_rbdpl
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '29' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '01' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk2 as $sum){
+       $stk111_rbdpl = (float)$sum->stk111_rbdpl;
+ }
+
+//odbc_close($conn_odbc);
+
+//pusat simpanan - RBDPS
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk3 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_rbdps
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '27' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '01' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk3 as $sum){
+       $stk111_rbdps = (float)$sum->stk111_rbdps;
+ }
+
+//odbc_close($conn_odbc);
+
+//pusat simpanan - PFAD
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk4 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_pfad
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '35' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '01' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk4 as $sum){
+       $stk111_pfad = (float)$sum->stk111_pfad;
+ }
+
+
+
+
+     //start-->
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpko = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_rbdpko
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '30' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkrbdpko as $sum){
+       $stk101_rbdpko = (float)$sum->stk101_rbdpko;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpks = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_rbdpks
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '31' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkrbdpks as $sum){
+       $stk101_rbdpks = (float)$sum->stk101_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpkl = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_rbdpkl
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '32' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkrbdpkl as $sum){
+       $stk101_rbdpkl = (float)$sum->stk101_rbdpkl;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkpkfad = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_pkfad
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '56' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkpkfad as $sum){
+       $stk101_pkfad = (float)$sum->stk101_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+
+
+
+//biodiesel
+
+
+//-->RBDPKO
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko1 as $sum){
+       $ppo_hasil_rbdpko = (float)$sum->ppo_hasil_rbdpko;
+ }
+
+
+if ($ppo_hasil_rbdpko==NULL)
+$ppo_hasil_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko2 as $sum){
+       $stk_awl_rbdpko = (float)$sum->stok_awl_rbdpko;
+ }
+
+
+if ($stk_awl_rbdpko==NULL)
+$stk_awl_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko3 as $sum){
+       $bekalan_belian_rbdpko = (float)$sum->bekalan_belian_rbdpko;
+ }
+
+
+if ($bekalan_belian_rbdpko==NULL)
+$bekalan_belian_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko4 as $sum){
+       $bekalan_penerimaan_rbdpko = (float)$sum->bekalan_penerimaan_rbdpko;
+ }
+
+
+if ($bekalan_penerimaan_rbdpko==NULL)
+$bekalan_penerimaan_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko5 as $sum){
+       $bekalan_import_rbdpko = (float)$sum->bekalan_import_rbdpko;
+ }
+
+
+if ($bekalan_import_rbdpko==NULL)
+$bekalan_import_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko6 as $sum){
+       $ppo_proses_rbdpko = (float)$sum->ppo_proses_rbdpko;
+ }
+
+
+if ($ppo_proses_rbdpko ==NULL)
+$ppo_proses_rbdpko  = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko7 as $sum){
+       $jualan_jualan_rbdpko = (float)$sum->jualan_rbdpko;
+ }
+
+
+if ($jualan_jualan_rbdpko==NULL)
+$jualan_jualan_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko8 as $sum){
+       $jualan_edaran_rbdpko = (float)$sum->jualan_edaran_rbdpko;
+ }
+
+
+if ($jualan_edaran_rbdpko==NULL)
+$jualan_edaran_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko9 as $sum){
+       $jualan_eksport_rbdpko = (float)$sum->jualan_eksport_rbdpko;
+ }
+
+
+if ($jualan_eksport_rbdpko==NULL)
+$jualan_eksport_rbdpko = 0;
+
+
+//-->RBDPKL
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl1 as $sum){
+       $ppo_hasil_rbdpkl = (float)$sum->ppo_hasil_rbdpkl;
+ }
+
+
+if ($ppo_hasil_rbdpkl==NULL)
+$ppo_hasil_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl2 as $sum){
+       $stk_awl_rbdpkl = (float)$sum->stok_awl_rbdpkl;
+ }
+
+
+if ($stk_awl_rbdpkl==NULL)
+$stk_awl_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl3 as $sum){
+       $bekalan_belian_rbdpkl = (float)$sum->bekalan_belian_rbdpkl;
+ }
+
+
+if ($bekalan_belian_rbdpkl==NULL)
+$bekalan_belian_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl4 as $sum){
+       $bekalan_penerimaan_rbdpkl = (float)$sum->bekalan_penerimaan_rbdpkl;
+ }
+
+
+if ($bekalan_penerimaan_rbdpkl==NULL)
+$bekalan_penerimaan_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl5 as $sum){
+       $bekalan_import_rbdpkl = (float)$sum->bekalan_import_rbdpkl;
+ }
+
+
+if ($bekalan_import_rbdpkl==NULL)
+$bekalan_import_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl6 as $sum){
+       $ppo_proses_rbdpkl = (float)$sum->ppo_proses_rbdpkl;
+ }
+
+
+if ($ppo_proses_rbdpkl ==NULL)
+$ppo_proses_rbdpkl  = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl7 as $sum){
+       $jualan_jualan_rbdpkl = (float)$sum->jualan_rbdpkl;
+ }
+
+
+if ($jualan_jualan_rbdpkl==NULL)
+$jualan_jualan_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl8 as $sum){
+       $jualan_edaran_rbdpkl = (float) $sum->jualan_edaran_rbdpkl;
+ }
+
+
+if ($jualan_edaran_rbdpkl==NULL)
+$jualan_edaran_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKL' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl9 as $sum){
+       $jualan_eksport_rbdpkl = (float)$sum->jualan_eksport_rbdpkl;
+ }
+
+
+if ($jualan_eksport_rbdpkl==NULL)
+$jualan_eksport_rbdpkl = 0;
+
+//-->RBDPKS
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks1 as $sum){
+       $ppo_hasil_rbdpks = (float)$sum->ppo_hasil_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks2 as $sum){
+       $stk_awl_rbdpks = (float)$sum->stok_awl_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks3 as $sum){
+       $bekalan_belian_rbdpks = (float)$sum->bekalan_belian_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks4 as $sum){
+       $bekalan_penerimaan_rbdpks = (float)$sum->bekalan_penerimaan_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks5 as $sum){
+       $bekalan_import_rbdpks = (float)$sum->bekalan_import_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks6 as $sum){
+       $ppo_proses_rbdpks = (float)$sum->ppo_proses_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks7 as $sum){
+       $jualan_jualan_rbdpks = (float)$sum->jualan_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks8 as $sum){
+       $jualan_edaran_rbdpks = (float)$sum->jualan_edaran_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='RBDPKS' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks9 as $sum){
+       $jualan_eksport_rbdpks = (float)$sum->jualan_eksport_rbdpks;
+ }
+
+
+
+
+
+//-->PKFAD
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad1 as $sum){
+       $ppo_hasil_pkfad = (float)$sum->ppo_hasil_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad2 =DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad2 as $sum){
+       $stk_awl_pkfad = (float)$sum->stok_awl_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad3 as $sum){
+       $bekalan_belian_pkfad = (float)$sum->bekalan_belian_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad4 =DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad4 as $sum){
+       $bekalan_penerimaan_pkfad = (float)$sum->bekalan_penerimaan_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad5 as $sum){
+       $bekalan_import_pkfad = (float)$sum->bekalan_import_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad6 as $sum){
+       $ppo_proses_pkfad = (float)$sum->ppo_proses_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad7 as $sum){
+       $jualan_jualan_pkfad = (float)$sum->jualan_pkfad;
+ }
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad8 as $sum){
+       $jualan_edaran_pkfad = (float)$sum->jualan_edaran_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='PKFAD' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad9 as $sum){
+       $jualan_eksport_pkfad = (float)$sum->jualan_eksport_pkfad;
+ }
+
+
+
+//stok akhir dikira dan diambil dari e-biodiesel
+
+
+$stk_bio_rbdpko1 = ($ppo_hasil_rbdpko + $stk_awl_rbdpko + $bekalan_belian_rbdpko + $bekalan_penerimaan_rbdpko + $bekalan_import_rbdpko);
+$stk_bio_rbdpko2 =($ppo_proses_rbdpko + $jualan_jualan_rbdpko + $jualan_edaran_rbdpko + $jualan_eksport_rbdpko);
+$stk_bio_rbdpko = $stk_bio_rbdpko1 - $stk_bio_rbdpko2;
+
+$stk_bio_rbdpkl1 = ($ppo_hasil_rbdpkl + $stk_awl_rbdpkl + $bekalan_belian_rbdpkl + $bekalan_penerimaan_rbdpkl + $bekalan_import_rbdpkl);
+$stk_bio_rbdpkl2 =($ppo_proses_rbdpkl + $jualan_jualan_rbdpkl + $jualan_edaran_rbdpkl + $jualan_eksport_rbdpkl);
+$stk_bio_rbdpkl = $stk_bio_rbdpkl1 - $stk_bio_rbdpkl2;
+
+$stk_bio_rbdpks1 = ($ppo_hasil_rbdpks + $stk_awl_rbdpks + $bekalan_belian_rbdpks + $bekalan_penerimaan_rbdpks + $bekalan_import_rbdpks);
+$stk_bio_rbdpks2 = ($ppo_proses_rbdpks + $jualan_jualan_rbdpks + $jualan_edaran_rbdpks + $jualan_eksport_rbdpks);
+$stk_bio_rbdpks = $stk_bio_rbdpks1 - $stk_bio_rbdpks2;
+
+$stk_bio_pkfad1 =  $ppo_hasil_pkfad + $stk_awl_pkfad + $bekalan_belian_pkfad + $bekalan_penerimaan_pkfad + $bekalan_import_pkfad;
+$stk_bio_pkfad2 = $ppo_proses_pkfad + $jualan_jualan_pkfad + $jualan_edaran_pkfad + $jualan_eksport_pkfad ;
+$stk_bio_pkfad = $stk_bio_pkfad1 - $stk_bio_pkfad2;
+//end
+
+
+
+//pusat simpanan - RBDPKO
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk1 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_rbdpko
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '30' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk1 as $sum){
+       $stk111_rbdpko = (float)$sum->stk111_rbdpko;
+ }
+
+//odbc_close($conn_odbc);
+
+
+//pusat simpanan - RBDPKL
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk2 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_rbdpkl
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '32' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk2 as $sum){
+       $stk111_rbdpkl = (float) $sum->stk111_rbdpkl;
+ }
+
+//odbc_close($conn_odbc);
+
+//pusat simpanan - RBDPKS
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk3 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_rbdpks
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '31' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk3 as $sum){
+       $stk111_rbdpks = (float) $sum->stk111_rbdpks;
+ }
+
+//odbc_close($conn_odbc);
+
+//pusat simpanan - PKFAD
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk4 = DB::connection('mysql4')->select("SELECT round(sum(a.INS_KJ),2) stk111_pkfad
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (0) and
+              a.INS_KJ is not NULL and
+              a.INS_KD = '56' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribulk4 as $sum){
+       $stk111_pkfad = (float) $sum->stk111_pkfad;
+ }
+
+
+//RBDPKO
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpko = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_rbdpko
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '30' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkrbdpko as $sum){
+       $stk101_rbdpko = (float)$sum->stk101_rbdpko;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpks = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_rbdpks
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '31' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkrbdpks as $sum){
+       $stk101_rbdpks = (float) $sum->stk101_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpkl = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_rbdpkl
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '32' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkrbdpkl as $sum){
+       $stk101_rbdpkl = (float) $sum->stk101_rbdpkl;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkpkfad = DB::connection('mysql4')->select("SELECT round(sum(b.F101B13),2) stk101_pkfad
+        from pl101ap3 a, pl101bp3 b, licensedb.license l
+        where a.F101A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '56' and
+              b.F101B13 not in (0) and
+              b.F101B13 is not NULL");
+
+ foreach ($qrystkpkfad as $sum){
+       $stk101_pkfad = (float) $sum->stk101_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpko = DB::connection('mysql4')->select("SELECT round(sum(b.F104B12),2) stk104_rbdpko
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '30' and
+              b.F104B12 not in (0) and
+              b.F104B12 is not NULL");
+
+ foreach ($qrystkrbdpko as $sum){
+       $stk104_rbdpko = (float) $sum->stk104_rbdpko;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpks = DB::connection('mysql4')->select("SELECT round(sum(b.F104B12),2) stk104_rbdpks
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '31' and
+              b.F104B12 not in (0) and
+              b.F104B12 is not NULL");
+
+ foreach ($qrystkrbdpks as $sum){
+       $stk104_rbdpks = (float) $sum->stk104_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkrbdpkl = DB::connection('mysql4')->select("SELECT round(sum(b.F104B12),2) stk104_rbdpkl
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '32' and
+              b.F104B12 not in (0) and
+              b.F104B12 is not NULL");
+
+ foreach ($qrystkrbdpkl as $sum){
+       $stk104_rbdpkl = (float) $sum->stk104_rbdpkl;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrystkpkfad = DB::connection('mysql4')->select("SELECT round(sum(b.F104B12),2) stk104_pkfad
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 = $ngr and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '56' and
+              b.F104B12 not in (0) and
+              b.F104B12 is not NULL");
+
+ foreach ($qrystkpkfad as $sum){
+       $stk104_pkfad = (float) $sum->stk104_pkfad;
+ }
+
+
+
+//biodiesel
+
+
+//-->RBDPKO
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko1 as $sum){
+       $ppo_hasil_rbdpko = (float) $sum->ppo_hasil_rbdpko;
+ }
+
+
+if ($ppo_hasil_rbdpko==NULL)
+$ppo_hasil_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko2 as $sum){
+       $stk_awl_rbdpko = (float) $sum->stok_awl_rbdpko;
+ }
+
+
+if ($stk_awl_rbdpko==NULL)
+$stk_awl_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko3 as $sum){
+       $bekalan_belian_rbdpko = (float) $sum->bekalan_belian_rbdpko;
+ }
+
+
+if ($bekalan_belian_rbdpko==NULL)
+$bekalan_belian_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko4 as $sum){
+       $bekalan_penerimaan_rbdpko = (float) $sum->bekalan_penerimaan_rbdpko;
+ }
+
+
+if ($bekalan_penerimaan_rbdpko==NULL)
+$bekalan_penerimaan_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko5 as $sum){
+       $bekalan_import_rbdpko = (float) $sum->bekalan_import_rbdpko;
+ }
+
+
+if ($bekalan_import_rbdpko==NULL)
+$bekalan_import_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko6 as $sum){
+       $ppo_proses_rbdpko = (float) $sum->ppo_proses_rbdpko;
+ }
+
+
+if ($ppo_proses_rbdpko ==NULL)
+$ppo_proses_rbdpko  = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko7 as $sum){
+       $jualan_jualan_rbdpko = (float) $sum->jualan_rbdpko;
+ }
+
+
+if ($jualan_jualan_rbdpko==NULL)
+$jualan_jualan_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko8 =DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko8 as $sum){
+       $jualan_edaran_rbdpko = (float) $sum->jualan_edaran_rbdpko;
+ }
+
+
+if ($jualan_edaran_rbdpko==NULL)
+$jualan_edaran_rbdpko = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpko9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_rbdpko
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='30' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpko9 as $sum){
+       $jualan_eksport_rbdpko = (float) $sum->jualan_eksport_rbdpko;
+ }
+
+
+if ($jualan_eksport_rbdpko==NULL)
+$jualan_eksport_rbdpko = 0;
+
+
+//-->RBDPKL
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl1 as $sum){
+       $ppo_hasil_rbdpkl = (float) $sum->ppo_hasil_rbdpkl;
+ }
+
+
+if ($ppo_hasil_rbdpkl==NULL)
+$ppo_hasil_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl2 as $sum){
+       $stk_awl_rbdpkl = (float) $sum->stok_awl_rbdpkl;
+ }
+
+
+if ($stk_awl_rbdpkl==NULL)
+$stk_awl_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl3 as $sum){
+       $bekalan_belian_rbdpkl = (float) $sum->bekalan_belian_rbdpkl;
+ }
+
+
+if ($bekalan_belian_rbdpkl==NULL)
+$bekalan_belian_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl4 as $sum){
+       $bekalan_penerimaan_rbdpkl = (float) $sum->bekalan_penerimaan_rbdpkl;
+ }
+
+
+if ($bekalan_penerimaan_rbdpkl==NULL)
+$bekalan_penerimaan_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl5 as $sum){
+       $bekalan_import_rbdpkl = (float) $sum->bekalan_import_rbdpkl;
+ }
+
+
+if ($bekalan_import_rbdpkl==NULL)
+$bekalan_import_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl6 as $sum){
+       $ppo_proses_rbdpkl = (float) $sum->ppo_proses_rbdpkl;
+ }
+
+
+if ($ppo_proses_rbdpkl ==NULL)
+$ppo_proses_rbdpkl  = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl7 as $sum){
+       $jualan_jualan_rbdpkl = (float)$sum->jualan_rbdpkl;
+ }
+
+
+if ($jualan_jualan_rbdpkl==NULL)
+$jualan_jualan_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl8 as $sum){
+       $jualan_edaran_rbdpkl = (float) $sum->jualan_edaran_rbdpkl;
+ }
+
+
+if ($jualan_edaran_rbdpkl==NULL)
+$jualan_edaran_rbdpkl = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpkl9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_rbdpkl
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='32' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpkl9 as $sum){
+       $jualan_eksport_rbdpkl = (float) $sum->jualan_eksport_rbdpkl;
+ }
+
+
+if ($jualan_eksport_rbdpkl==NULL)
+$jualan_eksport_rbdpkl = 0;
+
+//-->RBDPKS
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks1 as $sum){
+       $ppo_hasil_rbdpks = (float) $sum->ppo_hasil_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks2 as $sum){
+       $stk_awl_rbdpks = (float) $sum->stok_awl_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks3 as $sum){
+       $bekalan_belian_rbdpks = (float) $sum->bekalan_belian_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks4 as $sum){
+       $bekalan_penerimaan_rbdpks = (float) $sum->bekalan_penerimaan_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks5 as $sum){
+       $bekalan_import_rbdpks = (float) $sum->bekalan_import_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks6 as $sum){
+       $ppo_proses_rbdpks = (float) $sum->ppo_proses_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks7 as $sum){
+       $jualan_jualan_rbdpks = (float) $sum->jualan_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks8 as $sum){
+       $jualan_edaran_rbdpks = (float) $sum->jualan_edaran_rbdpks;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_rbdpks9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_rbdpks
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='31' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_rbdpks9 as $sum){
+       $jualan_eksport_rbdpks = (float) $sum->jualan_eksport_rbdpks;
+ }
+
+
+
+
+
+//-->PKFAD
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad1 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_hasil_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'ppo_hasil' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad1 as $sum){
+       $ppo_hasil_pkfad = (float) $sum->ppo_hasil_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad2 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as stok_awl_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'stok_awal' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad2 as $sum){
+       $stk_awl_pkfad = (float) $sum->stok_awl_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad3 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_belian_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'bekalan_belian' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad3 as $sum){
+       $bekalan_belian_pkfad = (float) $sum->bekalan_belian_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad4 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_penerimaan_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'bekalan_penerimaan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad4 as $sum){
+       $bekalan_penerimaan_pkfad = (float) $sum->bekalan_penerimaan_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad5 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as bekalan_import_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'bekalan_import' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad5 as $sum){
+       $bekalan_import_pkfad = (float) $sum->bekalan_import_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'ppo_proses' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad6 as $sum){
+       $ppo_proses_pkfad = (float) $sum->ppo_proses_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad7 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'jualan_jualan' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad7 as $sum){
+      $jualan_jualan_pkfad = (float) $sum->jualan_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad8 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_edaran_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'jualan_edaran' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad8 as $sum){
+       $jualan_edaran_pkfad = (float) $sum->jualan_edaran_pkfad;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrynegeribio_pkfad9 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as jualan_eksport_pkfad
+        from penyata_biodiesel a, licensedb.license l
+         where a.tahun = $tahun and
+              a.bulan = $bulan and
+              a.lesen = l.F201A and
+              a.kod_produk='56' and
+              a.penyata = 'jualan_eksport' and
+              l.F201U4 = $ngr");
+
+ foreach ($qrynegeribio_pkfad9 as $sum){
+       $jualan_eksport_pkfad = (float) $sum->jualan_eksport_pkfad;
+ }
+
+
+
+//stok akhir dikira dan diambil dari e-biodiesel
+
+
+$stk_bio_rbdpko1 = ($ppo_hasil_rbdpko + $stk_awl_rbdpko + $bekalan_belian_rbdpko + $bekalan_penerimaan_rbdpko + $bekalan_import_rbdpko);
+$stk_bio_rbdpko2 =($ppo_proses_rbdpko + $jualan_jualan_rbdpko + $jualan_edaran_rbdpko + $jualan_eksport_rbdpko);
+$stk_bio_rbdpko = $stk_bio_rbdpko1 - $stk_bio_rbdpko2;
+
+$stk_bio_rbdpkl1 = ($ppo_hasil_rbdpkl + $stk_awl_rbdpkl + $bekalan_belian_rbdpkl + $bekalan_penerimaan_rbdpkl + $bekalan_import_rbdpkl);
+$stk_bio_rbdpkl2 =($ppo_proses_rbdpkl + $jualan_jualan_rbdpkl + $jualan_edaran_rbdpkl + $jualan_eksport_rbdpkl);
+$stk_bio_rbdpkl = $stk_bio_rbdpkl1 - $stk_bio_rbdpkl2;
+
+$stk_bio_rbdpks1 = ($ppo_hasil_rbdpks + $stk_awl_rbdpks + $bekalan_belian_rbdpks + $bekalan_penerimaan_rbdpks + $bekalan_import_rbdpks);
+$stk_bio_rbdpks2 = ($ppo_proses_rbdpks + $jualan_jualan_rbdpks + $jualan_edaran_rbdpks + $jualan_eksport_rbdpks);
+$stk_bio_rbdpks = $stk_bio_rbdpks1 - $stk_bio_rbdpks2;
+
+$stk_bio_pkfad1 =  $ppo_hasil_pkfad + $stk_awl_pkfad + $bekalan_belian_pkfad + $bekalan_penerimaan_pkfad + $bekalan_import_pkfad;
+$stk_bio_pkfad2 = $ppo_proses_pkfad + $jualan_jualan_pkfad + $jualan_edaran_pkfad + $jualan_eksport_pkfad ;
+$stk_bio_pkfad = $stk_bio_pkfad1 - $stk_bio_pkfad2;
+//end
+
+//pusat simpanan - RBDPKO
+/*  //odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk1 = "select round(sum(a.INS_KJ),2) stk111_rbdpko
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (NULL,0) and
+              a.INS_KD = '30' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr";
+
+$renegeribulk1 = mysqli_query($conn_odbc,$qrynegeribulk1);
+$adnegeribulk1 = mysqli_fetch_assoc($renegeribulk1);
+$stk111_rbdpko = (float) $adnegeribulk1["stk111_rbdpko"];
+//odbc_close($conn_odbc);
+
+
+//pusat simpanan - RBDPKL
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk2 = "select round(sum(a.INS_KJ),2) stk111_rbdpkl
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (NULL,0) and
+              a.INS_KD = '32' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr";
+
+$renegeribulk2 = mysqli_query($conn_odbc,$qrynegeribulk2);
+$adnegeribulk2 = mysqli_fetch_assoc($renegeribulk2);
+$stk111_rbdpkl = (float) $adnegeribulk2["stk111_rbdpkl"];
+//odbc_close($conn_odbc);
+
+//pusat simpanan - RBDPKS
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk3 = "select round(sum(a.INS_KJ),2) stk111_rbdpks
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (NULL,0) and
+              a.INS_KD = '31' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr";
+
+$renegeribulk3 = mysqli_query($conn_odbc,$qrynegeribulk3);
+$adnegeribulk3 = mysqli_fetch_assoc($renegeribulk3);
+$stk111_rbdpks = (float) $adnegeribulk3["stk111_rbdpks"];
+//odbc_close($conn_odbc);
+
+//pusat simpanan - PKFAD
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+$qrynegeribulk4 = "select round(sum(a.INS_KJ),2) stk111_pkfad
+        from mpb_insp3b a, licensedb.license l, codedb.commodity_l c
+        where a.INS_KA = l.F201A and
+              a.INS_KC = '$tahun' and
+              a.INS_KB = '$bulan' and
+              a.INS_KJ not in (NULL,0) and
+              a.INS_KD = '56' and
+              a.INS_KD = c.comm_code_l and
+              c.group_l = '02' and
+              l.F201U4 = $ngr";
+
+$renegeribulk4 = mysqli_query($conn_odbc,$qrynegeribulk4);
+$adnegeribulk4 = mysqli_fetch_assoc($renegeribulk4);
+$stk111_pkfad = (float) $adnegeribulk4["stk111_pkfad"];
+
+*/
+
+
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+$jumnegeri = $jumnegeri + 1;
+
+$stk_cpo = $stk911_cpo + $stk101_cpo + $stk104_cpo + $stk111_cpo;
+$stk_ppo = $stk101_ppo + $stk104_ppo + $stk111_ppo;
+$stk_pk = $stk911_pk + $stk102_pk;
+$stk_cpko = $stk102_cpko + $stk101_cpko + $stk104_cpko + $stk111_cpko;
+$stk_ppko = $stk101_ppko + $stk104_ppko + $stk111_ppko;
+$stk_pkc = $stk102_pkc;
+
+// echo "Negeri $negeri <br>";
+// echo "*** Mills <br>";
+// echo "---->oer cpo $oer_cpo, ker pk $ker_pk, cpo $cpo, pk $pk cpo proc $cpo ffb proc $ffb_proc  <br>";
+// echo "---->ffb proc $ffb_proc ffb rec $ffb_rec <br>";
+// echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+// echo "---->stock cpo $stk911_cpo, pk $stk911_pk <br>";
+// echo "*** Crusher <br>";
+// echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc, cpko $cpko, pkc $pkc <br>";
+// echo "---->pk proc $pk_proc <br>";
+// echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+// echo "---->stock cpko $stk102_cpko, pk $stk102_pk, pkc $stk102_pkc <br>";
+// echo "*** Refinery <br>";
+// echo "---->production selected process po cps $prod101_cps, cpl $prod101_cpl, rbdpo $prod101_rbdpo, rbdpl $prod101_rbdpl, rbdps $prod101_rbdps, pfad $prod101_pfad, cooking oil $prod101_co<br>";
+// echo "---->production finish product margerine $prod101_mar, ghee $prod101_ghee, doughfat $prod101_fat, shortening $prod101_short, coco $prod101_coco, soap $prod101_soap, red olein $prod101_redol, prayer oil $prod101_pry, blend veg oil $prod101_blend, other edible $prod101_otheredb, other nonedible $prod101_othernot<br>";
+// echo "---->stock selected process po cps $stk101_cps, cpl $stk101_cpl, rbdpo $stk101_rbdpo, rbdpl $stk101_rbdpl, rbdps $stk101_rbdps, pfad $stk101_pfad, cooking oil $stk101_co<br>";
+// echo "---->stock finish product margerine $stk101_mar, ghee $stk101_ghee, doughfat $stk101_fat, shortening $stk101_short, coco $stk101_coco, soap $stk101_soap, red olein $stk101_redol, prayer oil $stk101_pry, blend veg oil $stk101_blend, other edible $stk101_otheredb, other nonedible $stk101_othernot<br>";
+// echo "---->process cpo $proc101_cpo, cpko $proc101_cpko ref capacity $refcap, ref utilrate $refutilrate <br>";
+// echo "---->stock cpo $stk101_cpo, ppo $stk101_ppo, cpko $stk101_cpko, ppko $stk101_ppko, rbdpko $stk101_rbdpko,rbdpkl $stk101_rbdpkl,rbdpks $stk101_rbdpks,pkfad $stk101_pkfad<br>";
+// echo "*** Oleo <br>";
+// echo "---->prod cps $prod104_cps, cpl $prod104_cpl, rbdpo $prod104_rbdpo, rbdpl $prod104_rbdpl, rbdps $prod104_rbdps, pfad $prod104_pfad<br>";
+// echo "---->stock cps $stk104_cps, cpl $stk104_cpl, rbdpo $stk104_rbdpo, rbdpl $stk104_rbdpl, rbdps $stk104_rbdps, pfad $stk104_pfad<br>";
+// echo "---->process cpo $proc104_cpo, ppo $proc104_ppo, cpko $proc104_cpko ppko $proc104_ppko oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+// echo "---->stock cpo $stk104_cpo, ppo $stk104_ppo, cpko $stk104_cpko, ppko $stk104_ppko, rbdpko $stk104_rbdpko,rbdpkl $stk104_rbdpkl,rbdpks $stk104_rbdpks,pkfad $stk104_pkfad<br> ";
+// echo "*** e-Biodiesel";
+// echo "---->Stok RBDPO $stk_bio_rbdpo, RBDPL $stk_bio_rbdpl, RBDPS $stk_bio_rbdps, PFAD $stk_bio_pfad , RBDPKO $stk_bio_rbdpko, RBDPKL $stk_bio_rbdpkl, RBDPKS $stk_bio_rbdpks,PKFAD $stk_bio_pkfad <br>";
+// echo "*** Pusat Simpanan <br>";
+// echo "---->stock cpo $stk111_cpo, ppo $stk111_ppo, cpko $stk111_cpko, ppko $stk111_ppko, rbdpo $stk111_rbdpo,rbdpl $stk111_rbdpl, rbdps $stk111_rbdps,pfad $stk111_pfad, rbdpko $stk111_rbdpko,rbdpks $stk111_rbdpks,rbdpkl $stk111_rbdpkl,pkfad $stk111_pkfad<br>";
+// echo "*** Stock <br> ";
+// echo "---->cpo $stk_cpo, ppo $stk_ppo, pk $stk_pk, cpko $stk_cpko, ppko $stk_ppko, pkc $stk_pkc<br>";
+
+
+
+
+
+
+
+
+$query1 = DB::connection('mysql3')->select("SELECT max(oernegeri_id) as maxoernegeri_id from oernegeri");
+
+foreach($query1 as $result){
+ $result1 = $result->maxoernegeri_id;
+//$result1 = mysqli_query($conn_mysql_econ,$query1);
+//$ad1 = mysqli_fetch_assoc($result1);
+
+}
+if ($result1)
+{
+//$maxno =  $ad1["maxoernegeri_id"];
+$oernegeri_id = $result1 + 1;
+}
+else
+$oernegeri_id = 1;
+
+$qinsnegeri = DB::connection('mysql3')->insert("INSERT into oernegeri values ('$oernegeri_id','$tahun',
+            '$bulan','$negeri',
+            $oer_cpo,$oer_cpko,$ker_pk,$ker_pkc,$cpo,$ffb_proc)");
+
+//$rinsnegeri = mysqli_query($conn_mysql,$qinsnegeri);
+//$rinsnegeriecon = mysqli_query($conn_mysql_econ,$qinsnegeri);
+
+$query2 = DB::connection('mysql3')->select("SELECT max(prodnegeri_id) as maxprodnegeri_id from prodnegeri");
+
+foreach($query2 as $result){
+ $result2 = $result->maxprodnegeri_id;
+//$result2 = mysqli_query($conn_mysql_econ,$query2);
+//$ad2 = mysqli_fetch_assoc($result2);
+}
+if ($result2)
+{
+//$maxno1 =  $ad2["maxprodnegeri_id"];
+$prodnegeri_id = $result2 + 1;
+}
+else
+$prodnegeri_id = 1;
+
+// $conn_mysql_econ = db_connect_econ_replicate_mysqli();
+// $conn_mysql = db_connect_ekilangmain_mysqli();
+
+$qinsnegeri1 = DB::connection('mysql3')->insert("INSERT into prodnegeri values ('$prodnegeri_id','$tahun',
+             '$bulan','$negeri',
+             $cpo,$pk,$ffb_proc,$ffb_rec,$millhrs,$millcap,$millutilrate,
+             $cpko,$pkc,$pk_proc,$crshrs,$crscap,$crsutilrate,
+             $prod101_cps, $prod101_cpl, $prod101_rbdpo, $prod101_rbdpl, $prod101_rbdps, $prod101_pfad, $prod101_co,
+             $proc101_cpo, $proc101_cpko, $refcap, $refutilrate,
+             $prod101_mar, $prod101_ghee, $prod101_fat, $prod101_short, $prod101_coco, $prod101_soap, $prod101_redol, $prod101_pry, $prod101_blend, $prod101_otheredb, $prod101_othernot,
+             $prod104_cps, $prod104_cpl, $prod104_rbdpo, $prod104_rbdpl, $prod104_rbdps, $prod104_pfad,
+             $proc104_cpo, $proc104_cpko, $oleocap, $oleoutilrate,
+             $proc104_ppo, $proc104_ppko, $millno, $crsno, $refno,$oleono,$millhrs_actual)");
+
+//$rinsnegeri1 = mysqli_query($conn_mysql,$qinsnegeri1);
+//$rinsnegeri1econ = mysqli_query($conn_mysql_econ,$qinsnegeri1);
+
+$query2a = DB::connection('mysql3')->select("SELECT max(stknegeri_id) as maxstknegeri_id from stknegeri");
+
+foreach($query2a as $result){
+ $result2a = $result->maxstknegeri_id;
+//$result2a = mysqli_query($conn_mysql_econ,$query2a);
+//$ad2a = mysqli_fetch_assoc($result2a);
+}
+if ($result2a)
+{
+//$maxno1a =  $ad2a["maxstknegeri_id"];
+$stknegeri_id = $result2a + 1;
+}
+else
+$stknegeri_id = 1;
+
+$stk_cpo = $stk_cpo + $stkbio_cpo;
+$stk_ppo = $stk_ppo + $stkbio_ppo;
+$stk_cpko = $stk_cpko + $stkbio_cpko;
+$stk_ppko = $stk_ppko + $stkbio_ppko;
+
+
+
+
+
+$qinsnegeri1a = DB::connection('mysql3')->insert("INSERT into stknegeri values ('$stknegeri_id','$tahun',
+             '$bulan','$negeri',
+             $stk911_cpo, $stk911_pk, $stk102_cpko, $stk102_pk, $stk102_pkc,
+             $stk101_cps, $stk101_cpl, $stk101_rbdpo, $stk101_rbdpl,
+             $stk101_rbdps, $stk101_pfad, $stk101_co,
+             $stk101_cpo, $stk101_ppo, $stk101_cpko, $stk101_ppko,
+             $stk101_mar, $stk101_ghee, $stk101_fat, $stk101_short, $stk101_coco,
+             $stk101_soap, $stk101_redol, $stk101_pry, $stk101_blend,
+             $stk101_otheredb, $stk101_othernot,
+             $stk104_cps, $stk104_cpl, $stk104_rbdpo, $stk104_rbdpl,
+             $stk104_rbdps, $stk104_pfad,
+             $stk104_cpo, $stk104_ppo, $stk104_cpko, $stk104_ppko,
+             $stk111_cpo, $stk111_ppo, $stk111_cpko, $stk111_ppko,
+             $stk_cpo, $stk_ppo, $stk_cpko, $stk_ppko, $stk_pk, $stk_pkc,
+             $stk_bio_rbdpo, $stk_bio_rbdpl,$stk_bio_rbdps,$stk_bio_pfad,
+             $stk111_rbdpo,$stk111_rbdpl,$stk111_rbdps,$stk111_pfad,
+             $stk101_rbdpko,$stk101_rbdpkl,$stk101_rbdpks,$stk101_pkfad,
+             $stk_bio_rbdpko,$stk_bio_rbdpkl,$stk_bio_rbdpks,$stk_bio_pkfad,
+             $stk111_rbdpko,$stk111_rbdpkl,$stk111_rbdpks,$stk111_pkfad,
+              $stk104_rbdpko,$stk104_rbdpkl,$stk104_rbdpks,$stk104_pkfad)");
+
+
+
+//$rinsnegeri1a = mysqli_query($conn_mysql,$qinsnegeri1a);
+//$rinsnegeri1aecon = mysqli_query($conn_mysql_econ,$qinsnegeri1a);
+
+
+
+//$rinsnegeri1b = mysqli_query($qinsnegeri1b,$conn_mysql);
+
+
+}
+// echo "Jumlah rekod sudah dipindah bagi negeri $jumnegeri<br><br>";
+
+$stk_cpo = 0;
+$stk_ppo = 0;
+$stk_pk = 0;
+$stk_cpko = 0;
+$stk_ppko = 0;
+$stk_pkc = 0;
+
+
+// Malaysia ----------------------------------------------------------------------------------
+
+// Kilang Buah
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrymsia = DB::connection('mysql4')->select("SELECT ((sum(round(p.F911J1,2))/sum(round(p.F911I,2)))*100) oer_cpo,
+             ((sum(round(p.F911J2,2))/sum(round(p.F911I,2)))*100) ker_pk,
+             sum(round(p.F911I,2)) ffb_proc,sum(round(p.F911J1,2)) cpo_proc
+       from PL911P3 p
+       where p.F911D = '$tahun' and
+             p.F911C = '$bulan' and
+             p.F911I not in (0) and
+             p.F911I is not NULL");
+
+foreach ($qrymsia as $sum){
+ $oer_cpo = (float) $sum->oer_cpo;
+ $ker_pk = (float) $sum->ker_pk;
+ $ffb_proc = (float) $sum->ffb_proc;
+ //$ffb_proc = number_format($ffb_proc,2);
+ $cpo_proc = (float) $sum->cpo_proc;
+ //$cpo_proc = number_format($cpo_proc,2);
+}
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from PL911P3 p, lesen_master.mpku_caps m
+      where p.F911D = '$tahun' and
+            p.F911C = '$bulan' and
+            p.F911A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '04'");
+
+
+//$res2 = mysqli_query($conn_odbc,$qry2);
+//$ad2 = mysqli_fetch_assoc($res2);
+//$millcap = $ad2["cap_lulus"];
+
+foreach ($qry2 as $sum) {
+ $millcap =  $sum->cap_lulus ;
+ $millno =  $sum->millno ;
+ }
+
+if ($millcap == NULL)
+$millcap = 0;
+if ($millcap == 0)
+$millutilrate = 0;
+else
+$millutilrate = (float) (($ffb_proc / ($millcap/12)) * 100);
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry4 = DB::connection('mysql4')->select("SELECT (sum(round(F911O,2))/count(F911A)) millhrs
+      from PL911P3
+      where F911D = '$tahun' and
+            F911C = '$bulan' and
+            F911J1 not in (0) and
+            F911J1 is not NULL");
+
+foreach ($qry4 as $sum){
+ $millhrs = (float) $sum->millhrs;
+}
+
+
+// Kilang Isirong
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry5 = DB::connection('mysql4')->select("SELECT ((sum(p.F1021L1)/sum(p.F1021K))*100) oer_cpko,
+           ((sum(p.F1021L2)/sum(p.F1021K))*100) ker_pkc
+    from pl1021p3 p
+    where p.F1021D = '$tahun' and
+          p.F1021C = '$bulan' and
+          p.F1021K not in (0) and
+          p.F1021K is not NULL");
+
+ foreach ($qry5 as $sum){
+       $oer_cpko = (float) $sum->oer_cpko;
+       $ker_pkc = (float) $sum->ker_pkc;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry6 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus,
+           (sum(m.cap_lulus * p.F1021S4) / sum(m.cap_lulus)) crsutilrate
+      from pl1021p3 p, lesen_master.mpku_caps m
+      where p.F1021D = '$tahun' and
+            p.F1021C = '$bulan' and
+            p.F1021A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '05'");
+
+foreach ($qry6 as $sum){
+ $crscap = (float) $sum->cap_lulus;
+ $crsutilrate = (float) $sum->crsutilrate;
+}
+
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry7 = DB::connection('mysql4')->select("SELECT (sum(round(F1021S3,2))/count(F1021A)) crshrs
+      from pl1021p3
+      where F1021D = '$tahun' and
+            F1021C = '$bulan' and
+            F1021S3 not in (0) and
+            F1021S3 is not NULL");
+
+foreach ($qry7 as $sum){
+ $crshrs = (float) $sum->crshrs;
+}
+
+
+// Kilang Penapis
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from lesen_master.mpku_caps m,
+           lesen_master.dbp220 d
+      where  m.cap_mmyyyy = '$blnthn' and
+             m.cap_kat = '06' and
+             m.cap_lesen = d.F220A and
+             d.F220D = '1'");
+
+ foreach ($qry2 as $sum){
+       $refcap = (float) $sum->cap_lulus;
+ }
+
+
+if ($refcap == NULL)
+$refcap = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpo
+        from pl101ap3 a, pl101bp3 b,lesen_master.mpku_caps m
+        where m.cap_lesen=a.F101A1 and
+m.cap_mmyyyy ='$blnthn' and
+m.cap_kat = '06' and
+a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '1' and
+              b.F101B4 = '01' and
+              b.F101B10 not in (0) and
+              m.cap_lulus not in (0.00) and
+              b.F101B10 is not NULL and
+              m.cap_lulus is not NULL");
+
+ foreach ($qryproccpo as $sum){
+       $proc101_cpo = (float) $sum->proc101_cpo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpko = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpko
+        from pl101ap3 a, pl101bp3 b,lesen_master.mpku_caps m
+        where m.cap_lesen=a.F101A1 and
+   m.cap_mmyyyy ='$blnthn' and
+m.cap_kat = '06' and
+a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '04' and
+              b.F101B10 not in (0) and
+              m.cap_lulus not in (0.00) and
+              b.F101B10 is not NULL and
+              m.cap_lulus is not NULL");
+
+ foreach ($qryproccpko as $sum){
+       $proc101_cpko = (float) $sum->proc101_cpko;
+ }
+
+
+if ($refcap == 0)
+$refutilrate = 0;
+else
+$refutilrate = (float) ((($proc101_cpo + $proc101_cpko) / ($refcap/12)) * 100);
+
+// Kilang Oleo
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from lesen_master.mpku_caps m,
+      lesen_master.dbp220 d
+      where m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '06' and
+            m.cap_lesen = d.F220A and
+            d.F220D = '2'");
+
+ foreach ($qry2 as $sum){
+       $oleocap = (float) $sum->cap_lulus;
+ }
+
+
+if ($oleocap == NULL)
+$oleocap = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_cpo
+        from pl104ap1 a, pl104bp1 b
+        where a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '1' and
+              b.F104B4 = '01' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryproccpo as $sum){
+       $proc104_cpo = (float) $sum->proc104_cpo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryprocppo = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_ppo
+        from pl104ap1 a, pl104bp1 b
+        where a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '1' and
+              b.F104B4 != '01' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryprocppo as $sum){
+       $proc104_ppo = (float) $sum->proc104_ppo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpko = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_cpko
+        from pl104ap1 a, pl104bp1 b
+        where a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '04' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryproccpko as $sum){
+       $proc104_cpko = (float) $sum->proc104_cpko;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryprocppko = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_ppko
+        from pl104ap1 a, pl104bp1 b
+        where a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 != '04' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryprocppko as $sum){
+       $proc104_ppko = (float) $sum->proc104_ppko;
+ }
+
+
+if ($oleocap == 0)
+$oleoutilrate = 0;
+else
+$oleoutilrate = (float) ((($proc104_cpo + $proc104_ppo + $proc104_cpko + $proc104_ppko) / ($oleocap/12)) * 100);
+
+// echo "data2";
+// echo "<br>";
+// echo "proc104_cpo: ",$proc104_cpo;
+// echo "<br>";
+// echo "proc104_ppo: ",$proc104_ppo;
+// echo "<br>";
+// echo "proc104_cpko: ",$proc104_cpko;
+// echo "<br>";
+// echo "proc104_ppko: ",$proc104_ppko;
+// echo "<br>";
+// echo "oleocap: ",$oleocap;
+// echo "<br>";
+// echo "oleoutilrate: ",$oleoutilrate;
+
+// echo "Malaysia <br>";
+// echo "*** Mills <br>";
+// echo "---->oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc<br>";
+// echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+// echo "*** Crusher <br>";
+// echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
+// echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+// echo "*** Refinery <br>";
+// echo "---->ref capacity $refcap, ref utilrate $refutilrate <br>";
+// echo "*** Oleo <br>";
+// echo "---->oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+
+$query1 = DB::connection('mysql3')->select("SELECT max(oermsia_id) as maxoermsia_id from oermsia");
+
+foreach($query1 as $result){
+ $result1 = $result->maxoermsia_id;
+//$result1 = mysqli_query($conn_mysql_econ,$query1);
+//$ad1 = mysqli_fetch_assoc($result1);
+}
+if ($result1)
+{
+//$maxno =  $ad1["maxoermsia_id"];
+$oermsia_id = $result1 + 1;
+}
+else
+$oermsia_id = 1;
+
+$qinsmsia = DB::connection('mysql3')->insert("INSERT into oermsia values ('$oermsia_id','$tahun',
+ '$bulan',
+ $oer_cpo,$oer_cpko,$ker_pk,$ker_pkc,$cpo_proc,$ffb_proc)");
+
+//$rinsmsia = mysqli_query($conn_mysql,$qinsmsia);
+//$rinsmsiaecon = mysqli_query($conn_mysql_econ,$qinsmsia);
+
+$query2 = DB::connection('mysql3')->select("SELECT max(prodmsia_id) as maxprodmsia_id from prodmsia");
+
+foreach($query2 as $result){
+ $result2 = $result->maxprodmsia_id;
+//$result2 = mysqli_query($conn_mysql_econ,$query2);
+//$ad2 = mysqli_fetch_assoc($result2);
+}
+if ($result2)
+{
+//$maxno1 = $ad2["maxprodmsia_id"];
+$prodmsia_id = $result2 + 1;
+}
+else
+$prodmsia_id = 1;
+
+$qinsmsia1 = DB::connection('mysql3')->select("SELECT into prodmsia values ('$prodmsia_id','$tahun','$bulan',
+       $millhrs,$millcap,$millutilrate,
+       $crshrs,$crscap,$crsutilrate,
+       $refcap, $refutilrate,
+       $oleocap, $oleoutilrate)");
+
+//$rinsmsia1 = mysqli_query($conn_mysql,$qinsmsia1);
+//$rinsmsia1econ = mysqli_query($conn_mysql_econ,$qinsmsia1);
+
+// Semenanjung Malaysia ---------------------------------------------------------------------
+
+// Kilang Buah
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qrysemsia = DB::connection('mysql4')->select("SELECT ((sum(round(p.F911J1,2))/sum(round(p.F911I,2)))*100) oer_cpo,
+               ((sum(round(p.F911J2,2))/sum(round(p.F911I,2)))*100) ker_pk,
+               sum(round(p.F911I,2)) ffb_proc,sum(round(p.F911J1,2)) cpo_proc
+         from PL911P3 p, licensedb.license l
+         where p.F911A = l.F201A and
+               p.F911D = '$tahun' and
+               p.F911C = '$bulan' and
+               p.F911I not in (0) and
+               p.F911I is not NULL and
+               l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12)");
+
+ foreach ($qrysemsia as $sum){
+       $oer_cpo = (float) $sum->oer_cpo;
+       $ker_pk = (float) $sum->ker_pk;
+       $ffb_proc = $sum->ffb_proc;
+       //$ffb_proc = number_format($ffb_proc,2);
+       $cpo_proc = (float) $sum->cpo_proc;
+      // $cpo_proc = number_format($cpo_proc,2);
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from PL911P3 p, licensedb.license l, lesen_master.mpku_caps m
+      where p.F911D = '$tahun' and
+            p.F911C = '$bulan' and
+            p.F911A = l.F201A and
+            l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+            p.F911A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '04'");
+
+foreach ($qry2 as $sum){
+ $millcap = (float) $sum->cap_lulus;
+}
+
+
+if ($millcap == NULL)
+$millcap = 0;
+if ($millcap == 0)
+$millutilrate = 0;
+else
+$millutilrate = (float) (($ffb_proc / ($millcap/12)) * 100);
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry4 = DB::connection('mysql4')->select("SELECT (sum(round(p.F911O,2))/count(p.F911A)) millhrs
+    from PL911P3 p, licensedb.license l
+    where p.F911A = l.F201A and
+          p.F911D = '$tahun' and
+          p.F911C = '$bulan' and
+          p.F911J1 not in (0) and
+          p.F911J1 is not NULL and
+          l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12)");
+
+foreach ($qry4 as $sum){
+ $millhrs = (float) $sum->millhrs;
+}
+
+
+// Kilang Isirong
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry5 = DB::connection('mysql4')->select("SELECT ((sum(p.F1021L1)/sum(p.F1021K))*100) oer_cpko,
+           ((sum(p.F1021L2)/sum(p.F1021K))*100) ker_pkc
+    from pl1021p3 p, licensedb.license l
+    where p.F1021A = l.F201A and
+          p.F1021D = '$tahun' and
+          p.F1021C = '$bulan' and
+          l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+          p.F1021K not in (0) and
+          p.F1021K is not NULL");
+
+foreach ($qry5 as $sum){
+ $oer_cpko = (float) $sum->oer_cpko;
+ $ker_pkc = (float) $sum->ker_pkc;
+}
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry6 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus,
+           (sum(m.cap_lulus * p.F1021S4) / sum(m.cap_lulus)) crsutilrate
+      from pl1021p3 p, licensedb.license l, lesen_master.mpku_caps m
+      where p.F1021D = '$tahun' and
+            p.F1021C = '$bulan' and
+            p.F1021A = l.F201A and
+            l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+            p.F1021A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '05'");
+
+foreach ($qry6 as $sum){
+ $crscap = (float) $sum->cap_lulus;
+ $crsutilrate = (float) $sum->crsutilrate;
+}
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry7 = DB::connection('mysql4')->select("SELECT (sum(round(p.F1021S3,2))/count(p.F1021A)) crshrs
+    from pl1021p3 p, licensedb.license l
+    where p.F1021A = l.F201A and
+          p.F1021D = '$tahun' and
+          p.F1021C = '$bulan' and
+          p.F1021S3 not in (0) and
+          p.F1021S3 is not NULL and
+          l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12)");
+
+foreach ($qry7 as $sum){
+ $crshrs = (float) $sum->crshrs;
+}
+
+
+// Kilang Penapis
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from licensedb.license l, lesen_master.mpku_caps m,
+           lesen_master.dbp220 d
+      where  l.F201A = m.cap_lesen and
+             l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+             m.cap_mmyyyy = '$blnthn' and
+             m.cap_kat = '06' and
+             l.F201A = d.F220A and
+             d.F220D = '1'");
+
+ foreach ($qry2 as $sum){
+       $refcap = (float) $sum->cap_lulus;
+ }
+
+
+if ($refcap == NULL)
+$refcap = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpo
+        from pl101ap3 a, pl101bp3 b, licensedb.license l,lesen_master.mpku_caps m
+        where m.cap_lesen=a.F101A1 and
+m.cap_mmyyyy ='$blnthn' and
+   m.cap_kat = '06' and
+a.F101A1 = l.F201A and
+              l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '1' and
+              b.F101B4 = '01' and
+              b.F101B10 not in (0) and
+              m.cap_lulus not in (0.00) and
+              b.F101B10 is not NULL and
+              m.cap_lulus is not NULL");
+
+ foreach ($qryproccpo as $sum){
+       $proc101_cpo = (float) $sum->proc101_cpo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpko = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpko
+        from pl101ap3 a, pl101bp3 b, licensedb.license l,lesen_master.mpku_caps m
+        where m.cap_lesen=a.F101A1 and
+m.cap_mmyyyy ='$blnthn' and
+   m.cap_kat = '06' and
+a.F101A1 = l.F201A and
+              l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '04' and
+              b.F101B10 not in (0) and
+              m.cap_lulus not in (0.00) and
+              b.F101B10 is not NULL and
+              m.cap_lulus is not NULL");
+
+ foreach ($qryproccpko as $sum){
+       $proc101_cpko = (float) $sum->proc101_cpko;
+ }
+
+
+if ($refcap == 0)
+$refutilrate = 0;
+else
+$refutilrate = (float) ((($proc101_cpo + $proc101_cpko) / ($refcap/12)) * 100);
+
+// Kilang Oleo
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from licensedb.license l,lesen_master.mpku_caps m,
+      lesen_master.dbp220 d
+      where l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+            l.F201A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '06' and
+            l.F201A = d.F220A and
+            d.F220D = '2'");
+
+ foreach ($qry2 as $sum){
+       $oleocap = (float) $sum->cap_lulus;
+ }
+
+
+if ($oleocap == NULL)
+$oleocap = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_cpo
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '1' and
+              b.F104B4 = '01' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryproccpo as $sum){
+       $proc104_cpo = (float) $sum->proc104_cpo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryprocppo = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_ppo
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '1' and
+              b.F104B4 != '01' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryprocppo as $sum){
+       $proc104_ppo = (float) $sum->proc104_ppo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpko = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_cpko
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '04' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryproccpko as $sum){
+       $proc104_cpko = (float) $sum->proc104_cpko;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryprocppko = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_ppko
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (1,2,3,4,5,6,7,8,9,10,11,12) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 != '04' and
+               b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryprocppko as $sum){
+       $proc104_ppko = (float) $sum->proc104_ppko;
+ }
+
+
+if ($oleocap == 0)
+$oleoutilrate = 0;
+else
+$oleoutilrate = (float) ((($proc104_cpo + $proc104_ppo + $proc104_cpko + $proc104_ppko) / ($oleocap/12)) * 100);
+
+// echo $proc104_cpo;
+// echo "br";
+// echo $proc104_ppo;
+// echo "br";
+// echo $proc104_cpko;
+// echo "br";
+// echo $proc104_ppko;
+// echo "br";
+// echo $oleocap;
+
+
+
+// echo "Semenanjung Malaysia <br>";
+// echo "*** Mills <br>";
+// echo "---->oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc <br>";
+// echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+// echo "*** Crusher <br>";
+// echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
+// echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+// echo "*** Refinery <br>";
+// echo "---->ref capacity $refcap, ref utilrate $refutilrate <br>";
+// echo "*** Oleo <br>";
+// echo "---->oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+
+$query1 = DB::connection('mysql3')->select("SELECT max(oersemsia_id) as maxoersemsia_id from oersemsia");
+
+foreach($query1 as $result){
+ $result1 = $result->maxoersemsia_id;
+//$result1 = mysqli_query($conn_mysql_econ,$query1);
+//$ad1 = mysqli_fetch_assoc($result1);
+}
+if ($result1)
+{
+//$maxno =  $ad1["maxoersemsia_id"];
+$oersemsia_id = $result1 + 1;
+}
+else
+$oersemsia_id = 1;
+
+$qinssemsia = DB::connection('mysql3')->insert("INSERT into oersemsia values ('$oersemsia_id','$tahun','$bulan',
+          $oer_cpo,$oer_cpko,$ker_pk,$ker_pkc,$cpo_proc,$ffb_proc)");
+
+//$rinssemsia = mysqli_query($conn_mysql,$qinssemsia);
+//$rinssemsiaecon = mysqli_query($conn_mysql_econ,$qinssemsia);
+
+$query2 = DB::connection('mysql3')->select("SELECT max(prodsemsia_id) as maxprodsemsia_id from prodsemsia");
+
+foreach($query2 as $result){
+ $result2 = $result->maxprodsemsia_id;
+//$result2 = mysqli_query($conn_mysql_econ,$query2);
+//$ad2 = mysqli_fetch_assoc($result2);
+}
+if ($result2)
+{
+//$maxno1 =  $ad2["maxprodsemsia_id"];
+$prodsemsia_id = $result2 + 1;
+}
+else
+$prodsemsia_id = 1;
+
+$qinssemsia1 = DB::connection('mysql3')->insert("INSERT into prodsemsia values ('$prodsemsia_id','$tahun','$bulan',
+       $millhrs,$millcap,$millutilrate,
+       $crshrs,$crscap,$crsutilrate,
+       $refcap, $refutilrate,
+       $oleocap, $oleoutilrate)");
+
+//$rinssemsia1 = mysqli_query($conn_mysql,$qinssemsia1);
+//$rinssemsia1econ = mysqli_query($conn_mysql_econ,$qinssemsia1);
+
+
+// Sabah Sarawak
+
+// Kilang Buah
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryss = DB::connection('mysql4')->select("SELECT ((sum(round(p.F911J1,2))/sum(round(p.F911I,2)))*100) oer_cpo,
+           ((sum(round(p.F911J2,2))/sum(round(p.F911I,2)))*100) ker_pk,
+           sum(round(p.F911I,2)) ffb_proc,sum(round(p.F911J1,2)) cpo_proc
+     from PL911P3 p, licensedb.license l
+     where p.F911A = l.F201A and
+           p.F911D = '$tahun' and
+           p.F911C = '$bulan' and
+           p.F911I not in (0) and
+           p.F911I is not NULL and
+           l.F201U4 in (13,14)");
+
+foreach ($qryss as $sum){
+ $oer_cpo = (float) $sum->oer_cpo;
+ $ker_pk = (float) $sum->ker_pk;
+ $ffb_proc = (float) $sum->ffb_proc;
+ // $ffb_proc = number_format($ffb_proc,2);
+ $cpo_proc = (float) $sum->cpo_proc;
+ // $cpo_proc = number_format($cpo_proc,2);
+}
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from PL911P3 p, licensedb.license l, lesen_master.mpku_caps m
+      where p.F911D = '$tahun' and
+            p.F911C = '$bulan' and
+            p.F911A = l.F201A and
+            l.F201U4 in (13,14) and
+            p.F911A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '04'");
+
+foreach ($qry2 as $sum){
+ $millcap = (float) $sum->cap_lulus;
+}
+
+
+if ($millcap == NULL)
+$millcap = 0;
+if ($millcap == 0)
+$millutilrate = 0;
+else
+$millutilrate = (float) (($ffb_proc / ($millcap/12)) * 100);
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry4 = DB::connection('mysql4')->select("SELECT (sum(round(p.F911O,2))/count(p.F911A)) millhrs
+    from PL911P3 p, licensedb.license l
+    where p.F911A = l.F201A and
+          p.F911D = '$tahun' and
+          p.F911C = '$bulan' and
+          p.F911J1 not in (0) and
+          p.F911J1 is not NULL and
+          l.F201U4 in (13,14)");
+
+foreach ($qry4 as $sum){
+ $millhrs = (float) $sum->millhrs;
+}
+
+
+// Kilang Isirong
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry5 = DB::connection('mysql4')->select("SELECT ((sum(p.F1021L1)/sum(p.F1021K))*100) oer_cpko,
+           ((sum(p.F1021L2)/sum(p.F1021K))*100) ker_pkc
+    from pl1021p3 p, licensedb.license l
+    where p.F1021A = l.F201A and
+          p.F1021D = '$tahun' and
+          p.F1021C = '$bulan' and
+          l.F201U4 in (13,14) and
+          p.F1021K not in (0) and
+          p.F1021K is not NULL");
+
+foreach ($qry5 as $sum){
+ $oer_cpko = (float) $sum->oer_cpko;
+ $ker_pkc = (float) $sum->ker_pkc;
+}
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry6 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus,
+           (sum(m.cap_lulus * p.F1021S4) / sum(m.cap_lulus)) crsutilrate
+      from pl1021p3 p, licensedb.license l, lesen_master.mpku_caps m
+      where p.F1021D = '$tahun' and
+            p.F1021C = '$bulan' and
+            p.F1021A = l.F201A and
+            l.F201U4 in (13,14) and
+            p.F1021A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '05'");
+
+foreach ($qry6 as $sum){
+ $crscap = (float) $sum->cap_lulus;
+ $crsutilrate = (float) $sum->crsutilrate;
+}
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry7 = DB::connection('mysql4')->select("SELECT (sum(round(p.F1021S3,2))/count(p.F1021A)) crshrs
+    from pl1021p3 p, licensedb.license l
+    where p.F1021A = l.F201A and
+          p.F1021D = '$tahun' and
+          p.F1021C = '$bulan' and
+          p.F1021S3 not in (0) and
+          p.F1021S3 is not NULL and
+          l.F201U4 in (13,14)");
+
+foreach ($qry7 as $sum){
+ $crshrs = (float) $sum->crshrs;
+}
+
+
+// Kilang Penapis
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from licensedb.license l, lesen_master.mpku_caps m,
+           lesen_master.dbp220 d
+      where  l.F201A = m.cap_lesen and
+             l.F201U4 in (13,14) and
+             m.cap_mmyyyy = '$blnthn' and
+             m.cap_kat = '06' and
+             l.F201A = d.F220A and
+             d.F220D = '1'");
+
+ foreach ($qry2 as $sum){
+       $refcap = (float) $sum->cap_lulus;
+ }
+
+
+if ($refcap == NULL)
+$refcap = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpo
+        from pl101ap3 a, pl101bp3 b, licensedb.license l,lesen_master.mpku_caps m
+        where m.cap_lesen=a.F101A1 and
+m.cap_mmyyyy ='$blnthn' and
+m.cap_kat = '06' and
+a.F101A1 = l.F201A and
+              l.F201U4 in (13,14) and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '1' and
+              b.F101B4 = '01' and
+              b.F101B10 not in (0) and
+              m.cap_lulus not in (0.00) and
+              b.F101B10 is not NULL and
+              m.cap_lulus is not NULL");
+
+ foreach ($qryproccpo as $sum){
+       $proc101_cpo = (float) $sum->proc101_cpo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpko = DB::connection('mysql4')->select("SELECT sum(b.F101B10) proc101_cpko
+        from pl101ap3 a, pl101bp3 b, licensedb.license l,lesen_master.mpku_caps m
+        where m.cap_lesen=a.F101A1 and
+m.cap_mmyyyy ='$blnthn' and
+m.cap_kat = '06' and
+a.F101A1 = l.F201A and
+              l.F201U4 in (13,14) and
+              a.F101A1 = b.F101B1 and
+              a.F101A4 = b.F101B2 and
+              a.F101A6 = '$tahun' and
+              a.F101A5 = '$bulan' and
+              b.F101B3 = '2' and
+              b.F101B4 = '04' and
+              b.F101B10 not in (0) and
+              m.cap_lulus not in (0.00) and
+              b.F101B10 is not NULL and
+              m.cap_lulus is not NULL");
+
+ foreach ($qryproccpko as $sum){
+       $proc101_cpko = (float) $sum->proc101_cpko;
+ }
+
+
+if ($refcap == 0)
+$refutilrate = 0;
+else
+$refutilrate = (float) ((($proc101_cpo + $proc101_cpko) / ($refcap/12)) * 100);
+
+// Kilang Oleo
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qry2 = DB::connection('mysql4')->select("SELECT sum(m.cap_lulus) cap_lulus
+      from licensedb.license l,lesen_master.mpku_caps m,
+      lesen_master.dbp220 d
+      where l.F201U4 in (13,14) and
+            l.F201A = m.cap_lesen and
+            m.cap_mmyyyy = '$blnthn' and
+            m.cap_kat = '06' and
+            l.F201A = d.F220A and
+            d.F220D = '2'");
+
+ foreach ($qry2 as $sum){
+       $oleocap = (float) $sum->cap_lulus;
+ }
+
+
+if ($oleocap == NULL)
+$oleocap = 0;
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpo = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_cpo
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (13,14) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '1' and
+              b.F104B4 = '01' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryproccpo as $sum){
+       $proc104_cpo = (float) $sum->proc104_cpo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryprocppo = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_ppo
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (13,14) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '1' and
+              b.F104B4 != '01' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryprocppo as $sum){
+       $proc104_ppo = (float) $sum->proc104_ppo;
+ }
+
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryproccpko = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_cpko
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (13,14) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 = '04' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryproccpko as $sum){
+       $proc104_cpko = (float) $sum->proc104_cpko;
+ }
+
+//odbc_close($conn_odbc);
+//$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
+
+$qryprocppko = DB::connection('mysql4')->select("SELECT sum(b.F104B9) proc104_ppko
+        from pl104ap1 a, pl104bp1 b, licensedb.license l
+        where a.F104A1 = l.F201A and
+              l.F201U4 in (13,14) and
+              a.F104A1 = b.F104B1 and
+              a.F104A4 = b.F104B2 and
+              a.F104A6 = '$tahun' and
+              a.F104A5 = '$bulan' and
+              b.F104B3 = '2' and
+              b.F104B4 != '04' and
+              b.F104B9 not in (0) and
+              b.F104B9 is not NULL");
+
+ foreach ($qryprocppko as $sum){
+       $proc104_ppko = (float) $sum->proc104_ppko;
+ }
+
+
+if ($oleocap == 0)
+$oleoutilrate = 0;
+else
+$oleoutilrate = (float) ((($proc104_cpo + $proc104_ppo + $proc104_cpko + $proc104_ppko) / ($oleocap/12)) * 100);
+
+
+
+
+
+
+// echo "Sabah dan Sarawak <br>";
+// echo "*** Mills <br>";
+// echo "---->oer cpo $oer_cpo, ker pk $ker_pk cpo proc $cpo_proc ffb proc $ffb_proc<br>";
+// echo "---->mill hrs $millhrs, mill capacity $millcap, mill utilrate $millutilrate<br>";
+// echo "*** Crusher <br>";
+// echo "---->oer cpko $oer_cpko, ker pkc $ker_pkc <br>";
+// echo "---->crs hrs $crshrs, crs capacity $crscap, crs utilrate $crsutilrate<br>";
+// echo "*** Refinery <br>";
+// echo "---->ref capacity $refcap, ref utilrate $refutilrate <br>";
+// echo "*** Oleo <br>";
+// echo "---->oleo capacity $oleocap, oleo utilrate $oleoutilrate <br>";
+
+$query1 = DB::connection('mysql3')->select("SELECT max(oerss_id) as maxoerss_id from oerss");
+
+foreach($query1 as $result){
+ $result1 = $result->maxoerss_id;
+//$result1 = mysqli_query($conn_mysql_econ,$query1);
+//$ad1 = mysqli_fetch_assoc($result1);
+}
+if ($result1)
+{
+//$maxno =  $ad1["maxoerss_id"];
+$oerss_id = $result1 + 1;
+}
+else
+$oerss_id = 1;
+
+$qinsss = DB::connection('mysql3')->insert("INSERT into oerss values ('$oerss_id','$tahun','$bulan',
+      $oer_cpo,$oer_cpko,$ker_pk,$ker_pkc,$cpo_proc,$ffb_proc)");
+
+//$rinsss = mysqli_query($conn_mysql,$qinsss);
+//$rinsssecon = mysqli_query($conn_mysql_econ,$qinsss);
+
+$query2 = DB::connection('mysql3')->select("SELECT max(prodss_id) as maxprodss_id from prodss");
+
+foreach($query2 as $result){
+ $result2 = $result->maxprodss_id;
+//$result2 = mysqli_query($conn_mysql_econ,$query2);
+//$ad2 = mysqli_fetch_assoc($result2);
+}
+if ($result2)
+{
+//$maxno1 =  $ad2["maxprodss_id"];
+$prodss_id = $result2 + 1;
+}
+else
+$prodss_id = 1;
+
+$qinsss1 = DB::connection('mysql3')->insert("INSERT into prodss values ('$prodss_id','$tahun','$bulan',
+       $millhrs,$millcap,$millutilrate,
+       $crshrs,$crscap,$crsutilrate,
+       $refcap, $refutilrate,
+       $oleocap, $oleoutilrate)");
+
+// $rinsss1 = mysqli_query($conn_mysql,$qinsss1);
+//$rinsss1 = mysqli_query($conn_mysql_econ,$qinsss1);
+
+//unblock publik supaya boleh tgk website
+$qrytransfer = DB::connection('mysql3')->update("UPDATE web_current1 set public_view='Y'
+        where public_view='T'");
+
+//$rtransfer = mysqli_query($conn_mysql_econ,$qrytransfer);
+
+$qrytransfer2 = DB::connection('mysql3')->update("UPDATE release10hb set public_view='Y'
+        where public_view='T'");
+
+//$rtransfer2 = mysqli_query($conn_mysql_econ,$qrytransfer2);
+
+// }
+// else
+// echo "Anda tidak dibenarkan melakukan operasi ini <br>";
+// }
 
 
 
