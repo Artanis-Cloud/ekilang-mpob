@@ -1720,7 +1720,7 @@ class Proses8Controller extends Controller
                     b.F104B9 not in (0) and
                     b.F104B9 is not NULL");
 
-            foreach ($variable as $key => $value) {
+            foreach ($qryprodpfad as $sum) {
                 $prod104_pfad = (float)  $sum->prod104_pfad;
             }
 
