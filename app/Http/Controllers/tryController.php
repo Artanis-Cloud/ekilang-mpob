@@ -56,7 +56,7 @@ class tryController extends Controller
               a.F101A1 = b.F101B1 and
               a.F101A4 = b.F101B2 and
               a.F101A6 = '2017' and
-              a.F101A5 = 09' and
+              a.F101A5 = '09' and
               b.F101B3 = '1' and
               b.F101B4 = '03' and
               b.F101B13 not in (0) and
