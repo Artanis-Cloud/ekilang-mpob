@@ -704,22 +704,32 @@ class Proses10Controller extends Controller
           where tahun = '$tahun' and bulan = '$bulan' and ppko_proc is NULL ");
 
 
-    // if ($refkap == 0) {
-    //     $updatep101n = DB::update("UPDATE p101_master set refutilrate = 0
-    //     where tahun = '$tahun' and bulan = '$bulan'");
-    // } else {
-    //     $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
-    //     where tahun = '$tahun' and bulan = '$bulan'");
-    // }
+    if ($refkap == 0 || $refkap == null) {
+        $updatep101n = DB::update("UPDATE p101_master set refutilrate = 0
+        where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = 0
+        where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+    } else {
+        $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
+        where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
+        where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = (cpko_proc / (refkap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = (ppo_proc  / (refkap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = (ppko_proc / (refkap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
 
-    $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-    $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = (cpko_proc / (refkap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-    $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = (ppo_proc  / (refkap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-    $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = (ppko_proc / (refkap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
+    }
+
+
     $updatep101s = DB::update("UPDATE p101_master set refutilrate = 0
         where tahun = '$tahun' and bulan = '$bulan' and refutilrate is NULL");
     $updatep101t = DB::update("UPDATE p101_master set refutilratecpo = 0
