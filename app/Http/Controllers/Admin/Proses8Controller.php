@@ -11352,7 +11352,7 @@ $prodmsia_id = $result2 + 1;
 else
 $prodmsia_id = 1;
 
-$qinsmsia1 = DB::connection('mysql3')->select("SELECT into prodmsia values ('$prodmsia_id','$tahun','$bulan',
+$qinsmsia1 = DB::connection('mysql3')->insert("INSERT into prodmsia values ('$prodmsia_id','$tahun','$bulan',
        $millhrs,$millcap,$millutilrate,
        $crshrs,$crscap,$crsutilrate,
        $refcap, $refutilrate,
