@@ -8554,14 +8554,14 @@ where p.F911A = l.F201A and
         //odbc_close($conn_odbc);
 
         //$conn_odbc = odbc_connect("SYBASEPLDB","sa","st5120");
-        $qrynegeribio_rbdpl6 = "select round(sum(kuantiti),2)  as ppo_proses_rbdpl
+        $qrynegeribio_rbdpl6 = DB::connection('mysql4')->select("SELECT round(sum(kuantiti),2)  as ppo_proses_rbdpl
                    from penyata_biodiesel a, licensedb.license l
                     where a.tahun = $tahun and
                          a.bulan = $bulan and
                          a.lesen = l.F201A and
                          a.kod_produk='29' and
                          a.penyata = 'ppo_proses' and
-                         l.F201U4 = $ngr";
+                         l.F201U4 = $ngr");
 
        foreach ($qrynegeribio_rbdpl6 as $sum) {
             $ppo_proses_rbdpl = (float) $sum->ppo_proses_rbdpl;
