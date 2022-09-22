@@ -6071,7 +6071,7 @@ where p.F911A = l.F201A and
         );
 
         //---addition
-     $qrydelpl = DB::connection('mysql3')->delete("DELETE from pl91_individual
+     $qrydelpl = DB::delete("DELETE from pl91_individual
      where tahun = '$tahun' and
        bulan = '$bulan'");
 //--- end
