@@ -6706,7 +6706,7 @@ where p.F911A = l.F201A and
 
       foreach ($qry2 as $sum) {
             $refcap = (float)$sum->cap_lulus;
-            $refno = $sum->refno+;
+            $refno = $sum->refno;
 
       }
 
