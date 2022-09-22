@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\Oerdaerah;
+use App\Models\Oernegeri;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\User;
@@ -59,9 +60,12 @@ class tryController extends Controller
         //     $idno_daerah = 1;
         // }
 
-        $now = date('Y-m-d');
+        // $now = date('Y-m-d');
 
-        $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
+        // $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
+
+        // $query1 = Oernegeri::max('oernegeri_id');
+        $query1 = Oernegeri::get();
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
@@ -72,7 +76,7 @@ class tryController extends Controller
         //     $result = $date2->gte($date1);
 
         // }
-        dd($date);
+        dd($query1);
         return view('users.users-dashboard');
     }
 
