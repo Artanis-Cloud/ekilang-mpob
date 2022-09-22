@@ -2507,7 +2507,7 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
 
          $qtrstatep101b = DB::delete("DELETE from p101_quarterly_state where Year = '$tahun' and TotalAll <= 0");
 
-         foreach ($variable as $key => $value) {
+         foreach ($qryindp101d as $row) {
 
           $nolesen = $row->F101D1 ;
           $jenis_aktiviti = (float)$row->F101D3 ;
