@@ -83,16 +83,17 @@ class tryController extends Controller
 
         $daerahs = DB::connection('mysql5')->select("SELECT kod_daerah, nama_daerah, kod_negeri from daerah");
 
-        // $daerah = DB::connection('mysql3')->select("SELECT * FROM daerah");
+
         foreach ($daerahs as $daerah) {
+        $combine = $daerah->kod_negeri . $daerah->kod_daerah ;
 
         $kod_negeri =  $daerah->kod_negeri ;
         $kod_daerah =  $daerah->kod_daerah ;
-        $kod_combine =  $daerah->kod_negeri.$daerah->kod_daerah ;
+        // $kod_combine =  $daerah->kod_negeri.$daerah->kod_daerah ;
 
         }
 
-        dd($kod_combine);
+        dd($combine);
 
 
         // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
