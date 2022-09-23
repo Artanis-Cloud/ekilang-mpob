@@ -23,6 +23,7 @@ use App\Models\RegPelesen;
 use App\Models\StkNegeri;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class Proses8Controller extends Controller
 {
@@ -58,6 +59,9 @@ class Proses8Controller extends Controller
             $this->porting_homepage($request->tahun, $request->bulan);
             return redirect()->back()->with('success', 'Maklumat daerah telah dipindahkan dari PLEID ke eKilang');
         }
+
+        //log audit trail admin
+        Auth::user()->log(" PORTING" );
     }
 
     public function porting_admin($tahun, $bulan)
