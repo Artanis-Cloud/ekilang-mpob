@@ -80,7 +80,7 @@ class tryController extends Controller
 
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
-        $daerah = DB::connection('mysql4')->select("SELECT * FROM daerah");
+        $daerah = DB::connection('mysql4')->select("show tables");
 
         // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
 
