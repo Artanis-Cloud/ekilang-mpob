@@ -85,7 +85,7 @@ class tryController extends Controller
 
 
         foreach ($daerahs as $daerah) {
-        $combine = $daerah->kod_negeri . $daerah->kod_daerah ;
+        // $combine = $daerah->kod_negeri . $daerah->kod_daerah ;
 
         $kod_negeri =  $daerah->kod_negeri ;
         $kod_daerah =  $daerah->kod_daerah ;
@@ -93,7 +93,7 @@ class tryController extends Controller
 
         }
 
-        dd($combine);
+        dd($kod_negeri);
 
 
         // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
