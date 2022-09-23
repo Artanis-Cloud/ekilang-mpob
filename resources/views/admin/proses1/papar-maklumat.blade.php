@@ -86,13 +86,11 @@
                                     Status e-Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_status" id="e_status" oninput="valid_status()" required>
+                                        <select class="form-control" name="e_status" id="e_status"  required>
 
                                             <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">Aktif</option>
                                             <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
                                         </select>
-                                        <p type="hidden" id="err_status" style="color: red; display:none"><i>Sila buat
-                                                pilihan di bahagian ini!</i></p>
                                     </fieldset>
 
                                 </div>
@@ -311,12 +309,10 @@
                                 <div class="col-md-6">
                                     <input type="email" id="e_email" class="form-control"
                                         placeholder="Alamat Emel" name="e_email" required maxlength="40"
-                                        value="{{ $pelesen->e_email }}">
-                                    @error('e_email')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        value="{{ $pelesen->e_email }}" oninput="valid_email()">
+
+                                        <p type="hidden" id="err_email" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -326,12 +322,10 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_npg" class="form-control" required maxlength="60"
                                         placeholder="Nama Pegawai Melapor" name="e_npg"
-                                        value="{{ $pelesen->e_npg }}">
-                                    @error('e_npg')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        value="{{ $pelesen->e_npg }}" oninput="valid_npg()">
+
+                                        <p type="hidden" id="err_npg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -341,12 +335,10 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_jpg" class="form-control" required maxlength="60"
                                         placeholder="Jawatan Pegawai Melapor" name="e_jpg"
-                                        value="{{ $pelesen->e_jpg }}">
-                                    @error('e_jpg')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        value="{{ $pelesen->e_jpg }}" oninput="valid_jpg()">
+
+                                        <p type="hidden" id="err_jpg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -357,12 +349,11 @@
                                     <input type="text" id="e_notel_pg" class="form-control"
                                         placeholder="No. Telefon Pegawai Melapor"
                                         name="e_notel_pg" required maxlength="40"
-                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}">
-                                    @error('e_notel_pg')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}"
+                                        oninput="valid_notel_pg()">
+
+                                        <p type="hidden" id="err_notel_pg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -372,12 +363,10 @@
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pg" class="form-control"
                                         placeholder="Alamat Emel Pegawai Melapor" required maxlength="40"
-                                        name="e_email_pg" value="{{ $pelesen->e_email_pg }}">
-                                    @error('e_email_pg')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        name="e_email_pg" value="{{ $pelesen->e_email_pg }}" oninput="valid_email_pg()">
+
+                                        <p type="hidden" id="err_email_pg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -387,13 +376,12 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_npgtg" class="form-control" required maxlength="60"
                                         placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                        value="{{ $pelesen->e_npgtg }}">
-                                    @error('e_npgtg')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        value="{{ $pelesen->e_npgtg }}" oninput="valid_npgtg()" >
+
+                                        <p type="hidden" id="err_npgtg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
+                                {{-- </div> --}}
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
@@ -403,12 +391,11 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_jpgtg" class="form-control" required maxlength="60"
                                         placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                        value="{{ $pelesen->e_jpgtg }}">
-                                    @error('e_jpgtg')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        value="{{ $pelesen->e_jpgtg }}" oninput="valid_jpgtg()">
+
+                                        <p type="hidden" id="err_jpgtg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
+
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -418,14 +405,10 @@
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pengurus" class="form-control" required maxlength="40"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                        value="{{ $pelesen->e_email_pengurus }}">
+                                        value="{{ $pelesen->e_email_pengurus }}" oninput="valid_email_pengurus()">
 
-
-                                    @error('e_email_pengurus')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+                                        <p type="hidden" id="err_email_pengurus" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -492,12 +475,10 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_syktinduk" class="form-control" required maxlength="60"
                                         placeholder="Syarikat Induk" name="e_syktinduk"
-                                        value="{{ $pelesen->e_syktinduk}}">
-                                    @error('e_syktinduk')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
+                                        value="{{ $pelesen->e_syktinduk}}" oninput="valid_syktinduk()">
+
+                                        <p type="hidden" id="err_syktinduk" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -507,7 +488,10 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)"
                                     placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4"
-                                    value="{{ $pelesen->e_year ?? '' }}">
+                                    value="{{ $pelesen->e_year ?? '' }}" oninput="valid_year()">
+
+                                    <p type="hidden" id="err_year" style="color: red; display:none">
+                                        <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -516,25 +500,26 @@
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="e_group" name="e_group" required>
-                                            <option selected   value="">Sila Pilih Kumpulan</option>
+                                        <select class="form-control" id="e_group" name="e_group" required oninput="valid_group()">
+                                            <option selected value="">Sila Pilih Kumpulan</option>
 
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
                                                 Kerajaan</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
                                                 Swasta</option>
                                         </select>
+
+                                        <p type="hidden" id="err_group" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
+
                                     </fieldset>
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+
                                 </div>
                             </div>
                             @if ($reg_pelesen->e_kat == 'PL91')
 
-                                <div class="row ,b-2" style="margin-top: -7px">
+                                <div class="row mb-2" style="margin-top: -7px">
+
                                     <label for="fname"
                                         class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                         POMA </label>
@@ -547,12 +532,9 @@
                                                     Tidak</option>
                                             </select>
                                         </fieldset>
-                                        {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
                                     </div>
+
                                 </div>
 
                             @endif
@@ -564,13 +546,10 @@
                                     <input type="text" id="kap_proses" class="form-control" required maxlength="10"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                         onkeypress="return isNumberKey(event)"
-                                        value="{{ $pelesen->kap_proses  }}">
+                                        value="{{ $pelesen->kap_proses  }}" oninput="valid_proses()">
 
-                                    {{-- @error('alamat_kilang_1')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror --}}
+                                        <p type="hidden" id="err_proses" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
 
@@ -597,16 +576,13 @@
                                     {{-- </div> --}}
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='bil_tangki_cpo'
-                                            style="width:100%" id="bil_tangki_cpo" required
+                                            style="width:100%" id="bil_tangki_cpo" required oninput=" ableInput(); valid_cpo(); FormatCurrency(this); "
                                             title="Sila isikan butiran ini."
                                             onkeypress="return isNumberKey(event)"  value="{{ $pelesen->bil_tangki_cpo }}">
-                                        {{-- @error('alamat_kilang_1')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror --}}
-                                    </div>
 
+                                            <p type="hidden" id="err_bcpo" style="color: red; display:none"><i>Sila isi
+                                                    butiran di bahagian ini!</i></p>
+                                    </div>
 
                                 </div>
                                 <div class="row mt-3 text-right">
@@ -618,16 +594,14 @@
                                     {{-- </div> --}}
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" name='kap_tangki_cpo'
-                                            style="width:100%" id="kap_tangki_cpo" required
+                                            style="width:100%" id="kap_tangki_cpo" required  oninput=" valid_cpo(); FormatCurrency(this) "
                                             title="Sila isikan butiran ini."
                                             onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}">
-                                        {{-- @error('alamat_kilang_1')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror --}}
-                                    </div><br><br>
 
+                                            <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
+                                            butiran di bahagian ini!</i></p>
+                                    </div>
+                                    <br><br>
 
                                 </div>
                                 <div class="row col-10">
@@ -811,8 +785,8 @@
 
                                     </div>
                                     <br><br>
-                                    <div class="row ">
-                                        <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                    <div class="row col-10 ">
+                                        <i >Nota: Sekiranya kilang/pelesen tiada
                                             tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
                                             bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                         </i>
@@ -1104,8 +1078,7 @@
 
                         <div class="row form-group" style="margin-top: 2%">
                             <div class="text-right col-md-6">
-                                <button type="button" class="btn btn-primary"  data-toggle="modal"
-                                data-target="#next">Simpan</button>
+                                <button type="button" class="btn btn-primary" onclick="check();">Simpan</button>
                             </div>
 
                         </div>
@@ -1156,6 +1129,26 @@
 
 @section('scripts')
     {{-- ajax daerah --}}
+
+    <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#bil_tangki_cpo').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#bil_tangki_cpo').val(x);
+
+            var x = $('#kap_tangki_cpo').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#kap_tangki_cpo').val(x);
+
+
+
+            return true;
+
+        });
+    </script>
     <script>
 
 
@@ -1336,21 +1329,227 @@
     </script>
 
     <script>
-        function valid_status() {
+        function valid_email() {
 
-            if ($('#e_status').val() == '') {
-                $('#e_status').css('border-color', 'red');
-                document.getElementById('err_status').style.display = "block";
+            if ($('#e_email').val() == '') {
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email').style.display = "block";
 
 
             } else {
-                $('#e_status').css('border-color', '');
-                document.getElementById('err_status').style.display = "none";
+                $('#e_email').css('border-color', '');
+                document.getElementById('err_email').style.display = "none";
 
             }
 
         }
     </script>
+    <script>
+        function valid_npg() {
+
+            if ($('#e_npg').val() == '') {
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
+
+
+            } else {
+                $('#e_npg').css('border-color', '');
+                document.getElementById('err_npg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_jpg() {
+
+            if ($('#e_jpg').val() == '') {
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
+
+
+            } else {
+                $('#e_jpg').css('border-color', '');
+                document.getElementById('err_jpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_notel_pg() {
+
+            if ($('#e_notel_pg').val() == '') {
+                $('#e_notel_pg').css('border-color', 'red');
+                document.getElementById('err_notel_pg').style.display = "block";
+
+
+            } else {
+                $('#e_notel_pg').css('border-color', '');
+                document.getElementById('err_notel_pg').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_email_pg() {
+
+            if ($('#e_email_pg').val() == '') {
+                $('#e_email_pg').css('border-color', 'red');
+                document.getElementById('err_email_pg').style.display = "block";
+
+
+            } else {
+                $('#e_email_pg').css('border-color', '');
+                document.getElementById('err_email_pg').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_npgtg() {
+
+            if ($('#e_npgtg').val() == '') {
+                $('#e_npgtg').css('border-color', 'red');
+                document.getElementById('err_npgtg').style.display = "block";
+
+
+            } else {
+                $('#e_npgtg').css('border-color', '');
+                document.getElementById('err_npgtg').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_jpgtg() {
+
+            if ($('#e_jpgtg').val() == '') {
+                $('#e_jpgtg').css('border-color', 'red');
+                document.getElementById('err_jpgtg').style.display = "block";
+
+
+            } else {
+                $('#e_jpgtg').css('border-color', '');
+                document.getElementById('err_jpgtg').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_email_pengurus() {
+
+            if ($('#e_email_pengurus').val() == '') {
+                $('#e_email_pengurus').css('border-color', 'red');
+                document.getElementById('err_email_pengurus').style.display = "block";
+
+
+            } else {
+                $('#e_email_pengurus').css('border-color', '');
+                document.getElementById('err_email_pengurus').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_syktinduk() {
+
+            if ($('#e_syktinduk').val() == '') {
+                $('#e_syktinduk').css('border-color', 'red');
+                document.getElementById('err_syktinduk').style.display = "block";
+
+
+            } else {
+                $('#e_syktinduk').css('border-color', '');
+                document.getElementById('err_syktinduk').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_year() {
+
+            if ($('#e_year').val() == '') {
+                $('#e_year').css('border-color', 'red');
+                document.getElementById('err_year').style.display = "block";
+
+
+            } else {
+                $('#e_year').css('border-color', '');
+                document.getElementById('err_year').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_group() {
+
+            if ($('#e_group').val() == '') {
+                $('#e_group').css('border-color', 'red');
+                document.getElementById('err_group').style.display = "block";
+
+
+            } else {
+                $('#e_group').css('border-color', '');
+                document.getElementById('err_group').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
+        function valid_proses() {
+
+            if ($('#kap_proses').val() == '') {
+                $('#kap_proses').css('border-color', 'red');
+                document.getElementById('err_proses').style.display = "block";
+
+
+            } else {
+                $('#kap_proses').css('border-color', '');
+                document.getElementById('err_proses').style.display = "none";
+
+            }
+
+        }
+    </script>
+     <script>
+        function valid_cpo() {
+            if ($('#bil_tangki_cpo').val() == '' || $('#bil_tangki_cpo').val() == '0') {
+                $('#kap_tangki_cpo').css('border-color', '');
+                document.getElementById('err_kcpo').style.display = "none";
+
+            } else {
+                if ($('#kap_tangki_cpo').val() == '' || $('#kap_tangki_cpo').val() == '0') {
+                    console.log($('#kap_tangki_cpo').val());
+                    $('#kap_tangki_cpo').css('border-color', 'red');
+                    document.getElementById('err_kcpo').style.display = "block";
+                } else {
+                    // console.log('kap_tangki no');
+                    $('#kap_tangki_cpo').css('border-color', '');
+                    document.getElementById('err_kcpo').style.display = "none";
+
+                }
+            }
+
+        }
+    </script>
+
 
     <script>
         function check() {
@@ -1368,8 +1567,7 @@
             field = document.getElementById("e_status");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_status\r\n";
-                $('#e_status').css('border-color', 'red');
-                document.getElementById('err_status').style.display = "block";
+
             }
             // status e-mingguan
             field = document.getElementById("e_stock");
@@ -1428,48 +1626,64 @@
             field = document.getElementById("e_email");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_email\r\n";
+                $('#e_email').css('border-color', 'red');
+                document.getElementById('err_email').style.display = "block";
             }
 
             // nama pegawai melapor
             field = document.getElementById("e_npg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_npg\r\n";
+                $('#e_npg').css('border-color', 'red');
+                document.getElementById('err_npg').style.display = "block";
             }
 
             // jawatan pegawai melapor
             field = document.getElementById("e_jpg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_jpg\r\n";
+                $('#e_jpg').css('border-color', 'red');
+                document.getElementById('err_jpg').style.display = "block";
             }
 
             // no tel pegawai melapor
             field = document.getElementById("e_notel_pg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_notel_pg\r\n";
+                $('#e_notel_pg').css('border-color', 'red');
+                document.getElementById('err_notel_pg').style.display = "block";
             }
 
-            // // email pegawai melapor
-            // field = document.getElementById("e_email_pg");
-            // if (!field.checkValidity()) {
-            //     error += "Name must be 2-4 characters\r\n";
-            // }
+            // email pegawai melapor
+            field = document.getElementById("e_email_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_email_pg').css('border-color', 'red');
+                document.getElementById('err_email_pg').style.display = "block";
+            }
 
             // nama pegawai bertanggungjawab
             field = document.getElementById("e_npgtg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_npgtg\r\n";
+                $('#e_npgtg').css('border-color', 'red');
+                document.getElementById('err_npgtg').style.display = "block";
             }
 
             // jawatan pegawai bertanggungjawab
             field = document.getElementById("e_jpgtg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_jpgtg\r\n";
+                $('#e_jpgtg').css('border-color', 'red');
+                document.getElementById('err_jpgtg').style.display = "block";
             }
 
             // emel pengurus
             field = document.getElementById("e_email_pengurus");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_email_pengurus\r\n";
+                $('#e_email_pengurus').css('border-color', 'red');
+                document.getElementById('err_email_pengurus').style.display = "block";
             }
 
             // enegeri
@@ -1494,35 +1708,54 @@
             field = document.getElementById("e_syktinduk");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_syktinduk\r\n";
+                $('#e_syktinduk').css('border-color', 'red');
+                document.getElementById('err_syktinduk').style.display = "block";
             }
 
             // tahun mula beroperasi
             field = document.getElementById("e_year");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_year\r\n";
+                $('#e_year').css('border-color', 'red');
+                document.getElementById('err_year').style.display = "block";
             }
             // kumpulan
             field = document.getElementById("e_group");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_group\r\n";
-            }
-
-           // POMA
-            field = document.getElementById("e_poma");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_poma\r\n";
+                $('#e_group').css('border-color', 'red');
+                document.getElementById('err_group').style.display = "block";
             }
            // kap proses
             field = document.getElementById("kap_proses");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters kap_proses\r\n";
+                $('#kap_proses').css('border-color', 'red');
+                document.getElementById('err_proses').style.display = "block";
+            }
+           // POMA
+            field = document.getElementById("e_poma");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters e_poma\r\n";
             }
 
+            cpo = $('#bil_tangki_cpo').val();
+            kcpo = $('#kap_tangki_cpo').val();
+
+            if (cpo != 0 && kcpo == 0) {
+                // $('#next').modal('hide');
+                error += "Name must be 2-4 characters\r\n";
+                $('#kap_tangki_cpo').css('border-color', 'red');
+                document.getElementById('err_kcpo').style.display = "block";
+            } else {
+                $('#kap_tangki_cpo').css('border-color', '');
+                document.getElementById('err_kcpo').style.display = "none";
+            }
             // (B4) RESULT
             if (error == "") {
+                $('#next').modal('show');
                 return true;
             } else {
-                console.log('error', error);
                 toastr.error(
                     'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
                     'Ralat!', {
@@ -1623,5 +1856,69 @@
                 }
                 });
             </script>
+
+    <script>
+        function ableInput() {
+
+            // console.log('ready');
+
+            let bil_cpo = document.querySelector("#bil_tangki_cpo");
+            let kap_cpo = document.querySelector("#kap_tangki_cpo");
+            let bil_ppo = document.querySelector("#bil_tangki_ppo");
+            let kap_ppo = document.querySelector("#kap_tangki_ppo");
+            let bil_cpko = document.querySelector("#bil_tangki_cpko");
+            let kap_cpko = document.querySelector("#kap_tangki_cpko");
+            let bil_ppko = document.querySelector("#bil_tangki_ppko");
+            let kap_ppko = document.querySelector("#kap_tangki_ppko");
+            let bil_others = document.querySelector("#bil_tangki_others");
+            let kap_others = document.querySelector("#kap_tangki_others");
+
+            if (bil_cpo.value == '' || bil_cpo.value == '0') {
+                kap_cpo.disabled = true;
+                // $('#kap_tangki_cpo').val() == 0;
+                document.querySelector("#kap_tangki_cpo").value = "0";
+
+            } else {
+                kap_cpo.disabled = false;
+            }
+
+            if (bil_ppo.value == '' || bil_ppo.value == '0') {
+                kap_ppo.disabled = true;
+                // $('#kap_tangki_cpo').val() == 0;
+                document.querySelector("#kap_tangki_ppo").value = "0";
+
+            } else {
+                kap_ppo.disabled = false;
+            }
+
+            if (bil_cpko.value == '' || bil_cpko.value == '0') {
+                kap_cpko.disabled = true;
+                // $('#kap_tangki_cpo').val() == 0;
+                document.querySelector("#kap_tangki_cpko").value = "0";
+
+            } else {
+                kap_cpko.disabled = false;
+            }
+
+            if (bil_ppko.value == '' || bil_ppko.value == '0') {
+                kap_ppko.disabled = true;
+                // $('#kap_tangki_cpo').val() == 0;
+                document.querySelector("#kap_tangki_ppko").value = "0";
+
+            } else {
+                kap_ppko.disabled = false;
+            }
+
+            if (bil_others.value == '' || bil_others.value == '0') {
+                kap_others.disabled = true;
+                // $('#kap_tangki_cpo').val() == 0;
+                document.querySelector("#kap_tangki_others").value = "0";
+
+            } else {
+                kap_others.disabled = false;
+            }
+
+        };
+    </script>
 
 @endsection
