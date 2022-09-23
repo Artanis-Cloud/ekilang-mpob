@@ -79,7 +79,8 @@ class Proses4Controller extends Controller
         $this->porting_pl111($request->all());
 
         //log audit trail admin
-        Auth::user()->log(" PORTING" );
+        Auth::user()->log(" PORT PENYATA KE SISTEM PLEID" );
+
 
         return redirect()->back()->with('success', 'Penyata telah dipindahkan ke PLEID');
     }
