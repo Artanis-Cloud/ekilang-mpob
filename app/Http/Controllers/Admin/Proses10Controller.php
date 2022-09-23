@@ -533,6 +533,7 @@ class Proses10Controller extends Controller
             }
         }
 
+        dd($refkap);
 
 
 
