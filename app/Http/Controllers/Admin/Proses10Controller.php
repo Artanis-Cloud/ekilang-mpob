@@ -707,7 +707,7 @@ class Proses10Controller extends Controller
     $updatep101m = DB::update("UPDATE p101_master set ppko_proc = 0
           where tahun = '$tahun' and bulan = '$bulan' and ppko_proc is NULL ");
 
-    if ($refkap == 0 || $refkap == null) {
+    if ($refkap == '0.00' || $refkap == null) {
         $updatep101n = DB::update("UPDATE p101_master set refutilrate = 0
         where tahun = '$tahun' and bulan = '$bulan'");
         $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = 0
