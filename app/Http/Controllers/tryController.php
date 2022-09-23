@@ -88,11 +88,12 @@ class tryController extends Controller
         foreach ($daerahs as $daerah) {
         // $combine = $daerah->kod_negeri . $daerah->kod_daerah ;
 
-        $kod_negeri =  $daerah->kod_negeri ;
+        $negeri =  $daerah->kod_negeri ;
         $kod_daerah =  $daerah->kod_daerah ;
         // $kod_combine =  $daerah->kod_negeri.$daerah->kod_daerah ;
 
         }
+        dd($negeri);
 
 
 
