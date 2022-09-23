@@ -724,19 +724,43 @@ class Proses10Controller extends Controller
             $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
             where tahun = '$tahun' and bulan = '$bulan'");
         }catch(Throwable $e){
-            $updatep101n = DB::raw("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
+            $updatep101n = DB::update("UPDATE p101_master set refutilrate = 0
             where tahun = '$tahun' and bulan = '$bulan'");
-            dd($updatep101n);
         }
 
-        $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = (cpko_proc / (refkap / 12)) * 100
+        try{
+            $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
             where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = (ppo_proc  / (refkap / 12)) * 100
+        }catch(Throwable $e){
+            $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = 0
             where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = (ppko_proc / (refkap / 12)) * 100
+        }
+
+        try{
+            $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = (cpko_proc / (refkap / 12)) * 100
             where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep101p = DB::update("UPDATE p101_master set refutilratecpko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+        try{
+            $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = (ppo_proc  / (refkap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep101q = DB::update("UPDATE p101_master set refutilrateppo = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+        try{
+            $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = (ppko_proc / (refkap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+
 
     }
 
