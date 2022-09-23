@@ -166,20 +166,19 @@ class Proses7Controller extends Controller
         $delete_daerahekilang = DB::table('daerah')->delete();
         $delete_daerahstat = DB::connection('mysql3')->delete("DELETE from daerah");
 
-        $insertekilang = DB::insert("INSERT into negara values ('','','','','','','','')");
-        $insertstat = DB::connection('mysql3')->insert("INSERT into negara values ('','','','','','','','')");
+        $insertekilang = DB::insert("INSERT into daerah values ('','','','','','','','')");
+        $insertstat = DB::connection('mysql3')->insert("INSERT into daerah values ('','','','','','','','')");
 
-        $totalnegara = 0;
+        $totaldaerah = 0;
 
-        foreach ($negaras as $negara) {
+        foreach ($daerahs as $daerah) {
 
-            $code =  $negara->code ;
-            $nama = addslashes( $negara->nama );
-            $eu15 =  $negara->kod_eu ;
-            $benua =  $negara->benua ;
+            $kod_daerah =  $daerah->kod_daerah ;
+            $nama_daerah = $daerah->nama_daerah;
+            $kod_negeri =  $daerah->kod_negeri ;
 
-        $negaraekilang_insert = DB::insert("INSERT into negara values ('$code','$nama','$benua','$eu15',null,null,null,null)");
-        $negarastat_insert = DB::connection('mysql3')->insert("INSERT into negara values ('$code','$nama','$benua','$eu15',null,null,null,null)");
+        $daerahekilang_insert = DB::insert("INSERT into daerah values ('$kod_negeri',null,'$kod_daerah','$nama_daerah',null,null)");
+        $daerahstat_insert = DB::connection('mysql3')->insert("INSERT into daerah values ('$kod_negeri',null,'$kod_daerah','$nama_daerah',null)");
 
         $totalnegara = $totalnegara + 1;
 

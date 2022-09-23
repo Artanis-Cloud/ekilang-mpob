@@ -80,7 +80,20 @@ class tryController extends Controller
 
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
-        $daerah = DB::connection('mysql3')->select("SELECT * FROM daerah");
+
+        $daerahs = DB::connection('mysql5')->select("SELECT kod_daerah, nama_daerah, kod_negeri from daerah");
+
+        // $daerah = DB::connection('mysql3')->select("SELECT * FROM daerah");
+        foreach ($daerahs as $daerah) {
+
+        $kod_negeri =  $daerah->kod_negeri ;
+        $kod_daerah =  $daerah->kod_daerah ;
+        $kod_combine =  $daerah->kod_negeri.$daerah->kod_daerah ;
+
+        }
+
+        dd($kod_combine);
+
 
         // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
 
@@ -119,7 +132,7 @@ class tryController extends Controller
         // dd($qrycapp101);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
-        dd($daerah);
+        // dd($daerah);
         return view('users.users-dashboard');
     }
 
