@@ -2809,7 +2809,34 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
 
 
 
-     if ($oleokap == 0 || $oleokap == null) {
+    //  if ($oleokap == '0.00' || $oleokap == null) {
+    //     $updatep104n =DB::update("UPDATE p104_master set oleoutilrate = 0
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104o =DB::update("UPDATE p104_master set oleoutilratecpo = 0
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104p =DB::update("UPDATE p104_master set oleoutilratecpko = 0
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104q =DB::update("UPDATE p104_master set oleoutilrateppo = 0
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = 0
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //  } else {
+    //     $updatep104n =DB::update("UPDATE p104_master set oleoutilrate = ((cpo_proc + cpko_proc) / (oleokap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104o =DB::update("UPDATE p104_master set oleoutilratecpo = (cpo_proc  / (oleokap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104p =DB::update("UPDATE p104_master set oleoutilratecpko = (cpko_proc / (oleokap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104q =DB::update("UPDATE p104_master set oleoutilrateppo = (ppo_proc  / (oleokap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //     $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = (ppko_proc / (oleokap / 12)) * 100
+    //     where tahun = '$tahun' and bulan = '$bulan'");
+    //  }
+
+
+
+
+     if ($oleokap == '0.00' || $oleokap == null) {
         $updatep104n =DB::update("UPDATE p104_master set oleoutilrate = 0
         where tahun = '$tahun' and bulan = '$bulan'");
         $updatep104o =DB::update("UPDATE p104_master set oleoutilratecpo = 0
@@ -2821,17 +2848,49 @@ $qtrpelesenp101a = DB::insert("INSERT into p101_quarterly_pelesen (
         $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = 0
         where tahun = '$tahun' and bulan = '$bulan'");
      } else {
-        $updatep104n =DB::update("UPDATE p104_master set oleoutilrate = ((cpo_proc + cpko_proc) / (oleokap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep104o =DB::update("UPDATE p104_master set oleoutilratecpo = (cpo_proc  / (oleokap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep104p =DB::update("UPDATE p104_master set oleoutilratecpko = (cpko_proc / (oleokap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep104q =DB::update("UPDATE p104_master set oleoutilrateppo = (ppo_proc  / (oleokap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-        $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = (ppko_proc / (oleokap / 12)) * 100
-        where tahun = '$tahun' and bulan = '$bulan'");
-     }
+        try{
+            $updatep104n =DB::update("UPDATE p104_master set oleoutilrate = ((cpo_proc + cpko_proc) / (oleokap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep104n =DB::update("UPDATE p104_master set oleoutilrate = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+        try{
+            $updatep104o =DB::update("UPDATE p104_master set oleoutilratecpo = (cpo_proc  / (oleokap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep104o =DB::update("UPDATE p104_master set oleoutilratecpo = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+        try{
+            $updatep104p =DB::update("UPDATE p104_master set oleoutilratecpko = (cpko_proc / (oleokap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep104p =DB::update("UPDATE p104_master set oleoutilratecpko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+        try{
+            $updatep104q =DB::update("UPDATE p104_master set oleoutilrateppo = (ppo_proc  / (oleokap / 12)) * 100
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep104q =DB::update("UPDATE p104_master set oleoutilrateppo = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+        try{
+            $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }catch(Throwable $e){
+            $updatep104r =DB::update("UPDATE p104_master set oleoutilrateppko = 0
+            where tahun = '$tahun' and bulan = '$bulan'");
+        }
+
+
+
+    }
 
     $updatep104s =DB::update("UPDATE p104_master set oleoutilrate = 0
     where tahun = '$tahun' and bulan = '$bulan' and oleoutilrate is NULL");
