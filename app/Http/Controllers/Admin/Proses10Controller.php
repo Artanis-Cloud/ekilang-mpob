@@ -20,6 +20,7 @@ use App\Models\Pl91Individual;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Throwable;
 
 class Proses10Controller extends Controller
