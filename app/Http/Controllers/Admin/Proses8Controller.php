@@ -54,10 +54,11 @@ class Proses8Controller extends Controller
         // dd($maklumat);
         if ($destinasi == 'admin') {
             $this->porting_admin($request->tahun, $request->bulan);
-             Auth::user()->log(" PORTING" );
+            Auth::user()->log(" PORT DATA KE STAT ADMIN" );
             return redirect()->back()->with('success', 'Maklumat produk sawit telah dipindahkan dari PLEID ke eKilang');
         } else {
             $this->porting_homepage($request->tahun, $request->bulan);
+            Auth::user()->log(" PORT DATA KE STAT HOMEPAGE" );
             return redirect()->back()->with('success', 'Maklumat daerah telah dipindahkan dari PLEID ke eKilang');
         }
 

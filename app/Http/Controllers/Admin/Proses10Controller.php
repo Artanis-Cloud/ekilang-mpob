@@ -46,6 +46,8 @@ class Proses10Controller extends Controller
     public function admin_portingdata(Request $request)
     {
         $this->porting_data($request->tahun, $request->bulan);
+        Auth::user()->log(" PORT DATA DARIPADA DYNAMIC QUERY" );
+
         return redirect()->back()->with('success', 'Penyata telah dipindahkan daripada Sistem Sybase');
     }
 
