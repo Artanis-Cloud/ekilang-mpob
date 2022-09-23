@@ -156,4 +156,74 @@ class Proses7Controller extends Controller
         // dd($result);
 
     }
+
+    public function porting_daerah()
+    {
+        // data from codedb
+        $negaras = DB::connection('mysql5')->select("SELECT code, nama, kod_eu, benua from country_l");
+        // dd($e91init);
+
+        $delete_negaraekilang = DB::table('negara')->delete();
+        $delete_negarastat = DB::connection('mysql3')->delete("DELETE from negara");
+
+        $insertekilang = DB::insert("INSERT into negara values ('','','','','','','','')");
+        $insertstat = DB::connection('mysql3')->insert("INSERT into negara values ('','','','','','','','')");
+
+        $totalnegara = 0;
+
+        foreach ($negaras as $negara) {
+
+            $code =  $negara->code ;
+            $nama = addslashes( $negara->nama );
+            $eu15 =  $negara->kod_eu ;
+            $benua =  $negara->benua ;
+
+        $negaraekilang_insert = DB::insert("INSERT into negara values ('$code','$nama','$benua','$eu15',null,null,null,null)");
+        $negarastat_insert = DB::connection('mysql3')->insert("INSERT into negara values ('$code','$nama','$benua','$eu15',null,null,null,null)");
+
+        $totalnegara = $totalnegara + 1;
+
+        }
+        // $result = Produk::get();
+        // dd($result);
+
+        $negara2 = DB::connection('mysql5')->select("SELECT code, nama, kod_eu,kod_eu27,kod_eu28,kod_eu27_2020 from country_l_eu25");
+
+        foreach ($negara2 as $negara) {
+
+        $code =  $negara->code ;
+        $nama =  $negara->nama ;
+        //$eu15 =  $negara->eu15 ;
+        $eu25 =  $negara->kod_eu ;
+        $eu27 =  $negara->kod_eu27 ;
+		$eu28 =  $negara->kod_eu28 ;
+		$eu27_2020 =  $negara->kod_eu27_2020 ;
+
+        if ($eu25=='euc')
+        {
+            $update25_negaraekilang =  DB::update("UPDATE negara set eu25 ='1' where kodnegara='$code'");
+            $update25_negarastat =  DB::connection('mysql3')->update("UPDATE negara set eu25='1' where kodnegara='$code'");
+        }
+         if ($eu27=='euc')
+        {
+            $update27_negaraekilang =  DB::update("UPDATE negara set eu27='1' where kodnegara='$code'");
+            $update27_negarastat =  DB::connection('mysql3')->update("UPDATE negara set eu27='1' where kodnegara='$code'");
+        }
+        if ($eu28=='euc')
+        {
+            $update28_negaraekilang =  DB::update("UPDATE negara set eu28='1' where kodnegara='$code'");
+            $update28_negarastat =  DB::connection('mysql3')->update("UPDATE negara set eu28='1' where kodnegara='$code'");
+        }
+        if ($eu27_2020=='euc')
+        {
+            $update272022_negaraekilang =  DB::update("UPDATE negara set eu27_2020='1' where kodnegara='$code'");
+            $update272022_negarastat =  DB::connection('mysql3')->update("UPDATE negara set eu27_2020='1' where kodnegara='$code'");
+        }
+
+        }
+
+        // $result = Negara::get();
+        // dd($result);
+
+    }
 }
