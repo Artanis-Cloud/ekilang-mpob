@@ -66,7 +66,8 @@
                                     Jenis Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_kat" id="e_kat" disabled>
+                                        <select class="form-control" name="e_kat" id="e_kat"
+                                        disabled>
 
                                             <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }}>Kilang Buah</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }}>Kilang Penapis</option>
@@ -76,11 +77,7 @@
                                             <option {{ ($reg_pelesen->e_kat == 'PLBIO') ? 'selected' : '' }}>Kilang Biodiesel</option>
                                         </select>
                                     </fieldset>
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+
                                 </div>
                             </div>
                             <div class="row" style="margin-top: -7px">
@@ -89,11 +86,13 @@
                                     Status e-Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_status" id="e_status" required>
+                                        <select class="form-control" name="e_status" id="e_status" oninput="valid_status()" required>
 
                                             <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">Aktif</option>
                                             <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
                                         </select>
+                                        <p type="hidden" id="err_status" style="color: red; display:none"><i>Sila buat
+                                                pilihan di bahagian ini!</i></p>
                                     </fieldset>
 
                                 </div>
@@ -1152,145 +1151,6 @@
         </div>
         </div>
 
-        {{-- <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-12 align-self-center">
-                    <h4 class="page-title">Pertukaran No Lesen Lama Ke
-                        No Lesen Baru</h4>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="container-fluid"> --}}
-            <!-- row -->
-            {{-- <div class="row">
-                <div class="col-sm-12 col-lg-12">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputcom" class="control-label col-form-label">
-                                            Nombor Lesen Baru</label>
-                                            <input type="text" id="e_year" class="form-control"
-                                            placeholder="Nombor Lesen Baru" name="e_year"
-                                            value="">
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <label for="inputcom" class="control-label col-form-label">
-                                        Kod Pegawai Baru</label>
-                                        <input type="text" id="e_year" class="form-control"
-                                        placeholder="Kod Pegawai Baru" name="e_year"
-                                        value="">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputcom" class="control-label col-form-label">
-                                            No Siri Baru</label>
-                                            <input type="text" id="e_year" class="form-control"
-                                                    placeholder="No Siri Baru" name="e_year"
-                                                    value="">
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <label for="inputcom" class="control-label col-form-label">
-                                        Status e-Kilang Baru</label>
-                                        <fieldset class="form-group">
-                                            <select class="form-control"name="status_ekilang">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="1">Aktif</option>
-                                                <option value="2">Tidak Aktif</option>
-                                            </select>
-                                        </fieldset>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="inputcom" class="control-label col-form-label">
-                                            Status e-Mingguan Baru</label>
-                                            <fieldset class="form-group">
-                                                <select class="form-control" name="status_emingguan">
-                                                    <option selected hidden disabled>Sila Pilih</option>
-                                                    <option value="1">Aktif</option>
-                                                    <option value="2">Tidak Aktif</option>
-                                                </select>
-                                            </fieldset>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <label for="inputcom" class="control-label col-form-label">
-                                        Status Direktori Baru</label>
-                                        <fieldset class="form-group">
-                                            <select class="form-control" name="status_direktori">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="Y">Ya</option>
-                                                <option value="N">Tidak</option>
-                                            </select>
-                                        </fieldset>
-                                </div>
-
-
-                                    <div class="text-right col-md-12 mb-4 " >
-                                        <button type="button" class="btn btn-primary " style="margin-left:64%" data-toggle="modal"
-                                            data-target="#myModal">Tukar No Lesen</button>
-                                    </div>
-
-
-                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">×</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu menukar maklumat ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-            <!-- End row -->
-            <!-- ============================================================== -->
-            <!-- End PAge Content -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Right sidebar -->
-            <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <!-- ============================================================== -->
-            <!-- End Right sidebar -->
-            <!-- ============================================================== -->
-        </div>
     </div>
 @endsection
 
@@ -1474,6 +1334,24 @@
             document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
         }
     </script>
+
+    <script>
+        function valid_status() {
+
+            if ($('#e_status').val() == '') {
+                $('#e_status').css('border-color', 'red');
+                document.getElementById('err_status').style.display = "block";
+
+
+            } else {
+                $('#e_status').css('border-color', '');
+                document.getElementById('err_status').style.display = "none";
+
+            }
+
+        }
+    </script>
+
     <script>
         function check() {
             // (B1) INIT
@@ -1484,11 +1362,14 @@
             field = document.getElementById("e_kat");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_kat\r\n";
+
             }
             // status e-kilang
             field = document.getElementById("e_status");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_status\r\n";
+                $('#e_status').css('border-color', 'red');
+                document.getElementById('err_status').style.display = "block";
             }
             // status e-mingguan
             field = document.getElementById("e_stock");
