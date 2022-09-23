@@ -94,7 +94,6 @@ class tryController extends Controller
             if (!$refkap){
                 $refkap = 0;
             }
-        dd($refkap);
 
         }
 
