@@ -81,10 +81,21 @@ class tryController extends Controller
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
         $qrycapp101 = DB::connection('mysql4')->select("SELECT m.cap_lulus
-                       from lesen_master.mpku_caps m
-                       where
-                       m.cap_mmyyyy = '072017' and
-                       m.cap_kat = '06'");
+        from lesen_master.mpku_caps m
+        where
+        m.cap_lesen = '500008704000' and
+        m.cap_mmyyyy = '072019' and
+        m.cap_kat = '06'");
+
+        $refkap = 0;
+        foreach ($qrycapp101 as $select) {
+        $refkap = $select->cap_lulus ;
+
+        if (!$refkap)
+        $refkap = 0;
+        }
+
+        dd($refkap);
         // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
 
         // if (!$refkap)
@@ -119,7 +130,7 @@ class tryController extends Controller
         // } else {
         //     $idno_daerah = 1;
         // }
-        dd($qrycapp101);
+        // dd($qrycapp101);
         // $e91b = E91b::where('e91_b2', $regno)->get();
 
         // dd($loginmills);
