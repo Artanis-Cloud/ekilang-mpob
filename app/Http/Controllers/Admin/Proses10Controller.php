@@ -523,6 +523,7 @@ class Proses10Controller extends Controller
                        m.cap_lesen = '$nolesen' and
                        m.cap_mmyyyy = '$blnthn' and
                        m.cap_kat = '06'");
+        dd($qrycapp101);
 
         $refkap = 0;
         foreach ($qrycapp101 as $select) {
@@ -533,7 +534,6 @@ class Proses10Controller extends Controller
             }
         }
 
-        dd($refkap);
 
 
 
