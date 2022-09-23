@@ -82,7 +82,7 @@ class tryController extends Controller
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
         $daerahs = DB::connection('mysql5')->select("SELECT kod_daerah, nama_daerah, kod_negeri from daerah");
-        dd($daerahs);
+        // dd($daerahs);
 
 
         foreach ($daerahs as $daerah) {
