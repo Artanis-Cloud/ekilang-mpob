@@ -89,10 +89,11 @@ class tryController extends Controller
 
         $refkap = 0;
         foreach ($qrycapp101 as $select) {
-        $refkap = $select->cap_lulus ;
+            $refkap = $select->cap_lulus ;
 
-        if (!$refkap)
-        $refkap = 0;
+            if (!$refkap){
+                $refkap = 0;
+            }
         }
 
         dd($refkap);
