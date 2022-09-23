@@ -160,11 +160,11 @@ class Proses7Controller extends Controller
     public function porting_daerah()
     {
         // data from codedb
-        $negaras = DB::connection('mysql5')->select("SELECT code, nama, kod_eu, benua from country_l");
+        $daerahs = DB::connection('mysql5')->select("SELECT kod_daerah, nama_daerah, kod_negeri from daerah");
         // dd($e91init);
 
-        $delete_negaraekilang = DB::table('negara')->delete();
-        $delete_negarastat = DB::connection('mysql3')->delete("DELETE from negara");
+        $delete_daerahekilang = DB::table('daerah')->delete();
+        $delete_daerahstat = DB::connection('mysql3')->delete("DELETE from daerah");
 
         $insertekilang = DB::insert("INSERT into negara values ('','','','','','','','')");
         $insertstat = DB::connection('mysql3')->insert("INSERT into negara values ('','','','','','','','')");
