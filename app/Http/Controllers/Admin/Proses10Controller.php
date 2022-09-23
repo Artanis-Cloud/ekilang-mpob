@@ -719,7 +719,7 @@ class Proses10Controller extends Controller
         $updatep101r = DB::update("UPDATE p101_master set refutilrateppko = 0
             where tahun = '$tahun' and bulan = '$bulan'");
     } else {
-        $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (IF(refkap = 0, 0, refkap/ 12) )) * 100
+        $updatep101n = DB::update("UPDATE p101_master set refutilrate = ((cpo_proc + cpko_proc) / (refkap / 12)) * 100
         where tahun = '$tahun' and bulan = '$bulan'");
         $updatep101o = DB::update("UPDATE p101_master set refutilratecpo = (cpo_proc  / (refkap / 12)) * 100
         where tahun = '$tahun' and bulan = '$bulan'");

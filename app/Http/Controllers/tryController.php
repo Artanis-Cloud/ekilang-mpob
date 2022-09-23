@@ -94,9 +94,10 @@ class tryController extends Controller
             if (!$refkap){
                 $refkap = 0;
             }
+        dd($refkap);
+
         }
 
-        dd($refkap);
         // $refkap = DB::select("SELECT refkap from p101_master where tahun = '2017' and bulan = '07'");
 
         // if (!$refkap)
