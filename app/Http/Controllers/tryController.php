@@ -91,9 +91,9 @@ class tryController extends Controller
         $negeri =  $daerah->kod_negeri ;
         $kod_daerah =  $daerah->kod_daerah ;
         // $kod_combine =  $daerah->kod_negeri.$daerah->kod_daerah ;
+        dd($negeri);
 
         }
-        dd($negeri);
 
 
 
