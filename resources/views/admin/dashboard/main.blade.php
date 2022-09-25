@@ -269,9 +269,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <div class="text-right col-md-12">
+                        <div class="text-right col-md-1">
                             {{-- <button onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">EXCEL</button> --}}
-                            <button style="font-size:12px" onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">Excel <i class="fa fa-file-excel" style="color: #319f57"></i></button>
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('cuba')"
+                            style="background-color: white; color: #0a7569; ">
+                            <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                        </button>
                         </div><br>
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
@@ -925,38 +928,27 @@
     </script>
 
     <script>
-        //user-defined function to download CSV file
-        function downloadCSV(csv, filename) {
-            var csvFile;
-            var downloadLink;
+        function ExportToExcel()
+        {
+            var filename = "Jadual Penerimaan PL Bagi Semua Sektor"
+            var tab_text = "<table border='2px'>";
+            var textRange;
+            var j = 0;
+            tab = document.getElementById('cuba');
 
-            //define the file type to text/csv
-            csvFile = new Blob([csv], {type: 'text/csv'});
-            downloadLink = document.createElement("a");
-            downloadLink.download = filename;
-            downloadLink.href = window.URL.createObjectURL(csvFile);
-            downloadLink.style.display = "none";
+            for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            }
 
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-        }
-
-        //user-defined function to export the data to CSV file format
-        function exportTableToCSV(filename) {
-        //declare a JavaScript variable of array type
-        var csv = [];
-        var rows = document.querySelectorAll("table tr");
-
-        //merge the whole data in tabular form
-        for(var i=0; i<rows.length; i++) {
-            var row = [], cols = rows[i].querySelectorAll("td, th");
-            for( var j=0; j<cols.length; j++)
-            row.push(cols[j].innerText);
-            csv.push(row.join(","));
-        }
-        //call the function to download the CSV file
-        downloadCSV(csv.join("\n"), filename);
-        }
+            tab_text = tab_text + "</table>";
+            var a = document.createElement('a');
+            var data_type = 'data:application/vnd.ms-excel';
+            a.href = data_type + ', ' + encodeURIComponent(tab_text);
+            a.download = filename + '.xls';
+            a.click();
+                }
     </script>
-
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
 @endsection

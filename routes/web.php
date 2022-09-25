@@ -85,6 +85,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/senarai-pelesen-oleokimia', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenoleokimia'])->name('admin.senaraipelesenoleokimia');
         Route::get('admin/senarai-pelesen-simpanan', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesensimpanan'])->name('admin.senaraipelesensimpanan');
         Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
+        Route::get('admin/export-Excel', [App\Http\Controllers\Admin\Proses1Controller::class, 'exportIntoExcel'])->name('admin.exportIntoExcel');
 
         Route::get('admin/senarai-pelesen-batal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbatalbuah'])->name('admin.senaraipelesenbatalbuah');
         Route::get('admin/senarai-pelesen-batal-penapis', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senarai_pelesen_batal_penapis'])->name('admin.senarai.pelesen.batal.penapis');
