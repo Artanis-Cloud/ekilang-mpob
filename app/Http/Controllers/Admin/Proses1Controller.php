@@ -13,12 +13,15 @@ use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\User;
 use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BuahExport;
 
 class Proses1Controller extends Controller
 {
@@ -76,7 +79,7 @@ class Proses1Controller extends Controller
         $pelesen->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
 
         //log audit trail admin
-        Auth::user()->log(" ADD PELESEN {$pelesen->username}" );
+        Auth::user()->log(" ADD PELESEN {$pelesen->username}");
 
 
         return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
@@ -142,7 +145,7 @@ class Proses1Controller extends Controller
 
         //
         return Pelesen::create([
-            'e_id' => $count+ 1,
+            'e_id' => $count + 1,
             'e_nl' => $data['e_nl'],
             'e_np' => $data['e_np'],
             'e_ap1' => $data['e_ap1'],
@@ -268,7 +271,7 @@ class Proses1Controller extends Controller
         // $reg_pelesen = RegPelesen::where('e_nl', );
         // dd($reg_pelesen);
         $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->first();
-        $pelesen2 = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs','daerah.kod_daerah',$pelesen->e_daerah)->first();
+        $pelesen2 = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs', 'daerah.kod_daerah', $pelesen->e_daerah)->first();
 
         // dd($pelesen2);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
@@ -416,8 +419,6 @@ class Proses1Controller extends Controller
             'jumlah3',
             'jumlah4'
         ));
-
-
     }
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)
@@ -484,7 +485,7 @@ class Proses1Controller extends Controller
         $penyata2->save();
 
         //log audit trail admin
-        Auth::user()->log(" UPDATE PELESEN {$penyata2->e_nl}" );
+        Auth::user()->log(" UPDATE PELESEN {$penyata2->e_nl}");
 
 
 
@@ -543,7 +544,7 @@ class Proses1Controller extends Controller
                     return redirect()->route('admin.senaraipelesensimpanan');
                 } elseif ($cat == 'PLBIO') {
                     return redirect()->route('admin.senaraipelesenbio');
-                }else{
+                } else {
 
                     // dd($pelesen);
                     $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
@@ -564,36 +565,34 @@ class Proses1Controller extends Controller
                     $layout = 'layouts.admin';
 
                     return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
-
                 }
             }
-            }
-             else {
-                # code...// dd($pelesen);
-               $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
-               // dd($users);
-               // $pelesen = Pelesen::get();
+        } else {
+            # code...// dd($pelesen);
+            $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
+            // dd($users);
+            // $pelesen = Pelesen::get();
 
-               $breadcrumbs    = [
-                   ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                   ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
-               ];
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
+            ];
 
-               $kembali = route('admin.dashboard');
+            $kembali = route('admin.dashboard');
 
-               $returnArr = [
-                   'breadcrumbs' => $breadcrumbs,
-                   'kembali'     => $kembali,
-               ];
-               $layout = 'layouts.admin';
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
 
-               return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
-            }
+            return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+        }
+    }
 
-
-
-
-
+    public function exportIntoExcel()
+    {
+        return Excel::download(new BuahExport, 'senarai pelesen buah.xlsx');
     }
 
     public function admin_senaraipelesenpenapis()
