@@ -438,9 +438,10 @@ class LaporanController extends Controller
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
             ->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->groupBy('ebio_nl')->get();
-            // dd( $result);
+
 
         }
+        // dd( $result);
         if ($request->kumpproduk) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
@@ -495,8 +496,6 @@ class LaporanController extends Controller
 
 
 
-
-
                 for ($i=1; $i <= 12; $i++) {
                     if($i == $no_batch->ebio_bln){
                         foreach ($hbiob_s as  $hbiob) {
@@ -517,6 +516,9 @@ class LaporanController extends Controller
         // dd($ebio_b5_bhg1);
 
         $layout = 'layouts.main';
+
+        $start_month = intval($start_month);
+        $end_month = intval($end_month);
 
         $array = [
             'produk' => $produk,

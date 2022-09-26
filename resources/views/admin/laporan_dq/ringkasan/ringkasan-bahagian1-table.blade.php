@@ -234,15 +234,15 @@
                                                                 <label>Dari</label>
                                                                 <select class="form-control" name="start_month">
                                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                    <option value="1">Januari</option>
-                                                                    <option value="2">Februari</option>
-                                                                    <option value="3">Mac</option>
-                                                                    <option value="4">April</option>
-                                                                    <option value="5">Mei</option>
-                                                                    <option value="6">Jun</option>
-                                                                    <option value="7">Julai</option>
-                                                                    <option value="8">Ogos</option>
-                                                                    <option value="9">September</option>
+                                                                    <option value="01">Januari</option>
+                                                                    <option value="02">Februari</option>
+                                                                    <option value="03">Mac</option>
+                                                                    <option value="04">April</option>
+                                                                    <option value="05">Mei</option>
+                                                                    <option value="06">Jun</option>
+                                                                    <option value="07">Julai</option>
+                                                                    <option value="08">Ogos</option>
+                                                                    <option value="09">September</option>
                                                                     <option value="10">Oktober</option>
                                                                     <option value="11">November</option>
                                                                     <option value="12">Disember</option>
@@ -255,15 +255,15 @@
                                                                 <label>Ke</label>
                                                                 <select class="form-control" name="end_month">
                                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                    <option value="1">Januari</option>
-                                                                    <option value="2">Februari</option>
-                                                                    <option value="3">Mac</option>
-                                                                    <option value="4">April</option>
-                                                                    <option value="5">Mei</option>
-                                                                    <option value="6">Jun</option>
-                                                                    <option value="7">Julai</option>
-                                                                    <option value="8">Ogos</option>
-                                                                    <option value="9">September</option>
+                                                                    <option value="01">Januari</option>
+                                                                    <option value="02">Februari</option>
+                                                                    <option value="03">Mac</option>
+                                                                    <option value="04">April</option>
+                                                                    <option value="05">Mei</option>
+                                                                    <option value="06">Jun</option>
+                                                                    <option value="07">Julai</option>
+                                                                    <option value="08">Ogos</option>
+                                                                    <option value="09">September</option>
                                                                     <option value="10">Oktober</option>
                                                                     <option value="11">November</option>
                                                                     <option value="12">Disember</option>
@@ -461,39 +461,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -517,39 +517,39 @@
                                                                         $total_bulan5[$i] = 0;
 
                                                                     @endphp
-                                                                    @if ($i == '1')
+                                                                    @if ($i == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($i == '2')
+                                                                    @elseif($i == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($i == '3')
+                                                                    @elseif($i == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($i == '4')
+                                                                    @elseif($i == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($i == '5')
+                                                                    @elseif($i == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($i == '6')
+                                                                    @elseif($i == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($i == '7')
+                                                                    @elseif($i == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($i == '8')
+                                                                    @elseif($i == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($i == '9')
+                                                                    @elseif($i == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -576,6 +576,9 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @php
+                                                            $i=1;
+                                                        @endphp
                                                         @if ($result)
 
                                                             @if ($bulan == null)
@@ -720,6 +723,7 @@
                                                                             <td  style="text-align: center; width:500px; mso-number-format:'#,##0.00'">
                                                                                 {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
+
                                                                             @php
                                                                                 $total_bulan_b5 += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0;
                                                                             @endphp
@@ -788,24 +792,26 @@
 
 
                                                                             @php
+
                                                                                 $jumlah5 = 0;
                                                                                 $total_between_bulan_b5 = 0;
                                                                             @endphp
+
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
-                                                                                    {{-- @if ($data->ebio_bln == $i && $data->ebio_b5 != 0) --}}
 
                                                                                     <td style="text-align: center; mso-number-format:'#,##0.00'">
                                                                                         {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
-
-                                                                                    {{--@endif --}}
-                                                                                        @php
-                                                                                            $jumlah5 += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0;
-                                                                                            $jumlah_bulan5[$i] += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0;
-                                                                                        @endphp
+                                                                                    {{-- {{ dd($start_month) }} --}}
+                                                                                    {{-- @endif --}}
+                                                                                    @php
+                                                                                        $jumlah5 += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                        $jumlah_bulan5[$i] += $ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                    @endphp
 
 
                                                                                 @endfor
+                                                                                    {{-- {{ dd($ebio_b5_bhg1[$i]) }} --}}
                                                                             <td style="text-align: center; mso-number-format:'#,##0.00'">
                                                                                 <b>{{ number_format($jumlah5 ?? 0,2) }}</b>
                                                                             </td>
@@ -835,6 +841,7 @@
                                                                 </tr>
 
                                                             @endif
+
                                                         @endif
 
                                                     </tbody><br>
@@ -911,39 +918,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -1354,39 +1361,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -1797,39 +1804,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -1853,39 +1860,39 @@
                                                                         $total_bulan8[$i] = 0;
 
                                                                     @endphp
-                                                                    @if ($i == '1')
+                                                                    @if ($i == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($i == '2')
+                                                                    @elseif($i == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($i == '3')
+                                                                    @elseif($i == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($i == '4')
+                                                                    @elseif($i == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($i == '5')
+                                                                    @elseif($i == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($i == '6')
+                                                                    @elseif($i == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($i == '7')
+                                                                    @elseif($i == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($i == '8')
+                                                                    @elseif($i == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($i == '9')
+                                                                    @elseif($i == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -2241,39 +2248,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -2297,39 +2304,39 @@
                                                                         $total_bulan8[$i] = 0;
 
                                                                     @endphp
-                                                                    @if ($i == '1')
+                                                                    @if ($i == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($i == '2')
+                                                                    @elseif($i == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($i == '3')
+                                                                    @elseif($i == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($i == '4')
+                                                                    @elseif($i == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($i == '5')
+                                                                    @elseif($i == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($i == '6')
+                                                                    @elseif($i == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($i == '7')
+                                                                    @elseif($i == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($i == '8')
+                                                                    @elseif($i == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($i == '9')
+                                                                    @elseif($i == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -2684,39 +2691,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -2740,39 +2747,39 @@
                                                                         $total_bulan8[$i] = 0;
 
                                                                     @endphp
-                                                                    @if ($i == '1')
+                                                                    @if ($i == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($i == '2')
+                                                                    @elseif($i == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($i == '3')
+                                                                    @elseif($i == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($i == '4')
+                                                                    @elseif($i == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($i == '5')
+                                                                    @elseif($i == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($i == '6')
+                                                                    @elseif($i == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($i == '7')
+                                                                    @elseif($i == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($i == '8')
+                                                                    @elseif($i == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($i == '9')
+                                                                    @elseif($i == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -3127,39 +3134,39 @@
 
                                                             @elseif ($bulan == 'equal')
                                                                 {{-- @for ($i = $equal_month;) --}}
-                                                                    @if ($equal_month == '1')
+                                                                    @if ($equal_month == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($equal_month == '2')
+                                                                    @elseif($equal_month == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($equal_month == '3')
+                                                                    @elseif($equal_month == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($equal_month == '4')
+                                                                    @elseif($equal_month == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($equal_month == '5')
+                                                                    @elseif($equal_month == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($equal_month == '6')
+                                                                    @elseif($equal_month == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($equal_month == '7')
+                                                                    @elseif($equal_month == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($equal_month == '8')
+                                                                    @elseif($equal_month == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($equal_month == '9')
+                                                                    @elseif($equal_month == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
@@ -3183,39 +3190,39 @@
                                                                         $total_bulan8[$i] = 0;
 
                                                                     @endphp
-                                                                    @if ($i == '1')
+                                                                    @if ($i == '01')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jan
                                                                         </th>
-                                                                    @elseif($i == '2')
+                                                                    @elseif($i == '02')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Feb
                                                                         </th>
-                                                                    @elseif($i == '3')
+                                                                    @elseif($i == '03')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mac
                                                                         </th>
-                                                                    @elseif($i == '4')
+                                                                    @elseif($i == '04')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Apr
                                                                         </th>
-                                                                    @elseif($i == '5')
+                                                                    @elseif($i == '05')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Mei
                                                                         </th>
-                                                                    @elseif($i == '6')
+                                                                    @elseif($i == '06')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jun
                                                                         </th>
-                                                                    @elseif($i == '7')
+                                                                    @elseif($i == '07')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Jul
                                                                         </th>
-                                                                    @elseif($i == '8')
+                                                                    @elseif($i == '08')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Ogos
                                                                         </th>
-                                                                    @elseif($i == '9')
+                                                                    @elseif($i == '09')
                                                                         <th scope="col"
                                                                             style="vertical-align: middle; text-align:center">Sept
                                                                         </th>
