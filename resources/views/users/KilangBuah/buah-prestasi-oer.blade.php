@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect">
+                                                <select class="form-control" id="tahun" name='tahun'>
                                                     <option selected hidden disabled>Sila Pilih Tahun</option>
                                                     <option>2000</option>
                                                     <option>2001</option>
@@ -104,7 +104,7 @@
                                                     <option>2018</option>
                                                     <option>2019</option>
                                                     <option>2020</option>
-                                                    <option>2021</option> 
+                                                    <option>2021</option>
                                     </select>
                                 </fieldset>
                                 {{-- @error('alamat_kilang_1')
