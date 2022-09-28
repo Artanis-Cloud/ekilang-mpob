@@ -1095,38 +1095,39 @@ class KilangBuahController extends Controller
         $thn4 = $thn1 - 3;
 
 
-        $adadaerah = check_daerahless($nolesen);
-        if (!isset($adadaerah))
+        $adadaerah = $this->check_daerahless($nolesen);
+        if (!$adadaerah)
            $flgdaerah = 'Y';
         else
             $flgdaerah = 'N';
 
-        $dtlpelesen = get_data_pelesen($nolesen);
+        $dtlpelesen = $this->get_data_pelesen($nolesen);
 
         foreach ($dtlpelesen as $row)
         {
-         $namakilang = trim($row["namakilang"]);
-         $daerah = trim($row["nama_daerah"]);
-         $negeri = trim($row["nama_negeri"]);
+         $namakilang = trim($row->namakilang);
+         $daerah = trim($row->nama_daerah);
+         $negeri = trim($row->nama_negeri);
         }
 
-         $makpelesen = get_pelesen($nolesen);
+         $makpelesen = $this->get_pelesen($nolesen);
+
          foreach ($makpelesen as $row1)
           {
-           $enp = $row1["e_np"];
-           $cluster = strtoupper($row1["nama_cluster"]);
-           $kodcluster = $row1["e_cluster"];
-           $kawasan = $row1["nama_region"];
-           $kodkawasan = $row1["e_kawasan"];
+           $enp = $row1->e_np ;
+           $cluster = strtoupper($row1->nama_cluster );
+           $kodcluster = $row1->e_cluster ;
+           $kawasan = $row1->nama_region ;
+           $kodkawasan = $row1->e_kawasan ;
           }
 
         if ($flgdaerah == 'Y')
         {
-          $result1 = get_data_oer_year3full($nolesen,$thn1);
-          $result2 = get_data_oer_year3full($nolesen,$thn2);
-          $result3 = get_data_oer_year3full($nolesen,$thn3);
+          $result1 = $this->get_data_oer_year3full($nolesen,$thn1);
+          $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
+          $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
 
-          for ($count=0; $row = @mysqli_fetch_array($result3); $count++)
+          for ($count=0; $row = $result3; $count++)
           {
             $val1[$count] = $row[1] . '/' . $row[0];
             $val2[$count] = $row[2];
@@ -1136,9 +1137,9 @@ class KilangBuahController extends Controller
             $val6[$count] = $row[6];
 
             $valbulan1 = $row[1];
-            $oercluster1 = get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+            $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
             $val7[$count] = $oercluster1;
-            $oerkawasan1 = get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+            $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
             $val8[$count] = $oerkawasan1;
 
           }
