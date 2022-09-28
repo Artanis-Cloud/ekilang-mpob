@@ -158,15 +158,15 @@
                                         <thead>
                                             <tr style="background-color: #e9ecefbd">
                                                 {{-- <th>Bil.</th> --}}
-                                                <th>No. Lesen</th>
-                                                <th>Nama Premis</th>
-                                                <th>Emel</th>
-                                                <th>No. Telefon</th>
-                                                <th>Kod Pegawai</th>
-                                                <th>No. Siri</th>
-                                                <th>Status e-Kilang</th>
-                                                <th>Status e-Stok</th>
-                                                <th>Direktori</th>
+                                                <th style=" vertical-align: middle">No. Lesen</th>
+                                                <th style=" vertical-align: middle">Nama Premis</th>
+                                                <th style=" vertical-align: middle">Emel</th>
+                                                <th style=" vertical-align: middle">No. Telefon</th>
+                                                <th style=" vertical-align: middle">Kod Pegawai</th>
+                                                <th style=" vertical-align: middle">No. Siri</th>
+                                                <th style=" vertical-align: middle">Status e-Kilang</th>
+                                                <th style=" vertical-align: middle">Status e-Stok</th>
+                                                <th style=" vertical-align: middle">Direktori</th>
                                             </tr>
                                         </thead>
                                         <tfoot>

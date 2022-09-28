@@ -46,7 +46,7 @@ class HBioC extends Model
     //     return $this->hasMany(EBioCC::class,'ebio_cc2', 'ebio_c3');
     // }
 
-    // public function produk(){
-    //     return $this->hasOne(Produk::class,'prodid','ebio_c3');
-    // }
+    public function produk(){
+        return $this->hasOne(Produk::class,'prodid','ebio_c3');
+    }
 }

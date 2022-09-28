@@ -1149,12 +1149,12 @@
             document.getElementById('err_kcpo').style.display = "none";
 
         } else {
-            if ($('#kap_tangki_cpo').val() == '' || $('#kap_tangki_cpo').val() == '0') {
-                console.log($('#kap_tangki_cpo').val());
+            if ($('#kap_tangki_cpo').val() == '' || $('#kap_tangki_cpo').val() == 0) {
+                // console.log($('#kap_tangki_cpo').val());
                 $('#kap_tangki_cpo').css('border-color', 'red');
                 document.getElementById('err_kcpo').style.display = "block";
             } else {
-                console.log('kap_tangki no');
+                // console.log('kap_tangki no');
                 $('#kap_tangki_cpo').css('border-color', '');
                 document.getElementById('err_kcpo').style.display = "none";
 

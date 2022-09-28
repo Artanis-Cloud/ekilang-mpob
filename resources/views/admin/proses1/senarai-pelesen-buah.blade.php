@@ -162,7 +162,7 @@
                                         <thead>
                                             <tr style="background-color: #e9ecefbd;  word-wrap:normal">
                                                 {{-- <th class="no-sort">Bil.</th> --}}
-                                                <th style=" vertical-align: middle">No. Lesen</th>
+                                                <th style=" vertical-align: middle; width:80px">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
                                                 <th style=" vertical-align: middle">No. Telefon</th>
@@ -311,4 +311,7 @@
           saveAs(new Blob([s2ab(wbout)], {type:"application/octet-stream"}), 'Senarai Pelesen Berdaftar Kilang Buah.xlsx');
         })
     </script>
+
+
+
 @endsection

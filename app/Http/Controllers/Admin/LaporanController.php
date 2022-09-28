@@ -1012,12 +1012,19 @@ class LaporanController extends Controller
         $lesen = $request->e_nl;
         $negeri_req = $request->e_negeri;
         $pemb_req = $request->pembeli;
-
+        $syk = HBioCC::get();
+//    dd($syk);
         //RINGKASAN URUSNIAGA()
+        foreach ($syk as $cc){
+
+        $syk_batch = $cc->ebio_nobatch;
+
+        }
+//   dd($syk_batch);
         $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
-            ->where('ebio_thn',$tahun)->groupBy('ebio_nl')->get();
-        // dd($result);
+            ->where('ebio_thn',$tahun)->where('ebio_nobatch', $syk_batch)->groupBy('ebio_nl')->get();
+// dd($result);
 
         if ($request->e_negeri) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
@@ -1037,7 +1044,6 @@ class LaporanController extends Controller
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
             ->where('ebio_thn',$tahun)->where('ebio_cc3', 'LIKE', '%' . $request->pembeli . '%')->groupBy('ebio_nl')->get();
         }
-
         if(!$result->isEmpty()){
             foreach ($result as $key => $list_result) {
                 $no_batches = DB::table('h_bio_inits')->where('ebio_nl',$list_result->ebio_nl)->where('ebio_thn',$tahun)->get();
@@ -1055,7 +1061,7 @@ class LaporanController extends Controller
                 }
             }
 
-        // dd($no_batches);
+        // dd($result);
 
         $array = [
             'produk' => $produk,

@@ -31,15 +31,14 @@ class HBioCC extends Model
 
     ];
 
-    // public function ebioinit(){
-    //     return $this->hasOne(EBioInit::class,'ebio_reg', 'ebio_reg');
-    // }
 
-    // public function ebiocc(){
-    //     return $this->hasMany(EBioCC::class,'ebio_cc2', 'ebio_c3');
-    // }
-
-    // public function produk(){
-    //     return $this->hasOne(Produk::class,'prodid','ebio_c3');
-    // }
+    public function ebioinit(){
+        return $this->hasOne(HBioInit::class,'ebio_nobatch', 'ebio_reg');
+    }
+    public function ebioc(){
+        return $this->hasOne(HBioC::class,'ebio_cc3', 'ebio_cc2');
+    }
+    public function syarikat(){
+        return $this->hasOne(SyarikatPembeli::class,'id', 'ebio_cc3');
+    }
 }
