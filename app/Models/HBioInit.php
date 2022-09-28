@@ -47,11 +47,11 @@ class HBioInit extends Model
     // public function produk(){
     //     return $this->hasOne(Produk::class,'prodid','ebio_c3');
     // }
-    // public function pelesen()
-    // {
+    public function pelesen()
+    {
 
-    //     return $this->hasOne(Pelesen::class, 'e_nl', 'ebio_nl');
-    // }
+        return $this->hasOne(Pelesen::class, 'e_nl', 'ebio_nl');
+    }
 
     // public function negeri()
     // {

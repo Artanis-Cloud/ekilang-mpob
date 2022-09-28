@@ -19,7 +19,11 @@ use App\Models\H104B;
 use App\Models\H104C;
 use App\Models\H104D;
 use App\Models\H104Init;
+use App\Models\HBioB;
+use App\Models\HBioC;
+use App\Models\HBioD;
 use App\Models\HBioInit;
+use App\Models\HHari;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -226,7 +230,7 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL91'
                                 order by k.kodpgw, k.nosiri");
-                                
+
                                 if (!$users) {
                                     return redirect()->back()
                                     ->with('error', 'Penyata Tidak Wujud!');
@@ -307,7 +311,7 @@ class Proses9Controller extends Controller
             }
             } elseif ($sektor == 'PLBIO') {
                 $tahun = HBioInit::where('tahun', $request->ebio_thn);
-                $bulan = HBioInit::where('tahun', $request->ebio_bln);
+                $bulan = HBioInit::where('bulan', $request->ebio_bln);
 
                 $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, k.kodpgw, e.ebio_nobatch, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, h_bio_inits e, reg_pelesen k
@@ -330,6 +334,7 @@ class Proses9Controller extends Controller
                 ->with('error', 'Penyata Tidak Wujud!');
         }
 
+        // $this->process_admin_9penyataterdahulu_bio_form($request, $tahun1);
 
         // dd($users);
         $breadcrumbs    = [
@@ -860,6 +865,83 @@ class Proses9Controller extends Controller
             'total3',
             'total4',
             'total5'
+        ));
+    }
+
+    public function process_admin_9penyataterdahulu_bio_form(Request $request)
+    {
+
+        // $this->admin_9penyataterdahulu_process($tahun1);
+
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu.bio.process');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $tahun = HBioInit::where('ebio_thn', $request->tahun);
+        $bulan = HBioInit::where('ebio_bln', $request->bulan);
+        // dd($bulan);
+        foreach ($request->papar_ya as $key => $ebio_nobatch) {
+            $pelesens[$key] = (object)[];
+            $penyata[$key] = HBioInit::with('pelesen')->find($ebio_nobatch);
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
+
+
+            $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '1')->get();
+
+
+            $ib[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '2')->get();
+
+
+            $ic[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat', [ '06', '08' ]);
+            })->get();
+
+
+            $ii[$key] = HHari::where('lesen',  $penyata[$key]->ebio_nl)->where('tahunbhg2', $penyata[$key]->ebio_thn)->where('bulan', $penyata[$key]->ebio_bln)->first();
+// dd($ii);
+
+            $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat', [ '03', '06', '08', '12' ]);
+            })->get();
+
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+        }
+
+
+        $layout = 'layouts.main';
+
+
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-terdahulu-bio-multi', compact(
+            'returnArr',
+            'layout',
+            'formatteddate',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'ia',
+            'ib',
+            'ic',
+            'ii',
+            'iii',
+
         ));
     }
 }
