@@ -482,8 +482,8 @@
                                             <tbody>
                                                 <tr style="background-color: #d3d3d370">
                                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Jenis Minyak</font><b></b>
-                                                    </b></td>
+                                                            <font size="2">Jenis Minyak</font><b></b>
+                                                        </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Kod Produk</font><b></b>
                                                         </b></td>
@@ -491,16 +491,12 @@
                                                             <font size="2">Stok Awal Di Premis</font><b></b>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Belian/Terimaan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Import</font><b></b>
-                                                        </b></td>
+                                                            <font size="2">Pengeluaran</font><b></b>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jumlah Yang Diproses</font><b></b>
+                                                            <font size="2">Digunakan Untuk Proses Selanjutnya</font><b></b>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Jualan/Edaran Tempatan</font><b></b>
@@ -509,12 +505,18 @@
                                                             <font size="2">Eksport</font><b></b>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Premis</font><b></b>
-                                                        </b></td>
-                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
+                                                            <font size="2">Stok Akhir Dilapor</font><b></b>
                                                         </b></td>
                                                 </tr>
+                                                @php
+                                                    $total_col_ebio_b5 = 0;
+                                                    $total_col_ebio_b6 = 0;
+                                                    $total_col_ebio_b7 = 0;
+                                                    $total_col_ebio_b8 = 0;
+                                                    $total_col_ebio_b9 = 0;
+                                                    $total_col_ebio_b10 = 0;
+                                                    $total_col_ebio_b11 = 0;
+                                                @endphp
                                                 @foreach ($ic[$key] as  $dataic)
                                                 <tr>
                                                     <td align="left">
@@ -533,7 +535,7 @@
                                                         <font size="2">{{ number_format($dataic->ebio_b7 ??  0,2)}}</font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2">0.00</font>
+                                                        <font size="2">{{ number_format($dataic->ebio_b8 ??  0,2)}}</font>
                                                     </td>
                                                     <td align="right">
                                                         <font size="2">{{ number_format($dataic->ebio_b9 ??  0,2)}}</font>
@@ -544,49 +546,30 @@
                                                     <td align="right">
                                                         <font size="2">{{ number_format($dataic->ebio_b11 ??  0,2)}}</font>
                                                     </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataic->ebio_b12 ??  0,2)}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataic->ebio_b13 ??  0,2)}}</font>
-                                                    </td>
+                                                    @php
+                                                        $total_col_ebio_b5 += $dataic->ebio_b5 ?? 0  ;
+                                                        $total_col_ebio_b6 += $dataic->ebio_b6 ?? 0  ;
+                                                        $total_col_ebio_b7 += $dataic->ebio_b7 ?? 0  ;
+                                                        $total_col_ebio_b8 += $dataic->ebio_b8 ?? 0  ;
+                                                        $total_col_ebio_b9 += $dataic->ebio_b9 ?? 0  ;
+                                                        $total_col_ebio_b10 += $dataic->ebio_b10 ?? 0  ;
+                                                        $total_col_ebio_b11 += $dataic->ebio_b11 ?? 0  ;
+                                                    @endphp
                                                 </tr>
                                                 @endforeach
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
+
+                                                <tr style="background-color: #d3d3d34d" >
+                                                    <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic5 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic6 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic7 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic8 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic9 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic10 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic11 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic12 ??  0,2) }}0</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalic13 ??  0,2) }}</b></font>
-                                                    </td>
-                                                </tr>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+
                                                 </tr>
                                             </tbody>
                                         </table><hr>
@@ -629,10 +612,16 @@
                                                             <font size="2">Kod Produk</font>
                                                         </b></td>
                                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Stok Awal Di Premis</font>
+                                                        </b></td>
+                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Belian/Terimaan</font>
                                                         </b></td>
                                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Pengeluaran</font>
+                                                        </b></td>
+                                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                         </b></td>
                                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Jualan/Edaran Tempatan</font>
@@ -641,10 +630,20 @@
                                                             <font size="2">Eksport</font>
                                                         </b></td>
                                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Stok Akhir</font>
+                                                            <font size="2">Stok Akhir Dilapor</font>
                                                         </b></td>
                                                 </tr>
-                                                @foreach ($iii as $dataiii)
+                                                @php
+                                                    $total_col_ebio_c4 = 0;
+                                                    $total_col_ebio_c5 = 0;
+                                                    $total_col_ebio_c6 = 0;
+                                                    $total_col_ebio_c7 = 0;
+                                                    $total_col_ebio_c8 = 0;
+                                                    $total_col_ebio_c9 = 0;
+                                                    $total_col_ebio_c10 = 0;
+                                                @endphp
+
+                                                @foreach ($iii[$key] as $dataiii)
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2">{{ $dataiii->produk->proddesc }}</font>
@@ -667,30 +666,36 @@
                                                     <td align="right">
                                                         <font size="2">{{ number_format($dataiii->ebio_c8 ??  0,2)}}</font>
                                                     </td>
+                                                    <td align="right">
+                                                        <font size="2">{{ number_format($dataiii->ebio_c9 ??  0,2)}}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2">{{ number_format($dataiii->ebio_c10 ??  0,2)}}</font>
+                                                    </td>
+                                                    @php
+                                                        $total_col_ebio_c4 += $dataiii->ebio_c4 ?? 0  ;
+                                                        $total_col_ebio_c5 += $dataiii->ebio_c5 ?? 0  ;
+                                                        $total_col_ebio_c6 += $dataiii->ebio_c6 ?? 0  ;
+                                                        $total_col_ebio_c7 += $dataiii->ebio_c7 ?? 0  ;
+                                                        $total_col_ebio_c8 += $dataiii->ebio_c8 ?? 0  ;
+                                                        $total_col_ebio_c9 += $dataiii->ebio_c9 ?? 0  ;
+                                                        $total_col_ebio_c10 += $dataiii->ebio_c10 ?? 0  ;
+
+                                                    @endphp
                                                 </tr>
                                                 @endforeach
-                                                <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
+
+                                                <tr style="background-color: #d3d3d34d" >
+                                                    <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii4 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii5 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii6 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii7 ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliii8 ??  0,2) }}</b></font>
-                                                    </td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c4 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c5 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c6 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c7 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c8 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c9 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_c10 ?? 0,2) }}</b></td>
 
                                                 </tr>
                                             </tbody>
@@ -731,7 +736,9 @@
                                                     </b></td>
                                                 </tr>
                                                 <tr>
-
+                                                    <td align="center" colspan = "8">
+                                                        <font size="2">Tiada Rekod</font>
+                                                    </td>
                                                 </tr>
 
                                             </tbody>

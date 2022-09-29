@@ -302,22 +302,30 @@
 
                                             </thead>
                                             <tbody>
+                                                @if ($result)
+
                                                 @foreach ($result as $key => $data)
                                                     <tr>
-                                                        <td>{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td>{{ $data->nama_negeri }}</td>
-                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                        @foreach ($jualan_bio[$data->e_nl] as $kodProduk => $test)
+                                                            <tr>
+                                                                <td>{{ $data->e_nl }}</td>
+                                                                <td class="text-left">{{ $data->e_np }}</td>
+                                                                <td>{{ $data->nama_negeri }}</td>
+                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                    <b>{{ number_format($syk_bio[$data->e_nl][$kodProduk] ?? 00) }}</b>
+                                                                </td>
 
-                                                        <td class="text-left">{{ $data->pembeli ?? '-'}}</td>
-                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
-                                                            <b>{{ number_format($jualan_bio[$data->e_nl] ?? 0,2) }}</b>
-                                                        </td>
 
+                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                    <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk] ?? 00) }}</b>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
                                                     </tr>
 
                                                 @endforeach
-
+                                                @endif
                                             </tbody><br>
 
                                         </table>

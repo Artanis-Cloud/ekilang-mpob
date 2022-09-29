@@ -32,7 +32,7 @@ class HBioCC extends Model
     ];
 
 
-    public function ebioinit(){
+    public function hbioinit(){
         return $this->hasOne(HBioInit::class,'ebio_nobatch', 'ebio_reg');
     }
     public function ebioc(){

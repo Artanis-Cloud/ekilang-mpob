@@ -659,6 +659,7 @@ Route::middleware('auth')->group(function () {
         Route::post('biodiesel/send-email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_send_email_proses'])->name('bio.send.email.proses');
 
         Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
+        Route::post('biodiesel/penyata-dahulu/process', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyata_dahulu_process'])->name('bio.penyata.dahulu.process');
 
 
         Route::get('biodiesel/kod-produk', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_kod_produk'])->name('bio.kod.produk');
