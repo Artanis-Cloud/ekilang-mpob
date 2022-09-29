@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
-use App\Models\E104B;
-use App\Models\E104Init;
 use App\Models\EBioB;
 use App\Models\EBioC;
 use App\Models\EBioCC;
 use App\Models\EBioInit;
 use App\Models\Ekmessage;
 use App\Models\Hari;
+use App\Models\HBioB;
+use App\Models\HBioC;
+use App\Models\HBioInit;
+use App\Models\HHari;
 use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -20,6 +22,7 @@ use App\Models\RegPelesen;
 use App\Models\SyarikatPembeli;
 use App\Models\User;
 use Carbon\Carbon;
+use DateTime;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -317,14 +320,14 @@ class KilangBiodieselController extends Controller
             // 'ebio_b12' => ['required', 'string'],
             // 'ebio_b13' => ['required', 'string'],
 
-            // 'e104_b15' => ['required', 'string'],
+            // 'ebio_b15' => ['required', 'string'],
         ]);
     }
 
     protected function store_bahagian_ia(array $data)
     {
         $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
-        // dd($e104_reg);
+        // dd($ebio_reg);
         return EBioB::create([
             'ebio_reg' => $ebio_reg->ebio_reg,
             'ebio_b3' => '1',
@@ -339,7 +342,7 @@ class KilangBiodieselController extends Controller
             // 'ebio_b12' => $data['ebio_b12'],
             // 'ebio_b13' => $data['ebio_b13'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e101_b15' => $data['ebio_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -512,7 +515,7 @@ class KilangBiodieselController extends Controller
             'ebio_b11' => $data['ebio_b11'],
             // 'ebio_b12' => $data['ebio_b12'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e101_b15' => $data['ebio_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -690,7 +693,7 @@ class KilangBiodieselController extends Controller
             'ebio_b11' => $data['ebio_b11'],
             // 'ebio_b12' => $data['ebio_b12'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e101_b15' => $data['ebio_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -1049,7 +1052,7 @@ class KilangBiodieselController extends Controller
             'ebio_c10' => $data['ebio_c10'],
             // 'ebio_c12' => $data['ebio_b12'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e101_b15' => $data['ebio_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -1646,6 +1649,93 @@ class KilangBiodieselController extends Controller
 
 
         return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout','pelesen', 'year', 'tahun'));
+    }
+
+    protected function validation_terdahulu(array $data)
+    {
+        return Validator::make($data, [
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+        ]);
+    }
+
+
+
+    public function bio_penyata_dahulu_process(Request $request)
+    {
+        // dd($request->all());
+
+        $this->validation_terdahulu($request->all())->validate();
+
+
+        $user = User::first();
+        // dd($user);
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+
+
+        $users = HBioInit::where('ebio_nl', auth()->user()->username)
+            ->where('ebio_thn', $request->tahun)
+            ->where('ebio_bln', $request->bulan)->first();
+        // dd($users);
+
+        if ($users) {
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+            $ia = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '1')->get();
+
+            $ib = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '2')->get();
+
+            $ic = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat', [ '06', '08' ]);
+            })->get();
+
+            $ii = HHari::where('lesen', auth()->user()->username)->where('tahunbhg2', $users->ebio_thn)->where('bulan', $users->ebio_bln)->first();
+
+            // dd($iii);
+
+
+            $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat', [ '03', '06', '08', '12' ]);
+            })->get();
+            // dd($iii);
+
+            $myDateTime2 = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
+            $formatteddat2 = $myDateTime2->format('d-m-Y');
+            // $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
+            // dd($iv);
+
+        } else {
+            return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+        }
+
+        $breadcrumbs    = [
+            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('bio.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],
+        ];
+
+        $kembali = route('bio.penyatadahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        return view('users.KilangBiodiesel.bio-papar-dahulu', compact(
+            'returnArr',
+            'myDateTime',
+            'formatteddate',
+            'myDateTime2',
+            'formatteddat2',
+            'user',
+            'pelesen',
+            'users',
+            'ia',
+            'ib',
+            'ic',
+            'ii',
+            'iii',
+        ));
     }
 
     public function bio_kod_produk()

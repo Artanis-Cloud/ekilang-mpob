@@ -912,12 +912,12 @@ class Proses9Controller extends Controller
 
 
             $ii[$key] = HHari::where('lesen',  $penyata[$key]->ebio_nl)->where('tahunbhg2', $penyata[$key]->ebio_thn)->where('bulan', $penyata[$key]->ebio_bln)->first();
-// dd($ii);
 
-            $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->whereHas('produk', function ($query) {
+
+            $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat', [ '03', '06', '08', '12' ]);
             })->get();
-
+// dd($iii);
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');

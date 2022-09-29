@@ -38,13 +38,13 @@ class HBioC extends Model
 
     ];
 
-    // public function ebioinit(){
-    //     return $this->hasOne(EBioInit::class,'ebio_reg', 'ebio_reg');
-    // }
+    public function hbioinit(){
+        return $this->hasOne(HBioInit::class,'ebio_nobatch', 'ebio_nobatch');
+    }
 
-    // public function ebiocc(){
-    //     return $this->hasMany(EBioCC::class,'ebio_cc2', 'ebio_c3');
-    // }
+    public function hbiocc(){
+        return $this->hasOne(HBioCC::class,'ebio_cc2', 'ebio_c3');
+    }
 
     public function produk(){
         return $this->hasOne(Produk::class,'prodid','ebio_c3');

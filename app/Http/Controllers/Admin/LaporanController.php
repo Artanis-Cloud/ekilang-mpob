@@ -439,9 +439,8 @@ class LaporanController extends Controller
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
             ->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->groupBy('ebio_nl')->get();
 
-
         }
-        // dd( $result);
+
         if ($request->kumpproduk) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
@@ -461,7 +460,7 @@ class LaporanController extends Controller
         //     ->where('ebio_thn',$tahun)->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')
         //     ->where('prodname', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         // }
-
+    //  dd( $result);
     if(!$result->isEmpty()){
 
         foreach ($result as $key =>  $list_result) {
@@ -829,7 +828,7 @@ class LaporanController extends Controller
 
         }
         if ($request->kumpproduk) {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c4', '=', 'produk.prodid')
             ->where('ebio_thn',$tahun)->where('prodcat', 'LIKE', '%' . $request->kumpproduk . '%')->groupBy('ebio_nl')->get();
         }
@@ -1021,10 +1020,14 @@ class LaporanController extends Controller
 
         }
 //   dd($syk_batch);
-        $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
-            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
-            ->where('ebio_thn',$tahun)->where('ebio_nobatch', $syk_batch)->groupBy('ebio_nl')->get();
+        // $result = HBioInit::with('hbiocc')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
+        // ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+        // ->where('ebio_thn',$tahun)->groupBy('ebio_nl')->get();
 // dd($result);
+        $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->groupBy('ebio_nl')->get();
+
 
         if ($request->e_negeri) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_cc', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_cc.ebio_nobatch')
@@ -1052,16 +1055,28 @@ class LaporanController extends Controller
                 foreach ($no_batches as $no_batch) {
 
                     $hbiob_s= DB::table('h_bio_cc')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
-
+                    // $hbiob_s = HBioCC::with('syarikat')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
                         foreach ($hbiob_s as  $hbiob) {
-                            $jualan_bio[$list_result->ebio_nl] = $hbiob->ebio_cc4 ?? 0;
+
+
+                            $jualan_bio[$list_result->ebio_nl][$hbiob->ebio_cc4] = $hbiob->ebio_cc4 ?? 0;
+
+                            $syk_bio[$list_result->ebio_nl][$hbiob->ebio_cc4] = $hbiob->ebio_cc3 ?? 0;
+                            foreach($syk_bio as $ss){
+
+
+//  dd($syk_bio);
+
+                            }
+
+
+
 
 
                     }
                 }
             }
 
-        // dd($result);
 
         $array = [
             'produk' => $produk,
@@ -1075,9 +1090,11 @@ class LaporanController extends Controller
             'kembali' => $kembali,
             'returnArr' => $returnArr,
             'jualan_bio' => $jualan_bio,
+            'syk_bio' => $syk_bio,
             'pemb_req' => $pemb_req,
             'negeri_req' => $negeri_req,
             'lesen' => $lesen,
+            // 'pemb' => $pemb,
 
         ];
 
