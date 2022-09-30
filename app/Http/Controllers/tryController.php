@@ -84,9 +84,10 @@ class tryController extends Controller
 
               foreach ($query3 as $value3) {
                 $result3 = $value3;
+                 dd($result3);
+
               }
 
-              dd($result3);
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
 
