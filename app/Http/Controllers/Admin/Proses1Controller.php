@@ -400,8 +400,6 @@ class Proses1Controller extends Controller
         // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
 
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-
-
         // $pelesen = Pelesen::find($e_id);
         // dd($pelesen);
         // $pengumuman = \DB::table('pengumuman')->get();

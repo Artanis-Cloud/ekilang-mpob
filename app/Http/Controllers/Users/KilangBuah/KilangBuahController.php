@@ -1154,8 +1154,8 @@ class KilangBuahController extends Controller
             $val6[$count1] = $row[6];
 
             $valbulan2 = $row[1];
-            $oercluster2 = get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-            $oerkawasan2 = get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+            $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+            $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
             $val7[$count1] = $oercluster2;
             $val8[$count1] = $oerkawasan2;
 
@@ -1172,8 +1172,8 @@ class KilangBuahController extends Controller
             $val6[$count2] = $row[6];
 
             $valbulan3 = $row[1];
-            $oercluster3 = get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-            $oerkawasan3 = get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+            $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+            $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
             $val7[$count2] = $oercluster3;
             $val8[$count2] = $oerkawasan3;
 
@@ -1183,11 +1183,11 @@ class KilangBuahController extends Controller
         {
 
           //$result4 = get_data_oer_year2d($nolesen,$thn1);
-          $result4 = get_data_oer_year3dfull($nolesen,$thn1);
+          $result4 = $this->get_data_oer_year3dfull($nolesen,$thn1);
           //$result5 = get_data_oer_year2d($nolesen,$thn2);
-          $result5 =  get_data_oer_year3dfull($nolesen,$thn2);
+          $result5 =  $this->get_data_oer_year3dfull($nolesen,$thn2);
           // $result6 = get_data_oer_year3dfull($nolesen,$thn3);
-          $result6 =  get_data_oer_year3dfull($nolesen,$thn3);
+          $result6 =  $this->get_data_oer_year3dfull($nolesen,$thn3);
 
           for ($count=0; $row = @mysqli_fetch_array($result6); $count++)
           {
@@ -1198,8 +1198,8 @@ class KilangBuahController extends Controller
             $val6[$count] = $row[5];
 
             $valbulan1 = $row[1];
-            $oercluster1 = get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
-            $oerkawasan1 = get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+            $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+            $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
             $val7[$count] = $oercluster1;
             $val8[$count] = $oerkawasan1;
 
@@ -1214,8 +1214,8 @@ class KilangBuahController extends Controller
             $val6[$count1] = $row[5];
 
             $valbulan2 = $row[1];
-            $oercluster2 = get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-            $oerkawasan2 = get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+            $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+            $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
             $val7[$count1] = $oercluster2;
             $val8[$count1] = $oerkawasan2;
 
@@ -1230,8 +1230,8 @@ class KilangBuahController extends Controller
             $val6[$count2] = $row[5];
 
             $valbulan3 = $row[1];
-            $oercluster3 = get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-            $oerkawasan3 = get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+            $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+            $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
             $val7[$count2] = $oercluster3;
             $val8[$count2] = $oerkawasan3;
 
@@ -1282,7 +1282,7 @@ class KilangBuahController extends Controller
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
 
 
-        $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
+        // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
 
 
 

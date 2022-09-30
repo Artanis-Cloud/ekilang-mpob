@@ -307,7 +307,7 @@
                                                         <td>{{ $data->e_nl }}</td>
                                                         <td class="text-left">{{ $data->e_np }}</td>
                                                         <td>{{ $data->nama_negeri }}</td>
-                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                        {{-- <td>{{ $data_daerah[$key]->nama_daerah }}</td> --}}
 
                                                         <td class="text-left">{{ $data->pembeli ?? '-'}}</td>
                                                         <td style="text-align: center; mso-number-format:'#,##0.00'">

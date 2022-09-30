@@ -418,12 +418,22 @@
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="negeri_id" name='e_negeri' required
-                                            onchange="ajax_daerah(this);ajax_kawasan(this)" value="{{ $negeri }}">
-                                            @foreach ($negeri as $data)
+                                            onchange="ajax_daerah(this);ajax_kawasan(this)">
+                                            @if($pelesen->negeri)
+                                                @foreach ($negeri as $data)
                                                 <option value="{{ $data->kod_negeri }}" {{ $pelesen->negeri->kod_negeri == $data->kod_negeri ? 'selected': '' }}>
                                                     {{ $data->nama_negeri }}
                                                 </option>
-                                            @endforeach
+                                                @endforeach
+                                            @else
+                                                @foreach ($negeri as $data)
+                                                <option selected hidden disabled> Sila Pilih Negeri</option>
+                                                <option value="{{ $data->kod_negeri }}">
+                                                    {{ $data->nama_negeri }}
+                                                </option>
+                                                @endforeach
+                                            @endif
+
                                         </select>
                                     </fieldset>
 
@@ -437,14 +447,16 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="daerah_id" name='e_daerah' required
                                             placeholder="Daerah">
-                                            @foreach (  $pelesen->negeri->daerahs as $daerah)
-                                            {{-- <option value="{{$daerah->kod_daerah }}" {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected hidden disabled' : ''}}> {{  $pelesen->daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
+                                            @if($pelesen->negeri)
+                                                @foreach ($pelesen->negeri->daerahs as $daerah)
+                                                    <option value="{{$daerah->kod_daerah }}" {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected' : ''}}>
+                                                        {{  $daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
+                                                    </option>
+                                                @endforeach
+                                            @else
+                                                <option selected hidden disabled> Sila Pilih Daerah</option>
 
-                                            </option> --}}
-                                            <option value="{{$daerah->kod_daerah }}" {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected' : ''}}> {{  $daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
-
-                                            </option>
-                                            @endforeach
+                                            @endif
 
                                                         {{-- <option selected hidden disabled value="">POMA</option>
                                             <option {{ $pelesen->e_daerah == 'Ya' ? 'selected' : '' }} value="Ya">
@@ -462,7 +474,13 @@
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="kawasan_id" name='e_kawasan' required>
-                                            <option value="{{ $pelesen->negeri->kod_region }}" selected hidden disabled>{{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
+                                            @if($pelesen->negeri)
+                                                <option value="{{ $pelesen->negeri->kod_region }}" selected hidden disabled>
+                                                    {{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
+                                            @else
+                                                <option selected hidden disabled> Sila Pilih Kawasan</option>
+
+                                            @endif
                                         </select>
                                     </fieldset>
 
