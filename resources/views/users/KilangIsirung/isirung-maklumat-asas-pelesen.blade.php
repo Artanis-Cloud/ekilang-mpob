@@ -59,7 +59,7 @@
                     <hr>
                     <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
                     </b><i>'</i>
-                    <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate>
+                    <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate class="sub-form">
                         @csrf
                         <div class="container center mt-5">
                             <div class="row justify-content-center" style="margin:20px 0px">
@@ -428,7 +428,7 @@
 
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" name='bil_tangki_cpko' style="width:20%"
-                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_cpko()"
+                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_cpko(); FormatCurrency(this)"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko }}"
                                         required>
                                     @error('bil_tangki_cpko')
@@ -446,7 +446,7 @@
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" name='kap_tangki_cpko'
                                         style="width:20%" id="kap_tangki_cpko"
-                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); valid_cpko()"
+                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); valid_cpko(); FormatCurrency(this)"
                                         title="Sila isikan butiran ini."
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->kap_tangki_cpko}}" required>
                                         <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
@@ -535,7 +535,7 @@
                     });
                 });
             </script>
-            <script type="text/javascript">
+            {{-- <script type="text/javascript">
                 $(document).ready(function() {
                     $('#checkBtn').click(function() {
                         tangki = $('#bil_tangki_cpko').val();
@@ -553,7 +553,7 @@
 
                     });
                 });
-            </script>
+            </script> --}}
            <script>
             $(document).ready(function() {
                 // console.log('ready');
@@ -1057,6 +1057,49 @@
             // }
         }
     </script>
+     <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#bil_tangki_cpko').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#bil_tangki_cpko').val(x);
+
+            var x = $('#kap_tangki_cpko').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#kap_tangki_cpko').val(x);
+
+
+
+
+            return true;
+
+        });
+    </script>
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                // checked = $("input[type=checkbox]:checked").length;
+                // tangki = $('#bil_tangki_cpko').val();
+                var x = $('#bil_tangki_cpko').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+
+                if (!x || !(x > 0)) {
+                    console.log(x);
+
+                    toastr.error(
+                        'Bilangan tangki hendaklah lebih dari 0',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+            });
+        });
+</script>
     <script>
         function ValidateEmail() {
             var inputText = document.getElementById('e_email');
