@@ -86,7 +86,7 @@ class tryController extends Controller
                 $result3 = $value3;
               }
 
-              dd($result3);
+              dd($query3);
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
 
