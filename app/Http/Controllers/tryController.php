@@ -26,8 +26,7 @@ class tryController extends Controller
     }
     public function testing3()
     {
-        $password = Hash::make('12345');
-        dd($password);
+
         // $dt = new DateTime();
         // // $dt = date('H:i:s');
         // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
@@ -50,19 +49,44 @@ class tryController extends Controller
 
         // $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
 
-        // $query1 = Oernegeri::max('oernegeri_id');
-        // $qrystkcpl = DB::connection('mysql3')->select("SELECT sum(b.F101B13) stk101_cpl
-        // from pl101ap3 a, pl101bp3 b, licensedb.license l
-        // where a.F101A1 = l.F201A and
-        //       a.F101A1 = b.F101B1 and
-        //       a.F101A4 = b.F101B2 and
-        //       a.F101A6 = '2017' and
-        //       a.F101A5 = '09' and
-        //       b.F101B3 = '1' and
-        //       b.F101B4 = '03' and
-        //       b.F101B13 not in (0) and
-        //       b.F101B13 is not NULL");
+        $notahun = '2015';
 
+        $thn1 = $notahun;
+        //echo $thn1;
+        $thn2 = $thn1 - 1;
+        $thn3 = $thn1 - 2;
+        $thn4 = $thn1 - 3;
+
+
+            $nolesen = '500008704000';
+
+            //get data oer year3full
+            $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo,d.oer_cpo,n.oer_cpo,s.oer_cpo,m.oer_cpo
+            from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
+            where f.nolesen = '$nolesen' and
+            (f.tahun = '$thn3') and
+            f.tahun = d.tahun and
+            f.bulan = d.bulan and
+            f.tahun = n.tahun and
+            f.bulan = n.bulan and
+            f.tahun = s.tahun and
+            f.bulan = s.bulan and
+            f.tahun = m.tahun and
+            f.bulan = m.bulan and
+            f.negeri = d.negeri and
+            f.daerah = d.daerah and
+            f.negeri = n.negeri
+            order by f.tahun, f.bulan");
+
+
+
+            //   $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
+
+              foreach ($query3 as $value3) {
+                $result3 = $value3;
+              }
+
+              dd($result3);
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
 
