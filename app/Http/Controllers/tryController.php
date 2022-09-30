@@ -80,7 +80,9 @@ class tryController extends Controller
 
 
 
-            //   $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
+              $result3 = mysqli_fetch_array($query3);
+
+              dd($result3);
 
               foreach ($query3 as $value3) {
                 $tahun = $value3->tahun;
@@ -90,9 +92,10 @@ class tryController extends Controller
                 $negeri = $value3->cpo_negeri;
                 $semenanjung = $value3->cpo_semenanjung;
                 $malaysia = $value3->cpo_msia;
+
+
               }
 
-              dd($pelesen);
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
 
