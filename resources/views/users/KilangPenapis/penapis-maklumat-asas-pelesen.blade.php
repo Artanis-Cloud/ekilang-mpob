@@ -54,7 +54,7 @@
                 {{-- @if ($errors->any())
                     {{ implode('', $errors->all('<div>:message</div>')) }}
                 @endif --}}
-                <form action="{{ route('penapis.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post"
+                <form action="{{ route('penapis.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" class="sub-form"
                     onsubmit="return check()" novalidate>
                     @csrf
                     <div class="container center mt-5">
