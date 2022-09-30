@@ -26,7 +26,8 @@ class tryController extends Controller
     }
     public function testing3()
     {
-
+        $password = Hash::make('12345');
+        dd($password);
         // $dt = new DateTime();
         // // $dt = date('H:i:s');
         // $tz = new DateTimeZone('Asia/Kuala_Lumpur');
@@ -50,17 +51,17 @@ class tryController extends Controller
         // $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
 
         // $query1 = Oernegeri::max('oernegeri_id');
-        $qrystkcpl = DB::connection('mysql3')->select("SELECT sum(b.F101B13) stk101_cpl
-        from pl101ap3 a, pl101bp3 b, licensedb.license l
-        where a.F101A1 = l.F201A and
-              a.F101A1 = b.F101B1 and
-              a.F101A4 = b.F101B2 and
-              a.F101A6 = '2017' and
-              a.F101A5 = '09' and
-              b.F101B3 = '1' and
-              b.F101B4 = '03' and
-              b.F101B13 not in (0) and
-              b.F101B13 is not NULL");
+        // $qrystkcpl = DB::connection('mysql3')->select("SELECT sum(b.F101B13) stk101_cpl
+        // from pl101ap3 a, pl101bp3 b, licensedb.license l
+        // where a.F101A1 = l.F201A and
+        //       a.F101A1 = b.F101B1 and
+        //       a.F101A4 = b.F101B2 and
+        //       a.F101A6 = '2017' and
+        //       a.F101A5 = '09' and
+        //       b.F101B3 = '1' and
+        //       b.F101B4 = '03' and
+        //       b.F101B13 not in (0) and
+        //       b.F101B13 is not NULL");
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
@@ -71,7 +72,7 @@ class tryController extends Controller
         //     $result = $date2->gte($date1);
 
         // }
-        dd($qrystkcpl);
+        // dd($qrystkcpl);
         return view('users.users-dashboard');
     }
 
