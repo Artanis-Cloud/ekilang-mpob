@@ -118,11 +118,16 @@
                         </div>
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Maklumat Operasi</h3>
-                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h5>
+                            <h5 style="color: rgb(39, 80, 71); margin-bottom:-1%">Bahagian 2</h5>
                         </div>
-                        <hr>
+
 
                         <div class="card-body">
+                            <hr>
+                            <div class="mb-5 col-8" style="text-align: left">
+                                <i>Arahan: Sila pastikan anda melengkapkan semua maklumat di kawasan yang bertanda '</i><b style="color: red">
+                                    *</b><i>'</i>
+                            </div>
                             <form action="{{ route('admin.ringkasan.bahagian2.process') }}"class="needs-validation"  method="get" novalidate>
                             @csrf
                                 <div class="container center">
