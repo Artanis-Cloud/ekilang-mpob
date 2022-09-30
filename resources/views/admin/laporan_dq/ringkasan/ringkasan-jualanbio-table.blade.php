@@ -143,11 +143,16 @@
                         </div>
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Jualan Biodiesel</h3>
-                            {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h5> --}}
+                            <h5 style="color: rgb(39, 80, 71); margin-bottom:-1%">Maklumat Jualan Edaran Produk PALM DIESEL / BIODIESEL / METHYLESTER</h5>
+
                         </div>
-                        <hr>
 
                         <div class="card-body">
+                            <hr>
+                            <div class="mb-5 col-8" style="text-align: left">
+                                <i>Arahan: Sila pastikan anda melengkapkan semua maklumat di kawasan yang bertanda '</i><b style="color: red">
+                                    *</b><i>'</i>
+                            </div>
                             <form action="{{ route('admin.ringkasan.jualan.bio.process') }}" method="get">
                             @csrf
                                 <div class="container center">
@@ -312,8 +317,9 @@
                                                                 <td class="text-left">{{ $data->e_np }}</td>
                                                                 <td>{{ $data->nama_negeri }}</td>
                                                                 <td>{{ $data_daerah[$key]->nama_daerah }}</td>
-                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
-                                                                    <b>{{ number_format($syk_bio[$data->e_nl][$kodProduk] ?? 00) }}</b>
+                                                                <td style="text-align: left; mso-number-format:'#,##0.00'">
+                                                                   {{ $syk_bio[$data->e_nl][$kodProduk]}}
+                                                                    {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}
                                                                 </td>
 
 
