@@ -92,7 +92,7 @@ class tryController extends Controller
                 $malaysia = $value3->cpo_msia;
               }
 
-              dd($query3);
+              dd($pelesen);
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
 
