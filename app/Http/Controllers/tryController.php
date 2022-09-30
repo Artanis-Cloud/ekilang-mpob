@@ -80,7 +80,7 @@ class tryController extends Controller
 
 
 
-              $result3 = mysqli_fetch_array($query3);
+              $result3 = @mysqli_fetch_array($query3);
 
               dd($result3);
 
