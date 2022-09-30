@@ -61,7 +61,7 @@ class tryController extends Controller
             $nolesen = '500008704000';
 
             //get data oer year3full
-            $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semenanjung,m.oer_cpo as cpo_msia
+            $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semenanjung,m.oer_cpo as cpo_msia
             from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
             where f.nolesen = '$nolesen' and
             (f.tahun = '$thn3') and
