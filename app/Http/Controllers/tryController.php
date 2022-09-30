@@ -89,7 +89,7 @@ class tryController extends Controller
                 $daerah = $value3->cpo_daerah;
                 $negeri = $value3->cpo_negeri;
                 $semenanjung = $value3->cpo_semenanjung;
-                $malaysia = $value3->cpo_malaysia;
+                $malaysia = $value3->cpo_msia;
               }
 
               dd($query3);
