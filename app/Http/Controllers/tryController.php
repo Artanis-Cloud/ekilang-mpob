@@ -61,7 +61,7 @@ class tryController extends Controller
             $nolesen = '500008704000';
 
             //get data oer year3full
-            $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo,d.oer_cpo,n.oer_cpo,s.oer_cpo,m.oer_cpo
+            $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semenanjung,m.oer_cpo as cpo_msia
             from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
             where f.nolesen = '$nolesen' and
             (f.tahun = '$thn3') and
@@ -83,7 +83,13 @@ class tryController extends Controller
             //   $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
 
               foreach ($query3 as $value3) {
-                $result3 = $value3;
+                $tahun = $value3->tahun;
+                $bulan = $value3->bulan;
+                $pelesen = $value3->cpo_pelesen;
+                $daerah = $value3->cpo_daerah;
+                $negeri = $value3->cpo_negeri;
+                $semenanjung = $value3->cpo_semenanjung;
+                $malaysia = $value3->cpo_malaysia;
               }
 
               dd($query3);
