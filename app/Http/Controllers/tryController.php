@@ -103,7 +103,6 @@ class tryController extends Controller
                   $val5[$count] = $row[5];
                   $val6[$count] = $row[6];
 
-                 dd($val3);
 
 
                 //   $valbulan1 = $row[1];
@@ -113,6 +112,7 @@ class tryController extends Controller
                 //   $val8[$count] = $oerkawasan1;
 
                 }
+                dd($val3);
 
 
 
