@@ -1006,22 +1006,22 @@ class KilangBuahController extends Controller
     {
 
         //get data oer year3full
-        $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo,d.oer_cpo,n.oer_cpo,s.oer_cpo,m.oer_cpo
-        from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
-        where f.nolesen = '$nolesen' and
-        (f.tahun = '$thn3') and
-        f.tahun = d.tahun and
-        f.bulan = d.bulan and
-        f.tahun = n.tahun and
-        f.bulan = n.bulan and
-        f.tahun = s.tahun and
-        f.bulan = s.bulan and
-        f.tahun = m.tahun and
-        f.bulan = m.bulan and
-        f.negeri = d.negeri and
-        f.daerah = d.daerah and
-        f.negeri = n.negeri
-        order by f.tahun, f.bulan");
+        $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semenanjung,m.oer_cpo as cpo_msia
+            from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
+            where f.nolesen = '$nolesen' and
+            (f.tahun = '$thn3') and
+            f.tahun = d.tahun and
+            f.bulan = d.bulan and
+            f.tahun = n.tahun and
+            f.bulan = n.bulan and
+            f.tahun = s.tahun and
+            f.bulan = s.bulan and
+            f.tahun = m.tahun and
+            f.bulan = m.bulan and
+            f.negeri = d.negeri and
+            f.daerah = d.daerah and
+            f.negeri = n.negeri
+            order by f.tahun, f.bulan");
 
         return $query3;
 
@@ -1127,36 +1127,47 @@ class KilangBuahController extends Controller
           $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
           $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
 
-          foreach ($result3 as $value3) {
-            $tahun[] = $value3->tahun;
-            $bulan[] = $value3->bulan;
-            $pelesen[] = $value3->cpo_pelesen;
-            $daerah[] = $value3->cpo_daerah;
-            $negeri[] = $value3->cpo_negeri;
-            $semenanjung[] = $value3->cpo_semenanjung;
-            $malaysia[] = $value3->cpo_msia;
+          foreach ($result3 as $key => $value3) {
+            $val1[$key] = $value3->bulan. '/' . $value3->tahun;
+            $val2[$key] = $value3->cpo_pelesen;
+            $val3[$key] = $value3->cpo_daerah;
+            $val4[$key] = $value3->cpo_negeri;
+            $val5[$key] = $value3->cpo_semenanjung;
+            $val6[$key] = $value3->cpo_msia;
 
-
-          }
-
-          for ($count=0; $row = $result3; $count++)
-          {
-            $val1[$count] = $row[1] . '/' . $row[0];
-            $val2[$count] = $row[2];
-            $val3[$count] = $row[3];
-            $val4[$count] = $row[4];
-            $val5[$count] = $row[5];
-            $val6[$count] = $row[6];
-
-            $valbulan1 = $row[1];
+            $valbulan1 = $value3->bulan;
             $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
-            $val7[$count] = $oercluster1;
+            $val7[$key] = $oercluster1;
             $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
-            $val8[$count] = $oerkawasan1;
+            $val8[$key] = $oerkawasan1;
+        }
 
-          }
+          foreach ($result2 as $key2 => $value2) {
+            $val1[$key2] = $value2->bulan. '/' . $value3->tahun;
+            $val2[$key2] = $value2->cpo_pelesen;
+            $val3[$key2] = $value2->cpo_daerah;
+            $val4[$key2] = $value2->cpo_negeri;
+            $val5[$key2] = $value2->cpo_semenanjung;
+            $val6[$key2] = $value2->cpo_msia;
 
-          for ($count1=$count; $row = @mysqli_fetch_array($result2); $count1++)
+            $valbulan2 = $value2->bulan;
+            $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+            $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+            $val7[$key2] = $oercluster2;
+            $val8[$key2] = $oerkawasan2;
+        }
+
+        //   for ($count=0; $row = $result3; $count++)
+        //   {
+        //     $val1[$count] = $row[1] . '/' . $row[0];
+        //     $val2[$count] = $row[2];
+        //     $val3[$count] = $row[3];
+        //     $val4[$count] = $row[4];
+        //     $val5[$count] = $row[5];
+        //     $val6[$count] = $row[6];
+        //   }
+
+          for ($count1=$key; $row = @mysqli_fetch_array($result2); $count1++)
           {
             $val1[$count1] = $row[1] . '/' . $row[0];
             $val2[$count1] = $row[2];

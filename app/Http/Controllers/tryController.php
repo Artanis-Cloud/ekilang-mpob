@@ -49,40 +49,29 @@ class tryController extends Controller
 
         // $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
 
-        $notahun = '2015';
+        $thn = '2015';
+        $bulan = '2015';
 
-        $thn1 = $notahun;
+        // $thn1 = $notahun;
         //echo $thn1;
-        $thn2 = $thn1 - 1;
-        $thn3 = $thn1 - 2;
-        $thn4 = $thn1 - 3;
+        // $thn2 = $thn1 - 1;
+        // $thn3 = $thn1 - 2;
+        // $thn4 = $thn1 - 3;
 
 
             $nolesen = '500008704000';
 
             //get data oer year3full
-            $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semenanjung,m.oer_cpo as cpo_msia
-            from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
-            where f.nolesen = '$nolesen' and
-            (f.tahun = '$thn3') and
-            f.tahun = d.tahun and
-            f.bulan = d.bulan and
-            f.tahun = n.tahun and
-            f.bulan = n.bulan and
-            f.tahun = s.tahun and
-            f.bulan = s.bulan and
-            f.tahun = m.tahun and
-            f.bulan = m.bulan and
-            f.negeri = d.negeri and
-            f.daerah = d.daerah and
-            f.negeri = n.negeri
-            order by f.tahun, f.bulan");
+            $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oercluster
+                -- where kod_cluster = '$cluster' and tahun = '$thn'
+                --                   and bulan = '$bulan'
+                                  ");
 
 
 
             //   $result3 = @mysqli_fetch_array($query3);
 //
-// dd($query3);
+dd($query3);
 
               foreach ($query3 as $key => $value3) {
                 $val1[$key] = $value3->bulan. '/' . $value3->tahun;
@@ -112,7 +101,7 @@ class tryController extends Controller
                 //   $val8[$count] = $oerkawasan1;
 
                 // }
-                dd($val3);
+                // dd($val3);
 
 
 
