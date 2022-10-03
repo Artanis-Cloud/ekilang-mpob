@@ -103,6 +103,9 @@ class tryController extends Controller
                   $val5[$count] = $row[5];
                   $val6[$count] = $row[6];
 
+                 dd($val3[$count]);
+
+
                 //   $valbulan1 = $row[1];
                 //   $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
                 //   $val7[$count] = $oercluster1;
@@ -113,7 +116,6 @@ class tryController extends Controller
 
 
 
-              dd($val2[$count]);
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
