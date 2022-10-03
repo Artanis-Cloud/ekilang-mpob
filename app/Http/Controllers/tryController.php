@@ -85,18 +85,18 @@ class tryController extends Controller
 // dd($query3);
 
               foreach ($query3 as $value3) {
-                $tahun = $value3->tahun;
-                $bulan = $value3->bulan;
-                $pelesen = $value3->cpo_pelesen;
-                $daerah = $value3->cpo_daerah;
+                $tahun[] = $value3->tahun;
+                $bulan[] = $value3->bulan;
+                $pelesen[] = $value3->cpo_pelesen;
+                $daerah[] = $value3->cpo_daerah;
                 $negeri[] = $value3->cpo_negeri;
-                $semenanjung = $value3->cpo_semenanjung;
-                $malaysia = $value3->cpo_msia;
+                $semenanjung[] = $value3->cpo_semenanjung;
+                $malaysia[] = $value3->cpo_msia;
 
 
               }
 
-              dd($negeri);
+              dd($value3);
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
