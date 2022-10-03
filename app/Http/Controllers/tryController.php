@@ -62,7 +62,7 @@ class tryController extends Controller
             $nolesen = '500008704000';
 
             //get data oer year3full
-            $query3 = DB::connection('mysql3')->select("SELECT * from oercluster where tahun='2015'");
+            $query3 = DB::connection('mysql3')->select("SELECT * from oercluster ");
 
 
 
