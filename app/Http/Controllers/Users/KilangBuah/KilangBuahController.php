@@ -920,10 +920,10 @@ class KilangBuahController extends Controller
 
     public function buah_prestasioer()
     {
-        $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
-                                                    WHERE tahun = '2013'
-                                                    AND bulan = '06'");
-        dd($test);
+        // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
+        //                                             WHERE tahun = '2013'
+        //                                             AND bulan = '06'");
+        // dd($test);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
@@ -942,13 +942,28 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-prestasi-oer', compact('returnArr', 'layout'));
     }
 
-    // public function buah_oerprocess(Request $request)
-    // {
+    public function buah_oerprocess(Request $request)
+    {
+        $this->display_oergraph(auth()->user()->username, $request->tahun);
+        $this->display_oerdata($request->tahun);
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
+            ['link' => route('buah.prestasioer'), 'name' => "Paparan Prestasi OER  "],
+        ];
 
-    //         $this->oer($request->tahun);
-    //         return redirect()->route('buah.hantar.penyata');
+        $kembali = route('buah.prestasioer');
 
-    // }
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        // $layout = 'layouts.kbuah';
+
+
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr'));
+
+    }
 
 
 
@@ -1056,18 +1071,18 @@ class KilangBuahController extends Controller
     // $result3 = @mysqli_query($conn,$query3);
     // $row = @mysqli_fetch_array($result3);
     foreach ($query3 as $row) {
-        $result[] = $row->oer_cpo;
+        $result = $row->oer_cpo;
 
     }
 
-    return $query3;
+    return $result;
     }
 
     function get_data_oer_year3dfull($nolesen,$thn3)
     {
 
     // $conn = db_connect_econ();
-    $query5 = DB::connection('mysql3')->select("SELECT right(f.tahun,2), f.bulan,f.oer_cpo,n.oer_cpo,s.oer_cpo,m.oer_cpo
+    $query5 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan as bulan,f.oer_cpo as cpo_pelesen,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semsia,m.oer_cpo as cpo_msia
                 from oerpelesen f, oernegeri n, oersemsia s, oermsia m
                 where f.nolesen = '$nolesen' and
                 (f.tahun = '$thn3') and
@@ -1142,19 +1157,36 @@ class KilangBuahController extends Controller
             $val8[$key] = $oerkawasan1;
         }
 
-          foreach ($result2 as $key2 => $value2) {
-            $val1[$key2] = $value2->bulan. '/' . $value3->tahun;
-            $val2[$key2] = $value2->cpo_pelesen;
-            $val3[$key2] = $value2->cpo_daerah;
-            $val4[$key2] = $value2->cpo_negeri;
-            $val5[$key2] = $value2->cpo_semenanjung;
-            $val6[$key2] = $value2->cpo_msia;
+          foreach ($result2 as $value2) {
+            $key++;
+            $val1[$key] = $value2->bulan. '/' . $value2->tahun;
+            $val2[$key] = $value2->cpo_pelesen;
+            $val3[$key] = $value2->cpo_daerah;
+            $val4[$key] = $value2->cpo_negeri;
+            $val5[$key] = $value2->cpo_semenanjung;
+            $val6[$key] = $value2->cpo_msia;
 
             $valbulan2 = $value2->bulan;
             $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
             $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-            $val7[$key2] = $oercluster2;
-            $val8[$key2] = $oerkawasan2;
+            $val7[$key] = $oercluster2;
+            $val8[$key] = $oerkawasan2;
+        }
+
+          foreach ($result1 as $key => $value1) {
+            $key++;
+            $val1[$key] = $value1->bulan. '/' . $value1->tahun;
+            $val2[$key] = $value1->cpo_pelesen;
+            $val3[$key] = $value1->cpo_daerah;
+            $val4[$key] = $value1->cpo_negeri;
+            $val5[$key] = $value1->cpo_semenanjung;
+            $val6[$key] = $value1->cpo_msia;
+
+            $valbulan3 = $value1->bulan;
+            $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+            $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+            $val7[$key] = $oercluster3;
+            $val8[$key] = $oerkawasan3;
         }
 
         //   for ($count=0; $row = $result3; $count++)
@@ -1167,40 +1199,40 @@ class KilangBuahController extends Controller
         //     $val6[$count] = $row[6];
         //   }
 
-          for ($count1=$key; $row = @mysqli_fetch_array($result2); $count1++)
-          {
-            $val1[$count1] = $row[1] . '/' . $row[0];
-            $val2[$count1] = $row[2];
-            $val3[$count1] = $row[3];
-            $val4[$count1] = $row[4];
-            $val5[$count1] = $row[5];
-            $val6[$count1] = $row[6];
+        //   for ($count1=$key; $row = @mysqli_fetch_array($result2); $count1++)
+        //   {
+        //     $val1[$count1] = $row[1] . '/' . $row[0];
+        //     $val2[$count1] = $row[2];
+        //     $val3[$count1] = $row[3];
+        //     $val4[$count1] = $row[4];
+        //     $val5[$count1] = $row[5];
+        //     $val6[$count1] = $row[6];
 
-            $valbulan2 = $row[1];
-            $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-            $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-            $val7[$count1] = $oercluster2;
-            $val8[$count1] = $oerkawasan2;
+        //     $valbulan2 = $row[1];
+        //     $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+        //     $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+        //     $val7[$count1] = $oercluster2;
+        //     $val8[$count1] = $oerkawasan2;
 
 
-          }
+        //   }
 
-          for ($count2=$count1; $row = @mysqli_fetch_array($result1); $count2++)
-          {
-            $val1[$count2] = $row[1] . '/' . $row[0];
-            $val2[$count2] = $row[2];
-            $val3[$count2] = $row[3];
-            $val4[$count2] = $row[4];
-            $val5[$count2] = $row[5];
-            $val6[$count2] = $row[6];
+        //   for ($count2=$count1; $row = @mysqli_fetch_array($result1); $count2++)
+        //   {
+        //     $val1[$count2] = $row[1] . '/' . $row[0];
+        //     $val2[$count2] = $row[2];
+        //     $val3[$count2] = $row[3];
+        //     $val4[$count2] = $row[4];
+        //     $val5[$count2] = $row[5];
+        //     $val6[$count2] = $row[6];
 
-            $valbulan3 = $row[1];
-            $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-            $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
-            $val7[$count2] = $oercluster3;
-            $val8[$count2] = $oerkawasan3;
+        //     $valbulan3 = $row[1];
+        //     $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+        //     $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+        //     $val7[$count2] = $oercluster3;
+        //     $val8[$count2] = $oerkawasan3;
 
-          }
+        //   }
         }
         elseif ($flgdaerah == 'N')
         {
@@ -1212,53 +1244,98 @@ class KilangBuahController extends Controller
           // $result6 = get_data_oer_year3dfull($nolesen,$thn3);
           $result6 =  $this->get_data_oer_year3dfull($nolesen,$thn3);
 
-          for ($count=0; $row = @mysqli_fetch_array($result6); $count++)
-          {
-            $val1[$count] = $row[1] . '/' . $row[0];
-            $val2[$count] = $row[2];
-            $val4[$count] = $row[3];
-            $val5[$count] = $row[4];
-            $val6[$count] = $row[5];
 
-            $valbulan1 = $row[1];
+          foreach ($result6 as $key => $value6) {
+            $val1[$key] = $value6->bulan. '/' . $value6->tahun;
+            $val2[$key] = $value6->cpo_pelesen;
+            $val4[$key] = $value6->cpo_negeri;
+            $val5[$key] = $value6->cpo_semenanjung;
+            $val6[$key] = $value6->cpo_msia;
+
+            $valbulan1 = $value6->bulan;
             $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
             $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
-            $val7[$count] = $oercluster1;
-            $val8[$count] = $oerkawasan1;
+            $val7[$key] = $oercluster1;
+            $val8[$key] = $oerkawasan1;
+        }
 
-          }
+          foreach ($result5 as $key => $value5) {
+            $key++;
+            $val1[$key] = $value5->bulan. '/' . $value5->tahun;
+            $val2[$key] = $value5->cpo_pelesen;
+            $val4[$key] = $value5->cpo_negeri;
+            $val5[$key] = $value5->cpo_semenanjung;
+            $val6[$key] = $value5->cpo_msia;
 
-          for ($count1=$count; $row = @mysqli_fetch_array($result5); $count1++)
-          {
-            $val1[$count1] = $row[1] . '/' . $row[0];
-            $val2[$count1] = $row[2];
-            $val4[$count1] = $row[3];
-            $val5[$count1] = $row[4];
-            $val6[$count1] = $row[5];
-
-            $valbulan2 = $row[1];
+            $valbulan2 = $value5->bulan;
             $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
             $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-            $val7[$count1] = $oercluster2;
-            $val8[$count1] = $oerkawasan2;
+            $val7[$key] = $oercluster2;
+            $val8[$key] = $oerkawasan2;
+        }
 
-          }
+          foreach ($result4 as $key => $value4) {
+            $key++;
+            $val1[$key] = $value4->bulan. '/' . $value4->tahun;
+            $val2[$key] = $value4->cpo_pelesen;
+            $val4[$key] = $value4->cpo_negeri;
+            $val5[$key] = $value4->cpo_semenanjung;
+            $val6[$key] = $value4->cpo_msia;
 
-          for ($count2=$count1; $row = @mysqli_fetch_array($result4); $count2++)
-          {
-            $val1[$count2] = $row[1] . '/' . $row[0];
-            $val2[$count2] = $row[2];
-            $val4[$count2] = $row[3];
-            $val5[$count2] = $row[4];
-            $val6[$count2] = $row[5];
-
-            $valbulan3 = $row[1];
+            $valbulan3 = $value4->bulan;
             $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
             $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
-            $val7[$count2] = $oercluster3;
-            $val8[$count2] = $oerkawasan3;
+            $val7[$key] = $oercluster3;
+            $val8[$key] = $oerkawasan3;
+        }
 
-          }
+        //   for ($count=0; $row = @mysqli_fetch_array($result6); $count++)
+        //   {
+        //     $val1[$count] = $row[1] . '/' . $row[0];
+        //     $val2[$count] = $row[2];
+        //     $val4[$count] = $row[3];
+        //     $val5[$count] = $row[4];
+        //     $val6[$count] = $row[5];
+
+        //     $valbulan1 = $row[1];
+        //     $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+        //     $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+        //     $val7[$count] = $oercluster1;
+        //     $val8[$count] = $oerkawasan1;
+
+        //   }
+
+        //   for ($count1=$count; $row = @mysqli_fetch_array($result5); $count1++)
+        //   {
+        //     $val1[$count1] = $row[1] . '/' . $row[0];
+        //     $val2[$count1] = $row[2];
+        //     $val4[$count1] = $row[3];
+        //     $val5[$count1] = $row[4];
+        //     $val6[$count1] = $row[5];
+
+        //     $valbulan2 = $row[1];
+        //     $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+        //     $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+        //     $val7[$count1] = $oercluster2;
+        //     $val8[$count1] = $oerkawasan2;
+
+        //   }
+
+        //   for ($count2=$count1; $row = @mysqli_fetch_array($result4); $count2++)
+        //   {
+        //     $val1[$count2] = $row[1] . '/' . $row[0];
+        //     $val2[$count2] = $row[2];
+        //     $val4[$count2] = $row[3];
+        //     $val5[$count2] = $row[4];
+        //     $val6[$count2] = $row[5];
+
+        //     $valbulan3 = $row[1];
+        //     $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+        //     $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+        //     $val7[$count2] = $oercluster3;
+        //     $val8[$count2] = $oerkawasan3;
+
+        //   }
         }
 
         $labelx = 0;
@@ -1268,19 +1345,19 @@ class KilangBuahController extends Controller
         $lineplot_semenanjung = 0;
         $lineplot_malaysia = 0;
 
-        for($i = 0; $i < $count2; $i++){
+        for($i = 0; $i < $key; $i++){
                         $labelx = $labelx ."'". $val1[$i] . "',";
         }
         $labelx = substr($labelx, 0, -1);
 
-        for($i = 0; $i < $count2; $i++){
+        for($i = 0; $i < $key; $i++){
                         $lineplot_individu = $lineplot_individu.$val2[$i] .',';
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
 
         if ($flgdaerah == 'Y')
         {
-            for($i = 0; $i < $count2; $i++){
+            for($i = 0; $i < $key; $i++){
                         $lineplot_daerah = $lineplot_daerah.$val3[$i] .',';
             }
 
@@ -1289,17 +1366,17 @@ class KilangBuahController extends Controller
          // $lineplot2->SetLegend("$daerah");
         }
 
-        for($i = 0; $i < $count2; $i++){
+        for($i = 0; $i < $key; $i++){
                         $lineplot_negeri = $lineplot_negeri.$val4[$i] .',';
         }
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
 
-        for($i = 0; $i < $count2; $i++){
+        for($i = 0; $i < $key; $i++){
                         $lineplot_semenanjung = $lineplot_semenanjung.$val5[$i] .',';
         }
         $lineplot_semenanjung = substr($lineplot_semenanjung, 0, -1);
 
-        for($i = 0; $i < $count2; $i++){
+        for($i = 0; $i < $key; $i++){
                         $lineplot_malaysia = $lineplot_malaysia.$val6[$i] .',';
         }
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
