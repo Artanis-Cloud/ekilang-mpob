@@ -96,7 +96,7 @@ class tryController extends Controller
 
                 for ($count=0; $row = $query3; $count++)
                 {
-                  $val1[$count] = $row[1] . '/' . $row[0];
+                //   $val1[$count] = $row[1] . '/' . $row[0];
                   $val2[$count] = $row[2];
                   $val3[$count] = $row[3];
                   $val4[$count] = $row[4];
