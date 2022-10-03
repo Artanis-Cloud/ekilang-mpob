@@ -93,10 +93,27 @@ class tryController extends Controller
                 $semenanjung[] = $value3->cpo_semenanjung;
                 $malaysia[] = $value3->cpo_msia;
 
+                for ($count=0; $row = $query3; $count++)
+                {
+                  $val1[$count] = $row[1] . '/' . $row[0];
+                  $val2[$count] = $row[2];
+                  $val3[$count] = $row[3];
+                  $val4[$count] = $row[4];
+                  $val5[$count] = $row[5];
+                  $val6[$count] = $row[6];
+
+                //   $valbulan1 = $row[1];
+                //   $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+                //   $val7[$count] = $oercluster1;
+                //   $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+                //   $val8[$count] = $oerkawasan1;
+
+                }
+
 
               }
 
-              dd($value3);
+              dd($val1[$count]);
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
