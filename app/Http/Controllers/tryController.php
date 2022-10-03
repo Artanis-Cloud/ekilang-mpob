@@ -92,6 +92,7 @@ class tryController extends Controller
                 $negeri[] = $value3->cpo_negeri;
                 $semenanjung[] = $value3->cpo_semenanjung;
                 $malaysia[] = $value3->cpo_msia;
+            }
 
                 for ($count=0; $row = $query3; $count++)
                 {
@@ -111,9 +112,8 @@ class tryController extends Controller
                 }
 
 
-              }
 
-              dd($val1[$count]);
+              dd($val2[$count]);
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
