@@ -69,12 +69,12 @@
                                         <select class="form-control" name="e_kat" id="e_kat"
                                         disabled>
 
-                                            <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }}>Kilang Buah</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }}>Kilang Penapis</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }}>Kilang Isirung</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL104') ? 'selected' : '' }}>Kilang Oleokimia</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL111') ? 'selected' : '' }}>Pusat Simpanan</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PLBIO') ? 'selected' : '' }}>Kilang Biodiesel</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }} value="PL91">Kilang Buah</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }} value="PL101">Kilang Penapis</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }} value="PL102">Kilang Isirung</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL104') ? 'selected' : '' }} value="PL104">Kilang Oleokimia</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL111') ? 'selected' : '' }} value="PL111">Pusat Simpanan</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PLBIO') ? 'selected' : '' }} value="PLBIO">Kilang Biodiesel</option>
                                         </select>
                                     </fieldset>
 
@@ -1751,11 +1751,14 @@
                 $('#kap_proses').css('border-color', 'red');
                 document.getElementById('err_proses').style.display = "block";
             }
-           // POMA
+
+            @if ($reg_pelesen->e_kat == 'PL91')
+        //    POMA
             field = document.getElementById("e_poma");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_poma\r\n";
             }
+            @endif
 
             cpo = $('#bil_tangki_cpo').val();
             kcpo = $('#kap_tangki_cpo').val();
@@ -1765,10 +1768,11 @@
                 error += "Name must be 2-4 characters\r\n";
                 $('#kap_tangki_cpo').css('border-color', 'red');
                 document.getElementById('err_kcpo').style.display = "block";
-            } else {
-                $('#kap_tangki_cpo').css('border-color', '');
-                document.getElementById('err_kcpo').style.display = "none";
             }
+            // else {
+            //     $('#kap_tangki_cpo').css('border-color', '');
+            //     document.getElementById('err_kcpo').style.display = "none";
+            // }
             // (B4) RESULT
             if (error == "") {
                 $('#next').modal('show');

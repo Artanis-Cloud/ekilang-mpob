@@ -390,6 +390,7 @@ Route::middleware('auth')->group(function () {
         Route::post('buah/send-email', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_send_email_proses'])->name('buah.send.email.proses');
 
         Route::get('buah/prestasi-oer', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_prestasioer'])->name('buah.prestasioer');
+        Route::get('buah/papar-prestasi-oer', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_oerprocess'])->name('buah.papar.prestasi.oer');
 
         Route::get('buah/penyata-dahulu', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_penyatadahulu'])->name('buah.penyatadahulu');
         Route::post('buah/penyata-dahulu/process', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_penyata_dahulu_process'])->name('buah.penyata.dahulu.process');
