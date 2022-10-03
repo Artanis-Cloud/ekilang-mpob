@@ -82,21 +82,21 @@ class tryController extends Controller
 
             //   $result3 = @mysqli_fetch_array($query3);
 //
-dd($query3);
+// dd($query3);
 
               foreach ($query3 as $value3) {
                 $tahun = $value3->tahun;
                 $bulan = $value3->bulan;
                 $pelesen = $value3->cpo_pelesen;
                 $daerah = $value3->cpo_daerah;
-                $negeri = $value3->cpo_negeri;
+                $negeri[] = $value3->cpo_negeri;
                 $semenanjung = $value3->cpo_semenanjung;
                 $malaysia = $value3->cpo_msia;
 
 
               }
 
-            //   dd($negeri);
+              dd($negeri);
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
