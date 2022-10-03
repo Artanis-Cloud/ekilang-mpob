@@ -1056,11 +1056,11 @@ class KilangBuahController extends Controller
     // $result3 = @mysqli_query($conn,$query3);
     // $row = @mysqli_fetch_array($result3);
     foreach ($query3 as $row) {
-        $result = $row->oer_cpo;
+        $result[] = $row->oer_cpo;
 
     }
 
-    return $result;
+    return $query3;
     }
 
     function get_data_oer_year3dfull($nolesen,$thn3)
