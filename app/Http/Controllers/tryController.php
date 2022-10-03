@@ -84,25 +84,24 @@ class tryController extends Controller
 //
 // dd($query3);
 
-              foreach ($query3 as $value3) {
-                $tahun[] = $value3->tahun;
-                $bulan[] = $value3->bulan;
-                $pelesen[] = $value3->cpo_pelesen;
-                $daerah[] = $value3->cpo_daerah;
-                $negeri[] = $value3->cpo_negeri;
-                $semenanjung[] = $value3->cpo_semenanjung;
-                $malaysia[] = $value3->cpo_msia;
+              foreach ($query3 as $key => $value3) {
+                $val1[$key] = $value3->bulan. '/' . $value3->tahun;
+                $val2[$key] = $value3->cpo_pelesen;
+                $val3[$key] = $value3->cpo_daerah;
+                $val4[$key] = $value3->cpo_negeri;
+                $val5[$key] = $value3->cpo_semenanjung;
+                $val6[$key] = $value3->cpo_msia;
             }
 
-                for ($count=0; $row = $query3; $count++)
-                {
-                dd($row);
-                //   $val1[$count] = $row[1] . '/' . $row[0];
-                  $val2[$count] = $row[2];
-                  $val3[$count] = $row[3];
-                  $val4[$count] = $row[4];
-                  $val5[$count] = $row[5];
-                  $val6[$count] = $row[6];
+                // for ($count=0; $row = $query3; $count++)
+                // {
+                // dd($row);
+                // //   $val1[$count] = $row[1] . '/' . $row[0];
+                //   $val2[$count] = $row[2];
+                //   $val3[$count] = $row[3];
+                //   $val4[$count] = $row[4];
+                //   $val5[$count] = $row[5];
+                //   $val6[$count] = $row[6];
 
 
 
@@ -112,7 +111,7 @@ class tryController extends Controller
                 //   $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
                 //   $val8[$count] = $oerkawasan1;
 
-                }
+                // }
                 dd($val3);
 
 
