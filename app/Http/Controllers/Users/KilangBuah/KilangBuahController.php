@@ -1127,9 +1127,9 @@ class KilangBuahController extends Controller
           $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
           $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
 
-          foreach ($result3 as $value3) {
-            $result3 = $value3;
-          }
+        //   foreach ($result3 as $value3) {
+        //     $result3 = $value3;
+        //   }
 
           for ($count=0; $row = $result3; $count++)
           {

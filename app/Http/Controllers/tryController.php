@@ -82,7 +82,6 @@ class tryController extends Controller
 
             //   $result3 = @mysqli_fetch_array($query3);
 //
-              dd($query3);
 
               foreach ($query3 as $value3) {
                 $tahun = $value3->tahun;
@@ -95,6 +94,8 @@ class tryController extends Controller
 
 
               }
+
+              dd($negeri);
 
         // $date2 = Carbon::createFromFormat('Y-m-d', $now);
 
