@@ -70,7 +70,7 @@ class tryController extends Controller
             p.e_negeri = d.kod_negeri and
             p.e_daerah = d.kod_daerah");
 
-            return $dtlqry;
+            // return $dtlqry;
 
             // return $qry;
 
