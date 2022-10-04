@@ -72,12 +72,12 @@ class tryController extends Controller
 
 
     //PROBLEM HERE. THE RESULT RETURN []
-        foreach ($chkqry as $row) {
-        $result = $row->daerah;
-        }
+        // foreach ($chkqry as $row) {
+        // $result = $row->daerah;
+        // }
 
         // return $result;
-        dd($result);
+        dd($chkqry);
 
                 // for ($count=0; $row = $query3; $count++)
                 // {
