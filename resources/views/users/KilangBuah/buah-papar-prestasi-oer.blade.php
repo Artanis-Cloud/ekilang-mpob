@@ -80,7 +80,7 @@
                                 <td>{{ $value3->cpo_daerah }}</td>
                                 <td>{{ $value3->cpo_negeri }}</td>
                                 <td>{{ $value3->cpo_semenanjung }}</td>
-                                <td>{{ $value3->cpo_malaysia }}</td>
+                                <td>{{ $value3->cpo_msia }}</td>
 
                             </tr>
                             @endforeach
