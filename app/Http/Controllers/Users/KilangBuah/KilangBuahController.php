@@ -1209,7 +1209,7 @@ class KilangBuahController extends Controller
                 $bulan = 0;
             }
 
-            $val1[$key] = $bulan . $value3->tahun;
+            $val1[$key] = $bulan. '' .$value3->tahun;
             $val2[$key] = $value3->cpo_pelesen;
             $val3[$key] = $value3->cpo_daerah;
             $val4[$key] = $value3->cpo_negeri;
@@ -1265,7 +1265,7 @@ class KilangBuahController extends Controller
             else {
                 $bulan = 0;
             }
-            $val1[$key] = $bulan. '/' . $value2->tahun;
+            $val1[$key] = $bulan. '' . $value2->tahun;
             $val2[$key] = $value2->cpo_pelesen;
             $val3[$key] = $value2->cpo_daerah;
             $val4[$key] = $value2->cpo_negeri;
@@ -1322,7 +1322,7 @@ class KilangBuahController extends Controller
                 $bulan = 0;
             }
 
-            $val1[$key] = $bulan. '/' . $value1->tahun;
+            $val1[$key] = $bulan. '' . $value1->tahun;
             $val2[$key] = $value1->cpo_pelesen;
             $val3[$key] = $value1->cpo_daerah;
             $val4[$key] = $value1->cpo_negeri;
@@ -1433,7 +1433,7 @@ class KilangBuahController extends Controller
             else {
                 $bulan = 0;
             }
-            $val1[$key] = $bulan. '/' . $value6->tahun;
+            $val1[$key] = $bulan. '' . $value6->tahun;
             $val2[$key] = $value6->cpo_pelesen;
             $val4[$key] = $value6->cpo_negeri;
             $val5[$key] = $value6->cpo_semenanjung;
@@ -1488,7 +1488,7 @@ class KilangBuahController extends Controller
             else {
                 $bulan = 0;
             }
-            $val1[$key] = $bulan. '/' . $value5->tahun;
+            $val1[$key] = $bulan. '' . $value5->tahun;
             $val2[$key] = $value5->cpo_pelesen;
             $val4[$key] = $value5->cpo_negeri;
             $val5[$key] = $value5->cpo_semenanjung;
@@ -1542,7 +1542,7 @@ class KilangBuahController extends Controller
             else {
                 $bulan = 0;
             }
-            $val1[$key] = $bulan. '/' . $value4->tahun;
+            $val1[$key] = $bulan. '' . $value4->tahun;
             $val2[$key] = $value4->cpo_pelesen;
             $val4[$key] = $value4->cpo_negeri;
             $val5[$key] = $value4->cpo_semenanjung;
