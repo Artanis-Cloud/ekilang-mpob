@@ -1058,10 +1058,15 @@ class KilangBuahController extends Controller
     //  $result3 = @mysqli_query($conn,$query3);
     //  $row = @mysqli_fetch_array($result3);
 
-    foreach ($query3 as $row) {
-        $result = $row->oer_cpo;
+    if ($query3) {
+        foreach ($query3 as $row) {
+            $result = $row->oer_cpo;
 
+        }
+    } else {
+        $result = 0;
     }
+
      return $result;
     }
 
@@ -1076,10 +1081,15 @@ class KilangBuahController extends Controller
 
     // $result3 = @mysqli_query($conn,$query3);
     // $row = @mysqli_fetch_array($result3);
-    foreach ($query3 as $row) {
-        $result = $row->oer_cpo;
+    if ($query3) {
+        foreach ($query3 as $row) {
+            $result = $row->oer_cpo;
 
+        }
+    } else {
+        $result = 0;
     }
+
 
     return $result;
     }
