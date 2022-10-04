@@ -1135,7 +1135,7 @@ class KilangBuahController extends Controller
 
          foreach ($makpelesen as $row1)
           {
-           $enp = $row1->e_np ;
+           $enp = $row1->namakilang ;
            $cluster = strtoupper($row1->nama_cluster );
            $kodcluster = $row1->e_cluster ;
            $kawasan = $row1->nama_region ;
