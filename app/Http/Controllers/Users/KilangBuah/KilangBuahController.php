@@ -1610,7 +1610,24 @@ class KilangBuahController extends Controller
         $semsia3[$key3] = $value3->cpo_semenanjung;
         $msia3[$key3] = $value3->cpo_msia;
 
+        $valtahun1 = $value3->tahun;
+        $valbulan1 = $value3->bulan;
+        $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+            // echo "<td align=center><font size=2>";
+            // if (!isset($oercluster1))
+            //    { echo "NULL"; }
+            // else
+            //    { echo $oercluster1;
+            //       }
+            // echo "</font></td>\n";
 
+        $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+            // echo "<td align=center><font size=2>";
+            // if (!isset($oerkawasan1))
+            //    { echo "NULL"; }
+            // else
+            //    { echo $oerkawasan1;
+            //       }
     }
 
     $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
@@ -1623,6 +1640,7 @@ class KilangBuahController extends Controller
         $negeri2[$key2]  = $value2->cpo_negeri;
         $semsia2[$key2]  = $value2->cpo_semenanjung;
         $msia2[$key2]  = $value2->cpo_msia;
+
 
     }
 
