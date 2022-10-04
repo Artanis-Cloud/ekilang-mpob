@@ -1190,7 +1190,7 @@ class KilangBuahController extends Controller
                     $bulan = 0;
                 }
 
-                $val1[$key] = $bulan . '' . $value3->tahun;
+                $val1[$key] = $value3->bulan . '-' . $value3->tahun;
                 $val2[$key] = $value3->cpo_pelesen;
                 $val3[$key] = $value3->cpo_daerah;
                 $val4[$key] = $value3->cpo_negeri;
@@ -1234,7 +1234,7 @@ class KilangBuahController extends Controller
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = $bulan . '' . $value2->tahun;
+                $val1[$key] = $value2->bulan . '-' . $value2->tahun;
                 $val2[$key] = $value2->cpo_pelesen;
                 $val3[$key] = $value2->cpo_daerah;
                 $val4[$key] = $value2->cpo_negeri;
@@ -1279,7 +1279,7 @@ class KilangBuahController extends Controller
                     $bulan = 0;
                 }
 
-                $val1[$key] = $bulan . '' . $value1->tahun;
+                $val1[$key] = $value1->bulan . '-' . $value1->tahun;
                 $val2[$key] = $value1->cpo_pelesen;
                 $val3[$key] = $value1->cpo_daerah;
                 $val4[$key] = $value1->cpo_negeri;
