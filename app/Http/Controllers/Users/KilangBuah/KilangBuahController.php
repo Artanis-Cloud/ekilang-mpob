@@ -959,7 +959,7 @@ class KilangBuahController extends Controller
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
         $nama_kilang = $oer['enp'];
 
-        dd($oer);
+        // dd($oer);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
