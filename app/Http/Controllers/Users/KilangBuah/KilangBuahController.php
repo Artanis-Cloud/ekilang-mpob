@@ -957,7 +957,10 @@ class KilangBuahController extends Controller
         $nama_negeri = $oer['nama_negeri'];
         $nama_daerah = $oer['nama_daerah'];
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
-        $nama_kilang = $oer['enp'];
+        $nama_kilang = $data['namakilang'];
+        $thn1 = $data['thn1'];
+        $thn2 = $data['thn2'];
+        $thn3 = $data['thn3'];
 
         // dd($oer);
         // $this->display_oerdata($request->tahun);
@@ -976,7 +979,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3'));
     }
 
 
@@ -1595,41 +1598,41 @@ class KilangBuahController extends Controller
 
 	$result3b = $this->get_data_oer_year3full($nolesen,$thn3);
 
-    foreach ($result3b as $value3) {
+    foreach ($result3b as $key3 => $value3) {
 
-        $bulhun3 = "$value3->bulan/$value3->tahun";
-        $ind3 = $value3->cpo_pelesen;
-        $negeri3 = $value3->cpo_negeri;
-        $semsia3 = $value3->cpo_semenanjung;
-        $msia3 = $value3->cpo_msia;
+        $bulhun3[$key3] = "$value3->bulan/$value3->tahun";
+        $ind3[$key3] = $value3->cpo_pelesen;
+        $negeri3[$key3] = $value3->cpo_negeri;
+        $semsia3[$key3] = $value3->cpo_semenanjung;
+        $msia3[$key3] = $value3->cpo_msia;
 
 
     }
 
     $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
 
-    foreach ($result2 as $value2) {
+    foreach ($result2 as $key2 =>  $value2) {
 
-        $bulhun2 = "$value2->bulan/$value2->tahun";
-        $ind2 = $value2->cpo_pelesen;
-        $daerah2 = $value2->cpo_daerah;
-        $negeri2 = $value2->cpo_negeri;
-        $semsia2 = $value2->cpo_semenanjung;
-        $msia2 = $value2->cpo_msia;
+        $bulhun2[$key2] = "$value2->bulan/$value2->tahun";
+        $ind2[$key2]  = $value2->cpo_pelesen;
+        $daerah2[$key2]  = $value2->cpo_daerah;
+        $negeri2[$key2]  = $value2->cpo_negeri;
+        $semsia2[$key2]  = $value2->cpo_semenanjung;
+        $msia2[$key2]  = $value2->cpo_msia;
 
     }
 
 	$result1 = $this->get_data_oer_year3full($nolesen,$thn1);
 
-    foreach ($result1 as $key => $value1) {
-        $bulhun1[$key] = "$value1->bulan/$value1->tahun";
-        $ind1[$key] = $value1->cpo_pelesen;
-        $daerah1[$key] = $value1->cpo_daerah;
-        $negeri1[$key] = $value1->cpo_negeri;
-        $semsia1[$key] = $value1->cpo_semenanjung;
-        $msia1[$key] = $value1->cpo_msia;
+    foreach ($result1 as $key1 => $value1) {
+        $bulhun1[$key1] = "$value1->bulan/$value1->tahun";
+        $ind1[$key1] = $value1->cpo_pelesen;
+        $daerah1[$key1] = $value1->cpo_daerah;
+        $negeri1[$key1] = $value1->cpo_negeri;
+        $semsia1[$key1] = $value1->cpo_semenanjung;
+        $msia1[$key1] = $value1->cpo_msia;
     }
-    dd($daerah1);
+    // dd($daerah1);
 	//   while ($row = mysqli_fetch_row($result3b))
 	// 		{
 	// 		  echo "<tr>\n";
@@ -2111,7 +2114,19 @@ class KilangBuahController extends Controller
 	// echo "Nota : Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai lebih daripada lima pelesen.<br><br></p>\n";
 	//echo "<img src='http://econ.mpob.gov.my/stat/oer_graph.php?nl=$nolesen&notahun=$thn1'>";
 	//echo "<img src='http://econ.mpob.gov.my/stat/oer_graph1.php?nl=$nolesen&notahun=$thn1'>";
+    $array = [
+        'thn1' => $thn1,
+        'thn2' => $thn2,
+        'thn3' => $thn3,
 
+        'namakilang' => $namakilang,
+        'daerah' => $daerah,
+        'negeri' => $negeri,
+
+
+    ];
+    // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
+    return $array;
 	}
 	//echo "<br></body></html>";
 
