@@ -1165,8 +1165,51 @@ class KilangBuahController extends Controller
           $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
           $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
 
+
+
           foreach ($result3 as $key => $value3) {
-            $val1[$key] = $value3->bulan. '/' . $value3->tahun;
+
+            if ($value3->bulan == '01'){
+                $bulan = 'Jan';
+            }
+             elseif ($value3->bulan == '02') {
+                $bulan = 'Feb';
+            }
+             elseif ($value3->bulan == '03') {
+                $bulan = 'Mac';
+            }
+             elseif ($value3->bulan == '04') {
+                $bulan = 'Apr';
+            }
+             elseif ($value3->bulan == '05') {
+                $bulan = 'Mei';
+            }
+             elseif ($value3->bulan == '06') {
+                $bulan = 'Jun';
+            }
+             elseif ($value3->bulan == '07') {
+                $bulan = 'Jul';
+            }
+             elseif ($value3->bulan == '08') {
+                $bulan = 'Ogos';
+            }
+             elseif ($value3->bulan == '09') {
+                $bulan = 'Sept';
+            }
+             elseif ($value3->bulan == '10') {
+                $bulan = 'Okt';
+            }
+             elseif ($value3->bulan == '11') {
+                $bulan = 'Nov';
+            }
+             elseif ($value3->bulan == '12') {
+                $bulan = 'Dis';
+            }
+            else {
+                $bulan = 0;
+            }
+
+            $val1[$key] = $bulan . $value3->tahun;
             $val2[$key] = $value3->cpo_pelesen;
             $val3[$key] = $value3->cpo_daerah;
             $val4[$key] = $value3->cpo_negeri;
@@ -1182,7 +1225,47 @@ class KilangBuahController extends Controller
 
           foreach ($result2 as $value2) {
             $key++;
-            $val1[$key] = $value2->bulan. '/' . $value2->tahun;
+
+            if ($value2->bulan == '01'){
+                $bulan = 'Jan';
+            }
+             elseif ($value2->bulan == '02') {
+                $bulan = 'Feb';
+            }
+             elseif ($value2->bulan == '03') {
+                $bulan = 'Mac';
+            }
+             elseif ($value2->bulan == '04') {
+                $bulan = 'Apr';
+            }
+             elseif ($value2->bulan == '05') {
+                $bulan = 'Mei';
+            }
+             elseif ($value2->bulan == '06') {
+                $bulan = 'Jun';
+            }
+             elseif ($value2->bulan == '07') {
+                $bulan = 'Jul';
+            }
+             elseif ($value2->bulan == '08') {
+                $bulan = 'Ogos';
+            }
+             elseif ($value2->bulan == '09') {
+                $bulan = 'Sept';
+            }
+             elseif ($value2->bulan == '10') {
+                $bulan = 'Okt';
+            }
+             elseif ($value2->bulan == '11') {
+                $bulan = 'Nov';
+            }
+             elseif ($value2->bulan == '12') {
+                $bulan = 'Dis';
+            }
+            else {
+                $bulan = 0;
+            }
+            $val1[$key] = $bulan. '/' . $value2->tahun;
             $val2[$key] = $value2->cpo_pelesen;
             $val3[$key] = $value2->cpo_daerah;
             $val4[$key] = $value2->cpo_negeri;
@@ -1198,7 +1281,48 @@ class KilangBuahController extends Controller
 
           foreach ($result1 as $key => $value1) {
             $key++;
-            $val1[$key] = $value1->bulan. '/' . $value1->tahun;
+
+            if ($value1->bulan == '01'){
+                $bulan = 'Jan';
+            }
+             elseif ($value1->bulan == '02') {
+                $bulan = 'Feb';
+            }
+             elseif ($value1->bulan == '03') {
+                $bulan = 'Mac';
+            }
+             elseif ($value1->bulan == '04') {
+                $bulan = 'Apr';
+            }
+             elseif ($value1->bulan == '05') {
+                $bulan = 'Mei';
+            }
+             elseif ($value1->bulan == '06') {
+                $bulan = 'Jun';
+            }
+             elseif ($value1->bulan == '07') {
+                $bulan = 'Jul';
+            }
+             elseif ($value1->bulan == '08') {
+                $bulan = 'Ogos';
+            }
+             elseif ($value1->bulan == '09') {
+                $bulan = 'Sept';
+            }
+             elseif ($value1->bulan == '10') {
+                $bulan = 'Okt';
+            }
+             elseif ($value1->bulan == '11') {
+                $bulan = 'Nov';
+            }
+             elseif ($value1->bulan == '12') {
+                $bulan = 'Dis';
+            }
+            else {
+                $bulan = 0;
+            }
+
+            $val1[$key] = $bulan. '/' . $value1->tahun;
             $val2[$key] = $value1->cpo_pelesen;
             $val3[$key] = $value1->cpo_daerah;
             $val4[$key] = $value1->cpo_negeri;
@@ -1269,7 +1393,47 @@ class KilangBuahController extends Controller
 
 
           foreach ($result6 as $key => $value6) {
-            $val1[$key] = $value6->bulan. '/' . $value6->tahun;
+
+            if ($value6->bulan == '01'){
+                $bulan = 'Jan';
+            }
+             elseif ($value6->bulan == '02') {
+                $bulan = 'Feb';
+            }
+             elseif ($value6->bulan == '03') {
+                $bulan = 'Mac';
+            }
+             elseif ($value6->bulan == '04') {
+                $bulan = 'Apr';
+            }
+             elseif ($value6->bulan == '05') {
+                $bulan = 'Mei';
+            }
+             elseif ($value6->bulan == '06') {
+                $bulan = 'Jun';
+            }
+             elseif ($value6->bulan == '07') {
+                $bulan = 'Jul';
+            }
+             elseif ($value6->bulan == '08') {
+                $bulan = 'Ogos';
+            }
+             elseif ($value6->bulan == '09') {
+                $bulan = 'Sept';
+            }
+             elseif ($value6->bulan == '10') {
+                $bulan = 'Okt';
+            }
+             elseif ($value6->bulan == '11') {
+                $bulan = 'Nov';
+            }
+             elseif ($value6->bulan == '12') {
+                $bulan = 'Dis';
+            }
+            else {
+                $bulan = 0;
+            }
+            $val1[$key] = $bulan. '/' . $value6->tahun;
             $val2[$key] = $value6->cpo_pelesen;
             $val4[$key] = $value6->cpo_negeri;
             $val5[$key] = $value6->cpo_semenanjung;
@@ -1284,7 +1448,47 @@ class KilangBuahController extends Controller
 
           foreach ($result5 as $key => $value5) {
             $key++;
-            $val1[$key] = $value5->bulan. '/' . $value5->tahun;
+
+            if ($value5->bulan == '01'){
+                $bulan = 'Jan';
+            }
+             elseif ($value5->bulan == '02') {
+                $bulan = 'Feb';
+            }
+             elseif ($value5->bulan == '03') {
+                $bulan = 'Mac';
+            }
+             elseif ($value5->bulan == '04') {
+                $bulan = 'Apr';
+            }
+             elseif ($value5->bulan == '05') {
+                $bulan = 'Mei';
+            }
+             elseif ($value5->bulan == '06') {
+                $bulan = 'Jun';
+            }
+             elseif ($value5->bulan == '07') {
+                $bulan = 'Jul';
+            }
+             elseif ($value5->bulan == '08') {
+                $bulan = 'Ogos';
+            }
+             elseif ($value5->bulan == '09') {
+                $bulan = 'Sept';
+            }
+             elseif ($value5->bulan == '10') {
+                $bulan = 'Okt';
+            }
+             elseif ($value5->bulan == '11') {
+                $bulan = 'Nov';
+            }
+             elseif ($value5->bulan == '12') {
+                $bulan = 'Dis';
+            }
+            else {
+                $bulan = 0;
+            }
+            $val1[$key] = $bulan. '/' . $value5->tahun;
             $val2[$key] = $value5->cpo_pelesen;
             $val4[$key] = $value5->cpo_negeri;
             $val5[$key] = $value5->cpo_semenanjung;
@@ -1299,7 +1503,46 @@ class KilangBuahController extends Controller
 
           foreach ($result4 as $key => $value4) {
             $key++;
-            $val1[$key] = $value4->bulan. '/' . $value4->tahun;
+            if ($value4->bulan == '01'){
+                $bulan = 'Jan';
+            }
+             elseif ($value4->bulan == '02') {
+                $bulan = 'Feb';
+            }
+             elseif ($value4->bulan == '03') {
+                $bulan = 'Mac';
+            }
+             elseif ($value4->bulan == '04') {
+                $bulan = 'Apr';
+            }
+             elseif ($value4->bulan == '05') {
+                $bulan = 'Mei';
+            }
+             elseif ($value4->bulan == '06') {
+                $bulan = 'Jun';
+            }
+             elseif ($value4->bulan == '07') {
+                $bulan = 'Jul';
+            }
+             elseif ($value4->bulan == '08') {
+                $bulan = 'Ogos';
+            }
+             elseif ($value4->bulan == '09') {
+                $bulan = 'Sept';
+            }
+             elseif ($value4->bulan == '10') {
+                $bulan = 'Okt';
+            }
+             elseif ($value4->bulan == '11') {
+                $bulan = 'Nov';
+            }
+             elseif ($value4->bulan == '12') {
+                $bulan = 'Dis';
+            }
+            else {
+                $bulan = 0;
+            }
+            $val1[$key] = $bulan. '/' . $value4->tahun;
             $val2[$key] = $value4->cpo_pelesen;
             $val4[$key] = $value4->cpo_negeri;
             $val5[$key] = $value4->cpo_semenanjung;
