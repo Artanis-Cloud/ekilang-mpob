@@ -955,7 +955,7 @@ class KilangBuahController extends Controller
         $labelx = $oer['labelx'];
         $nama_negeri = $oer['nama_negeri'];
         $nama_daerah = $oer['nama_daerah'];
-        dd($nama_negeri);
+        // dd($nama_negeri);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
