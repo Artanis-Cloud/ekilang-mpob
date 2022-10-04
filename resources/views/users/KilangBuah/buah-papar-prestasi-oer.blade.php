@@ -73,11 +73,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($result3b as $key => $value3) --}}
+                            @foreach ($result3b as $key => $value3)
                             <tr>
-                                {{-- <td>{{ $value3->bulan. "/" .$value3->tahun }}
+                                <td>{{ $value3[$key]->bulan. "/" .$value3[$key]->tahun }}
                                 </td>
-                                <td>
+                                {{-- <td>
                                     {{ $data->produk->prodid }}
                                 </td>
                                 <td>{{ number_format($data->e101_b5 ?? 0, 2) }}</td>
@@ -92,7 +92,7 @@
                                 <td>{{ number_format($data->e101_b14 ?? 0, 2) }}</td> --}}
 
                             </tr>
-                            {{-- @endforeach --}}
+                            @endforeach
 
                         </tbody>
                     </table>

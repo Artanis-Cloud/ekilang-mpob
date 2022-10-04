@@ -966,7 +966,7 @@ class KilangBuahController extends Controller
         $thn3 = $data['thn3'];
         $result3b = $data['result3b'];
 
-        dd($data);
+        // dd($data);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
