@@ -81,7 +81,7 @@
                 data: {
                     columns: [
                         // loop
-                        ['Individu', {{ $oer->lineplot_individu }}],
+                        ['Individu', {{ $individu }}],
                         ['A2', 130, 100, 130, 100, 130, 100],
                         ['A3', 12, 59, 12, 59, 12, 59],
                         ['A4', 42, 25, 42, 25, 42, 25],

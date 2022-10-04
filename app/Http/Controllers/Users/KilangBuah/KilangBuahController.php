@@ -946,7 +946,7 @@ class KilangBuahController extends Controller
     {
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
-        dd($individu);
+        // dd($individu);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -963,7 +963,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer','individu'));
 
     }
 
