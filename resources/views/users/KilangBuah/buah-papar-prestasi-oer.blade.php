@@ -81,8 +81,8 @@
                 data: {
                     columns: [
                         // loop
-                        ['Individu', {{ $individu }}],
-                        // ['Daerah', 130, 100, 130, 100, 130, 100],
+                        // ['Individu', {{ $individu }}],
+                        ['Daerah', 130, 100, 130, 100, 130, 100],
                         ['Negeri', {{ $negeri }}],
                         // ['Semenanjung Malaysia', 42, 25, 42, 25, 42, 25],
                         // ['Malaysia', 76, 84, 76, 84, 76, 84],WWW
