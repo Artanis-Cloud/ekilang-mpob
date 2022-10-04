@@ -345,22 +345,22 @@
                                     </div>
 
                                     @if($laporan=='hari_operasi')
-
+                                        <div class="noPrint">
+                                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                style="background-color:white; color: #f90a0a; " >
+                                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                            </button>
+                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                style="background-color: white; color: #0a7569; ">
+                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                            </button>
+                                        </div>
                                         <div class="table-responsive"  id="printableArea">
                                             <div class="noScreen text-center">
                                                 <h4 style="color: black; text-align:center; font-weight:500">Jumlah Hari Kilang Beroperasi Sebulan</h4>
                                                 <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                             </div>
-                                            <div class="noPrint">
-                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                    style="background-color:white; color: #f90a0a; " >
-                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                </button>
-                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                    style="background-color: white; color: #0a7569; ">
-                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                </button>
-                                            </div>
+
                                             <table id="example4" class="table table-hover table-bordered" style="width: 100%; font-size:13px">
 
                                                 <thead>
@@ -562,8 +562,10 @@
                                                                             <td>SABAH</td>
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
+                                                                        @else
+                                                                            <td>-</td>
                                                                         @endif
-                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
 
                                                                         @php
                                                                             $jumlah_hari = 0;
@@ -643,8 +645,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center"> {{ $data_hari_operasi[$data->e_nl][$equal_month] }}</td>
 
                                                                                 @php
@@ -705,8 +709,10 @@
                                                                             <td>SABAH</td>
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
+                                                                        @else
+                                                                            <td>-</td>
                                                                         @endif
-                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
 
                                                                         @php
                                                                             $jumlah_hari_col = 0;
@@ -759,22 +765,22 @@
                                         <br>
                                         <br>
                                     @elseif($laporan == 'kapasiti')
-
+                                        <div class="noPrint">
+                                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                style="background-color:white; color: #f90a0a; " >
+                                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                            </button>
+                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                style="background-color: white; color: #0a7569; ">
+                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                            </button>
+                                        </div>
                                         <div class="table-responsive"  id="printableArea">
                                             <div class="noScreen text-center">
                                                 <h4 style="color: black; text-align:center; font-weight:500">Kadar Penggunaan Kapasiti Sebulan</h4>
                                                 <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                             </div>
-                                            <div class="noPrint">
-                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                    style="background-color:white; color: #f90a0a; " >
-                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                </button>
-                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                    style="background-color: white; color: #0a7569; ">
-                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                </button>
-                                            </div>
+
                                             <table id="example4" class="table table-hover table-bordered" style="width: 100%; font-size:13px">
 
                                                 <thead>
@@ -976,8 +982,10 @@
                                                                             <td>SABAH</td>
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
+                                                                        @else
+                                                                            <td>-</td>
                                                                         @endif
-                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
 
                                                                         @php
                                                                             $jumlah_kap = 0;
@@ -1064,8 +1072,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'#,##0.00'">
                                                                                     {{ number_format($data_kapasiti[$data->e_nl][$equal_month] ?? 0,2) }}
                                                                                 </td>
@@ -1128,8 +1138,10 @@
                                                                             <td>SABAH</td>
                                                                         @elseif ($data->e_negeri == '14')
                                                                             <td>SARAWAK</td>
+                                                                        @else
+                                                                            <td>-</td>
                                                                         @endif
-                                                                        <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
 
 
                                                                         @php

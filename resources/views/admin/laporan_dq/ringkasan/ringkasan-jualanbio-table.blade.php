@@ -315,8 +315,8 @@
                                                             <tr>
                                                                 <td>{{ $data->e_nl }}</td>
                                                                 <td class="text-left">{{ $data->e_np }}</td>
-                                                                <td>{{ $data->nama_negeri }}</td>
-                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                <td>{{ $data->nama_negeri ?? '-'}}</td>
+                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                 <td style="text-align: left; mso-number-format:'#,##0.00'">
                                                                    {{ $syk_bio[$data->e_nl][$kodProduk]}}
                                                                     {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}

@@ -398,22 +398,22 @@
                                         </div>
 
                                         @if ($laporan == 'ebio_b5' )
-
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Stok Awal Di Premis</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
-                                                </div>
+
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
@@ -627,8 +627,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                                 @php
@@ -718,8 +720,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'">
                                                                                 {{ $kodProduk }}
                                                                             </td>
@@ -789,8 +793,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -855,22 +861,22 @@
 
                                             </div>
                                         @elseif ($laporan == 'ebio_b6' )
-
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Belian / Penerimaan</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
-                                                </div>
+
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
@@ -1081,8 +1087,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b6 = 0;
@@ -1168,8 +1176,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -1235,8 +1245,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -1298,22 +1310,22 @@
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b7' )
-
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Pengeluaran</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
-                                                </div>
+
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
@@ -1524,8 +1536,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b7 = 0;
@@ -1610,8 +1624,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -1676,8 +1692,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -1741,22 +1759,22 @@
 
                                             <!-- ebio_b8 =  DigunakanUntukProsesSelanjutnya -->
                                         @elseif ($laporan == 'ebio_b8' )
-
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Digunakan Untuk Proses Selanjutnya</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
-                                                </div>
+
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
@@ -1967,8 +1985,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b8 = 0;
@@ -2054,8 +2074,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -2121,8 +2143,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -2185,21 +2209,21 @@
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b9' )
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
 
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Jualan / Edaran Tempatan</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
-                                                </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
                                                 </div>
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
@@ -2411,8 +2435,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b9 = 0;
@@ -2499,8 +2525,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -2566,8 +2594,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
@@ -2628,22 +2658,22 @@
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b10' )
-
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Eksport</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
-                                                </div>
+
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
@@ -2854,8 +2884,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b10 = 0;
@@ -2941,8 +2973,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -3008,8 +3042,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -3071,22 +3107,22 @@
                                             </div>
 
                                         @elseif ($laporan == 'ebio_b11' )
-
+                                            <div class="noPrint">
+                                                <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                                    style="background-color:white; color: #f90a0a; " >
+                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                </button>
+                                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                                    style="background-color: white; color: #0a7569; ">
+                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                </button>
+                                            </div>
                                             <div class="table-responsive"  id="printableArea">
                                                 <div class="noScreen text-center">
                                                     <h4 style="color: black; text-align:center; font-weight:500">Stok Akhir Di Premis</h4>
                                                     <h4 style="color: black; text-align:center; font-weight:300">Tahun: {{ $tahun }}</h4>
                                                 </div>
-                                                <div class="noPrint">
-                                                    <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
-                                                        style="background-color:white; color: #f90a0a; " >
-                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                    </button>
-                                                    <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                                        style="background-color: white; color: #0a7569; ">
-                                                        <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                                    </button>
-                                                </div>
+
 
                                                 <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
                                                     <thead>
@@ -3297,8 +3333,10 @@
                                                                                     <td>SABAH</td>
                                                                                 @elseif ($data->e_negeri == '14')
                                                                                     <td>SARAWAK</td>
+                                                                                @else
+                                                                                    <td>-</td>
                                                                                 @endif
-                                                                                <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                                 <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                                 @php
                                                                                     $jumlah_b11 = 0;
@@ -3384,8 +3422,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
@@ -3451,8 +3491,10 @@
                                                                                 <td>SABAH</td>
                                                                             @elseif ($data->e_negeri == '14')
                                                                                 <td>SARAWAK</td>
+                                                                            @else
+                                                                                <td>-</td>
                                                                             @endif
-                                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
