@@ -62,8 +62,8 @@ class KilangBuahController extends Controller
 
         if ($pelesen) {
             $this->buah_update_maklumat_asas_pelesen($request);
-        }else{
-        //     dd($request->all());
+        } else {
+            //     dd($request->all());
             $this->store_pelesen($request->all());
         }
 
@@ -90,7 +90,7 @@ class KilangBuahController extends Controller
             'e_email_pg' => ['required', 'string'],
             'e_npgtg' => ['required', 'string'],
             'e_jpgtg' => ['required', 'string'],
-            'e_email_pengurus' => [ 'required', 'string'],
+            'e_email_pengurus' => ['required', 'string'],
             // 'e_negeri' => ['required', 'string'],
             // 'e_daerah' => ['required', 'string'],
             // 'e_kawasan' => ['required', 'string'],
@@ -162,7 +162,7 @@ class KilangBuahController extends Controller
     public function buah_update_maklumat_asas_pelesen(Request $request)
     {
         // dd($id);
-        if(isset($request['alamat_sama'])){
+        if (isset($request['alamat_sama'])) {
             $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
@@ -187,9 +187,7 @@ class KilangBuahController extends Controller
             $penyata->kap_tangki = $request->kap_tangki;
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
             $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
-
-        }
-        else{
+        } else {
             $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
@@ -383,20 +381,24 @@ class KilangBuahController extends Controller
         // }else{
         //     $status_prestasi = "Menurun";
         // }
-        if ($penyata->e91_ah5 ||
+        if (
+            $penyata->e91_ah5 ||
             $penyata->e91_ah6 ||
             $penyata->e91_ah7 ||
             $penyata->e91_ah8 ||
             $penyata->e91_ah9 ||
-            $penyata->e91_ah10){
+            $penyata->e91_ah10
+        ) {
             $status_prestasi = "Meningkat";
-        }elseif ($penyata->e91_ah11 ||
-                $penyata->e91_ah12 ||
-                $penyata->e91_ah13 ||
-                $penyata->e91_ah14 ||
-                $penyata->e91_ah15 ||
-                $penyata->e91_ah16 ||
-                $penyata->e91_ah17){
+        } elseif (
+            $penyata->e91_ah11 ||
+            $penyata->e91_ah12 ||
+            $penyata->e91_ah13 ||
+            $penyata->e91_ah14 ||
+            $penyata->e91_ah15 ||
+            $penyata->e91_ah16 ||
+            $penyata->e91_ah17
+        ) {
             $status_prestasi = "Menurun";
         } else {
             $status_prestasi = "Sila Pilih Prestasi OER";
@@ -407,7 +409,7 @@ class KilangBuahController extends Controller
 
 
         if ($penyata) {
-            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker','status_prestasi'));
+            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker', 'status_prestasi'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -677,7 +679,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout','bulan', 'tahun'));
+        return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout', 'bulan', 'tahun'));
     }
 
     public function buah_paparpenyata()
@@ -746,7 +748,7 @@ class KilangBuahController extends Controller
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
 
         if ($penyata) {
-            return view('users.KilangBuah.buah-papar-penyata', compact( 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
+            return view('users.KilangBuah.buah-papar-penyata', compact('returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -821,7 +823,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-hantar-penyata', compact( 'date', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
+        return view('users.KilangBuah.buah-hantar-penyata', compact('date', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
     }
 
     public function buah_email()
@@ -968,8 +970,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer','individu','daerah','negeri', 'semsia', 'msia', 'labelx'));
-
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx'));
     }
 
 
@@ -999,15 +1000,14 @@ class KilangBuahController extends Controller
         p.e_negeri = d.kod_negeri and
         p.e_daerah = d.kod_daerah");
 
-         return $dtlqry;
-
+        return $dtlqry;
     }
 
 
     function check_daerahless($nolesen)
     {
-    //fungsi untuk check samada pelesen kurang dari 5 pelesen atau tidak.
-    //table daerahless adalah senarai daerah bagi daerah yang kurang dari 5 pelesen
+        //fungsi untuk check samada pelesen kurang dari 5 pelesen atau tidak.
+        //table daerahless adalah senarai daerah bagi daerah yang kurang dari 5 pelesen
 
         //check daerahless
         $chkqry = DB::connection('mysql3')->select("SELECT distinct d.daerah from oerpelesen p, daerahless d
@@ -1019,17 +1019,16 @@ class KilangBuahController extends Controller
         if ($chkqry) {
             foreach ($chkqry as $row) {
                 $result = $row->daerah;
-                }
+            }
         } else {
             $result = 0;
         }
 
         return $result;
-
     }
 
 
-    function get_data_oer_year3full($nolesen,$thn3)
+    function get_data_oer_year3full($nolesen, $thn3)
     {
 
         //get data oer year3full
@@ -1051,61 +1050,58 @@ class KilangBuahController extends Controller
             order by f.tahun, f.bulan");
 
         return $query3;
-
     }
 
 
-    function get_data_oer_year3full_cluster($cluster,$thn,$bulan)
+    function get_data_oer_year3full_cluster($cluster, $thn, $bulan)
     {
-    //  $conn = db_connect_econ();
-     $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oercluster
+        //  $conn = db_connect_econ();
+        $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oercluster
                 where kod_cluster = '$cluster' and tahun = '$thn'
                                   and bulan = '$bulan'");
 
-    //  $result3 = @mysqli_query($conn,$query3);
-    //  $row = @mysqli_fetch_array($result3);
+        //  $result3 = @mysqli_query($conn,$query3);
+        //  $row = @mysqli_fetch_array($result3);
 
-    if ($query3) {
-        foreach ($query3 as $row) {
-            $result = $row->oer_cpo;
-
+        if ($query3) {
+            foreach ($query3 as $row) {
+                $result = $row->oer_cpo;
+            }
+        } else {
+            $result = 0;
         }
-    } else {
-        $result = 0;
-    }
 
-     return $result;
+        return $result;
     }
 
 
-    function get_data_oer_year3full_kawasan($kawasan,$thn,$bulan)
+    function get_data_oer_year3full_kawasan($kawasan, $thn, $bulan)
     {
 
-    // $conn = db_connect_econ();
-    $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oerkawasan
+        // $conn = db_connect_econ();
+        $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oerkawasan
                 where kod_kawasan = '$kawasan' and tahun = '$thn'
                                 and bulan = '$bulan'");
 
-    // $result3 = @mysqli_query($conn,$query3);
-    // $row = @mysqli_fetch_array($result3);
-    if ($query3) {
-        foreach ($query3 as $row) {
-            $result = $row->oer_cpo;
-
+        // $result3 = @mysqli_query($conn,$query3);
+        // $row = @mysqli_fetch_array($result3);
+        if ($query3) {
+            foreach ($query3 as $row) {
+                $result = $row->oer_cpo;
+            }
+        } else {
+            $result = 0;
         }
-    } else {
-        $result = 0;
+
+
+        return $result;
     }
 
-
-    return $result;
-    }
-
-    function get_data_oer_year3dfull($nolesen,$thn3)
+    function get_data_oer_year3dfull($nolesen, $thn3)
     {
 
-    // $conn = db_connect_econ();
-    $query5 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan as bulan,f.oer_cpo as cpo_pelesen,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semsia,m.oer_cpo as cpo_msia
+        // $conn = db_connect_econ();
+        $query5 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan as bulan,f.oer_cpo as cpo_pelesen,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semsia,m.oer_cpo as cpo_msia
                 from oerpelesen f, oernegeri n, oersemsia s, oermsia m
                 where f.nolesen = '$nolesen' and
                 (f.tahun = '$thn3') and
@@ -1118,12 +1114,12 @@ class KilangBuahController extends Controller
                 f.negeri = n.negeri
                 order by f.tahun, f.bulan");
 
-    // $result5 = @mysqli_query($conn,$query5);
+        // $result5 = @mysqli_query($conn,$query5);
         return $query5;
     }
 
 
-    function display_oergraph($nolesen,$notahun)
+    function display_oergraph($nolesen, $notahun)
     {
 
         $thn1 = $notahun;
@@ -1135,474 +1131,397 @@ class KilangBuahController extends Controller
 
         $adadaerah = $this->check_daerahless($nolesen);
         if (!$adadaerah || $adadaerah == 0)
-           $flgdaerah = 'Y';
+            $flgdaerah = 'Y';
         else
             $flgdaerah = 'N';
 
         $dtlpelesen = $this->get_data_pelesen($nolesen);
 
-        foreach ($dtlpelesen as $row)
-        {
-         $namakilang = trim($row->namakilang);
-         $daerah = trim($row->nama_daerah);
-         $negeri = trim($row->nama_negeri);
+        foreach ($dtlpelesen as $row) {
+            $namakilang = trim($row->namakilang);
+            $daerah = trim($row->nama_daerah);
+            $negeri = trim($row->nama_negeri);
         }
 
-         $makpelesen = $this->get_pelesen($nolesen);
+        $makpelesen = $this->get_pelesen($nolesen);
 
-         foreach ($makpelesen as $row1)
-          {
-           $enp = $row1->namakilang ;
-           $cluster = strtoupper($row1->nama_cluster );
-           $kodcluster = $row1->e_cluster ;
-           $kawasan = $row1->nama_region ;
-           $kodkawasan = $row1->e_kawasan ;
-          }
-
-        if ($flgdaerah == 'Y')
-        {
-          $result1 = $this->get_data_oer_year3full($nolesen,$thn1);
-          $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
-          $result3 = $this->get_data_oer_year3full($nolesen,$thn3);
-
-
-
-          foreach ($result3 as $key => $value3) {
-
-            if ($value3->bulan == '01'){
-                $bulan = 'Jan';
-            }
-             elseif ($value3->bulan == '02') {
-                $bulan = 'Feb';
-            }
-             elseif ($value3->bulan == '03') {
-                $bulan = 'Mac';
-            }
-             elseif ($value3->bulan == '04') {
-                $bulan = 'Apr';
-            }
-             elseif ($value3->bulan == '05') {
-                $bulan = 'Mei';
-            }
-             elseif ($value3->bulan == '06') {
-                $bulan = 'Jun';
-            }
-             elseif ($value3->bulan == '07') {
-                $bulan = 'Jul';
-            }
-             elseif ($value3->bulan == '08') {
-                $bulan = 'Ogos';
-            }
-             elseif ($value3->bulan == '09') {
-                $bulan = 'Sept';
-            }
-             elseif ($value3->bulan == '10') {
-                $bulan = 'Okt';
-            }
-             elseif ($value3->bulan == '11') {
-                $bulan = 'Nov';
-            }
-             elseif ($value3->bulan == '12') {
-                $bulan = 'Dis';
-            }
-            else {
-                $bulan = 0;
-            }
-
-            $val1[$key] = $bulan. '' .$value3->tahun;
-            $val2[$key] = $value3->cpo_pelesen;
-            $val3[$key] = $value3->cpo_daerah;
-            $val4[$key] = $value3->cpo_negeri;
-            $val5[$key] = $value3->cpo_semenanjung;
-            $val6[$key] = $value3->cpo_msia;
-
-            $valbulan1 = $value3->bulan;
-            $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
-            $val7[$key] = $oercluster1;
-            $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
-            $val8[$key] = $oerkawasan1;
+        foreach ($makpelesen as $row1) {
+            $enp = $row1->namakilang;
+            $cluster = strtoupper($row1->nama_cluster);
+            $kodcluster = $row1->e_cluster;
+            $kawasan = $row1->nama_region;
+            $kodkawasan = $row1->e_kawasan;
         }
 
-          foreach ($result2 as $value2) {
-            $key++;
-
-            if ($value2->bulan == '01'){
-                $bulan = 'Jan';
-            }
-             elseif ($value2->bulan == '02') {
-                $bulan = 'Feb';
-            }
-             elseif ($value2->bulan == '03') {
-                $bulan = 'Mac';
-            }
-             elseif ($value2->bulan == '04') {
-                $bulan = 'Apr';
-            }
-             elseif ($value2->bulan == '05') {
-                $bulan = 'Mei';
-            }
-             elseif ($value2->bulan == '06') {
-                $bulan = 'Jun';
-            }
-             elseif ($value2->bulan == '07') {
-                $bulan = 'Jul';
-            }
-             elseif ($value2->bulan == '08') {
-                $bulan = 'Ogos';
-            }
-             elseif ($value2->bulan == '09') {
-                $bulan = 'Sept';
-            }
-             elseif ($value2->bulan == '10') {
-                $bulan = 'Okt';
-            }
-             elseif ($value2->bulan == '11') {
-                $bulan = 'Nov';
-            }
-             elseif ($value2->bulan == '12') {
-                $bulan = 'Dis';
-            }
-            else {
-                $bulan = 0;
-            }
-            $val1[$key] = $bulan. '' . $value2->tahun;
-            $val2[$key] = $value2->cpo_pelesen;
-            $val3[$key] = $value2->cpo_daerah;
-            $val4[$key] = $value2->cpo_negeri;
-            $val5[$key] = $value2->cpo_semenanjung;
-            $val6[$key] = $value2->cpo_msia;
-
-            $valbulan2 = $value2->bulan;
-            $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-            $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-            $val7[$key] = $oercluster2;
-            $val8[$key] = $oerkawasan2;
-        }
-
-          foreach ($result1 as $key => $value1) {
-            $key++;
-
-            if ($value1->bulan == '01'){
-                $bulan = 'Jan';
-            }
-             elseif ($value1->bulan == '02') {
-                $bulan = 'Feb';
-            }
-             elseif ($value1->bulan == '03') {
-                $bulan = 'Mac';
-            }
-             elseif ($value1->bulan == '04') {
-                $bulan = 'Apr';
-            }
-             elseif ($value1->bulan == '05') {
-                $bulan = 'Mei';
-            }
-             elseif ($value1->bulan == '06') {
-                $bulan = 'Jun';
-            }
-             elseif ($value1->bulan == '07') {
-                $bulan = 'Jul';
-            }
-             elseif ($value1->bulan == '08') {
-                $bulan = 'Ogos';
-            }
-             elseif ($value1->bulan == '09') {
-                $bulan = 'Sept';
-            }
-             elseif ($value1->bulan == '10') {
-                $bulan = 'Okt';
-            }
-             elseif ($value1->bulan == '11') {
-                $bulan = 'Nov';
-            }
-             elseif ($value1->bulan == '12') {
-                $bulan = 'Dis';
-            }
-            else {
-                $bulan = 0;
-            }
-
-            $val1[$key] = $bulan. '' . $value1->tahun;
-            $val2[$key] = $value1->cpo_pelesen;
-            $val3[$key] = $value1->cpo_daerah;
-            $val4[$key] = $value1->cpo_negeri;
-            $val5[$key] = $value1->cpo_semenanjung;
-            $val6[$key] = $value1->cpo_msia;
-
-            $valbulan3 = $value1->bulan;
-            $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-            $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
-            $val7[$key] = $oercluster3;
-            $val8[$key] = $oerkawasan3;
-        }
-
-        //   for ($count=0; $row = $result3; $count++)
-        //   {
-        //     $val1[$count] = $row[1] . '/' . $row[0];
-        //     $val2[$count] = $row[2];
-        //     $val3[$count] = $row[3];
-        //     $val4[$count] = $row[4];
-        //     $val5[$count] = $row[5];
-        //     $val6[$count] = $row[6];
-        //   }
-
-        //   for ($count1=$key; $row = @mysqli_fetch_array($result2); $count1++)
-        //   {
-        //     $val1[$count1] = $row[1] . '/' . $row[0];
-        //     $val2[$count1] = $row[2];
-        //     $val3[$count1] = $row[3];
-        //     $val4[$count1] = $row[4];
-        //     $val5[$count1] = $row[5];
-        //     $val6[$count1] = $row[6];
-
-        //     $valbulan2 = $row[1];
-        //     $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-        //     $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-        //     $val7[$count1] = $oercluster2;
-        //     $val8[$count1] = $oerkawasan2;
+        if ($flgdaerah == 'Y') {
+            $result1 = $this->get_data_oer_year3full($nolesen, $thn1);
+            $result2 = $this->get_data_oer_year3full($nolesen, $thn2);
+            $result3 = $this->get_data_oer_year3full($nolesen, $thn3);
 
 
-        //   }
 
-        //   for ($count2=$count1; $row = @mysqli_fetch_array($result1); $count2++)
-        //   {
-        //     $val1[$count2] = $row[1] . '/' . $row[0];
-        //     $val2[$count2] = $row[2];
-        //     $val3[$count2] = $row[3];
-        //     $val4[$count2] = $row[4];
-        //     $val5[$count2] = $row[5];
-        //     $val6[$count2] = $row[6];
+            foreach ($result3 as $key => $value3) {
 
-        //     $valbulan3 = $row[1];
-        //     $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-        //     $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
-        //     $val7[$count2] = $oercluster3;
-        //     $val8[$count2] = $oerkawasan3;
+                if ($value3->bulan == '01') {
+                    $bulan = 'Jan';
+                } elseif ($value3->bulan == '02') {
+                    $bulan = 'Feb';
+                } elseif ($value3->bulan == '03') {
+                    $bulan = 'Mac';
+                } elseif ($value3->bulan == '04') {
+                    $bulan = 'Apr';
+                } elseif ($value3->bulan == '05') {
+                    $bulan = 'Mei';
+                } elseif ($value3->bulan == '06') {
+                    $bulan = 'Jun';
+                } elseif ($value3->bulan == '07') {
+                    $bulan = 'Jul';
+                } elseif ($value3->bulan == '08') {
+                    $bulan = 'Ogos';
+                } elseif ($value3->bulan == '09') {
+                    $bulan = 'Sept';
+                } elseif ($value3->bulan == '10') {
+                    $bulan = 'Okt';
+                } elseif ($value3->bulan == '11') {
+                    $bulan = 'Nov';
+                } elseif ($value3->bulan == '12') {
+                    $bulan = 'Dis';
+                } else {
+                    $bulan = 0;
+                }
 
-        //   }
-        }
-        elseif ($flgdaerah == 'N')
-        {
+                $val1[$key] = $bulan . '' . $value3->tahun;
+                $val2[$key] = $value3->cpo_pelesen;
+                $val3[$key] = $value3->cpo_daerah;
+                $val4[$key] = $value3->cpo_negeri;
+                $val5[$key] = $value3->cpo_semenanjung;
+                $val6[$key] = $value3->cpo_msia;
 
-          //$result4 = get_data_oer_year2d($nolesen,$thn1);
-          $result4 = $this->get_data_oer_year3dfull($nolesen,$thn1);
-          //$result5 = get_data_oer_year2d($nolesen,$thn2);
-          $result5 =  $this->get_data_oer_year3dfull($nolesen,$thn2);
-          // $result6 = get_data_oer_year3dfull($nolesen,$thn3);
-          $result6 =  $this->get_data_oer_year3dfull($nolesen,$thn3);
+                $valbulan1 = $value3->bulan;
+                $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster, $thn3, $valbulan1);
+                $val7[$key] = $oercluster1;
+                $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn3, $valbulan1);
+                $val8[$key] = $oerkawasan1;
+            }
+
+            foreach ($result2 as $value2) {
+                $key++;
+
+                if ($value2->bulan == '01') {
+                    $bulan = 'Jan';
+                } elseif ($value2->bulan == '02') {
+                    $bulan = 'Feb';
+                } elseif ($value2->bulan == '03') {
+                    $bulan = 'Mac';
+                } elseif ($value2->bulan == '04') {
+                    $bulan = 'Apr';
+                } elseif ($value2->bulan == '05') {
+                    $bulan = 'Mei';
+                } elseif ($value2->bulan == '06') {
+                    $bulan = 'Jun';
+                } elseif ($value2->bulan == '07') {
+                    $bulan = 'Jul';
+                } elseif ($value2->bulan == '08') {
+                    $bulan = 'Ogos';
+                } elseif ($value2->bulan == '09') {
+                    $bulan = 'Sept';
+                } elseif ($value2->bulan == '10') {
+                    $bulan = 'Okt';
+                } elseif ($value2->bulan == '11') {
+                    $bulan = 'Nov';
+                } elseif ($value2->bulan == '12') {
+                    $bulan = 'Dis';
+                } else {
+                    $bulan = 0;
+                }
+                $val1[$key] = $bulan . '' . $value2->tahun;
+                $val2[$key] = $value2->cpo_pelesen;
+                $val3[$key] = $value2->cpo_daerah;
+                $val4[$key] = $value2->cpo_negeri;
+                $val5[$key] = $value2->cpo_semenanjung;
+                $val6[$key] = $value2->cpo_msia;
+
+                $valbulan2 = $value2->bulan;
+                $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster, $thn2, $valbulan2);
+                $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn2, $valbulan2);
+                $val7[$key] = $oercluster2;
+                $val8[$key] = $oerkawasan2;
+            }
+
+            foreach ($result1 as $key => $value1) {
+                $key++;
+
+                if ($value1->bulan == '01') {
+                    $bulan = 'Jan';
+                } elseif ($value1->bulan == '02') {
+                    $bulan = 'Feb';
+                } elseif ($value1->bulan == '03') {
+                    $bulan = 'Mac';
+                } elseif ($value1->bulan == '04') {
+                    $bulan = 'Apr';
+                } elseif ($value1->bulan == '05') {
+                    $bulan = 'Mei';
+                } elseif ($value1->bulan == '06') {
+                    $bulan = 'Jun';
+                } elseif ($value1->bulan == '07') {
+                    $bulan = 'Jul';
+                } elseif ($value1->bulan == '08') {
+                    $bulan = 'Ogos';
+                } elseif ($value1->bulan == '09') {
+                    $bulan = 'Sept';
+                } elseif ($value1->bulan == '10') {
+                    $bulan = 'Okt';
+                } elseif ($value1->bulan == '11') {
+                    $bulan = 'Nov';
+                } elseif ($value1->bulan == '12') {
+                    $bulan = 'Dis';
+                } else {
+                    $bulan = 0;
+                }
+
+                $val1[$key] = $bulan . '' . $value1->tahun;
+                $val2[$key] = $value1->cpo_pelesen;
+                $val3[$key] = $value1->cpo_daerah;
+                $val4[$key] = $value1->cpo_negeri;
+                $val5[$key] = $value1->cpo_semenanjung;
+                $val6[$key] = $value1->cpo_msia;
+
+                $valbulan3 = $value1->bulan;
+                $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster, $thn1, $valbulan3);
+                $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn1, $valbulan3);
+                $val7[$key] = $oercluster3;
+                $val8[$key] = $oerkawasan3;
+            }
+
+            //   for ($count=0; $row = $result3; $count++)
+            //   {
+            //     $val1[$count] = $row[1] . '/' . $row[0];
+            //     $val2[$count] = $row[2];
+            //     $val3[$count] = $row[3];
+            //     $val4[$count] = $row[4];
+            //     $val5[$count] = $row[5];
+            //     $val6[$count] = $row[6];
+            //   }
+
+            //   for ($count1=$key; $row = @mysqli_fetch_array($result2); $count1++)
+            //   {
+            //     $val1[$count1] = $row[1] . '/' . $row[0];
+            //     $val2[$count1] = $row[2];
+            //     $val3[$count1] = $row[3];
+            //     $val4[$count1] = $row[4];
+            //     $val5[$count1] = $row[5];
+            //     $val6[$count1] = $row[6];
+
+            //     $valbulan2 = $row[1];
+            //     $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+            //     $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+            //     $val7[$count1] = $oercluster2;
+            //     $val8[$count1] = $oerkawasan2;
 
 
-          foreach ($result6 as $key => $value6) {
+            //   }
 
-            if ($value6->bulan == '01'){
-                $bulan = 'Jan';
-            }
-             elseif ($value6->bulan == '02') {
-                $bulan = 'Feb';
-            }
-             elseif ($value6->bulan == '03') {
-                $bulan = 'Mac';
-            }
-             elseif ($value6->bulan == '04') {
-                $bulan = 'Apr';
-            }
-             elseif ($value6->bulan == '05') {
-                $bulan = 'Mei';
-            }
-             elseif ($value6->bulan == '06') {
-                $bulan = 'Jun';
-            }
-             elseif ($value6->bulan == '07') {
-                $bulan = 'Jul';
-            }
-             elseif ($value6->bulan == '08') {
-                $bulan = 'Ogos';
-            }
-             elseif ($value6->bulan == '09') {
-                $bulan = 'Sept';
-            }
-             elseif ($value6->bulan == '10') {
-                $bulan = 'Okt';
-            }
-             elseif ($value6->bulan == '11') {
-                $bulan = 'Nov';
-            }
-             elseif ($value6->bulan == '12') {
-                $bulan = 'Dis';
-            }
-            else {
-                $bulan = 0;
-            }
-            $val1[$key] = $bulan. '' . $value6->tahun;
-            $val2[$key] = $value6->cpo_pelesen;
-            $val4[$key] = $value6->cpo_negeri;
-            $val5[$key] = $value6->cpo_semenanjung;
-            $val6[$key] = $value6->cpo_msia;
+            //   for ($count2=$count1; $row = @mysqli_fetch_array($result1); $count2++)
+            //   {
+            //     $val1[$count2] = $row[1] . '/' . $row[0];
+            //     $val2[$count2] = $row[2];
+            //     $val3[$count2] = $row[3];
+            //     $val4[$count2] = $row[4];
+            //     $val5[$count2] = $row[5];
+            //     $val6[$count2] = $row[6];
 
-            $valbulan1 = $value6->bulan;
-            $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
-            $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
-            $val7[$key] = $oercluster1;
-            $val8[$key] = $oerkawasan1;
-        }
+            //     $valbulan3 = $row[1];
+            //     $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+            //     $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+            //     $val7[$count2] = $oercluster3;
+            //     $val8[$count2] = $oerkawasan3;
 
-          foreach ($result5 as $key => $value5) {
-            $key++;
+            //   }
+        } elseif ($flgdaerah == 'N') {
 
-            if ($value5->bulan == '01'){
-                $bulan = 'Jan';
-            }
-             elseif ($value5->bulan == '02') {
-                $bulan = 'Feb';
-            }
-             elseif ($value5->bulan == '03') {
-                $bulan = 'Mac';
-            }
-             elseif ($value5->bulan == '04') {
-                $bulan = 'Apr';
-            }
-             elseif ($value5->bulan == '05') {
-                $bulan = 'Mei';
-            }
-             elseif ($value5->bulan == '06') {
-                $bulan = 'Jun';
-            }
-             elseif ($value5->bulan == '07') {
-                $bulan = 'Jul';
-            }
-             elseif ($value5->bulan == '08') {
-                $bulan = 'Ogos';
-            }
-             elseif ($value5->bulan == '09') {
-                $bulan = 'Sept';
-            }
-             elseif ($value5->bulan == '10') {
-                $bulan = 'Okt';
-            }
-             elseif ($value5->bulan == '11') {
-                $bulan = 'Nov';
-            }
-             elseif ($value5->bulan == '12') {
-                $bulan = 'Dis';
-            }
-            else {
-                $bulan = 0;
-            }
-            $val1[$key] = $bulan. '' . $value5->tahun;
-            $val2[$key] = $value5->cpo_pelesen;
-            $val4[$key] = $value5->cpo_negeri;
-            $val5[$key] = $value5->cpo_semenanjung;
-            $val6[$key] = $value5->cpo_msia;
+            //$result4 = get_data_oer_year2d($nolesen,$thn1);
+            $result4 = $this->get_data_oer_year3dfull($nolesen, $thn1);
+            //$result5 = get_data_oer_year2d($nolesen,$thn2);
+            $result5 =  $this->get_data_oer_year3dfull($nolesen, $thn2);
+            // $result6 = get_data_oer_year3dfull($nolesen,$thn3);
+            $result6 =  $this->get_data_oer_year3dfull($nolesen, $thn3);
 
-            $valbulan2 = $value5->bulan;
-            $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-            $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-            $val7[$key] = $oercluster2;
-            $val8[$key] = $oerkawasan2;
-        }
 
-          foreach ($result4 as $key => $value4) {
-            $key++;
-            if ($value4->bulan == '01'){
-                $bulan = 'Jan';
-            }
-             elseif ($value4->bulan == '02') {
-                $bulan = 'Feb';
-            }
-             elseif ($value4->bulan == '03') {
-                $bulan = 'Mac';
-            }
-             elseif ($value4->bulan == '04') {
-                $bulan = 'Apr';
-            }
-             elseif ($value4->bulan == '05') {
-                $bulan = 'Mei';
-            }
-             elseif ($value4->bulan == '06') {
-                $bulan = 'Jun';
-            }
-             elseif ($value4->bulan == '07') {
-                $bulan = 'Jul';
-            }
-             elseif ($value4->bulan == '08') {
-                $bulan = 'Ogos';
-            }
-             elseif ($value4->bulan == '09') {
-                $bulan = 'Sept';
-            }
-             elseif ($value4->bulan == '10') {
-                $bulan = 'Okt';
-            }
-             elseif ($value4->bulan == '11') {
-                $bulan = 'Nov';
-            }
-             elseif ($value4->bulan == '12') {
-                $bulan = 'Dis';
-            }
-            else {
-                $bulan = 0;
-            }
-            $val1[$key] = $bulan. '' . $value4->tahun;
-            $val2[$key] = $value4->cpo_pelesen;
-            $val4[$key] = $value4->cpo_negeri;
-            $val5[$key] = $value4->cpo_semenanjung;
-            $val6[$key] = $value4->cpo_msia;
+            foreach ($result6 as $key => $value6) {
 
-            $valbulan3 = $value4->bulan;
-            $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-            $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
-            $val7[$key] = $oercluster3;
-            $val8[$key] = $oerkawasan3;
-        }
+                if ($value6->bulan == '01') {
+                    $bulan = 'Jan';
+                } elseif ($value6->bulan == '02') {
+                    $bulan = 'Feb';
+                } elseif ($value6->bulan == '03') {
+                    $bulan = 'Mac';
+                } elseif ($value6->bulan == '04') {
+                    $bulan = 'Apr';
+                } elseif ($value6->bulan == '05') {
+                    $bulan = 'Mei';
+                } elseif ($value6->bulan == '06') {
+                    $bulan = 'Jun';
+                } elseif ($value6->bulan == '07') {
+                    $bulan = 'Jul';
+                } elseif ($value6->bulan == '08') {
+                    $bulan = 'Ogos';
+                } elseif ($value6->bulan == '09') {
+                    $bulan = 'Sept';
+                } elseif ($value6->bulan == '10') {
+                    $bulan = 'Okt';
+                } elseif ($value6->bulan == '11') {
+                    $bulan = 'Nov';
+                } elseif ($value6->bulan == '12') {
+                    $bulan = 'Dis';
+                } else {
+                    $bulan = 0;
+                }
+                $val1[$key] = $bulan . '' . $value6->tahun;
+                $val2[$key] = $value6->cpo_pelesen;
+                $val4[$key] = $value6->cpo_negeri;
+                $val5[$key] = $value6->cpo_semenanjung;
+                $val6[$key] = $value6->cpo_msia;
 
-        dd($val1);
-        //   for ($count=0; $row = @mysqli_fetch_array($result6); $count++)
-        //   {
-        //     $val1[$count] = $row[1] . '/' . $row[0];
-        //     $val2[$count] = $row[2];
-        //     $val4[$count] = $row[3];
-        //     $val5[$count] = $row[4];
-        //     $val6[$count] = $row[5];
+                $valbulan1 = $value6->bulan;
+                $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster, $thn3, $valbulan1);
+                $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn3, $valbulan1);
+                $val7[$key] = $oercluster1;
+                $val8[$key] = $oerkawasan1;
+            }
 
-        //     $valbulan1 = $row[1];
-        //     $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
-        //     $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
-        //     $val7[$count] = $oercluster1;
-        //     $val8[$count] = $oerkawasan1;
+            foreach ($result5 as $key => $value5) {
+                $key++;
 
-        //   }
+                if ($value5->bulan == '01') {
+                    $bulan = 'Jan';
+                } elseif ($value5->bulan == '02') {
+                    $bulan = 'Feb';
+                } elseif ($value5->bulan == '03') {
+                    $bulan = 'Mac';
+                } elseif ($value5->bulan == '04') {
+                    $bulan = 'Apr';
+                } elseif ($value5->bulan == '05') {
+                    $bulan = 'Mei';
+                } elseif ($value5->bulan == '06') {
+                    $bulan = 'Jun';
+                } elseif ($value5->bulan == '07') {
+                    $bulan = 'Jul';
+                } elseif ($value5->bulan == '08') {
+                    $bulan = 'Ogos';
+                } elseif ($value5->bulan == '09') {
+                    $bulan = 'Sept';
+                } elseif ($value5->bulan == '10') {
+                    $bulan = 'Okt';
+                } elseif ($value5->bulan == '11') {
+                    $bulan = 'Nov';
+                } elseif ($value5->bulan == '12') {
+                    $bulan = 'Dis';
+                } else {
+                    $bulan = 0;
+                }
+                $val1[$key] = $bulan . '' . $value5->tahun;
+                $val2[$key] = $value5->cpo_pelesen;
+                $val4[$key] = $value5->cpo_negeri;
+                $val5[$key] = $value5->cpo_semenanjung;
+                $val6[$key] = $value5->cpo_msia;
 
-        //   for ($count1=$count; $row = @mysqli_fetch_array($result5); $count1++)
-        //   {
-        //     $val1[$count1] = $row[1] . '/' . $row[0];
-        //     $val2[$count1] = $row[2];
-        //     $val4[$count1] = $row[3];
-        //     $val5[$count1] = $row[4];
-        //     $val6[$count1] = $row[5];
+                $valbulan2 = $value5->bulan;
+                $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster, $thn2, $valbulan2);
+                $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn2, $valbulan2);
+                $val7[$key] = $oercluster2;
+                $val8[$key] = $oerkawasan2;
+            }
 
-        //     $valbulan2 = $row[1];
-        //     $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
-        //     $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
-        //     $val7[$count1] = $oercluster2;
-        //     $val8[$count1] = $oerkawasan2;
+            foreach ($result4 as $key => $value4) {
+                $key++;
+                if ($value4->bulan == '01') {
+                    $bulan = 'Jan';
+                } elseif ($value4->bulan == '02') {
+                    $bulan = 'Feb';
+                } elseif ($value4->bulan == '03') {
+                    $bulan = 'Mac';
+                } elseif ($value4->bulan == '04') {
+                    $bulan = 'Apr';
+                } elseif ($value4->bulan == '05') {
+                    $bulan = 'Mei';
+                } elseif ($value4->bulan == '06') {
+                    $bulan = 'Jun';
+                } elseif ($value4->bulan == '07') {
+                    $bulan = 'Jul';
+                } elseif ($value4->bulan == '08') {
+                    $bulan = 'Ogos';
+                } elseif ($value4->bulan == '09') {
+                    $bulan = 'Sept';
+                } elseif ($value4->bulan == '10') {
+                    $bulan = 'Okt';
+                } elseif ($value4->bulan == '11') {
+                    $bulan = 'Nov';
+                } elseif ($value4->bulan == '12') {
+                    $bulan = 'Dis';
+                } else {
+                    $bulan = 0;
+                }
+                $val1[$key] = $value4->bulan . '-' . $value4->tahun;
+                $val2[$key] = $value4->cpo_pelesen;
+                $val4[$key] = $value4->cpo_negeri;
+                $val5[$key] = $value4->cpo_semenanjung;
+                $val6[$key] = $value4->cpo_msia;
 
-        //   }
+                $valbulan3 = $value4->bulan;
+                $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster, $thn1, $valbulan3);
+                $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn1, $valbulan3);
+                $val7[$key] = $oercluster3;
+                $val8[$key] = $oerkawasan3;
+            }
 
-        //   for ($count2=$count1; $row = @mysqli_fetch_array($result4); $count2++)
-        //   {
-        //     $val1[$count2] = $row[1] . '/' . $row[0];
-        //     $val2[$count2] = $row[2];
-        //     $val4[$count2] = $row[3];
-        //     $val5[$count2] = $row[4];
-        //     $val6[$count2] = $row[5];
+            // dd($val1);
+            //   for ($count=0; $row = @mysqli_fetch_array($result6); $count++)
+            //   {
+            //     $val1[$count] = $row[1] . '/' . $row[0];
+            //     $val2[$count] = $row[2];
+            //     $val4[$count] = $row[3];
+            //     $val5[$count] = $row[4];
+            //     $val6[$count] = $row[5];
 
-        //     $valbulan3 = $row[1];
-        //     $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
-        //     $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
-        //     $val7[$count2] = $oercluster3;
-        //     $val8[$count2] = $oerkawasan3;
+            //     $valbulan1 = $row[1];
+            //     $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+            //     $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+            //     $val7[$count] = $oercluster1;
+            //     $val8[$count] = $oerkawasan1;
 
-        //   }
+            //   }
+
+            //   for ($count1=$count; $row = @mysqli_fetch_array($result5); $count1++)
+            //   {
+            //     $val1[$count1] = $row[1] . '/' . $row[0];
+            //     $val2[$count1] = $row[2];
+            //     $val4[$count1] = $row[3];
+            //     $val5[$count1] = $row[4];
+            //     $val6[$count1] = $row[5];
+
+            //     $valbulan2 = $row[1];
+            //     $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+            //     $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+            //     $val7[$count1] = $oercluster2;
+            //     $val8[$count1] = $oerkawasan2;
+
+            //   }
+
+            //   for ($count2=$count1; $row = @mysqli_fetch_array($result4); $count2++)
+            //   {
+            //     $val1[$count2] = $row[1] . '/' . $row[0];
+            //     $val2[$count2] = $row[2];
+            //     $val4[$count2] = $row[3];
+            //     $val5[$count2] = $row[4];
+            //     $val6[$count2] = $row[5];
+
+            //     $valbulan3 = $row[1];
+            //     $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+            //     $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+            //     $val7[$count2] = $oercluster3;
+            //     $val8[$count2] = $oerkawasan3;
+
+            //   }
         }
 
         $labelx = 0;
@@ -1612,11 +1531,11 @@ class KilangBuahController extends Controller
         $lineplot_semenanjung = 0;
         $lineplot_malaysia = 0;
 
-        for($i = 0; $i < $key; $i++){
-            if($labelx == 0){
-                $labelx = $val1[$i] .',';
-            }else{
-                $labelx = $labelx.$val1[$i] . ",";
+        for ($i = 0; $i < $key; $i++) {
+            if ($labelx == 0) {
+                $labelx = $val1[$i] . ',';
+            } else {
+                $labelx = $labelx . $val1[$i] . ",";
             }
             // $labelx = $labelx ."'". $val1[$i] . "',";
         }
@@ -1624,54 +1543,53 @@ class KilangBuahController extends Controller
         dd($labelx);
 
 
-        for($i = 0; $i < $key; $i++){
-            if($lineplot_individu == 0){
-                $lineplot_individu = $val2[$i] .',';
-            }else{
-                $lineplot_individu = $lineplot_individu.$val2[$i] .',';
+        for ($i = 0; $i < $key; $i++) {
+            if ($lineplot_individu == 0) {
+                $lineplot_individu = $val2[$i] . ',';
+            } else {
+                $lineplot_individu = $lineplot_individu . $val2[$i] . ',';
             }
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
         // dd($lineplot_individu);
 
-        if ($flgdaerah == 'Y')
-        {
-            for($i = 0; $i < $key; $i++){
-                if($lineplot_daerah == 0){
-                    $lineplot_daerah = $val3[$i] .',';
-                }else{
-                    $lineplot_daerah = $lineplot_daerah.$val3[$i] .',';
+        if ($flgdaerah == 'Y') {
+            for ($i = 0; $i < $key; $i++) {
+                if ($lineplot_daerah == 0) {
+                    $lineplot_daerah = $val3[$i] . ',';
+                } else {
+                    $lineplot_daerah = $lineplot_daerah . $val3[$i] . ',';
                 }
             }
 
             $lineplot_daerah = substr($lineplot_daerah, 0, -1);
-          //yellow
-         // $lineplot2->SetLegend("$daerah");
+            //yellow
+            // $lineplot2->SetLegend("$daerah");
         }
 
-        for($i = 0; $i < $key; $i++){
-            if($lineplot_negeri == 0){
-                $lineplot_negeri = $val4[$i] .',';
-            }else{
-                $lineplot_negeri = $lineplot_negeri.$val4[$i] .',';
+        for ($i = 0; $i < $key; $i++) {
+            if ($lineplot_negeri == 0) {
+                $lineplot_negeri = $val4[$i] . ',';
+            } else {
+                $lineplot_negeri = $lineplot_negeri . $val4[$i] . ',';
             }
         }
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
 
-        for($i = 0; $i < $key; $i++){
-            if($lineplot_semenanjung == 0){
-                $lineplot_semenanjung = $val5[$i] .',';
-            }else{
-                $lineplot_semenanjung = $lineplot_semenanjung.$val5[$i] .',';
+        for ($i = 0; $i < $key; $i++) {
+            if ($lineplot_semenanjung == 0) {
+                $lineplot_semenanjung = $val5[$i] . ',';
+            } else {
+                $lineplot_semenanjung = $lineplot_semenanjung . $val5[$i] . ',';
             }
         }
         $lineplot_semenanjung = substr($lineplot_semenanjung, 0, -1);
 
-        for($i = 0; $i < $key; $i++){
-            if($lineplot_malaysia == 0){
-                $lineplot_malaysia = $val2[$i] .',';
-            }else{
-                $lineplot_malaysia = $lineplot_malaysia.$val6[$i] .',';
+        for ($i = 0; $i < $key; $i++) {
+            if ($lineplot_malaysia == 0) {
+                $lineplot_malaysia = $val2[$i] . ',';
+            } else {
+                $lineplot_malaysia = $lineplot_malaysia . $val6[$i] . ',';
             }
         }
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
@@ -1688,9 +1606,6 @@ class KilangBuahController extends Controller
         ];
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
         return $array;
-
-
-
     }
 
 
@@ -1700,15 +1615,15 @@ class KilangBuahController extends Controller
 
         // $result = $this->oer();
 
-        $thn1 = (integer) $tahun;
+        $thn1 = (int) $tahun;
         $thn2 = $thn1 - 1;
         $thn3 = $thn1 - 2;
-	    $thn4 = $thn1 - 3;
+        $thn4 = $thn1 - 3;
 
 
         //get data oer year3full cluster
 
-	    // $cluster = ($qry->e_cluster);
+        // $cluster = ($qry->e_cluster);
 
         // $query3_cluster = "select tahun, bulan, oer_cpo from oercluster
         // where kod_cluster = '$cluster' and tahun = '$thn'
@@ -1732,9 +1647,9 @@ class KilangBuahController extends Controller
         // $try = oer();
         $year = $pelesen->pelesen->e_year;
         // dd($year);
-        if($year){
+        if ($year) {
             $tahun = $year;
-        }else{
+        } else {
             $tahun = 2003;
         }
         $breadcrumbs    = [
@@ -1753,7 +1668,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout','pelesen', 'year','tahun'));
+        return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout', 'pelesen', 'year', 'tahun'));
     }
 
     protected function validation_terdahulu(array $data)
