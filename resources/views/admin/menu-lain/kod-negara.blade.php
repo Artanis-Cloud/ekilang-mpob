@@ -2,6 +2,16 @@
 
 @section('content')
 
+<style>
+    button.prodex {
+        /* border-color: #25877b !important; */
+        color: #0a7569 !important;
+        }
+    button.prodpdf {
+    /* border-color: #25877b !important; */
+    color: #f90a0a !important;
+    }
+</style>
     <div class="page-wrapper">
 
         <div class="mt-3 mb-4 row">
@@ -127,11 +137,27 @@
     <script>
         $(document).ready(function() {
             $('#example4').DataTable( {
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
                 dom: 'Bfrtip',
                 buttons: [
                     {
                         extend: 'excel',
                         title: "Senarai Kod dan Nama Negara",
+                        className: "prodex",
                         customize: function( xlsx ) {
                             var sheet = xlsx.xl.worksheets['sheet1.xml'];
 
@@ -141,6 +167,7 @@
                     {
                         extend: 'pdf',
                         title: "Senarai Kod dan Nama Negara",
+                        className: "prodpdf",
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
                             for (i = 1; i < table.length; i++) // skip table header row (i = 0)

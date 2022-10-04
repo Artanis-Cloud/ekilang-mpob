@@ -14,6 +14,7 @@ use App\Models\Pengumuman;
 use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\ScLog;
+use App\Models\SyarikatPembeli;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
@@ -680,4 +681,73 @@ class MenuLainController extends Controller
 
         return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'log', 'formatteddate', 'myDateTime'));
     }
+
+    public function admin_pembeli()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.pembeli'), 'name' => "Pembeli"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $pembeli = DB::select("SELECT id, pembeli
+        FROM syarikat_pembeli
+        order by id Desc");
+
+
+
+        return view('admin.menu-lain.syarikat-pembeli', compact('returnArr', 'layout', 'pembeli'));
+    }
+
+
+    public function admin_tambah_pembeli_proses(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_tambah_pembeli($request->all())->validate();
+        $this->store_tambah_pembeli($request->all());
+
+
+        return redirect()->back()->with('success', 'Pembeli sudah ditambah');
+    }
+
+    protected function validation_tambah_pembeli(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'pembeli' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_tambah_pembeli(array $data)
+    {
+        return SyarikatPembeli::create([
+            // 'Id' => $data['Id'],
+            'pembeli' => $data['pembeli'],
+
+        ]);
+    }
+
+
+    public function admin_editpembeli(Request $request, $id)
+    {
+        // $hebahan = DB::connection('mysql2')->select("SELECT $id FROM hebahan_proses");
+
+        $pembeli = $request->input('pembeli');
+        DB::connection('mysql')->select("UPDATE syarikat_pembeli SET pembeli = '$pembeli'
+        WHERE id='$id'");
+
+        return redirect()->route('admin.pembeli')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
+
+
 }

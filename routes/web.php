@@ -228,6 +228,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/log-admin', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_log_admin'])->name('admin.log.superadmin');
 
+        Route::get('admin/pembeli', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_pembeli'])->name('admin.pembeli');
+        Route::post('admin/editpembeli/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_editpembeli'])->name('admin.edit.pembeli');
+
+        Route::get('admin/tambahpembeli', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_pembeli'])->name('admin.tambahpembeli');
+        Route::post('admin/tambahpembeli/proses', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_pembeli_proses'])->name('admin.tambahpembeli.proses');
+        Route::post('admin/updatepembeli/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_updatepembeli'])->name('admin.updatepembeli');
 
         Route::get('admin/akaun-pentadbir', [App\Http\Controllers\Admin\TetapanAkaunController::class, 'admin_akaun_pentadbir'])->name('admin.akaun.pentadbir');
         Route::post('admin/akaun-pentadbir/process', [App\Http\Controllers\Admin\TetapanAkaunController::class, 'admin_akaun_pentadbir_process'])->name('admin.akaun.pentadbir.process');

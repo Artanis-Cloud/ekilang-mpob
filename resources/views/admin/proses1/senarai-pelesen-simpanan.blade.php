@@ -135,11 +135,11 @@
                                         style="margin: 1%"> Tambah Pelesen Baru</a>
 
 
-                                    <div class="text-right col-5" style="margin: 1%; position: static; margin-left: auto">
+                                    {{-- <div class="text-right col-5" style="margin: 1%; position: static; margin-left: auto">
                                         <button id="exportExcel" style="font-size:14px; background-color:#265960;color: white; border: 0px; border-radius: 2px; padding:7px 35px;"
                                            >Excel <i class="fa fa-file-excel" style="color:white"></i></button>
 
-                                    </div>
+                                    </div> --}}
 
                                 </div>
 

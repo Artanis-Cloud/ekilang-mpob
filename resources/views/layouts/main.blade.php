@@ -83,7 +83,10 @@
     @media print { @page {size: auto !important}
     }
 
-
+      button.fred {
+        /* border-color: #25877b !important; */
+        color: #0a7569 !important;
+        }
 
 </style>
 
@@ -1505,6 +1508,12 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
+                                    <a href="{{ route('admin.pembeli') }}" class="sidebar-link">
+                                        <i class="fas fa-clipboard-list" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Pembeli </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
                                     <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Kod & Nama Produk </span>
@@ -1833,12 +1842,12 @@
     // DataTable
     var table = $('#example').DataTable({
         initComplete: function () {
+
             // Apply the search
             this.api()
                 .columns()
                 .every(function () {
                     var that = this;
-
                     $('input', this.footer()).on('keyup change clear', function () {
                         if (that.search() !== this.value) {
                             that.search(this.value).draw();
@@ -1851,11 +1860,15 @@
             //     [10, 25, 50, -1],
             //     ['10 Linhas', '25 Linhas', '50 Linhas', 'Mostrar todas']
             // ],
+
             buttons: [
+
                 'pageLength',
                 {
+
                     extend: 'excel',
-                    text: '<i class="bi bi-file-excel" aria-hidden="true"> Excel</i>'
+                    text: '<a class="bi bi-file-excel" aria-hidden="true"  > Excel</a>',
+                    className: "fred"
                 }
             ],
         "language": {
@@ -1876,6 +1889,7 @@
 
     });
 });
+
     </script>
             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
