@@ -947,7 +947,7 @@ class KilangBuahController extends Controller
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
         $daerah = $oer['lineplot_daerah'];
-        $negeri = floatval($oer['lineplot_negeri']);
+        $negeri = $oer['lineplot_negeri'];
         $semsia = $oer['lineplot_semenanjung'];
         $msia = $oer['lineplot_malaysia'];
         // dd($negeri
@@ -1390,7 +1390,7 @@ class KilangBuahController extends Controller
         }
 
         for($i = 0; $i < $key; $i++){
-                        $lineplot_negeri = $lineplot_negeri.$val4[$i] .',';
+                        $lineplot_negeri = $lineplot_negeri.floatval($val4[$i]) .',';
         }
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
 
