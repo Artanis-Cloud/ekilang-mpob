@@ -86,7 +86,7 @@
                 data: {
                     columns: [
                         // loop
-                        ['INDIVIDU', {{ $individu ?? 0 }}],
+                        ['{{ $nama_kilang }}', {{ $individu ?? 0 }}],
                         ['{{ $nama_daerah2 }}', {{ $daerah ?? 0 }}],
                         ['{{ $nama_negeri }}', {{ $negeri ?? 0}}],
                         ['SEMENANJUNG MALAYSIA', {{ $semsia }}],

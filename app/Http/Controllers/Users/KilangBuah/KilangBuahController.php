@@ -957,8 +957,7 @@ class KilangBuahController extends Controller
         $nama_negeri = $oer['nama_negeri'];
         $nama_daerah = $oer['nama_daerah'];
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
-
-        // $nama_kilang = $data['nama_kilang'];
+        $nama_kilang = $oer['enp'];
 
         dd($oer);
         // $this->display_oerdata($request->tahun);
@@ -977,7 +976,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang'));
     }
 
 
