@@ -947,7 +947,7 @@ class KilangBuahController extends Controller
     public function buah_oerprocess(Request $request)
     {
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
-        $data = $this->display_oerdata(auth()->user()->username, $request->tahun);
+        // $data = $this->display_oerdata(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
         $daerah = $oer['lineplot_daerah'];
         $negeri = $oer['lineplot_negeri'];
@@ -958,9 +958,9 @@ class KilangBuahController extends Controller
         $nama_daerah = $oer['nama_daerah'];
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
 
-        $nama_kilang = $data['nama_kilang'];
+        // $nama_kilang = $data['nama_kilang'];
 
-        dd($data);
+        dd($oer);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -1525,6 +1525,7 @@ class KilangBuahController extends Controller
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
 
         $array = [
+            'enp' => $enp,
             'nama_negeri' => $nama_negeri,
             'nama_daerah' => $nama_daerah,
 
@@ -1593,7 +1594,7 @@ class KilangBuahController extends Controller
 	  echo "</tr>\n";
 
 
-	$result3b = get_data_oer_year3full($nolesen,$thn3);
+	$result3b = $this->get_data_oer_year3full($nolesen,$thn3);
 	  while ($row = mysqli_fetch_row($result3b))
 			{
 			  echo "<tr>\n";
