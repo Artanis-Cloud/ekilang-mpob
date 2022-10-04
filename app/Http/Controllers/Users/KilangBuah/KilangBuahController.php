@@ -1555,6 +1555,7 @@ class KilangBuahController extends Controller
             $val8[$key] = $oerkawasan3;
         }
 
+        dd($val1);
         //   for ($count=0; $row = @mysqli_fetch_array($result6); $count++)
         //   {
         //     $val1[$count] = $row[1] . '/' . $row[0];
