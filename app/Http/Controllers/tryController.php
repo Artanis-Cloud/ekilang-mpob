@@ -74,14 +74,14 @@ class tryController extends Controller
 
             foreach ($qry as $row1)
             {
-            dd($row1);
 
-            //  $enp = $row1->e_np ;
-            //  $cluster = strtoupper($row1->nama_cluster );
-            //  $kodcluster = $row1->e_cluster ;
-            //  $kawasan = $row1->nama_region ;
-            //  $kodkawasan = $row1->e_kawasan ;
+             $enp = $row1->namakilang ;
+             $cluster = strtoupper($row1->nama_cluster );
+             $kodcluster = $row1->e_cluster ;
+             $kawasan = $row1->nama_region ;
+             $kodkawasan = $row1->e_kawasan ;
             }
+            dd($cluster);
 
                 // for ($count=0; $row = $query3; $count++)
                 // {
