@@ -57,7 +57,28 @@
                 <br>
                 <br>
                 <h5 style="color: rgb(39, 80, 71); font-size:14px">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
+                        <thead style="text-align: center">
+                            <tr style="text-align: center; background-color: #d3d3d34d">
+                                <th style="vertical-align: middle">TAHUN/BULAN</th>
+                                <th style="vertical-align: middle">{{ $nama_kilang }}</th>
+                                <th style="vertical-align: middle">{{ $nama_daerah }}</th>
+                                <th style="vertical-align: middle">{{ $nama_negeri }}</th>
+                                <th style="vertical-align: middle">SEMENANJUNG MALAYSIA</th>
+                                <th style="vertical-align: middle">MALAYSIA</th>
+                                <th style="vertical-align: middle">{{ $cluster }}</th>
+                                <th style="vertical-align: middle">{{ $kawasan }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
+                                <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>
