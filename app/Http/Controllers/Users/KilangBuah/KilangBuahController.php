@@ -1390,7 +1390,11 @@ class KilangBuahController extends Controller
         }
 
         for($i = 0; $i < $key; $i++){
-                        $lineplot_negeri = $lineplot_negeri.floatval($val4[$i]) .',';
+            if($lineplot_negeri == 0){
+                $lineplot_negeri = $val4[$i] .',';
+            }else{
+                $lineplot_negeri = $lineplot_negeri.$val4[$i] .',';
+            }
         }
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
 
@@ -1411,7 +1415,6 @@ class KilangBuahController extends Controller
             'lineplot_negeri' => $lineplot_negeri,
             'lineplot_semenanjung' => $lineplot_semenanjung,
             'lineplot_malaysia' => $lineplot_malaysia,
-
         ];
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
         return $array;
