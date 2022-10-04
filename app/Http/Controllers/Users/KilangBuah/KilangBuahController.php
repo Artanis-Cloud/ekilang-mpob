@@ -1531,16 +1531,16 @@ class KilangBuahController extends Controller
         $lineplot_semenanjung = 0;
         $lineplot_malaysia = 0;
 
-        for ($i = 0; $i < $key; $i++) {
-            if ($labelx == 0) {
-                $labelx = $val1[$i] . ',';
-            } else {
-                $labelx = $labelx . $val1[$i] . ",";
-            }
-            // $labelx = $labelx ."'". $val1[$i] . "',";
-        }
-        $labelx = substr($labelx, 0, -1);
-        // dd($labelx);
+        // for ($i = 0; $i < $key; $i++) {
+        //     if ($labelx == 0) {
+        //         $labelx = $val1[$i] . ',';
+        //     } else {
+        //         $labelx = $labelx . $val1[$i] . ",";
+        //     }
+        //     // $labelx = $labelx ."'". $val1[$i] . "',";
+        // }
+        // $labelx = substr($labelx, 0, -1);
+        dd($val1);
 
 
         for ($i = 0; $i < $key; $i++) {
