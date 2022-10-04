@@ -1372,7 +1372,7 @@ class KilangBuahController extends Controller
             if($labelx == 0){
                 $labelx = $val1[$i] .',';
             }else{
-                $labelx = $labelx ."'". $val1[$i] . "',";
+                $labelx = $labelx.$val1[$i] . ",";
             }
             // $labelx = $labelx ."'". $val1[$i] . "',";
         }
