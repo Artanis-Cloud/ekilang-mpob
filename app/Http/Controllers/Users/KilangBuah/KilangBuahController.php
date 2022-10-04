@@ -1388,9 +1388,17 @@ class KilangBuahController extends Controller
         }
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
 
+        $array = [
+            'lineplot_individu' => $lineplot_individu,
+            'lineplot_daerah' => $lineplot_daerah,
 
+            'lineplot_negeri' => $lineplot_negeri,
+            'lineplot_semenanjung' => $lineplot_semenanjung,
+            'lineplot_malaysia' => $lineplot_malaysia,
+
+        ];
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
-        return redirect()->route('admin.papar.prestasi.oer');
+        return $array;
 
 
 
