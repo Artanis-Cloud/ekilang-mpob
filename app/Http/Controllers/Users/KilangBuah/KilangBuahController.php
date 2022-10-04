@@ -1372,6 +1372,8 @@ class KilangBuahController extends Controller
             $labelx = $labelx ."'". $val1[$i] . "',";
         }
         $labelx = substr($labelx, 0, -1);
+        dd($labelx);
+
 
         for($i = 0; $i < $key; $i++){
             if($lineplot_individu == 0){
