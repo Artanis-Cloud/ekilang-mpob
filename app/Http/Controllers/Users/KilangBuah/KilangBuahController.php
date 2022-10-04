@@ -944,7 +944,8 @@ class KilangBuahController extends Controller
 
     public function buah_oerprocess(Request $request)
     {
-        $this->display_oergraph(auth()->user()->username, $request->tahun);
+        $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
+        dd($oer);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -961,7 +962,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer'));
 
     }
 
