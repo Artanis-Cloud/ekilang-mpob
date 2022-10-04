@@ -62,25 +62,21 @@ class tryController extends Controller
             $nolesen = '500008704000';
 
             //get data oer year3full
-            $query3 = DB::connection('mysql3')->select("SELECT distinct d.daerah from oerpelesen p, daerahless d
-            where p.nolesen = '$nolesen' and
-                  p.negeri = d.negeri and
-                  p.daerah = d.daerah ");
+            //check daerahless
+        $chkqry = DB::connection('mysql3')->select("SELECT distinct d.daerah from oerpelesen p, daerahless d
+        where p.nolesen = '$nolesen' and
+              p.negeri = d.negeri and
+              p.daerah = d.daerah ");
 
 
 
-            //   $result3 = @mysqli_fetch_array($query3);
-//
-dd($query3);
 
-              foreach ($query3 as $key => $value3) {
-                $val1[$key] = $value3->bulan. '/' . $value3->tahun;
-                $val2[$key] = $value3->cpo_pelesen;
-                $val3[$key] = $value3->cpo_daerah;
-                $val4[$key] = $value3->cpo_negeri;
-                $val5[$key] = $value3->cpo_semenanjung;
-                $val6[$key] = $value3->cpo_msia;
-            }
+    //PROBLEM HERE. THE RESULT RETURN []
+        foreach ($chkqry as $row) {
+        $result = $row->daerah;
+        }
+
+        return $result;
 
                 // for ($count=0; $row = $query3; $count++)
                 // {

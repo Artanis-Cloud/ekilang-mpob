@@ -1008,6 +1008,10 @@ class KilangBuahController extends Controller
               p.negeri = d.negeri and
               p.daerah = d.daerah ");
 
+
+
+
+    //PROBLEM HERE. THE RESULT RETURN []
         foreach ($chkqry as $row) {
         $result = $row->daerah;
         }
@@ -1052,6 +1056,7 @@ class KilangBuahController extends Controller
 
     //  $result3 = @mysqli_query($conn,$query3);
     //  $row = @mysqli_fetch_array($result3);
+
     foreach ($query3 as $row) {
         $result = $row->oer_cpo;
 
