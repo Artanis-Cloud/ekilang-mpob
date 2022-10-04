@@ -1360,7 +1360,7 @@ class KilangBuahController extends Controller
                         $lineplot_individu = $lineplot_individu.$val2[$i] .',';
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
-        dd($lineplot_individu);
+        // dd($lineplot_individu);
 
         if ($flgdaerah == 'Y')
         {
