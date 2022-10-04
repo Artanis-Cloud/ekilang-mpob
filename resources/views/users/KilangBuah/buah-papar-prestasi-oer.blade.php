@@ -97,7 +97,7 @@
                 axis: {
                     x: {
                         type: 'category',
-                        categories: [{{ $labelx ?? '' }}],
+                        categories: ['{{ $labelx ?? '' }}'],
                         title: {
                             display: true,
                             text: 'BULAN/TAHUN'
