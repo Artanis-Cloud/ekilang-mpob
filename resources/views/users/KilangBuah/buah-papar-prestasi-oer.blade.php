@@ -99,7 +99,7 @@
                         type: 'category',
                         categories: [
                             @foreach ($labelx as $date)
-                                {{ "$date" }} ,
+                                {{ '$date' }} ,
                             @endforeach
                         ],
                         title: {
