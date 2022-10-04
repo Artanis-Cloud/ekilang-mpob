@@ -951,7 +951,7 @@ class KilangBuahController extends Controller
         $semsia = $oer['lineplot_semenanjung'];
         $msia = $oer['lineplot_malaysia'];
         $labelx = $oer['labelx'];
-        dd($labelx);
+        // dd($labelx);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -1372,7 +1372,7 @@ class KilangBuahController extends Controller
             if($labelx == 0){
                 $labelx = $val1[$i] .',';
             }else{
-                $labelx = $labelx.$val1[$i] .',';
+                $labelx = $labelx ."'". $val1[$i] . "',";
             }
             // $labelx = $labelx ."'". $val1[$i] . "',";
         }
