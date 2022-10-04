@@ -1540,7 +1540,7 @@ class KilangBuahController extends Controller
         //     // $labelx = $labelx ."'". $val1[$i] . "',";
         // }
         // $labelx = substr($labelx, 0, -1);
-        dd($val1);
+        // dd($val1);
 
 
         for ($i = 0; $i < $key; $i++) {
@@ -1602,7 +1602,7 @@ class KilangBuahController extends Controller
             'lineplot_semenanjung' => $lineplot_semenanjung,
             'lineplot_malaysia' => $lineplot_malaysia,
 
-            'labelx' => $labelx,
+            'labelx' => $val1,
         ];
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
         return $array;
