@@ -1376,7 +1376,7 @@ class KilangBuahController extends Controller
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = $bulan . '' . $value6->tahun;
+                $val1[$key] = $value6->bulan . '-' . $value6->tahun;
                 $val2[$key] = $value6->cpo_pelesen;
                 $val4[$key] = $value6->cpo_negeri;
                 $val5[$key] = $value6->cpo_semenanjung;
@@ -1419,7 +1419,7 @@ class KilangBuahController extends Controller
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = $bulan . '' . $value5->tahun;
+                $val1[$key] = $value5->bulan . '-' . $value5->tahun;
                 $val2[$key] = $value5->cpo_pelesen;
                 $val4[$key] = $value5->cpo_negeri;
                 $val5[$key] = $value5->cpo_semenanjung;
@@ -1540,7 +1540,7 @@ class KilangBuahController extends Controller
             // $labelx = $labelx ."'". $val1[$i] . "',";
         }
         $labelx = substr($labelx, 0, -1);
-        dd($labelx);
+        // dd($labelx);
 
 
         for ($i = 0; $i < $key; $i++) {
