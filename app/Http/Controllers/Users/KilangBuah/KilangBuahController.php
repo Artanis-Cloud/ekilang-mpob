@@ -947,10 +947,10 @@ class KilangBuahController extends Controller
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
         $daerah = $oer['lineplot_daerah'];
-        $negeri = $oer['lineplot_negeri'];
+        $negeri = floatval($oer['lineplot_negeri']);
         $semsia = $oer['lineplot_semenanjung'];
         $msia = $oer['lineplot_malaysia'];
-        // dd($negeri);
+        // dd($negeri
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
