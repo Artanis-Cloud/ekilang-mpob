@@ -56,6 +56,8 @@
                 <hr>
                 <br>
                 <br>
+                <h5 style="color: rgb(39, 80, 71); font-size:14px">LAPORAN PRESTASI OER {{ $namakilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5>
+
 
             </div>
         </div>

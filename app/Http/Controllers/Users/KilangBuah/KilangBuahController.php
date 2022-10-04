@@ -947,6 +947,7 @@ class KilangBuahController extends Controller
     public function buah_oerprocess(Request $request)
     {
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
+        $data = $this->display_oerdata(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
         $daerah = $oer['lineplot_daerah'];
         $negeri = $oer['lineplot_negeri'];
@@ -956,7 +957,10 @@ class KilangBuahController extends Controller
         $nama_negeri = $oer['nama_negeri'];
         $nama_daerah = $oer['nama_daerah'];
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
-        // dd($nama_daerah2);
+
+        $nama_kilang = $data['nama_kilang'];
+
+        dd($data);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -1164,33 +1168,33 @@ class KilangBuahController extends Controller
             $i = 0;
             foreach ($result3 as $value3) {
 
-                if ($value3->bulan == '01') {
-                    $bulan = 'Jan';
-                } elseif ($value3->bulan == '02') {
-                    $bulan = 'Feb';
-                } elseif ($value3->bulan == '03') {
-                    $bulan = 'Mac';
-                } elseif ($value3->bulan == '04') {
-                    $bulan = 'Apr';
-                } elseif ($value3->bulan == '05') {
-                    $bulan = 'Mei';
-                } elseif ($value3->bulan == '06') {
-                    $bulan = 'Jun';
-                } elseif ($value3->bulan == '07') {
-                    $bulan = 'Jul';
-                } elseif ($value3->bulan == '08') {
-                    $bulan = 'Ogos';
-                } elseif ($value3->bulan == '09') {
-                    $bulan = 'Sept';
-                } elseif ($value3->bulan == '10') {
-                    $bulan = 'Okt';
-                } elseif ($value3->bulan == '11') {
-                    $bulan = 'Nov';
-                } elseif ($value3->bulan == '12') {
-                    $bulan = 'Dis';
-                } else {
-                    $bulan = 0;
-                }
+                // if ($value3->bulan == '01') {
+                //     $bulan = 'Jan';
+                // } elseif ($value3->bulan == '02') {
+                //     $bulan = 'Feb';
+                // } elseif ($value3->bulan == '03') {
+                //     $bulan = 'Mac';
+                // } elseif ($value3->bulan == '04') {
+                //     $bulan = 'Apr';
+                // } elseif ($value3->bulan == '05') {
+                //     $bulan = 'Mei';
+                // } elseif ($value3->bulan == '06') {
+                //     $bulan = 'Jun';
+                // } elseif ($value3->bulan == '07') {
+                //     $bulan = 'Jul';
+                // } elseif ($value3->bulan == '08') {
+                //     $bulan = 'Ogos';
+                // } elseif ($value3->bulan == '09') {
+                //     $bulan = 'Sept';
+                // } elseif ($value3->bulan == '10') {
+                //     $bulan = 'Okt';
+                // } elseif ($value3->bulan == '11') {
+                //     $bulan = 'Nov';
+                // } elseif ($value3->bulan == '12') {
+                //     $bulan = 'Dis';
+                // } else {
+                //     $bulan = 0;
+                // }
 
                 $val1[$i] = "$value3->bulan/$value3->tahun";
                 $val2[$i] = $value3->cpo_pelesen;
@@ -1210,33 +1214,33 @@ class KilangBuahController extends Controller
 
             foreach ($result2 as $value2) {
 
-                if ($value2->bulan == '01') {
-                    $bulan = 'Jan';
-                } elseif ($value2->bulan == '02') {
-                    $bulan = 'Feb';
-                } elseif ($value2->bulan == '03') {
-                    $bulan = 'Mac';
-                } elseif ($value2->bulan == '04') {
-                    $bulan = 'Apr';
-                } elseif ($value2->bulan == '05') {
-                    $bulan = 'Mei';
-                } elseif ($value2->bulan == '06') {
-                    $bulan = 'Jun';
-                } elseif ($value2->bulan == '07') {
-                    $bulan = 'Jul';
-                } elseif ($value2->bulan == '08') {
-                    $bulan = 'Ogos';
-                } elseif ($value2->bulan == '09') {
-                    $bulan = 'Sept';
-                } elseif ($value2->bulan == '10') {
-                    $bulan = 'Okt';
-                } elseif ($value2->bulan == '11') {
-                    $bulan = 'Nov';
-                } elseif ($value2->bulan == '12') {
-                    $bulan = 'Dis';
-                } else {
-                    $bulan = 0;
-                }
+                // if ($value2->bulan == '01') {
+                //     $bulan = 'Jan';
+                // } elseif ($value2->bulan == '02') {
+                //     $bulan = 'Feb';
+                // } elseif ($value2->bulan == '03') {
+                //     $bulan = 'Mac';
+                // } elseif ($value2->bulan == '04') {
+                //     $bulan = 'Apr';
+                // } elseif ($value2->bulan == '05') {
+                //     $bulan = 'Mei';
+                // } elseif ($value2->bulan == '06') {
+                //     $bulan = 'Jun';
+                // } elseif ($value2->bulan == '07') {
+                //     $bulan = 'Jul';
+                // } elseif ($value2->bulan == '08') {
+                //     $bulan = 'Ogos';
+                // } elseif ($value2->bulan == '09') {
+                //     $bulan = 'Sept';
+                // } elseif ($value2->bulan == '10') {
+                //     $bulan = 'Okt';
+                // } elseif ($value2->bulan == '11') {
+                //     $bulan = 'Nov';
+                // } elseif ($value2->bulan == '12') {
+                //     $bulan = 'Dis';
+                // } else {
+                //     $bulan = 0;
+                // }
                 $val1[$i] = "$value2->bulan/$value2->tahun";
                 $val2[$i] = $value2->cpo_pelesen;
                 $val3[$i] = $value2->cpo_daerah;
@@ -1254,33 +1258,33 @@ class KilangBuahController extends Controller
             }
 
             foreach ($result1 as $value1) {
-                if ($value1->bulan == '01') {
-                    $bulan = 'Jan';
-                } elseif ($value1->bulan == '02') {
-                    $bulan = 'Feb';
-                } elseif ($value1->bulan == '03') {
-                    $bulan = 'Mac';
-                } elseif ($value1->bulan == '04') {
-                    $bulan = 'Apr';
-                } elseif ($value1->bulan == '05') {
-                    $bulan = 'Mei';
-                } elseif ($value1->bulan == '06') {
-                    $bulan = 'Jun';
-                } elseif ($value1->bulan == '07') {
-                    $bulan = 'Jul';
-                } elseif ($value1->bulan == '08') {
-                    $bulan = 'Ogos';
-                } elseif ($value1->bulan == '09') {
-                    $bulan = 'Sept';
-                } elseif ($value1->bulan == '10') {
-                    $bulan = 'Okt';
-                } elseif ($value1->bulan == '11') {
-                    $bulan = 'Nov';
-                } elseif ($value1->bulan == '12') {
-                    $bulan = 'Dis';
-                } else {
-                    $bulan = 0;
-                }
+                // if ($value1->bulan == '01') {
+                //     $bulan = 'Jan';
+                // } elseif ($value1->bulan == '02') {
+                //     $bulan = 'Feb';
+                // } elseif ($value1->bulan == '03') {
+                //     $bulan = 'Mac';
+                // } elseif ($value1->bulan == '04') {
+                //     $bulan = 'Apr';
+                // } elseif ($value1->bulan == '05') {
+                //     $bulan = 'Mei';
+                // } elseif ($value1->bulan == '06') {
+                //     $bulan = 'Jun';
+                // } elseif ($value1->bulan == '07') {
+                //     $bulan = 'Jul';
+                // } elseif ($value1->bulan == '08') {
+                //     $bulan = 'Ogos';
+                // } elseif ($value1->bulan == '09') {
+                //     $bulan = 'Sept';
+                // } elseif ($value1->bulan == '10') {
+                //     $bulan = 'Okt';
+                // } elseif ($value1->bulan == '11') {
+                //     $bulan = 'Nov';
+                // } elseif ($value1->bulan == '12') {
+                //     $bulan = 'Dis';
+                // } else {
+                //     $bulan = 0;
+                // }
 
                 $val1[$i] = "$value1->bulan/$value1->tahun";
                 $val2[$i] = $value1->cpo_pelesen;
@@ -1311,33 +1315,33 @@ class KilangBuahController extends Controller
             $i = 0;
             foreach ($result6 as $value6) {
 
-                if ($value6->bulan == '01') {
-                    $bulan = 'Jan';
-                } elseif ($value6->bulan == '02') {
-                    $bulan = 'Feb';
-                } elseif ($value6->bulan == '03') {
-                    $bulan = 'Mac';
-                } elseif ($value6->bulan == '04') {
-                    $bulan = 'Apr';
-                } elseif ($value6->bulan == '05') {
-                    $bulan = 'Mei';
-                } elseif ($value6->bulan == '06') {
-                    $bulan = 'Jun';
-                } elseif ($value6->bulan == '07') {
-                    $bulan = 'Jul';
-                } elseif ($value6->bulan == '08') {
-                    $bulan = 'Ogos';
-                } elseif ($value6->bulan == '09') {
-                    $bulan = 'Sept';
-                } elseif ($value6->bulan == '10') {
-                    $bulan = 'Okt';
-                } elseif ($value6->bulan == '11') {
-                    $bulan = 'Nov';
-                } elseif ($value6->bulan == '12') {
-                    $bulan = 'Dis';
-                } else {
-                    $bulan = 0;
-                }
+                // if ($value6->bulan == '01') {
+                //     $bulan = 'Jan';
+                // } elseif ($value6->bulan == '02') {
+                //     $bulan = 'Feb';
+                // } elseif ($value6->bulan == '03') {
+                //     $bulan = 'Mac';
+                // } elseif ($value6->bulan == '04') {
+                //     $bulan = 'Apr';
+                // } elseif ($value6->bulan == '05') {
+                //     $bulan = 'Mei';
+                // } elseif ($value6->bulan == '06') {
+                //     $bulan = 'Jun';
+                // } elseif ($value6->bulan == '07') {
+                //     $bulan = 'Jul';
+                // } elseif ($value6->bulan == '08') {
+                //     $bulan = 'Ogos';
+                // } elseif ($value6->bulan == '09') {
+                //     $bulan = 'Sept';
+                // } elseif ($value6->bulan == '10') {
+                //     $bulan = 'Okt';
+                // } elseif ($value6->bulan == '11') {
+                //     $bulan = 'Nov';
+                // } elseif ($value6->bulan == '12') {
+                //     $bulan = 'Dis';
+                // } else {
+                //     $bulan = 0;
+                // }
                 $val1[$i] = "$value6->bulan/$value6->tahun";
                 $val2[$i] = $value6->cpo_pelesen;
                 $val4[$i] = $value6->cpo_negeri;
@@ -1547,30 +1551,30 @@ class KilangBuahController extends Controller
 	//$bln1 = get_month_firstyear($nobulan);
 	//$bln2 = get_month_lastyear($nobulan);
 
-	$adadaerah = check_daerahless($nolesen);
-	if (!isset($adadaerah))
+	$adadaerah = $this->check_daerahless($nolesen);
+	if (!$adadaerah || $adadaerah == 0)
 	   $flgdaerah = 'Y';
 	else
 		$flgdaerah = 'N';
 
 	//echo $flgdaerah;
-	$dtlpelesen = get_data_pelesen($nolesen);
-	foreach ($dtlpelesen as $row)
-	{
-	  $namakilang = trim($row["namakilang"]);
-	  $daerah = trim($row["nama_daerah"]);
-	  $negeri = trim($row["nama_negeri"]);
-	}
 
-	 $makpelesen = get_pelesen($nolesen);
-	 foreach ($makpelesen as $row1)
-	  {
-	   $enp = $row1["e_np"];
-	   $cluster = strtoupper($row1["nama_cluster"]);
-	   $kodcluster = $row1["e_cluster"];
-	   $kawasan = $row1["nama_region"];
-	   $kodkawasan = $row1["e_kawasan"];
-	  }
+
+	$dtlpelesen = $this->get_data_pelesen($nolesen);
+	foreach ($dtlpelesen as $row) {
+        $namakilang = trim($row->namakilang);
+        $daerah = trim($row->nama_daerah);
+        $negeri = trim($row->nama_negeri);
+    }
+
+	 $makpelesen = $this->get_pelesen($nolesen);
+	 foreach ($makpelesen as $row1) {
+        $enp = $row1->namakilang;
+        $cluster = strtoupper($row1->nama_cluster);
+        $kodcluster = $row1->e_cluster;
+        $kawasan = $row1->nama_region;
+        $kodkawasan = $row1->e_kawasan;
+    }
 
 	if ($flgdaerah == 'Y')
 	{
