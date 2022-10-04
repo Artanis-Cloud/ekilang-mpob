@@ -97,7 +97,11 @@
                 axis: {
                     x: {
                         type: 'category',
-                        categories: [{{ $labelx ?? '' }}],
+                        categories: [
+                            @foreach ($labelx as $date)
+                                {{ $date }}
+                            @endforeach
+                        ],
                         title: {
                             display: true,
                             text: 'BULAN/TAHUN'
