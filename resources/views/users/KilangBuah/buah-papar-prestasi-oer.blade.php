@@ -81,11 +81,11 @@
                 data: {
                     columns: [
                         // loop
-                        ['Individu', {{ $individu ?? 0 }}],
+                        ['INDIVIDU', {{ $individu ?? 0 }}],
                         ['{{ $nama_daerah2 }}', {{ $daerah ?? 0 }}],
                         ['{{ $nama_negeri }}', {{ $negeri ?? 0}}],
-                        ['Semenanjung Malaysia', {{ $semsia }}],
-                        ['Malaysia',{{ $msia }}]
+                        ['SEMENANJUNG MALAYSIA', {{ $semsia }}],
+                        ['MALAYSIA',{{ $msia }}]
                     ],
                     type: 'line'
                 },
