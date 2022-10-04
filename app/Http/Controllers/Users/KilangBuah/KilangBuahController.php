@@ -950,6 +950,7 @@ class KilangBuahController extends Controller
         $negeri = $oer['lineplot_negeri'];
         $semsia = $oer['lineplot_semenanjung'];
         $msia = $oer['lineplot_malaysia'];
+        $labelx = $oer['labelx'];
         // dd($negeri
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
@@ -967,7 +968,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer','individu','daerah','negeri', 'semsia', 'msia'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer','individu','daerah','negeri', 'semsia', 'msia', 'labelx'));
 
     }
 
@@ -1368,12 +1369,16 @@ class KilangBuahController extends Controller
         $lineplot_malaysia = 0;
 
         for($i = 0; $i < $key; $i++){
-                        $labelx = $labelx ."'". $val1[$i] . "',";
+            $labelx = $labelx ."'". $val1[$i] . "',";
         }
         $labelx = substr($labelx, 0, -1);
 
         for($i = 0; $i < $key; $i++){
-                        $lineplot_individu = $lineplot_individu.$val2[$i] .',';
+            if($lineplot_individu == 0){
+                $lineplot_individu = $val2[$i] .',';
+            }else{
+                $lineplot_individu = $lineplot_individu.$val2[$i] .',';
+            }
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
         // dd($lineplot_individu);
@@ -1381,7 +1386,11 @@ class KilangBuahController extends Controller
         if ($flgdaerah == 'Y')
         {
             for($i = 0; $i < $key; $i++){
-                        $lineplot_daerah = $lineplot_daerah.$val3[$i] .',';
+                if($lineplot_daerah == 0){
+                    $lineplot_daerah = $val3[$i] .',';
+                }else{
+                    $lineplot_daerah = $lineplot_daerah.$val3[$i] .',';
+                }
             }
 
             $lineplot_daerah = substr($lineplot_daerah, 0, -1);
@@ -1399,12 +1408,20 @@ class KilangBuahController extends Controller
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
 
         for($i = 0; $i < $key; $i++){
-                        $lineplot_semenanjung = $lineplot_semenanjung.$val5[$i] .',';
+            if($lineplot_semenanjung == 0){
+                $lineplot_semenanjung = $val5[$i] .',';
+            }else{
+                $lineplot_semenanjung = $lineplot_semenanjung.$val5[$i] .',';
+            }
         }
         $lineplot_semenanjung = substr($lineplot_semenanjung, 0, -1);
 
         for($i = 0; $i < $key; $i++){
-                        $lineplot_malaysia = $lineplot_malaysia.$val6[$i] .',';
+            if($lineplot_malaysia == 0){
+                $lineplot_malaysia = $val2[$i] .',';
+            }else{
+                $lineplot_malaysia = $lineplot_malaysia.$val6[$i] .',';
+            }
         }
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
 
@@ -1415,6 +1432,8 @@ class KilangBuahController extends Controller
             'lineplot_negeri' => $lineplot_negeri,
             'lineplot_semenanjung' => $lineplot_semenanjung,
             'lineplot_malaysia' => $lineplot_malaysia,
+
+            'labelx' => $labelx,
         ];
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
         return $array;
