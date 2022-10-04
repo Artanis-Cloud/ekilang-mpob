@@ -83,9 +83,9 @@
                         // loop
                         ['Individu', {{ $individu }}],
                         ['Daerah', {{ $daerah }}],
-                        ['Negeri', {{ $negeri }}],
-                        ['Semenanjung Malaysia', {{ $semsia }}],
-                        ['Malaysia', {{ $msia }}],
+                        ['Negeri', {{ $individu }}],
+                        ['Semenanjung Malaysia', {{ $individu }}],
+                        ['Malaysia', {{ $individu }}],
                     ],
                     type: 'line'
                 },
