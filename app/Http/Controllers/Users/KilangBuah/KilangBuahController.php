@@ -973,7 +973,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2'));
     }
 
 
