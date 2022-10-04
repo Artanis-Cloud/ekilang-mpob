@@ -76,7 +76,8 @@ class tryController extends Controller
         $result = $row->daerah;
         }
 
-        return $result;
+        // return $result;
+        dd($result);
 
                 // for ($count=0; $row = $query3; $count++)
                 // {
