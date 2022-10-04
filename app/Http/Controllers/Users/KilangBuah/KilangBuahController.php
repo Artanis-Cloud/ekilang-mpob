@@ -957,6 +957,9 @@ class KilangBuahController extends Controller
         $nama_negeri = $oer['nama_negeri'];
         $nama_daerah = $oer['nama_daerah'];
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
+
+        $cluster = $data['cluster'];
+        $kawasan = $data['kawasan'];
         $nama_kilang = $data['namakilang'];
         $thn1 = $data['thn1'];
         $thn2 = $data['thn2'];
@@ -979,7 +982,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
     }
 
 
@@ -2122,6 +2125,8 @@ class KilangBuahController extends Controller
         'namakilang' => $namakilang,
         'daerah' => $daerah,
         'negeri' => $negeri,
+        'cluster' => $cluster,
+        'kawasan' => $kawasan,
 
 
     ];
