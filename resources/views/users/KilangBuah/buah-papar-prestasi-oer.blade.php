@@ -73,9 +73,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($bulhun3 as $key => $value3)
+                            @foreach ($bulhun3 as $value3)
                             <tr>
-                                <td>{{ $value3[$key] }}
+                                <td>{{ $value3 }}
                                 </td>
                                 {{-- <td>
                                     {{ $data->produk->prodid }}
