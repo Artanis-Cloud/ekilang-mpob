@@ -946,10 +946,10 @@ class KilangBuahController extends Controller
     {
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
-        $daerah = $oer['lineplot_daerah'];
-        $negeri = $oer['lineplot_negeri'];
-        $semsia = $oer['lineplot_semsia'];
-        $msia = $oer['lineplot_msia'];
+        // $daerah = $oer['lineplot_daerah'];
+        // $negeri = $oer['lineplot_negeri'];
+        // $semsia = $oer['lineplot_semsia'];
+        // $msia = $oer['lineplot_msia'];
         dd($oer);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
