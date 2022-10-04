@@ -1009,11 +1009,12 @@ class KilangBuahController extends Controller
               p.daerah = d.daerah ");
 
 
-
-
-    //PROBLEM HERE. THE RESULT RETURN []
-        foreach ($chkqry as $row) {
-        $result = $row->daerah;
+        if ($chkqry) {
+            foreach ($chkqry as $row) {
+                $result = $row->daerah;
+                }
+        } else {
+            $result = 0;
         }
 
         return $result;
@@ -1116,7 +1117,7 @@ class KilangBuahController extends Controller
 
 
         $adadaerah = $this->check_daerahless($nolesen);
-        if (!$adadaerah)
+        if (!$adadaerah || $adadaerah == 0)
            $flgdaerah = 'Y';
         else
             $flgdaerah = 'N';
