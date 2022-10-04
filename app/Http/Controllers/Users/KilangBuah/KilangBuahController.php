@@ -1161,9 +1161,8 @@ class KilangBuahController extends Controller
             $result2 = $this->get_data_oer_year3full($nolesen, $thn2);
             $result3 = $this->get_data_oer_year3full($nolesen, $thn3);
 
-dd($result3);
-
-            foreach ($result3 as $key => $value3) {
+            $i = 0;
+            foreach ($result3 as $value3) {
 
                 if ($value3->bulan == '01') {
                     $bulan = 'Jan';
@@ -1193,22 +1192,23 @@ dd($result3);
                     $bulan = 0;
                 }
 
-                $val1[$key] = "$value3->bulan/$value3->tahun";
-                $val2[$key] = $value3->cpo_pelesen;
-                $val3[$key] = $value3->cpo_daerah;
-                $val4[$key] = $value3->cpo_negeri;
-                $val5[$key] = $value3->cpo_semenanjung;
-                $val6[$key] = $value3->cpo_msia;
+                $val1[$i] = "$value3->bulan/$value3->tahun";
+                $val2[$i] = $value3->cpo_pelesen;
+                $val3[$i] = $value3->cpo_daerah;
+                $val4[$i] = $value3->cpo_negeri;
+                $val5[$i] = $value3->cpo_semenanjung;
+                $val6[$i] = $value3->cpo_msia;
 
                 $valbulan1 = $value3->bulan;
                 $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster, $thn3, $valbulan1);
-                $val7[$key] = $oercluster1;
+                $val7[$i] = $oercluster1;
                 $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn3, $valbulan1);
-                $val8[$key] = $oerkawasan1;
+                $val8[$i] = $oerkawasan1;
+
+                $i++;
             }
 
             foreach ($result2 as $value2) {
-                $key++;
 
                 if ($value2->bulan == '01') {
                     $bulan = 'Jan';
@@ -1237,23 +1237,23 @@ dd($result3);
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = "$value2->bulan/$value2->tahun";
-                $val2[$key] = $value2->cpo_pelesen;
-                $val3[$key] = $value2->cpo_daerah;
-                $val4[$key] = $value2->cpo_negeri;
-                $val5[$key] = $value2->cpo_semenanjung;
-                $val6[$key] = $value2->cpo_msia;
+                $val1[$i] = "$value2->bulan/$value2->tahun";
+                $val2[$i] = $value2->cpo_pelesen;
+                $val3[$i] = $value2->cpo_daerah;
+                $val4[$i] = $value2->cpo_negeri;
+                $val5[$i] = $value2->cpo_semenanjung;
+                $val6[$i] = $value2->cpo_msia;
 
                 $valbulan2 = $value2->bulan;
                 $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster, $thn2, $valbulan2);
                 $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn2, $valbulan2);
-                $val7[$key] = $oercluster2;
-                $val8[$key] = $oerkawasan2;
+                $val7[$i] = $oercluster2;
+                $val8[$i] = $oerkawasan2;
+
+                $i++;
             }
 
-            foreach ($result1 as $key => $value1) {
-                $key++;
-
+            foreach ($result1 as $value1) {
                 if ($value1->bulan == '01') {
                     $bulan = 'Jan';
                 } elseif ($value1->bulan == '02') {
@@ -1282,18 +1282,20 @@ dd($result3);
                     $bulan = 0;
                 }
 
-                $val1[$key] = "$value1->bulan/$value1->tahun";
-                $val2[$key] = $value1->cpo_pelesen;
-                $val3[$key] = $value1->cpo_daerah;
-                $val4[$key] = $value1->cpo_negeri;
-                $val5[$key] = $value1->cpo_semenanjung;
-                $val6[$key] = $value1->cpo_msia;
+                $val1[$i] = "$value1->bulan/$value1->tahun";
+                $val2[$i] = $value1->cpo_pelesen;
+                $val3[$i] = $value1->cpo_daerah;
+                $val4[$i] = $value1->cpo_negeri;
+                $val5[$i] = $value1->cpo_semenanjung;
+                $val6[$i] = $value1->cpo_msia;
 
                 $valbulan3 = $value1->bulan;
                 $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster, $thn1, $valbulan3);
                 $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn1, $valbulan3);
-                $val7[$key] = $oercluster3;
-                $val8[$key] = $oerkawasan3;
+                $val7[$i] = $oercluster3;
+                $val8[$i] = $oerkawasan3;
+
+                $i++;
             }
 
 
@@ -1306,8 +1308,8 @@ dd($result3);
             // $result6 = get_data_oer_year3dfull($nolesen,$thn3);
             $result6 =  $this->get_data_oer_year3dfull($nolesen, $thn3);
 
-
-            foreach ($result6 as $key => $value6) {
+            $i = 0;
+            foreach ($result6 as $value6) {
 
                 if ($value6->bulan == '01') {
                     $bulan = 'Jan';
@@ -1336,21 +1338,22 @@ dd($result3);
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = "$value6->bulan/$value6->tahun";
-                $val2[$key] = $value6->cpo_pelesen;
-                $val4[$key] = $value6->cpo_negeri;
-                $val5[$key] = $value6->cpo_semenanjung;
-                $val6[$key] = $value6->cpo_msia;
+                $val1[$i] = "$value6->bulan/$value6->tahun";
+                $val2[$i] = $value6->cpo_pelesen;
+                $val4[$i] = $value6->cpo_negeri;
+                $val5[$i] = $value6->cpo_semenanjung;
+                $val6[$i] = $value6->cpo_msia;
 
                 $valbulan1 = $value6->bulan;
                 $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster, $thn3, $valbulan1);
                 $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn3, $valbulan1);
-                $val7[$key] = $oercluster1;
-                $val8[$key] = $oerkawasan1;
+                $val7[$i] = $oercluster1;
+                $val8[$i] = $oerkawasan1;
+
+                $i++;
             }
 
-            foreach ($result5 as $key => $value5) {
-                $key++;
+            foreach ($result5 as $value5) {
 
                 if ($value5->bulan == '01') {
                     $bulan = 'Jan';
@@ -1379,21 +1382,23 @@ dd($result3);
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = "$value5->bulan-$value5->tahun";
-                $val2[$key] = $value5->cpo_pelesen;
-                $val4[$key] = $value5->cpo_negeri;
-                $val5[$key] = $value5->cpo_semenanjung;
-                $val6[$key] = $value5->cpo_msia;
+                $val1[$i] = "$value5->bulan-$value5->tahun";
+                $val2[$i] = $value5->cpo_pelesen;
+                $val4[$i] = $value5->cpo_negeri;
+                $val5[$i] = $value5->cpo_semenanjung;
+                $val6[$i] = $value5->cpo_msia;
 
                 $valbulan2 = $value5->bulan;
                 $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster, $thn2, $valbulan2);
                 $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn2, $valbulan2);
-                $val7[$key] = $oercluster2;
-                $val8[$key] = $oerkawasan2;
+                $val7[$i] = $oercluster2;
+                $val8[$i] = $oerkawasan2;
+
+                $i++;
             }
 
-            foreach ($result4 as $key => $value4) {
-                $key++;
+            foreach ($result4 as $value4) {
+
                 if ($value4->bulan == '01') {
                     $bulan = 'Jan';
                 } elseif ($value4->bulan == '02') {
@@ -1421,17 +1426,19 @@ dd($result3);
                 } else {
                     $bulan = 0;
                 }
-                $val1[$key] = "$value4->bulan/$value4->tahun";
-                $val2[$key] = $value4->cpo_pelesen;
-                $val4[$key] = $value4->cpo_negeri;
-                $val5[$key] = $value4->cpo_semenanjung;
-                $val6[$key] = $value4->cpo_msia;
+                $val1[$i] = "$value4->bulan/$value4->tahun";
+                $val2[$i] = $value4->cpo_pelesen;
+                $val4[$i] = $value4->cpo_negeri;
+                $val5[$i] = $value4->cpo_semenanjung;
+                $val6[$i] = $value4->cpo_msia;
 
                 $valbulan3 = $value4->bulan;
                 $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster, $thn1, $valbulan3);
                 $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn1, $valbulan3);
-                $val7[$key] = $oercluster3;
-                $val8[$key] = $oerkawasan3;
+                $val7[$i] = $oercluster3;
+                $val8[$i] = $oerkawasan3;
+
+                $i++;
             }
 
         }
@@ -1462,22 +1469,22 @@ dd($result3);
         // dd($val1);
 
 
-        for ($i = 0; $i < $key; $i++) {
+        for ($x = 0; $x < $i; $x++) {
             if ($lineplot_individu == 0) {
-                $lineplot_individu = $val2[$i] . ',';
+                $lineplot_individu = $val2[$x] . ',';
             } else {
-                $lineplot_individu = $lineplot_individu . $val2[$i] . ',';
+                $lineplot_individu = $lineplot_individu . $val2[$x] . ',';
             }
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
         // dd($lineplot_individu);
 
         if ($flgdaerah == 'Y') {
-            for ($i = 0; $i < $key; $i++) {
+            for ($x = 0; $x < $i; $x++) {
                 if ($lineplot_daerah == 0) {
-                    $lineplot_daerah = $val3[$i] . ',';
+                    $lineplot_daerah = $val3[$x] . ',';
                 } else {
-                    $lineplot_daerah = $lineplot_daerah . $val3[$i] . ',';
+                    $lineplot_daerah = $lineplot_daerah . $val3[$x] . ',';
                 }
             }
 
@@ -1486,29 +1493,29 @@ dd($result3);
             // $lineplot2->SetLegend("$daerah");
         }
 
-        for ($i = 0; $i < $key; $i++) {
+        for ($x = 0; $x < $i; $x++) {
             if ($lineplot_negeri == 0) {
-                $lineplot_negeri = $val4[$i] . ',';
+                $lineplot_negeri = $val4[$x] . ',';
             } else {
-                $lineplot_negeri = $lineplot_negeri . $val4[$i] . ',';
+                $lineplot_negeri = $lineplot_negeri . $val4[$x] . ',';
             }
         }
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
 
-        for ($i = 0; $i < $key; $i++) {
+        for ($x = 0; $x < $i; $x++) {
             if ($lineplot_semenanjung == 0) {
-                $lineplot_semenanjung = $val5[$i] . ',';
+                $lineplot_semenanjung = $val5[$x] . ',';
             } else {
-                $lineplot_semenanjung = $lineplot_semenanjung . $val5[$i] . ',';
+                $lineplot_semenanjung = $lineplot_semenanjung . $val5[$x] . ',';
             }
         }
         $lineplot_semenanjung = substr($lineplot_semenanjung, 0, -1);
 
-        for ($i = 0; $i < $key; $i++) {
+        for ($x = 0; $x < $i; $x++) {
             if ($lineplot_malaysia == 0) {
-                $lineplot_malaysia = $val2[$i] . ',';
+                $lineplot_malaysia = $val2[$x] . ',';
             } else {
-                $lineplot_malaysia = $lineplot_malaysia . $val6[$i] . ',';
+                $lineplot_malaysia = $lineplot_malaysia . $val6[$x] . ',';
             }
         }
         $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
