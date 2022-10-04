@@ -1537,6 +1537,532 @@ class KilangBuahController extends Controller
         return $array;
     }
 
+    function display_oerdata($nolesen,$notahun)
+{
+
+	$thn1 = (integer) $notahun;
+	$thn2 = $thn1 - 1;
+	$thn3 = $thn1 - 2;
+	$thn4 = $thn1 - 3;
+	//$bln1 = get_month_firstyear($nobulan);
+	//$bln2 = get_month_lastyear($nobulan);
+
+	$adadaerah = check_daerahless($nolesen);
+	if (!isset($adadaerah))
+	   $flgdaerah = 'Y';
+	else
+		$flgdaerah = 'N';
+
+	//echo $flgdaerah;
+	$dtlpelesen = get_data_pelesen($nolesen);
+	foreach ($dtlpelesen as $row)
+	{
+	  $namakilang = trim($row["namakilang"]);
+	  $daerah = trim($row["nama_daerah"]);
+	  $negeri = trim($row["nama_negeri"]);
+	}
+
+	 $makpelesen = get_pelesen($nolesen);
+	 foreach ($makpelesen as $row1)
+	  {
+	   $enp = $row1["e_np"];
+	   $cluster = strtoupper($row1["nama_cluster"]);
+	   $kodcluster = $row1["e_cluster"];
+	   $kawasan = $row1["nama_region"];
+	   $kodkawasan = $row1["e_kawasan"];
+	  }
+
+	if ($flgdaerah == 'Y')
+	{
+	  echo "<p><b><font size=3 color=#0000FF>LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1 </font></b></p>\n";
+	  echo "<table border=1 width=100% cellspacing=0 cellpadding=0>\n";
+	  echo "<tr>\n";
+	  echo "<td width=7% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>TAHUN/BULAN</font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$namakilang</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$daerah</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$negeri</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>SEMENANJUNG MALAYSIA</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>MALAYSIA</font></td>\n";
+	  //echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$cluster</font></td>\n";
+	  //echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$kawasan</font></td>\n";
+
+	  echo "</tr>\n";
+
+
+	$result3b = get_data_oer_year3full($nolesen,$thn3);
+	  while ($row = mysqli_fetch_row($result3b))
+			{
+			  echo "<tr>\n";
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[0]))
+					 { echo "NULL"; }
+				  else
+					  { $val = $row[0] . '/' . $row[1];
+						echo $val;
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[2]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[2];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[3]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[3];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[4]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[4];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[5]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[5];
+						}
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[6]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[6];
+						}
+				  echo "</font></td>\n";
+			/*
+			  $valtahun1 = $row[0];
+			  $valbulan1 = $row[1];
+			  $oercluster1 = get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oercluster1))
+					 { echo "NULL"; }
+				  else
+					 { echo $oercluster1;
+						}
+				  echo "</font></td>\n";
+
+			  $oerkawasan1 = get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oerkawasan1))
+					 { echo "NULL"; }
+				  else
+					 { echo $oerkawasan1;
+						}
+				  echo "</font></td>\n";
+			*/
+			  echo "</tr>\n";
+			 }
+
+
+	  $result2 = get_data_oer_year3full($nolesen,$thn2);
+	  while ($row = mysqli_fetch_row($result2))
+			{
+			  echo "<tr>\n";
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[0]))
+					 { echo "NULL"; }
+				  else
+					  { $val = $row[0] . '/' . $row[1];
+						echo $val;
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[2]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[2];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[3]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[3];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[4]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[4];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[5]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[5];
+						}
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[6]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[6];
+						}
+				  echo "</font></td>\n";
+			/*
+			  $valtahun2 = $row[0];
+			  $valbulan2 = $row[1];
+			  $oercluster2 = get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oercluster2))
+					 { echo "NULL"; }
+				  else
+					 { echo $oercluster2;
+						}
+				  echo "</font></td>\n";
+
+			  $oerkawasan2 = get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oerkawasan2))
+					 { echo "NULL"; }
+				  else
+					 { echo $oerkawasan2;
+						}
+				  echo "</font></td>\n";
+			*/
+			  echo "</tr>\n";
+			 }
+	  $result1 = get_data_oer_year3full($nolesen,$thn1);
+
+	  while ($row = mysqli_fetch_row($result1))
+			{
+			  echo "<tr>\n";
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[0]))
+					 { echo "NULL"; }
+				  else
+					  { $val = $row[0] . '/' . $row[1];
+						echo $val;
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[2]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[2];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[3]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[3];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[4]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[4];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[5]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[5];
+						}
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[6]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[6];
+						}
+				  echo "</font></td>\n";
+			/*
+			  $valtahun3 = $row[0];
+			  $valbulan3 = $row[1];
+			  $oercluster3 = get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oercluster3))
+					 { echo "NULL"; }
+				  else
+					 { echo $oercluster3;
+						}
+				  echo "</font></td>\n";
+
+			  $oerkawasan3 = get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oerkawasan3))
+					 { echo "NULL"; }
+				  else
+					 { echo $oerkawasan3;
+						}
+				  echo "</font></td>\n";
+			*/
+			  echo "</tr>\n";
+			 }
+
+		echo "</table><br>\n";
+	echo "Nota : Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai lebih daripada lima pelesen.<br><br></p>\n";
+	//echo "<img src='http://econ.mpob.gov.my/stat/oer_graph.php?nl=$nolesen&notahun=$thn1'>";
+	//echo "<img src='http://econ.mpob.gov.my/stat/oer_graph1.php?nl=$nolesen&notahun=$thn1'>";
+	echo "<br>";
+	}
+	elseif ($flgdaerah == 'N')
+	{
+
+
+	  echo "<p><b><font size=3 color=#0000FF>LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1</font></b></p>\n";
+	  echo "<table border=1 width=100% cellspacing=0 cellpadding=0>\n";
+	  echo "<tr>\n";
+	  echo "<td width=7% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>TAHUN/BULAN</font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$namakilang</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$negeri</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>SEMENANJUNG MALAYSIA</b></font></td>\n";
+	  echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>MALAYSIA</font></td>\n";
+	  //echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$cluster</font></td>\n";
+	  //echo "<td width=15% align=center style='background-color: #0000FF'><b><font size=2 color=#FFFFFF>$kawasan</font></td>\n";
+
+	  echo "</tr>\n";
+
+
+	//untuk tahun ketiga
+
+	$result6a = get_data_oer_year3dfull($nolesen,$thn3);
+		while ($row = mysqli_fetch_row($result6a))
+			{
+			  echo "<tr>\n";
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[0]))
+					 { echo "NULL"; }
+				  else
+					  { $val = $row[0] . '/' . $row[1];
+						echo $val;
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[2]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[2];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[3]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[3];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[4]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[4];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[5]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[5];
+						}
+				  echo "</font></td>\n";
+			/*
+			  $valtahun1 = $row[0];
+			  $valbulan1 = $row[1];
+			  $oercluster1 = get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oercluster1))
+					 { echo "NULL"; }
+				  else
+					 { echo $oercluster1;
+						}
+				  echo "</font></td>\n";
+
+			  $oerkawasan1 = get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oerkawasan1))
+					 { echo "NULL"; }
+				  else
+					 { echo $oerkawasan1;
+						}
+				  echo "</font></td>\n";
+			*/
+			  echo "</tr>\n";
+			 }
+
+
+	  $result5 = get_data_oer_year3dfull($nolesen,$thn2);
+
+		while ($row = mysqli_fetch_row($result5))
+			{
+			  echo "<tr>\n";
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[0]))
+					 { echo "NULL"; }
+				  else
+					  { $val = $row[0] . '/' . $row[1];
+						echo $val;
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[2]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[2];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[3]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[3];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[4]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[4];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[5]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[5];
+						}
+				  echo "</font></td>\n";
+			/*
+			  $valtahun2 = $row[0];
+			  $valbulan2 = $row[1];
+			  $oercluster2 = get_data_oer_year3full_cluster($kodcluster,$thn2,$valbulan2);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oercluster2))
+					 { echo "NULL"; }
+				  else
+					 { echo $oercluster2;
+						}
+				  echo "</font></td>\n";
+
+			  $oerkawasan2 = get_data_oer_year3full_kawasan($kodkawasan,$thn2,$valbulan2);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oerkawasan2))
+					 { echo "NULL"; }
+				  else
+					 { echo $oerkawasan2;
+						}
+				  echo "</font></td>\n";*/
+
+			  echo "</tr>\n";
+			 }
+
+
+	  $result7 = get_data_oer_year3dfull($nolesen,$thn1);
+
+
+	while ($row = mysqli_fetch_row($result7))
+			{
+			  echo "<tr>\n";
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[0]))
+					 { echo "NULL"; }
+				  else
+					  { $val = $row[0] . '/' . $row[1];
+						echo $val;
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[2]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[2];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[3]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[3];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[4]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[4];
+					   }
+				  echo "</font></td>\n";
+
+				  echo "<td align=center><font size=2>";
+				  if (!isset($row[5]))
+					 { echo "NULL"; }
+				  else
+					 { echo $row[5];
+						}
+				  echo "</font></td>\n";
+			/*
+			  $valtahun3 = $row[0];
+			  $valbulan3 = $row[1];
+			  $oercluster3 = get_data_oer_year3full_cluster($kodcluster,$thn1,$valbulan3);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oercluster3))
+					 { echo "NULL"; }
+				  else
+					 { echo $oercluster3;
+						}
+				  echo "</font></td>\n";
+
+			  $oerkawasan3 = get_data_oer_year3full_kawasan($kodkawasan,$thn1,$valbulan3);
+				  echo "<td align=center><font size=2>";
+				  if (!isset($oerkawasan3))
+					 { echo "NULL"; }
+				  else
+					 { echo $oerkawasan3;
+						}
+				  echo "</font></td>\n";
+			*/
+			  echo "</tr>\n";
+			 }
+	echo "</table>";
+
+	echo "Nota : Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai lebih daripada lima pelesen.<br><br></p>\n";
+	//echo "<img src='http://econ.mpob.gov.my/stat/oer_graph.php?nl=$nolesen&notahun=$thn1'>";
+	//echo "<img src='http://econ.mpob.gov.my/stat/oer_graph1.php?nl=$nolesen&notahun=$thn1'>";
+
+	}
+	//echo "<br></body></html>";
+
+}
+
 
 
 
