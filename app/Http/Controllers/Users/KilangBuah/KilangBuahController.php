@@ -1369,10 +1369,15 @@ class KilangBuahController extends Controller
         $lineplot_malaysia = 0;
 
         for($i = 0; $i < $key; $i++){
-            $labelx = $labelx ."'". $val1[$i] . "',";
+            if($labelx == 0){
+                $labelx = $val1[$i] .',';
+            }else{
+                $labelx = $labelx.$val1[$i] .',';
+            }
+            // $labelx = $labelx ."'". $val1[$i] . "',";
         }
         $labelx = substr($labelx, 0, -1);
-        // dd($labelx);
+        dd($labelx);
 
 
         for($i = 0; $i < $key; $i++){
@@ -1383,7 +1388,7 @@ class KilangBuahController extends Controller
             }
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
-        dd($lineplot_individu);
+        // dd($lineplot_individu);
 
         if ($flgdaerah == 'Y')
         {
