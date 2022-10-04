@@ -1621,15 +1621,15 @@ class KilangBuahController extends Controller
 
 	$result1 = $this->get_data_oer_year3full($nolesen,$thn1);
 
-    foreach ($result1 as $value1) {
-        dd($value1);
-        $bulhun1 = "$value1->bulan/$value1->tahun";
-        $ind1 = $value1->cpo_pelesen;
-        $daerah1 = $value1->cpo_daerah;
-        $negeri1 = $value1->cpo_negeri;
-        $semsia1 = $value1->cpo_semenanjung;
-        $msia1 = $value1->cpo_msia;
+    foreach ($result1 as $key => $value1) {
+        $bulhun1[$key] = "$value1->bulan/$value1->tahun";
+        $ind1[$key] = $value1->cpo_pelesen;
+        $daerah1[$key] = $value1->cpo_daerah;
+        $negeri1[$key] = $value1->cpo_negeri;
+        $semsia1[$key] = $value1->cpo_semenanjung;
+        $msia1[$key] = $value1->cpo_msia;
     }
+    dd($daerah1);
 	//   while ($row = mysqli_fetch_row($result3b))
 	// 		{
 	// 		  echo "<tr>\n";
