@@ -54,6 +54,9 @@
                 {{-- <canvas class="ct-chart-line" id="myChart"
                     style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas> --}}
                 <hr>
+                <br>
+                <br>
+
             </div>
         </div>
     </div>
