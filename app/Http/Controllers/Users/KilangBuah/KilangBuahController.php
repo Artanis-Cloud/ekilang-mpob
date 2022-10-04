@@ -964,8 +964,9 @@ class KilangBuahController extends Controller
         $thn1 = $data['thn1'];
         $thn2 = $data['thn2'];
         $thn3 = $data['thn3'];
+        $result3b = $data['result3b'];
 
-        // dd($oer);
+        dd($data);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -982,7 +983,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'result3b', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
     }
 
 
@@ -2127,6 +2128,8 @@ class KilangBuahController extends Controller
         'negeri' => $negeri,
         'cluster' => $cluster,
         'kawasan' => $kawasan,
+
+        'result3b' => $result3b,
 
 
     ];

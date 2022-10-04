@@ -73,9 +73,27 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {{-- @foreach ($result3b as $key => $value3) --}}
+                            <tr>
+                                {{-- <td>{{ $value3->bulan. "/" .$value3->tahun }}
+                                </td>
+                                <td>
+                                    {{ $data->produk->prodid }}
+                                </td>
+                                <td>{{ number_format($data->e101_b5 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b6 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b7 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b8 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b9 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b10 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b11 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b12 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b13 ?? 0, 2) }}</td>
+                                <td>{{ number_format($data->e101_b14 ?? 0, 2) }}</td> --}}
 
-                                <tr>
                             </tr>
+                            {{-- @endforeach --}}
+
                         </tbody>
                     </table>
                 </div>
