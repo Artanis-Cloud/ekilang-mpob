@@ -81,11 +81,11 @@
                 data: {
                     columns: [
                         // loop
-                        ['Individu', {{ $individu }}],
-                        ['Daerah', 130, 100, 130, 100, 130, 100],
-                        ['Negeri', {{ $negeri }}],
-                        // ['Semenanjung Malaysia', 42, 25, 42, 25, 42, 25],
-                        // ['Malaysia', 76, 84, 76, 84, 76, 84],WWW
+                        ['Individu', {{ $individu ?? 0 }}],
+                        ['Daerah', {{ $daerah ?? 0 }}],
+                        ['Negeri', {{ $negeri ?? 0}}],
+                        ['Semenanjung Malaysia', {{ $semsia }}],
+                        ['Malaysia',{{ $msia }}]
                     ],
                     type: 'line'
                 },
@@ -94,16 +94,16 @@
                         ratio: 0.5
                     }
                 },
-                // axis: {
-                //     x: {
-                //         type: 'category',
-                //         categories: [],
-                //         title: {
-                //             display: true,
-                //             text: 'BULAN/TAHUN'
-                //         }
-                //     }
-                // }
+                axis: {
+                    x: {
+                        type: 'category',
+                        categories: [{{ $labelx ?? '' }}],
+                        title: {
+                            display: true,
+                            text: 'BULAN/TAHUN'
+                        }
+                    }
+                }
             });
         });
     </script>
