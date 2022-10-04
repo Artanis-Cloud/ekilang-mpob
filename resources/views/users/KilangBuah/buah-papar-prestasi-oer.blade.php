@@ -75,7 +75,7 @@
                         <tbody>
                             @foreach ($result3b as $value3)
                             <tr>
-                                <td>{{ $value3->bulhun3 }}
+                                <td>{{ $value3->bulan. "/" .$value3->tahun }}
                                 </td>
                                 {{-- <td>
                                     {{ $data->produk->prodid }}
