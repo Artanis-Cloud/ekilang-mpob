@@ -945,7 +945,7 @@ class KilangBuahController extends Controller
     public function buah_oerprocess(Request $request)
     {
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
-        dd($oer);
+        // dd($oer);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
