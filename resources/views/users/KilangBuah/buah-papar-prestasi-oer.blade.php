@@ -53,7 +53,7 @@
                 <div id="oer" style="height:400px; "></div>
                 {{-- <canvas class="ct-chart-line" id="myChart"
                     style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas> --}}
-
+                <hr>
             </div>
         </div>
     </div>
