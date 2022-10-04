@@ -81,7 +81,7 @@
                 data: {
                     columns: [
                         // loop
-                        ['Individu', 42, 25, 42, 25, 42, 25],
+                        ['Individu', {{ $lineplot_individu }}],
                         ['A2', 130, 100, 130, 100, 130, 100],
                         ['A3', 12, 59, 12, 59, 12, 59],
                         ['A4', 42, 25, 42, 25, 42, 25],
@@ -101,7 +101,7 @@
                 axis: {
                     x: {
                         type: 'category',
-                        categories: [],
+                        categories: [{{ $lablex}}],
                         title: {
                             display: true,
                             text: 'BULAN/TAHUN'
