@@ -82,8 +82,8 @@
                     columns: [
                         // loop
                         ['Individu', {{ $individu ?? 0 }}],
-                        [{{ $nama_daerah }}, {{ $daerah ?? 0 }}],
-                        [{{ $nama_negeri }}, {{ $negeri ?? 0}}],
+                        ['Daerah', {{ $daerah ?? 0 }}],
+                        ['Negeri', {{ $negeri ?? 0}}],
                         ['Semenanjung Malaysia', {{ $semsia }}],
                         ['Malaysia',{{ $msia }}]
                     ],
