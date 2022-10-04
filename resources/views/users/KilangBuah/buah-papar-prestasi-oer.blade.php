@@ -94,16 +94,16 @@
                         ratio: 0.5
                     }
                 },
-                axis: {
-                    x: {
-                        type: 'category',
-                        categories: [],
-                        title: {
-                            display: true,
-                            text: 'BULAN/TAHUN'
-                        }
-                    }
-                }
+                // axis: {
+                //     x: {
+                //         type: 'category',
+                //         categories: [],
+                //         title: {
+                //             display: true,
+                //             text: 'BULAN/TAHUN'
+                //         }
+                //     }
+                // }
             });
         });
     </script>
