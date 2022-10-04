@@ -63,26 +63,24 @@ class tryController extends Controller
 
             //get data oer year3full
             //check daerahless
-        $chkqry = DB::connection('mysql3')->select("SELECT distinct d.daerah from oerpelesen p, daerahless d
-        where p.nolesen = '$nolesen' and
-              p.negeri = d.negeri and
-              p.daerah = d.daerah ");
+            $qry = DB::connection('mysql3')->select("SELECT p.e_np as namakilang, p.e_cluster, c.nama_cluster,
+            p.e_kawasan, n.nama_region
+            from pelesen p, negeri n, cluster c
+            where p.e_nl = '$nolesen' and p.e_cluster = c.kod_cluster and
+            p.e_negeri = n.kod_negeri and p.e_kawasan = n.kod_region");
+
+            // return $qry;
 
 
-
-
-    //PROBLEM HERE. THE RESULT RETURN []
-    if ($chkqry) {
-        foreach ($chkqry as $row) {
-            $result = $row->daerah;
+            foreach ($qry as $row1)
+            {
+             $enp = $row1->e_np ;
+             $cluster = strtoupper($row1->nama_cluster );
+             $kodcluster = $row1->e_cluster ;
+             $kawasan = $row1->nama_region ;
+             $kodkawasan = $row1->e_kawasan ;
             }
-    } else {
-        $result = 0;
-    }
-
-
-        return $result;
-        dd($result);
+            dd($enp);
 
                 // for ($count=0; $row = $query3; $count++)
                 // {
