@@ -1540,7 +1540,7 @@ class KilangBuahController extends Controller
             // $labelx = $labelx ."'". $val1[$i] . "',";
         }
         $labelx = substr($labelx, 0, -1);
-        // dd($labelx);
+        dd($labelx);
 
 
         for ($i = 0; $i < $key; $i++) {
