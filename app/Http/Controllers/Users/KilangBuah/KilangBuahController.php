@@ -1360,6 +1360,7 @@ class KilangBuahController extends Controller
                         $lineplot_individu = $lineplot_individu.$val2[$i] .',';
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
+        dd($lineplot_individu);
 
         if ($flgdaerah == 'Y')
         {
@@ -1390,129 +1391,129 @@ class KilangBuahController extends Controller
 
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
 
- echo 'masuk'
 
-          ?>
-       <!--   <html>
+
+        ?>
+            <html>
             <head>
             <script type="text/javascript" src="js/jquery/jquery-latest.pack.js"></script>
-             <script type="text/javascript">
-    //             $(function () {
-    //                 var chart
+            <script type="text/javascript">
+                $(function () {
+                    var chart;
 
-    //                 $(document).ready(function() {
+                    $(document).ready(function() {
 
-    //                     chart = new Highcharts.Chart({
-    //                         chart: {
-    //                             renderTo: 'container',
-    //                             type: 'line',
-    //                             //plotBackgroundImage: 'http://bepi.mpob.gov.my/admin2/bggraph.png',
-    //                             marginBottom: 80,
+                        chart = new Highcharts.Chart({
+                            chart: {
+                                renderTo: 'container',
+                                type: 'line',
+                                //plotBackgroundImage: 'http://bepi.mpob.gov.my/admin2/bggraph.png',
+                                marginBottom: 80,
 
-    //                         },
-    //                         credits: {
-    //                         enabled: false
-    //                         },
-    //                         title: {
-    //                             text: '<?php echo $tajuk?>',
-    //                             style : {
-    //                                         fontWeight : 'bold',
-    //                                         color : '#232323',
-    //                                         fontFamily : 'Arial',
-    //                                         fontSize : '11px'
-    //                             },
-    //                             x: 0 //center
-    //                         },
-    //                         subtitle: {
-    //                             text: '',
-    //                             style : {
-    //                                         fontWeight : 'bold',
-    //                                         color : '#0066FF',
-    //                                         fontFamily : 'Arial',
-    //                                         fontSize : '11px'
-    //                             },
-    //                             x: 0
-    //                         },
-    //                         plotOptions:{
-    //                             line:{showInLegend:false},
-    //                         },
-    //                         xAxis: {
-    //                             title :{ text : 'BULAN/TAHUN'},
-    //                             categories: [
-    //                             <?php echo $labelx?>
-    //                             ]
-    //                         },
-    //                         yAxis: {
-    //                             title: {
-    //                                 text: 'PERATUS OER %'
-    //                             },
-    //                             plotLines: [{
-    //                                 value: 0,
-    //                                 width: 1,
-    //                                 color: '#808080'
-    //                             }]
-    //                         },
-    //                         tooltip: {
-    //                             formatter: function() {
-    //                                     return '<b>'+ this.series.name +'</b><br/>'+
-    //                                      this.x +': '+ this.y ;
-    //                             }
-    //                         },
-    //                         legend: {
-    //                             layout: 'vertical',
-    //                             align: 'right',
-    //                             verticalAlign: 'top',
-    //                             x: -10,
-    //                             y: 100,
-    //                             borderWidth: 0
-    //                         },
-    //                         series: [{
-    //                             name: 'INDIVIDU',
-    //                             data: [
-    //                             <?php
-    //                                 echo $lineplot_individu;
-    //                             ?>
-    //                             ]
-    //                         }, {
-    //                             name: '<?php echo $daerah;?>',
-    //                             data: [
-    //                             <?php
-    //                                 echo $lineplot_daerah;
-    //                             ?>
-    //                             ]
-    //                         }, {
-    //                             name: '<?php echo $negeri;?>',
-    //                             data: [
-    //                             <?php
-    //                                 echo $lineplot_negeri;
-    //                             ?>
-    //                             ]
-    //                         },	{
-    //                             name: 'SEMENANJUNG',
-    //                             data: [
-    //                             <?php
-    //                                 echo $lineplot_semenanjung;
-    //                             ?>
-    //                             ]
-    //                         }, {
-    //                             name: 'MALAYSIA',
-    //                             data: [
-    //                             <?php
-    //                                 echo $lineplot_malaysia;
-    //                             ?>
-    //                             ]
-    //                         }]
-    //                     });
-    //                 });
+                            },
+                            credits: {
+                            enabled: false
+                            },
+                            title: {
+                                text: '<?php echo $tajuk?>',
+                                style : {
+                                            fontWeight : 'bold',
+                                            color : '#232323',
+                                            fontFamily : 'Arial',
+                                            fontSize : '11px'
+                                },
+                                x: 0 //center
+                            },
+                            subtitle: {
+                                text: '',
+                                style : {
+                                            fontWeight : 'bold',
+                                            color : '#0066FF',
+                                            fontFamily : 'Arial',
+                                            fontSize : '11px'
+                                },
+                                x: 0
+                            },
+                            plotOptions:{
+                                line:{showInLegend:false},
+                            },
+                            xAxis: {
+                                title :{ text : 'BULAN/TAHUN'},
+                                categories: [
+                                <?php echo $labelx?>
+                                ]
+                            },
+                            yAxis: {
+                                title: {
+                                    text: 'PERATUS OER %'
+                                },
+                                plotLines: [{
+                                    value: 0,
+                                    width: 1,
+                                    color: '#808080'
+                                }]
+                            },
+                            tooltip: {
+                                formatter: function() {
+                                        return '<b>'+ this.series.name +'</b><br/>'+
+                                         this.x +': '+ this.y ;
+                                }
+                            },
+                            legend: {
+                                layout: 'vertical',
+                                align: 'right',
+                                verticalAlign: 'top',
+                                x: -10,
+                                y: 100,
+                                borderWidth: 0
+                            },
+                            series: [{
+                                name: 'INDIVIDU',
+                                data: [
+                                <?php
+                                    echo $lineplot_individu;
+                                ?>
+                                ]
+                            }, {
+                                name: '<?php echo $daerah;?>',
+                                data: [
+                                <?php
+                                    echo $lineplot_daerah;
+                                ?>
+                                ]
+                            }, {
+                                name: '<?php echo $negeri;?>',
+                                data: [
+                                <?php
+                                    echo $lineplot_negeri;
+                                ?>
+                                ]
+                            },	{
+                                name: 'SEMENANJUNG',
+                                data: [
+                                <?php
+                                    echo $lineplot_semenanjung;
+                                ?>
+                                ]
+                            }, {
+                                name: 'MALAYSIA',
+                                data: [
+                                <?php
+                                    echo $lineplot_malaysia;
+                                ?>
+                                ]
+                            }]
+                        });
+                    });
 
-    //             });
-    //             </script>
+                });
+                </script>
 
-    //             </head>
+                </head>
 
 
 
-    // <?php
+    <?php
     }
 
 
