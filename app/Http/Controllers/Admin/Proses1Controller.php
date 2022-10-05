@@ -419,13 +419,13 @@ class Proses1Controller extends Controller
         ));
     }
 
-    public function admin_prestasi_oer($id)
+    public function admin_prestasi_oer($nolesen)
     {
         // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
         //                                             WHERE tahun = '2013'
         //                                             AND bulan = '06'");
         // dd($id);
-        $reg_pelesen = RegPelesen::where('e_nl', $id)->first();
+        $reg_pelesen = RegPelesen::where('e_nl', $nolesen)->first();
         // $nolesen = $id->e_nl;
         // dd($reg_pelesen);
 
@@ -454,7 +454,7 @@ class Proses1Controller extends Controller
     }
 
 
-    public function admin_papar_prestasi_oer($id, Request $request)
+    public function admin_papar_prestasi_oer($nolesen, Request $request)
     {
         // dd($id);
         $breadcrumbs    = [
@@ -470,10 +470,10 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
 
-        $oer = $this->admin_prestasi_oer($id);
+        // $oer = $this->admin_prestasi_oer($id);
         // $froer = $oer->id;
         // $nolesen = $froer->e_nl;
-        dd($oer);
+        // dd($oer);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
