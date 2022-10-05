@@ -88,12 +88,74 @@
         color: #0a7569 !important;
         }
 
+    .global-loader {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 1;
+      transition: opacity .5s ease-in-out;
+    }
+
+    .global-loader-fade-in {
+      opacity: 0;
+    }
+
+    .global-loader-hidden {
+      display: none;
+    }
+
+    .global-loader h1 {
+      font-family: "Rubik", Rubik, sans-serif;
+      font-weight: normal;
+      font-size: 24px;
+      letter-spacing: .04rem;
+      white-space: pre;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image:
+        repeating-linear-gradient(
+          to right,
+          black,
+          grey,
+          black,
+          grey,
+          black,
+          grey,
+          black,
+          grey
+        );
+      background-size: 750% auto;
+      background-position: 0 100%;
+      animation: gradient 20s infinite;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -750% 0;
+      }
+    }
 </style>
 
 <body>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
+    <div id="globalLoader" class="global-loader" *ngIf="isSubmit"><h1>Sila Tunggu...</h1></div>
+
     <div class="preloader">
         <div class="lds-ripple">
             <div class="lds-pos"></div>

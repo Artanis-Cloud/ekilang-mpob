@@ -47,10 +47,13 @@
     <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}" rel=" stylesheet">
 
     <!-- Toastr -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
 
-    {{-- <meta charset="UTF-8">
+{{-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-KILANG</title>
 
@@ -81,11 +84,13 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active" style="background-color: rgba(249, 208, 94)">
                 <a href="{{ route('admin.dashboard') }}">
-                    <div class=" sidebar-header" style="margin-bottom: -20%;
+                    <div class=" sidebar-header"
+                        style="margin-bottom: -20%;
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(243, 213, 128)">
 
-                        <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                        <img src="http://ekilang-mpob.test/mpob.png"
+                            style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
                         {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
@@ -269,7 +274,7 @@
                                     </div> --}}
                                     <a href="{{ asset('manual/admin/panduan.pdf') }}" target="_blank"">
                                         <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Panduan Pengguna</span>
                                     </a>
                                 </li>
@@ -447,7 +452,8 @@
                                 <div class="d-none d-md-block d-lg-inline-block">{{ auth()->user()->username }}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Akaun Pengguna</a>
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Akaun
+                                    Pengguna</a>
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i data-feather="settings"></i> Tetapan</a>
                                 <div class="dropdown-divider"></div>
@@ -506,8 +512,7 @@
 <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
 </script>
 <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-<script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-</script>
+<script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet"></script>
 <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
 <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
@@ -548,23 +553,32 @@
 <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
 
 <!-- Toastr -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+    integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 @yield('javascript')
 {{-- toaster display --}}
 <script>
     toastr.options.fadeOut = 2500;
     @if (Session::get('success'))
-        toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+        toastr.success('{{ session('success') }}', 'Berjaya', {
+            "progressBar": true
+        });
     @elseif ($message = Session::get('error'))
-        toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+        toastr.error('{{ session('error') }}', 'Ralat', {
+            "progressBar": true
+        });
     @endif
 </script>
 

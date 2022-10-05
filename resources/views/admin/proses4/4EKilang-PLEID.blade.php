@@ -68,8 +68,8 @@
                                     @csrf
                                 <div class="row center">
                                     <div class="col-md-12 center mb-3">
-                                        <button type="submit" class="btn btn-primary center" disabled style="margin-left:45%"
-                                        data-toggle="modal" data-target="#">Port</button>
+                                        <button type="submit" class="btn btn-primary center"  style="margin-left:45%"
+                                        data-toggle="modal" data-target="#" onclick="spinner()">Port</button>
                                         {{-- <button type="submit">YA</button> --}}
                                     </div>
                                 </div>
@@ -120,5 +120,9 @@
 @endsection
 
 @section('scripts')
-
+    <script type="text/javascript">
+        function spinner() {
+            document.getElementsByClassName("global-loader")[0].style.display = "flex";
+        }
+    </script>
 @endsection
