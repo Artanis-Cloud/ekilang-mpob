@@ -443,12 +443,14 @@ class Proses1Controller extends Controller
         ];
         $layout = 'layouts.kbuah';
         $array = [
+            'returnArr' => $returnArr,
+            'layout' => $layout,
             'id' => $reg_pelesen,
             // 'nolesen' => $nolesen,
         ];
 
 
-        return view('admin.proses1.admin-prestasi-oer', $array, compact('returnArr', 'layout'));
+        return view('admin.proses1.admin-prestasi-oer', $array);
     }
 
 
