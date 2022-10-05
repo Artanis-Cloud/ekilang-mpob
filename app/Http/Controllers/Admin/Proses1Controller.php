@@ -471,7 +471,7 @@ class Proses1Controller extends Controller
         ];
 
         $nolesen = $this->admin_prestasi_oer($id);
-        $nolesen2 = $nolesen->e_nl;
+        $nolesen2 = $nolesen->id;
         dd($nolesen);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
