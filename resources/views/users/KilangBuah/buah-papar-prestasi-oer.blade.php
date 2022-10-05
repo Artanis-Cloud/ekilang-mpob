@@ -53,10 +53,11 @@
                 <div id="oer" style="height:400px; "></div>
                 {{-- <canvas class="ct-chart-line" id="myChart"
                     style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas> --}}
-                <hr>
-                <br>
-                <br>
-                <h5 style="color: rgb(39, 80, 71); font-size:14px">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5>
+                    <hr>
+                    <br>
+                    <br>
+                    <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-3%; margin-bottom:3%">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5>
+                {{-- <h5 style="color: rgb(39, 80, 71); font-size:14px">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5> --}}
                 <br>
                 <div class="table-responsive">
                     <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
