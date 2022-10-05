@@ -59,16 +59,15 @@ class tryController extends Controller
         // $thn4 = $thn1 - 3;
 
 
-            $nolesen = '500008704000';
+            $nolesen = '000002704000';
 
             //get data oer year3full
             //check daerahless
-            $dtlqry = DB::select("SELECT distinct p.e_np as namakilang, n.nama_negeri, d.nama_daerah
-            from pelesen p, negeri n, daerah d
-            where p.e_nl = '$nolesen' and
-            p.e_negeri = n.kod_negeri and
-            p.e_negeri = d.kod_negeri and
-            p.e_daerah = d.kod_daerah");
+            $qry = DB::connection('mysql3')->select("SELECT p.e_np as namakilang, p.e_cluster, c.nama_cluster,
+                p.e_kawasan, n.nama_region
+                from pelesen p, negeri n, cluster c
+                where p.e_nl = '$nolesen' and p.e_cluster = c.kod_cluster and
+                p.e_negeri = n.kod_negeri and p.e_kawasan = n.kod_region");
 
             // return $dtlqry;
 
@@ -84,7 +83,7 @@ class tryController extends Controller
             //  $kawasan = $row1->nama_region ;
             //  $kodkawasan = $row1->e_kawasan ;
             // }
-            dd($dtlqry);
+            dd($qry);
 
                 // for ($count=0; $row = $query3; $count++)
                 // {
