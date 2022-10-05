@@ -323,7 +323,7 @@
                                                     @foreach ($i as $key => $datai)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2.7">{{ $datai->produk->prodname }}</font>
+                                                                <font size="2.7">{{ $datai->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2.7">{{ $datai->e101_b4 }}</font>
@@ -452,7 +452,7 @@
                                                     @foreach ($ii as $key => $dataii)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2.7">{{ $dataii->produk->prodname }}</font>
+                                                                <font size="2.7">{{ $dataii->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2.7">{{ $dataii->e101_b4 }}</font>
@@ -597,7 +597,7 @@
                                                     @foreach ($iva as $dataiva)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2.7">{{ $dataiva->produk->prodname }}</font>
+                                                            <font size="2.7">{{ $dataiva->produk->proddesc }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2.7">{{ $dataiva->e101_c4 }}</font>
@@ -690,7 +690,7 @@
                                                     @foreach ($ivb as $dataivb)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2.7">{{ $dataivb->produk->prodname }}</font>
+                                                            <font size="2.7">{{ $dataivb->produk->proddesc }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2.7">{{ $dataivb->e101_c4 }}</font>
@@ -909,7 +909,7 @@
                                                     {{-- @foreach ($vii as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2.7">{{ $data->produk->prodname }}</font>
+                                                            <font size="2.7">{{ $data->produk->proddesc }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2.7">{{ $data->e101_e4 }}</font>

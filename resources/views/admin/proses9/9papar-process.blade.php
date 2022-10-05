@@ -295,7 +295,7 @@
                                                     </td>
                                                     <td width="110">
                                                         <p align="center"><b>
-                                                                <font size="3">Isirong (PK) Kod 51</font>
+                                                                <font size="3">Isirung (PK) Kod 51</font>
                                                             </b></p>
                                                     </td>
                                                     <td width="120">
@@ -517,7 +517,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="380">
-                                                        <font size="3">iii. Kadar Perolehan Isirong (KER)</font>
+                                                        <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
                                                     </td>
                                                     <td width="70">
                                                         <font size="3">: </font>
@@ -878,7 +878,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRONG SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRUNG SAWIT
                                                     (PK) DALAM NEGERI
                                                     (51)</b></font>
                                         </p>
@@ -896,7 +896,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="168">
-                                                        <font size="3">1. Kilang Isirong</font>
+                                                        <font size="3">1. Kilang Isirung</font>
                                                     </td>
                                                     <td width="158" align="right">
                                                         <font size="3"></font>

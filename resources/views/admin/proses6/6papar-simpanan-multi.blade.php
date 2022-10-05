@@ -298,7 +298,7 @@
                                                         @foreach ($penyatai[$key] as $datai)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $datai->produk->prodname }}</font>
+                                                                    <font size="2">{{ $datai->produk->proddesc }}</font>
                                                                 </td>
                                                                 <td align="center">
                                                                     <font size="2">{{ $datai->produk->prodid }}</font>
