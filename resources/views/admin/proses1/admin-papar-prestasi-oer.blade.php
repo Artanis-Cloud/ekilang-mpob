@@ -235,7 +235,7 @@
                     },
                     y: {
                         // type: 'category',
-                        // valueFormatString: "#,##0.##",
+                        valueFormatString: "###0.00",
                         tickDecimals:2,
                         title: {
                             display: true,
