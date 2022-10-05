@@ -915,6 +915,9 @@ class Proses1Controller extends Controller
 // dd($flgdaerah);
 
 	$dtlpelesen = $this->get_data_pelesen($nolesen);
+
+    if ($dtlpelesen) {
+
 	foreach ($dtlpelesen as $row) {
         $namakilang = trim($row->namakilang);
         $daerah = trim($row->nama_daerah);
@@ -1039,11 +1042,18 @@ class Proses1Controller extends Controller
 
 
     ];
+
     }
 
 
     // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
     return $array;
+
+    }
+    else{
+        return redirect()->back()
+        ->with('error', 'Data Tidak Wujud! ');
+    }
 	}
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)
