@@ -92,6 +92,7 @@
       display: none;
       justify-content: center;
       align-items: center;
+      margin-left : 9%;
       position: fixed;
       top: 0;
       left: 0;
