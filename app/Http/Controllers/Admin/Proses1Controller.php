@@ -499,6 +499,7 @@ class Proses1Controller extends Controller
         $thn1 = $data['thn1'];
         $thn2 = $data['thn2'];
         $thn3 = $data['thn3'];
+        dd($oer);
 
 
         if ($flgdaerah == 'Y') {
@@ -877,7 +878,7 @@ class Proses1Controller extends Controller
             }
         }
         $lineplot_individu = substr($lineplot_individu, 0, -1);
-        
+
         // dd($lineplot_individu);
 
         if ($flgdaerah == 'Y') {
