@@ -41,4 +41,8 @@ class HBioCC extends Model
     public function syarikat(){
         return $this->hasOne(SyarikatPembeli::class,'id', 'ebio_cc3');
     }
+
+    // public function daerah(){
+    //     return $this->hasOne(SyarikatPembeli::class,'id', 'ebio_cc3');
+    // }
 }

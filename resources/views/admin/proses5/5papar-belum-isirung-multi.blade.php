@@ -614,19 +614,19 @@
                                                     <table border="0" width="498" cellspacing="0" cellpadding="0">
                                                         <tbody>
                                                             <tr>
-                                                                <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirong Sawit
+                                                                <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirung Sawit
                                                                     Mentah (CPKO)&nbsp;</td>
                                                                 <td width="116">:
                                                                     {{ number_format($penyataii->e102_al1 ?? 0, 2) }} % </td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirong (PKC)&nbsp;
+                                                                <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirung (PKC)&nbsp;
                                                                 </td>
                                                                 <td width="116">:
                                                                     {{ number_format($penyataii->e102_al2 ?? 0, 2) }} %</td>
                                                             </tr>
                                                             <tr>
-                                                                <td width="378">iii. Jumlah Jam Pengilangan Isirong (PK)</td>
+                                                                <td width="378">iii. Jumlah Jam Pengilangan Isirung (PK)</td>
                                                                 <td width="116">:
                                                                     {{ number_format($penyataii->e102_al3 ?? 0, 2) }} </td>
                                                             </tr>
@@ -641,7 +641,7 @@
                                                     </table>
                                                     <br>
                                                     <p><b>
-                                                            <font color="#0000FF">BAHAGIAN III : BELIAN / TERIMAAN BEKALAN ISIRONG
+                                                            <font color="#0000FF">BAHAGIAN III : BELIAN / TERIMAAN BEKALAN ISIRUNG
                                                                 SAWIT (PK) (51)</font>
                                                         </b></p>
                                                     <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -689,7 +689,7 @@
                                                     </table>
 
                                                     <p><b>
-                                                            <font color="#0000FF">BAHAGIAN IV : JUALAN / EDARAN MINYAK ISIRONG SAWIT
+                                                            <font color="#0000FF">BAHAGIAN IV : JUALAN / EDARAN MINYAK ISIRUNG SAWIT
                                                                 MENTAH (CPKO) (04)</font>
                                                         </b></p>
                                                     <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -736,7 +736,7 @@
                                                         </tbody>
                                                     </table>
                                                     <p><b>
-                                                            <font color="#0000FF">BAHAGIAN V : JUALAN / EDARAN DEDAK ISIRONG SAWIT
+                                                            <font color="#0000FF">BAHAGIAN V : JUALAN / EDARAN DEDAK ISIRUNG SAWIT
                                                                 (PKC) (33)</font>
                                                         </b></p>
                                                     <table border="1" width="100%" cellspacing="0" cellpadding="0"

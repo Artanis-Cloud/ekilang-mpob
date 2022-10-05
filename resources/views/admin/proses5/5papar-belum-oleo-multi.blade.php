@@ -273,7 +273,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td width="13%" align="center"><b>
-                                                                    <font size="2">Jenis Minyak</font><b></b>
+                                                                    <font size="2">Produk Minyak Sawit</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Kod Produk</font><b></b>
@@ -391,7 +391,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td width="13%" align="center"><b>
-                                                                    <font size="2">Jenis Minyak</font><b></b>
+                                                                    <font size="2">Produk Isirung Sawit</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Kod Produk</font><b></b>
@@ -508,7 +508,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td width="13%" align="center"><b>
-                                                                <font size="2">Jenis Minyak</font><b></b>
+                                                                <font size="2">Produk Minyak Sawit</font><b></b>
                                                             </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Kod Produk</font><b></b>
@@ -645,7 +645,7 @@
                                                     <tbody>
                                                         <tr style="padding: 0.2rem 0.3rem">
                                                             <td width="13%" align="center"><b>
-                                                                    <font size="2">Jenis Minyak Sawit</font>
+                                                                    <font size="2">Produk Minyak Sawit Sawit</font>
                                                                 </b></td>
                                                             <td width="10%" align="center"><b>
                                                                     <font size="2">Kod Produk</font>

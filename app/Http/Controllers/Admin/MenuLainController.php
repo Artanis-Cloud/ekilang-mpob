@@ -224,7 +224,11 @@ class MenuLainController extends Controller
                 and r.directory='Y'
                 order by e.e_np,e.e_negeri");
             }
+        }else{
+            return redirect()->back()->with('error', 'Data Tidak Wujud');
+        
         }
+
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

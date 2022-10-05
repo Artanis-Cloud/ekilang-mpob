@@ -311,7 +311,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                             <td class="text-bold-500 ">D.
                                                                 Pengeluaran &nbsp; <i class="fa fa-exclamation-circle"
                                                                     style="color: red; cursor: pointer;"
-                                                                    title="Pengeluaran minyak sawit mentah (CPO), isirong kelapa sawit (PK) dan minyak keladak
+                                                                    title="Pengeluaran minyak sawit mentah (CPO), isirung kelapa sawit (PK) dan minyak keladak
 termasuk pengeluaran untuk 'Tol'."></i>
                                                             </td>
                                                             <td style="text-align:center; background-color:#808080b8">

@@ -41,7 +41,7 @@ class HBioInit extends Model
     // }
 
     public function hbiocc(){
-        return $this->hasMany(hbiocc::class,'ebio_nobatch', 'ebio_nobatch');
+        return $this->hasOne(hbiocc::class,'ebio_nobatch', 'ebio_nobatch');
     }
 
     // public function produk(){
