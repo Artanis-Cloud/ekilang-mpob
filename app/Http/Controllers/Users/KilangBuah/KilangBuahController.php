@@ -1050,7 +1050,7 @@ class KilangBuahController extends Controller
     {
 
         //get data oer year3full
-        $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semenanjung,m.oer_cpo as cpo_msia
+        $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semsia,m.oer_cpo as cpo_msia
             from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
             where f.nolesen = '$nolesen' and
             (f.tahun = '$thn3') and
@@ -1211,7 +1211,7 @@ class KilangBuahController extends Controller
                 $val2[$i] = $value3->cpo_pelesen;
                 $val3[$i] = $value3->cpo_daerah;
                 $val4[$i] = $value3->cpo_negeri;
-                $val5[$i] = $value3->cpo_semenanjung;
+                $val5[$i] = $value3->cpo_semsia;
                 $val6[$i] = $value3->cpo_msia;
 
                 $valbulan1 = $value3->bulan;
@@ -1256,7 +1256,7 @@ class KilangBuahController extends Controller
                 $val2[$i] = $value2->cpo_pelesen;
                 $val3[$i] = $value2->cpo_daerah;
                 $val4[$i] = $value2->cpo_negeri;
-                $val5[$i] = $value2->cpo_semenanjung;
+                $val5[$i] = $value2->cpo_semsia;
                 $val6[$i] = $value2->cpo_msia;
 
                 $valbulan2 = $value2->bulan;
@@ -1301,7 +1301,7 @@ class KilangBuahController extends Controller
                 $val2[$i] = $value1->cpo_pelesen;
                 $val3[$i] = $value1->cpo_daerah;
                 $val4[$i] = $value1->cpo_negeri;
-                $val5[$i] = $value1->cpo_semenanjung;
+                $val5[$i] = $value1->cpo_semsia;
                 $val6[$i] = $value1->cpo_msia;
 
                 $valbulan3 = $value1->bulan;
@@ -1401,7 +1401,7 @@ class KilangBuahController extends Controller
                 $val1[$i] = "$value5->bulan/$value5->tahun";
                 $val2[$i] = $value5->cpo_pelesen;
                 $val4[$i] = $value5->cpo_negeri;
-                $val5[$i] = $value5->cpo_semenanjung;
+                $val5[$i] = $value5->cpo_semsia;
                 $val6[$i] = $value5->cpo_msia;
 
                 $valbulan2 = $value5->bulan;
@@ -1445,7 +1445,7 @@ class KilangBuahController extends Controller
                 $val1[$i] = "$value4->bulan/$value4->tahun";
                 $val2[$i] = $value4->cpo_pelesen;
                 $val4[$i] = $value4->cpo_negeri;
-                $val5[$i] = $value4->cpo_semenanjung;
+                $val5[$i] = $value4->cpo_semsia;
                 $val6[$i] = $value4->cpo_msia;
 
                 $valbulan3 = $value4->bulan;
