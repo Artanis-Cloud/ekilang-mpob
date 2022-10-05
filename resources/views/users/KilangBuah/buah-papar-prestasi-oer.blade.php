@@ -74,11 +74,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @if ($flgdaerah == 'Y')
+
                             @foreach ($result3b as $value3)
 
                             <tr>
-
                                 <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
@@ -112,6 +112,45 @@
 
                             </tr>
                             @endforeach
+
+                            @elseif ($flgdaerah == 'N')
+                            @foreach ($result6a as $value3)
+
+                            <tr>
+                                <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
+
+                            </tr>
+                            @endforeach
+                            @foreach ($result5 as $value3)
+                            <tr>
+
+                                <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
+
+                            </tr>
+                            @endforeach
+                            @foreach ($result7 as $value3)
+                            <tr>
+
+                                <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
+
+                            </tr>
+                            @endforeach
+                            @endif
 
                         </tbody>
                     </table>
