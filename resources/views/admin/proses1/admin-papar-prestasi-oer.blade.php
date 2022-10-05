@@ -232,6 +232,14 @@
                             display: true,
                             text: 'BULAN/TAHUN'
                         }
+                    },
+                    y: {
+                        type: 'category',
+                        valueFormatString: "#,##0.##",
+                        title: {
+                            display: true,
+                            text: 'OER(%)'
+                        }
                     }
                 }
             });
