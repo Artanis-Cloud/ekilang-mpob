@@ -1324,7 +1324,7 @@ class KilangBuahController extends Controller
             $result6 =  $this->get_data_oer_year3dfull($nolesen, $thn3);
 
             $i = 0;
-            dd($result6);
+            // dd($result6);
             foreach ($result6 as $value6) {
 
                 // if ($value6->bulan == '01') {
@@ -1357,7 +1357,7 @@ class KilangBuahController extends Controller
                 $val1[$i] = "$value6->bulan/$value6->tahun";
                 $val2[$i] = $value6->cpo_pelesen;
                 $val4[$i] = $value6->cpo_negeri;
-                $val5[$i] = $value6->cpo_semenanjung;
+                $val5[$i] = $value6->cpo_semsia;
                 $val6[$i] = $value6->cpo_msia;
 
                 $valbulan1 = $value6->bulan;
