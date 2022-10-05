@@ -439,7 +439,7 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kbuah';
-        
+
 
 
         return view('admin.proses1.admin-prestasi-oer', compact('returnArr', 'layout' , 'nolesen'));
@@ -463,6 +463,7 @@ class Proses1Controller extends Controller
         ];
 
         $nolesen = $this->admin_prestasioer($id);
+        dd($nolesen);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
@@ -493,7 +494,7 @@ class Proses1Controller extends Controller
             $result1 = $data['result1'];
 
 
-            return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result3b', 'result1', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+            return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','nolesen', 'dtlpelesen','returnArr', 'result3b', 'result1', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
         }
         elseif ($flgdaerah == 'N') {
             $result6a = $data['result6a'];
@@ -506,7 +507,7 @@ class Proses1Controller extends Controller
             // $layout = 'layouts.kbuah';
 
 
-            return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result6a', 'result5', 'result7', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+            return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','nolesen', 'dtlpelesen','returnArr', 'result6a', 'result5', 'result7', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
         }
     }
     else {
