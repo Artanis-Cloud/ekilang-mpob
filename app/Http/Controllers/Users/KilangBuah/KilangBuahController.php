@@ -1665,7 +1665,7 @@ class KilangBuahController extends Controller
 
 	  $result7 = $this->get_data_oer_year3dfull($nolesen,$thn1);
 
-
+    }
 
     $array = [
         'flgdaerah' => $flgdaerah,
