@@ -477,8 +477,10 @@ class Proses1Controller extends Controller
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
+        $makpelesen = $this->get_pelesen($nolesen);
 
-        if ($dtlpelesen) {
+
+        if ($dtlpelesen || $makpelesen) {
         $individu = $oer['lineplot_individu'];
         $daerah = $oer['lineplot_daerah'];
         $negeri = $oer['lineplot_negeri'];
@@ -690,7 +692,7 @@ class Proses1Controller extends Controller
             $flgdaerah = 'N';
 
         $dtlpelesen = $this->get_data_pelesen($nolesen);
-        dd($dtlpelesen);
+        // dd($dtlpelesen);
 
         if ($dtlpelesen) {
 
