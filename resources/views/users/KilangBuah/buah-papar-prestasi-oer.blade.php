@@ -200,7 +200,7 @@
                     columns: [
                         // loop
                         @if ($flgdaerah == 'Y')
-                        ['{{ $nama_kilang }}', {{ $individu ?? 0 }}],
+                        ['{{ $nama_kilang }}', {{ number_format($individu ?? 0,2) }}],
                         ['{{ $nama_daerah2 }}', {{ $daerah ?? 0 }}],
                         ['{{ $nama_negeri }}', {{ $negeri ?? 0}}],
                         ['SEMENANJUNG MALAYSIA', {{ $semsia }}],
