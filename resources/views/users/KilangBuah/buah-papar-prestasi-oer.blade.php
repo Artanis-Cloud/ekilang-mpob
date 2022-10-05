@@ -85,6 +85,17 @@
 
                             </tr>
                             @endforeach
+                            @foreach ($result2 as $value3)
+                            <tr>
+                                <td>{{ $value3->bulan. "/" .$value3->tahun }}</td>
+                                <td>{{ $value3->cpo_pelesen }}</td>
+                                <td>{{ $value3->cpo_daerah }}</td>
+                                <td>{{ $value3->cpo_negeri }}</td>
+                                <td>{{ $value3->cpo_semenanjung }}</td>
+                                <td>{{ $value3->cpo_msia }}</td>
+
+                            </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
