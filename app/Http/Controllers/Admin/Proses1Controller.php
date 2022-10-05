@@ -440,6 +440,9 @@ class Proses1Controller extends Controller
 
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
+        $dtlpelesen = $this->get_data_pelesen($nolesen);
+
+        if ($dtlpelesen) {
         $individu = $oer['lineplot_individu'];
         $daerah = $oer['lineplot_daerah'];
         $negeri = $oer['lineplot_negeri'];
@@ -480,6 +483,11 @@ class Proses1Controller extends Controller
 
             return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result6a', 'result5', 'result7', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
         }
+    }
+    else {
+        return redirect()->back()
+        ->with('error', 'Data Tidak Wujud! ');
+    }
 
     }
 
