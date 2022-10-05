@@ -646,6 +646,10 @@ class Proses1Controller extends Controller
             $flgdaerah = 'N';
 
         $dtlpelesen = $this->get_data_pelesen($nolesen);
+
+        if ($dtlpelesen) {
+
+
         foreach ($dtlpelesen as $row) {
             $namakilang = trim($row->namakilang);
             $daerah = trim($row->nama_daerah);
@@ -666,7 +670,7 @@ class Proses1Controller extends Controller
             $result1 = $this->get_data_oer_year3full($nolesen, $thn1);
             $result2 = $this->get_data_oer_year3full($nolesen, $thn2);
             $result3 = $this->get_data_oer_year3full($nolesen, $thn3);
-            dd($result3);
+            // dd($result3);
 
             $i = 0;
             foreach ($result3 as $value3) {
@@ -792,10 +796,10 @@ class Proses1Controller extends Controller
         }
 
 
-        // $pelesen = $this->get_data_pelesen($nolesen);
-        // $nama_negeri = $pelesen[0]->nama_negeri;
+        $pelesen = $this->get_data_pelesen($nolesen);
+        $nama_negeri = $pelesen[0]->nama_negeri;
         // dd($nama_negeri);
-        // $nama_daerah = $pelesen[0]->nama_daerah;
+        $nama_daerah = $pelesen[0]->nama_daerah;
 
 
         $labelx = 0;
@@ -884,6 +888,11 @@ class Proses1Controller extends Controller
         ];
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
         return $array;
+    }
+    else{
+        return redirect()->back()
+        ->with('error', 'Data Tidak Wujud! ');
+    }
     }
 
     function display_oerdata($nolesen,$notahun)
