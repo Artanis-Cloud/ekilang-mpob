@@ -443,14 +443,12 @@ class Proses1Controller extends Controller
         ];
         $layout = 'layouts.kbuah';
         $array = [
-            'returnArr' => $returnArr,
-            'layout' => $layout,
             'id' => $reg_pelesen,
             // 'nolesen' => $nolesen,
         ];
 
 
-        return view('admin.proses1.admin-prestasi-oer', $array);
+        return view('admin.proses1.admin-prestasi-oer', $array, compact('returnArr', 'layout'));
     }
 
 
@@ -472,7 +470,7 @@ class Proses1Controller extends Controller
 
         $nolesen = $this->admin_prestasi_oer($id);
         $nolesen2 = $nolesen->e_nl;
-        dd($nolesen2);
+        dd($nolesen);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
