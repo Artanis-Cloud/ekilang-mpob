@@ -426,8 +426,9 @@ class Proses1Controller extends Controller
         //                                             AND bulan = '06'");
         // dd($test);
         $id = RegPelesen::find($id);
-        dd($id);
         $nolesen = $id->e_nl;
+        dd($nolesen);
+
         // $notahun = $request->tahun;
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
