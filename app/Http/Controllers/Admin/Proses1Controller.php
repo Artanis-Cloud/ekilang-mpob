@@ -425,7 +425,7 @@ class Proses1Controller extends Controller
         //                                             WHERE tahun = '2013'
         //                                             AND bulan = '06'");
         // dd($test);
-        $id = RegPelesen::where('e_id', $id);
+        $id = RegPelesen::where('e_id', $id)->first();
         // $nolesen = $id->e_nl;
         // dd($nolesen);
 
