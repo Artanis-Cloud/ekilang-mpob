@@ -78,33 +78,33 @@
 
                             <tr>
 
-                                @if ($value3->bulan == '01') {
+                                @if ($value3->bulan == '01')
                                     <td>{{ "JANUARI " .$value3->tahun }}</td>
-                                } @elseif ($value3->bulan == '02') {
-                                    {{-- $bulan = 'Feb'; --}}
-                                } @elseif ($value3->bulan == '03') {
+                                 @elseif ($value3->bulan == '02')
+                                    <td>{{ "FEBRUARI " .$value3->tahun }}</td>
+                                 @elseif ($value3->bulan == '03')
                                     {{-- $bulan = 'Mac'; --}}
-                                } @elseif ($value3->bulan == '04') {
+                                 @elseif ($value3->bulan == '04')
                                     {{-- $bulan = 'Apr'; --}}
-                                } @elseif ($value3->bulan == '05') {
+                                 @elseif ($value3->bulan == '05')
                                     {{-- $bulan = 'Mei'; --}}
-                                } @elseif ($value3->bulan == '06') {
+                                 @elseif ($value3->bulan == '06')
                                     {{-- $bulan = 'Jun'; --}}
-                                } @elseif ($value3->bulan == '07') {
+                                 @elseif ($value3->bulan == '07')
                                     {{-- $bulan = 'Jul'; --}}
-                                } @elseif ($value3->bulan == '08') {
+                                 @elseif ($value3->bulan == '08')
                                     {{-- $bulan = 'Ogos'; --}}
-                                } @elseif ($value3->bulan == '09') {
+                                 @elseif ($value3->bulan == '09')
                                     {{-- $bulan = 'Sept'; --}}
-                                } @elseif ($value3->bulan == '10') {
+                                 @elseif ($value3->bulan == '10')
                                     {{-- $bulan = 'Okt'; --}}
-                                } @elseif ($value3->bulan == '11') {
+                                 @elseif ($value3->bulan == '11')
                                     {{-- $bulan = 'Nov'; --}}
-                                } @elseif ($value3->bulan == '12') {
+                                 @elseif ($value3->bulan == '12')
                                     {{-- $bulan = 'Dis'; --}}
-                                } @else {
-                                    {{-- $bulan = 0; --}}
-                                }
+                                 @endif
+
+
                                 <td>{{ $value3->cpo_pelesen }}</td>
                                 <td>{{ $value3->cpo_daerah }}</td>
                                 <td>{{ $value3->cpo_negeri }}</td>
