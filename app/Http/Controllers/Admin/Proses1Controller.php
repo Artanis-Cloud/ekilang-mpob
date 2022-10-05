@@ -499,7 +499,7 @@ class Proses1Controller extends Controller
         $thn1 = $data['thn1'];
         $thn2 = $data['thn2'];
         $thn3 = $data['thn3'];
-        dd($oer);
+        // dd($oer);
 
 
         if ($flgdaerah == 'Y') {
@@ -891,6 +891,7 @@ class Proses1Controller extends Controller
             }
 
             $lineplot_daerah = substr($lineplot_daerah, 0, -1);
+
             //yellow
             // $lineplot2->SetLegend("$daerah");
         }
@@ -903,6 +904,7 @@ class Proses1Controller extends Controller
             }
         }
         $lineplot_negeri = substr($lineplot_negeri, 0, -1);
+        dd($lineplot_negeri);
 
         for ($x = 0; $x < $i; $x++) {
             if ($lineplot_semenanjung == 0) {
