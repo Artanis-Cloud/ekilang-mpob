@@ -424,8 +424,8 @@ class Proses1Controller extends Controller
         // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
         //                                             WHERE tahun = '2013'
         //                                             AND bulan = '06'");
-        dd($id);
-        $reg_pelesen = RegPelesen::where('e_nl', $id)->first();
+        // dd($id);
+        $reg_pelesen = RegPelesen::where('e_id', $id)->first();
         // $nolesen = $id->e_nl;
         // dd($reg_pelesen);
 
@@ -473,7 +473,7 @@ class Proses1Controller extends Controller
         $oer = $this->admin_prestasi_oer($id);
         $froer = $oer->id;
         $nolesen = $froer->e_nl;
-        // dd($nolesen3);
+        dd($nolesen3);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
