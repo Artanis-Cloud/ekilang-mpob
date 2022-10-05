@@ -333,7 +333,7 @@
                                                     @foreach ($penyatai[$key] as $datai)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $datai->produk->prodname }}</font>
+                                                                <font size="2">{{ $datai->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $datai->e101_b4 }}</font>
@@ -425,7 +425,7 @@
                                             <tbody>
                                                 <tr style="background-color: #d3d3d370">
                                                     <td width="13%" align="center"><b>
-                                                            <font size="2">Produk Minyak Sawit</font>
+                                                            <font size="2">Produk Isirung Sawit</font>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Kod Produk</font>
@@ -465,7 +465,7 @@
                                                     @foreach ($penyataii[$key] as $dataii)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $dataii->produk->prodname }}</font>
+                                                                <font size="2">{{ $dataii->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $dataii->e101_b4 }}</font>
@@ -611,7 +611,7 @@
                                                     @foreach ($penyataiva[$key] as $dataiva)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $dataiva->produk->prodname }}</font>
+                                                            <font size="2">{{ $dataiva->produk->proddesc }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $dataiva->e101_c4 }}</font>
@@ -709,7 +709,7 @@
                                                     @foreach ($penyataivb[$key] as $dataivb)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $dataivb->produk->prodname }}</font>
+                                                            <font size="2">{{ $dataivb->produk->proddesc }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $dataivb->e101_c4 }}</font>
@@ -942,7 +942,7 @@
                                                     @foreach ($penyatavii[$key] as $datavii)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $datavii->produk->prodname }}</font>
+                                                            <font size="2">{{ $datavii->produk->proddesc }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $datavii->e101_e4 }}</font>

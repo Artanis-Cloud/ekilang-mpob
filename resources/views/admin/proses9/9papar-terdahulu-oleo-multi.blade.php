@@ -275,7 +275,7 @@
                                             <tbody>
                                                 <tr style="background-color: #d3d3d370">
                                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jenis Minyak</font><b></b>
+                                                            <font size="2">Produk Minyak Sawit</font><b></b>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Kod Produk</font><b></b>
@@ -311,7 +311,7 @@
                                                 @foreach ($ia as $dataia)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{  $dataia->produk->prodname }}</font>
+                                                            <font size="2">{{  $dataia->produk->proddesc }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2">{{  $dataia->e104_b4 }}</font>
@@ -395,7 +395,7 @@
                                             <tbody>
                                                 <tr style="background-color: #d3d3d370">
                                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jenis Minyak</font><b></b>
+                                                            <font size="2">Produk Isirung Sawit</font><b></b>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Kod Produk</font><b></b>
@@ -431,7 +431,7 @@
                                                 @foreach ($ib as $dataib)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $dataib->produk->prodname }}</font>
+                                                            <font size="2">{{ $dataib->produk->proddesc }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2">{{ $dataib->e104_b4 }}</font>
@@ -515,7 +515,7 @@
                                             <tbody>
                                                 <tr style="background-color: #d3d3d370">
                                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                        <font size="2">Jenis Minyak</font><b></b>
+                                                        <font size="2">Produk Minyak Sawit</font><b></b>
                                                     </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Kod Produk</font><b></b>
@@ -551,7 +551,7 @@
                                                 @foreach ($ic as $dataic)
                                                 <tr>
                                                     <td align="left">
-                                                        <font size="2">{{ $dataic->produk->prodname }}</font>
+                                                        <font size="2">{{ $dataic->produk->proddesc }}</font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2">{{ $dataic->e104_b4 }}</font>
@@ -656,7 +656,7 @@
                                             <tbody>
                                                 <tr style="padding: 0.2rem 0.3rem; background-color: #d3d3d370">
                                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Jenis Minyak Sawit</font>
+                                                            <font size="2">Produk Minyak Sawit Sawit</font>
                                                         </b></td>
                                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                             <font size="2">Kod Produk</font>
@@ -680,7 +680,7 @@
                                                 @foreach ($iii as $dataiii)
                                                 <tr>
                                                     <td align="left">
-                                                        <font size="2">{{ $dataiii->produk->prodname }}</font>
+                                                        <font size="2">{{ $dataiii->produk->proddesc }}</font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2">{{ $dataiii->e104_c3 }}</font>
@@ -766,7 +766,7 @@
                                                 @foreach ($iv as $dataiv)
                                                 <tr>
                                                     <td align="left">
-                                                        <font size="2">{{  $dataiv->produk->prodname ?? ''}}</font>
+                                                        <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
                                                     </td>
                                                     <td align="left">
                                                         <font size="2">{{ $dataiv->produk->prodid ?? ''}}</font>

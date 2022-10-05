@@ -317,7 +317,7 @@
                                     </td> --}}
                                 </tr>
                                 <tr>
-                                    <td>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4 </td>
+                                    <td>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4 </td>
                                     <td>Pn. Nor Baayah</td>
                                     <td>03-7802 2865</td>
                                     <td>abby@mpob.gov.my</td>
