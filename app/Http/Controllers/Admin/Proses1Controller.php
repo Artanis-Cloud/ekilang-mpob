@@ -424,7 +424,7 @@ class Proses1Controller extends Controller
         // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
         //                                             WHERE tahun = '2013'
         //                                             AND bulan = '06'");
-        dd($id);
+        // dd($id);
         $reg_pelesen = RegPelesen::where('e_nl', $id)->first();
         // $nolesen = $id->e_nl;
         // dd($reg_pelesen);
@@ -456,7 +456,7 @@ class Proses1Controller extends Controller
 
     public function admin_papar_prestasi_oer($id, Request $request)
     {
-        // dd($id);
+        dd($id);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen  "],
