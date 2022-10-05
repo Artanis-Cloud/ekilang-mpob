@@ -903,8 +903,8 @@ class Proses1Controller extends Controller
                 $lineplot_negeri = $lineplot_negeri . $val4[$x] . ',';
             }
         }
-        $lineplot_negeri_1 = substr($lineplot_negeri, 0, -1);
-        $lineplot_negeri = round($lineplot_negeri_1,2);
+        $lineplot_negeri = substr($lineplot_negeri, 0, -1);
+
 
         for ($x = 0; $x < $i; $x++) {
             if ($lineplot_semenanjung == 0) {
