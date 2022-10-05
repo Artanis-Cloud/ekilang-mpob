@@ -194,12 +194,19 @@
                 data: {
                     columns: [
                         // loop
-                        
+                        @if ($flgdaerah == 'Y')
                         ['{{ $nama_kilang }}', {{ $individu ?? 0 }}],
                         ['{{ $nama_daerah2 }}', {{ $daerah ?? 0 }}],
                         ['{{ $nama_negeri }}', {{ $negeri ?? 0}}],
                         ['SEMENANJUNG MALAYSIA', {{ $semsia }}],
                         ['MALAYSIA',{{ $msia }}]
+                        @elseif ($flgdaerah == 'N')
+                        ['{{ $nama_kilang }}', {{ $individu ?? 0 }}],
+                        ['{{ $nama_negeri }}', {{ $negeri ?? 0}}],
+                        ['SEMENANJUNG MALAYSIA', {{ $semsia }}],
+                        ['MALAYSIA',{{ $msia }}]
+                        @endif
+
                     ],
                     type: 'line'
                 },
