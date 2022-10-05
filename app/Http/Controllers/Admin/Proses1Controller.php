@@ -419,6 +419,622 @@ class Proses1Controller extends Controller
         ));
     }
 
+    public function admin_papar_prestasi_oer($nolesen, Request $request)
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen  "],
+            ['link' => route('admin.papar.prestasi.oer'), 'name' => "Paparan Prestasi OER  "],
+        ];
+
+        $kembali = route('admin.senaraipelesenbuah');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $oer = $this->display_oergraph($nolesen, $request->tahun);
+        $data = $this->display_oerdata($nolesen, $request->tahun);
+        $individu = $oer['lineplot_individu'];
+        $daerah = $oer['lineplot_daerah'];
+        $negeri = $oer['lineplot_negeri'];
+        $semsia = $oer['lineplot_semenanjung'];
+        $msia = $oer['lineplot_malaysia'];
+        $labelx = $oer['labelx'];
+        $nama_negeri = $oer['nama_negeri'];
+        $nama_daerah = $oer['nama_daerah'];
+        $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
+
+        $cluster = $data['cluster'];
+        $kawasan = $data['kawasan'];
+        $nama_kilang = $data['namakilang'];
+        $flgdaerah = $data['flgdaerah'];
+        $thn1 = $data['thn1'];
+        $thn2 = $data['thn2'];
+        $thn3 = $data['thn3'];
+
+
+        if ($flgdaerah == 'Y') {
+            $result3b = $data['result3b'];
+            $result2 = $data['result2'];
+            $result1 = $data['result1'];
+
+
+            return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result3b', 'result1', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+        }
+        elseif ($flgdaerah == 'N') {
+            $result6a = $data['result6a'];
+            $result5 = $data['result5'];
+            $result7 = $data['result7'];
+
+            // dd($flgdaerah);
+            // $this->display_oerdata($request->tahun);
+
+            // $layout = 'layouts.kbuah';
+
+
+            return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result6a', 'result5', 'result7', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+        }
+
+    }
+
+
+
+    // START PROCESS PRESTASI OER
+
+    function get_pelesen($nolesen)
+    {
+        //get pelesen
+        $qry = DB::connection('mysql3')->select("SELECT p.e_np as namakilang, p.e_cluster, c.nama_cluster,
+        p.e_kawasan, n.nama_region
+        from pelesen p, negeri n, cluster c
+        where p.e_nl = '$nolesen' and p.e_cluster = c.kod_cluster and
+        p.e_negeri = n.kod_negeri and p.e_kawasan = n.kod_region");
+
+        return $qry;
+    }
+
+    function get_data_pelesen($nolesen)
+    {
+
+        //get data pelesen
+        $dtlqry = DB::select("SELECT distinct p.e_np as namakilang, n.nama_negeri, d.nama_daerah
+        from pelesen p, negeri n, daerah d
+        where p.e_nl = '$nolesen' and
+        p.e_negeri = n.kod_negeri and
+        p.e_negeri = d.kod_negeri and
+        p.e_daerah = d.kod_daerah");
+
+        return $dtlqry;
+    }
+
+
+    function check_daerahless($nolesen)
+    {
+        //fungsi untuk check samada pelesen kurang dari 5 pelesen atau tidak.
+        //table daerahless adalah senarai daerah bagi daerah yang kurang dari 5 pelesen
+
+        //check daerahless
+        $chkqry = DB::connection('mysql3')->select("SELECT distinct d.daerah from oerpelesen p, daerahless d
+        where p.nolesen = '$nolesen' and
+              p.negeri = d.negeri and
+              p.daerah = d.daerah ");
+
+
+        if ($chkqry) {
+            foreach ($chkqry as $row) {
+                $result = $row->daerah;
+            }
+        } else {
+            $result = 0;
+        }
+
+        return $result;
+    }
+
+
+    function get_data_oer_year3full($nolesen, $thn3)
+    {
+
+        //get data oer year3full
+        $query3 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan,f.oer_cpo as cpo_pelesen,d.oer_cpo as cpo_daerah,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semsia,m.oer_cpo as cpo_msia
+            from oerpelesen f, oerdaerah d, oernegeri n, oersemsia s, oermsia m
+            where f.nolesen = '$nolesen' and
+            (f.tahun = '$thn3') and
+            f.tahun = d.tahun and
+            f.bulan = d.bulan and
+            f.tahun = n.tahun and
+            f.bulan = n.bulan and
+            f.tahun = s.tahun and
+            f.bulan = s.bulan and
+            f.tahun = m.tahun and
+            f.bulan = m.bulan and
+            f.negeri = d.negeri and
+            f.daerah = d.daerah and
+            f.negeri = n.negeri
+            order by f.tahun, f.bulan");
+
+        return $query3;
+    }
+
+
+    function get_data_oer_year3full_cluster($cluster, $thn, $bulan)
+    {
+        //  $conn = db_connect_econ();
+        $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oercluster
+                where kod_cluster = '$cluster' and tahun = '$thn'
+                                  and bulan = '$bulan'");
+
+        //  $result3 = @mysqli_query($conn,$query3);
+        //  $row = @mysqli_fetch_array($result3);
+
+        if ($query3) {
+            foreach ($query3 as $row) {
+                $result = $row->oer_cpo;
+            }
+        } else {
+            $result = 0;
+        }
+
+        return $result;
+    }
+
+
+    function get_data_oer_year3full_kawasan($kawasan, $thn, $bulan)
+    {
+
+        // $conn = db_connect_econ();
+        $query3 = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo from oerkawasan
+                where kod_kawasan = '$kawasan' and tahun = '$thn'
+                                and bulan = '$bulan'");
+
+        // $result3 = @mysqli_query($conn,$query3);
+        // $row = @mysqli_fetch_array($result3);
+        if ($query3) {
+            foreach ($query3 as $row) {
+                $result = $row->oer_cpo;
+            }
+        } else {
+            $result = 0;
+        }
+
+
+        return $result;
+    }
+
+    function get_data_oer_year3dfull($nolesen, $thn3)
+    {
+
+        // $conn = db_connect_econ();
+        $query5 = DB::connection('mysql3')->select("SELECT right(f.tahun,2) as tahun, f.bulan as bulan,f.oer_cpo as cpo_pelesen,n.oer_cpo as cpo_negeri,s.oer_cpo as cpo_semsia,m.oer_cpo as cpo_msia
+                from oerpelesen f, oernegeri n, oersemsia s, oermsia m
+                where f.nolesen = '$nolesen' and
+                (f.tahun = '$thn3') and
+                f.tahun = n.tahun and
+                f.bulan = n.bulan and
+                f.tahun = s.tahun and
+                f.bulan = s.bulan and
+                f.tahun = m.tahun and
+                f.bulan = m.bulan and
+                f.negeri = n.negeri
+                order by f.tahun, f.bulan");
+
+        // $result5 = @mysqli_query($conn,$query5);
+        return $query5;
+    }
+
+
+    function display_oergraph($nolesen, $notahun)
+    {
+
+        $thn1 = $notahun;
+        //echo $thn1;
+        $thn2 = $thn1 - 1;
+        $thn3 = $thn1 - 2;
+        $thn4 = $thn1 - 3;
+
+
+        $adadaerah = $this->check_daerahless($nolesen);
+        if (!$adadaerah || $adadaerah == 0)
+            $flgdaerah = 'Y';
+        else
+            $flgdaerah = 'N';
+
+        $dtlpelesen = $this->get_data_pelesen($nolesen);
+
+        foreach ($dtlpelesen as $row) {
+            $namakilang = trim($row->namakilang);
+            $daerah = trim($row->nama_daerah);
+            $negeri = trim($row->nama_negeri);
+        }
+
+        $makpelesen = $this->get_pelesen($nolesen);
+
+        foreach ($makpelesen as $row1) {
+            $enp = $row1->namakilang;
+            $cluster = strtoupper($row1->nama_cluster);
+            $kodcluster = $row1->e_cluster;
+            $kawasan = $row1->nama_region;
+            $kodkawasan = $row1->e_kawasan;
+        }
+
+        if ($flgdaerah == 'Y') {
+            $result1 = $this->get_data_oer_year3full($nolesen, $thn1);
+            $result2 = $this->get_data_oer_year3full($nolesen, $thn2);
+            $result3 = $this->get_data_oer_year3full($nolesen, $thn3);
+
+            $i = 0;
+            foreach ($result3 as $value3) {
+
+
+                $val1[$i] = "$value3->bulan/$value3->tahun";
+                $val2[$i] = $value3->cpo_pelesen;
+                $val3[$i] = $value3->cpo_daerah;
+                $val4[$i] = $value3->cpo_negeri;
+                $val5[$i] = $value3->cpo_semsia;
+                $val6[$i] = $value3->cpo_msia;
+
+                $valbulan1 = $value3->bulan;
+                $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster, $thn3, $valbulan1);
+                $val7[$i] = $oercluster1;
+                $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn3, $valbulan1);
+                $val8[$i] = $oerkawasan1;
+
+                $i++;
+            }
+
+            foreach ($result2 as $value2) {
+                // }
+                $val1[$i] = "$value2->bulan/$value2->tahun";
+                $val2[$i] = $value2->cpo_pelesen;
+                $val3[$i] = $value2->cpo_daerah;
+                $val4[$i] = $value2->cpo_negeri;
+                $val5[$i] = $value2->cpo_semsia;
+                $val6[$i] = $value2->cpo_msia;
+
+                $valbulan2 = $value2->bulan;
+                $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster, $thn2, $valbulan2);
+                $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn2, $valbulan2);
+                $val7[$i] = $oercluster2;
+                $val8[$i] = $oerkawasan2;
+
+                $i++;
+            }
+
+            foreach ($result1 as $value1) {
+
+                $val1[$i] = "$value1->bulan/$value1->tahun";
+                $val2[$i] = $value1->cpo_pelesen;
+                $val3[$i] = $value1->cpo_daerah;
+                $val4[$i] = $value1->cpo_negeri;
+                $val5[$i] = $value1->cpo_semsia;
+                $val6[$i] = $value1->cpo_msia;
+
+                $valbulan3 = $value1->bulan;
+                $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster, $thn1, $valbulan3);
+                $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn1, $valbulan3);
+                $val7[$i] = $oercluster3;
+                $val8[$i] = $oerkawasan3;
+
+                $i++;
+            }
+
+
+        } elseif ($flgdaerah == 'N') {
+
+            //$result4 = get_data_oer_year2d($nolesen,$thn1);
+            $result4 = $this->get_data_oer_year3dfull($nolesen, $thn1);
+            //$result5 = get_data_oer_year2d($nolesen,$thn2);
+            $result5 =  $this->get_data_oer_year3dfull($nolesen, $thn2);
+            // $result6 = get_data_oer_year3dfull($nolesen,$thn3);
+            $result6 =  $this->get_data_oer_year3dfull($nolesen, $thn3);
+
+            $i = 0;
+            // dd($result6);
+            foreach ($result6 as $value6) {
+
+                // }
+                $val1[$i] = "$value6->bulan/$value6->tahun";
+                $val2[$i] = $value6->cpo_pelesen;
+                $val4[$i] = $value6->cpo_negeri;
+                $val5[$i] = $value6->cpo_semsia;
+                $val6[$i] = $value6->cpo_msia;
+
+                $valbulan1 = $value6->bulan;
+                $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster, $thn3, $valbulan1);
+                $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn3, $valbulan1);
+                $val7[$i] = $oercluster1;
+                $val8[$i] = $oerkawasan1;
+
+                $i++;
+            }
+
+            foreach ($result5 as $value5) {
+
+
+                $val1[$i] = "$value5->bulan/$value5->tahun";
+                $val2[$i] = $value5->cpo_pelesen;
+                $val4[$i] = $value5->cpo_negeri;
+                $val5[$i] = $value5->cpo_semsia;
+                $val6[$i] = $value5->cpo_msia;
+
+                $valbulan2 = $value5->bulan;
+                $oercluster2 = $this->get_data_oer_year3full_cluster($kodcluster, $thn2, $valbulan2);
+                $oerkawasan2 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn2, $valbulan2);
+                $val7[$i] = $oercluster2;
+                $val8[$i] = $oerkawasan2;
+
+                $i++;
+            }
+
+            foreach ($result4 as $value4) {
+
+                $val1[$i] = "$value4->bulan/$value4->tahun";
+                $val2[$i] = $value4->cpo_pelesen;
+                $val4[$i] = $value4->cpo_negeri;
+                $val5[$i] = $value4->cpo_semsia;
+                $val6[$i] = $value4->cpo_msia;
+
+                $valbulan3 = $value4->bulan;
+                $oercluster3 = $this->get_data_oer_year3full_cluster($kodcluster, $thn1, $valbulan3);
+                $oerkawasan3 = $this->get_data_oer_year3full_kawasan($kodkawasan, $thn1, $valbulan3);
+                $val7[$i] = $oercluster3;
+                $val8[$i] = $oerkawasan3;
+
+                $i++;
+            }
+
+        }
+
+
+        $pelesen = $this->get_data_pelesen($nolesen);
+        $nama_negeri = $pelesen[0]->nama_negeri;
+        // dd($nama_negeri);
+        $nama_daerah = $pelesen[0]->nama_daerah;
+
+
+        $labelx = 0;
+        $lineplot_individu = 0;
+        $lineplot_daerah = 0;
+        $lineplot_negeri = 0;
+        $lineplot_semenanjung = 0;
+        $lineplot_malaysia = 0;
+
+        // for ($i = 0; $i < $key; $i++) {
+        //     if ($labelx == 0) {
+        //         $labelx = $val1[$i] . ',';
+        //     } else {
+        //         $labelx = $labelx . $val1[$i] . ",";
+        //     }
+        //     // $labelx = $labelx ."'". $val1[$i] . "',";
+        // }
+        // $labelx = substr($labelx, 0, -1);
+        // dd($val1);
+
+
+        for ($x = 0; $x < $i; $x++) {
+            if ($lineplot_individu == 0) {
+                $lineplot_individu = $val2[$x] . ',';
+            } else {
+                $lineplot_individu = $lineplot_individu . $val2[$x] . ',';
+            }
+        }
+        $lineplot_individu = substr($lineplot_individu, 0, -1);
+        // dd($lineplot_individu);
+
+        if ($flgdaerah == 'Y') {
+            for ($x = 0; $x < $i; $x++) {
+                if ($lineplot_daerah == 0) {
+                    $lineplot_daerah = $val3[$x] . ',';
+                } else {
+                    $lineplot_daerah = $lineplot_daerah . $val3[$x] . ',';
+                }
+            }
+
+            $lineplot_daerah = substr($lineplot_daerah, 0, -1);
+            //yellow
+            // $lineplot2->SetLegend("$daerah");
+        }
+
+        for ($x = 0; $x < $i; $x++) {
+            if ($lineplot_negeri == 0) {
+                $lineplot_negeri = $val4[$x] . ',';
+            } else {
+                $lineplot_negeri = $lineplot_negeri . $val4[$x] . ',';
+            }
+        }
+        $lineplot_negeri = substr($lineplot_negeri, 0, -1);
+
+        for ($x = 0; $x < $i; $x++) {
+            if ($lineplot_semenanjung == 0) {
+                $lineplot_semenanjung = $val5[$x] . ',';
+            } else {
+                $lineplot_semenanjung = $lineplot_semenanjung . $val5[$x] . ',';
+            }
+        }
+        $lineplot_semenanjung = substr($lineplot_semenanjung, 0, -1);
+
+        for ($x = 0; $x < $i; $x++) {
+            if ($lineplot_malaysia == 0) {
+                $lineplot_malaysia = $val2[$x] . ',';
+            } else {
+                $lineplot_malaysia = $lineplot_malaysia . $val6[$x] . ',';
+            }
+        }
+        $lineplot_malaysia = substr($lineplot_malaysia, 0, -1);
+
+        $array = [
+            'enp' => $enp,
+            'nama_negeri' => $nama_negeri,
+            'nama_daerah' => $nama_daerah,
+
+            'lineplot_individu' => $lineplot_individu,
+            'lineplot_daerah' => $lineplot_daerah,
+
+            'lineplot_negeri' => $lineplot_negeri,
+            'lineplot_semenanjung' => $lineplot_semenanjung,
+            'lineplot_malaysia' => $lineplot_malaysia,
+
+            'labelx' => $val1,
+        ];
+        // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
+        return $array;
+    }
+
+    function display_oerdata($nolesen,$notahun)
+{
+
+	$thn1 = (integer) $notahun;
+	$thn2 = $thn1 - 1;
+	$thn3 = $thn1 - 2;
+	$thn4 = $thn1 - 3;
+	//$bln1 = get_month_firstyear($nobulan);
+	//$bln2 = get_month_lastyear($nobulan);
+
+	$adadaerah = $this->check_daerahless($nolesen);
+	if (!$adadaerah || $adadaerah == 0)
+	   $flgdaerah = 'Y';
+	else
+		$flgdaerah = 'N';
+
+	//echo $flgdaerah;
+// dd($flgdaerah);
+
+	$dtlpelesen = $this->get_data_pelesen($nolesen);
+	foreach ($dtlpelesen as $row) {
+        $namakilang = trim($row->namakilang);
+        $daerah = trim($row->nama_daerah);
+        $negeri = trim($row->nama_negeri);
+    }
+
+	 $makpelesen = $this->get_pelesen($nolesen);
+	 foreach ($makpelesen as $row1) {
+        $enp = $row1->namakilang;
+        $cluster = strtoupper($row1->nama_cluster);
+        $kodcluster = $row1->e_cluster;
+        $kawasan = $row1->nama_region;
+        $kodkawasan = $row1->e_kawasan;
+    }
+
+	if ($flgdaerah == 'Y')
+	{
+
+
+
+	$result3b = $this->get_data_oer_year3full($nolesen,$thn3);
+
+    foreach ($result3b as $key3 => $value3) {
+
+        $bulhun3[$key3] = $value3->bulan. "/" .$value3->tahun;
+        $ind3[$key3] = $value3->cpo_pelesen;
+        $negeri3[$key3] = $value3->cpo_negeri;
+        $semsia3[$key3] = $value3->cpo_semsia;
+        $msia3[$key3] = $value3->cpo_msia;
+
+        $valtahun1 = $value3->tahun;
+        $valbulan1 = $value3->bulan;
+        $oercluster1 = $this->get_data_oer_year3full_cluster($kodcluster,$thn3,$valbulan1);
+            // echo "<td align=center><font size=2>";
+            // if (!isset($oercluster1))
+            //    { echo "NULL"; }
+            // else
+            //    { echo $oercluster1;
+            //       }
+            // echo "</font></td>\n";
+
+        $oerkawasan1 = $this->get_data_oer_year3full_kawasan($kodkawasan,$thn3,$valbulan1);
+            // echo "<td align=center><font size=2>";
+            // if (!isset($oerkawasan1))
+            //    { echo "NULL"; }
+            // else
+            //    { echo $oerkawasan1;
+            //       }
+    }
+
+    $result2 = $this->get_data_oer_year3full($nolesen,$thn2);
+
+    foreach ($result2 as $key2 =>  $value2) {
+
+        $bulhun2[$key2] = "$value2->bulan/$value2->tahun";
+        $ind2[$key2]  = $value2->cpo_pelesen;
+        $daerah2[$key2]  = $value2->cpo_daerah;
+        $negeri2[$key2]  = $value2->cpo_negeri;
+        $semsia2[$key2]  = $value2->cpo_semsia;
+        $msia2[$key2]  = $value2->cpo_msia;
+
+
+    }
+
+	$result1 = $this->get_data_oer_year3full($nolesen,$thn1);
+
+    foreach ($result1 as $key1 => $value1) {
+        $bulhun1[$key1] = "$value1->bulan/$value1->tahun";
+        $ind1[$key1] = $value1->cpo_pelesen;
+        $daerah1[$key1] = $value1->cpo_daerah;
+        $negeri1[$key1] = $value1->cpo_negeri;
+        $semsia1[$key1] = $value1->cpo_semsia;
+        $msia1[$key1] = $value1->cpo_msia;
+    }
+
+    $array = [
+        'flgdaerah' => $flgdaerah,
+
+        'thn1' => $thn1,
+        'thn2' => $thn2,
+        'thn3' => $thn3,
+
+        'namakilang' => $namakilang,
+        'daerah' => $daerah,
+        'negeri' => $negeri,
+        'cluster' => $cluster,
+        'kawasan' => $kawasan,
+
+        'result3b' => $result3b,
+        'result2' => $result2,
+        'result1' => $result1,
+
+    ];
+
+	}
+	elseif ($flgdaerah == 'N')
+	{
+
+	//untuk tahun ketiga
+
+	$result6a = $this->get_data_oer_year3dfull($nolesen,$thn3);
+	$result5 = $this->get_data_oer_year3dfull($nolesen,$thn2);
+	$result7 = $this->get_data_oer_year3dfull($nolesen,$thn1);
+
+
+      $array = [
+        'flgdaerah' => $flgdaerah,
+
+        'thn1' => $thn1,
+        'thn2' => $thn2,
+        'thn3' => $thn3,
+
+        'namakilang' => $namakilang,
+        'daerah' => $daerah,
+        'negeri' => $negeri,
+        'cluster' => $cluster,
+        'kawasan' => $kawasan,
+
+        'result6a' => $result6a,
+        'result5' => $result5,
+        'result7' => $result7,
+
+
+    ];
+    }
+
+
+    // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
+    return $array;
+	}
+
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)
     {
         $penyata = Pelesen::findOrFail($id);

@@ -225,7 +225,9 @@
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
-                                                        <td style="text-align: center">-</td>
+                                                        <td style="text-align: center">
+                                                            <a href="{{ route('admin.papar.prestasi.oer', $data->e_nl) }}"><u>
+                                                                    {{ $data->e_nl ?? '-' }}</u></a></td>
 
                                                         {{-- <td>-</td> --}}
                                                     </tr>
