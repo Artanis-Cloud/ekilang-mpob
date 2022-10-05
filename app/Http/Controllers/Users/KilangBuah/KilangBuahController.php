@@ -966,35 +966,10 @@ class KilangBuahController extends Controller
         $thn3 = $data['thn3'];
         $result3b = $data['result3b'];
         $result2 = $data['result2'];
+        $result1 = $data['result1'];
 
 
-        // if ($value5->bulan == '01') {
-        //     $bulan = 'Jan';
-        // } elseif ($value5->bulan == '02') {
-        //     $bulan = 'Feb';
-        // } elseif ($value5->bulan == '03') {
-        //     $bulan = 'Mac';
-        // } elseif ($value5->bulan == '04') {
-        //     $bulan = 'Apr';
-        // } elseif ($value5->bulan == '05') {
-        //     $bulan = 'Mei';
-        // } elseif ($value5->bulan == '06') {
-        //     $bulan = 'Jun';
-        // } elseif ($value5->bulan == '07') {
-        //     $bulan = 'Jul';
-        // } elseif ($value5->bulan == '08') {
-        //     $bulan = 'Ogos';
-        // } elseif ($value5->bulan == '09') {
-        //     $bulan = 'Sept';
-        // } elseif ($value5->bulan == '10') {
-        //     $bulan = 'Okt';
-        // } elseif ($value5->bulan == '11') {
-        //     $bulan = 'Nov';
-        // } elseif ($value5->bulan == '12') {
-        //     $bulan = 'Dis';
-        // } else {
-        //     $bulan = 0;
-        // }
+
 
         // dd($data);
         // $this->display_oerdata($request->tahun);
@@ -1013,7 +988,7 @@ class KilangBuahController extends Controller
         // $layout = 'layouts.kbuah';
 
 
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'result3b', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('returnArr', 'result3b', 'result1', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
     }
 
 
@@ -2179,6 +2154,7 @@ class KilangBuahController extends Controller
 
         'result3b' => $result3b,
         'result2' => $result2,
+        'result1' => $result1,
 
 
     ];

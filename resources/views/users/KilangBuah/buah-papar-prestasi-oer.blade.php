@@ -126,41 +126,19 @@
                             @endforeach
                             @foreach ($result2 as $value3)
                             <tr>
-                                {{-- @if ($value3->bulan == '01')
-                                    <td>{{ "JANUARI " .$value3->tahun }}</td>
-                                 @elseif ($value3->bulan == '02')
-                                 <td>{{ "FEBRUARI " .$value3->tahun }}</td>
-                                 @elseif ($value3->bulan == '03')
-                                 <td>{{ "MAC " .$value3->tahun }}</td>
 
-                                 @elseif ($value3->bulan == '04')
-                                 <td>{{ "APRIL " .$value3->tahun }}</td>
+                                <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
+                                <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
 
-                                 @elseif ($value3->bulan == '05')
-                                 <td>{{ "MEI " .$value3->tahun }}</td>
+                            </tr>
+                            @endforeach
+                            @foreach ($result1 as $value3)
+                            <tr>
 
-                                 @elseif ($value3->bulan == '06')
-                                 <td>{{ "JUN " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '07')
-                                 <td>{{ "JULAI " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '08')
-                                 <td>{{ "OGOS " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '09')
-                                 <td>{{ "SEPTEMBER " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '10')
-                                 <td>{{ "OKTOBER " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '11')
-                                 <td>{{ "NOVEMBER " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '12')
-                                 <td>{{ "DISEMBER " .$value3->tahun }}</td>
-
-                                 @endif --}}
                                 <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
