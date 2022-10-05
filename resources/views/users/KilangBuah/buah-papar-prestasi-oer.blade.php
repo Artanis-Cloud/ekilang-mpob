@@ -62,6 +62,8 @@
                 <div class="table-responsive">
                     <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                         <thead style="text-align: center">
+                            @if ($flgdaerah == 'Y')
+
                             <tr style="text-align: center; background-color: #d3d3d34d">
                                 <th style="vertical-align: middle">BULAN/TAHUN</th>
                                 <th style="vertical-align: middle">{{ $nama_kilang }}</th>
@@ -74,7 +76,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($flgdaerah == 'Y')
 
                             @foreach ($result3b as $value3)
 
@@ -114,12 +115,22 @@
                             @endforeach
 
                             @elseif ($flgdaerah == 'N')
+                            <tr style="text-align: center; background-color: #d3d3d34d">
+                                <th style="vertical-align: middle">BULAN/TAHUN</th>
+                                <th style="vertical-align: middle">{{ $nama_kilang }}</th>
+                                <th style="vertical-align: middle">{{ $nama_negeri }}</th>
+                                <th style="vertical-align: middle">SEMENANJUNG MALAYSIA</th>
+                                <th style="vertical-align: middle">MALAYSIA</th>
+                                {{-- <th style="vertical-align: middle">{{ $cluster }}</th> --}}
+                                {{-- <th style="vertical-align: middle">{{ $kawasan }}</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
                             @foreach ($result6a as $value3)
 
                             <tr>
                                 <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
-                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
@@ -131,7 +142,6 @@
 
                                 <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
-                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
@@ -143,7 +153,6 @@
 
                                 <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
-                                <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_semenanjung ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_msia ?? 0,2) }}</td>
@@ -185,6 +194,7 @@
                 data: {
                     columns: [
                         // loop
+                        
                         ['{{ $nama_kilang }}', {{ $individu ?? 0 }}],
                         ['{{ $nama_daerah2 }}', {{ $daerah ?? 0 }}],
                         ['{{ $nama_negeri }}', {{ $negeri ?? 0}}],
