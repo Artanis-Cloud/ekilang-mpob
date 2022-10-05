@@ -462,7 +462,7 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
 
-        $nolesen = $this->admin_prestasioer($id);
+        $nolesen = $this->admin_prestasi_oer($id);
         dd($nolesen);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
