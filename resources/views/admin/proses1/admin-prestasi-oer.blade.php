@@ -101,7 +101,7 @@
 
 
                             <div class="row justify-content-center form-group" style="margin-bottom: 13%" >
-                                <button type="submit" class="btn btn-primary ">Papar Data</button>
+                                <button type="submit" class="btn btn-primary " onclick="spinner()">Papar Data</button>
 
                             </div>
                         </form>
@@ -126,6 +126,11 @@
                     class="bi bi-arrow-up-short"></i></a>
         @endsection
         @section('scripts')
+        <script type="text/javascript">
+            function spinner() {
+                document.getElementsByClassName("global-loader")[0].style.display = "flex";
+            }
+        </script>
             <script type="text/javascript">
                 window.onload = function() {
                     //Reference the DropDownList.
