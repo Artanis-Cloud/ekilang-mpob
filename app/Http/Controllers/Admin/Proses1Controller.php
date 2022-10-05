@@ -876,7 +876,7 @@ class Proses1Controller extends Controller
                 $lineplot_individu = $lineplot_individu . $val2[$x] . ',';
             }
         }
-        $lineplot_individu = round(substr($lineplot_individu, 0, -1),2);
+        $lineplot_individu = number_format(substr($lineplot_individu, 0, -1),2);
         // dd($lineplot_individu);
 
         if ($flgdaerah == 'Y') {
