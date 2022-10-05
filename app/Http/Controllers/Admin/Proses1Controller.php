@@ -427,7 +427,7 @@ class Proses1Controller extends Controller
         // dd($id);
         $reg_pelesen = RegPelesen::where('e_id', $id)->first();
         // $nolesen = $id->e_nl;
-        dd($reg_pelesen);
+        // dd($reg_pelesen);
 
         // $notahun = $request->tahun;
         $breadcrumbs    = [
@@ -456,7 +456,7 @@ class Proses1Controller extends Controller
 
     public function admin_papar_prestasi_oer($id, Request $request)
     {
-
+        dd($id);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen  "],
