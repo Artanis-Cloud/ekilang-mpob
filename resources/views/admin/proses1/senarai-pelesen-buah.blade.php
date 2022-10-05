@@ -226,7 +226,7 @@
                                                             <td style="text-align: center">-</td>
                                                         @endif
                                                         <td style="text-align: center">
-                                                            <a href="{{ route('admin.prestasi.oer', $data->e_id) }}"><u>
+                                                            <a href="{{ route('admin.prestasi.oer', $data->e_nl) }}"><u>
                                                                     {{ $data->e_nl ?? '-' }}</u></a></td>
 
                                                         {{-- <td>-</td> --}}
