@@ -78,7 +78,7 @@
 
                             <tr>
 
-                                @if ($value3->bulan == '01')
+                                {{-- @if ($value3->bulan == '01')
                                     <td>{{ "JANUARI " .$value3->tahun }}</td>
                                  @elseif ($value3->bulan == '02')
                                  <td>{{ "FEBRUARI " .$value3->tahun }}</td>
@@ -112,9 +112,10 @@
                                  @elseif ($value3->bulan == '12')
                                  <td>{{ "DISEMBER " .$value3->tahun }}</td>
 
-                                 @endif
+                                 @endif --}}
 
 
+                                <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>
@@ -125,7 +126,7 @@
                             @endforeach
                             @foreach ($result2 as $value3)
                             <tr>
-                                @if ($value3->bulan == '01')
+                                {{-- @if ($value3->bulan == '01')
                                     <td>{{ "JANUARI " .$value3->tahun }}</td>
                                  @elseif ($value3->bulan == '02')
                                  <td>{{ "FEBRUARI " .$value3->tahun }}</td>
@@ -159,7 +160,8 @@
                                  @elseif ($value3->bulan == '12')
                                  <td>{{ "DISEMBER " .$value3->tahun }}</td>
 
-                                 @endif
+                                 @endif --}}
+                                <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_daerah ?? 0,2) }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_negeri ?? 0,2) }}</td>

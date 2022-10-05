@@ -1422,7 +1422,7 @@ class KilangBuahController extends Controller
                 } else {
                     $bulan = 0;
                 }
-                $val1[$i] = "$value5->bulan-$value5->tahun";
+                $val1[$i] = "$value5->bulan/$value5->tahun";
                 $val2[$i] = $value5->cpo_pelesen;
                 $val4[$i] = $value5->cpo_negeri;
                 $val5[$i] = $value5->cpo_semenanjung;
