@@ -236,7 +236,7 @@
                     y: {
                         // type: 'category',
                         valueFormatString: "###0.00",
-                        tickDecimals:2,
+                        // tickDecimals:2,
                         title: {
                             display: true,
                             text: 'OER(%)'
