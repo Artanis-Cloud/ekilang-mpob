@@ -946,6 +946,21 @@ class KilangBuahController extends Controller
 
     public function buah_oerprocess(Request $request)
     {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
+            ['link' => route('buah.prestasioer'), 'name' => "Paparan Prestasi OER  "],
+        ];
+
+        $kembali = route('buah.prestasioer');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
         $oer = $this->display_oergraph(auth()->user()->username, $request->tahun);
         $data = $this->display_oerdata(auth()->user()->username, $request->tahun);
         $individu = $oer['lineplot_individu'];
@@ -965,34 +980,30 @@ class KilangBuahController extends Controller
         $thn1 = $data['thn1'];
         $thn2 = $data['thn2'];
         $thn3 = $data['thn3'];
-        $result3b = $data['result3b'];
-        $result2 = $data['result2'];
-        $result1 = $data['result1'];
-        $result6a = $data['result6a'];
-        $result5 = $data['result5'];
-        $result7 = $data['result7'];
+
+        
+        if ($flgdaerah == 'Y') {
+            $result3b = $data['result3b'];
+            $result2 = $data['result2'];
+            $result1 = $data['result1'];
 
 
+            return view('users.KilangBuah.buah-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result3b', 'result1', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+        }
+        elseif ($flgdaerah == 'N') {
+            $result6a = $data['result6a'];
+            $result5 = $data['result5'];
+            $result7 = $data['result7'];
+
+            // dd($flgdaerah);
+            // $this->display_oerdata($request->tahun);
+
+            // $layout = 'layouts.kbuah';
 
 
-        // dd($flgdaerah);
-        // $this->display_oerdata($request->tahun);
-        $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
-            ['link' => route('buah.prestasioer'), 'name' => "Paparan Prestasi OER  "],
-        ];
+            return view('users.KilangBuah.buah-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result6a', 'result5', 'result7', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
+        }
 
-        $kembali = route('buah.prestasioer');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        // $layout = 'layouts.kbuah';
-
-
-        return view('users.KilangBuah.buah-papar-prestasi-oer', compact('flgdaerah','returnArr', 'result3b', 'result1', 'result2', 'result6a', 'result5', 'result7', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
     }
 
 
