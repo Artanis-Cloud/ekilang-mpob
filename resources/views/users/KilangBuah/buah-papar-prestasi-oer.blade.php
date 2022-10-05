@@ -79,7 +79,7 @@
                             <tr>
 
                                 @if ($value3->bulan == '01') {
-                                    <td>{{ "JANUARI" . &nbsp; .$value3->tahun }}</td>
+                                    <td>{{ "JANUARI " .$value3->tahun }}</td>
                                 } @elseif ($value3->bulan == '02') {
                                     {{-- $bulan = 'Feb'; --}}
                                 } @elseif ($value3->bulan == '03') {
