@@ -419,7 +419,7 @@ class Proses1Controller extends Controller
         ));
     }
 
-    public function admin_prestasioer($id)
+    public function admin_prestasi_oer($id)
     {
         // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
         //                                             WHERE tahun = '2013'
@@ -439,7 +439,7 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kbuah';
-
+        
 
 
         return view('admin.proses1.admin-prestasi-oer', compact('returnArr', 'layout' , 'nolesen'));
