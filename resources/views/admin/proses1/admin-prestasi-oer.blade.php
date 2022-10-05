@@ -37,7 +37,7 @@
             {{-- <div class="card-header border-bottom">
                         <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                     </div> --}}
-                    <form action="{{ route('admin.papar.prestasi.oer', $nolesen->e_nl) }}" method="get" >
+                    <form action="{{ route('admin.papar.prestasi.oer', $id->e_nl) }}" method="get" >
                         @csrf
                     <div class="card-body">
                         {{-- <div class="row"> --}}
