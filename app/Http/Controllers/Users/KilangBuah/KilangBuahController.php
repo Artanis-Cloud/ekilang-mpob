@@ -1575,7 +1575,7 @@ class KilangBuahController extends Controller
 		$flgdaerah = 'N';
 
 	//echo $flgdaerah;
-dd($flgdaerah);
+// dd($flgdaerah);
 
 	$dtlpelesen = $this->get_data_pelesen($nolesen);
 	foreach ($dtlpelesen as $row) {
@@ -1605,7 +1605,7 @@ dd($flgdaerah);
         $bulhun3[$key3] = $value3->bulan. "/" .$value3->tahun;
         $ind3[$key3] = $value3->cpo_pelesen;
         $negeri3[$key3] = $value3->cpo_negeri;
-        $semsia3[$key3] = $value3->cpo_semenanjung;
+        $semsia3[$key3] = $value3->cpo_semsia;
         $msia3[$key3] = $value3->cpo_msia;
 
         $valtahun1 = $value3->tahun;
@@ -1636,7 +1636,7 @@ dd($flgdaerah);
         $ind2[$key2]  = $value2->cpo_pelesen;
         $daerah2[$key2]  = $value2->cpo_daerah;
         $negeri2[$key2]  = $value2->cpo_negeri;
-        $semsia2[$key2]  = $value2->cpo_semenanjung;
+        $semsia2[$key2]  = $value2->cpo_semsia;
         $msia2[$key2]  = $value2->cpo_msia;
 
 
@@ -1649,25 +1649,8 @@ dd($flgdaerah);
         $ind1[$key1] = $value1->cpo_pelesen;
         $daerah1[$key1] = $value1->cpo_daerah;
         $negeri1[$key1] = $value1->cpo_negeri;
-        $semsia1[$key1] = $value1->cpo_semenanjung;
+        $semsia1[$key1] = $value1->cpo_semsia;
         $msia1[$key1] = $value1->cpo_msia;
-    }
-
-	}
-	elseif ($flgdaerah == 'N')
-	{
-
-
-
-
-	//untuk tahun ketiga
-
-	$result6a = $this->get_data_oer_year3dfull($nolesen,$thn3);
-
-	  $result5 = $this->get_data_oer_year3dfull($nolesen,$thn2);
-
-	  $result7 = $this->get_data_oer_year3dfull($nolesen,$thn1);
-
     }
 
     $array = [
@@ -1687,12 +1670,41 @@ dd($flgdaerah);
         'result2' => $result2,
         'result1' => $result1,
 
+    ];
+
+	}
+	elseif ($flgdaerah == 'N')
+	{
+
+	//untuk tahun ketiga
+
+	$result6a = $this->get_data_oer_year3dfull($nolesen,$thn3);
+	$result5 = $this->get_data_oer_year3dfull($nolesen,$thn2);
+	$result7 = $this->get_data_oer_year3dfull($nolesen,$thn1);
+
+
+      $array = [
+        'flgdaerah' => $flgdaerah,
+
+        'thn1' => $thn1,
+        'thn2' => $thn2,
+        'thn3' => $thn3,
+
+        'namakilang' => $namakilang,
+        'daerah' => $daerah,
+        'negeri' => $negeri,
+        'cluster' => $cluster,
+        'kawasan' => $kawasan,
+
         'result6a' => $result6a,
         'result5' => $result5,
         'result7' => $result7,
 
 
     ];
+    }
+
+
     // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
     return $array;
 	}
