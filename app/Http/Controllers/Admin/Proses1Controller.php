@@ -427,7 +427,7 @@ class Proses1Controller extends Controller
         // dd($test);
         $reg_pelesen = RegPelesen::where('e_id', $id)->first();
         // $nolesen = $id->e_nl;
-        // dd($nolesen);
+        dd($reg_pelesen);
 
         // $notahun = $request->tahun;
         $breadcrumbs    = [
