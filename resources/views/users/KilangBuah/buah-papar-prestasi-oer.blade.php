@@ -114,6 +114,8 @@
 
                         </tbody>
                     </table>
+                    <p><i>Nota : Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai lebih daripada lima pelesen.<br><br></i></p>
+
                 </div>
 
             </div>
