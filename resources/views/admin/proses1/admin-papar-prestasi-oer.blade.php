@@ -200,16 +200,16 @@
                     columns: [
                         // loop
                         @if ($flgdaerah == 'Y')
-                        ['{{ $nama_kilang }}', {{ number_format($individu ?? 0,2) }}],
-                        ['{{ $nama_daerah2 }}', {{ number_format($daerah ?? 0,2) }}],
-                        ['{{ $nama_negeri }}', {{ number_format($negeri ?? 0,2)}}],
-                        ['SEMENANJUNG MALAYSIA', {{ number_format($semsia ?? 0,2) }}],
-                        ['MALAYSIA',{{ number_format($msia ?? 0,2) }}]
+                        ['{{ $nama_kilang }}', {{ round($individu ?? 0,2) }}],
+                        ['{{ $nama_daerah2 }}', {{ round($daerah ?? 0,2) }}],
+                        ['{{ $nama_negeri }}', {{ round($negeri ?? 0,2)}}],
+                        ['SEMENANJUNG MALAYSIA', {{ round($semsia ?? 0,2) }}],
+                        ['MALAYSIA',{{ round($msia ?? 0,2) }}]
                         @elseif ($flgdaerah == 'N')
-                        ['{{ $nama_kilang }}', {{ number_format($individu ?? 0,2) }}],
-                        ['{{ $nama_negeri }}', {{ number_format($negeri ?? 0,2)}}],
-                        ['SEMENANJUNG MALAYSIA', {{ number_format($semsia ?? 0,2)}}],
-                        ['MALAYSIA',{{ number_format($msia ?? 0,2) }}]
+                        ['{{ $nama_kilang }}', {{ round($individu ?? 0,2) }}],
+                        ['{{ $nama_negeri }}', {{ round($negeri ?? 0,2)}}],
+                        ['SEMENANJUNG MALAYSIA', {{ round($semsia ?? 0,2)}}],
+                        ['MALAYSIA',{{ round($msia ?? 0,2) }}]
                         @endif
 
                     ],
