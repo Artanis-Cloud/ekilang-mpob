@@ -431,11 +431,12 @@ class Proses1Controller extends Controller
 
         // $notahun = $request->tahun;
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen  "],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Prestasi OER  "],
         ];
 
-        $kembali = route('buah.dashboard');
+        $kembali = route('admin.senaraipelesenbuah');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
