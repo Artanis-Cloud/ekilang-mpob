@@ -419,6 +419,33 @@ class Proses1Controller extends Controller
         ));
     }
 
+    public function admin_prestasioer($id)
+    {
+        // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
+        //                                             WHERE tahun = '2013'
+        //                                             AND bulan = '06'");
+        // dd($test);
+        $nolesen = RegPelesen::find($id);
+        // $notahun = $request->tahun;
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+
+
+        return view('admin.proses1.admin-prestasi-oer', compact('returnArr', 'layout' , 'nolesen'));
+    }
+
+
     public function admin_papar_prestasi_oer($id, Request $request)
     {
 
@@ -435,9 +462,7 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
 
-        $nolesen = RegPelesen::find($id);
-
-
+        $nolesen = $this->admin_prestasioer($id);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
