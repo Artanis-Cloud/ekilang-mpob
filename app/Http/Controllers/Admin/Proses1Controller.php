@@ -644,7 +644,6 @@ class Proses1Controller extends Controller
             $flgdaerah = 'Y';
         else
             $flgdaerah = 'N';
-            dd($flgdaerah);
 
         $dtlpelesen = $this->get_data_pelesen($nolesen);
         foreach ($dtlpelesen as $row) {
@@ -667,6 +666,7 @@ class Proses1Controller extends Controller
             $result1 = $this->get_data_oer_year3full($nolesen, $thn1);
             $result2 = $this->get_data_oer_year3full($nolesen, $thn2);
             $result3 = $this->get_data_oer_year3full($nolesen, $thn3);
+            dd($result3);
 
             $i = 0;
             foreach ($result3 as $value3) {
