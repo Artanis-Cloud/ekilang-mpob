@@ -424,7 +424,7 @@ class Proses1Controller extends Controller
         // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
         //                                             WHERE tahun = '2013'
         //                                             AND bulan = '06'");
-        // dd($id);
+        dd($id);
         $reg_pelesen = RegPelesen::where('e_id', $id)->first();
         // $nolesen = $id->e_nl;
         // dd($reg_pelesen);
