@@ -425,7 +425,9 @@ class Proses1Controller extends Controller
         //                                             WHERE tahun = '2013'
         //                                             AND bulan = '06'");
         // dd($test);
-        $nolesen = RegPelesen::find($id);
+        $id = RegPelesen::find($id);
+        dd($id);
+        $nolesen = $id->e_nl;
         // $notahun = $request->tahun;
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -439,10 +441,15 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kbuah';
+        $array = [
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+            'id' => $id,
+            'nolesen' => $nolesen,
+        ];
 
 
-
-        return view('admin.proses1.admin-prestasi-oer', compact('returnArr', 'layout' , 'nolesen'));
+        return view('admin.proses1.admin-prestasi-oer', $array);
     }
 
 
