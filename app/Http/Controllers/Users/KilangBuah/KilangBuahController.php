@@ -1324,6 +1324,7 @@ class KilangBuahController extends Controller
             $result6 =  $this->get_data_oer_year3dfull($nolesen, $thn3);
 
             $i = 0;
+            dd($result6);
             foreach ($result6 as $value6) {
 
                 // if ($value6->bulan == '01') {
