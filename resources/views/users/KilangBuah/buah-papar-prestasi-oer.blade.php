@@ -47,7 +47,7 @@
 
                 <div class="text-center">
                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Prestasi OER</h3>
-                    <h5 style="color: rgb(39, 80, 71); font-size:14px">Laporan Prestasi OER Kilang Buah</h5>
+                    <h5 style="color: rgb(39, 80, 71); font-size:14px">Laporan Prestasi OER Kilang</h5>
                 </div>
                 <hr>
                 <div id="oer" style="height:400px; "></div>
@@ -56,7 +56,7 @@
                     <hr>
                     <br>
                     <br>
-                    <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-3%; margin-bottom:3%">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5>
+                    <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-1%; margin-bottom:1%">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5>
                 {{-- <h5 style="color: rgb(39, 80, 71); font-size:14px">LAPORAN PRESTASI OER {{ $nama_kilang }} BAGI TAHUN {{ $thn3 }}, {{ $thn2 }} & {{ $thn1 }}</h5> --}}
                 <br>
                 <div class="table-responsive">
@@ -69,51 +69,14 @@
                                 <th style="vertical-align: middle">{{ $nama_negeri }}</th>
                                 <th style="vertical-align: middle">SEMENANJUNG MALAYSIA</th>
                                 <th style="vertical-align: middle">MALAYSIA</th>
-                                <th style="vertical-align: middle">{{ $cluster }}</th>
-                                <th style="vertical-align: middle">{{ $kawasan }}</th>
+                                {{-- <th style="vertical-align: middle">{{ $cluster }}</th> --}}
+                                {{-- <th style="vertical-align: middle">{{ $kawasan }}</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($result3b as $value3)
 
                             <tr>
-
-                                {{-- @if ($value3->bulan == '01')
-                                    <td>{{ "JANUARI " .$value3->tahun }}</td>
-                                 @elseif ($value3->bulan == '02')
-                                 <td>{{ "FEBRUARI " .$value3->tahun }}</td>
-                                 @elseif ($value3->bulan == '03')
-                                 <td>{{ "MAC " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '04')
-                                 <td>{{ "APRIL " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '05')
-                                 <td>{{ "MEI " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '06')
-                                 <td>{{ "JUN " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '07')
-                                 <td>{{ "JULAI " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '08')
-                                 <td>{{ "OGOS " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '09')
-                                 <td>{{ "SEPTEMBER " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '10')
-                                 <td>{{ "OKTOBER " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '11')
-                                 <td>{{ "NOVEMBER " .$value3->tahun }}</td>
-
-                                 @elseif ($value3->bulan == '12')
-                                 <td>{{ "DISEMBER " .$value3->tahun }}</td>
-
-                                 @endif --}}
-
 
                                 <td style="text-align: center">{{ $value3->bulan. "/" .$value3->tahun }}</td>
                                 <td style="text-align: center">{{ number_format($value3->cpo_pelesen ?? 0,2) }}</td>
