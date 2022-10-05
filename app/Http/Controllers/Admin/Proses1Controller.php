@@ -646,7 +646,7 @@ class Proses1Controller extends Controller
             $flgdaerah = 'N';
 
         $dtlpelesen = $this->get_data_pelesen($nolesen);
-
+        dd($dtlpelesen);
         foreach ($dtlpelesen as $row) {
             $namakilang = trim($row->namakilang);
             $daerah = trim($row->nama_daerah);
@@ -792,10 +792,10 @@ class Proses1Controller extends Controller
         }
 
 
-        $pelesen = $this->get_data_pelesen($nolesen);
-        $nama_negeri = $pelesen[0]->nama_negeri;
+        // $pelesen = $this->get_data_pelesen($nolesen);
+        // $nama_negeri = $pelesen[0]->nama_negeri;
         // dd($nama_negeri);
-        $nama_daerah = $pelesen[0]->nama_daerah;
+        // $nama_daerah = $pelesen[0]->nama_daerah;
 
 
         $labelx = 0;
