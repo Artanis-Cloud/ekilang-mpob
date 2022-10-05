@@ -972,7 +972,7 @@ class KilangBuahController extends Controller
 
 
 
-        // dd($flgdaerah);
+        dd($flgdaerah);
         // $this->display_oerdata($request->tahun);
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
