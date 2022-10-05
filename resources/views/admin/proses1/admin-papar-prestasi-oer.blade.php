@@ -234,7 +234,7 @@
                         }
                     },
                     y: {
-                        type: 'category',
+                        // type: 'category',
                         // valueFormatString: "#,##0.##",
                         tickDecimals:2,
                         title: {
