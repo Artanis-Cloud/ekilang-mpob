@@ -426,7 +426,7 @@ class Proses1Controller extends Controller
         //                                             AND bulan = '06'");
         // dd($test);
         $id = RegPelesen::find($id);
-        $nolesen = $id->e_nl;
+        // $nolesen = $id->e_nl;
         // dd($nolesen);
 
         // $notahun = $request->tahun;
@@ -446,7 +446,7 @@ class Proses1Controller extends Controller
             'returnArr' => $returnArr,
             'layout' => $layout,
             'id' => $id,
-            'nolesen' => $nolesen,
+            // 'nolesen' => $nolesen,
         ];
 
 
