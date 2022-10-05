@@ -209,7 +209,7 @@
                         ['{{ $nama_kilang }}', {{ number_format($individu ?? 0,2) }}],
                         ['{{ $nama_negeri }}', {{ number_format($negeri ?? 0,2)}}],
                         ['SEMENANJUNG MALAYSIA', {{ number_format($semsia ?? 0,2)}}],
-                        ['MALAYSIA',{{ number_format($msia ?? 0,,2) }}]
+                        ['MALAYSIA',{{ number_format($msia ?? 0,2) }}]
                         @endif
 
                     ],
