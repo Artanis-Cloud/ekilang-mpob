@@ -1575,7 +1575,7 @@ class KilangBuahController extends Controller
 		$flgdaerah = 'N';
 
 	//echo $flgdaerah;
-
+dd($flgdaerah);
 
 	$dtlpelesen = $this->get_data_pelesen($nolesen);
 	foreach ($dtlpelesen as $row) {
