@@ -473,7 +473,7 @@ class Proses1Controller extends Controller
         $oer = $this->admin_prestasi_oer($id);
         $froer = $oer->id;
         $nolesen = $froer->e_nl;
-        dd($nolesen3);
+        dd($oer);
         $oer = $this->display_oergraph($nolesen, $request->tahun);
         $data = $this->display_oerdata($nolesen, $request->tahun);
         $dtlpelesen = $this->get_data_pelesen($nolesen);
