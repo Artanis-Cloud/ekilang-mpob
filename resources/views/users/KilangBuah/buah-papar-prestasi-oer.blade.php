@@ -74,6 +74,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            
                             @foreach ($result3b as $value3)
 
                             <tr>
