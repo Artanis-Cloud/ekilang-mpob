@@ -419,7 +419,7 @@ class Proses1Controller extends Controller
         ));
     }
 
-    public function admin_papar_prestasi_oer($nolesen, Request $request)
+    public function admin_papar_prestasi_oer($id, Request $request)
     {
 
         $breadcrumbs    = [
@@ -434,6 +434,8 @@ class Proses1Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
+
+        $nolesen = RegPelesen::find($id);
 
 
         $oer = $this->display_oergraph($nolesen, $request->tahun);
