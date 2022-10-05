@@ -34,6 +34,11 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
+            <div class="row" style="padding: 10px; background-color: white; margin-right:2%; margin-left:1%">
+                <div class="col-1 align-self-center">
+                    <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                </div>
+            </div>
 
             {{-- <div class="col-lg-12">
                         <div class="card">
