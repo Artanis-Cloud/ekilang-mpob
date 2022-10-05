@@ -75,8 +75,36 @@
                         </thead>
                         <tbody>
                             @foreach ($result3b as $value3)
+
                             <tr>
-                                <td>{{ $value3->bulan. "/" .$value3->tahun }}</td>
+
+                                @if ($value3->bulan == '01') {
+                                    <td>{{ "JANUARI" . &nbsp; .$value3->tahun }}</td>
+                                } @elseif ($value3->bulan == '02') {
+                                    {{-- $bulan = 'Feb'; --}}
+                                } @elseif ($value3->bulan == '03') {
+                                    {{-- $bulan = 'Mac'; --}}
+                                } @elseif ($value3->bulan == '04') {
+                                    {{-- $bulan = 'Apr'; --}}
+                                } @elseif ($value3->bulan == '05') {
+                                    {{-- $bulan = 'Mei'; --}}
+                                } @elseif ($value3->bulan == '06') {
+                                    {{-- $bulan = 'Jun'; --}}
+                                } @elseif ($value3->bulan == '07') {
+                                    {{-- $bulan = 'Jul'; --}}
+                                } @elseif ($value3->bulan == '08') {
+                                    {{-- $bulan = 'Ogos'; --}}
+                                } @elseif ($value3->bulan == '09') {
+                                    {{-- $bulan = 'Sept'; --}}
+                                } @elseif ($value3->bulan == '10') {
+                                    {{-- $bulan = 'Okt'; --}}
+                                } @elseif ($value3->bulan == '11') {
+                                    {{-- $bulan = 'Nov'; --}}
+                                } @elseif ($value3->bulan == '12') {
+                                    {{-- $bulan = 'Dis'; --}}
+                                } @else {
+                                    {{-- $bulan = 0; --}}
+                                }
                                 <td>{{ $value3->cpo_pelesen }}</td>
                                 <td>{{ $value3->cpo_daerah }}</td>
                                 <td>{{ $value3->cpo_negeri }}</td>
