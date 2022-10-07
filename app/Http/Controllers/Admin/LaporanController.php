@@ -900,62 +900,47 @@ class LaporanController extends Controller
                 }
             }
 
-        // for ($i=1; $i <= 12; $i++) {
-        //     $ebio_b5[$i] = 0;
-        //     $data_kapasiti[$i] = 0;
-        // }
 
-        // foreach ($result as  $list_result) {
+            $equal_month = intval($equal_month);
 
-        //         $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $list_result->ebio_nobatch)->first();
+            $start_month = intval($start_month);
+            $end_month = intval($end_month);
+    //  dd($end_month ) ;
+            $array = [
+                'produk' => $produk,
+                'users2' => $users2,
+                'kumpproduk' => $kumpproduk,
+                'kump_prod' => $kump_prod,
+                'negeri' => $negeri,
+                'data_daerah' => $data_daerah,
+                'negeri_req' => $negeri_req,
+                'lesen' => $lesen,
+                'result' => $result,
+                'tahun' => $tahun,
+                'bulan' => $bulan,
+                'kembali' => $kembali,
+                'returnArr' => $returnArr,
+                'laporan' => $laporan,
+                'start_month' => $start_month,
+                'end_month' => $end_month,
+                'equal_month' => $equal_month,
+                'ebio_c5_bhg3' => $ebio_c5_bhg3,
+                'ebio_c6_bhg3' => $ebio_c6_bhg3,
+                'ebio_c7_bhg3' => $ebio_c7_bhg3,
+                'ebio_c8_bhg3' => $ebio_c8_bhg3,
+                'ebio_c9_bhg3' => $ebio_c9_bhg3,
+                'ebio_c10_bhg3' => $ebio_c10_bhg3,
+                'ebio_c11_bhg3' => $ebio_c11_bhg3,
+                'proddesc' => $proddesc,
 
+            ];
 
-        //         $ebio_b5[$list_result->ebio_bln] = $hbiob_s->ebio_b5 ?? 0;
+            return view('admin.laporan_dq.ringkasan.ringkasan-bahagian3-table', $array);
+        }else{
+            return redirect()->back()->with('error', 'Data Tidak Wujud');
+        }
 
-        //         $test[] = $data_kapasiti;
-
-        // }
-
-        $equal_month = intval($equal_month);
-
-        $start_month = intval($start_month);
-        $end_month = intval($end_month);
-
-        $array = [
-            'produk' => $produk,
-            'users2' => $users2,
-            'kumpproduk' => $kumpproduk,
-            'kump_prod' => $kump_prod,
-            'negeri' => $negeri,
-            'data_daerah' => $data_daerah,
-            'negeri_req' => $negeri_req,
-            'lesen' => $lesen,
-            'result' => $result,
-            'tahun' => $tahun,
-            'bulan' => $bulan,
-            'kembali' => $kembali,
-            'returnArr' => $returnArr,
-            'laporan' => $laporan,
-            'start_month' => $start_month,
-            'end_month' => $end_month,
-            'equal_month' => $equal_month,
-            'ebio_c5_bhg3' => $ebio_c5_bhg3,
-            'ebio_c6_bhg3' => $ebio_c6_bhg3,
-            'ebio_c7_bhg3' => $ebio_c7_bhg3,
-            'ebio_c8_bhg3' => $ebio_c8_bhg3,
-            'ebio_c9_bhg3' => $ebio_c9_bhg3,
-            'ebio_c10_bhg3' => $ebio_c10_bhg3,
-            'ebio_c11_bhg3' => $ebio_c11_bhg3,
-            'proddesc' => $proddesc,
-
-        ];
-
-        return view('admin.laporan_dq.ringkasan.ringkasan-bahagian3-table', $array);
-    }else{
-        return redirect()->back()->with('error', 'Data Tidak Wujud');
-}
-
-}
+    }
 
     public function admin_ringkasan_jualan_bio()
     {
@@ -1045,6 +1030,11 @@ class LaporanController extends Controller
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
             ->where('ebio_thn',$tahun)->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
         // dd($result);
+        }
+        if ($request->e_daerah) {
+            $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('ebio_nl')->get();
         }
 
         if ($request->e_nl) {

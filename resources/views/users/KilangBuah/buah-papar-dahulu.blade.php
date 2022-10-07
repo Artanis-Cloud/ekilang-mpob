@@ -256,7 +256,7 @@
 
                                     </tr>
                                 </tbody>
-                            </table><br><hr>
+                            </table><br>
                             <p><b>
                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
                                 PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
@@ -458,7 +458,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <br><hr>
+                            <br>
                             <div  style='page-break-after:always'></div>
                             <p><b>
                                     <font style="font-size: 15px;  color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
@@ -514,7 +514,7 @@
                                 </tbody>
                             </table>
 
-                            <br><hr>
+                            <br>
 
 
 
@@ -730,7 +730,7 @@
                             <p>
                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                     {{ $penyata->e91_ah18 ?? '-' }}</font>
-                            </p><hr>
+                            </p>
 
 
 
@@ -814,7 +814,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
 
                             <p align="left">
@@ -911,7 +911,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
 
                             <p align="left">
@@ -968,7 +968,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
                             <div  style='page-break-after:always'></div>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1033,7 +1033,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
                             <p style="font-size: 16px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,

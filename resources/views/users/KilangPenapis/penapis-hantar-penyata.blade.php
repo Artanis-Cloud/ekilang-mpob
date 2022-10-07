@@ -280,7 +280,7 @@
 
                             </tbody>
                         </table>
-                        <br><hr>
+                        <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     SAWIT</font>
@@ -408,7 +408,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     MINYAK ISIRUNG SAWIT</font>
@@ -533,7 +533,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -559,7 +559,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br><hr>
+                        <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
@@ -649,7 +649,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
@@ -741,7 +741,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
@@ -803,7 +803,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
@@ -864,7 +864,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
@@ -954,7 +954,7 @@
                                         <font size="2"><b>0.00</b></font>
                                     </td>
                                 </tr>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
@@ -1016,7 +1016,7 @@
                                         <font size="2"><b>0.00</b></font>
                                     </td>
                                 </tr>
-                        </table><hr>
+                        </table>
 
                         <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
                             <p style="font-size: 16px; margin-bottom:0"><b>

@@ -239,7 +239,7 @@
 
                                                 </tbody>
                                             </table>
-                                            <br><hr>
+                                            <br>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
@@ -340,7 +340,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
@@ -406,7 +406,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
                                             <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
                                                 <p style="font-size: 17px; margin-bottom:0; padding-left: 20px; color:red"><b>

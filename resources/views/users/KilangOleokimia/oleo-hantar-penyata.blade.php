@@ -290,7 +290,7 @@
 
                                 </tbody>
                             </table>
-                            <br><hr>
+                            <br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                         SAWIT</font>
@@ -408,7 +408,7 @@
 
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                         MINYAK ISIRUNG SAWIT</font>
@@ -524,7 +524,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
@@ -640,7 +640,7 @@
                                     </tr>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN
@@ -660,7 +660,7 @@
 
                                 </tbody>
                             </table>
-                            <br><hr>
+                            <br>
 
 
                             <p><b>
@@ -743,7 +743,7 @@
 
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN
@@ -812,7 +812,7 @@
                                     </tr>
 
                                 </tbody>
-                            </table><hr>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
 
@@ -879,7 +879,7 @@
                                     </tr>
 
                                 </tbody>
-                            </table><br><hr>
+                            </table><br>
 
                             <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
                                 <p style="font-size: 16px; margin-bottom:0; margin-top:0"><b>

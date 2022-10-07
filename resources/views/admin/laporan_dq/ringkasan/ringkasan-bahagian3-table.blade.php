@@ -1037,7 +1037,7 @@
                                                                     $total_col_bulan_c6[$i] = 0;
                                                                 @endphp
                                                             @endfor
-                                                            @foreach ($result as $data)
+                                                            @foreach ($result as $key => $data)
                                                                 <tr>
                                                                     @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
@@ -1075,6 +1075,8 @@
                                                                             @else
                                                                                 <td>-</td>
                                                                             @endif
+                                                                        {{-- {{ dd($data_daerah[$key]) }} --}}
+
                                                                             <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
                                                                             @php
@@ -2961,6 +2963,7 @@
                                                                         @else
                                                                             <td>-</td>
                                                                         @endif
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>

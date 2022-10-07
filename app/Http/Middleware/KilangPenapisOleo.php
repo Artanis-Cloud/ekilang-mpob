@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class KilangOleokimia
+class KilangPenapisOleo
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,11 @@ class KilangOleokimia
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->category == 'PL104') {
+        if (auth()->user()->category == 'PL101' ?? 'PL104') {
             return $next($request);
+
         }
-        dd($request);
+        // dd($request);
 
         return redirect()->back()->with('error', 'Anda tidak dibenarkan masuk.');
     }

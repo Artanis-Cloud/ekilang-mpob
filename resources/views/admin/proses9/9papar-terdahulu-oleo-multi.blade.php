@@ -261,7 +261,7 @@
 
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
 
 
                                         <p><b>
@@ -384,7 +384,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
@@ -504,7 +504,7 @@
                                             </tbody>
                                         </table>
 
-                                        <br><hr>
+                                        <br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
@@ -644,7 +644,7 @@
                                                 </tr>
 
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
 
                                         <p><b>
@@ -727,7 +727,7 @@
 
                                                 </tr>
                                             </tbody>
-                                        </table><hr>
+                                        </table>
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
@@ -812,7 +812,7 @@
                                                     </td>
                                                 </tr> --}}
                                             </tbody>
-                                        </table><br><hr>
+                                        </table><br>
 
 
 

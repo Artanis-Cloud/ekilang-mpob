@@ -256,7 +256,7 @@
 
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
                                         <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
@@ -364,7 +364,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
@@ -404,7 +404,7 @@
                                                         </td>
                                                     </tr>
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

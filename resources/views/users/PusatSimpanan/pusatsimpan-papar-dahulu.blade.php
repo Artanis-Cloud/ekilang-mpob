@@ -254,7 +254,7 @@
 
                                 </tbody>
                             </table>
-                            <br><hr>
+                            <br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                         MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON TRANSHIPMENT)</font>
@@ -351,7 +351,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                         MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>
@@ -411,7 +411,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br><hr>
+                            </table><br>
 
                             <p style="font-size: 16px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,

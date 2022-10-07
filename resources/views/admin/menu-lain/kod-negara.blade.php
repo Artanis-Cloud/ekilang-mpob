@@ -174,6 +174,11 @@
                             {
                                 var test = table[i][0];
                             }
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+                        });
                         }
                     },
                 ]

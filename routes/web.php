@@ -420,7 +420,6 @@ Route::middleware('auth')->group(function () {
         Route::get('penapis/deletbahagian-i/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_i'])->name('penapis.delete.bahagiani');
 
 
-
         Route::get('penapis/bahagian-ii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianii'])->name('penapis.bahagianii');
         Route::post('penapis/add-bahagian-ii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_ii'])->name('penapis.add.bahagian.ii');
         Route::post('penapis/edit-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_ii'])->name('penapis.edit.bahagian.ii');
@@ -678,6 +677,7 @@ Route::middleware('auth')->group(function () {
 });
 });
 
+Route::get('penapisss/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'penapis_oleo_dashboard'])->name('penapis.oleo.dashboard');
 
 Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try'])->name('try');
 Route::get('/try2', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try2'])->name('try2');
