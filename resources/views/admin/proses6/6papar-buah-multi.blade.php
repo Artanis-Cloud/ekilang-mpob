@@ -122,8 +122,7 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                             </b><br>
 
-                                        </p>
-                                        <hr>
+                                        </p><hr>
 
                                         <table border="0" width="111%" cellspacing="0">
 
@@ -153,9 +152,8 @@
                                             </tbody>
                                         </table>
 
-                                        <hr>
 
-                                        <p></p>
+                                        <p></p><hr>
 
 
                                         <p align="left"><b>
@@ -275,7 +273,7 @@
                                                 </tr>
 
                                             </tbody>
-                                        </table><br><hr>
+                                        </table><br>
 
 
 
@@ -502,7 +500,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br><hr>
+                                            <br>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
@@ -776,7 +774,7 @@
                                             <p>
                                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                                     {{ $data->e91_ah18 ?? '-' }}</font>
-                                            </p><hr>
+                                            </p>
 
 
 
@@ -874,7 +872,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
 
                                             <p align="left">
@@ -987,7 +985,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
 
                                             <p align="left">
@@ -1041,12 +1039,12 @@
                                                         </td>
                                                         <td width="158" align="center">
                                                             <font size="2.7">
-                                                                <b><b>{{  number_format(($data->e91_ak1 ?? 0) + ($data->e91_ak2 ?? 0) + ($data->e91_ak3 ?? 0) ?? 0, 2) }}</b>
+                                                                <b>{{  number_format(($data->e91_ak1 ?? 0) + ($data->e91_ak2 ?? 0) + ($data->e91_ak3 ?? 0) ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1084,7 +1082,7 @@
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

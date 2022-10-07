@@ -262,7 +262,7 @@
 
                             </tbody>
                         </table>
-                        <br><hr>
+                        <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     MINYAK SAWIT</font>
@@ -359,7 +359,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp;
                                     PRODUK MINYAK ISIRUNG SAWIT</font>
@@ -458,7 +458,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp;
                                     MINYAK LAIN-LAIN </font>
@@ -573,7 +573,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br><hr>
+                        <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     RINGKASAN PRODUK BIODIESEL DAN GLYCERINE</font>
@@ -672,7 +672,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp; EKSPORT
                                     PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT</font>
@@ -740,7 +740,7 @@
 
 
                             </tbody>
-                        </table><hr>
+                        </table>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
                                     PRODUK SAWIT</font>
@@ -806,7 +806,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br><hr>
+                        </table><br>
 
                         <div class="card"
                             style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">

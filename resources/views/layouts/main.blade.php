@@ -83,10 +83,11 @@
     @media print { @page {size: auto !important}
     }
 
-      button.fred {
-        /* border-color: #25877b !important; */
-        color: #0a7569 !important;
-        }
+    button.fred {
+    /* border-color: #25877b !important; */
+    color: #0a7569 !important;
+    font-family: "Rubik", sans-serif !important;
+    }
 
     .global-loader {
       display: none;
@@ -1264,8 +1265,273 @@
 
                 <!-- End Sidebar scroll-->
             </aside>
-        @elseif (auth()->user()->category == 'admin')
+        @elseif (auth()->user()->category ==  'PL101' ?? 'PL104')
+
             <aside class="left-sidebar">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false">
+                                    <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu font-weight-bold"> Kilang Penapis </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                        aria-expanded="false">
+                                        <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu font-weight-bold"> Maklumat Pelesen </span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.maklumatasaspelesen') }}" class="sidebar-link">
+                                                <i class="far fa-id-badge" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Maklumat Asas Pelesen </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.tukarpassword') }}" class="sidebar-link">
+                                                <i class="fas fa-key" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Tukar Kata Laluan </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                @if (!$layoutpenyata)
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                        href="javascript:void(0)" aria-expanded="false">
+                                        <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagiani') }}" class="sidebar-link">
+                                                <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hidapise-menu"> Bahagian 1 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagianii') }}" class="sidebar-link">
+                                                <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Bahagian 2 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagianiii') }}" class="sidebar-link">
+                                                <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Bahagian 3 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagianiva') }}" class="sidebar-link">
+                                                <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Bahagian 4 (a) </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagianivb') }}" class="sidebar-link">
+                                                <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Bahagian 4 (b) </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagianv') }}" class="sidebar-link">
+                                                <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Bahagian 5 (a) & (b) </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.bahagianvi') }}" class="btn sidebar-link">
+
+                                                <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Bahagian 6 </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item ">
+                                            <a href="{{ route('penapis.bahagianvii') }}"class="btn sidebar-link">
+                                                <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "> </i>
+                                                {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                                <span class="hide-menu">Bahagian 7</span>
+                                            </a>
+
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                @else
+                                        <a href="{{ route('penapis.hantar.penyata') }}" class="sidebar-link">
+                                            <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                            <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                            </span>
+                                        </a>
+                                @endif
+                                    <a href="{{ route('penapis.penyatadahulu') }}" class="sidebar-link">
+                                        <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                    </a>
+                                    <a href="{{ route('penapis.kod.produk') }}" class="sidebar-link">
+                                        <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                    </a>
+                                    <a href="{{ route('penapis.kod.negara') }}" class="sidebar-link">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                    </a>
+                                    {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
+                                    <span class="hide-menu font-weight-bold"> </span>
+
+                                </ul>
+
+
+                            </li>
+
+                            <li class="sidebar-item">
+
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false">
+                                    <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu font-weight-bold"> Kilang Oleokimia </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                        aria-expanded="false" >
+                                        <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu font-weight-bold"> Maklumat Pelesen </span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('oleo.maklumatasaspelesen') }}" class="sidebar-link">
+                                                <i class="far fa-id-badge" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Maklumat Asas Pelesen </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('oleo.tukarpassword') }}" class="sidebar-link">
+                                                <i class="fas fa-key" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Tukar Kata Laluan </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    @if (!$layoutpenyata)
+                                    {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
+                                        <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                            href="javascript:void(0)" aria-expanded="false">
+                                            <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagiania') }}" class="sidebar-link">
+                                                    <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 1 (a) </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagianib') }}" class="sidebar-link">
+                                                    <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 1 (b) </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagianic') }}" class="sidebar-link">
+                                                    <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 1 (c) </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagianii') }}" class="sidebar-link">
+                                                    <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 2 </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagianiii') }}" class="sidebar-link">
+                                                    <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 3 </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagianiv') }}"  class="btn sidebar-link">
+                                                    <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 4 </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.bahagianv') }}" class="btn sidebar-link">
+                                                    <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Bahagian 5 </span>
+                                                </a>
+                                            </li>
+
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('oleo.paparpenyata') }}" class="sidebar-link">
+                                                    <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                    <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    {{-- </ul> --}}
+                                    @else
+                                        {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
+                                            <a href="{{ route('oleo.hantar.penyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                                </span>
+                                            </a>
+                                        {{-- </ul> --}}
+                                    @endif
+                                    {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
+                                        <a href="{{ route('oleo.penyatadahulu') }}" class="sidebar-link">
+                                            <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
+                                            <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                        </a>
+                                    {{-- </ul> --}}
+                                    {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
+                                        <a href="{{ route('oleo.kod.produk') }}" class="sidebar-link">
+                                            <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"><b> Kod & Nama Produk </b></span>
+                                        </a>
+                                    {{-- </ul> --}}
+                                    {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
+                                        <a href="{{ route('oleo.kod.negara') }}" class="sidebar-link">
+                                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"><b> Kod & Nama Negara </b></span>
+                                        </a>
+                                    {{-- </ul> --}}
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- End Sidebar navigation -->
+                </div>
+
+                <!-- End Sidebar scroll-->
+            </aside>
+        @elseif (auth()->user()->category == 'admin')
+            <aside class="left-sidebar" style="margin-top: 20px">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
@@ -1930,7 +2196,7 @@
                 {
 
                     extend: 'excel',
-                    text: '<a class="bi bi-file-excel" aria-hidden="true"  > Excel</a>',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
                     className: "fred"
                 }
             ],
@@ -1953,7 +2219,9 @@
         });
     });
 
+
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 

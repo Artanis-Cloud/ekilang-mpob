@@ -264,7 +264,7 @@
 
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
 
 
                                         <p><b>
@@ -376,7 +376,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         MINYAK ISIRUNG SAWIT</font>
@@ -484,7 +484,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
                                             <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
@@ -592,7 +592,7 @@
 
                                                 </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -612,7 +612,6 @@
 
                                                 </tbody>
                                             </table>
-                                            <hr>
 
 
                                             <p><b>
@@ -721,7 +720,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">
@@ -764,7 +763,7 @@
                                                     </tr>
 
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

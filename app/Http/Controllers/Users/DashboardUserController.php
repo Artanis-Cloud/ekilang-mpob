@@ -89,6 +89,14 @@ class DashboardUserController extends Controller
         return view('users.KilangBiodiesel.bio-dashboard', compact( 'pengumuman2', 'now'));
     }
 
+    public function penapis_oleo_dashboard()
+    {
+        // $now = date('Y-m-d');
+
+        // $pengumuman2 = Pengumuman::where('Start_date', '<=', $now)->where('End_date', '>=', $now)->get();
+        return view('users.KilangBiodiesel.bio-dashboard');
+    }
+
     public function index_form()
     {
         return view('users.form');

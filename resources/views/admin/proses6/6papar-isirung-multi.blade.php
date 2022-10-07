@@ -263,7 +263,7 @@
 
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
 
 
                                         <p><b>
@@ -605,7 +605,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
 
                                             <p><b>
@@ -641,7 +641,7 @@
                                                             {{ number_format($data->e102_al4 ?? 0, 2) }} % </b></td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                                         SAWIT (PK) (51)</font>
@@ -696,7 +696,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
@@ -750,7 +750,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                                         (PKC) (33)</font>
@@ -803,7 +803,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
@@ -840,7 +840,7 @@
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
                                                     </tr>
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

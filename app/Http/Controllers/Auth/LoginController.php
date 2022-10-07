@@ -75,10 +75,14 @@ class LoginController extends Controller
             case 'PLBIO':
                 return '/biodiesel/dashboard';
                 break;
+            case 'PL101' && 'PL104':
+                return '/biodiesel/dashboard';
+                break;
 
             default:
                 return '/admin/dashboard';
                 break;
         }
+        // dd($category);
     }
 }

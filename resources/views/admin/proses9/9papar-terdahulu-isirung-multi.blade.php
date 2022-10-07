@@ -262,7 +262,7 @@
 
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
 
 
                                         <p><b>
@@ -512,7 +512,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <br><hr>
+                                        <br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 : KADAR PERAHAN CPKO, KADAR PEROLEHAN
@@ -587,7 +587,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
 
 
@@ -631,7 +631,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
@@ -671,7 +671,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -718,7 +718,7 @@
                                                 </tr>
                                                 @endforeach
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7: IMPORT PRODUK SAWIT</font>
@@ -765,7 +765,7 @@
                                                 </tr>
                                                 @endforeach
                                             </tbody>
-                                        </table><hr>
+                                        </table>
 
                                         <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

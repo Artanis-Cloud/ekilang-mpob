@@ -242,7 +242,7 @@ class KilangOleokimiaController extends Controller
 
             $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '01');
-            })->get();
+            })->orderBy('e104_b4')->get();
 
             $total = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
 

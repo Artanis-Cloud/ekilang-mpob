@@ -201,6 +201,7 @@
                 buttons: [
                     {
                         extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
                         title: "Senarai Kod dan Nama Produk Sawit",
                         className: "prodex",
                         customize: function( xlsx ) {
@@ -214,6 +215,7 @@
                     },
                     {
                         extend: 'pdf',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
                         title: "Senarai Kod dan Nama Produk Sawit",
                         className: "prodpdf",
                         customize: function (doc) {
@@ -223,6 +225,11 @@
                                 var test = table[i][0];
                             }
 
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+                        });
                         }
                     },
                 ]

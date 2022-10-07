@@ -588,7 +588,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
 
                             <p><b>
@@ -625,7 +625,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <br><hr>
+                            <br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                         SAWIT (PK) (51)</font>
@@ -682,7 +682,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
 
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
@@ -730,7 +730,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                         (PKC) (33)</font>
@@ -778,7 +778,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><hr>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                 </b></p>
@@ -842,7 +842,7 @@
                                         </td>
                                     </tr>
 
-                            </table><hr>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7 : IMPORT PRODUK SAWIT</font>
                                 </b></p>
@@ -906,7 +906,7 @@
                                     </tr>
 
                                 </tbody>
-                            </table><br><hr>
+                            </table><br>
                             <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
 
                                 <div class="row">

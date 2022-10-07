@@ -240,7 +240,7 @@
 
                                                 </tbody>
                                             </table>
-                                            <br><hr>
+                                            <br>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON
@@ -341,7 +341,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><hr>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
@@ -408,7 +408,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br><hr>
+                                            <br>
                                             <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
                                                 <p style="font-size: 16px; margin-bottom:0; margin-top:0"><b>
                                                         Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,

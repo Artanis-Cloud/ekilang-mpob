@@ -63,7 +63,7 @@
                                         *</b><i>'</i>
                                 </div>
 
-                                <div class="row" style="padding: 4%">
+                                <div class="row" style="padding: 1%">
                                 <div class="col-md-6">
                                     <p class="ml-5" style="border-bottom-style: solid; width: 73%; padding: 15px;">
                                         Maklumat Kilang

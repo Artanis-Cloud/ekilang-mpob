@@ -258,7 +258,7 @@
 
                             </tbody>
                         </table>
-                        <br><hr>
+                        <br>
 
 
                         <p><b>
@@ -489,7 +489,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br><hr>
+                        <br>
 
                         <p><b>
                                 <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
@@ -769,7 +769,7 @@
                         <p>
                             <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                 {{ $penyata->e91_ah18 ?? '-' }}</font>
-                        </p><br><hr>
+                        </p><br>
 
 
 
@@ -866,7 +866,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br><hr>
+                        </table><br>
 
 
                         <p align="left">
@@ -978,7 +978,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br><hr>
+                        </table><br>
 
 
                         <p align="left">
@@ -1036,7 +1036,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br><hr>
+                        </table><br>
 
                         <p><b>
                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1103,7 +1103,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br><hr>
+                        </table><br>
                         <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
 
                             <div class="row">
