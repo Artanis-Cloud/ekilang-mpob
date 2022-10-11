@@ -425,9 +425,9 @@ class Proses9Controller extends Controller
     }
 
     public function papar_penyata(Request $request) {
-        // if ($request->) {
-        //     # code...
-        // }
+        if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
+            return $this->process_admin_pleid_buah_form($request->papar_ya);
+        }
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
@@ -516,10 +516,10 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'nolesen','layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
     }
 
-    public function process_admin_pleid_buah_form(Request $request)
+    public function process_admin_pleid_buah_form($nobatch)
     {
         // dd($request->all());
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -534,14 +534,14 @@ class Proses9Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $sektor = $request->sektor;
+        // $sektor = $request->sektor;
 
 
         // $tahun = H91Init::where('e91_thn', $request->tahun);
         // $bulan = H91Init::where('e91_bln', $request->bulan);
         // dd($bulan);
         $nolesen = auth()->users->username;
-        foreach ($request->papar_ya as $key => $e91_nobatch) {
+        foreach ($nobatch as $key => $e91_nobatch) {
             $pelesens[$key] = (object)[];
 
             $query = H91Init::with('pelesen')->where('e91_nobatch', $e91_nobatch)->first();

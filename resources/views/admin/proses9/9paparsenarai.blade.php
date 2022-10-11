@@ -94,8 +94,8 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-                        {{-- <form action="{{ route('admin.papar.penyata') }}" method="post">
-                            @csrf --}}
+                        <form action="{{ route('admin.papar.penyata') }}" method="post">
+                            @csrf
                         @if ($sumber == 'ekilang')
 
                         @if ($sektor == 'PL91')
@@ -392,8 +392,8 @@
                         @if ($sektor == 'PL91')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.pleid.buah.multi') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.pleid.buah.multi') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -435,7 +435,7 @@
                                             </table>
                                             <div class="text-left col-md-8">
                                                 {{-- <button type="submit" class="btn btn-primary" id="submit" disabled="true">Papar</button> --}}
-                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary" id="submit">Papar</button> --}}
                                             </div>
                                         </div>
                                     </form>
@@ -713,10 +713,10 @@
                         @endif
                         @endif
                         {{-- <input type="hidden" name="data" value="{{ $data }}"> --}}
-                        {{-- <input type="text" name="sektor" value="{{ $sektor }}">
-                        <input type="text" name="sektor" value="{{ $sumber }}">
+                        <input type="text" name="sektor" value="{{ $sektor }}">
+                        <input type="text" name="sumber" value="{{ $sumber }}">
                         <button type="submit" class="btn btn-primary ">Papar</button>
-                        </form> --}}
+                        </form>
 
                     </div>
 
