@@ -149,7 +149,7 @@
                                                 {{-- <button type="submit" class="btn btn-primary" id="submit">Papar</button> --}}
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL101')
@@ -197,7 +197,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL102')
@@ -244,7 +244,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL104')
@@ -291,7 +291,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL111')
@@ -337,7 +337,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PLBIO')
@@ -384,7 +384,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @endif
@@ -438,7 +438,7 @@
                                                 {{-- <button type="submit" class="btn btn-primary" id="submit">Papar</button> --}}
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL101')
@@ -493,7 +493,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL102')
@@ -547,7 +547,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL104')
@@ -601,7 +601,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL111')
@@ -654,7 +654,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @elseif ($sektor == 'PLBIO')
@@ -667,7 +667,7 @@
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
-                                                        <th>No Lesen</th>
+                                                        <th>No Lesen</th>{{--</form>--}}
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
@@ -707,7 +707,7 @@
 
                                             </div>
                                         </div>
-                                    </form>
+                                    {{--</form>--}}
                                 </div>
                             </section>
                         @endif
@@ -717,7 +717,7 @@
                         <input type="text" name="sumber" value="{{ $sumber }}">
                         {{-- <button type="submit" class="btn btn-primary ">Papar</button>
                          --}}
-                        <button type="submit" class="btn btn-primary " id="submit" >Papar</button>
+                        <input type="submit" class="btn btn-primary " value="Papar">
 
                         </form>
 
