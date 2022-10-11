@@ -100,4 +100,9 @@ class H91Init extends Model
 
         return $this->hasOne(Pelesen::class, 'e_nl', 'e91_nl');
     }
+    // public function pelesen()
+    // {
+
+    //     return $this->hasOne(Pelesen::class, 'e_nl', 'e91_nl');
+    // }
 }
