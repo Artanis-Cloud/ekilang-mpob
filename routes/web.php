@@ -677,7 +677,7 @@ Route::middleware('auth')->group(function () {
 });
 });
 
-Route::get('penapisss/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'penapis_oleo_dashboard'])->name('penapis.oleo.dashboard');
+// Route::get('penapisss/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'penapis_oleo_dashboard'])->name('penapis.oleo.dashboard');
 
 Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try'])->name('try');
 Route::get('/try2', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try2'])->name('try2');
