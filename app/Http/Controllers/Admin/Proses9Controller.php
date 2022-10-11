@@ -518,7 +518,9 @@ class Proses9Controller extends Controller
 
     public function process_admin_pleid_buah_form($nobatch, $tahun, $bulan)
     {
-        // dd($request->all());
+
+
+        dd($bulan);
         if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
