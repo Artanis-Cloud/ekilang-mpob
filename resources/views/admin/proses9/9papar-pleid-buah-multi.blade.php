@@ -93,33 +93,33 @@
                                                     </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
                                                     BULAN :
-                                                    {{-- @if ($data->e91_bln == '01')
+                                                    @if ($bulan== '01')
                                                         JANUARI
-                                                    @elseif($data->e91_bln == '02')
+                                                    @elseif($bulan== '02')
                                                         FEBRUARI
-                                                    @elseif($data->e91_bln == '03')
+                                                    @elseif($bulan== '03')
                                                         MAC
-                                                    @elseif($data->e91_bln == '04')
+                                                    @elseif($bulan== '04')
                                                         APRIL
-                                                    @elseif($data->e91_bln == '05')
+                                                    @elseif($bulan== '05')
                                                         MEI
-                                                    @elseif($data->e91_bln == '06')
+                                                    @elseif($bulan== '06')
                                                         JUN
-                                                    @elseif($data->e91_bln == '07')
+                                                    @elseif($bulan== '07')
                                                         JULAI
-                                                    @elseif($data->e91_bln == '08')
+                                                    @elseif($bulan== '08')
                                                         OGOS
-                                                    @elseif($data->e91_bln == '09')
+                                                    @elseif($bulan== '09')
                                                         SEPTEMBER
-                                                    @elseif($data->e91_bln == '10')
+                                                    @elseif($bulan== '10')
                                                         OKTOBER
-                                                    @elseif($data->e91_bln == '11')
+                                                    @elseif($bulan== '11')
                                                         NOVEMBER
-                                                    @elseif($query->e91_bln == '12')
+                                                    @elseif($bulan == '12')
                                                         DISEMBER
-                                                    @endif --}}
+                                                    @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                    {{-- {{ $query->e91_thn }} --}}
+                                                    {{ $tahun }}
                                                 </b><br>
 
                                             </p>

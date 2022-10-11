@@ -713,8 +713,10 @@
                         @endif
                         @endif
                         {{-- <input type="hidden" name="data" value="{{ $data }}"> --}}
-                        <input type="text" name="sektor" value="{{ $sektor }}">
-                        <input type="text" name="sumber" value="{{ $sumber }}">
+                        <input type="hidden" name="sektor" value="{{ $sektor }}">
+                        <input type="hidden" name="sumber" value="{{ $sumber }}">
+                        <input type="hidden" name="tahun" value="{{ $tahuns }}">
+                        <input type="hidden" name="bulan" value="{{ $bulans }}">
                         {{-- <button type="submit" class="btn btn-primary ">Papar</button>
                          --}}
                         <input type="submit" class="btn btn-primary " value="Papar">
