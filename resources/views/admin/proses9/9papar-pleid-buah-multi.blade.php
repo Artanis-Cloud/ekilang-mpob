@@ -125,7 +125,7 @@
                                             </p>
                                             <hr>
 
-                                            <table border="0" width="111%" cellspacing="0">
+                                            {{-- <table border="0" width="111%" cellspacing="0">
 
                                                 <tbody>
                                                     <tr>
@@ -277,7 +277,7 @@
 
                                                 </tbody>
                                             </table>
-                                            <br>
+                                            <br> --}}
                                             @endforeach
 
 
