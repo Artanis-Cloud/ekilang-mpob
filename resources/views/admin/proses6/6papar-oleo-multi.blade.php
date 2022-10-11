@@ -63,22 +63,31 @@
                                             {{-- <p align="left">
                                                     PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                            <div align="right">
-                                                <table border="0" width="25%">
+                                            <div align="">
+                                                <table border="0" width="90%">
                                                     <tbody>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) CM 4</b></p>
+                                                            <td width="" height="19">
+                                                                <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) CM 4</b></p>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) PX 4-CM </b></p>
+                                                            <td width="10%" height="19">
+                                                                <p align=""><b></b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) PX 4-CM </b></p>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) PM 4-CM </b></p>
+                                                            <td width="10%" height="19">
+                                                                <p align=""><b></b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) PM 4-CM </b></p>
                                                             </td>
                                                         </tr>
 
@@ -394,7 +403,7 @@
 
                                                         </tr>
                                                     </tbody>
-                                                </table>
+                                                </table><br>
                                                 <p><b>
                                                         <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                             MINYAK ISIRUNG SAWIT</font>
@@ -517,7 +526,7 @@
                                                             </td>
                                                         </tr>
                                                     </tbody>
-                                                </table>
+                                                </table><br>
 
                                                 <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; Minyak-Minyak Lain</font>
@@ -640,7 +649,7 @@
                                                         </tr>
                                                         </tr>
                                                     </tbody>
-                                                </table>
+                                                </table><br>
 
                                                 <p><b>
                                                         <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -659,9 +668,7 @@
                                                         </tr>
 
                                                     </tbody>
-                                                </table>
-
-
+                                                </table><br>
 
                                                 <p><b>
                                                         <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
@@ -748,7 +755,7 @@
 
                                                         </tr>
                                                     </tbody>
-                                                </table>
+                                                </table><br>
 
                                                 <p><b>
                                                         <font style="font-size: 15px" color="#0c7c85">
@@ -791,7 +798,7 @@
                                                         </tr>
 
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
@@ -837,8 +844,8 @@
 
 
     {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a> --}}
 
     {{-- <style>
         @media print{

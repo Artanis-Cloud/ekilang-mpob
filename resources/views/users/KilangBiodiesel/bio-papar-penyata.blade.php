@@ -48,27 +48,37 @@
                     <body>
                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-                        <div align="right">
-                            <table border="0" width="25%">
-                                <tbody style="margin-top:-2%">
+                        <div align="">
+                            <table border="0" width="90%">
+                                <tbody>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) CM 4</b></p>
+                                        <td width="" height="19">
+                                            <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) CM 4</b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) PX 4-CM</b></p>
+                                        <td width="10%" height="19">
+                                            <p align=""><b></b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) PX 4-CM </b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) PM 4-CM</b></p>
+                                        <td width="10%" height="19">
+                                            <p align=""><b></b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) PM 4-CM </b></p>
                                         </td>
                                     </tr>
+
                                 </tbody>
                             </table>
-                        </div>
+                        </div><br>
                         <p style="text-align: center; vertical-align:middle">
                             <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
 
@@ -358,7 +368,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp;
                                     PRODUK MINYAK ISIRUNG SAWIT</font>
@@ -457,7 +467,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp;
                                     LAIN-LAIN MINYAK SAWIT</font>
@@ -555,7 +565,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN KADAR
                                     PENGGUNAAN KAPASITI </font>
@@ -671,7 +681,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp; EKSPORT
                                     PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT</font>
@@ -739,7 +749,7 @@
 
 
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
                                     PRODUK SAWIT</font>

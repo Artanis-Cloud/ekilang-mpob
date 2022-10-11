@@ -47,24 +47,30 @@
                     <div class="pl-3">
 
                         <body>
-                            <div align="right">
-                                <table border="0" width="25%">
+                            <div align="">
+                                <table border="0" width="90%">
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                            <td width="" height="19">
+                                                <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) MF 4</b></p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) PX 4-MF </b></p>
+                                            <td width="10%" height="19">
+                                                <p align=""><b></b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) PX 4-M </b></p>
                                             </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
-                            </div>
+                            </div><br>
 
-                                <br>
                             <p align="center">
                                 <img border="0" src="{{ asset('/mpob.png') }}"  width="128"
                                 height="100">
@@ -730,7 +736,7 @@
                             <p>
                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                     {{ $penyata->e91_ah18 ?? '-' }}</font>
-                            </p>
+                            </p><br>
 
 
 
@@ -814,7 +820,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
 
 
                             <p align="left">
@@ -911,7 +917,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
 
 
                             <p align="left">
@@ -968,7 +974,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
                             <div  style='page-break-after:always'></div>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1033,7 +1039,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
 
                             <p style="font-size: 16px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,

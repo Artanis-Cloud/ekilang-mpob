@@ -57,28 +57,37 @@
                                     {{-- <p align="left">
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                    <div align="right">
-                                        <table border="0" width="25%">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p align="left"><b>MPOB(EL) CM 4</b></p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p align="left"><b>MPOB(EL) PX 4-CM </b></p>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p align="left"><b>MPOB(EL) PM 4-CM </b></p>
-                                                    </td>
-                                                </tr>
+                                        <div align="">
+                                            <table border="0" width="90%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="" height="19">
+                                                            <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) CM 4</b></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PX 4-CM </b></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PM 4-CM </b></p>
+                                                        </td>
+                                                    </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div><br>
+                                                </tbody>
+                                            </table>
+                                        </div><br>
 
                                     <p align="center">
                                         <img border="0" src="{{ asset('/mpob.png') }}" width="128"
@@ -585,7 +594,7 @@
 
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table><br>
 
 
                                     <p><b>
@@ -607,7 +616,7 @@
                                                 <td width="40%"><b>:{{ $ii->kapasiti ?? 00 }} %</b></td>
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table><br>
 
 
                                     <p><b>
@@ -718,7 +727,7 @@
 
                                             </tr>
                                         </tbody>
-                                    </table>
+                                    </table><br>
                                     <p><b>
                                         <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
@@ -762,8 +771,6 @@
 
                                         </tbody>
                                     </table><br>
-
-
 
                                     <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                         adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

@@ -66,17 +66,36 @@
                                         {{-- <p align="left">
                                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                        <div align="right">
-                                            <table border="0" width="25%">
+                                        {{-- <div class="row">
+                                            <div class="col-md-1">
+                                                <p align="right"><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p align="right"><b>MPOB(EL) MF 4</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <p align="right"><b>MPOB(EL) PX 4-M</b></p>
+                                            </div>
+                                        </div><br> --}}
+                                        <div align="">
+                                            <table border="0" width="90%">
                                                 <tbody>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                        <td width="" height="19">
+                                                            <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) MF 4</b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PX 4-M </b></p>
                                                         </td>
                                                     </tr>
 
@@ -774,7 +793,7 @@
                                             <p>
                                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                                     {{ $data->e91_ah18 ?? '-' }}</font>
-                                            </p>
+                                            </p><br>
 
 
 
@@ -872,7 +891,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p align="left">
@@ -985,7 +1004,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p align="left">
@@ -1044,7 +1063,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1082,7 +1101,7 @@
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
@@ -1128,9 +1147,9 @@
     </div>
 
 
-
+{{-- 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+            class="bi bi-arrow-up-short"></i></a> --}}
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" >
     </script>

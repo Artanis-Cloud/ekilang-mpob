@@ -45,17 +45,23 @@
                 <div class="pl-3" style="padding: 2%">
 
                     <body>
-                        <div align="right">
-                            <table border="0" width="25%">
+                        <div align="">
+                            <table border="0" width="90%">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                        <td width="" height="19">
+                                            <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) MF 4</b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                        <td width="10%" height="19">
+                                            <p align=""><b></b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) PX 4-M </b></p>
                                         </td>
                                     </tr>
 

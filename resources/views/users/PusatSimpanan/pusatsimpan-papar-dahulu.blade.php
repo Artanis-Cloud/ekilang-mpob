@@ -52,17 +52,22 @@
                     <div class="pl-3">
 
                         <body>
-                            <div align="right">
-                                <table border="0" width="25%">
+                            <div align="">
+                                <table border="0" width="90%">
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) KS 4</b></p>
+                                            <td width="" height="19">
+                                                <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) KS 4</b></p>
                                             </td>
                                         </tr>
+
                                     </tbody>
+
                                 </table>
-                            </div>
+                            </div><br>
                             <p align="center">
                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
                             </p>
@@ -351,7 +356,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
                                         MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>

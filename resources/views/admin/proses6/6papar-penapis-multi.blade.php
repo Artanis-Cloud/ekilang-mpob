@@ -61,28 +61,37 @@
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
 
-                                            <div align="right">
-                                                <table border="0" width="25%">
+                                            <div align="">
+                                                <table border="0" width="90%">
                                                     <tbody>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                                            <td width="" height="19">
+                                                                <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) RF 4</b></p>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                                            <td width="10%" height="19">
+                                                                <p align=""><b></b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) PX 4-RF </b></p>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) PM 4-RF </b></p>
+                                                            <td width="10%" height="19">
+                                                                <p align=""><b></b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) PM 4-RF </b></p>
                                                             </td>
                                                         </tr>
 
                                                     </tbody>
                                                 </table>
-                                            </div>
+                                            </div><br>
 
                                         {{-- <div align="right">
                                             <table border="0" width="25%" id="table1">
@@ -280,7 +289,7 @@
                                                 </tr>
 
                                             </tbody>
-                                        </table>
+                                        </table><br>
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                                     SAWIT</font>
@@ -414,7 +423,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                     ISIRUNG MINYAK SAWIT</font>
@@ -546,7 +555,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -666,7 +675,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
@@ -764,7 +773,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
@@ -835,7 +844,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                                     TERIMAAN BEKALAN PRODUK SAWIT -
@@ -903,7 +912,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                     EKSPORT PRODUK SAWIT</font>
@@ -971,7 +980,7 @@
                                                     </tr>
                                                 @endif
                                             </tbody>
-                                        </table>
+                                        </table><br>
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                     IMPORT PRODUK SAWIT</font>
@@ -1011,7 +1020,7 @@
 
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
@@ -1064,8 +1073,8 @@
 
 
     {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a> --}}
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
