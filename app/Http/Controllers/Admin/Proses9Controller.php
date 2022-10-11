@@ -486,7 +486,7 @@ class Proses9Controller extends Controller
         $tahun = H91Init::where('e91_thn', $request->tahun);
         $bulan = H91Init::where('e91_bln', $request->bulan);
         // dd($bulan);
-        
+
         foreach ($request->papar_ya as $key => $e91_nobatch) {
             // dd($e91_nobatch);
 
@@ -495,7 +495,7 @@ class Proses9Controller extends Controller
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key] ->e91_sdate);
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
 
         }
@@ -567,7 +567,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
+        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
     }
 
     public function process_admin_9penyataterdahulu_penapis_form(Request $request)
