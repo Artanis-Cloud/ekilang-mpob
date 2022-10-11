@@ -49,7 +49,7 @@
                             value="print">Cetak</button>
                     </div> --}}
                 </div>
-                @foreach ($query as $data)
+                @foreach ($query as $key => $data)
                  {{ dd($data[$key]->pelesen->e_nl) }}
 
 
