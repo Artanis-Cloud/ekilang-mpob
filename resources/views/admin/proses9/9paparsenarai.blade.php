@@ -715,8 +715,8 @@
                         {{-- <input type="hidden" name="data" value="{{ $data }}"> --}}
                         <input type="hidden" name="sektor" value="{{ $sektor }}">
                         <input type="hidden" name="sumber" value="{{ $sumber }}">
-                        <input type="hidden" name="tahun" value="{{ $tahuns }}">
-                        <input type="hidden" name="bulan" value="{{ $bulans }}">
+                        <input type="hidden" name="tahun" value="{{ $tahun1 }}">
+                        <input type="hidden" name="bulan" value="{{ $bulan1 }}">
                         {{-- <button type="submit" class="btn btn-primary ">Papar</button>
                          --}}
                         <input type="submit" class="btn btn-primary " value="Papar">
