@@ -94,6 +94,7 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
+                        @if ($data == 'ekilang')
 
                         @if ($sektor == 'PL91')
                             <section class="section">
@@ -384,6 +385,298 @@
                                     </form>
                                 </div>
                             </section>
+                        @endif
+                        @elseif ($data == 'pleid')
+                        @if ($sektor == 'PL91')
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.9papar-terdahulu-buah.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example22" class="table table-bordered" style="width: 100%;">
+                                                <thead>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                {{-- <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </tfoot> --}}
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                    value="{{ $data->e91_nobatch }}">&nbspYa
+                                                            </td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                {{-- <button type="submit" class="btn btn-primary" id="submit" disabled="true">Papar</button> --}}
+                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        {{-- @elseif ($sektor == 'PL101')
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example22" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                    value="{{ $data->e101_nobatch }}">&nbspYa
+                                                            </td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button> --}}
+
+                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        @elseif ($sektor == 'PL102')
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example22" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                    value="{{ $data->e102_nobatch }}">&nbspYa
+                                                            </td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
+
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        @elseif ($sektor == 'PL104')
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example22" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox" id="toggle" class="checkit"
+                                                                    value="{{ $data->e104_nobatch }}">&nbspYa
+                                                            </td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
+
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        @elseif ($sektor == 'PL111')
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example22" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox" id="papar" class="checkit"
+                                                                    value="{{ $data->e07_nobatch }}">&nbspYa
+                                                            </td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                <button type="submit" class="btn btn-primary " id="submit" >Papar</button>
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        @elseif ($sektor == 'PLBIO')
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.9papar-terdahulu-bio.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example22" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox"
+                                                                    value="{{ $data->ebio_nobatch }}">&nbspYa
+                                                            </td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                <button type="submit" class="btn btn-primary ">Papar</button>
+
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section> --}}
+                        @endif
                         @endif
                     </div>
 
