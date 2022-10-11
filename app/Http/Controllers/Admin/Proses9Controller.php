@@ -206,7 +206,7 @@ class Proses9Controller extends Controller
 
         // dd($request->all());
         $sektor = $request->sektor;
-        $data = $request->data;
+        $sumber = $request->data;
         $tahuns = $request->tahun;
         $bulans = $request->bulan;
 
@@ -215,7 +215,7 @@ class Proses9Controller extends Controller
         $tahun1 = $request->tahun;
         $bulan1 = $request->bulan;
 
-        if ($data == 'ekilang') {
+        if ($sumber == 'ekilang') {
             if ($sektor == 'PL91') {
                 $tahun = H91Init::where('e91_thn', $request->tahun);
                 $bulan = H91Init::where('e91_bln', $request->bulan);
@@ -329,7 +329,7 @@ class Proses9Controller extends Controller
                 }
             }
 
-        } elseif ($data == 'pleid') {
+        } elseif ($sumber == 'pleid') {
             if ($sektor == 'PL91') {
 
                 // dd($bulan);
@@ -421,7 +421,13 @@ class Proses9Controller extends Controller
         ];
 
         // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'sektor', 'users', 'tahun1', 'bulan1', 'data'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'sektor', 'users', 'tahun1', 'bulan1', 'sumber'));
+    }
+
+    public function papar_penyata(Request $request) {
+        // if ($request->) {
+        //     # code...
+        // }
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
@@ -497,6 +503,7 @@ class Proses9Controller extends Controller
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
+
 
         }
 //   dd($pelesens);
