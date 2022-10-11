@@ -715,7 +715,10 @@
                         {{-- <input type="hidden" name="data" value="{{ $data }}"> --}}
                         <input type="text" name="sektor" value="{{ $sektor }}">
                         <input type="text" name="sumber" value="{{ $sumber }}">
-                        <button type="submit" class="btn btn-primary ">Papar</button>
+                        {{-- <button type="submit" class="btn btn-primary ">Papar</button>
+                         --}}
+                        <button type="submit" class="btn btn-primary " id="submit" >Papar</button>
+
                         </form>
 
                     </div>
