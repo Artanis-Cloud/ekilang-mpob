@@ -49,7 +49,7 @@
                             value="print">Cetak</button>
                     </div> --}}
                 </div>
-                @foreach ($query as $data)
+                {{-- @foreach ($query as $data) --}}
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <form method="get" action="" id="myfrm">
@@ -123,7 +123,7 @@
                                             </p>
                                             <hr>
 
-                                            <table border="0" width="111%" cellspacing="0">
+                                            {{-- <table border="0" width="111%" cellspacing="0">
 
                                                 <tbody>
                                                     <tr>
@@ -276,7 +276,7 @@
                                                 </tbody>
                                             </table>
                                             <br>
-                                            @endforeach
+                                            @endforeach --}}
 
 
                                             <p><b>
@@ -285,7 +285,7 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)
                                                     </font>
                                                 </b> </p>
-                                     {{-- @foreach ($penyata as $data)
+                                     @foreach ($penyata as $data)
 
                                             <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
@@ -504,7 +504,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br> --}}
+                                            <br>
 
                                             {{-- <p><b>
                                                     <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
