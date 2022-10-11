@@ -276,6 +276,7 @@
                                                 </tbody>
                                             </table>
                                             <br>
+                                            @endforeach
 
 
                                             <p><b>
