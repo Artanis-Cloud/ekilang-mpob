@@ -390,7 +390,7 @@
                         @if ($sektor == 'PL91')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.pleid.buah-multi') }}" method="post">
+                                    <form action="{{ route('admin.pleid.buah.multi') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
