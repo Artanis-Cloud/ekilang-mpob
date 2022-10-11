@@ -285,7 +285,7 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)
                                                     </font>
                                                 </b> </p>
-                                     @foreach ($penyata as $data)
+                                     {{-- @foreach ($penyata as $data)
 
                                             <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
@@ -504,7 +504,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br>
+                                            <br> --}}
 
                                             {{-- <p><b>
                                                     <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
