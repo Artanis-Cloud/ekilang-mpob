@@ -93,7 +93,7 @@
                                                     </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
                                                     BULAN :
-                                                    {{ dd($bulan) }}
+                                                    {{-- {{ dd($bulan) }} --}}
                                                     @if ($bulan== '01')
                                                         JANUARI
                                                     @elseif($bulan== '02')
