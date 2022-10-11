@@ -271,7 +271,7 @@
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                <font size="2">Jenis Minyak Produk Minyak Sawit</font><b></b>
+                                                <font size="2">Produk Minyak Sawit</font><b></b>
                                             </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Kod Produk</font><b></b>
@@ -389,7 +389,7 @@
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                <font size="2">Produk Isirung Sawit</font><b></b>
+                                                <font size="2">Produk Minyak Isirung Sawit</font><b></b>
                                             </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Kod Produk</font><b></b>
@@ -506,7 +506,7 @@
                                 <tbody>
                                     <tr  style="background-color: #d3d3d370">
                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Jenis Minyak Sawit Lain</font><b></b>
+                                            <font size="2">Produk Minyak Sawit Lain</font><b></b>
                                         </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Kod Produk</font><b></b>

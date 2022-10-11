@@ -498,7 +498,7 @@
                                                     bahagian ini!</i></p>
                                         </div>
                                     </div>
-                                    <div class="row ">
+                                    {{-- <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Alamat Emel
                                                 Pengurus</label>
@@ -513,7 +513,7 @@
                                                     isi butiran di
                                                     bahagian ini!</i></p>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <p class="" style="border-bottom-style: solid; width: 73%; padding: 15px;">
                                         Lain - lain
                                     </p>
@@ -668,8 +668,8 @@
                                             <input type="text" id="kap_proses" class="form-control"
                                                 placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                onkeypress="return isNumberKey(event)" maxlength="10"
-                                                oninput="validate_two_decimal(this);setCustomValidity('');  valid_proses()"
+                                                onkeypress="return isNumberKey(event)"
+                                                oninput="validate_two_decimal(this); setCustomValidity('');  valid_proses(); FormatCurrency(this);"
                                                 required>
                                             <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -821,6 +821,15 @@
         }
     </script>
 
+    {{-- remove leading zero --}}
+    <script>
+        $('input#kap_proses').keyup(function(e){
+        if(this.value.substring(0,1) == "0")
+        {
+            this.value = this.value.replace(/^0+/g, '');
+        }
+    });
+    </script>
 
     <script type="text/javascript">
         $("document").ready(function() {
@@ -855,7 +864,7 @@
 
         }
     </script>
-    <script>
+    {{-- <script>
         var input = document.getElementById("kap_proses");
         var lastValue = "";
 
@@ -868,7 +877,7 @@
             else
                 input.value = lastValue;
         }
-    </script>
+    </script> --}}
     <script>
         function valid_kat() {
 
