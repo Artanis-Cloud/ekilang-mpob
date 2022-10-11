@@ -320,7 +320,7 @@
                                                                     <input type="text" name='e102_b6'
                                                                         onkeypress="return isNumberKey(event)"  onchange="autodecimal(this);FormatCurrency(this)"
                                                                         class="form-control" id="e102_sb6{{ $data->e102_b1 }}" oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})"
-                                                                        value="{{ old('e102_b6') ?? number_format($data->e102_b6 , 2)  }}" required>
+                                                                        value="{{ old('e102_b6') ?? $data->e102_b6  }}" required>
                                                                 </div>
                                                             </div>
 
