@@ -390,8 +390,8 @@
                         @if ($sektor == 'PL91')
                             <section class="section">
                                 <div class="card">
-                                    {{-- <form action="{{ route('admin.9papar-terdahulu-buah.form') }}" method="post">
-                                        @csrf --}}
+                                    <form action="{{ route('admin.pleid.buah-multi') }}" method="post">
+                                        @csrf
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -436,7 +436,7 @@
                                                 <button type="submit" class="btn btn-primary" id="submit">Papar</button>
                                             </div>
                                         </div>
-                                    {{-- </form> --}}
+                                    </form>
                                 </div>
                             </section>
                         @elseif ($sektor == 'PL101')
