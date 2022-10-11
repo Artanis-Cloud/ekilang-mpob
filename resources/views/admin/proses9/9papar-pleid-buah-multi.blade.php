@@ -49,8 +49,8 @@
                             value="print">Cetak</button>
                     </div> --}}
                 </div>
-                @foreach ($query as $key => $data)
-                 {{ dd($data[$key]) }}
+                @foreach ($query as $data)
+                 {{ dd($data) }}
 
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
