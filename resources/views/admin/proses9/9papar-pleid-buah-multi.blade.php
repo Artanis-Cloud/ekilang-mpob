@@ -882,7 +882,7 @@
                                             </table>
 
 
-                                            {{-- <p align="left">
+                                             <p align="left">
                                                 <font style="font-size: 15px" color="#0c7c85"><b>BAHAGIAN 4 : EDARAN/JUALAN MINYAK SAWIT
                                                         MENTAH (CPO) (01) </b></font>
                                             </p>
@@ -904,7 +904,7 @@
                                                             <font size="2.7">1. Kilang Buah</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj1 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T1 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -913,7 +913,7 @@
                                                             <font size="2.7">2. Kilang Penapis</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj2 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T2 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -922,7 +922,7 @@
                                                             <font size="2.7">3. Kilang Oleokimia</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj3 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T3 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -931,7 +931,7 @@
                                                             <font size="2.7">4. Peniaga</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj4 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T4 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -940,7 +940,7 @@
                                                             <font size="2.7">5. Pusat Simpanan</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj5 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T5 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -949,7 +949,7 @@
                                                             <font size="2.7">6. Eksport</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj6 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T6 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -958,7 +958,7 @@
                                                             <font size="2.7">7. Transit</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj7 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T7 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -967,7 +967,7 @@
                                                             <font size="2.7">8. Lain-lain</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_aj8 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911T8 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -978,14 +978,14 @@
                                                         <td width="158" align="center">
                                                             <font size="2.7">
                                                                 <b>{{ number_format(
-                                                                    ($data->e91_aj1 ?? 0) +
-                                                                        ($data->e91_aj2 ?? 0) +
-                                                                        ($data->e91_aj3 ?? 0) +
-                                                                        ($data->e91_aj4 ?? 0) +
-                                                                        ($data->e91_aj5 ?? 0) +
-                                                                        ($data->e91_aj6 ?? 0) +
-                                                                        ($data->e91_aj7 ?? 0) +
-                                                                        ($data->e91_aj8 ?? 0) ??
+                                                                    ($data[$key]->F911T1 ?? 0) +
+                                                                        ($data[$key]->F911T2 ?? 0) +
+                                                                        ($data[$key]->F911T3 ?? 0) +
+                                                                        ($data[$key]->F911T4 ?? 0) +
+                                                                        ($data[$key]->F911T5 ?? 0) +
+                                                                        ($data[$key]->F911T6 ?? 0) +
+                                                                        ($data[$key]->F911T7 ?? 0) +
+                                                                        ($data[$key]->F911T8 ?? 0) ??
                                                                         0,
                                                                     2,
                                                                 ) }}</b>
@@ -1018,7 +1018,7 @@
                                                             <font size="2.7">1. Kilang Isirung</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_ak1 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911U1 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -1027,7 +1027,7 @@
                                                             <font size="2.7">2. Peniaga</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_ak2 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911U2 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -1036,7 +1036,7 @@
                                                             <font size="2.7">3. Lain-lain</font>
                                                         </td>
                                                         <td width="158" align="center">
-                                                            <font size="2.7">{{ number_format($data->e91_ak3 ?? 0, 2) }}
+                                                            <font size="2.7">{{ number_format($data[$key]->F911U3 ?? 0, 2) }}
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -1046,7 +1046,7 @@
                                                         </td>
                                                         <td width="158" align="center">
                                                             <font size="2.7">
-                                                                <b>{{ number_format(($data->e91_ak1 ?? 0) + ($data->e91_ak2 ?? 0) + ($data->e91_ak3 ?? 0) ?? 0, 2) }}</b>
+                                                                <b>{{ number_format(($data[$key]->F911U1 ?? 0) + ($data[$key]->F911U2 ?? 0) + ($data[$key]->F911U3 ?? 0) ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -1097,17 +1097,19 @@
 
 
                                             <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                                {{ $formatteddate }}
+                                                {{ $data[$key]->tkhsubmit }}
                                             </p>
+                                        @endforeach
+
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->e91_npg }}
+                                                {{-- {{ $query->e91_npg }} --}}
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->e91_jpg }}
+                                                {{-- {{ $data->e91_jpg }} --}}
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                {{ $data->pelesen->e_notel }}
+                                                {{-- {{ $data->pelesen->e_notel }} --}}
                                             </p>
 
 
@@ -1119,7 +1121,6 @@
 
                             <br><hr>
 
-                        @endforeach
 
                     </form>
                     <div class="row justify-content-center ">
