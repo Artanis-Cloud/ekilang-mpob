@@ -330,6 +330,76 @@ class Proses9Controller extends Controller
             }
 
         } elseif ($data == 'pleid') {
+            if ($sektor == 'PL91') {
+
+                // dd($bulan);
+                $users = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
+                    DATE_FORMAT(e.F911E, '%d-%m-%Y')  tkhsubmit
+                    from PL911P3 e, licensedb.license p
+                    where e.F911D = '$request->tahun' and e.F911C = '$request->bulan' and
+                    e.F911A = p.F201A");
+
+                    dd($users);
+
+                        if (!$users) {
+                            return redirect()->back()
+                            ->with('error', 'Penyata Tidak Wujud!');
+                        }
+            } elseif ($sektor == 'PL101') {
+
+                $users = DB::connection('mysql4')->select("SELECT e.F101A1 nolesen1, e.F101A1 nolesen, p.F201T namapremis, e.F101A4 nobatch,
+                    DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit
+                    from pl101ap3 e, licensedb.license p
+                    where e.F101A6 = '$request->tahun' and e.F101A5 = '$request->bulan' and
+                    e.F101A1 = p.F201A");
+
+                        if (!$users) {
+                            return redirect()->back()
+                            ->with('error', 'Penyata Tidak Wujud!');
+                        }
+            } elseif ($sektor == 'PL102') {
+
+
+                $users = DB::connection('mysql4')->select("SELECT e.F1021A nolesen1, e.F1021A nolesen, p.F201T namapremis, e.F1021B nobatch,
+                    DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
+                    from pl1021p3 e, licensedb.license p
+                    where e.F1021D = '$request->tahun' and e.F1021C = '$request->bulan' and
+                    e.F1021A = p.F201A");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            } elseif ($sektor == 'PL104') {
+
+                $users = DB::connection('mysql4')->select("SELECT e.F104A1 nolesen1, e.F104A1 nolesen, p.F201T namapremis, e.F104A4 nobatch,
+                    DATE_FORMAT(e.F104A2, '%d-%m-%Y') tkhsubmit
+                    from pl104ap1 e, licensedb.license p
+                    where e.F104A6 = '$request->tahun' and e.F104A5 = '$request->bulan' and
+                    e.F104A1 = p.F201A");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            } elseif ($sektor == 'PL111') {
+
+                $users = DB::connection('mysql4')->select("SELECT e.INS_IA nolesen1, e.INS_IA nolesen, p.F201T namapremis, e.INS_IF nobatch,
+                        DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
+                        from mpb_insp3a e, licensedb.license p
+                        where e.INS_IC = '$request->tahun' and e.INS_IB = '$request->bulan' and
+                    e.INS_IA = p.F201A");
+
+            if (!$users) {
+                return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+            }
+            } elseif ($sektor == 'PLBIO') {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+            }
+
+        } else {
             return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
         }
