@@ -59,22 +59,31 @@
                                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                        <div align="right">
-                                            <table border="0" width="25%">
+                                        <div align="">
+                                            <table border="0" width="90%">
                                                 <tbody>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) CF 4</b></p>
+                                                        <td width="" height="19">
+                                                            <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) CF 4</b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) PM 4-CF </b></p>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PM 4-CF </b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) PX 4-CF </b></p>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PX 4-CF </b></p>
                                                         </td>
                                                     </tr>
 
@@ -545,7 +554,7 @@
                                             </tbody>
                                         </table>
 
-                                        <br><hr>
+                                        <br>
 
 
                                         <p><b>
@@ -587,7 +596,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
 
 
@@ -631,7 +640,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
@@ -671,7 +680,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -718,7 +727,7 @@
                                                 </tr>
                                                 @endforeach
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7: IMPORT PRODUK SAWIT</font>
@@ -765,7 +774,7 @@
                                                 </tr>
                                                 @endforeach
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

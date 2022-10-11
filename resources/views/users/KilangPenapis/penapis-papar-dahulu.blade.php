@@ -52,28 +52,37 @@
                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
 
-                            <div align="right">
-                                <table border="0" width="25%">
+                            <div align="">
+                                <table border="0" width="90%">
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                            <td width="" height="19">
+                                                <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) RF 4</b></p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                            <td width="10%" height="19">
+                                                <p align=""><b></b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) PX 4-RF </b></p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) PM 4-RF </b></p>
+                                            <td width="10%" height="19">
+                                                <p align=""><b></b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) PM 4-RF </b></p>
                                             </td>
                                         </tr>
 
                                     </tbody>
                                 </table>
-                            </div>
+                            </div><br>
 
                         {{-- <div align="right">
                             <table border="0" width="25%" id="table1">
@@ -395,7 +404,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     ISIRUNG SAWIT</font>
@@ -521,7 +530,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
 
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -636,7 +645,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
 
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
@@ -728,7 +737,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
 
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
@@ -792,7 +801,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                     TERIMAAN BEKALAN PRODUK SAWIT -
@@ -854,7 +863,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
@@ -945,7 +954,7 @@
                                 </tr>
                                 @endforeach --}}
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
