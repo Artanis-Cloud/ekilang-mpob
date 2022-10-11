@@ -545,7 +545,6 @@ class Proses9Controller extends Controller
             $pelesens[$key] = (object)[];
 
             $query = H91Init::with('pelesen')->where('e91_nobatch', $e91_nobatch)->first();
-            dd($query);
 
             $penyata[$key] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
                       DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
@@ -561,6 +560,8 @@ class Proses9Controller extends Controller
                from PL911P3 e, licensedb.license p
                where
                      e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
+            dd($penyata);
+
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
