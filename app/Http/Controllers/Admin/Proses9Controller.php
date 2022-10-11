@@ -486,13 +486,77 @@ class Proses9Controller extends Controller
         $tahun = H91Init::where('e91_thn', $request->tahun);
         $bulan = H91Init::where('e91_bln', $request->bulan);
         // dd($bulan);
+        
         foreach ($request->papar_ya as $key => $e91_nobatch) {
+            // dd($e91_nobatch);
+
             $pelesens[$key] = (object)[];
             $penyata[$key]  = H91Init::with('pelesen')->find($e91_nobatch);
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key] ->e91_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+
+        }
+//   dd($pelesens);
+
+
+        $layout = 'layouts.main';
+
+        // dd($penyata);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr','query', 'nolesen','layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
+    }
+
+    public function process_admin_pleid_buah_form(Request $request)
+    {
+        // dd($request->all());
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu.process');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $sektor = $request->sektor;
+
+
+        // $tahun = H91Init::where('e91_thn', $request->tahun);
+        // $bulan = H91Init::where('e91_bln', $request->bulan);
+        // dd($bulan);
+        $nolesen = auth()->users->username;
+        foreach ($request->papar_ya as $key => $e91_nobatch) {
+            $pelesens[$key] = (object)[];
+
+            $query = H91Init::with('pelesen')->where('e91_nobatch', $e91_nobatch)->first();
+
+            $penyata[$key] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
+                      DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
+                    F911G1, F911G2, F911G3, F911G4, F911H1, F911H2,
+                    F911H3, F911H4, F911I, F911J1, F911J2,
+                    F911J3, F911K1, F911K2, F911K3, F911K4,
+                    F911L1, F911L2, F911L3, F911N1, F911N2, F911N3, F911N4,
+                    F911O, F911P, F911Q,
+                    F911R,
+                    F911S1, F911S2, F911S3, F911S4, F911S5, F911S6,
+                    F911T1, F911T2, F911T3, F911T4, F911T5, F911T6, F911T7, F911T8,
+                    F911U1, F911U2, F911U3
+               from PL911P3 e, licensedb.license p
+               where
+                     e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
+            // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->tkhsubmit);
             $formatteddate = $myDateTime->format('d-m-Y');
 
         }
