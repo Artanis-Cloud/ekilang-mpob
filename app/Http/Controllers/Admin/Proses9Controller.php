@@ -563,8 +563,8 @@ class Proses9Controller extends Controller
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->tkhsubmit);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->tkhsubmit);
+            // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
 //   dd($pelesens);
@@ -574,7 +574,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query','tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
+        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query','tahun', 'bulan', 'pelesens', 'penyata', 'sektor'));
     }
 
     public function process_admin_9penyataterdahulu_penapis_form(Request $request)
