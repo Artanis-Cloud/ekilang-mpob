@@ -285,8 +285,8 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)
                                                     </font>
                                                 </b> </p>
-                                     @foreach ($penyata as $data)
-                                     {{ dd($data->F911G2) }}
+                                     @foreach ($penyata as $key => $data)
+                                     {{ dd($data[$key]->F911G2) }}
 
                                             <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
