@@ -399,8 +399,7 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
+                                                        <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
@@ -419,13 +418,12 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit"
-                                                                    value="{{ $data->e91_nobatch }}">&nbspYa
+                                                                    value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
-                                                            <td>{{ $data->sdate }}</td>
+                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td>{{ $data->nobatch }}</td>
+                                                            <td>{{ $data->tkhsubmit }}</td>
 
                                                         </tr>
                                                     @endforeach

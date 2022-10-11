@@ -210,7 +210,7 @@ class Proses9Controller extends Controller
         $tahuns = $request->tahun;
         $bulans = $request->bulan;
 
-        // dd($sektor);
+        // dd($data);
 
         $tahun1 = $request->tahun;
         $bulan1 = $request->bulan;
@@ -339,7 +339,7 @@ class Proses9Controller extends Controller
                     where e.F911D = '$request->tahun' and e.F911C = '$request->bulan' and
                     e.F911A = p.F201A");
 
-                    dd($users);
+                    // dd($users);
 
                         if (!$users) {
                             return redirect()->back()
@@ -421,7 +421,7 @@ class Proses9Controller extends Controller
         ];
 
         // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'sektor', 'users', 'tahun1', 'bulan1'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'sektor', 'users', 'tahun1', 'bulan1', 'data'));
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
