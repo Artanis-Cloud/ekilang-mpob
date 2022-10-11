@@ -506,7 +506,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr','query', 'nolesen','layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'nolesen','layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
     }
 
     public function process_admin_pleid_buah_form(Request $request)
@@ -567,7 +567,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
+        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query','tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
     }
 
     public function process_admin_9penyataterdahulu_penapis_form(Request $request)
