@@ -50,7 +50,7 @@
                     </div> --}}
                 </div>
                 @foreach ($query as $key => $data)
-                 {{ dd($data) }}
+                 {{ dd($data[$key]) }}
 
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
