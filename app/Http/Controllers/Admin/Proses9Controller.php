@@ -545,6 +545,7 @@ class Proses9Controller extends Controller
             $pelesens[$key] = (object)[];
 
             $query = H91Init::with('pelesen')->where('e91_nobatch', $e91_nobatch)->first();
+            dd($query);
 
             $penyata[$key] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
                       DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
