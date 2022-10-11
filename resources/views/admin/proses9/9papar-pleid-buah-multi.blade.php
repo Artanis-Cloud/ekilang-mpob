@@ -882,7 +882,7 @@
                                             </table>
 
 
-                                            <p align="left">
+                                            {{-- <p align="left">
                                                 <font style="font-size: 15px" color="#0c7c85"><b>BAHAGIAN 4 : EDARAN/JUALAN MINYAK SAWIT
                                                         MENTAH (CPO) (01) </b></font>
                                             </p>
