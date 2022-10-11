@@ -322,7 +322,7 @@
         var table_input_len = (table_input.rows.length);
         var row_input = table_input.insertRow(table_input_len).outerHTML =
             "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='jumlah_row_hidden" +
-            table_input_len +
+            table_input_len +5656
             "' name='jumlah_row_hidden[]' value=" + new_jumlah +
             "><input type='hidden' id='new_syarikat_hidden" + table_input_len +
             "' name='new_syarikat_hidden[]' value=" + new_syarikat +
