@@ -94,13 +94,15 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-                        @if ($data == 'ekilang')
+                        {{-- <form action="{{ route('admin.papar.penyata') }}" method="post">
+                            @csrf --}}
+                        @if ($sumber == 'ekilang')
 
                         @if ($sektor == 'PL91')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-buah.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-buah.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -144,7 +146,7 @@
                                             </table>
                                             <div class="text-left col-md-8">
                                                 {{-- <button type="submit" class="btn btn-primary" id="submit" disabled="true">Papar</button> --}}
-                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary" id="submit">Papar</button> --}}
                                             </div>
                                         </div>
                                     </form>
@@ -153,8 +155,8 @@
                         @elseif ($sektor == 'PL101')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-striped table-bordered"
                                                 style="width: 100%;">
@@ -190,7 +192,7 @@
                                             <div class="text-left col-md-8">
                                                 {{-- <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button> --}}
 
-                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary" id="submit">Papar</button> --}}
 
 
                                             </div>
@@ -201,8 +203,8 @@
                         @elseif ($sektor == 'PL102')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-striped table-bordered"
                                                 style="width: 100%;">
@@ -236,7 +238,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit">Papar</button> --}}
 
 
 
@@ -248,8 +250,8 @@
                         @elseif ($sektor == 'PL104')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-striped table-bordered"
                                                 style="width: 100%;">
@@ -283,7 +285,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit">Papar</button> --}}
 
 
 
@@ -295,8 +297,8 @@
                         @elseif ($sektor == 'PL111')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-striped table-bordered"
                                                 style="width: 100%;">
@@ -330,7 +332,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit" >Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit" >Papar</button> --}}
 
 
                                             </div>
@@ -341,8 +343,8 @@
                         @elseif ($sektor == 'PLBIO')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-bio.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-bio.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-striped table-bordered"
                                                 style="width: 100%;">
@@ -376,7 +378,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary ">Papar</button> --}}
 
 
 
@@ -386,7 +388,7 @@
                                 </div>
                             </section>
                         @endif
-                        @elseif ($data == 'pleid')
+                        @elseif ($sumber == 'pleid')
                         @if ($sektor == 'PL91')
                             <section class="section">
                                 <div class="card">
@@ -442,8 +444,8 @@
                         @elseif ($sektor == 'PL101')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -484,9 +486,9 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button> --}}
 
-                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary" id="submit">Papar</button> --}}
 
 
                                             </div>
@@ -497,8 +499,8 @@
                         @elseif ($sektor == 'PL102')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -539,7 +541,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit">Papar</button> --}}
 
 
 
@@ -551,8 +553,8 @@
                         @elseif ($sektor == 'PL104')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -593,7 +595,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit">Papar</button> --}}
 
 
 
@@ -605,8 +607,8 @@
                         @elseif ($sektor == 'PL111')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -647,7 +649,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit" >Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit" >Papar</button> --}}
 
 
                                             </div>
@@ -658,8 +660,8 @@
                         @elseif ($sektor == 'PLBIO')
                             <section class="section">
                                 <div class="card">
-                                    <form action="{{ route('admin.9papar-terdahulu-bio.form') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.9papar-terdahulu-bio.form') }}" method="post">
+                                        @csrf --}}
                                         <div class="table-responsive">
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
@@ -700,7 +702,6 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
 
 
 
@@ -711,6 +712,12 @@
                             </section>
                         @endif
                         @endif
+                        {{-- <input type="hidden" name="data" value="{{ $data }}"> --}}
+                        {{-- <input type="text" name="sektor" value="{{ $sektor }}">
+                        <input type="text" name="sektor" value="{{ $sumber }}">
+                        <button type="submit" class="btn btn-primary ">Papar</button>
+                        </form> --}}
+
                     </div>
 
 
