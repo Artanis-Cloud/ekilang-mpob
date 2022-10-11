@@ -540,7 +540,7 @@ class Proses9Controller extends Controller
         // $tahun = H91Init::where('e91_thn', $request->tahun);
         // $bulan = H91Init::where('e91_bln', $request->bulan);
         // dd($bulan);
-        $nolesen = auth()->users->username;
+        // $nolesen = auth()->users->username;
         foreach ($nobatch as $key => $e91_nobatch) {
             $pelesens[$key] = (object)[];
 
