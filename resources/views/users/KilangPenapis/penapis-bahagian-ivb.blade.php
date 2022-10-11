@@ -134,7 +134,7 @@
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                                {{ $data->prodid }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 

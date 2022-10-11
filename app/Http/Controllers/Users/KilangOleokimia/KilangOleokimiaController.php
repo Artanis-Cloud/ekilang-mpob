@@ -847,11 +847,11 @@ class KilangOleokimiaController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::whereIn('prodcat',  ['03', '06', '08'])->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat',  ['03','04', '06', '08'])->orderBy('prodname')->get();
 
         if ($user) {
             $penyata = E104C::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', ['03', '06', '08']);
+                return $query->whereIn('prodcat', ['03','04', '06', '08']);
             })->get();
 
             $total = DB::table("e104_c")->where('e104_reg', $user->e104_reg)->sum('e104_c4');
@@ -1167,7 +1167,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataia = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
-        })->get();
+        })->orderBy('e104_b4')->get();
 
         $total = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
 
@@ -1191,7 +1191,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataib = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 02);
-        })->get();
+        })->orderBy('e104_b4')->get();
 
         $totalib = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3', '2')->sum('e104_b5');
 
@@ -1216,7 +1216,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataic = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '08');
-        })->get();
+        })->orderBy('e104_b4')->get();
 
         $totalic = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3', '3')->sum('e104_b5');
 
@@ -1245,7 +1245,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->whereIn('prodcat',  ['03', '06', '08']);
-        })->get();
+        })->orderBy('e104_c4')->get();
 
         $totaliii = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c4');
 
@@ -1380,7 +1380,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataia = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
-        })->get();
+        })->orderBy('e104_b4')->get();
 
         $total = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
 
@@ -1404,7 +1404,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataib = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 02);
-        })->get();
+        })->orderBy('e104_b4')->get();
 
         $totalib = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3', '2')->sum('e104_b5');
 
@@ -1429,7 +1429,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataic = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '08');
-        })->get();
+        })->orderBy('e104_b4')->get();
 
         $totalic = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3', '3')->sum('e104_b5');
 
@@ -1458,7 +1458,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->whereIn('prodcat',  ['03', '06', '08']);
-        })->get();
+        })->orderBy('e104_c4')->get();
 
         $totaliii = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c4');
 
@@ -1601,19 +1601,19 @@ class KilangOleokimiaController extends Controller
         if ($users) {
             $myDateTime = DateTime::createFromFormat('Y-m-d', $users->e104_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
-            $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '1')->get();
+            $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '1')->orderBy('e104_b4')->get();
 
-            $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '2')->get();
+            $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '2')->orderBy('e104_b4')->get();
 
             $ic = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '08');
-            })->get();
+            })->orderBy('e104_b4')->get();
 
             $ii = H104Init::where('e104_nl', auth()->user()->username)->first();
             // dd($iii);
 
 
-            $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)
+            $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->orderBy('e104_c4')
                 ->get();
             // dd($iii);
 

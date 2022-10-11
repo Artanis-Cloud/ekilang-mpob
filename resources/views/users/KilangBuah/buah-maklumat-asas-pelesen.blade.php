@@ -394,11 +394,11 @@
                                     Kapasiti Pemprosesan / Tahun</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="kap_proses" maxlength=40 class="form-control"
+                                <input type="text" id="kap_proses" class="form-control"
                                     placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); FormatCurrency(this); valid_proses(); "
                                     onkeypress="return isNumberKey(event)"
-                                    oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); valid_proses(); "
                                     value=" {{ $pelesen->kap_proses }}" required>
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
@@ -636,19 +636,14 @@
 
             {{-- remove leading zero --}}
             <script>
-                var input = document.getElementById("kap_proses");
-                var lastValue = "";
-
-                input.addEventListener("keydown", valueCheck);
-                input.addEventListener("keyup", valueCheck);
-
-                function valueCheck() {
-                    if (input.value.match(/^[0-9]*$/))
-                        lastValue = input.value;
-                    else
-                        input.value = lastValue;
+              $('input#kap_proses').keyup(function(e){
+                if(this.value.substring(0,1) == "0")
+                {
+                    this.value = this.value.replace(/^0+/g, '');
                 }
+            });
             </script>
+
             <script>
                 function valid_ap() {
 
