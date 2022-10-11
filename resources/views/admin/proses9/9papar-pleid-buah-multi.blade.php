@@ -49,8 +49,8 @@
                             value="print">Cetak</button>
                     </div> --}}
                 </div>
-                @foreach ($query as $data)
-                 {{ dd($data) }}
+                {{-- @foreach ($query as $data) --}}
+                 {{-- {{ dd($data) }} --}}
 
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
@@ -115,17 +115,17 @@
                                                         OKTOBER
                                                     @elseif($data->e91_bln == '11')
                                                         NOVEMBER
-                                                    @elseif($data->e91_bln == '12')
+                                                    @elseif($query->e91_bln == '12')
                                                         DISEMBER
                                                     @endif --}}
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                    {{-- {{ $data->e91_thn }} --}}
+                                                    {{-- {{ $query->e91_thn }} --}}
                                                 </b><br>
 
                                             </p>
                                             <hr>
 
-                                            {{-- <table border="0" width="111%" cellspacing="0">
+                                            <table border="0" width="111%" cellspacing="0">
 
                                                 <tbody>
                                                     <tr>
@@ -135,7 +135,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                {{ $data->pelesen->e_nl }}
+                                                                {{ $query->pelesen->e_nl }}
                                                             </b></td>
 
                                                     </tr>
@@ -147,7 +147,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                {{ $data->pelesen->e_np }}
+                                                                {{ $query->pelesen->e_np }}
                                                             </b></td>
 
                                                     </tr>
@@ -173,7 +173,7 @@
 
                                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_ap1 }}</b></td>
 
                                                     </tr>
 
@@ -181,7 +181,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_ap2 }}</b></td>
 
                                                     </tr>
 
@@ -189,7 +189,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_ap3 }}</b></td>
 
                                                     </tr>
 
@@ -197,7 +197,7 @@
 
                                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_as1 }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_as1 }}</b></td>
 
                                                     </tr>
 
@@ -205,7 +205,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_as2 }}</b></td>
 
                                                     </tr>
 
@@ -213,7 +213,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_as3 }}</b></td>
 
                                                     </tr>
 
@@ -221,7 +221,7 @@
 
                                                         <td width="35%">No Telefon</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_notel }}</b>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_notel }}</b>
 
                                                         </td>
 
@@ -231,7 +231,7 @@
 
                                                         <td width="35%">No Faks </td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_nofax }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_nofax }}</b></td>
 
                                                     </tr>
 
@@ -239,7 +239,7 @@
 
                                                         <td width="35%">Alamat emel </td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_email }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_email }}</b></td>
 
                                                     </tr>
 
@@ -247,7 +247,7 @@
 
                                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_npg }}</b></td>
 
                                                     </tr>
 
@@ -255,7 +255,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_jpg }}</b></td>
 
                                                     </tr>
 
@@ -263,7 +263,7 @@
 
                                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_npgtg }}</b></td>
 
                                                     </tr>
 
@@ -271,14 +271,14 @@
 
                                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
+                                                        <td width="65%"><b>{{ $query->pelesen->e_jpgtg }}</b></td>
 
                                                     </tr>
 
                                                 </tbody>
                                             </table>
-                                            <br> --}}
-                                            @endforeach
+                                            <br>
+                                            {{-- @endforeach --}}
 
 
                                             <p><b>
