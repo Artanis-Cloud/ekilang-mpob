@@ -439,16 +439,24 @@
                                     {{-- </form> --}}
                                 </div>
                             </section>
-                        {{-- @elseif ($sektor == 'PL101')
+                        @elseif ($sektor == 'PL101')
                             <section class="section">
                                 <div class="card">
                                     <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example22" class="table table-striped table-bordered"
-                                                style="width: 100%;">
+                                            <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>No Batch</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                {{-- <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
@@ -456,19 +464,18 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </thead>
+                                                </tfoot> --}}
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit"
-                                                                    value="{{ $data->e101_nobatch }}">&nbspYa
+                                                                    value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
-                                                            <td>{{ $data->sdate }}</td>
+                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td>{{ $data->nobatch }}</td>
+                                                            <td>{{ $data->tkhsubmit }}</td>
 
                                                         </tr>
                                                     @endforeach
@@ -477,7 +484,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                {{-- <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button> --}}
+                                                <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button>
 
                                                 <button type="submit" class="btn btn-primary" id="submit">Papar</button>
 
@@ -493,10 +500,18 @@
                                     <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example22" class="table table-striped table-bordered"
-                                                style="width: 100%;">
+                                            <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>No Batch</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                {{-- <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
@@ -504,19 +519,18 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </thead>
+                                                </tfoot> --}}
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit"
-                                                                    value="{{ $data->e102_nobatch }}">&nbspYa
+                                                                    value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
-                                                            <td>{{ $data->sdate }}</td>
+                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td>{{ $data->nobatch }}</td>
+                                                            <td>{{ $data->tkhsubmit }}</td>
 
                                                         </tr>
                                                     @endforeach
@@ -540,10 +554,18 @@
                                     <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example22" class="table table-striped table-bordered"
-                                                style="width: 100%;">
+                                            <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>No Batch</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                {{-- <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
@@ -551,19 +573,18 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </thead>
+                                                </tfoot> --}}
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox" id="toggle" class="checkit"
-                                                                    value="{{ $data->e104_nobatch }}">&nbspYa
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                    value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
-                                                            <td>{{ $data->sdate }}</td>
+                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td>{{ $data->nobatch }}</td>
+                                                            <td>{{ $data->tkhsubmit }}</td>
 
                                                         </tr>
                                                     @endforeach
@@ -587,10 +608,18 @@
                                     <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example22" class="table table-striped table-bordered"
-                                                style="width: 100%;">
+                                            <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>No Batch</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                {{-- <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
@@ -598,19 +627,18 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </thead>
+                                                </tfoot> --}}
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox" id="papar" class="checkit"
-                                                                    value="{{ $data->e07_nobatch }}">&nbspYa
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                    value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
-                                                            <td>{{ $data->sdate }}</td>
+                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td>{{ $data->nobatch }}</td>
+                                                            <td>{{ $data->tkhsubmit }}</td>
 
                                                         </tr>
                                                     @endforeach
@@ -633,10 +661,18 @@
                                     <form action="{{ route('admin.9papar-terdahulu-bio.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example22" class="table table-striped table-bordered"
-                                                style="width: 100%;">
+                                            <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>No Batch</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                {{-- <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
@@ -644,19 +680,18 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </thead>
+                                                </tfoot> --}}
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
-                                                                    value="{{ $data->ebio_nobatch }}">&nbspYa
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                    value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
-                                                            <td>{{ $data->sdate }}</td>
+                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td>{{ $data->nobatch }}</td>
+                                                            <td>{{ $data->tkhsubmit }}</td>
 
                                                         </tr>
                                                     @endforeach
@@ -673,7 +708,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </section> --}}
+                            </section>
                         @endif
                         @endif
                     </div>
