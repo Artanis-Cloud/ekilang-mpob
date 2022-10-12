@@ -128,7 +128,7 @@ class tryController extends Controller
         // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
-        $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
+        $produks = DB::connection('mysql4')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
 
         dd($produks);
 
