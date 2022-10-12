@@ -57,6 +57,7 @@
                     <form method="get" action="" id="myfrm">
 
                         @foreach ($bulhun as $data)
+                        {{ dd($data) }}
 
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
