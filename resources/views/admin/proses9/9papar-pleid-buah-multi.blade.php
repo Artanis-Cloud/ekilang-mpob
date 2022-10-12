@@ -288,7 +288,7 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)
                                                     </font>
                                                 </b> </p>
-                                     {{ dd($penyata) }}
+                                     {{-- {{ dd($penyata) }} --}}
 
                                      @foreach ($penyata as $key => $data)
 
