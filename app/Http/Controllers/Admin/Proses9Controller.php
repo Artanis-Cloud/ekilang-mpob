@@ -566,7 +566,6 @@ class Proses9Controller extends Controller
                from PL911P3 e, licensedb.license p
                where
                      e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
-            dd($penyata);
 
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
@@ -576,6 +575,8 @@ class Proses9Controller extends Controller
 
         }
 //   dd($pelesens);
+dd($penyata);
+
 
 
         $layout = 'layouts.main';
