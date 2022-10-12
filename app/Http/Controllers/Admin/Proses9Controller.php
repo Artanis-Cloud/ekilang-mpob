@@ -428,10 +428,10 @@ class Proses9Controller extends Controller
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
-        // elseif ($request->sumber == 'pleid' && $request->sektor == 'PL101') {
-        //     return $this->process_admin_pleid_penapis_form($request->papar_ya, $request->tahun, $request->bulan);
+        elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL101') {
+            return $this->process_admin_9penyataterdahulu_penapis_form($request->papar_ya, $request->tahun, $request->bulan);
 
-        // }
+        }
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
@@ -594,9 +594,9 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns'));
     }
 
-    public function process_admin_9penyataterdahulu_penapis_form(Request $request)
+    public function process_admin_9penyataterdahulu_penapis_form($nobatch, $tahun, $bulan)
     {
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -614,10 +614,10 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = H101Init::where('e101_thn', $request->tahun);
-        $bulan = H101Init::where('e101_bln', $request->bulan);
+        $tahun = H101Init::where('e101_thn', $tahun);
+        $bulan = H101Init::where('e101_bln', $bulan);
         // dd($bulan);
-        foreach ($request->papar_ya as $key => $e101_nobatch) {
+        foreach ($nobatch as $key => $e101_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata[$key]  = H101Init::with('pelesen')->find($e101_nobatch);
 
