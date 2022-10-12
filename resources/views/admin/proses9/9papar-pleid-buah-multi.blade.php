@@ -291,7 +291,7 @@
                                      {{-- {{ dd($penyata) }} --}}
 
                                      @foreach ($penyata[$key] as $key => $data[$key])
-                                     {{ dd($data) }}
+                                     {{ dd($data[$key]) }}
 
 
                                             {{-- <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
