@@ -295,6 +295,8 @@
                                             {{-- @endforeach --}}
 
                                             @foreach ($penyata as $key => $data)
+                                            @foreach ($data as $key => $data2)
+
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
                                                         PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
@@ -306,7 +308,7 @@
                                      {{-- {{ dd($data[$key][$key][$key]->F911G1) }} --}}
 
 
-                                             <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
+                                             {{-- <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -523,7 +525,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br>
+                                            <br> --}}
 
                                              <p><b>
                                                     <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
@@ -540,11 +542,11 @@
                                                         </td>
                                                         <td width="70">
                                                             <font size="2.7"><b>:
-                                                                {{ number_format($data[$key][$key]->F911O ?? 0, 2) }}</b></font>
+                                                                {{ number_format($data2[$key]->F911O ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
 
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td width="380">
                                                             <font size="2.7">ii.&nbsp; Kadar Perahan MKSM (OER) yang
                                                                 diperolehi&nbsp;</font>
@@ -582,7 +584,7 @@
                                                         <td width="70">
                                                             <font size="2.7"></font>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </tbody>
                                             </table>
 
@@ -1115,6 +1117,8 @@
                                                 {{ $data[$key][$key]->tkhsubmit }}
                                             </p> --}}
                                         @endforeach
+                                        @endforeach
+
 
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 {{-- {{ $query->e91_npg }} --}}
