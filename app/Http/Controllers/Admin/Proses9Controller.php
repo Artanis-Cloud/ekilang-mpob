@@ -522,7 +522,10 @@ class Proses9Controller extends Controller
 
     public function process_admin_pleid_buah_form($nobatch, $tahun, $bulan)
     {
-        $bulans = $bulan->toArray();
+        $bulans = array(
+            "bulan" => $bulan,
+            "tahun" => $tahun
+          );
         dd($bulan);
 
         // dd($nobatch);
