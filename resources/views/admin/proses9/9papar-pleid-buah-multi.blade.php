@@ -57,7 +57,7 @@
                     <form method="get" action="" id="myfrm">
 
                         @foreach ($bulans as $data)
-                        {{ dd($data) }}
+                        {{-- {{ dd($data) }} --}}
 
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
