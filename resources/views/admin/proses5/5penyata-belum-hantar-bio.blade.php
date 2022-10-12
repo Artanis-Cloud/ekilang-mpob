@@ -157,7 +157,7 @@
                                                     @endif
 
                                                 </div>
-{{-- 
+{{--
                                                 <button style="font-size:14px; background-color:#265960;color: white; border: 0px; float: right; border-radius: 2px; padding:7px 35px;"
                                                 onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Biodiesel.csv')">Excel <i class="fa fa-file-excel" style="color: #fff"></i></button> --}}
 
@@ -169,11 +169,12 @@
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil</th> --}}
-                                                            <th>No. Lesen<br></th>
-                                                            <th>Nama Premis</th>
-                                                            <th>Kod Pegawai</th>
-                                                            <th>Emel Pegawai</th>
-                                                            <th>No. Siri</th>
+                                                            <th style=" vertical-align: middle">No. Lesen<br></th>
+                                                            <th style=" vertical-align: middle">Nama Premis</th>
+                                                            <th style=" vertical-align: middle">Kod Pegawai</th>
+                                                            <th style=" vertical-align: middle">Emel Pegawai</th>
+                                                            <th style=" vertical-align: middle">No. Telefon Kilang</th>
+                                                            <th style=" vertical-align: middle">No. Siri</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -183,40 +184,39 @@
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
                                                             <th>Emel Pegawai</th>
+                                                            <th>No. Telefon Kilang</th>
                                                             <th>No. Siri</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody style="word-break: break-word; font-size:12px">
-                                                        {{-- @foreach ($users as $data)
+                                                        @foreach ($users as $data)
                                                             <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                {{-- <td>
-                                                                x
-                                                            </td> --}}
+                                                                {{-- <td>{{ $loop->iteration }}</td> --}}
 
-                                                                {{-- <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                <td>{{ $data->e_nl ?? '-' }}</td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
                                                                 <td>{{ $data->kodpgw }}</td>
 
                                                                 <td>{{ $data->e_email ?? '-' }}</td>
+                                                                <td>{{ $data->e_notel ?? '-' }}</td>
                                                                 <td>{{ $data->nosiri }}</td>
 
 
 
                                                             </tr>
-                                                        @endforeach --}}
+                                                        @endforeach
 
                                                     </tbody>
 
                                                 </table>
                                                 </div>
-                                                <div class="text-left col-md-8">
+                                                {{-- <div class="text-left col-md-8">
                                                     <button class="btn btn-primary"
                                                     onclick="exportTableToExcel('tblData')">Excel</button>
 
 
 
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         {{-- </form> --}}
                                     </div>

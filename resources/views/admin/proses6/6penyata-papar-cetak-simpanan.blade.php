@@ -161,14 +161,14 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th style="width: 7%">Papar?</th>
-                                                        <th style="width: 7%"\>Sudah Cetak?<br></th>
-                                                        <th style="width: 11%">No. Lesen<br></th>
-                                                        <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>Emel Pegawai</th>
-                                                        <th>No. Siri</th>
-                                                        <th>Tarikh Hantar</th>
+                                                        <th style="width: 7%; vertical-align: middle">Papar?</th>
+                                                        <th style="width: 7%; vertical-align: middle">Sudah Cetak?<br></th>
+                                                        <th style="width: 11%; vertical-align: middle">No. Lesen<br></th>
+                                                        <th style=" vertical-align: middle">Nama Premis</th>
+                                                        <th style=" vertical-align: middle">Kod Pegawai</th>
+                                                        <th style=" vertical-align: middle">Emel Pegawai</th>
+                                                        <th style=" vertical-align: middle">No. Siri</th>
+                                                        <th style=" vertical-align: middle">Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>

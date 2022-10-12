@@ -137,6 +137,8 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/5-papar-belum-oleo/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumoleo_form'])->name('admin.5papar-belum-oleo-multi');
         Route::post('admin/5-papar-belum-simpanan/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumsimpanan_form'])->name('admin.5papar.belum.simpanan.form');
         Route::get('admin/5-papar-belum-simpanan/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumsimpanan_form'])->name('admin.5papar-belum-simpanan-multi');
+        Route::post('admin/5-papar-belum-bio/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumbio_form'])->name('admin.5papar.belum.bio.form');
+        Route::get('admin/5-papar-belum-bio/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumbio_form'])->name('admin.5papar-belum-bio-multi');
 
         Route::get('admin/6-penyata-papar-cetak-buah', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakbuah'])->name('admin.6penyatapaparcetakbuah');
         Route::get('admin/6-penyata-papar-cetak-penapis', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakpenapis'])->name('admin.6penyatapaparcetakpenapis');
