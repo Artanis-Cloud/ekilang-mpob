@@ -526,7 +526,7 @@ class Proses9Controller extends Controller
             "bulan" => $bulan,
             "tahun" => $tahun
           );
-        dd($bulan);
+        dd($bulans);
 
         // dd($nobatch);
         if (!$nobatch) {
