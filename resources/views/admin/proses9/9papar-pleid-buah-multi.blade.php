@@ -291,7 +291,7 @@
                                      {{-- {{ dd($penyata) }} --}}
 
                                      @foreach ($penyata as $key => $data)
-                                     {{ dd($data) }}
+                                     {{ dd($data[$key][$key]->F911G1) }}
 
 
 
