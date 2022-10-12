@@ -582,7 +582,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-//   dd($query);
+  dd($query);
 // dd($penyata[$key]);
 
 
