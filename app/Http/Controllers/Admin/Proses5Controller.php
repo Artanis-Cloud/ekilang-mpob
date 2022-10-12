@@ -784,12 +784,21 @@ class Proses5Controller extends Controller
 
 
 
+
     public function admin_5penyatabelumhantarbio()
     {
 
+        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.ebio_flg,  r.nosiri, r.kodpgw, e.ebio_reg
+        FROM pelesen p, e_bio_inits e, reg_pelesen r
+        WHERE   p.e_nl = e.ebio_nl
+        and p.e_nl = r.e_nl
+        and r.e_kat = 'PLBIO'
+        and e.ebio_flg = '1'
+        order by p.e_nl");
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang Kilang Biodiesel"],
+            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -798,10 +807,10 @@ class Proses5Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout', 'users'));
     }
 }
