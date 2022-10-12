@@ -124,7 +124,7 @@
                                                     @endif
 
                                                     @endforeach
-                                                    @foreach ($tahuns as $data)
+                                                    {{-- @foreach ($tahuns as $data)
 
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
                                                     {{ $data->tahun }}
@@ -132,7 +132,7 @@
 
                                             </p>
                                             <hr>
-                                            @endforeach
+                                            @endforeach --}}
                                             @foreach ($query as $key => $data)
                                             {{-- {{ dd($data) }} --}}
 
