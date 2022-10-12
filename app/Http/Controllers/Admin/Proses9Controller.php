@@ -567,7 +567,7 @@ class Proses9Controller extends Controller
                where
                      e.F911A = p.F201A and e.F911B = '$e91_nobatch'");
 
-                     dd($penyata);
+                     dd($penyata[$key]);
 
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
