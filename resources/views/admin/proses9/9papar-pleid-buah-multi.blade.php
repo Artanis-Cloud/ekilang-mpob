@@ -125,6 +125,8 @@
 
                                             </p>
                                             <hr>
+                                            @foreach ($query as $key => $data)
+                                            {{ dd($data) }}
 
                                             <table border="0" width="111%" cellspacing="0">
 
@@ -136,7 +138,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                {{ $query->pelesen->e_nl }}
+                                                                {{ $data->pelesen->e_nl }}
                                                             </b></td>
 
                                                     </tr>
@@ -279,9 +281,9 @@
                                                 </tbody>
                                             </table>
                                             <br>
-                                            {{-- @endforeach --}}
+                                            @endforeach
 
-
+                                            @foreach ($penyata as $key => $data)
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
                                                         PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
@@ -290,7 +292,6 @@
                                                 </b> </p>
                                      {{-- {{ dd($penyata) }} --}}
 
-                                     @foreach ($penyata as $key => $data)
                                      {{-- {{ dd($data[$key][$key]->F911G1) }} --}}
 
 
