@@ -62,7 +62,7 @@ class Proses7Controller extends Controller
     public function porting_produk()
     {
         // data from codedb
-        $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group from commodity_l");
+        $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
         // dd($e91init);
 
         $delete_produk = DB::table('produk')->delete();
@@ -77,8 +77,10 @@ class Proses7Controller extends Controller
         $cat = $produk->group_l ;
         $desc = $produk->comm_desc ;
 		$sub_group = $produk->sub_group ;
+		$sub_group_rspo = $produk->sub_group_rspo ;
+		$sub_group_mspo = $produk->sub_group_mspo ;
 
-        $produk_insert = DB::insert("INSERT into produk values ('$code','$nama','$cat','$desc',NULL,NULL,NULL,'$sub_group')");
+        $produk_insert = DB::insert("INSERT into produk values ('$code','$nama','$cat','$desc',NULL,NULL,NULL,'$sub_group','$sub_group_rspo','$sub_group_mspo')");
 
         $totalprod = $totalprod + 1;
 

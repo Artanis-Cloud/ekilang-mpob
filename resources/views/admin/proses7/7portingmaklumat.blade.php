@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class=" text-center">
-                                    <h4 style="color: rgb(39, 80, 71)">Pindahan Maklumat Produk dan Negara</h4>
+                                    <h4 style="color: rgb(39, 80, 71)">Pindahan Maklumat Produk, Negara dan Daerah</h4>
                                 </div>
                                 <hr>
                                 <form action="{{ route('admin.porting.maklumat.process') }}" method="get">
@@ -86,7 +86,7 @@
 
                                     <div class="row center">
                                         <div class="col-md-12 center mb-3">
-                                            <button type="button" disabled class="btn btn-primary center" style="margin-left:45%" id="checkBtn" onclick="check()">Port</button>
+                                            <button type="button"  class="btn btn-primary center" style="margin-left:45%" id="checkBtn" onclick="check()">Port</button>
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>

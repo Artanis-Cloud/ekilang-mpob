@@ -226,7 +226,7 @@ class MenuLainController extends Controller
             }
         }else{
             return redirect()->back()->with('error', 'Data Tidak Wujud');
-        
+
         }
 
 
@@ -575,7 +575,7 @@ class MenuLainController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-
+        // where sub_group_rspo ='' and sub_group_mspo ='' 
         $produk = Produk::orderBy('prodid')->get();
         // dd($produk);
         $layout = 'layouts.main';
