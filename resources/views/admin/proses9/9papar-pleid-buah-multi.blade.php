@@ -96,43 +96,43 @@
                                                     </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
                                                     BULAN :
-                                                    {{-- {{ dd($data->bulan) }} --}}
-                                                    @if ($data->bulan== '01')
+                                                    {{-- {{ dd($data) }} --}}
+                                                    @if ($data== '01')
                                                         JANUARI
-                                                    @elseif($data->bulan== '02')
+                                                    @elseif($data== '02')
                                                         FEBRUARI
-                                                    @elseif($data->bulan== '03')
+                                                    @elseif($data== '03')
                                                         MAC
-                                                    @elseif($data->bulan== '04')
+                                                    @elseif($data== '04')
                                                         APRIL
-                                                    @elseif($data->bulan== '05')
+                                                    @elseif($data== '05')
                                                         MEI
-                                                    @elseif($data->bulan== '06')
+                                                    @elseif($data== '06')
                                                         JUN
-                                                    @elseif($data->bulan== '07')
+                                                    @elseif($data== '07')
                                                         JULAI
-                                                    @elseif($data->bulan== '08')
+                                                    @elseif($data== '08')
                                                         OGOS
-                                                    @elseif($data->bulan== '09')
+                                                    @elseif($data== '09')
                                                         SEPTEMBER
-                                                    @elseif($data->bulan== '10')
+                                                    @elseif($data== '10')
                                                         OKTOBER
-                                                    @elseif($data->bulan== '11')
+                                                    @elseif($data== '11')
                                                         NOVEMBER
-                                                    @elseif($data->bulan == '12')
+                                                    @elseif($data == '12')
                                                         DISEMBER
                                                     @endif
 
                                                     @endforeach
-                                                    {{-- @foreach ($tahuns as $data)
+                                                    @foreach ($tahuns as $data)
 
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                    {{ $data->tahun }}
+                                                    {{ $data }}
                                                 </b><br>
 
                                             </p>
                                             <hr>
-                                            @endforeach --}}
+                                            @endforeach
                                             @foreach ($query as $key => $data)
                                             {{-- {{ dd($data) }} --}}
 
