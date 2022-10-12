@@ -295,8 +295,9 @@
                                             {{-- @endforeach --}}
 
                                             @foreach ($penyata as $key => $data)
+                                            {{ dd($data) }}
+
                                             @foreach ($data as $key => $data2)
-                                            {{ dd($data2) }}
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
