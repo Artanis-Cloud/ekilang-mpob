@@ -583,7 +583,7 @@ class Proses9Controller extends Controller
 
         }
 //   dd($query);
-// dd($penyata[$key]);
+dd($penyata);
 
 
 
