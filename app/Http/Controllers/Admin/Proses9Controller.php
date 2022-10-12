@@ -577,7 +577,7 @@ class Proses9Controller extends Controller
 
         }
 //   dd($pelesens);
-dd($penyata[$key]);
+// dd($penyata[$key]);
 
 
 
