@@ -56,7 +56,9 @@
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <form method="get" action="" id="myfrm">
 
-                        @foreach ($bulans as $data)
+                        {{-- @foreach ($bulans as $data) --}}
+                        @foreach ($query as $key => $data)
+
                         {{-- {{ dd($data) }} --}}
 
                             <div class="card-body">
@@ -97,42 +99,41 @@
 
                                                     BULAN :
                                                     {{-- {{ dd($data) }} --}}
-                                                    @if ($data== '01')
+                                                    @if ($data->e91_bln == '01')
                                                         JANUARI
-                                                    @elseif($data== '02')
+                                                    @elseif($data->e91_bln == '02')
                                                         FEBRUARI
-                                                    @elseif($data== '03')
+                                                    @elseif($data->e91_bln == '03')
                                                         MAC
-                                                    @elseif($data== '04')
+                                                    @elseif($data->e91_bln == '04')
                                                         APRIL
-                                                    @elseif($data== '05')
+                                                    @elseif($data->e91_bln == '05')
                                                         MEI
-                                                    @elseif($data== '06')
+                                                    @elseif($data->e91_bln == '06')
                                                         JUN
-                                                    @elseif($data== '07')
+                                                    @elseif($data->e91_bln == '07')
                                                         JULAI
-                                                    @elseif($data== '08')
+                                                    @elseif($data->e91_bln == '08')
                                                         OGOS
-                                                    @elseif($data== '09')
+                                                    @elseif($data->e91_bln == '09')
                                                         SEPTEMBER
-                                                    @elseif($data== '10')
+                                                    @elseif($data->e91_bln == '10')
                                                         OKTOBER
-                                                    @elseif($data== '11')
+                                                    @elseif($data->e91_bln == '11')
                                                         NOVEMBER
-                                                    @elseif($data == '12')
+                                                    @elseif($data->e91_bln == '12')
                                                         DISEMBER
                                                     @endif
 
-                                                    @foreach ($tahuns as $data)
+                                                    {{-- @foreach ($tahuns as $data) --}}
 
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                    {{ $data }}
+                                                    {{ $data->e91_thn }}
                                                 </b><br>
 
                                             </p>
                                             <hr>
-                                            @endforeach
-                                            @foreach ($query as $key => $data)
+                                            {{-- @endforeach --}}
                                             {{-- {{ dd($data) }} --}}
 
                                             <table border="0" width="111%" cellspacing="0">
