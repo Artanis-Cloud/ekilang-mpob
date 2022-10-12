@@ -56,8 +56,8 @@
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <form method="get" action="" id="myfrm">
 
-                        @foreach ($bulhun as $data)
-                        {{ dd($data) }}
+                        @foreach ($bulans as $data)
+                        {{-- {{ dd($data) }} --}}
 
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
@@ -122,6 +122,10 @@
                                                     @elseif($data->bulan == '12')
                                                         DISEMBER
                                                     @endif
+
+                                                    @endforeach
+                                                    @foreach ($tahuns as $data)
+
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
                                                     {{ $data->tahun }}
                                                 </b><br>
