@@ -522,7 +522,8 @@ class Proses9Controller extends Controller
 
     public function process_admin_pleid_buah_form($nobatch, $tahun, $bulan)
     {
-
+        $bulans = $bulan->toArray();
+        dd($bulan);
 
         // dd($nobatch);
         if (!$nobatch) {
@@ -585,7 +586,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan'));
+        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans'));
     }
 
     public function process_admin_9penyataterdahulu_penapis_form(Request $request)
