@@ -296,7 +296,7 @@
                                             {{-- {{ dd($penyata) }} --}}
 
                                             @foreach ($penyata as $key => $data)
-                                            {{ dd($data[$key]) }}
+                                            {{-- {{ dd($data[$key]) }} --}}
 
 
                                             {{-- @foreach ($data as $key => $data2) --}}
@@ -546,7 +546,7 @@
                                                         </td>
                                                         <td width="70">
                                                             <font size="2.7"><b>:
-                                                                {{ number_format($data2[$key]->F911O ?? 0, 2) }}</b></font>
+                                                                {{ number_format($data[$key]->F911O ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
 
