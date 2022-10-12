@@ -123,7 +123,6 @@
                                                         DISEMBER
                                                     @endif
 
-                                                    @endforeach
                                                     @foreach ($tahuns as $data)
 
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
@@ -1136,6 +1135,8 @@
 
 
                     </form>
+                    @endforeach
+
                     <div class="row justify-content-center ">
 
                         <button type="button" class="btn btn-primary " style="margin: 1%"
