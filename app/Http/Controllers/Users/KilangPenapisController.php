@@ -369,7 +369,7 @@ class KilangPenapisController extends Controller
             // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
             $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
-            })->get();
+            })->orderBy('e101_b4')->get();
             // dd($penyata);
             $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b5');
 
@@ -584,7 +584,7 @@ class KilangPenapisController extends Controller
         if ($user) {
             $b = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
-            })->get();
+            })->orderBy('e101_b4')->get();
 
             $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
 
@@ -833,7 +833,7 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
         if ($user) {
-            $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->get();
+            $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->orderBy('e101_c4')->get();
 
             $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
 
@@ -997,7 +997,7 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
         if ($user) {
-            $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->get();
+            $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->orderBy('e101_c4')->get();
 
             $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
 
@@ -1465,7 +1465,7 @@ class KilangPenapisController extends Controller
         if ($pelesen2) {
             $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
-            })->get();
+            })->orderBy('e101_b4')->get();
 
             // dd($penyatai);
 
@@ -1525,7 +1525,7 @@ class KilangPenapisController extends Controller
 
             $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
-            })->get();
+            })->orderBy('e101_b4')->get();
             // dd($penyataii);
 
             $totaliib5 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
@@ -1552,7 +1552,7 @@ class KilangPenapisController extends Controller
             $penyataiii = E101Init::where('e101_nl', auth()->user()->username)->first();
             // dd($penyataiii);
 
-            $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->get();
+            $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->orderBy('e101_c4')->get();
             // dd($penyataiva);
 
             $totalivac5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
@@ -1568,7 +1568,7 @@ class KilangPenapisController extends Controller
             $totalivac10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
             //   dd($totalivac5);
 
-            $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->get();
+            $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->orderBy('e101_c4')->get();
             // dd($penyataivb);
 
             $totalivbc5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
@@ -1693,7 +1693,7 @@ class KilangPenapisController extends Controller
 
         $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
-        })->get();
+        })->orderBy('e101_b4')->get();
         // dd($penyatai);
 
         $totalib5 = DB::table("e101_b")
@@ -1752,7 +1752,7 @@ class KilangPenapisController extends Controller
 
         $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 02);
-        })->get();
+        })->orderBy('e101_b4')->get();
         // dd($penyataii);
 
         $totaliib5 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
@@ -1779,7 +1779,7 @@ class KilangPenapisController extends Controller
         $penyataiii = E101Init::where('e101_nl', auth()->user()->username)->first();
         // dd($penyataiii);
 
-        $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->get();
+        $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->orderBy('e101_c4')->get();
         // dd($penyataiva);
 
         $totalivac5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
@@ -1795,7 +1795,7 @@ class KilangPenapisController extends Controller
         $totalivac10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
         //   dd($totalivac5);
 
-        $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->get();
+        $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->orderBy('e101_c4')->get();
         // dd($penyataivb);
 
         $totalivbc5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
@@ -1811,7 +1811,7 @@ class KilangPenapisController extends Controller
         $totalivbc10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
         //   dd($totalivac5);
 
-        $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 1)->get();
+        $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 1)->orderBy('e101_d4')->get();
         // dd($penyatava);
         $totalvad5 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d5');
         $totalvad6 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d6');
@@ -1819,7 +1819,7 @@ class KilangPenapisController extends Controller
         $totalvad8 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d8');
 
 
-        $penyatavb = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 2)->get();
+        $penyatavb = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 2)->orderBy('e101_d4')->get();
         // dd($penyatavb);
         $totalvbd5 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d5');
         $totalvbd6 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d6');
@@ -1992,7 +1992,7 @@ class KilangPenapisController extends Controller
             $formatteddate = $myDateTime->format('d-m-Y');
             $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '01');
-            })->get();
+            })->orderBy('e101_b4')->get();
             // dd($i);
             $totalib5 = DB::table("h101_b")
                 ->where('e101_nobatch', $users->e101_nobatch)
@@ -2050,7 +2050,7 @@ class KilangPenapisController extends Controller
 
             $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '02');
-            })->get();
+            })->orderBy('e101_b4')->get();
             $totaliib5 = DB::table("h101_b")->where('e101_nobatch', $users->e101_nobatch)->where('e101_b3', '2')->sum('e101_b5');
             //  dd($totaliib5);
             $totaliib6 = DB::table("h101_b")->where('e101_nobatch', $users->e101_nobatch)->where('e101_b3', '2')->sum('e101_b6');
@@ -2074,9 +2074,9 @@ class KilangPenapisController extends Controller
 
             $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
             // dd($iii);
-            $iva = H101C::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3', '1')->get();
+            $iva = H101C::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3', '1')->orderBy('e101_c4')->get();
 
-            $ivb = H101C::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3', '2')->get();
+            $ivb = H101C::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3', '2')->orderBy('e101_c4')->get();
             // dd($iv);
 
             $totalivac5 = DB::table("h101_c")->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3', '1')->sum('e101_c5');
@@ -2105,7 +2105,7 @@ class KilangPenapisController extends Controller
             $totalivbc10 = DB::table("h101_c")->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3', '2')->sum('e101_c10');
             //   dd($totalivac5);
 
-            $va = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '1')->get();
+            $va = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '1')->orderBy('e101_d4')->get();
             // dd($va);
 
             $totalvad5 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '1')->sum('e101_d5');
@@ -2114,7 +2114,7 @@ class KilangPenapisController extends Controller
             $totalvad8 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '1')->sum('e101_d8');
 
 
-            $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '2')->get();
+            $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '2')->orderBy('e101_d4')->get();
             $totalvbd5 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '2')->sum('e101_d5');
             $totalvbd6 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '2')->sum('e101_d6');
             $totalvbd7 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '2')->sum('e101_d7');

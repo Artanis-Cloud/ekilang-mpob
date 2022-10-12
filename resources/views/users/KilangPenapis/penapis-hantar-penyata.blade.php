@@ -50,43 +50,38 @@
 
                 <div class="row">
                     <div class="" style="padding: 2%">
-                        <div align="right">
-                            <table border="0" width="25%">
+                        <div align="">
+                            <table border="0" width="90%">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                        <td width="" height="19">
+                                            <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) RF 4</b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                        <td width="10%" height="19">
+                                            <p align=""><b></b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) PX 4-RF </b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <p align="left"><b>MPOB(EL) PM 4-RF </b></p>
+                                        <td width="10%" height="19">
+                                            <p align=""><b></b></p>
+                                        </td>
+                                        <td width="88%" height="19">
+                                            <p align="right"><b>MPOB(EL) PM 4-RF </b></p>
                                         </td>
                                     </tr>
 
                                 </tbody>
                             </table>
-                        </div>
+                        </div><br>
 
-                        {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
 
                         <p style="text-align: center; vertical-align:middle">
                             <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
@@ -408,7 +403,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     MINYAK ISIRUNG SAWIT</font>
@@ -533,7 +528,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -649,7 +644,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
@@ -741,7 +736,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
@@ -803,7 +798,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
@@ -864,7 +859,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
@@ -954,7 +949,7 @@
                                         <font size="2"><b>0.00</b></font>
                                     </td>
                                 </tr>
-                        </table>
+                        </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
@@ -1016,7 +1011,7 @@
                                         <font size="2"><b>0.00</b></font>
                                     </td>
                                 </tr>
-                        </table>
+                        </table><br>
 
                         <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
                             <p style="font-size: 16px; margin-bottom:0"><b>
@@ -1036,8 +1031,6 @@
                             </body>
 
                             {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
-
-
 
                         </form>
                     </div>

@@ -53,28 +53,37 @@
 
                         <body>
 
-                            <div align="right">
-                                <table border="0" width="25%">
+                            <div align="">
+                                <table border="0" width="90%">
                                     <tbody>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) CF 4</b></p>
+                                            <td width="" height="19">
+                                                <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) CF 4</b></p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) PM 4-CF </b></p>
+                                            <td width="10%" height="19">
+                                                <p align=""><b></b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) PM 4-CF </b></p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <p align="left"><b>MPOB(EL) PX 4-CF</b></p>
+                                            <td width="10%" height="19">
+                                                <p align=""><b></b></p>
+                                            </td>
+                                            <td width="88%" height="19">
+                                                <p align="right"><b>MPOB(EL) PX 4-CF </b></p>
                                             </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
-                            </div>
-                            <br>
+                            </div><br>
                             <div align="center">
                                 <table border="0" width="25%">
 
@@ -522,7 +531,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
 
 
                             <p><b>
@@ -594,7 +603,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
                                         MENTAH (CPKO) (04)
@@ -633,7 +642,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                         (PKC) (33)</font>
@@ -671,7 +680,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                 </b></p>
@@ -747,7 +756,7 @@
                                     </tr>
                                     @endforeach --}}
                                 </tbody>
-                            </table>
+                            </table><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7: IMPORT PRODUK SAWIT</font>
                                 </b></p>

@@ -61,19 +61,22 @@
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
 
-                                            <div align="right">
-                                                <table border="0" width="25%">
+                                            <div align="">
+                                                <table border="0" width="90%">
                                                     <tbody>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) KS 4</b></p>
+                                                            <td width="" height="19">
+                                                                <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) KS 4</b></p>
                                                             </td>
                                                         </tr>
 
-
                                                     </tbody>
+
                                                 </table>
-                                            </div>
+                                            </div><br>
 
 
                                         <p align="center">
@@ -364,7 +367,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN
                                                         INSTOLASI KE
@@ -404,7 +407,7 @@
                                                         </td>
                                                     </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

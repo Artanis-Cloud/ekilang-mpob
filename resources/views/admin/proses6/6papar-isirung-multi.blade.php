@@ -58,22 +58,31 @@
                                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                        <div align="right">
-                                            <table border="0" width="25%">
+                                        <div align="">
+                                            <table border="0" width="90%">
                                                 <tbody>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) CF 4</b></p>
+                                                        <td width="" height="19">
+                                                            <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) CF 4</b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) PM 4-CF </b></p>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PM 4-CF </b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>
-                                                            <p align="left"><b>MPOB(EL) PX 4-CF </b></p>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
+                                                        <td width="88%" height="19">
+                                                            <p align="right"><b>MPOB(EL) PX 4-CF </b></p>
                                                         </td>
                                                     </tr>
 

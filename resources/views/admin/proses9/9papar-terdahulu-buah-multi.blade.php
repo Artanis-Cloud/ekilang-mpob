@@ -63,17 +63,23 @@
                                             {{-- <p align="left">
                                                     PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                            <div align="right">
-                                                <table border="0" width="25%">
+                                            <div align="">
+                                                <table border="0" width="90%">
                                                     <tbody>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                            <td width="" height="19">
+                                                                <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) MF 4</b></p>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                            <td width="10%" height="19">
+                                                                <p align=""><b></b></p>
+                                                            </td>
+                                                            <td width="88%" height="19">
+                                                                <p align="right"><b>MPOB(EL) PX 4-M </b></p>
                                                             </td>
                                                         </tr>
 
@@ -872,7 +878,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p align="left">
@@ -985,7 +991,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p align="left">
@@ -1044,7 +1050,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1082,7 +1088,7 @@
                                                         <td colspan="8" style="text-align: center">Tiada Rekod</td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
