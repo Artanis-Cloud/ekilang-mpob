@@ -575,8 +575,8 @@ class MenuLainController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        // where sub_group_rspo ='' and sub_group_mspo ='' 
-        $produk = Produk::orderBy('prodid')->get();
+        // where sub_group_rspo ='' and sub_group_mspo =''
+        $produk = Produk::where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodid')->get();
         // dd($produk);
         $layout = 'layouts.main';
 

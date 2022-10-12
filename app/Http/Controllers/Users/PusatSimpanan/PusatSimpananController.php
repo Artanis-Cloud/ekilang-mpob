@@ -813,7 +813,8 @@ class PusatSimpananController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $produk = Produk::orderBy('prodid')->get();
+        $produk = Produk::where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodid')->get();
+
         $layout = 'layouts.main';
 
         return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
