@@ -428,6 +428,10 @@ class Proses9Controller extends Controller
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
+        // elseif ($request->sumber == 'pleid' && $request->sektor == 'PL101') {
+        //     return $this->process_admin_pleid_penapis_form($request->papar_ya, $request->tahun, $request->bulan);
+
+        // }
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
@@ -520,7 +524,7 @@ class Proses9Controller extends Controller
     {
 
 
-        // dd($bulan);
+        dd($nobatch);
         if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
@@ -727,6 +731,97 @@ class Proses9Controller extends Controller
             'totalib14',
             'totaliib14'
         ));
+    }
+
+    public function process_admin_pleid_penapis_form($nobatch, $tahun, $bulan)
+    {
+
+        // dd($bulan);
+        if (!$nobatch) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu.process');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        // $sektor = $request->sektor;
+
+
+        // $tahun = H91Init::where('e91_thn', $request->tahun);
+        // $bulan = H91Init::where('e91_bln', $request->bulan);
+        // dd($bulan);
+        // $nolesen = auth()->users->username;
+        foreach ($nobatch as $key => $nobatch1) {
+            $pelesens[$key] = (object)[];
+
+            $query = H101Init::with('pelesen')->where('e101_nobatch', $nobatch1)->first();
+
+            $penyata1[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
+            e.F101B10, e.F101B11, e.F101B12, e.F101B13, e.F101B14
+            from pl101bp3 e, codedb.commodity_l p
+            where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l
+            order by e.F101B4");
+            // dd($penyata);
+
+            $penyata2[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
+            e.F101B10, e.F101B11, e.F101B12, e.F101B13, e.F101B14
+            from pl101bp3 e, codedb.commodity_l p
+            where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l
+            order by e.F101B4");
+            // dd($penyata);
+
+            $penyata3[$key] = DB::connection('mysql4')->select("SELECT F101A7, F101A8, F101A9
+            from pl101ap3
+            where F101A4 = '$nobatch1'");
+            // dd($penyata);
+
+            $penyata4a[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            e.F101C10
+            from pl101cp3 e, codedb.commodity_l p
+            where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+            // dd($penyata);
+
+            $penyata4b[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            e.F101C10
+            from pl101cp3 e, codedb.commodity_l p
+            where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+            // dd($penyata);
+
+            $penyata5a[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            e.F101C10
+            from pl101cp3 e, codedb.commodity_l p
+            where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+            // dd($penyata);
+
+            $penyata5b[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            e.F101C10
+            from pl101cp3 e, codedb.commodity_l p
+            where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+            // dd($penyata);
+
+            // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
+
+            // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->tkhsubmit);
+            // $formatteddate = $myDateTime->format('d-m-Y');
+
+        }
+//   dd($pelesens);
+
+
+        $layout = 'layouts.main';
+
+        // dd($penyata);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan'));
     }
 
 
