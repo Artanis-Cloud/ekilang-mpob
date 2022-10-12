@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class=" text-center">
-                                    <h4 style="color: rgb(39, 80, 71)">Pindahan Maklumat Produk dan Negara</h4>
+                                    <h4 style="color: rgb(39, 80, 71)">Pindahan Maklumat Produk, Negara dan Daerah</h4>
                                 </div>
                                 <hr>
                                 <form action="{{ route('admin.porting.maklumat.process') }}" method="get">
