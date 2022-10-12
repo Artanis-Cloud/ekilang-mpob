@@ -292,7 +292,7 @@
                                                 </tbody>
                                             </table>
                                             <br>
-                                            @endforeach
+                                            {{-- @endforeach --}}
 
                                             @foreach ($penyata as $key => $data)
                                             <p><b>
