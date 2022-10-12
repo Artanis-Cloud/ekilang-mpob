@@ -296,10 +296,10 @@
                                             {{-- {{ dd($penyata) }} --}}
 
                                             @foreach ($penyata as $key => $data)
-                                            {{ dd($data) }}
+                                            {{ dd($data[$key]) }}
 
 
-                                            @foreach ($data as $key => $data2)
+                                            {{-- @foreach ($data as $key => $data2) --}}
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
@@ -1120,7 +1120,7 @@
                                             <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                                 {{ $data[$key][$key]->tkhsubmit }}
                                             </p> --}}
-                                        @endforeach
+                                        {{-- @endforeach --}}
                                         @endforeach
 
 
