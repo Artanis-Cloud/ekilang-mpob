@@ -290,8 +290,8 @@
                                                 </b> </p>
                                      {{-- {{ dd($penyata) }} --}}
 
-                                     @foreach ($penyata[$key] as $key => $data[$key])
-                                     {{ dd($data[$key]) }}
+                                     @foreach ($penyata[$key] as $key => $data)
+                                     {{ dd($data) }}
 
 
                                             {{-- <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
