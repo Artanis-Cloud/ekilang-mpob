@@ -575,7 +575,7 @@ class Proses9Controller extends Controller
 
         }
 //   dd($pelesens);
-dd($penyata);
+dd($penyata[1]->nolesen);
 
 
 
