@@ -126,7 +126,7 @@
                                             </p>
                                             <hr>
                                             @foreach ($query as $key => $data)
-                                            {{ dd($data) }}
+                                            {{-- {{ dd($data) }} --}}
 
                                             <table border="0" width="111%" cellspacing="0">
 
