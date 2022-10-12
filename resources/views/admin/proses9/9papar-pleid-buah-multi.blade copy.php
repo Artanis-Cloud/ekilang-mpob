@@ -312,7 +312,7 @@
                                      {{-- {{ dd($data[$key][$key][$key]->F911G1) }} --}}
 
 
-                                             <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
+                                             {{-- <table border="1" style="width: 70%" bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -529,7 +529,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <br>
+                                            <br> --}}
 
                                              <p><b>
                                                     <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
@@ -550,7 +550,7 @@
                                                         </td>
                                                     </tr>
 
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td width="380">
                                                             <font size="2.7">ii.&nbsp; Kadar Perahan MKSM (OER) yang
                                                                 diperolehi&nbsp;</font>
@@ -588,7 +588,7 @@
                                                         <td width="70">
                                                             <font size="2.7"></font>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </tbody>
                                             </table>
 
@@ -808,7 +808,7 @@
 
 
 
-                                            <p align="left">
+                                            {{-- <p align="left">
                                                 <font style="font-size: 15px" color="#0c7c85"><b>BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN BUAH
                                                         KELAPA SAWIT (FFB) (52)</b>
                                                 </font>
@@ -1119,7 +1119,7 @@
 
                                             <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                                 {{ $data[$key][$key]->tkhsubmit }}
-                                            </p>
+                                            </p> --}}
                                         {{-- @endforeach --}}
                                         @endforeach
 
