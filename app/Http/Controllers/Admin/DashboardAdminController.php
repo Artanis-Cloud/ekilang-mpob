@@ -95,13 +95,17 @@ class DashboardAdminController extends Controller
             if ($data) {
                 $PL102[$i] = $data;
                 $PL102_total += $data[0]->pelesen;
+
             } else {
                 $PL102[$i][0] = (object)[];
                 $PL102[$i][0]->date = $i;
                 $PL102[$i][0]->pelesen = 0;
                 $PL102_total += 0;
             }
+
         }
+
+        dd($PL102);
 
         for ($i = 1; $i <= 10; $i++) { //haribulan
             $data = DB::select("SELECT date_format(e.e104_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
