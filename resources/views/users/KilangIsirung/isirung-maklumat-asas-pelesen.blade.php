@@ -398,7 +398,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc19(); valid_proses()"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc19(); valid_proses(); FormatCurrency()"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
                                         <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                             bahagian ini!</i></p>

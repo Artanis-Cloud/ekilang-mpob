@@ -363,8 +363,8 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
         if ($penyata->e91_ac1 != NULL || $penyata->e91_ac1 != 0) {
-            $oer = $penyata->e91_ad1 / $penyata->e91_ac1;
-            $ker = $penyata->e91_ad2 / $penyata->e91_ac1;
+            $oer = ($penyata->e91_ad1 / $penyata->e91_ac1) * 100;
+            $ker = ($penyata->e91_ad2 / $penyata->e91_ac1) * 100 ;
         } else {
             $oer = 0;
             $ker = 0;
