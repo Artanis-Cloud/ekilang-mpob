@@ -1234,7 +1234,7 @@ class Proses1Controller extends Controller
                 } else {
 
                     // dd($pelesen);
-                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
+                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'ASC')->get();
                     // dd($users);
                     // $pelesen = Pelesen::get();
 

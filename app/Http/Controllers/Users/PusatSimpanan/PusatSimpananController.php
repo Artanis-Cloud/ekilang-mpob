@@ -649,7 +649,7 @@ class PusatSimpananController extends Controller
         return Validator::make($data, [
             // 'Id' => ['required', 'string'],
             'TypeOfEmail' => ['required', 'string'],
-            'FromEmail' => ['required', 'string'],
+            // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
             'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
@@ -672,7 +672,7 @@ class PusatSimpananController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            // 'FromEmail' => $data['FromEmail'],
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
@@ -690,7 +690,7 @@ class PusatSimpananController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            // 'FromEmail' => $data['FromEmail'],
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],

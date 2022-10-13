@@ -63,8 +63,9 @@
                                 </h5> --}}
                                 {{-- <p>Maklumat Kilang</p> --}}
                             </div>
-
-
+ {{-- @if ($errors->any())
+                    {{ implode('', $errors->all('<div>:message</div>')) }}
+                @endif --}}
                             <hr><i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '<b style="color: red"> * </b>'</i>
                             <br><br><br>
 
@@ -105,7 +106,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                         Tajuk</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='subject'
+                                        <input type="text" class="form-control" name='Subject'
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); valid_subject()"
                                             id="subject" required title="Sila isikan butiran ini.">
@@ -130,14 +131,41 @@
 
                                         </div>
 
-                                        <input type="hidden" id="quill_html" name="Message"
+                                        {{-- <input type="hidden" id="quill_html" name="Message"
                                             value="{{ old('Message') }}">
+                                            @error('Message')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi bahagian kandungan</strong>
+                                        </div>
+                                    @enderror --}}
                                         {{-- <div class="col-md-6" >
                                             <div id="snow" oninput="add_message()">
 
                                             </div>
                                         </div>
                                         <input type="hidden" id="quill_html" name="Message"> --}}
+                                </div>
+                                <div class="row">
+                                    <label for="fname"
+                                        class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                    </label>
+                                    <div class="col-md-6">
+
+                                        <input type="hidden" id="quill_html" name="Message" required
+                                            value="{{ old('Message') }}">
+                                        @error('Message')
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi bahagian kandungan</strong>
+                                            </div>
+                                        @enderror
+                                        {{-- <div id="cname" class="emsg"></div> --}}
+                                        {{-- <div class="col-md-6" >
+                                                                        <div id="snow" oninput="add_message()">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="hidden" id="quill_html" name="Message"> --}}
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="row" style=" margin-top:-1%">
