@@ -2170,6 +2170,7 @@
 
     // DataTable
     var table = $('#example').DataTable({
+
         initComplete: function () {
 
             // Apply the search
@@ -2215,7 +2216,7 @@
                                 "previous": "Sebelumnya"
                             },
                         },
-
+                        order:[[4, 'asc'], [6, 'asc']]
         });
     });
 
