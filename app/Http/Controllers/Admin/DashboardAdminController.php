@@ -105,7 +105,7 @@ class DashboardAdminController extends Controller
 
         }
 
-        dd($PL102);
+        // dd($PL102);
 
         for ($i = 1; $i <= 10; $i++) { //haribulan
             $data = DB::select("SELECT date_format(e.e104_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
