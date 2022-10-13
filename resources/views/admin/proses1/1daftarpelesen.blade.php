@@ -448,6 +448,23 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
+                                            <label for="inputcom" class="control-label col-form-label required">Alamat Emel
+                                                Pegawai Melapor</label>
+                                        </div>
+                                        <div class="col-md-6" style="margin-bottom: 20px;">
+                                            <input type="text" id="e_email_pg" class="form-control"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
+                                                oninput="setCustomValidity(''); invokeFunc16(); valid_emailpg()"
+                                                placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" required
+                                                value="{{ old('emel_pegawai') }}">
+                                            <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila
+                                                    isi butiran di
+                                                    bahagian ini!</i></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row ">
+                                        <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Nama
                                                 Pegawai
                                                 Bertanggungjawab</label>
@@ -455,7 +472,7 @@
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_npgtg" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc16(); valid_npgtg()"
+                                                oninput="setCustomValidity(''); invokeFunc17(); valid_npgtg()"
                                                 placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg" required
                                                 value="{{ old('nama_pegawai_jawab') }}">
                                             <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi
@@ -473,7 +490,7 @@
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_jpgtg" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                oninput="setCustomValidity(''); invokeFunc17(); valid_jpgtg()" maxlength="60"
+                                                oninput="setCustomValidity(''); invokeFunc18(); valid_jpgtg()" maxlength="60"
                                                 placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" required
                                                 value="{{ old('jawatan_pegawai_jawab') }}">
                                             <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi
@@ -490,30 +507,14 @@
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_email_pengurus" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                                oninput="setCustomValidity(''); invokeFunc18(); valid_emailpengurus()"
+                                                oninput="setCustomValidity(''); invokeFunc19(); valid_emailpengurus()"
                                                 placeholder="Alamat Emel Pengurus" name="e_email_pengurus" required
-                                                value="{{ old('eemel_pengurus') }}">
+                                                value="{{ old('e_emel_pengurus') }}">
                                             <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila
                                                     isi butiran di
                                                     bahagian ini!</i></p>
                                         </div>
                                     </div>
-                                    {{-- <div class="row ">
-                                        <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Alamat Emel
-                                                Pengurus</label>
-                                        </div>
-                                        <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_email_pengurus" class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                                oninput="setCustomValidity(''); invokeFunc18(); valid_emailpengurus()"
-                                                placeholder="Alamat Emel Pengurus" name="e_email_pengurus" required
-                                                value="{{ old('eemel_pengurus') }}">
-                                            <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila
-                                                    isi butiran di
-                                                    bahagian ini!</i></p>
-                                        </div>
-                                    </div> --}}
                                     <p class="" style="border-bottom-style: solid; width: 73%; padding: 15px;">
                                         Lain - lain
                                     </p>
@@ -526,7 +527,7 @@
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
                                                 <select class="form-control" id="negeri_id" name="e_negeri"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity(''); invokeFunc19(); valid_negeri()"
+                                                    oninput="setCustomValidity(''); invokeFunc20(); valid_negeri()"
                                                     onchange="ajax_daerah(this);ajax_kawasan(this)" required>
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($negeri as $data)
@@ -552,7 +553,7 @@
                                                 <select class="form-control" id="daerah_id" name='e_daerah' required
                                                     placeholder="Daerah"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity(''); invokeFunc20(); valid_daerah()">
+                                                    oninput="setCustomValidity(''); invokeFunc21(); valid_daerah()">
                                                     <option selected hidden disabled value="">Sila Pilih Negeri Terlebih
                                                         Dahulu
                                                     </option>
@@ -573,7 +574,7 @@
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
                                                 <select class="form-control" id="kawasan_id" name='e_kawasan' required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity(''); invokeFunc21(); valid_kawasan()">
+                                                    oninput="setCustomValidity(''); invokeFunc22(); valid_kawasan()">
                                                     <option value="" selected hidden disabled>Sila Pilih
                                                         Daerah Terlebih Dahulu</option>
                                                 </select>
@@ -592,7 +593,7 @@
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_syktinduk" class="form-control" required
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc22(); valid_syktinduk()"
+                                                oninput="setCustomValidity(''); invokeFunc23(); valid_syktinduk()"
                                                 placeholder="Syarikat Induk" name="e_syktinduk">
                                             <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -608,7 +609,7 @@
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_year" class="form-control" required
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
-                                                oninput="setCustomValidity(''); invokeFunc23(); valid_year()"
+                                                oninput="setCustomValidity(''); invokeFunc24(); valid_year()"
                                                 placeholder="Tahun Mula Beroperasi" name="e_year">
                                             <p type="hidden" id="err_year" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -625,7 +626,7 @@
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
                                                 <select class="form-control" name="e_group" required id="e_group"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity(''); invokeFunc24(); valid_kumpulan()">
+                                                    oninput="setCustomValidity(''); invokeFunc25(); valid_kumpulan()">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     <option value="GOV">Kerajaan</option>
                                                     <option value="IND">Swasta</option>
@@ -646,7 +647,7 @@
                                                 <fieldset class="form-group" style="margin-bottom: 20px;">
                                                     <select class="form-control" name="e_poma" id="e_poma"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                        oninput="setCustomValidity(''); invokeFunc25(); valid_poma()">
+                                                        oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
                                                         <option selected hidden disabled value="">Sila Pilih</option>
                                                         <option value="poma">Ya</option>
                                                         <option value="NULL">Tidak</option>
@@ -1121,6 +1122,23 @@
     </script>
 
     <script>
+        function valid_emailpg() {
+
+            if ($('#e_email_pg').val() == '') {
+                $('#e_email_pg').css('border-color', 'red');
+                document.getElementById('err_emailpg').style.display = "block";
+
+
+            } else {
+                $('#e_email_pengurus').css('border-color', '');
+                document.getElementById('err_emailpg').style.display = "none";
+
+            }
+
+        }
+    </script>
+
+    <script>
         function valid_npgtg() {
 
             if ($('#e_npgtg').val() == '') {
@@ -1432,6 +1450,13 @@
             }
 
             // no tel pegawai melapor
+            field = document.getElementById("e_email_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#e_email_pg').css('border-color', 'red');
+                document.getElementById('err_emailpg').style.display = "block";
+            }
+            // emel pegawai melapor
             field = document.getElementById("e_notel_pg");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
