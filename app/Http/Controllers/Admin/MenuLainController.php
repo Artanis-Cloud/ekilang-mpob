@@ -576,7 +576,7 @@ class MenuLainController extends Controller
             'kembali'     => $kembali,
         ];
         // where sub_group_rspo ='' and sub_group_mspo =''
-        $produk = Produk::where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodid')->get();
+        $produk = Produk::orderBy('prodid')->get();
         // $produk = Produk::whereNotNull('sub_group_rspo')->first();
         // dd($produk);
         $layout = 'layouts.main';
