@@ -991,7 +991,7 @@
                         table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
                         "text-align:center" + ">" + new_jumlah +
                         "</td><td><input type='hidden' id='jumlah_row" + table_len +
-                        "' name='jumlah_row[]' value=" + new_jumlah +
+                        "' name='jumlah_row_input[]' value=" + new_jumlah +
                         "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
                         ")'></td></tr>";
 
@@ -1010,12 +1010,26 @@
                     document.getElementById("new_jumlah[]").value = "";
 
                     let total = 0;
-                    for (let index = 0; index <= table_input_len; index++) {
-                        let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+                    console.log(table_input_len);
+
+                    for(var i=0;i<document.getElementsByName("jumlah_row_input[]").length;i++){
+                        var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
+                        // console.log('hidden_value',hidden_value);
                         total += parseInt(hidden_value);
                     }
-                    console.log("total", total);
-                    document.getElementById("ebio_c8").value = total;
+                    // for (let index = 0; index <= table_input_len; index++) {
+                    //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+                    //     total += parseInt(hidden_value);
+                    // }
+                    // new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
+                    var num2 = total.toFixed(2);
+                    var num1 = new Intl.NumberFormat().format(total);
+
+                    console.log(num1);
+                    document.getElementById("ebio_c8").value = num1;
+                    // console.log("total", total);
+
+
                 }
 
                 function delete_row(no) {

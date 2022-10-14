@@ -187,7 +187,7 @@
 
                                                             </select></td>
                                                             <td class="field"><input type="text" id="new_jumlah[]" class="form-control" style="text-align: center"
-                                                                    name='new_jumlah[]' placeholder="Jumlah Edaran"  onkeypress="return isNumberKey(event)"></td>
+                                                                    name='new_jumlah[]' placeholder="Jumlah Jualn/Edaran"  onkeypress="return isNumberKey(event)"></td>
                                                             <td class="actions"><input type="button" class="add btn btn-primary" disabled="disabled"
                                                                     onclick="add_row();" value="Tambah Maklumat">
                                                             </td>

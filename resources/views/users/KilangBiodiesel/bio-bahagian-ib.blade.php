@@ -474,10 +474,8 @@
                                                                         <button type="button"
                                                                             class="btn btn-light-secondary"
                                                                             data-dismiss="modal">
-                                                                            <i
-                                                                                class="bx bx-x d-block d-sm-none"></i>
-                                                                            <span
-                                                                                class="d-none d-sm-block">Batal</span>
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Batal</span>
                                                                         </button>
                                                                         <button type="submit"  disabled
                                                                         id="kemaskini{{ $data->ebio_b1 }}"

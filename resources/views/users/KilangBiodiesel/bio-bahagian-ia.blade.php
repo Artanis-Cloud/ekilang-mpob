@@ -385,7 +385,7 @@
                                                                         <div class="form-group">
                                                                             <input type="text"
                                                                                 oninput="validate_two_decimal(this); enableKemaskini({{ $data->ebio_b1 }}); invoke_eb5({{ $data->ebio_b1 }})"
-                                                                                name='ebio_b5'
+                                                                                name='ebio_b5' onClick="this.select();"
                                                                                 id="ebio_eb5{{ $data->ebio_b1 }}"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 class="form-control"

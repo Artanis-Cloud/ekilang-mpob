@@ -134,6 +134,8 @@
                                                         </div>
                                                     @enderror
                                                     </div>
+                                        <div class="mt-2">Hari</div>
+
                                                     <div class="col-sm-1 form-group" style="margin: 0px">
                                                         <label for="fname"
                                                         class="control-label col-form-label">	</label>
@@ -165,7 +167,7 @@
                                                     </div>
                                                     <div class="col-sm-1 form-group" style="margin: 0px">
                                                         <label for="fname"
-                                                        class="control-label col-form-label">%	</label>
+                                                        class="control-label col-form-label"> &nbsp; %	</label>
                                                     </div>
                                                 </div>
                                             </div>
