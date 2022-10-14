@@ -224,7 +224,36 @@ class MenuLainController extends Controller
                 and r.directory='Y'
                 order by e.e_np,e.e_negeri");
             }
-        }else{
+        }
+         elseif ($request->e_kat == 'PLBIO') {
+            if ($request->nama_negeri == 'All') {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+            } else {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r
+                WHERE e.e_nl = r.e_nl
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= $request->nama_negeri
+                and  r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,e.e_negeri");
+            }
+            // dd($query);
+        }
+        else{
             return redirect()->back()->with('error', 'Data Tidak Wujud');
 
         }
