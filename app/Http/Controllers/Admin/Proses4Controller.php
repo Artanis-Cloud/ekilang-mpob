@@ -1115,8 +1115,8 @@ class Proses4Controller extends Controller
 
                     foreach ($hari as $haris)
                     {
-                        $tahun = $haris->tahun ;
-                        $bulan = $haris->bulan ;
+                        $tahun = $haris->tahunbhg2 ;
+                        $bulan = $haris->bulanbhg2 ;
                         $hari_operasi = $haris->hari_operasi ;
                         $kapasiti = $haris->kapasiti ;
 
