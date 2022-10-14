@@ -2242,20 +2242,20 @@
     // DataTable
     var table = $('#example').DataTable({
 
-        initComplete: function () {
+        // initComplete: function () {
 
-            // Apply the search
-            this.api()
-                .columns()
-                .every(function () {
-                    var that = this;
-                    $('input', this.footer()).on('keyup change clear', function () {
-                        if (that.search() !== this.value) {
-                            that.search(this.value).draw();
-                        }
-                    });
-                });
-        },
+        //     // Apply the search
+        //     this.api()
+        //         .columns()
+        //         .every(function () {
+        //             var that = this;
+        //             $('input', this.footer()).on('keyup change clear', function () {
+        //                 if (that.search() !== this.value) {
+        //                     that.search(this.value).draw();
+        //                 }
+        //             });
+        //         });
+        // },
         dom: 'Bfrtip',
             // lengthMenu: [
             //     [10, 25, 50, -1],

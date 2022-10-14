@@ -55,6 +55,9 @@
                     style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                 {{-- </button> --}}
+                <a href="{{ route('admin.5penyatakemaskinibio') }}"
+                style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                class="btn btn-work tablinks" onclick="openInit(event, 'BioTab')">Kemaskini Penyata Biodiesel</a>
 
             </div>
             <div class="card" style="margin-right:2%; margin-left:2%">
