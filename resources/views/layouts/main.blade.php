@@ -2085,7 +2085,9 @@
     function autodecimal(data) {
 
         // let decimal = ".00"
-        var x = parseFloat(data.value);
+        var value = data.value.replace(/,/g, '');
+
+        var x = parseFloat(value);
         if (isNaN(x)) {
             x = 0.00;
         }

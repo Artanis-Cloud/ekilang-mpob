@@ -249,7 +249,7 @@ class KilangBiodieselController extends Controller
         if ($user) {
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '01');
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
             $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
             $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
@@ -424,7 +424,7 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
-            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
 
 
             $totalibb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b5');
@@ -603,7 +603,7 @@ class KilangBiodieselController extends Controller
         $produk = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
 
         if ($user) {
-            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
 
             $totalicb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b5');
             $totalicb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b6');
@@ -867,7 +867,7 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('prodname')->get();
         if ($user) {
-            $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
+            $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
             // dd($penyata[0]->ebio_reg);
             $syarikat = SyarikatPembeli::get();

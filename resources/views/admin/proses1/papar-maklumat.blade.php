@@ -140,6 +140,7 @@
                                             <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
                                             <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
                                             <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
+                                            <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
 
                                             {{-- <option selected hidden disabled>{{ $pelesen->kodpgw ?? '' }}
                                             </option>

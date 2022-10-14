@@ -162,7 +162,9 @@
                                                     </div>
                                                 @enderror --}}
                                 </div>
-                                <div class="mt-2">&nbsp;&nbsp;&nbsp;</div>
+                                <div class="mt-2">Hari</div>
+
+                                {{-- <div class="mt-2">&nbsp;&nbsp;&nbsp;</div> --}}
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-sm-5 form-group">
@@ -175,7 +177,7 @@
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         title="Sila isikan butiran ini." onchange="autodecimal(this); "
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invoke_a2();valid_a2()"
-                                        value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
+                                        value="{{ $penyata->e101_a2 ?? 0 }}">
 
 
                                     <p type="hidden" id="err_a2" style="color: red; display:none"><i>Nilai mestilah
@@ -190,7 +192,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="mt-2">%</div>
+                                <div class="mt-2">&nbsp;%</div>
                             </div>
 
                             <div class="row justify-content-center" >
@@ -204,7 +206,7 @@
                                             oninvalid="this.setCustomValidity('Sila isi butiran ini')"
                                             title="Sila isikan butiran ini." onchange="autodecimal(this); "
                                             oninput="this.setCustomValidity('');valid_a3()"
-                                            value="{{ $penyata->e101_a3 }}">
+                                            value="{{ $penyata->e101_a3 ?? 0 }}">
                                         <p type="hidden" id="err_a3" style="color: red; display:none"><i>Nilai mestilah
                                                 melebihi 0!</i></p>
                                                 <p type="hidden" id="err_a32" style="color: red; display:none"><i>Nilai mestilah tidak
@@ -216,7 +218,8 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="mt-2">%</div>
+                                <div class="mt-2">&nbsp; %</div>
+
 
                                 </div>
 

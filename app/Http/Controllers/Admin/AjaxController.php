@@ -95,7 +95,7 @@ class AjaxController extends Controller
             ],
         ];
 
-        dd($data);
+        // dd($data);
 
         return json_encode($data);
         exit;
