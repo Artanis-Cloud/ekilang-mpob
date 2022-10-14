@@ -76,6 +76,27 @@ class Proses4Controller extends Controller
         return view('admin.proses4.4EKilang-PLEID', compact('returnArr', 'layout'));
     }
 
+    public function admin_4ekilangbio()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama "] ,
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Terkini ke Penyata Arkib  "]   ,
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses4.4EKilang-biodiesel', compact('returnArr', 'layout'));
+    }
+
 
 
     public function admin_porting(Request $request)
@@ -955,7 +976,7 @@ class Proses4Controller extends Controller
                 }
 
     }
-    public function porting_plbio()
+    public function admin_portbio()
     {
         //data from ebio_init
         $ebioinit = EBioInit::where('ebio_flg', '2')->get();
@@ -1109,10 +1130,16 @@ class Proses4Controller extends Controller
                         }
 
                         $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
-                        '$bulan','$hari_operasi','$kapasiti')");
+                        '$bulan','$hari_operasi','$kapasiti',null,null)");
                     }
 
                 }
+
+                //log audit trail admin
+        Auth::user()->log(" PORT PENYATA KE PENYATA ARKIB" );
+
+
+        return redirect()->back()->with('success', 'Penyata telah dipindahkan ke penyata arkib');
 
     }
 }
