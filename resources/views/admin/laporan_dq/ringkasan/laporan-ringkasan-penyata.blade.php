@@ -98,9 +98,9 @@
                                                         <th style="background-color: #d3d3d34d">No. Lesen</th>
                                                         <td>{{ $data->e_nl }}</td>
                                                         <th style="background-color: #d3d3d34d">Negeri</th>
-                                                        <td>{{ $negeri->nama_negeri }}</td>
+                                                        <td>{{ $negeri->nama_negeri ?? '-' }}</td>
                                                         <th style="background-color: #d3d3d34d">Daerah</th>
-                                                        <td>{{ $data_daerah->nama_daerah }}</td>
+                                                        <td>{{ $data_daerah->nama_daerah ?? '-' }}</td>
 
                                                     </tr>
                                                 </thead>
@@ -173,7 +173,8 @@
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                        <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                        {{-- {{ dd($proddesc) }} --}}
                                                         @for ($i=1; $i<=12;$i++)
                                                             <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b5[$keyProduk][$i] ?? 0,2) }}</td>
@@ -239,7 +240,7 @@
                                                     @foreach ($data_bulanan_ebio_b6 as $keyProduk => $data_ebio_b6)
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
                                                                 <td class="text-center" style="width:auto">
                                                                     {{ number_format($data_bulanan_ebio_b6[$keyProduk][$i] ?? 0,2) }}</td>
@@ -305,7 +306,7 @@
                                                     @foreach ($data_bulanan_ebio_b7 as $keyProduk => $data_ebio_b7)
                                                         <tr>
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                            <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                            <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
 
                                                                 <td class="text-center" style="width:auto">
@@ -373,7 +374,7 @@
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                        <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
                                                             <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b8[$keyProduk][$i] ?? 0,2) }}</td>
@@ -441,7 +442,7 @@
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                        <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
                                                             <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b9[$keyProduk][$i] ?? 0,2) }}</td>
@@ -509,7 +510,7 @@
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                        <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
                                                             <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b10[$keyProduk][$i] ?? 0,2) }}</td>
@@ -575,7 +576,7 @@
 
                                                     <tr>
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
-                                                        <td style="text-align: left"> {{ $data3->proddesc ?? 0 }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
                                                             <td class="text-center" style="width:auto">
                                                                 {{ number_format($data_bulanan_ebio_b11[$keyProduk][$i] ?? 0,2) }}</td>

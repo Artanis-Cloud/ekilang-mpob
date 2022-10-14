@@ -237,10 +237,13 @@ class LaporanController extends Controller
                     $data_bulanan_ebio_b9[$data3->ebio_b4][$i] = $data3->ebio_b9 ?? 0;
                     $data_bulanan_ebio_b10[$data3->ebio_b4][$i] = $data3->ebio_b10 ?? 0;
                     $data_bulanan_ebio_b11[$data3->ebio_b4][$i] = $data3->ebio_b11 ?? 0;
+                    $proddesc[$data3->ebio_b4] = $data3->proddesc ?? 0;
+
                 }
 
             }
         }
+// dd($proddesc);
         foreach ($data_bulanan_ebio_b5 as $key=> $v):
 
             $total5[$key] = array_sum($v);
@@ -300,7 +303,7 @@ class LaporanController extends Controller
         $data = Pelesen::where('e_nl', $ebio_nl)->first();
         $negeri = Negeri::where('kod_negeri', $data->e_negeri)->first();
         $data_daerah = Daerah::where('kod_negeri',$data->e_negeri)->where('kod_daerah',$data->e_daerah)->first();
-        // dd($data_daerah);
+
 
 
         $array = [
@@ -330,6 +333,7 @@ class LaporanController extends Controller
             'kembali' => $kembali,
             'returnArr' => $returnArr,
             'layout' => $layout,
+            'proddesc' => $proddesc,
 
         ];
 

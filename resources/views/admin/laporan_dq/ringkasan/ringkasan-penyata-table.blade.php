@@ -224,8 +224,8 @@
                                                                     {{ $data->e_nl }}</u></a></td>
 
                                                             <td class="text-left">{{ $data->e_np }}</td>
-                                                            <td>{{ $data->nama_negeri }}</td>
-                                                            <td>{{ $data_daerah[$key]->nama_daerah }}</td>
+                                                            <td>{{ $data->nama_negeri ?? '-'}}</td>
+                                                            <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
 
 
                                                         </tr>
