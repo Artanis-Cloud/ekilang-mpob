@@ -22,8 +22,8 @@ class Hari extends Model
 
     protected $fillable = [
         'lesen',
-        'tahun',
-        'bulan',
+        'tahunbhg2',
+        'bulanbhg2',
         'hari_operasi',
         'kapasiti',
 

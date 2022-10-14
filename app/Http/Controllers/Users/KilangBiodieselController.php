@@ -801,8 +801,8 @@ class KilangBiodieselController extends Controller
         // dd($e101_reg->e101_reg);
         return Hari::create([
             'lesen' => $pelesen->username,
-            'tahun' => date("Y"),
-            'bulan' => date("m"),
+            'tahunbhg2' => date("Y"),
+            'bulanbhg2' => date("m"),
             'hari_operasi' => $data['hari_operasi'],
             'kapasiti' => $data['kapasiti'],
 
