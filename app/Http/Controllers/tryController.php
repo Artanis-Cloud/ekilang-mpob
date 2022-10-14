@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\E91b;
 use App\Models\E91Init;
+use App\Models\EBioCC;
+use App\Models\EBioInit;
+use App\Models\Hari;
+use App\Models\HBioCC;
+use App\Models\HHari;
 use App\Models\Oerdaerah;
 use App\Models\Oernegeri;
 use App\Models\Pengumuman;
@@ -49,8 +54,8 @@ class tryController extends Controller
 
         // $date = DB::select("SELECT Message from pengumuman where Start_date <= '$now' and End_date >= '$now'");
 
-        $thn = '2015';
-        $bulan = '2015';
+        // $thn = '2015';
+        // $bulan = '2015';
 
         // $thn1 = $notahun;
         //echo $thn1;
@@ -59,15 +64,85 @@ class tryController extends Controller
         // $thn4 = $thn1 - 3;
 
 
-            $nolesen = '000002704000';
+            // $nolesen = '000002704000';
 
             //get data oer year3full
             //check daerahless
-            $qry = DB::connection('mysql3')->select("SELECT p.e_np as namakilang, p.e_cluster, c.nama_cluster,
-                p.e_kawasan, n.nama_region
-                from pelesen p, negeri n, cluster c
-                where p.e_nl = '$nolesen' and p.e_cluster = c.kod_cluster and
-                p.e_negeri = n.kod_negeri and p.e_kawasan = n.kod_region");
+            $ebioinit = EBioInit::where('ebio_flg', '2')->get();
+            // dd($ebioinit);
+
+            $totalplbio = 0;
+
+            foreach ($ebioinit as $key => $selects) {
+
+                $regno = $selects->ebio_reg ;
+                $nolesen = $selects->ebio_nl ;
+                $tahun = $selects->ebio_thn ;
+                $bulan = $selects->ebio_bln ;
+                $tarikh = $selects->ebio_sdate ;
+                $tarikh1 = $selects->ebio_ddate ;
+                $a5 = (float) $selects->ebio_a5 ;
+                $a6 = (float) $selects->ebio_a6 ;
+                $npg = $selects->ebio_npg ;
+                $jpg = $selects->ebio_jpg ;
+
+
+                $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
+                foreach ($regpelesenbio as $row)
+                {
+                    $kodpgw = $row->kodpgw;
+                    $nosiri = $row->nosiri;
+
+                    $nobatch = "$bulan$tahun$kodpgw$nosiri";
+                    // dd($nobatch);
+
+                }
+
+                $hari = Hari::where('lesen', $nolesen)->get();
+
+                foreach ($hari as $haris)
+                {
+                    $tahun = $haris->tahunbhg2 ;
+                    $bulan = $haris->bulanbhg2 ;
+                    $hari_operasi = $haris->hari_operasi ;
+                    $kapasiti = $haris->kapasiti ;
+
+                    $idmaxhari = HHari::max('id');
+                    // dd($idmax);
+
+                    if ($idmaxhari)
+                    {
+                        $idno = $idmaxhari + 1;
+                        // dd($idno);
+                    }
+
+                    $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
+                    '$bulan','$hari_operasi','$kapasiti',null,null)");
+                    // dd($inserthhari);
+                }
+                // $ebiocc = EBioCC::where('ebio_reg', $regno)->get();
+
+                // foreach ($ebiocc as $ebioccs)
+                // {
+                //     $cc2 = $ebioccs->ebio_cc2 ;
+                //     $cc3 = $ebioccs->ebio_cc3 ;
+                //     $cc4 = $ebioccs->ebio_cc4 ;
+
+                //     $idmaxbiod = HBioCC::max('ebio_cc1');
+                //     // dd($idmax);
+
+                //     if ($idmaxbiod)
+                //     {
+                //         $idno = $idmaxbiod + 1;
+                //         // dd($idno);
+                //     }
+
+                //     $inserthbiocc = DB::insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
+                //     '$cc3','$cc4')");
+                // // dd($inserthbiocc);
+
+                // }
+            }
 
             // return $dtlqry;
 
@@ -83,11 +158,10 @@ class tryController extends Controller
             //  $kawasan = $row1->nama_region ;
             //  $kodkawasan = $row1->e_kawasan ;
             // }
-            dd($qry);
 
                 // for ($count=0; $row = $query3; $count++)
                 // {
-                // dd($row);
+                // dd($ebiocc);
                 // //   $val1[$count] = $row[1] . '/' . $row[0];
                 //   $val2[$count] = $row[2];
                 //   $val3[$count] = $row[3];

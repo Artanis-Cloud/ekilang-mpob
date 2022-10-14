@@ -980,7 +980,7 @@ class Proses4Controller extends Controller
     {
         //data from ebio_init
         $ebioinit = EBioInit::where('ebio_flg', '2')->get();
-        // dd($e91init);
+        // dd($ebioinit);
 
         $totalplbio = 0;
 
@@ -1005,7 +1005,7 @@ class Proses4Controller extends Controller
             $kodpgw = $row->kodpgw;
             $nosiri = $row->nosiri;
 
-            $nobatch = "$bulan$tahun$kodpgw$nosiri";
+            $nobatch = "$bulan$tahun$regno";
             // dd($nobatch);
 
           }
@@ -1062,6 +1062,7 @@ class Proses4Controller extends Controller
                     }
 
                     $ebioc = EBioC::where('ebio_reg', $regno)->orderBy('ebio_c3')->get();
+                    // dd($ebioc);
 
                     foreach ($ebioc as $rowebio_c)
                     {
@@ -1091,6 +1092,7 @@ class Proses4Controller extends Controller
                     }
 
                     $ebiocc = EBioCC::where('ebio_reg', $regno)->get();
+                    // dd($ebiocc);
 
                     foreach ($ebiocc as $ebioccs)
                     {
@@ -1111,7 +1113,7 @@ class Proses4Controller extends Controller
                         '$cc3','$cc4')");
                     }
 
-                    $hari = Hari::where('lesen', $nolesen)->get();
+                    $hari = Hari::get();
 
                     foreach ($hari as $haris)
                     {
@@ -1131,6 +1133,7 @@ class Proses4Controller extends Controller
 
                         $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
                         '$bulan','$hari_operasi','$kapasiti',null,null)");
+                        // dd($inserthhari);
                     }
 
                 }
