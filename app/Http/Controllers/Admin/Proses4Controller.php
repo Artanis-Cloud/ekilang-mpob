@@ -1087,7 +1087,7 @@ class Proses4Controller extends Controller
 
                         $inserthbioc = DB::insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
                         '$c3',$c4,
-                         $c5,$c6,$c7,$c8,$c9,$c10)");
+                         $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
                     }
 
                     $ebiocc = EBioCC::where('ebio_reg', $regno)->get();
