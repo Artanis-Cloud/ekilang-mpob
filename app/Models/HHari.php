@@ -23,8 +23,8 @@ class HHari extends Model
     protected $fillable = [
         'id',
         'lesen',
-        'tahun',
-        'bulan',
+        'tahunbhg2',
+        'bulanbhg2',
         'hari_operasi',
         'kapasiti',
 
