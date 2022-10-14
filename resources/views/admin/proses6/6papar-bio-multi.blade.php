@@ -385,7 +385,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         MINYAK ISIRUNG SAWIT</font>
@@ -493,7 +493,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
                                             <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
@@ -601,7 +601,7 @@
 
                                                 </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -620,7 +620,7 @@
                                                     </tr>
 
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p><b>
@@ -729,7 +729,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">
@@ -772,7 +772,7 @@
                                                     </tr>
 
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

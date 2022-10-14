@@ -79,7 +79,7 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group" style="margin-bottom: 20px">
                                                 <select class="form-control" name="e_kat" id="e_kat" required
-                                                    onchange="poma()"
+                                                    onchange="poma(); showDetail()"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kat()">
                                                     <option selected hidden disabled value="">Sila Pilih Kilang</option>
@@ -182,51 +182,54 @@
                                                     bahagian ini!</i></p>
                                         </div>
                                     </div>
-
-                                    <div class="row ml-5">
-                                        <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label class="control-label col-form-label required">Kod Negeri </label>
+                                    <div id="nonbio_container" style="display:none">
+                                        <div class="row ml-5">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                                <label class="control-label col-form-label required">Kod Negeri </label>
+                                            </div>
+                                            <div class="col-md-6" style="margin-bottom: 20px">
+                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity(''); valid_kodpgw()">
+                                                    <option value="">Sila Pilih</option>
+                                                    <option value="JJ">JJ</option>
+                                                    <option value="KB">KB</option>
+                                                    <option value="KK">KK</option>
+                                                    <option value="MM">MM</option>
+                                                    <option value="NS">NS</option>
+                                                    <option value="PH">PH</option>
+                                                    <option value="PK">PK</option>
+                                                    <option value="PP">PP</option>
+                                                    <option value="SA">SA</option>
+                                                    <option value="SS">SS</option>
+                                                    <option value="SW">SW</option>
+                                                    <option value="TT">TT</option>
+                                                    <option value="WP">WP</option>
+                                                </select>
+                                                <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di
+                                                        bahagian ini!</i></p>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6" style="margin-bottom: 20px">
-                                            <select class="form-control" name="kodpgw" required id="kodpgw"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity(''); valid_kodpgw()">
-                                                <option selected hidden disabled value="">Sila Pilih</option>
-                                                <option value="JJ">JJ</option>
-                                                <option value="KB">KB</option>
-                                                <option value="KK">KK</option>
-                                                <option value="MM">MM</option>
-                                                <option value="NS">NS</option>
-                                                <option value="PH">PH</option>
-                                                <option value="PK">PK</option>
-                                                <option value="PP">PP</option>
-                                                <option value="SA">SA</option>
-                                                <option value="SS">SS</option>
-                                                <option value="SW">SW</option>
-                                                <option value="TT">TT</option>
-                                                <option value="WP">WP</option>
-                                            </select>
-                                            <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
-                                                    pilihan di
-                                                    bahagian ini!</i></p>
+
+                                        <div class="row ml-5">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                                <label for="inputcom" class="control-label col-form-label required">Nombor
+                                                    Siri</label>
+                                            </div>
+                                            <div class="col-md-6" style="margin-bottom: 20px;">
+                                                <input type="text" id="nosiri" class="form-control"
+                                                    onkeypress="return isNumberKey(event)"
+                                                    oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
+                                                    oninput="setCustomValidity(''); invokeFunc(); valid_nosiri()"
+                                                    placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
+                                                <p type="hidden" id="err_nosiri" style="color: red; display:none"><i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i></p>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="row ml-5">
-                                        <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Nombor
-                                                Siri</label>
-                                        </div>
-                                        <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="nosiri" class="form-control" required
-                                                onkeypress="return isNumberKey(event)"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
-                                                oninput="setCustomValidity(''); invokeFunc(); valid_nosiri()"
-                                                placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
-                                            <p type="hidden" id="err_nosiri" style="color: red; display:none"><i>Sila isi
-                                                    butiran di
-                                                    bahagian ini!</i></p>
-                                        </div>
+                                    <div id="lain_container" style="display:none">
                                     </div>
 
                                     <div class="row ml-5">
@@ -638,7 +641,7 @@
                                         </div>
                                     </div>
                                     <div id="poma" style="display:none">
-                                        <div class="row ml-5">
+                                        <div class="row">
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label for="inputcom" class="control-label col-form-label required">
                                                     POMA</label>
@@ -648,7 +651,7 @@
                                                     <select class="form-control" name="e_poma" id="e_poma"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                         oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        <option selected hidden value="">Sila Pilih</option>
                                                         <option value="poma">Ya</option>
                                                         <option value="NULL">Tidak</option>
                                                     </select>
@@ -840,10 +843,9 @@
         });
     </script>
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         function showDetail() {
             var cat = $('#e_kat').val();
-            // console.log(oer);
 
             if (cat == "PL91") {
                 document.getElementById('buah_container').style.display = "block";
@@ -864,7 +866,7 @@
             }
 
         }
-    </script>
+    </script> --}}
     {{-- <script>
         var input = document.getElementById("kap_proses");
         var lastValue = "";
@@ -1353,22 +1355,25 @@
                 document.getElementById('err_dir').style.display = "block";
             }
 
-            // kap proses
-            field = document.getElementById("kodpgw");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#kodpgw').css('border-color', 'red');
-                document.getElementById('err_kodpgw').style.display = "block";
-            }
+            var e_kat = $('#e_kat').val();
 
-            // kap proses
-            field = document.getElementById("nosiri");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#nosiri').css('border-color', 'red');
-                document.getElementById('err_nosiri').style.display = "block";
-            }
+            if (e_kat != "PLBIO") {
+                // kap proses
+                field = document.getElementById("kodpgw");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#kodpgw').css('border-color', 'red');
+                    document.getElementById('err_kodpgw').style.display = "block";
+                }
 
+                // kap proses
+                field = document.getElementById("nosiri");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    $('#nosiri').css('border-color', 'red');
+                    document.getElementById('err_nosiri').style.display = "block";
+                }
+            }
             // kap proses
             field = document.getElementById("e_nl");
             if (!field.checkValidity()) {
@@ -2058,6 +2063,25 @@
         function checkKey(evt) {
             console.log(evt.which);
             return evt.which;
+        }
+    </script>
+
+    <script type="text/javascript">
+        function showDetail() {
+            var e_kat = $('#e_kat').val();
+
+            if (e_kat != "PLBIO") {
+                document.getElementById('nonbio_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+
+
+            } else {
+                document.getElementById('nonbio_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "none";
+
+                // document.getElementById('isaw').style.display = "none";
+
+            }
         }
     </script>
     {{-- toaster display --}}

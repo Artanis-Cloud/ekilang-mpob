@@ -26,6 +26,7 @@ use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use DB;
 
 class Proses5Controller extends Controller
@@ -69,11 +70,11 @@ class Proses5Controller extends Controller
                         'breadcrumbs' => $breadcrumbs,
                         'kembali'     => $kembali,
                     ];
-                    $layout = 'layouts.admin';
+                    // $layout = 'layouts.admin';
 
 
 
-                    return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr', 'layout', 'users'));
+                    return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr', 'users'));
                 }
             }
         } else {
@@ -96,11 +97,11 @@ class Proses5Controller extends Controller
                 'breadcrumbs' => $breadcrumbs,
                 'kembali'     => $kembali,
             ];
-            $layout = 'layouts.admin';
+            // $layout = 'layouts.admin';
 
 
 
-            return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr', 'layout', 'users'));
+            return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr',  'users'));
         }
     }
 
@@ -813,4 +814,257 @@ class Proses5Controller extends Controller
 
         return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout', 'users'));
     }
+
+    public function admin_5penyatakemaskinibio()
+    {
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.main';
+
+        return view('admin.proses5.5penyata-kemaskini-bio', compact('returnArr', 'layout'));
+    }
+
+    protected function validation_terdahulu(array $data)
+    {
+        return Validator::make($data, [
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+        ]);
+    }
+    public function admin_5penyatakemaskini_process(Request $request)
+    {
+
+        $this->validation_terdahulu($request->all())->validate();
+
+        // dd($request->all());
+        $sektor = $request->sektor;
+        $sumber = $request->data;
+        $tahuns = $request->tahun;
+        $bulans = $request->bulan;
+
+        // dd($data);
+
+        $tahun1 = $request->tahun;
+        $bulan1 = $request->bulan;
+
+        if ($sumber == 'ekilang') {
+            if ($sektor == 'PL91') {
+                $tahun = H91Init::where('e91_thn', $request->tahun);
+                $bulan = H91Init::where('e91_bln', $request->bulan);
+
+                // dd($bulan);
+                $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
+                                FROM pelesen p, h91_init e, reg_pelesen k
+                                WHERE e.e91_thn = '$request->tahun'
+                                and e.e91_bln = '$request->bulan'
+                                and p.e_nl = e.e91_nl
+                                and e.e91_flg = '3'
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL91'
+                                order by k.kodpgw, k.nosiri");
+
+                                if (!$users) {
+                                    return redirect()->back()
+                                    ->with('error', 'Penyata Tidak Wujud!');
+                                }
+            } elseif ($sektor == 'PL101') {
+                $tahun = H101Init::where('tahun', $request->e101_thn);
+                $bulan = H101Init::where('tahun', $request->e101_bln);
+
+
+                $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, e.e101_nobatch, k.nosiri,date_format(e101_sdate,'%d-%m-%Y') as sdate
+                                from pelesen p, h101_init e, reg_pelesen k
+                                WHERE e.e101_thn = '$request->tahun'
+                                and e.e101_bln = '$request->bulan'
+                                and e.e101_flg = '3'
+                                and p.e_nl = e.e101_nl
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL101'
+                                order by k.kodpgw, k.nosiri");
+
+                                if (!$users) {
+                                    return redirect()->back()
+                                    ->with('error', 'Penyata Tidak Wujud!');
+                                }
+            } elseif ($sektor == 'PL102') {
+                $tahun = H102Init::where('tahun', $request->e102_thn);
+                $bulan = H102Init::where('tahun', $request->e102_bln);
+
+
+                $users = DB::select("SELECT e.e102_nl, p.e_nl, p.e_np, k.kodpgw, e.e102_nobatch, k.nosiri, date_format(e102_sdate,'%d-%m-%Y') as sdate
+                                FROM  pelesen p, h102_init e, reg_pelesen k
+                                WHERE e.e102_thn = '$request->tahun'
+                                and e.e102_bln = '$request->bulan'
+                                and p.e_nl = e.e102_nl
+                                and e.e102_flg = '3'
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL102'
+                                order by k.kodpgw, k.nosiri");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            } elseif ($sektor == 'PL104') {
+                $tahun = H104Init::where('tahun', $request->e104_thn);
+                $bulan = H104Init::where('tahun', $request->e104_bln);
+
+                $users = DB::select("SELECT e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
+                                FROM  pelesen p, h104_init e, reg_pelesen k
+                                WHERE e.e104_thn = '$request->tahun'
+                                and e.e104_bln = '$request->bulan'
+                                and p.e_nl = e.e104_nl
+                                and e.e104_flg = '3'
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL104'
+                                order by k.kodpgw, k.nosiri");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            } elseif ($sektor == 'PL111') {
+                $tahun = H104Init::where('tahun', $request->e104_thn);
+                $bulan = H104Init::where('tahun', $request->e104_bln);
+
+                $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
+                FROM pelesen p, h07_init e, reg_pelesen k
+                WHERE e.e07_thn = '$request->tahun'
+                and e.e07_bln = '$request->bulan'
+                and p.e_nl = e.e07_nl
+                and e.e07_flg = '3'
+                and p.e_nl = k.e_nl
+                and k.e_kat = 'PL111'
+                order by k.kodpgw, k.nosiri");
+
+            if (!$users) {
+                return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+            }
+            } elseif ($sektor == 'PLBIO') {
+                $tahun = HBioInit::where('tahun', $request->ebio_thn);
+                $bulan = HBioInit::where('bulan', $request->ebio_bln);
+
+                $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, k.kodpgw, e.ebio_nobatch, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+                FROM pelesen p, h_bio_inits e, reg_pelesen k
+                WHERE e.ebio_thn = '$request->tahun'
+                and e.ebio_bln = '$request->bulan'
+                and p.e_nl = e.ebio_nl
+                and e.ebio_flg = '3'
+                and p.e_nl = k.e_nl
+                and k.e_kat = 'PLBIO'
+                order by k.kodpgw, k.nosiri");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            }
+
+        } elseif ($sumber == 'pleid') {
+            if ($sektor == 'PL91') {
+
+                // dd($bulan);
+                $users = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
+                    DATE_FORMAT(e.F911E, '%d-%m-%Y')  tkhsubmit
+                    from PL911P3 e, licensedb.license p
+                    where e.F911D = '$request->tahun' and e.F911C = '$request->bulan' and
+                    e.F911A = p.F201A");
+
+                    // dd($users);
+
+                        if (!$users) {
+                            return redirect()->back()
+                            ->with('error', 'Penyata Tidak Wujud!');
+                        }
+            } elseif ($sektor == 'PL101') {
+
+                $users = DB::connection('mysql4')->select("SELECT e.F101A1 nolesen1, e.F101A1 nolesen, p.F201T namapremis, e.F101A4 nobatch,
+                    DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit
+                    from pl101ap3 e, licensedb.license p
+                    where e.F101A6 = '$request->tahun' and e.F101A5 = '$request->bulan' and
+                    e.F101A1 = p.F201A");
+
+                        if (!$users) {
+                            return redirect()->back()
+                            ->with('error', 'Penyata Tidak Wujud!');
+                        }
+            } elseif ($sektor == 'PL102') {
+
+
+                $users = DB::connection('mysql4')->select("SELECT e.F1021A nolesen1, e.F1021A nolesen, p.F201T namapremis, e.F1021B nobatch,
+                    DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
+                    from pl1021p3 e, licensedb.license p
+                    where e.F1021D = '$request->tahun' and e.F1021C = '$request->bulan' and
+                    e.F1021A = p.F201A");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            } elseif ($sektor == 'PL104') {
+
+                $users = DB::connection('mysql4')->select("SELECT e.F104A1 nolesen1, e.F104A1 nolesen, p.F201T namapremis, e.F104A4 nobatch,
+                    DATE_FORMAT(e.F104A2, '%d-%m-%Y') tkhsubmit
+                    from pl104ap1 e, licensedb.license p
+                    where e.F104A6 = '$request->tahun' and e.F104A5 = '$request->bulan' and
+                    e.F104A1 = p.F201A");
+
+                if (!$users) {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+                }
+            } elseif ($sektor == 'PL111') {
+
+                $users = DB::connection('mysql4')->select("SELECT e.INS_IA nolesen1, e.INS_IA nolesen, p.F201T namapremis, e.INS_IF nobatch,
+                        DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
+                        from mpb_insp3a e, licensedb.license p
+                        where e.INS_IC = '$request->tahun' and e.INS_IB = '$request->bulan' and
+                    e.INS_IA = p.F201A");
+
+            if (!$users) {
+                return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+            }
+            } elseif ($sektor == 'PLBIO') {
+                    return redirect()->back()
+                    ->with('error', 'Penyata Tidak Wujud!');
+            }
+
+        } else {
+            return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+        }
+
+        // $this->process_admin_9penyataterdahulu_bio_form($request, $tahun1);
+
+        // dd($users);
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'sektor', 'users', 'tahun1', 'bulan1', 'sumber'));
+    }
+
 }
