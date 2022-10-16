@@ -72,7 +72,7 @@
                             </div>
 
                         </div>
-                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get"  onsubmit="return Validate(this);check()" >
+                        <form action="{{ route('admin.5penyatakemaskini.process') }}" method="get"  onsubmit="return Validate(this);check()" >
                             @csrf
                             <div class="pl-3">
                                 <div class="row">
