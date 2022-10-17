@@ -123,58 +123,48 @@
 
                                 </div>
                             </div>
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Kod Negeri </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" name="kodpgw" id="kodpgw" required>
+                            @if ($reg_pelesen->e_kat != 'PLBIO')
 
-                                            <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
-                                            <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
-                                            <option {{ ($pelesen->kodpgw == 'KK') ? 'selected' : '' }} value="KK">KK</option>
-                                            <option {{ ($pelesen->kodpgw == 'MM') ? 'selected' : '' }} value="MM">MM</option>
-                                            <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
-                                            <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
-                                            <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
-                                            <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
-                                            <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
-                                            <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
+                                <div class="row" style="margin-top: -7px">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Kod Negeri </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" name="kodpgw" id="kodpgw" required>
 
-                                            {{-- <option selected hidden disabled>{{ $pelesen->kodpgw ?? '' }}
-                                            </option>
-                                            <option value="JJ">JJ</option>
-                                            <option value="KB">KB</option>
-                                            <option value="KK">KK</option>
-                                            <option value="MM">MM</option>
-                                            <option value="NS">NS</option>
-                                            <option value="PH">PH</option>
-                                            <option value="PK">PK</option>
-                                            <option value="PP">PP</option>
-                                            <option value="SA">SA</option>
-                                            <option value="SS">SS</option>
-                                            <option value="SW">SW</option>
-                                            <option value="TT">TT</option>
-                                            <option value="WP">WP</option> --}}
-                                        </select>
-                                    </fieldset>
+                                                <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
+                                                <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
+                                                <option {{ ($pelesen->kodpgw == 'KK') ? 'selected' : '' }} value="KK">KK</option>
+                                                <option {{ ($pelesen->kodpgw == 'MM') ? 'selected' : '' }} value="MM">MM</option>
+                                                <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
+                                                <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
+                                                <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
+                                                <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
+                                                <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
+                                                <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
 
+                                            </select>
+                                        </fieldset>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Nombor Siri </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <input type="text" id="nosiri" class="form-control" required
-                                        placeholder="Nombor Siri" name="nosiri" maxlength="4" minlength="4"
-                                        value="{{ $pelesen->nosiri ?? '' }}">
-                                    </fieldset>
+                                <div class="row" style="margin-top: -7px">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Nombor Siri </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <input type="text" id="nosiri" class="form-control" required
+                                            placeholder="Nombor Siri" name="nosiri" maxlength="4" minlength="4"
+                                            value="{{ $pelesen->nosiri ?? '' }}">
+                                        </fieldset>
 
+                                    </div>
                                 </div>
-                            </div>
+
+                            @endif
+
                             <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
@@ -1603,16 +1593,18 @@
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters e_ap1\r\n";
             }
-            // kod pegawai
-            field = document.getElementById("kodpgw");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters kodpgw\r\n";
-            }
+            @if ($reg_pelesen->e_kat != 'PLBIO')
+                // kod pegawai
+                field = document.getElementById("kodpgw");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters kodpgw\r\n";
+                }
             // no siri
-            field = document.getElementById("nosiri");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters nosiri\r\n";
-            }
+                field = document.getElementById("nosiri");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters nosiri\r\n";
+                }
+            @endif
             // no lesen
             field = document.getElementById("e_nl");
             if (!field.checkValidity()) {
@@ -1783,7 +1775,9 @@
                     'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
                     'Ralat!', {
                         "progressBar": true
+
                     })
+                    console.log(error);
                 return false;
             }
 

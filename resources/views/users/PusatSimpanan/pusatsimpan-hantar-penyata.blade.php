@@ -52,8 +52,8 @@
                                                 <table border="0" width="90%">
                                                     <tbody>
                                                         <tr>
-                                                            <td width="" height="19">
-                                                                <p align=""><b>{{ $pelesen->kodpgw }}{{ $pelesen->nosiri }}</b></p>
+                                                            <td width="10%" height="19">
+                                                                <p align=""><b></b></p>
                                                             </td>
                                                             <td width="88%" height="19">
                                                                 <p align="right"><b>MPOB(EL) KS 4</b></p>
