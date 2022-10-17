@@ -68,7 +68,10 @@
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                             oninput="setCustomValidity('')">
                                                 <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
+                                                @for ($i = 2011; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                                {{-- <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                 </option>
                                                 <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
                                                 </option>
@@ -95,7 +98,7 @@
                                                 <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
                                                 </option>
                                                 <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
-                                                </option>
+                                                </option> --}}
                                                 {{-- @endif --}}
 
 
@@ -151,17 +154,13 @@
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">CPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -217,21 +216,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">CPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -252,17 +247,11 @@
                                                         <td>{{ number_format($cpo_sabahs->bekalan_belian ?? 0, 2) }}</td>
                                                         <td>{{ number_format($cpo_sabahs->bekalan_penerimaan ?? 0, 2) }}
                                                         </td>
-                                                        <td>{{ number_format($cpo_sabahs->bekalan_import ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($total_3a_3b = $cpo_sabahs->stok_awal + $cpo_sabahs->bekalan_belian + $cpo_sabahs->bekalan_penerimaan + $cpo_sabahs->bekalan_import ?? 0, 2) }}
-                                                        </td>
                                                         <td>{{ number_format($cpo_sabahs->cpo_proses ?? 0, 2) }}</td>
                                                         <td>{{ number_format($cpo_sabahs->jualan_jualan ?? 0, 2) }}</td>
                                                         <td>{{ number_format($cpo_sabahs->jualan_edaran ?? 0, 2) }}</td>
                                                         <td>{{ number_format($cpo_sabahs->jualan_eksport ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($total_3c_3d = $cpo_sabahs->cpo_proses + $cpo_sabahs->jualan_jualan + $cpo_sabahs->jualan_edaran + $cpo_sabahs->jualan_eksport ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($total = $total_3a_3b - $total_3c_3d ?? 0, 2) }}
-                                                        </td>
+
                                                         <td>{{ number_format($cpo_sabahs->stok_akhir ?? 0, 2) }}</td>
                                                     </tr>
                                                     @php
@@ -289,21 +278,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">CPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -363,22 +348,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Dihasil (2E)</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (2E+(3A+3B) -(3C+3D))</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -437,22 +417,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Dihasil (2E)</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (2E+(3A+3B) -(3C+3D))</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -511,22 +486,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Dihasil (2E)</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (2E+(3A+3B) -(3C+3D))</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -587,21 +557,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">CPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -656,21 +622,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">CPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -725,21 +687,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">CPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -796,21 +754,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -865,21 +819,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>
@@ -934,21 +884,17 @@
                             <div class="col-12 table-responsive m-t-20">
                                 <table class="table table-bordered table-responsive-lg">
                                     <thead>
-                                        <tr>
+                                        <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                             <th scope="col" style="vertical-align: middle">Kilang</th>
                                             <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal (3A)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Belian (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Penerimaan (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">Bekalan Import (3B)</th>
-                                            <th scope="col" style="vertical-align: middle">3A + 3B</th>
-                                            <th scope="col" style="vertical-align: middle">PPO Proses (3C)</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Edaran (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport (3D)</th>
-                                            <th scope="col" style="vertical-align: middle">3C + 3D</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir (3A+3B) -(3C+3D)</th>
+                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                            <th scope="col" style="vertical-align: middle">Eksport</th>
+                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                         </tr>
                                     </thead>

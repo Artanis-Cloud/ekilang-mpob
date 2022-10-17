@@ -803,6 +803,8 @@ class Proses5Controller extends Controller
         and e.ebio_flg = '1'
         order by p.e_nl");
 
+        // $users = EBioInit::with('pelesen')
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
@@ -818,7 +820,86 @@ class Proses5Controller extends Controller
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout','users'));
+    }
+
+
+    public function process_admin_5penyatabelumhantarbio(Request $request)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.6penyatapaparcetakbio');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        foreach ($request->papar_ya as $key => $ebio_reg) {
+            $pelesens[$key] = (object)[];
+            $penyata[$key] = EBioInit::with('pelesen')->find($ebio_reg);
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->ebio_nl)->first();
+
+            $penyataia[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+
+
+
+            $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
+
+            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', ['03', '06', '08']);
+            })->get();
+
+            $penyataii[$key] = Hari::where('lesen',  $penyata[$key]->ebio_nl)->first();
+            // dd($penyataiva);
+
+            $penyataiii[$key] = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
+            })->get();
+
+            // $wherestmt = "(";
+            // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
+            // $query = DB::select("update e_bio_inits set ebio_flagcetak = 'Y' where ebio_nl in $ebio_reg");
+
+            $query = EBioInit::findOrFail($ebio_reg);
+            $query->ebio_flagcetak = 'Y';
+            $query->save();
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+
+        }
+
+
+        $layout = 'layouts.main';
+
+        // dd($penyataia);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses5.5papar-bio-multi', compact(
+            'returnArr',
+            'layout',
+            'formatteddate',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'penyataia',
+            'penyataib',
+            'penyataic',
+            'penyataii',
+            'penyataiii',
+        ));
     }
 
     public function admin_5penyatakemaskinibio()

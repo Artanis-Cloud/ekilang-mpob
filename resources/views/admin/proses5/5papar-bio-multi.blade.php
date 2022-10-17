@@ -11,7 +11,7 @@
                 <div class="page-breadcrumb" style="padding: 0px">
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
-                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Kilang Oleokimia (Biodiesel)</h4>
+                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Belum Hantar Kilang Oleokimia (Biodiesel)</h4>
                         </div>
                         <div class="col-7 align-self-center" style="margin-left:-1%;">
                             <div class="d-flex align-items-center justify-content-end">
@@ -394,7 +394,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         MINYAK ISIRUNG SAWIT</font>
@@ -514,7 +514,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
                                             <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
@@ -631,7 +631,7 @@
 
                                                 </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -650,7 +650,7 @@
                                                     </tr>
 
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p><b>
@@ -768,7 +768,7 @@
 
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">
@@ -811,7 +811,7 @@
                                                     </tr>
 
                                             </tbody>
-                                        </table><br>
+                                        </table>
 
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

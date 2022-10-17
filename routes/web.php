@@ -128,7 +128,9 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/5-penyata-belum-hantar-oleo', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantaroleo'])->name('admin.5penyatabelumhantaroleo');
         Route::get('admin/5-penyata-belum-hantar-simpanan', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarsimpanan'])->name('admin.5penyatabelumhantarsimpanan');
         Route::get('admin/5-penyata-belum-hantar-bio', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarbio'])->name('admin.5penyatabelumhantarbio');
+        Route::post('admin/5-papar-belum_bio/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumhantarbio'])->name('admin.5papar.bio.form');
         Route::get('admin/5-penyata-kemaskini-bio', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatakemaskinibio'])->name('admin.5penyatakemaskinibio');
+        
         Route::get('admin/5-penyata-kemaskini/process', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatakemaskini_process'])->name('admin.5penyatakemaskini.process');
         Route::get('admin/5-kemaskini-maklumat/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat'])->name('admin.kemaskini.maklumat.bio');
         Route::post('admin/5-kemaskini-maklumat-exe/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_exe'])->name('admin.kemaskini.maklumat.bio.exe');

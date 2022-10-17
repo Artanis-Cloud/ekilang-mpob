@@ -954,6 +954,8 @@ class Proses6Controller extends Controller
                 return $query->where('prodcat', '=', 01);
             })->get();
 
+            
+
             $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
             })->get();
