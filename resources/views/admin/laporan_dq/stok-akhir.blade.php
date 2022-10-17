@@ -42,11 +42,17 @@
             </div>
         </div>
 
+
         <div class="container-fluid">
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Stok Akhir
                             </h3>
