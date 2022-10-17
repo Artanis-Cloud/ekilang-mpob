@@ -130,14 +130,17 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/5-penyata-belum-hantar-bio', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarbio'])->name('admin.5penyatabelumhantarbio');
         Route::post('admin/5-papar-belum_bio/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumhantarbio'])->name('admin.5papar.bio.form');
         Route::get('admin/5-penyata-kemaskini-bio', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatakemaskinibio'])->name('admin.5penyatakemaskinibio');
-        
+
         Route::get('admin/5-penyata-kemaskini/process', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatakemaskini_process'])->name('admin.5penyatakemaskini.process');
         Route::get('admin/5-kemaskini-maklumat/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat'])->name('admin.kemaskini.maklumat.bio');
         Route::post('admin/5-kemaskini-maklumat-exe/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_exe'])->name('admin.kemaskini.maklumat.bio.exe');
+        Route::post('admin/5-kemaskini-maklumat-exe/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_exe_b'])->name('admin.kemaskini.maklumat.bio.exe.b');
         Route::post('admin/5-kemaskini-bio/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyata_kemaskinibio_form'])->name('admin.5kemaskini.bio.form');
         Route::get('admin/5-kemaskini-bio/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyata_kemaskinibio_form'])->name('admin.5kemaskini-bio-view');
         Route::post('admin/5-add-bio/form/{ebio_reg}', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_add_bahagian_ia'])->name('admin.add.bahagian.ia');
         Route::get('admin/5-delete-bio/form/{Id}',  [App\Http\Controllers\Admin\Proses5Controller::class, 'process_delete_bahagian_ia'])->name('admin.delete.bahagian.ia');
+        Route::post('admin/5-add-bio/form/{ebio_reg}', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_add_bahagian_ib'])->name('admin.add.bahagian.ib');
+        Route::get('admin/5-delete-bio/form/{Id}',  [App\Http\Controllers\Admin\Proses5Controller::class, 'process_delete_bahagian_ib'])->name('admin.delete.bahagian.ib');
 
 
 

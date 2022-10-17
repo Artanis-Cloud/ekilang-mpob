@@ -156,7 +156,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th style="width: 7%; vertical-align: middle">Papar?</th>
+                                                        <th style="width:100%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox" required
+                                                            value=""></th>
                                                         <th style="width: 7%; vertical-align: middle">Sudah Cetak?<br></th>
                                                         <th style="width: 11%; vertical-align: middle">No. Lesen<br></th>
                                                         <th style=" vertical-align: middle">Nama Premis</th>
@@ -182,7 +184,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td class="text-center">
-                                                                <input name="papar_ya[]" type="checkbox" required
+                                                                <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
                                                                     value="{{ $data->e102_reg }}">&nbspYa
                                                             </td>
                                                             <td class="text-center">
@@ -284,6 +286,22 @@
             }
         });
 
+        });
+    </script>
+
+    <script>
+        // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {
+            if(this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function() {
+                    this.checked = false;
+                });
+            }
         });
     </script>
 

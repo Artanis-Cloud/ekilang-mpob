@@ -546,7 +546,13 @@
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kemaskini</font>
                                                             </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Tindakan</font>
+                                                            </b></td>
+                                                        </b></td>
                                                     </tr>
                                                     @if($penyataib && !$penyataib->isEmpty())
                                                         @php
@@ -558,66 +564,188 @@
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
                                                         @endphp
-                                                        @foreach ($penyataib as $penyataib)
+                                                        @foreach ($penyataib as $penyataib2)
+                                                        <form action="{{ route('admin.kemaskini.maklumat.bio.exe.b',  [$penyataib2->ebio_b1] ) }}"  class="sub-form"
+                                                            method="post" id="form2" >
+                                                            @csrf
+
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $penyataib->produk->proddesc }}</font>
+                                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                        <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                        @foreach ($produk as $prods)
+                                                                            <option value="{{ $prods->prodid }}"  {{(old('ebio_b4', $penyataib2->produk->prodid) == $prods->prodid ? 'selected' : '')}} >
+                                                                                {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    {{-- <font size="2">{{ $penyataia->produk->proddesc }}</font> --}}
                                                                 </td>
-                                                                <td align="center">
-                                                                    <font size="2">{{ $penyataib->ebio_b4 }}</font>
+                                                                {{-- <td align="center">
+                                                                    <font size="2">{{ $penyataia->ebio_b4 }}</font>
+                                                                </td> --}}
+                                                                <td align="right">
+                                                                    <input type="text" name='ebio_b5' style="text-align: right" id='ebio_b5'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b5 ??  0,2) }}">
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b5 ??  0,2) }}</font>
+                                                                    <input type="text" name='ebio_b6' style="text-align: right" id='ebio_b6'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b6 ??  0,2) }}">
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b6 ??  0,2) }}</font>
+                                                                    <input type="text" name='ebio_b7' style="text-align: right" id='ebio_b7'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b7 ??  0,2) }}">
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b7 ??  0,2) }}</font>
+                                                                    <input type="text" name='ebio_b8' style="text-align: right" id='ebio_b8'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b8 ??  0,2) }}">
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b8 ??  0,2) }}</font>
+                                                                    <input type="text" name='ebio_b9' style="text-align: right" id='ebio_b9'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b9 ??  0,2) }}">
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b9 ??  0,2) }}</font>
-                                                                </td>
+                                                                    <input type="text" name='ebio_b10' style="text-align: right" id='ebio_b10'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b10 ??  0,2) }}">
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b10 ??  0,2) }}</font>
+                                                                    <input type="text" name='ebio_b11' style="text-align: right" id='ebio_b11'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)"
+                                                                    value="{{ number_format($penyataib2->ebio_b11 ??  0,2) }}">
                                                                 </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($penyataib->ebio_b11 ??  0,2) }}</font>
-                                                                </td>
-                                                                @php
-                                                                    $total_col_ebio_b5 += $penyataib->ebio_b5 ?? 0  ;
-                                                                    $total_col_ebio_b6 += $penyataib->ebio_b6 ?? 0  ;
-                                                                    $total_col_ebio_b7 += $penyataib->ebio_b7 ?? 0  ;
-                                                                    $total_col_ebio_b8 += $penyataib->ebio_b8 ?? 0  ;
-                                                                    $total_col_ebio_b9 += $penyataib->ebio_b9 ?? 0  ;
-                                                                    $total_col_ebio_b10 += $penyataib->ebio_b10 ?? 0  ;
-                                                                    $total_col_ebio_b11 += $penyataib->ebio_b11 ?? 0  ;
-                                                                @endphp
-                                                            </tr>
+                                                                <td>
+                                                                    <div class="icon" style="text-align: center">
 
+                                                                        <button type="submit" class="btn" style="background-color: rgba(196, 67, 67, 0)">
+                                                                            <i class="fa fa-edit" style="color: #2fb851;font-size:18px"></i>
+                                                                        </button>
+
+                                                                    </div>
+
+                                                                </td>
+                                                                <td>
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="#" type="button" data-toggle="modal"
+                                                                            data-target="#next3{{ $penyataib2->ebio_b1 }}">
+                                                                            <i class="fa fa-trash"
+                                                                                style="color: #dc3545;font-size:18px"></i>
+                                                                        </a>
+                                                                    </div>
+
+                                                                </td>
+
+                                                            </tr>
+                                                        </form>
+                                                        <script>
+                                                            submitForms = function(){
+                                                                document.getElementById("form2").submit();
+                                                                // document.getElementById("form2").submit();
+                                                            }
+                                                        </script>
+
+                                                        <div class="modal fade" id="next3{{ $penyataib2->ebio_b1 }}" tabindex="-1"
+                                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                            PENGESAHAN</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                            aria-label="Close">
+                                                                            <i data-feather="x"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p>
+                                                                            Anda pasti mahu menghapus produk ini?
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                            data-dismiss="modal">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Tidak</span>
+                                                                        </button>
+                                                                        <a href="{{ route('admin.delete.bahagian.ib', [$penyataib2->ebio_b1]) }}"
+                                                                            type="button" class="btn btn-light-secondary"
+                                                                            style="color: #275047; background-color: #a1929238">
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Ya</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         @endforeach
+                                                        <tr>
+                                                            <form action="{{ route('admin.add.bahagian.ib', [$penyataib2->ebio_reg] ) }}" method="post" id="add2">
+                                                                @csrf
+                                                                <td align="left">
+                                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                        <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                        @foreach ($produk as $prods)
+                                                                            <option value="{{ $prods->prodid }}"  >
+                                                                                {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b5' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b6' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b7' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b8' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b9' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b10' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b11' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td colspan="2">
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="javascript: submitFormAdd();" >
+                                                                            <i class="fa fa-plus"
+                                                                                style="color: #237f46;font-size:18px"></i>
+                                                                        </a>
+                                                                    </div>
+
+                                                                </td>
+                                                            </form>
+                                                            <script>
+                                                                function submitFormAdd(){
+                                                                    $('#add2').submit();
+                                                                }
+                                                            </script>
+                                                        </tr>
                                                     @else
                                                         <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                         </tr>
                                                     @endif
-
-                                                    <tr style="background-color: #d3d3d34d" >
-                                                        <td align="center" colspan="2">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-
-                                                    </tr>
                                                 </tbody>
                                             </table><br>
 

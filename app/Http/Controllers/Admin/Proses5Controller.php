@@ -1093,6 +1093,47 @@ class Proses5Controller extends Controller
             ->with('success', 'Maklumat telah dikemaskini');
     }
 
+    public function admin_kemaskini_maklumat_exe_b(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.6penyatapaparcetakbio');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $penyataib_save = EBioB::findOrFail($id);
+        // dd($penyataia_save);
+
+        // foreach($penyataia as $penyataia_save ){
+
+            $penyataib_save->ebio_b4 = $request->get('ebio_b4');
+            $penyataib_save->ebio_b5 = $request->get('ebio_b5');
+            $penyataib_save->ebio_b6 = $request->get('ebio_b6');
+            $penyataib_save->ebio_b7 = $request->get('ebio_b7');
+            $penyataib_save->ebio_b8 = $request->get('ebio_b8');
+            $penyataib_save->ebio_b9 = $request->get('ebio_b9');
+            $penyataib_save->ebio_b10 =$request->get('>ebio_b10');
+            $penyataib_save->ebio_b11 = $request->get('ebio_b11');
+        // dd($penyataia_save->ebio_b4);
+
+            $penyataib_save->save();
+        // }
+
+
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat telah dikemaskini');
+    }
 
 
 
@@ -1132,9 +1173,47 @@ class Proses5Controller extends Controller
             return redirect()->back()->with('success', 'Maklumat sudah ditambah');
         }
 
+
+    }
+    public function process_add_bahagian_ib ($ebio_reg, Request $request)
+        {
+
+        //   dd($ebio_reg);q
+            $penyata = EBioB::where('ebio_reg', $ebio_reg)
+                ->where('ebio_b3', '1')
+                ->where('ebio_b4', $request->ebio_b4)
+                // ->where('e102_b5', $request->e102_b5)
+                ->first();
+
+            // dd($request->all());
+            if ($penyata) {
+                return redirect()->route('admin.proses5.5kemaskini-bio-view')->with('error', 'Maklumat sudah tersedia');
+            } else {
+                // dd($request->all());
+                // $this->validation_bahagian_ia($request->all())->validate();
+
+                $post=new EBioB();
+                $post->ebio_reg= $ebio_reg;
+                $post->ebio_reg= '1';
+                $post->ebio_b3= '1';
+                $post->ebio_b4=$request->get('ebio_b4');
+                $post->ebio_b5=$request->get('ebio_b5');
+                $post->ebio_b6=$request->get('ebio_b6');
+                $post->ebio_b7=$request->get('ebio_b7');
+                $post->ebio_b8=$request->get('ebio_b8');
+                $post->ebio_b9=$request->get('ebio_b9');
+                $post->ebio_b10=$request->get('ebio_b10');
+                $post->ebio_b11=$request->get('ebio_b11');
+                $post->save();
+                // return EBioB::create([
+
+
+                return redirect()->back()->with('success', 'Maklumat sudah ditambah');
+            }
+
     }
 
-    public function process_delete_bahagian_ia($id)
+    public function process_delete_bahagian_ib($id)
     {
         $penyataia_save = EBioB::findOrFail($id);
 
@@ -1142,7 +1221,6 @@ class Proses5Controller extends Controller
         return redirect()->back()
             ->with('success', 'Maklumat Telah Dihapuskan');
     }
-
 
 
 }

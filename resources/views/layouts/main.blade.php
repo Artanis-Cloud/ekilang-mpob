@@ -85,7 +85,7 @@
 
     button.fred {
     /* border-color: #25877b !important; */
-    color: #0a7569 !important;
+    color: #095950 !important;
     font-family: "Rubik", sans-serif !important;
     }
 
