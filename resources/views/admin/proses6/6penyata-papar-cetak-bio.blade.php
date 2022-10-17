@@ -154,7 +154,7 @@
                                 </div>
                                 <form action="{{ route('admin.6papar.bio.form') }}" method="post">
                                     @csrf
-                                    <div class="table-responsive">
+                                   {{--  <div class="table-responsive">
                                         <table id="example" class="table table-bordered"
                                                 style="width: 100%;">
                                                 <thead>
@@ -164,21 +164,21 @@
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         {{-- <th>Kod Pegawai</th> --}}
-                                                        <th>Emel Pegawai</th>
+                                                        {{-- <th>Emel Pegawai</th> --}}
                                                         {{-- <th>No. Siri</th> --}}
-                                                        <th>Tarikh Hantar</th>
-                                                    </tr>
+                                                        {{-- <th>Tarikh Hantar</th> --}}
+                                                    {{-- </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th style="width: 7%">Papar?</th>
                                                         <th style="width: 7%">Sudah Cetak?<br></th>
                                                         <th style="width: 11%">No. Lesen<br></th>
-                                                        <th>Nama Premis</th>
+                                                        <th>Nama Premis</th> --}}
                                                         {{-- <th>Kod Pegawai</th> --}}
-                                                        <th>Emel Pegawai</th>
+                                                        {{-- <th>Emel Pegawai</th> --}}
                                                         {{-- <th>No. Siri</th> --}}
-                                                        <th>Tarikh Hantar</th>
+                                                        {{-- <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
@@ -191,30 +191,98 @@
                                                             <td class="text-center">
                                                                 {{ $data->ebio_flagcetak ?? 'N' }}
                                                             </td>
-                                                            <td>
+                                                            <td> --}}
                                                                 {{-- <a href="#"> --}}
-                                                                {{ $data->e_nl }}
-                                                            </td>
-                                                            <td>{{ $data->e_np ?? '-' }}</td>
+                                                                {{-- {{ $data->e_nl }} --}}
+                                                            {{-- </td> --}}
+                                                            {{-- <td>{{ $data->e_np ?? '-' }}</td> --}}
                                                             {{-- <td>{{ $data->kodpgw }}</td> --}}
 
-                                                            <td>{{ $data->e_email ?? '-' }}</td>
+                                                            {{-- <td>{{ $data->e_email ?? '-' }}</td> --}}
                                                             {{-- <td>{{ $data->nosiri }}</td> --}}
+{{--
+                                                            <td>{{ $data->sdate }}</td> --}}
 
-                                                            <td>{{ $data->sdate }}</td>
-
-                                                        </tr>
+                                                        {{-- </tr>
                                                     @endforeach
 
                                                 </tbody>
 
                                             </table>
+
+                                    </div> --}}
+                                    <div class="table-responsive">
+                                        <div id="tblData">
+                                        <table id="example" class="table table-bordered"
+                                            style="width: 100%;">
+                                            <thead>
+                                                <tr style="background-color: #e9ecefbd">
+                                                    {{-- <th>Bil</th> --}}
+                                                    <th style="width: 7%">Papar?</th>
+                                                    <th>No. Lesen<br></th>
+                                                    <th>Nama Premis</th>
+                                                    {{-- <th>Kod Pegawai</th> --}}
+                                                    <th>Emel Pegawai</th>
+                                                    <th>No. Telefon Kilang</th>
+                                                    <th>Tarikh Hantar</th>
+
+
+                                                    {{-- <th>No. Siri</th> --}}
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr style="background-color: #e9ecefbd">
+                                                    <th style="width: 7%">Papar?</th>
+                                                    <th>No. Lesen<br></th>
+                                                    <th>Nama Premis</th>
+                                                    {{-- <th>Kod Pegawai</th> --}}
+                                                    <th>Emel Pegawai</th>
+                                                    <th>No. Telefon Kilang</th>
+                                                    <th>Tarikh Hantar</th>
+
+                                                    {{-- <th>No. Siri</th> --}}
+                                                </tr>
+                                            </tfoot>
+                                            <tbody style="word-break: break-word; font-size:12px">
+                                                 @foreach ($users as $data)
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            <input name="papar_ya[]" type="checkbox" required
+                                                                value="{{ $data->ebio_reg }}">&nbspYa
+                                                        </td>
+
+
+                                                        <td>{{ $data->e_nl ?? '-' }}</td>
+                                                        <td>{{ $data->e_np ?? '-' }}</td>
+                                                        {{-- <td>{{ $data->kodpgw }}</td> --}}
+
+                                                        <td>{{ $data->e_email ?? '-' }}</td>
+                                                        <td>{{ $data->e_notel ?? '-' }}</td>
+                                                        <td>{{ $data->sdate }}</td>
+
+                                                        {{-- <td>{{ $data->nosiri }}</td> --}}
+
+
+
+                                                    </tr>
+                                                @endforeach
+
+                                            </tbody>
+
+                                        </table>
+                                        </div>
                                         <div class="text-left col-md-8">
                                             <button type="submit" class="btn btn-primary ">Papar</button>
 
 
+
                                         </div>
                                     </div>
+                                    {{-- <div class="text-left col-md-8">
+                                        <button type="submit" class="btn btn-primary ">Papar</button>
+
+
+                                    </div> --}}
                                 </form>
                                 </div>
                             </section>
