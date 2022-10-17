@@ -876,8 +876,8 @@ class Proses5Controller extends Controller
             $query->ebio_flagcetak = 'Y';
             $query->save();
 
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
+            // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
 
@@ -889,7 +889,7 @@ class Proses5Controller extends Controller
         return view('admin.proses5.5papar-bio-multi', compact(
             'returnArr',
             'layout',
-            'formatteddate',
+            // 'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
