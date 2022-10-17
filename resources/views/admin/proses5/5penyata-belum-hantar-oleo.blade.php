@@ -165,25 +165,29 @@
                                             </div><br>
                                             <div class="table-responsive">
                                                 <div id="tblData">
-                                                <table id="example" class="table table-striped table-bordered"
+                                                    <table id="example" class="table table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
-                                                            {{-- <th>Bil</th> --}}
-                                                            <th>No. Lesen<br></th>
-                                                            <th>Nama Premis</th>
-                                                            <th>Kod Pegawai</th>
-                                                            <th>Emel Pegawai</th>
-                                                            <th>No. Siri</th>
+                                                            {{-- <th>Pilih?</th> --}}
+                                                            {{-- <th>Bil.</th> --}}
+                                                            <th style=" vertical-align: middle">No. Lesen<br></th>
+                                                            <th style=" vertical-align: middle">Nama Premis</th>
+                                                            <th style=" vertical-align: middle">Kod Pegawai</th>
+                                                            <th style=" vertical-align: middle">Emel Pegawai</th>
+                                                            <th style=" vertical-align: middle">No. Telefon Kilang</th>
+                                                            <th style=" vertical-align: middle">No. Siri</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr style="background-color: #e9ecefbd">
-                                                            {{-- <th>Bil</th> --}}
+                                                            {{-- <th>Pilih?</th> --}}
+                                                            {{-- <th>Bil.</th> --}}
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
                                                             <th>Emel Pegawai</th>
+                                                            <th>No. Telefon Kilang</th>
                                                             <th>No. Siri</th>
                                                         </tr>
                                                     </tfoot>
@@ -191,19 +195,13 @@
                                                         @foreach ($users as $data)
                                                             <tr>
                                                                 {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                                {{-- <td>
-                                                                x
-                                                            </td> --}}
-
                                                                 <td>{{ $data->e_nl ?? '-' }}</td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
                                                                 <td>{{ $data->kodpgw }}</td>
 
                                                                 <td>{{ $data->e_email ?? '-' }}</td>
+                                                                <td>{{ $data->e_notel ?? '-' }}</td>
                                                                 <td>{{ $data->nosiri }}</td>
-
-
-
                                                             </tr>
                                                         @endforeach
 

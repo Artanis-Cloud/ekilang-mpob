@@ -2241,6 +2241,7 @@
 
     // DataTable
     var table = $('#example').DataTable({
+
         initComplete: function () {
 
             // Apply the search
@@ -2256,10 +2257,7 @@
                 });
         },
         dom: 'Bfrtip',
-            // lengthMenu: [
-            //     [10, 25, 50, -1],
-            //     ['10 Linhas', '25 Linhas', '50 Linhas', 'Mostrar todas']
-            // ],
+
 
             buttons: [
 
@@ -2286,7 +2284,7 @@
                                 "previous": "Sebelumnya"
                             },
                         },
-
+                        order:[[4, 'asc'], [6, 'asc']]
         });
     });
 

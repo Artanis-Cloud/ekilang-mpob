@@ -67,7 +67,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen_proses(Request $request)
     {
-        // dd($request->all());
+        // dd( $request->all());
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
@@ -92,8 +92,8 @@ class Proses1Controller extends Controller
             'e_status' => ['required', 'string'],
             'e_stock' => ['required', 'string'],
             'directory' => ['required', 'string'],
-            'kodpgw' => ['required', 'string'],
-            'nosiri' => ['required', 'string'],
+            'kodpgw' => ['nullable'],
+            'nosiri' => ['nullable', 'string'],
             'e_nl' => ['required', 'string', 'unique:pelesen'],
             'e_np' => ['required', 'string'],
             'e_ap1' => ['required', 'string'],
@@ -108,7 +108,7 @@ class Proses1Controller extends Controller
             'e_npg' => ['required', 'string'],
             'e_jpg' => ['required', 'string'],
             'e_notel_pg' => ['required', 'string'],
-            // 'e_email_pg' => ['required', 'string'],
+            'e_email_pg' => ['required', 'string'],
             'e_npgtg' => ['required', 'string'],
             'e_jpgtg' => ['required', 'string'],
             'e_email_pengurus' => ['required', 'string'],
@@ -118,7 +118,7 @@ class Proses1Controller extends Controller
             'e_syktinduk' => ['required', 'string'],
             'e_year' => ['required', 'string'],
             'e_group' => ['required', 'string'],
-            // 'e_poma' => ['required', 'string'],
+            'e_poma' => ['required', 'string'],
             'kap_proses' => ['required', 'string'],
             // 'bil_tangki_cpo' => ['required', 'string'],
             // 'bil_tangki_ppo' => ['required', 'string'],
@@ -160,7 +160,7 @@ class Proses1Controller extends Controller
             'e_npg' => $data['e_npg'],
             'e_jpg' => $data['e_jpg'],
             'e_notel_pg' => $data['e_notel_pg'],
-            // 'e_email_pg' => $data['e_email_pg'],
+            'e_email_pg' => $data['e_email_pg'],
             'kodpgw' => $data['kodpgw'],
             'nosiri' => $data['nosiri'],
             'e_npgtg' => $data['e_npgtg'],
@@ -170,7 +170,7 @@ class Proses1Controller extends Controller
             'e_kawasan' => $data['e_kawasan'],
             'e_syktinduk' => $data['e_syktinduk'],
             'e_group' => $data['e_group'],
-            'e_poma' => null,
+            'e_poma' =>  $data['e_poma'],
             'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],

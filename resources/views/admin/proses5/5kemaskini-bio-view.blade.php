@@ -50,11 +50,10 @@
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <div class="card-body">
 
-                        <form method="get" action="" id="myfrm">
 
-                            @foreach ($penyata as $key => $data)
 
-                                <div class="pl-3">
+                            <div class="pl-3">
+
 
                                     <body><h1 style="page-break-before:always"></h1>
                                         {{-- <p align="left">
@@ -64,8 +63,8 @@
                                             <table border="0" width="90%">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="" height="19">
-                                                            <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
                                                         </td>
                                                         <td width="88%" height="19">
                                                             <p align="right"><b>MPOB(EL) CM 4</b></p>
@@ -76,7 +75,7 @@
                                                             <p align=""><b></b></p>
                                                         </td>
                                                         <td width="88%" height="19">
-                                                            <p align="right"><b>MPOB(EL) PX 4-CM </b></p>
+                                                            <p align="right"><b>MMPOB(EL) PX 4-C </b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -132,7 +131,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data->pelesen->e_nl }}
+                                                        {{ $penyata->pelesen->e_nl }}
 
                                                     </b></td>
 
@@ -145,7 +144,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            {{ $data->pelesen->e_np }}
+                                                            {{ $penyata->pelesen->e_np }}
                                                         </b></td>
 
                                                 </tr>
@@ -171,7 +170,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap1 }}</b></td>
 
                                                 </tr>
 
@@ -179,7 +178,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap2 }}</b></td>
 
                                                 </tr>
 
@@ -187,7 +186,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap3 }}</b></td>
 
                                                 </tr>
 
@@ -195,7 +194,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%"><b>{{ $data->e_as1 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->e_as1 }}</b></td>
 
                                                 </tr>
 
@@ -203,7 +202,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as2 }}</b></td>
 
                                                 </tr>
 
@@ -211,7 +210,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as3 }}</b></td>
 
                                                 </tr>
 
@@ -219,7 +218,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_notel }}</b></td>
 
                                                 </tr>
 
@@ -227,7 +226,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -235,7 +234,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_email }}</b></td>
 
                                                 </tr>
 
@@ -243,7 +242,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -251,7 +250,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -259,7 +258,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -267,7 +266,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -286,9 +285,9 @@
                                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Nama Produk Minyak Sawit</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
-                                                            </b></td>
+                                                            </b></td> --}}
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
@@ -308,13 +307,16 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Akhir Dipremis</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Kemaskini</font>
+                                                            </b></td>
+                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Tindakan</font>
+                                                            </b></td>
                                                     </tr>
-                                                    @if($penyataia[$key] && !$penyataia[$key]->isEmpty())
+                                                    @if($penyataia && !$penyataia->isEmpty())
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -323,76 +325,191 @@
                                                             $total_col_ebio_b9 = 0;
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
-                                                            $total_dipremis = 0;
                                                         @endphp
-                                                        @foreach ($penyataia[$key] as $dataia)
-                                                            <tr>
-                                                                <td align="left">
-                                                                    <font size="2">{{ $dataia->produk->proddesc }}</font>
-                                                                </td>
-                                                                <td align="center">
-                                                                    <font size="2">{{ $dataia->ebio_b4 }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b5 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b6 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b7 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b8 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b9 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b10 ??  0,2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dipremis = ($dataia->ebio_b5 + $dataia->ebio_b6 + $dataia->ebio_b7) - ($dataia->ebio_b8 + $dataia->ebio_b9 + $dataia->ebio_b10) ?? 0, 2) }}</font>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataia->ebio_b11 ??  0,2) }}</font>
-                                                                </td>
-                                                                @php
-                                                                    $total_col_ebio_b5 += $dataia->ebio_b5 ?? 0  ;
-                                                                    $total_col_ebio_b6 += $dataia->ebio_b6 ?? 0  ;
-                                                                    $total_col_ebio_b7 += $dataia->ebio_b7 ?? 0  ;
-                                                                    $total_col_ebio_b8 += $dataia->ebio_b8 ?? 0  ;
-                                                                    $total_col_ebio_b9 += $dataia->ebio_b9 ?? 0  ;
-                                                                    $total_col_ebio_b10 += $dataia->ebio_b10 ?? 0  ;
-                                                                    $total_col_ebio_b11 += $dataia->ebio_b11 ?? 0  ;
-                                                                    $total_dipremis += $dipremis ?? 0  ;
 
-                                                                @endphp
+                                                        @foreach ($penyataia as $penyataia2)
+                                                            <form action="{{ route('admin.kemaskini.maklumat.bio.exe',  [$penyataia2->ebio_b1] ) }}"
+                                                                method="post" id="form1" >
+                                                                @csrf
+                                                                <tr>
+                                                                    <td align="left">
+                                                                        <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                            <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                            @foreach ($produk as $prods)
+                                                                                <option value="{{ $prods->prodid }}"  {{(old('ebio_b4', $penyataia2->produk->prodid) == $prods->prodid ? 'selected' : '')}} >
+                                                                                    {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                        {{-- <font size="2">{{ $penyataia->produk->proddesc }}</font> --}}
+                                                                    </td>
+                                                                    {{-- <td align="center">
+                                                                        <font size="2">{{ $penyataia->ebio_b4 }}</font>
+                                                                    </td> --}}
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b5' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b5 ??  0,2) }}">
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b6' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b6 ??  0,2) }}">
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b7' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b7 ??  0,2) }}">
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b8' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b8 ??  0,2) }}">
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b9' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b9 ??  0,2) }}">
+                                                                    </td>
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b10' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b10 ??  0,2) }}">
+                                                                    <td align="right">
+                                                                        <input type="text" name='ebio_b11' style="text-align: right"
+                                                                        class="form-control"
+                                                                        value="{{ number_format($penyataia2->ebio_b11 ??  0,2) }}">
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="icon" style="text-align: center">
 
+                                                                            <button type="submit" class="btn" style="background-color: rgba(196, 67, 67, 0)">
+                                                                                <i class="fa fa-edit" style="color: #2fb851;font-size:18px"></i>
+                                                                            </button>
 
-                                                            </tr>
+                                                                        </div>
 
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="icon" style="text-align: center">
+                                                                            <a href="#" type="button" data-toggle="modal"
+                                                                                data-target="#next2{{ $penyataia2->ebio_b1 }}">
+                                                                                <i class="fa fa-trash"
+                                                                                    style="color: #dc3545;font-size:18px"></i>
+                                                                            </a>
+                                                                        </div>
+
+                                                                    </td>
+
+                                                                </tr>
+
+                                                            </form>
+                                                            <script>
+                                                                submitForms = function(){
+                                                                    document.getElementById("form1").submit();
+                                                                    // document.getElementById("form2").submit();
+                                                                }
+                                                            </script>
+
+                                                            <div class="modal fade" id="next2{{ $penyataia2->ebio_b1 }}" tabindex="-1"
+                                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                    role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                                PENGESAHAN</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                                aria-label="Close">
+                                                                                <i data-feather="x"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>
+                                                                                Anda pasti mahu menghapus produk ini?
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-primary ml-1"
+                                                                                data-dismiss="modal">
+                                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Tidak</span>
+                                                                            </button>
+                                                                            <a href="{{ route('admin.delete.bahagian.ia', [$penyataia2->ebio_b1]) }}"
+                                                                                type="button" class="btn btn-light-secondary"
+                                                                                style="color: #275047; background-color: #a1929238">
+                                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Ya</span>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         @endforeach
+                                                        <tr>
+                                                            <form action="{{ route('admin.add.bahagian.ia', [$penyataia2->ebio_reg] ) }}" method="post" id="add">
+                                                                @csrf
+                                                                <td align="left">
+                                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                        <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                        @foreach ($produk as $prods)
+                                                                            <option value="{{ $prods->prodid }}"  >
+                                                                                {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b5' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b6' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b7' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b8' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b9' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b10' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_b11' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td colspan="2">
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="javascript: submitFormAdd();" >
+                                                                            <i class="fa fa-plus"
+                                                                                style="color: #237f46;font-size:18px"></i>
+                                                                        </a>
+                                                                    </div>
+
+                                                                </td>
+                                                            </form>
+                                                            <script>
+                                                                function submitFormAdd(){
+                                                                    $('#add').submit();
+                                                                }
+                                                            </script>
+                                                        </tr>
                                                     @else
                                                         <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                         </tr>
                                                     @endif
 
-                                                    <tr style="background-color: #d3d3d34d" >
-                                                        <td align="center" colspan="2">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($dipremis ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-
-                                                    </tr>
                                                 </tbody>
                                             </table><br>
                                             <p><b>
@@ -428,13 +545,10 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Akhir Dipremis</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataib[$key] && !$penyataib[$key]->isEmpty())
+                                                    @if($penyataib && !$penyataib->isEmpty())
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -443,50 +557,44 @@
                                                             $total_col_ebio_b9 = 0;
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
-                                                            $total_dipremis2 = 0;
                                                         @endphp
-                                                        @foreach ($penyataib[$key] as $dataib)
+                                                        @foreach ($penyataib as $penyataib)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $dataib->produk->proddesc }}</font>
+                                                                    <font size="2">{{ $penyataib->produk->proddesc }}</font>
                                                                 </td>
                                                                 <td align="center">
-                                                                    <font size="2">{{ $dataib->ebio_b4 }}</font>
+                                                                    <font size="2">{{ $penyataib->ebio_b4 }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b5 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b5 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b6 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b6 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b7 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b7 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b8 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b8 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b9 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b9 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b10 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b10 ??  0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ number_format($dipremis2 = ($dataib->ebio_b5 + $dataib->ebio_b6 + $dataib->ebio_b7) - ($dataib->ebio_b8 + $dataib->ebio_b9 + $dataib->ebio_b10) ??  0,2) }}</font>
-                                                                </td>
-                                                        {{-- {{ dd($dipremis2) }} --}}
-
-                                                                <td align="right">
-                                                                    <font size="2">{{ number_format($dataib->ebio_b11 ??  0,2) }}</font>
+                                                                    <font size="2">{{ number_format($penyataib->ebio_b11 ??  0,2) }}</font>
                                                                 </td>
                                                                 @php
-                                                                    $total_col_ebio_b5 += $dataib->ebio_b5 ?? 0  ;
-                                                                    $total_col_ebio_b6 += $dataib->ebio_b6 ?? 0  ;
-                                                                    $total_col_ebio_b7 += $dataib->ebio_b7 ?? 0  ;
-                                                                    $total_col_ebio_b8 += $dataib->ebio_b8 ?? 0  ;
-                                                                    $total_col_ebio_b9 += $dataib->ebio_b9 ?? 0  ;
-                                                                    $total_col_ebio_b10 += $dataib->ebio_b10 ?? 0  ;
-                                                                    $total_dipremis2 += $dipremis2 ?? 0  ;
+                                                                    $total_col_ebio_b5 += $penyataib->ebio_b5 ?? 0  ;
+                                                                    $total_col_ebio_b6 += $penyataib->ebio_b6 ?? 0  ;
+                                                                    $total_col_ebio_b7 += $penyataib->ebio_b7 ?? 0  ;
+                                                                    $total_col_ebio_b8 += $penyataib->ebio_b8 ?? 0  ;
+                                                                    $total_col_ebio_b9 += $penyataib->ebio_b9 ?? 0  ;
+                                                                    $total_col_ebio_b10 += $penyataib->ebio_b10 ?? 0  ;
+                                                                    $total_col_ebio_b11 += $penyataib->ebio_b11 ?? 0  ;
                                                                 @endphp
                                                             </tr>
 
@@ -507,10 +615,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-                                                        {{-- {{ dd($total_dipremis2) }} --}}
-
 
                                                     </tr>
                                                 </tbody>
@@ -548,13 +653,10 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Akhir Dipremis</font>
-                                                        </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                         </b></td>
                                                     </tr>
-                                                    @if($penyataic[$key] && !$penyataic[$key]->isEmpty())
+                                                    @if($penyataic && !$penyataic->isEmpty())
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -563,49 +665,44 @@
                                                             $total_col_ebio_b9 = 0;
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
-                                                            $total_dipremis3 = 0;
                                                         @endphp
-                                                        @foreach ($penyataic[$key] as $dataic)
+                                                        @foreach ($penyataic as $penyataic)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $dataic->produk->prodname }}</font>
+                                                                <font size="2">{{ $penyataic->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $dataic->ebio_b4 }}</font>
+                                                                <font size="2">{{ $penyataic->ebio_b4 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataic->ebio_b5 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataic->ebio_b5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataic->ebio_b6 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataic->ebio_b6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataic->ebio_b7 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataic->ebio_b7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataic->ebio_b8 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataic->ebio_b8 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataic->ebio_b9 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataic->ebio_b9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataic->ebio_b10 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataic->ebio_b10 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dipremis3 = ($dataic->ebio_b5 + $dataic->ebio_b6 + $dataic->ebio_b7) - ($dataic->ebio_b8 + $dataic->ebio_b9 + $dataic->ebio_b10) ??  0,2) }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{number_format( $dataic->ebio_b11 ??  0,2) }}</font>
+                                                                <font size="2">{{number_format( $penyataic->ebio_b11 ??  0,2) }}</font>
                                                             </td>
                                                             @php
-                                                                $total_col_ebio_b5 += $dataic->ebio_b5 ?? 0  ;
-                                                                $total_col_ebio_b6 += $dataic->ebio_b6 ?? 0  ;
-                                                                $total_col_ebio_b7 += $dataic->ebio_b7 ?? 0  ;
-                                                                $total_col_ebio_b8 += $dataic->ebio_b8 ?? 0  ;
-                                                                $total_col_ebio_b9 += $dataic->ebio_b9 ?? 0  ;
-                                                                $total_col_ebio_b10 += $dataic->ebio_b10 ?? 0  ;
-                                                                $total_col_ebio_b11 += $dataic->ebio_b11 ?? 0  ;
-                                                                $total_dipremis3 += $dipremis3 ?? 0  ;
+                                                                $total_col_ebio_b5 += $penyataic->ebio_b5 ?? 0  ;
+                                                                $total_col_ebio_b6 += $penyataic->ebio_b6 ?? 0  ;
+                                                                $total_col_ebio_b7 += $penyataic->ebio_b7 ?? 0  ;
+                                                                $total_col_ebio_b8 += $penyataic->ebio_b8 ?? 0  ;
+                                                                $total_col_ebio_b9 += $penyataic->ebio_b9 ?? 0  ;
+                                                                $total_col_ebio_b10 += $penyataic->ebio_b10 ?? 0  ;
+                                                                $total_col_ebio_b11 += $penyataic->ebio_b11 ?? 0  ;
                                                             @endphp
                                                         </tr>
 
@@ -626,7 +723,6 @@
                                                     <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                     <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                     <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
                                                     <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
 
                                                 </tr>
@@ -642,11 +738,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii[$key]->hari_operasi }} Hari</b></td>
+                                                        <td width="100"><b>:{{ $penyataii->hari_operasi }} Hari</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="380">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii[$key]->kapasiti }} %</b></td>
+                                                        <td width="100"><b>:{{ $penyataii->kapasiti }} %</b></td>
                                                     </tr>
 
                                                 </tbody>
@@ -685,13 +781,10 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Akhir Dipremis</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataiii[$key] && !$penyataiii[$key]->isEmpty())
+                                                    @if($penyataiii && !$penyataiii->isEmpty())
                                                         @php
                                                             $total_col_ebio_c4 = 0;
                                                             $total_col_ebio_c5 = 0;
@@ -700,49 +793,44 @@
                                                             $total_col_ebio_c8 = 0;
                                                             $total_col_ebio_c9 = 0;
                                                             $total_col_ebio_c10 = 0;
-                                                            $total_dipremis4 = 0;
                                                         @endphp
-                                                        @foreach ($penyataiii[$key] as $dataiii)
+                                                        @foreach ($penyataiii as $penyataiii)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $dataiii->produk->proddesc }}</font>
+                                                                <font size="2">{{ $penyataiii->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $dataiii->ebio_c3 }}</font>
+                                                                <font size="2">{{ $penyataiii->ebio_c3 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c4 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c4 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c5 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c6 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c7 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c8 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c8 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c9 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2">{{ number_format($dipremis4 = ($dataiii->ebio_c4 + $dataiii->ebio_c5 + $dataiii->ebio_c6) - ($dataiii->ebio_c7 + $dataiii->ebio_c8 + $dataiii->ebio_c9) ??  0,2) }}</font>
-                                                            </td>
-                                                            <td align="right">
-                                                                <font size="2">{{ number_format($dataiii->ebio_c10 ??  0,2) }}</font>
+                                                                <font size="2">{{ number_format($penyataiii->ebio_c10 ??  0,2) }}</font>
                                                             </td>
                                                             @php
-                                                                $total_col_ebio_c4 += $dataiii->ebio_c4 ?? 0  ;
-                                                                $total_col_ebio_c5 += $dataiii->ebio_c5 ?? 0  ;
-                                                                $total_col_ebio_c6 += $dataiii->ebio_c6 ?? 0  ;
-                                                                $total_col_ebio_c7 += $dataiii->ebio_c7 ?? 0  ;
-                                                                $total_col_ebio_c8 += $dataiii->ebio_c8 ?? 0  ;
-                                                                $total_col_ebio_c9 += $dataiii->ebio_c9 ?? 0  ;
-                                                                $total_col_ebio_c10 += $dataiii->ebio_c10 ?? 0  ;
-                                                                $total_dipremis4 += $dipremis4 ?? 0  ;
+                                                                $total_col_ebio_c4 += $penyataiii->ebio_c4 ?? 0  ;
+                                                                $total_col_ebio_c5 += $penyataiii->ebio_c5 ?? 0  ;
+                                                                $total_col_ebio_c6 += $penyataiii->ebio_c6 ?? 0  ;
+                                                                $total_col_ebio_c7 += $penyataiii->ebio_c7 ?? 0  ;
+                                                                $total_col_ebio_c8 += $penyataiii->ebio_c8 ?? 0  ;
+                                                                $total_col_ebio_c9 += $penyataiii->ebio_c9 ?? 0  ;
+                                                                $total_col_ebio_c10 += $penyataiii->ebio_c10 ?? 0  ;
                                                             @endphp
                                                         </tr>
 
@@ -763,7 +851,6 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c7 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c9 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_dipremis4 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_c10 ?? 0,2) }}</b></td>
 
                                                     </tr>
@@ -822,29 +909,31 @@
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->pelesen->e_npg }}
+                                            {{ $penyata->pelesen->e_npg }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $data->pelesen->e_jpg }}
+                                            {{ $penyata->pelesen->e_jpg }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->pelesen->e_notel }}
+                                            {{ $penyata->pelesen->e_notel }}
                                         </p>
 
 
                                     </body>
-                                </div>
 
-                                <br><hr>
 
-                            @endforeach
-                        </form>
+                                    <br><hr>
+                                    {{-- <div class="row form-group" style="margin-top: 2%">
+                                        <div class="text-right col-md-6">
+                                            <button type="submit" class="btn btn-primary" onclick="submitForms()" >Simpan</button>
+                                        </div>
+                                    </div> --}}
+                                {{-- </form> --}}
+                            </div>
+
                     </div>
-                    <div class="row justify-content-center ">
-                        <button type="button" class="btn btn-primary " style="margin: 1%"
-                            onclick="myPrint('myfrm')" value="print">Cetak</button>
-                    </div>
+
 
                 </div>
             </div>
@@ -860,11 +949,8 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-    {{-- <style>
-        @media print{
-            * {font-family: Arial;}
-        }
-    </style> --}}
+
+
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
     <script type="text/javascript">
@@ -880,27 +966,5 @@
             });
         });
     </script>
-  <script>
-    function myPrint(myfrm) {
-    var restorepage = $('body').html();
-    var printcontent = $('#' + myfrm).clone();
-    $('body').empty().html(printcontent);
-    window.print();
-    $('body').html(restorepage);
-    }
-</script>
-{{-- <script>
-    function myPrint(myfrm) {
-        document.getElementById("myfrm").style.fontFamily = "Rubik,sans-serif";
-        var printdata = document.getElementById(myfrm);
-        newwin = window.open("");
-        newwin.document.write(printdata.outerHTML);
-        newwin.print();
-        newwin.close();
-    }
-</script> --}}
 
-    </body>
-
-    </html>
 @endsection

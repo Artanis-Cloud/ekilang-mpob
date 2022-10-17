@@ -349,7 +349,7 @@
                                                 {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
 
-                                            </tr>
+                                            </tr>@csrf
 
                                             <div class="col-md-6 col-12">
 

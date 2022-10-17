@@ -158,6 +158,7 @@
 
                                                 </div>
 {{--
+                                                        {{--
                                                 <button style="font-size:14px; background-color:#265960;color: white; border: 0px; float: right; border-radius: 2px; padding:7px 35px;"
                                                 onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Biodiesel.csv')">Excel <i class="fa fa-file-excel" style="color: #fff"></i></button> --}}
 
@@ -174,9 +175,11 @@
                                                             <th style="width: 7%">Papar?</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
-                                                            <th>Kod Pegawai</th>
+                                                            {{-- <th>Kod Pegawai</th> --}}
                                                             <th>Emel Pegawai</th>
-                                                            <th>No. Siri</th>
+                                                            <th>No. Telefon Kilang</th>
+
+                                                            {{-- <th>No. Siri</th> --}}
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
@@ -184,9 +187,10 @@
                                                             <th style="width: 7%">Papar?</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
-                                                            <th>Kod Pegawai</th>
+                                                            {{-- <th>Kod Pegawai</th> --}}
                                                             <th>Emel Pegawai</th>
-                                                            <th>No. Siri</th>
+                                                            <th>No. Telefon Kilang</th>
+                                                            {{-- <th>No. Siri</th> --}}
                                                         </tr>
                                                     </tfoot>
                                                     <tbody style="word-break: break-word; font-size:12px">
@@ -200,10 +204,11 @@
 
                                                                 <td>{{ $data->e_nl ?? '-' }}</td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
-                                                                <td>{{ $data->kodpgw }}</td>
+                                                                {{-- <td>{{ $data->kodpgw }}</td> --}}
 
                                                                 <td>{{ $data->e_email ?? '-' }}</td>
-                                                                <td>{{ $data->nosiri }}</td>
+                                                                <td>{{ $data->e_notel ?? '-' }}</td>
+                                                                {{-- <td>{{ $data->nosiri }}</td> --}}
 
 
 
@@ -219,7 +224,7 @@
 
 
 
-                                                </div>
+                                                </div> 
                                             </div>
                                         </form>
                                     </div>

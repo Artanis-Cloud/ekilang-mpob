@@ -250,7 +250,7 @@
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <b><span id="total" name="total" onchange="FormatCurrency(this)">
-                                                                {{ old('total_hidden') ?? number_format($jumlah, 2) }}
+                                                                {{ old('total_hidden') ?? number_format($jumlah ?? 0,2) }}
                                                             </span>
                                                             <input type="hidden" id="total_hidden" name="total_hidden"
                                                                 value="{{ number_format($jumlah ?? 0,2) }}">
@@ -586,6 +586,7 @@
                     jumlah_input = parseFloat(Number(e91_ai1)) + parseFloat(Number(e91_ai2)) +
                         parseFloat(Number(e91_ai3)) + parseFloat(Number(e91_ai4)) + parseFloat(Number(e91_ai5)) + parseFloat(Number(
                             e91_ai6));
+                    jumlah_input = parseFloat(Number(jumlah_input));
 
                     document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
                     document.getElementById('total_hidden').value = jumlah_input.toFixed(2);

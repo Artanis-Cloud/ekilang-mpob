@@ -55,6 +55,9 @@
                     style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                 {{-- </button> --}}
+                <a href="{{ route('admin.5penyatakemaskinibio') }}"
+                style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
+                class="btn btn-work tablinks" onclick="openInit(event, 'BioTab')">Kemaskini Penyata Biodiesel</a>
 
             </div>
             <div class="card" style="margin-right:2%; margin-left:2%">
@@ -160,9 +163,9 @@
                                                         <th style="width: 7%">Sudah Cetak?<br></th>
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
+                                                        {{-- <th>Kod Pegawai</th> --}}
                                                         <th>Emel Pegawai</th>
-                                                        <th>No. Siri</th>
+                                                        {{-- <th>No. Siri</th> --}}
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
@@ -172,9 +175,9 @@
                                                         <th style="width: 7%">Sudah Cetak?<br></th>
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
+                                                        {{-- <th>Kod Pegawai</th> --}}
                                                         <th>Emel Pegawai</th>
-                                                        <th>No. Siri</th>
+                                                        {{-- <th>No. Siri</th> --}}
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
@@ -193,10 +196,10 @@
                                                                 {{ $data->e_nl }}
                                                             </td>
                                                             <td>{{ $data->e_np ?? '-' }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
+                                                            {{-- <td>{{ $data->kodpgw }}</td> --}}
 
                                                             <td>{{ $data->e_email ?? '-' }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
+                                                            {{-- <td>{{ $data->nosiri }}</td> --}}
 
                                                             <td>{{ $data->sdate }}</td>
 
