@@ -612,7 +612,7 @@ class KilangOleokimiaController extends Controller
 
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
-        $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
+        $produk = Produk::where('prodcat', '08')->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
         if ($user) {
             $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->where('e104_b3', '3')->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '08');
@@ -847,7 +847,7 @@ class KilangOleokimiaController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::whereIn('prodcat',  ['03','04', '06', '08'])->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat',  ['03','04', '06', '08'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
 
         if ($user) {
             $penyata = E104C::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
