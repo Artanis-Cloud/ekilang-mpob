@@ -304,6 +304,8 @@
                                                 <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                             </b></td>
                                     </tr>
+                                @if($ia && !$ia->isEmpty())
+
                                     @foreach ($ia as $data)
                                         <tr>
                                             <td align="left">
@@ -341,6 +343,11 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
 
                                     <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
@@ -422,6 +429,8 @@
                                                 <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                             </b></td>
                                     </tr>
+                                @if($ib && !$ib->isEmpty())
+
                                     @foreach ($ib as $data)
                                         <tr>
                                             <td align="left">
@@ -459,6 +468,11 @@
                                             </td>
                                         </tr>
                                     @endforeach
+                                    @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
 
                                     <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
@@ -539,6 +553,8 @@
                                                 <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                             </b></td>
                                     </tr>
+                                @if($ic && !$ic->isEmpty())
+
                                     @foreach ($ic as $data)
                                     <tr>
                                         <td align="left">
@@ -576,6 +592,11 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
                                     <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>JUMLAH</b></font>
@@ -616,6 +637,26 @@
                             </table><br>
 
                             <p><b>
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN
+                                    KADAR PENGGUNAAN KAPASITI PEMPROSESAN
+                                </font>
+                            </b> </p>
+                        <table border="0" width="40%" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr>
+                                    <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
+                                    <td width="70"><b>: {{ $ii->e104_a5 }} Hari</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="380">Kadar Penggunaan Kapasiti Sebulan</td>
+                                    <td width="70"><b>: {{$ii->e104_a6}} %</b></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br>
+
+                            {{-- <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HARI BEROPERASI DAN PENGGUNAAN KADAR KAPASITI
                                     </font>
                                 </b> </p>
@@ -632,7 +673,7 @@
 
                                 </tbody>
                             </table>
-                            <br>
+                            <br> --}}
 
 
                             <p><b>
@@ -664,6 +705,8 @@
                                                 <font size="2">Stok Akhir</font>
                                             </b></td>
                                     </tr>
+                                @if($iii && !$iii->isEmpty())
+
                                     @foreach ($iii as $data)
                                     <tr>
                                         <td align="left">
@@ -689,6 +732,11 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
                                     <tr  style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>JUMLAH</b></font>
@@ -751,12 +799,14 @@
                                             <font size="2">Destinasi Negara</font>
                                         </b></td>
                                     </tr>
+                                @if($iv && !$iv->isEmpty())
+
                                     @foreach ($iv as $data)
                                     <tr>
                                         <td align="left">
                                             <font size="2">{{  $data->produk->proddesc }}</font>
                                         </td>
-                                        <td align="left">
+                                        <td align="center" >
                                             <font size="2">{{ $data->produk->prodid }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
@@ -779,6 +829,11 @@
                                         </td>
                                     </tr>
                                     @endforeach
+                                    @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
                                     {{-- <tr>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>JUMLAH</b></font>
