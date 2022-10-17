@@ -217,8 +217,9 @@
                                             style="width: 100%;">
                                             <thead>
                                                 <tr style="background-color: #e9ecefbd">
-                                                    {{-- <th>Bil</th> --}}
-                                                    <th style="width: 7%">Papar?</th>
+                                                    <th style="width:7%; vertical-align: middle">Papar?
+                                                        <input name="select-all" id="select-all" type="checkbox" required
+                                                        value=""></th>
                                                     <th>No. Lesen<br></th>
                                                     <th>Nama Premis</th>
                                                     {{-- <th>Kod Pegawai</th> --}}
@@ -247,7 +248,7 @@
                                                  @foreach ($users as $data)
                                                     <tr>
                                                         <td class="text-center">
-                                                            <input name="papar_ya[]" type="checkbox" required
+                                                            <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
                                                                 value="{{ $data->ebio_reg }}">&nbspYa
                                                         </td>
 
@@ -270,7 +271,7 @@
                                             </tbody>
 
                                         </table>
-                                        </div>
+                                        {{-- </div> --}}
                                         <div class="text-left col-md-8">
                                             <button type="submit" class="btn btn-primary ">Papar</button>
 
@@ -430,6 +431,22 @@
                                 },
                             },
             });
+        });
+    </script>
+
+    <script>
+        // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {
+            if(this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function() {
+                    this.checked = false;
+                });
+            }
         });
     </script>
 

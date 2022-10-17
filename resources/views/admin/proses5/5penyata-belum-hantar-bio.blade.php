@@ -68,25 +68,25 @@
 
                         </div>
                             <div class="pl-3">
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
+                                <div class="row" >
+                                    <div class="col-md-12 text-center"id="dt-title">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
 
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
+                                        <h3 id="yr" style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
                                         <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
                                             Dihantar Sehingga Tarikh
                                             <p><span id="datetime"></span></p>
-                                            <script>
-                                                var dt = new Date();
-                                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
-                                                    1)).slice(-2)) + "/" + (dt.getFullYear());
-                                            </script>
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
 
                                 </div>
 
+                                <script>
+                                    var dt = new Date();
+                                    document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                        1)).slice(-2)) + "/" + (dt.getFullYear());
+                                </script>
                                 <hr>
 
 
@@ -374,10 +374,13 @@
                     className: "fred"
                 },
                 {
-                        extend: 'pdf',
+                        extend: 'pdfHtml5',
                         text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
-                        title: "Senarai Penyata Belum Hantar",
+
                         className: "prodpdf",
+                        title: function(doc) {
+                                return $('#dt-title').text()
+                                },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
                             for (i = 1; i < table.length; i++) // skip table header row (i = 0)
