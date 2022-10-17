@@ -134,11 +134,11 @@
                                                         </div>
                                                     @enderror
                                                     </div>
-                                        <div class="mt-2">Hari</div>
+                                        {{-- <div class="mt-2"> Hari</div> --}}
 
                                                     <div class="col-sm-1 form-group" style="margin: 0px">
                                                         <label for="fname"
-                                                        class="control-label col-form-label">	</label>
+                                                        class="control-label col-form-label"> Hari	</label>
                                                     </div>
                                                     <div>
 
@@ -146,7 +146,7 @@
                                                 </div>
 
                                                 <div class="row justify-content-center" style="margin:20px 0px">
-                                                    <div class="col-sm-4 form-group" style="margin: 0px">
+                                                    <div class="col-sm-4 form-group" style="margin: 0px" style="margin-left: 12%">
                                                         <label for="fname"
                                                         class="control-label col-form-label">ii.
                                                         Kadar Penggunaan Kapasiti Sebulan (%)	</label>

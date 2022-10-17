@@ -321,6 +321,8 @@
                                             <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                         </b></td>
                                 </tr>
+                                @if($penyataia && !$penyataia->isEmpty())
+
                                 @foreach ($penyataia as $data)
                                     <tr>
                                         <td align="left">
@@ -358,6 +360,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
 
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
@@ -438,6 +445,8 @@
                                             <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                         </b></td>
                                 </tr>
+                                @if($penyataib && !$penyataib->isEmpty())
+
                                 @foreach ($penyataib as $data)
                                     <tr >
                                         <td align="left">
@@ -475,6 +484,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
 
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
@@ -554,6 +568,8 @@
                                             <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                         </b></td>
                                 </tr>
+                                @if($penyataic && !$penyataic->isEmpty())
+
                                 @foreach ($penyataic as $data)
                                     <tr>
                                         <td align="left">
@@ -591,6 +607,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
@@ -681,6 +702,8 @@
                                             <font size="2">Stok Akhir</font>
                                         </b></td>
                                 </tr>
+                                @if($penyataiii && !$penyataiii->isEmpty())
+
                                 @foreach ($penyataiii as $data)
                                     <tr>
                                         <td align="left">
@@ -706,6 +729,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @else
+                                                    <tr>
+                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                    </tr>
+                                                @endif
                                 <tr style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
