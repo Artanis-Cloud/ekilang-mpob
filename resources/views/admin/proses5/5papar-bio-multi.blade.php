@@ -11,7 +11,7 @@
                 <div class="page-breadcrumb" style="padding: 0px">
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
-                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Kilang Oleokimia (Biodiesel)</h4>
+                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Belum Hantar Kilang Oleokimia (Biodiesel)</h4>
                         </div>
                         <div class="col-7 align-self-center" style="margin-left:-1%;">
                             <div class="d-flex align-items-center justify-content-end">

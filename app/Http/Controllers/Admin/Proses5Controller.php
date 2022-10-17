@@ -19,12 +19,17 @@ use App\Models\E104C;
 use App\Models\E104D;
 use App\Models\E104Init;
 use App\Models\E91Init;
+use App\Models\EBioB;
+use App\Models\EBioC;
+use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Hari;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
+use DateTime;
 use Illuminate\Http\Request;
 use DB;
 
@@ -787,6 +792,16 @@ class Proses5Controller extends Controller
     public function admin_5penyatabelumhantarbio()
     {
 
+        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.ebio_flg,  r.nosiri, r.kodpgw, e.ebio_reg
+        FROM pelesen p, e_bio_inits e, reg_pelesen r
+        WHERE   p.e_nl = e.ebio_nl
+        and p.e_nl = r.e_nl
+        and r.e_kat = 'PLBIO'
+        and e.ebio_flg = '1'
+        order by p.e_nl");
+
+        // $users = EBioInit::with('pelesen')
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang Kilang Biodiesel"],
@@ -802,6 +817,85 @@ class Proses5Controller extends Controller
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout','users'));
+    }
+
+
+    public function process_admin_5penyatabelumhantarbio(Request $request)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.6penyatapaparcetakbio');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        foreach ($request->papar_ya as $key => $ebio_reg) {
+            $pelesens[$key] = (object)[];
+            $penyata[$key] = EBioInit::with('pelesen')->find($ebio_reg);
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->ebio_nl)->first();
+
+            $penyataia[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+
+
+
+            $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
+
+            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', ['03', '06', '08']);
+            })->get();
+
+            $penyataii[$key] = Hari::where('lesen',  $penyata[$key]->ebio_nl)->first();
+            // dd($penyataiva);
+
+            $penyataiii[$key] = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
+            })->get();
+
+            // $wherestmt = "(";
+            // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
+            // $query = DB::select("update e_bio_inits set ebio_flagcetak = 'Y' where ebio_nl in $ebio_reg");
+
+            $query = EBioInit::findOrFail($ebio_reg);
+            $query->ebio_flagcetak = 'Y';
+            $query->save();
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+
+        }
+
+
+        $layout = 'layouts.main';
+
+        // dd($penyataia);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses5.5papar-bio-multi', compact(
+            'returnArr',
+            'layout',
+            'formatteddate',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'penyataia',
+            'penyataib',
+            'penyataic',
+            'penyataii',
+            'penyataiii',
+        ));
     }
 }

@@ -45,7 +45,7 @@
 
         <div class="container-fluid">
             <div class="tab" style=" margin-left:2%">
-                <a href="{{ route('admin.6penyatapaparcetaksimpanan') }}"
+                <a href="{{ route('admin.6penyatapaparcetakbio') }}"
                     style="color:black; border-radius:unset; font-size:14px;" class="btn btn-work tablinks"
                     onclick="openInit(event, 'All')">Penyata Bulanan
                     Terkini</a>
@@ -157,11 +157,13 @@
                                                     @endif
 
                                                 </div>
-{{-- 
+{{--
                                                 <button style="font-size:14px; background-color:#265960;color: white; border: 0px; float: right; border-radius: 2px; padding:7px 35px;"
                                                 onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Biodiesel.csv')">Excel <i class="fa fa-file-excel" style="color: #fff"></i></button> --}}
 
                                             </div><br>
+                                            <form action="{{ route('admin.5papar.bio.form') }}" method="post">
+                                                @csrf
                                             <div class="table-responsive">
                                                 <div id="tblData">
                                                 <table id="example" class="table table-bordered"
@@ -169,6 +171,7 @@
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil</th> --}}
+                                                            <th style="width: 7%">Papar?</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
@@ -178,7 +181,7 @@
                                                     </thead>
                                                     <tfoot>
                                                         <tr style="background-color: #e9ecefbd">
-                                                            {{-- <th>Bil</th> --}}
+                                                            <th style="width: 7%">Papar?</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
@@ -187,14 +190,15 @@
                                                         </tr>
                                                     </tfoot>
                                                     <tbody style="word-break: break-word; font-size:12px">
-                                                        {{-- @foreach ($users as $data)
+                                                         @foreach ($users as $data)
                                                             <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                {{-- <td>
-                                                                x
-                                                            </td> --}}
+                                                                <td class="text-center">
+                                                                    <input name="papar_ya[]" type="checkbox" required
+                                                                        value="{{ $data->ebio_reg }}">&nbspYa
+                                                                </td>
 
-                                                                {{-- <td>{{ $data->e_nl ?? '-' }}</td>
+
+                                                                <td>{{ $data->e_nl ?? '-' }}</td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
                                                                 <td>{{ $data->kodpgw }}</td>
 
@@ -204,21 +208,20 @@
 
 
                                                             </tr>
-                                                        @endforeach --}}
+                                                        @endforeach
 
                                                     </tbody>
 
                                                 </table>
                                                 </div>
                                                 <div class="text-left col-md-8">
-                                                    <button class="btn btn-primary"
-                                                    onclick="exportTableToExcel('tblData')">Excel</button>
+                                                    <button type="submit" class="btn btn-primary ">Papar</button>
 
 
 
                                                 </div>
                                             </div>
-                                        {{-- </form> --}}
+                                        </form>
                                     </div>
                                 </section>
                             </div>

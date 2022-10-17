@@ -157,7 +157,7 @@
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th style="width: 7%">Papar?</th>
-                                                        <th style="width: 7%"\>Sudah Cetak?<br></th>
+                                                        <th style="width: 7%">Sudah Cetak?<br></th>
                                                         <th style="width: 11%">No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
