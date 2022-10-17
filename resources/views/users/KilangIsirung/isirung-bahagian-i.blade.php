@@ -620,7 +620,7 @@
                         if (whichKey == 13) {
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('e102_af2').focus();
+                            document.getElementById('e102_ae1').focus();
                         }
 
                     });

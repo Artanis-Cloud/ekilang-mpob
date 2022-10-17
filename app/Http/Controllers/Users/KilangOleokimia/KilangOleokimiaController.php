@@ -155,6 +155,7 @@ class KilangOleokimiaController extends Controller
         $penyata->save();
 
         $map = User::where('username',$penyata->e_nl)->first();
+        $map->email = $request->e_email;
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
@@ -234,7 +235,8 @@ class KilangOleokimiaController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first();
+        // dd($user);
 
         if ($user) {
             $produk = Produk::where('prodcat', '01')->whereNotIn('prodid', ['KB','JW'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();

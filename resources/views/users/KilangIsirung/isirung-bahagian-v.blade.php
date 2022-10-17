@@ -314,7 +314,7 @@
                                                                     <input type="text" name='e102_b6' class="form-control" onchange="autodecimal(this);FormatCurrency(this)"
                                                                         oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})"
                                                                         id="e102_sb6{{ $data->e102_b1 }}" onkeypress="return isNumberKey(event)"
-                                                                        value="{{ old('e102_b6') ?? $data->e102_b6 }}">
+                                                                        value="{{ old('e102_b6') ?? number_format($data->e102_b6 ?? 0,2) }}">
                                                                 </div>
                                                             </div>
 
@@ -486,7 +486,7 @@
                                                                     <input type="text" name='e102_b6'
                                                                         oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})" onkeypress="return isNumberKey(event)"
                                                                         class="form-control" id="e102_eb6{{ $data->e102_b1 }}" onchange="autodecimal(this);FormatCurrency(this)"
-                                                                        value="{{ old('e102_b6') ?? $data->e102_b6 }}">
+                                                                        value="{{ old('e102_b6') ?? number_format($data->e102_b6 ?? 0,2) }}">
                                                                 </div>
                                                             </div>
 
