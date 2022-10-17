@@ -834,7 +834,7 @@ class Proses5Controller extends Controller
             ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
         ];
 
-        $kembali = route('admin.6penyatapaparcetakbio');
+        $kembali = route('admin.5penyatabelumhantarbio');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,

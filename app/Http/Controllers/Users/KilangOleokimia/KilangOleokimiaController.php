@@ -237,7 +237,7 @@ class KilangOleokimiaController extends Controller
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
         if ($user) {
-            $produk = Produk::where('prodcat', '01')->whereNotIn('prodid', ['KB','JW'])->orderBy('prodname')->get();
+            $produk = Produk::where('prodcat', '01')->whereNotIn('prodid', ['KB','JW'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
 
 
             $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
@@ -421,7 +421,7 @@ class KilangOleokimiaController extends Controller
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
         if ($user) {
-            $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
+            $produk = Produk::where('prodcat', 02)->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
 
             $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->where('e104_b3', '2')->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
