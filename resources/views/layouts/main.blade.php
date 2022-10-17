@@ -1950,7 +1950,31 @@
             <!-- End Sidebar scroll-->
         </aside>
     @endif
-    <div id="tutup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!-- Vertically Centered modal Modal -->
+    <div class="modal fade" id="tutup" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+        role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">MAKLUMAN</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Pemegang lesen tidak perlu melengkapkan maklumat di bahagian ini. Sila tekan butang 'Simpan & Seterusnya' untuk ke bahagian seterusnya.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Tutup</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+    {{-- <div id="tutup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -1973,7 +1997,7 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
-    </div>
+    </div> --}}
 
 
     <!-- ============================================================== -->
