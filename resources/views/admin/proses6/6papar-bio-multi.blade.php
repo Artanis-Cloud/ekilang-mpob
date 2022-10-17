@@ -365,7 +365,7 @@
                                                                     $total_col_ebio_b9 += $dataia->ebio_b9 ?? 0  ;
                                                                     $total_col_ebio_b10 += $dataia->ebio_b10 ?? 0  ;
                                                                     $total_col_ebio_b11 += $dataia->ebio_b11 ?? 0  ;
-                                                                    $total_dipremis += $dipremis ?? 0  ;
+                                                                    $total_dipremis += ($dataia->ebio_b5 + $dataia->ebio_b6 + $dataia->ebio_b7) - ($dataia->ebio_b8 + $dataia->ebio_b9 + $dataia->ebio_b10) ?? 0  ;
 
                                                                 @endphp
 
