@@ -165,9 +165,9 @@
                                             </div><br>
                                             <form action="{{ route('admin.5papar.bio.form') }}" method="post">
                                                 @csrf
-                                            <div class="table-responsive">
+                                            <div class="table-responsive" id="example2">
                                                 <div id="tblData">
-                                                <table id="example" class="table table-bordered"
+                                                <table id="example10" class="table table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
@@ -224,7 +224,7 @@
 
 
 
-                                                </div> 
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -316,4 +316,99 @@
         downloadCSV(csv.join("\n"), filename);
         }
     </script>
+      <script>
+        $(function(){
+
+    var requiredCheckboxes = $(':checkbox[required]');
+
+    requiredCheckboxes.change(function(){
+
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+        }
+
+        else {
+            requiredCheckboxes.attr('required', 'required');
+        }
+    });
+
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#example2 tfoot th').each(function () {
+        var title = $(this).text();
+        console.log(title);
+        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+    });
+
+    // DataTable
+    var table = $('#example10').DataTable({
+
+        initComplete: function () {
+
+        // Apply the search
+        this.api()
+            .columns()
+            .every(function () {
+                var that = this;
+                $('input', this.footer()).on('keyup change clear', function () {
+                    if (that.search() !== this.value) {
+                        that.search(this.value).draw();
+                    }
+                });
+            });
+        },
+        dom: 'Bfrtip',
+
+
+            buttons: [
+
+                'pageLength',
+                {
+
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred"
+                },
+                {
+                        extend: 'pdf',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        title: "Senarai Penyata Belum Hantar",
+                        className: "prodpdf",
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+                        });
+                        }
+                    },
+            ],
+            "language": {
+                            "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                            "zeroRecords": "Maaf, tiada rekod.",
+                            "info": "",
+                            "infoEmpty": "Tidak ada rekod yang tersedia",
+                            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                            "search": "Carian",
+                            "previous": "Sebelum",
+                            "paginate": {
+                                "first": "Pertama",
+                                "last": "Terakhir",
+                                "next": "Seterusnya",
+                                "previous": "Sebelumnya"
+                            },
+                        },
+        });
+    });
+</script>
 @endsection

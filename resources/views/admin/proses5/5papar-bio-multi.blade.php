@@ -64,9 +64,9 @@
                                             <table border="0" width="90%">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="" height="19">
+                                                        {{-- <td width="" height="19">
                                                             <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
-                                                        </td>
+                                                        </td> --}}
                                                         <td width="88%" height="19">
                                                             <p align="right"><b>MPOB(EL) CM 4</b></p>
                                                         </td>
