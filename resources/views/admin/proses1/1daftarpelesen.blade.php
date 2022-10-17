@@ -2072,12 +2072,12 @@
 
             if (e_kat != "PLBIO") {
                 document.getElementById('nonbio_container').style.display = "block";
-                document.getElementById('lain_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "none";
 
 
             } else {
-                document.getElementById('nonbio_container').style.display = "block";
-                document.getElementById('lain_container').style.display = "none";
+                document.getElementById('nonbio_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
 
                 // document.getElementById('isaw').style.display = "none";
 

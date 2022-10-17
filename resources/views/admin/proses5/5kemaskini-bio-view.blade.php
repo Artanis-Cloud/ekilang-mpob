@@ -328,7 +328,7 @@
                                                         @endphp
 
                                                         @foreach ($penyataia as $penyataia2)
-                                                            <form action="{{ route('admin.kemaskini.maklumat.bio.exe',  [$penyataia2->ebio_b1] ) }}"
+                                                            <form action="{{ route('admin.kemaskini.maklumat.bio.exe',  [$penyataia2->ebio_b1] ) }}"  class="sub-form"
                                                                 method="post" id="form1" >
                                                                 @csrf
                                                                 <tr>
@@ -347,37 +347,37 @@
                                                                         <font size="2">{{ $penyataia->ebio_b4 }}</font>
                                                                     </td> --}}
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b5' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b5' style="text-align: right" id='ebio_b5'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b5 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b6' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b6' style="text-align: right" id='ebio_b6'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b6 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b7' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b7' style="text-align: right" id='ebio_b7'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b7 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b8' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b8' style="text-align: right" id='ebio_b8'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b8 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b9' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b9' style="text-align: right" id='ebio_b9'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b9 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b10' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b10' style="text-align: right" id='ebio_b10'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b10 ??  0,2) }}">
                                                                     <td align="right">
-                                                                        <input type="text" name='ebio_b11' style="text-align: right"
-                                                                        class="form-control"
+                                                                        <input type="text" name='ebio_b11' style="text-align: right" id='ebio_b11'
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         value="{{ number_format($penyataia2->ebio_b11 ??  0,2) }}">
                                                                     </td>
                                                                     <td>
@@ -966,5 +966,55 @@
             });
         });
     </script>
+
+
+<script>
+    $('.sub-form').submit(function() {
+
+        var x = $('#ebio_b5').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b5').val(x);
+
+        var x = $('#ebio_b6').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b6').val(x);
+
+        var x = $('#ebio_b7').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b7').val(x);
+
+        var x = $('#ebio_b8').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b8').val(x);
+
+        var x = $('#ebio_b9').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b9').val(x);
+
+        var x = $('#ebio_b10').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b10').val(x);
+
+        var x = $('#ebio_b11').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b11').val(x);
+
+        var x = $('#ebio_b12').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ebio_b12').val(x);
+
+
+        return true;
+
+    });
+</script>
 
 @endsection
