@@ -74,7 +74,7 @@
 
                         <div class="pl-3">
 
-                            <div class=" text-center">
+                            <div class=" text-center" id="title">
                                 {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                 <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) </h3>
 
@@ -396,24 +396,30 @@
                         className: "fred"
                     },
                     {
-                            extend: 'pdf',
-                            text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
-                            title: "Senarai Penyata Belum Hantar",
-                            className: "prodpdf",
-                            customize: function (doc) {
-                                let table = doc.content[1].table.body;
-                                for (i = 1; i < table.length; i++) // skip table header row (i = 0)
-                                {
-                                    var test = table[i][0];
-                                }
-
-                            },
-                            customize: function(doc) {
-                            doc.content[1].table.body[0].forEach(function(h) {
-                                h.fillColor = '#0a7569';
-                            });
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
+                        title: function(doc) {
+                                return $('#title').text()
+                                },
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
                             }
+
                         },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+
+                    },
                 ],
                 "language": {
                                 "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",

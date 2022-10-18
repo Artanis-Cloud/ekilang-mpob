@@ -2299,7 +2299,41 @@
                         extend: 'excel',
                         text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
                         className: "fred"
-                    }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
+
+                        responsive: true,
+                        autoWidth: true,
+                        pagingType: "full",
+
+
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6,7,8,9]
+                        },
+                        title: function(doc) {
+                                return $('#title').text()
+                                },
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+
+                    },
                 ],
                 "language": {
                         "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
@@ -2319,7 +2353,6 @@
 
 
             });
-//  var rowNumber = table.rows( { order: 'applied' } ).nodes().indexOf( this );
 
         });
 

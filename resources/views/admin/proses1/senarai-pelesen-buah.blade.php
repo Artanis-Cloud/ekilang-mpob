@@ -57,7 +57,7 @@
                     <div class="pl-3">
                         <div class="row">
 
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 text-center" id="title">
 
                                 {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                 <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar
@@ -157,8 +157,8 @@
                                 </div>
 
                                 <br>
-                                <div class="table-responsive" id="example1">
-                                    <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                <div class="table-responsive" >
+                                    <table id="exampleCustom" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd;  word-wrap:normal">
                                                 <th style=" vertical-align: middle;" class="no-sort">Bil.</th>
@@ -328,5 +328,95 @@
     </script>
 
 
+<script>
+
+    $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#exampleCustom tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+    });
+
+    // DataTable
+        var table = $('#exampleCustom').DataTable({
+
+            initComplete: function () {
+
+                // Apply the search
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+            },
+            dom: 'Bfrtip',
+
+
+            buttons: [
+
+                'pageLength',
+                {
+
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred"
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                    pageSize: 'TABLOID',
+                    className: "prodpdf",
+                    exportOptions: {
+                        columns: [1,2,3,4,5,6,7,8,9,10]
+                    },
+                    title: function(doc) {
+                            return $('#title').text()
+                            },
+                    customize: function (doc) {
+                        let table = doc.content[1].table.body;
+                        for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                        {
+                            var test = table[i][0];
+                        }
+
+                    },
+                    customize: function(doc) {
+                    doc.content[1].table.body[0].forEach(function(h) {
+                        h.fillColor = '#0a7569';
+
+                    });
+                    },
+
+
+                },
+            ],
+            "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
+
+
+        });
+
+    });
+
+
+</script>
 
 @endsection

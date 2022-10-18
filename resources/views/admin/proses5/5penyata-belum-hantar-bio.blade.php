@@ -69,7 +69,7 @@
                         </div>
                             <div class="pl-3">
                                 <div class="row" >
-                                    <div class="col-md-12 text-center"id="dt-title">
+                                    <div class="col-md-12 text-center" id="title">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
 
                                         <h3 id="yr" style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
@@ -377,8 +377,56 @@
                         text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
 
                         className: "prodpdf",
+
+                        exportOptions: {
+                            columns: [1,2,3,4]
+                        },
+                        customize: function(doc) {
+                            doc.content.splice( 0, 0, {
+                                margin: [ 7, 0, 0, -45 ],
+                                width: 85,
+                                height: 55,
+                                alignment: 'right',
+                                image: 'base64...'
+                            });
+
+                            let downloadDate=`${moment(new Date(), 'YYYY-MM-DD HH:mm:ss').format('DD-MM-YYYY')}`;
+                            let downloadTime=`${moment(new Date(), 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss')}`.slice(11,16);
+
+                            doc.content.splice( 2, 0, {
+                                alignment: 'left',
+                                fontSize:12,
+                                margin: [ 0, 0, -10, 20 ],
+                                color:"#003d66",
+                                text:`${downloadDate} / ${downloadTime} Hrs`
+                            });
+
+                            doc.defaultStyle.alignment = 'center';
+                            doc.defaultStyle.color = '#666';
+
+                            doc.styles.title.color="#00c4cc";
+                            doc.styles.title.alignment="left";
+                            doc.styles.title.fontSize=14;
+
+
+                            if(doc.content[3].table.body[0]){
+                                let columns=doc.content[3].table.body[0].length;
+                                let widths=[];
+
+                                for (let i = 0; i < columns; i++) {
+                                    widths.push(`${99/columns}%`)
+                                }
+
+                                doc.content[3].table.widths = widths;
+                            }
+
+                            doc.styles.tableHeader.fontSize=12;
+                            doc.styles.tableHeader.fillColor="#003d66";
+                            doc.styles.tableBodyOdd.margin =[5, 5, 5, 5];
+                            doc.styles.tableBodyEven.margin = [5, 5, 5, 5];
+                        },
                         title: function(doc) {
-                                return $('#dt-title').text()
+                                return $('#title').text()
                                 },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
