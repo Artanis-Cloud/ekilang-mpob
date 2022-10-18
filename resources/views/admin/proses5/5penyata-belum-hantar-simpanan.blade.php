@@ -92,8 +92,8 @@
 
                                 <section class="section">
                                     <div class="card">
-                                        {{-- <form action="{{ route('admin.5papar.belum.simpanan.form') }}" method="post">
-                                            @csrf --}}
+                                        <form action="{{ route('admin.5papar.belum.simpanan.form') }}" method="post">
+                                            @csrf
                                             <div class=" dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle"
                                                     style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
@@ -168,49 +168,58 @@
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
-                                                            {{-- <th>Pilih?</th> --}}
+                                                            <th style="width:7%; vertical-align: middle">Papar?
+                                                                <input name="select-all" id="select-all" type="checkbox" required
+                                                                value=""></th>
                                                             {{-- <th>Bil.</th> --}}
                                                             <th style=" vertical-align: middle">No. Lesen<br></th>
                                                             <th style=" vertical-align: middle">Nama Premis</th>
                                                             <th style=" vertical-align: middle">Kod Pegawai</th>
+                                                            <th style=" vertical-align: middle">No. Siri</th>
                                                             <th style=" vertical-align: middle">Emel Pegawai</th>
                                                             <th style=" vertical-align: middle">No. Telefon Kilang</th>
-                                                            <th style=" vertical-align: middle">No. Siri</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Pilih?</th> --}}
-                                                            {{-- <th>Bil.</th> --}}
+                                                            <th style="width: 7%">Papar?</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
+                                                            <th>No. Siri</th>
                                                             <th>Emel Pegawai</th>
                                                             <th>No. Telefon Kilang</th>
-                                                            <th>No. Siri</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach ($users as $data)
                                                             <tr>
+                                                                <td class="text-center">
+                                                                    <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                                        value="{{ $data->e07_reg }}">&nbspYa
+                                                                </td>
                                                                 {{-- <td>{{ $loop->iteration }}</td> --}}
                                                                 <td>{{ $data->e_nl ?? '-' }}</td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
                                                                 <td>{{ $data->kodpgw }}</td>
+                                                                <td>{{ $data->nosiri }}</td>
 
                                                                 <td>{{ $data->e_email ?? '-' }}</td>
                                                                 <td>{{ $data->e_notel ?? '-' }}</td>
-                                                                <td>{{ $data->nosiri }}</td>
                                                             </tr>
                                                         @endforeach
 
                                                     </tbody>
 
                                                 </table>
+                                                <div class="text-left col-md-8">
+                                                    <button type="submit" class="btn btn-primary ">Papar</button>
+                                                </div>
                                             </div>
 
                                             </div>
-                                        {{-- </form> --}}
+                                        </form>
                                     </div>
                                 </section>
                             </div>
@@ -300,4 +309,41 @@
         downloadCSV(csv.join("\n"), filename);
         }
     </script>
+
+
+    <script>
+        $(function(){
+
+        var requiredCheckboxes = $(':checkbox[required]');
+
+        requiredCheckboxes.change(function(){
+
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            }
+
+            else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+
+        });
+    </script>
+
+    <script>
+        // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {
+            if(this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function() {
+                    this.checked = false;
+                });
+            }
+        });
+    </script>
+
 @endsection

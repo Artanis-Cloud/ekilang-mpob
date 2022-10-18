@@ -45,6 +45,11 @@
                     <div class="col-1 align-self-center">
                         <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
+
+                    <div class="col-11 align-self-center" style="text-align: right">
+                        <button type="button" class="btn btn-primary " style="margin: 1%"
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
                 </div>
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
@@ -64,9 +69,9 @@
                                             <table border="0" width="90%">
                                                 <tbody>
                                                     <tr>
-                                                        {{-- <td width="" height="19">
-                                                            <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
-                                                        </td> --}}
+                                                        <td width="10%" height="19">
+                                                            <p align=""><b></b></p>
+                                                        </td>
                                                         <td width="88%" height="19">
                                                             <p align="right"><b>MPOB(EL) CM 4</b></p>
                                                         </td>
@@ -642,15 +647,15 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii[$key]->hari_operasi }} Hari</b></td>
+                                                        <td width="100"><b>:{{ $penyataii[$key]->hari_operasi ?? '' }} Hari</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="380">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii[$key]->kapasiti }} %</b></td>
+                                                        <td width="100"><b>:{{ $penyataii[$key]->kapasiti ?? ''  }} %</b></td>
                                                     </tr>
 
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
 
                                             <p><b>

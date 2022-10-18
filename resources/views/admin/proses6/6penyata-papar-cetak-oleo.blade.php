@@ -165,8 +165,8 @@
                                                             <th style="width: 11%; vertical-align: middle">No. Lesen<br></th>
                                                             <th style=" vertical-align: middle">Nama Premis</th>
                                                             <th style=" vertical-align: middle">Kod Pegawai</th>
-                                                            <th style=" vertical-align: middle">Emel Pegawai</th>
                                                             <th style=" vertical-align: middle">No. Siri</th>
+                                                            <th style=" vertical-align: middle">Emel Pegawai</th>
                                                             <th style=" vertical-align: middle">Tarikh Hantar</th>
                                                         </tr>
                                                     </thead>
@@ -177,8 +177,8 @@
                                                             <th style="width: 11%">No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
-                                                            <th>Emel Pegawai</th>
                                                             <th>No. Siri</th>
+                                                            <th>Emel Pegawai</th>
                                                             <th>Tarikh Hantar</th>
                                                         </tr>
                                                     </tfoot>
@@ -198,9 +198,9 @@
                                                                 </td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
                                                                 <td>{{ $data->kodpgw }}</td>
+                                                                <td>{{ $data->nosiri }}</td>
 
                                                                 <td>{{ $data->e_email ?? '-' }}</td>
-                                                                <td>{{ $data->nosiri }}</td>
 
                                                                 <td>{{ $data->sdate }}</td>
 

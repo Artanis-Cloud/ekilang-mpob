@@ -45,6 +45,11 @@
                     <div class="col-1 align-self-center">
                         <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
+
+                    <div class="col-11 align-self-center" style="text-align: right">
+                        <button type="button" class="btn btn-primary " style="margin: 1%"
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
                 </div>
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
@@ -650,7 +655,7 @@
                                                             {{ number_format($data->e102_al4 ?? 0, 2) }} % </b></td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                                         SAWIT (PK) (51)</font>
