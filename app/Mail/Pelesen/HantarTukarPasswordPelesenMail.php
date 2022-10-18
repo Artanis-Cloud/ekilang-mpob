@@ -3,6 +3,7 @@
 namespace App\Mail\Pelesen;
 
 use App\Models\RegPelesen;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -34,23 +35,23 @@ class HantarTukarPasswordPelesenMail extends Mailable
         $password = $this->password;
 
         $route = route('login');
-        $reg_pelesen = RegPelesen::where('e_nl', $pelesen->username)->first();
-        if($reg_pelesen->e_kat == 'PL91'){
+        $reg_pelesen = User::where('username', $pelesen->username)->first();
+        if($reg_pelesen->category == 'PL91'){
             $route = route('buah.tukarpassword');
         }
-        elseif($reg_pelesen->e_kat == 'PL101'){
+        elseif($reg_pelesen->category == 'PL101'){
             $route = route('penapis.tukarpassword');
         }
-        elseif($reg_pelesen->e_kat == 'PL102'){
+        elseif($reg_pelesen->category == 'PL102'){
             $route = route('isirung.tukarpassword');
         }
-        elseif($reg_pelesen->e_kat == 'PL104'){
+        elseif($reg_pelesen->category == 'PL104'){
             $route = route('oleo.tukarpassword');
         }
-        elseif($reg_pelesen->e_kat == 'PL111'){
+        elseif($reg_pelesen->category == 'PL111'){
             $route = route('pusatsimpan.tukarpassword');
         }
-        elseif($reg_pelesen->e_kat == 'PLBIO'){
+        elseif($reg_pelesen->category == 'PLBIO'){
             $route = route('bio.tukarpassword');
         }
 
