@@ -1160,7 +1160,7 @@ class Proses1Controller extends Controller
 
         // dd($penyata);
 
-        $penyata2 = RegPelesen::findOrFail($id);
+        $penyata2 = RegPelesen::where('e_nl', $request->e_nl)->first();
         $penyata2->e_nl = $request->e_nl;
         // $penyata2->e_kat = $request->e_kat;
 
