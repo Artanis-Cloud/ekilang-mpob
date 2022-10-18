@@ -118,11 +118,10 @@
                     <!-- Form -->
                     <form method="POST" action="{{ route('forget-password.submit') }}">
                         @csrf
-                         <div class="mb-3 input-group">
+                         {{-- <div class="mb-3 input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                             </div>
-                            {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
                             <select class="form-control select" id="kat" name="kat" required
                                             onchange="showDetail()"
                                             oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
@@ -135,9 +134,9 @@
                                         </select>
 
 
-                        </div>
+                        </div> --}}
                         {{-- <br> --}}
-                        <div class="mb-3 input-group" style="display:none" id="lesen">
+                        <div class="mb-3 input-group" id="lesen">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                             </div>
@@ -154,14 +153,13 @@
 
                         </div>
                         {{-- <br> --}}
-                        <div class="mb-3 input-group" style="display:none" id="admin">
+                        {{-- <div class="mb-3 input-group" style="display:none" id="admin">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                             </div>
-                            {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
 
                             <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror"
-                                name="lesen" placeholder="Sila Masukkan Alamat Emel">
+                                name="admin" placeholder="Sila Masukkan Alamat Emel">
 
                             @error('email')
                                 <div class="col-12 alert alert-danger">
@@ -169,7 +167,7 @@
                                 </div>
                             @enderror
 
-                        </div>
+                        </div> --}}
 
                         <button class="btn btn-block btn-lg mb-1 "
                             style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
