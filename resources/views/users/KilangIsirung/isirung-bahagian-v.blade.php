@@ -471,12 +471,9 @@
                                                                                 value="{{ $data->prodcat2->catid ?? '' }}">
                                                                                 {{ $data->prodcat2->catname ?? '' }}
                                                                             </option>
-                                                                            <option value="1">KILANG BUAH
-                                                                            </option>
-                                                                            <option value="5">PENIAGA
-                                                                            </option>
-                                                                            <option value="7">LAIN-LAIN
-                                                                            </option>
+                                                                            <option value="3">KILANG ISIRUNG</option>
+                                                                            <option value="5">PENIAGA</option>
+                                                                            <option value="7">LAIN-LAIN</option>
                                                                         </select>
                                                                     </fieldset>
 

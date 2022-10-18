@@ -505,10 +505,10 @@ class KilangIsirungController extends Controller
         $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
         $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
         if ($semak_duplicate) {
-            if ($semak_duplicate) {
+            // if ($semak_duplicate) {
                 return redirect()->route('isirung.bahagianiii')
                     ->with('error', 'Maklumat Telah Tersedia');
-            }
+            // }
         }
 
         $e102_b6 = $request->e102_b6;
@@ -692,10 +692,10 @@ class KilangIsirungController extends Controller
         $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
 
         if ($semak_duplicate) {
-            if ($semak_duplicate->e102_b6 == $request->e102_b6) {
+            // if ($semak_duplicate->e102_b6 == $request->e102_b6) {
                 return redirect()->route('isirung.bahagianiv')
                     ->with('error', 'Maklumat Telah Tersedia');
-            }
+            // }
         }
 
         $e102_b6 = $request->e102_b6;
@@ -876,10 +876,10 @@ class KilangIsirungController extends Controller
         $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
 
         if ($semak_duplicate) {
-            if ($semak_duplicate->e102_b6 == $request->e102_b6) {
+            // if ($semak_duplicate) {
                 return redirect()->route('isirung.bahagianv')
                     ->with('error', 'Maklumat Telah Tersedia');
-            }
+            // }
         }
         // dd($request->all());
         $e102_b6 = $request->e102_b6;
