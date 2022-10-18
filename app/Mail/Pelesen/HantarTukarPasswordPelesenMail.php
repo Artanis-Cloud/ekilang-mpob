@@ -54,6 +54,9 @@ class HantarTukarPasswordPelesenMail extends Mailable
         elseif($reg_pelesen->category == 'PLBIO'){
             $route = route('bio.tukarpassword');
         }
+        elseif($reg_pelesen->category == 'admin'){
+            $route = route('admin.tukarpassword');
+        }
 
         return $this->to($this->pelesen->email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))

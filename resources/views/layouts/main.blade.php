@@ -478,13 +478,13 @@
                                     </div>
                                 </div>
                                 <div class="profile-dis scrollable">
-                                    {{-- @if (auth()->user()->category == 'admin')
-                                        <a class="dropdown-item" href="{{ route('admin.akaun.pentadbir') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Akaun Pentadbir </a>
+                                    @if (auth()->user()->category == 'admin')
+                                        {{-- <a class="dropdown-item" href="{{ route('admin.akaun.pentadbir') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Akaun Pentadbir </a> --}}
                                         <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
                                             <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
                                         <div class="dropdown-divider"></div>
-                                    @endif --}}
+                                    @endif
 
                                     <a class="dropdown-item" href="#" aria-expanded="false"
                                         onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

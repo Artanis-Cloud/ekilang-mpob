@@ -20,6 +20,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class MenuLainController extends Controller
 {
@@ -481,7 +482,38 @@ class MenuLainController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout'));
+        $user = User::get();
+
+
+        return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout','user'));
+    }
+
+
+    public function admin_update_password(Request $request, $id)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        //compare password
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect()->route('admin.tukarpassword')
+                ->with('error', 'Sila masukkan kata laluan lama yang betul');
+        }
+
+        if ($request->new_password != $request->password_confirmation) {
+            return redirect()->route('admin.tukarpassword')
+                ->with('error', 'Sila sahkan kata laluan');
+        }
+
+        if ($request->old_password == $request->new_password) {
+            return redirect()->route('admin.tukarpassword')
+                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+        } else {
+            $password = Hash::make($request->new_password);
+            $user->password = $password;
+            $user->save();
+        }
+
+        return redirect()->route('admin.tukarpassword')
+            ->with('success', 'Kata Laluan berjaya ditukar');
     }
 
     public function try3()
