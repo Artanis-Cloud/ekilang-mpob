@@ -244,6 +244,8 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
         Route::get('admin/panduan', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_panduan'])->name('admin.panduan');
         Route::get('admin/tukarpassword', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tukarpassword'])->name('admin.tukarpassword');
+        Route::post('admin/update-password/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_update_password'])->name('admin.update.password');
+
 
 
         Route::get('admin/kod-produk', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_kod_produk'])->name('admin.kod.produk');
