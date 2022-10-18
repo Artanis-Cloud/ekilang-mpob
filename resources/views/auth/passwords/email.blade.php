@@ -118,13 +118,32 @@
                     <!-- Form -->
                     <form method="POST" action="{{ route('forget-password.submit') }}">
                         @csrf
-                        <div class="mb-3 input-group">
+                        <div class="mb-3 input-group" style="display:none">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope"></i></span>
+                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                             </div>
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
                             <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
-                                name="lesen" placeholder="Sila Masukkan Username">
+                                name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12" onkeypress="return isNumberKey(event)">
+                            <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror" 
+                                name="lesen" placeholder="Sila Masukkan Alamat Emel">
+
+                            @error('email')
+                                <div class="col-12 alert alert-danger">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+
+                        </div>
+                        <div class="mb-3 input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
+                            </div>
+                            {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
+                            <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror" style="display:none"
+                                name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12" onkeypress="return isNumberKey(event)">
+                            <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror" style="display:none"
+                                name="lesen" placeholder="Sila Masukkan Alamat Emel">
 
                             @error('email')
                                 <div class="col-12 alert alert-danger">
@@ -162,5 +181,29 @@
                 "progressBar": true
             });
         @endif
+    </script>
+       <script type="text/javascript">
+        function showDetail() {
+            var produk = $('#produk').val();
+            // const total = $produk2;
+
+            if (produk == "AW") {
+                document.getElementById('merah_container').style.display = "block";
+                $('#ebio_c8').attr('readonly', 'readonly');
+                $('#ebio_c8').attr('value', ' 0.00');
+
+                // document.getElementById('isaw').style.display = "block";
+                // document.getElementById('notaw').style.display = "none";
+                // document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('merah_container').style.display = "none";
+                $('#ebio_c8').removeAttr('readonly');
+                $('#ebio_c8').removeAttr('value');
+                // document.getElementById('isaw').style.display = "none";
+                // document.getElementById('notaw').style.display = "block";
+                // document.getElementById('lain_container').style.display = "block";
+
+            }
+        }
     </script>
 </html>
