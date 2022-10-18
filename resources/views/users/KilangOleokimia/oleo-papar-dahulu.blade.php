@@ -305,11 +305,12 @@
                                             </b></td>
                                     </tr>
                                 @if($ia && !$ia->isEmpty())
+                                {{-- {{ dd($ia) }} --}}
 
                                     @foreach ($ia as $data)
                                         <tr>
                                             <td align="left">
-                                                <font size="2">{{  $data->produk->proddesc }}</font>
+                                                <font size="2">{{  $data->produk->proddesc ?? '' }}</font>
                                             </td>
                                             <td style="text-align: center; vertical-align:middle">
                                                 <font size="2">{{  $data->e104_b4 }}</font>
@@ -434,7 +435,7 @@
                                     @foreach ($ib as $data)
                                         <tr>
                                             <td align="left">
-                                                <font size="2">{{ $data->produk->proddesc }}</font>
+                                                <font size="2">{{ $data->produk->proddesc ?? ''}}</font>
                                             </td>
                                             <td style="text-align: center; vertical-align:middle">
                                                 <font size="2">{{ $data->e104_b4 }}</font>

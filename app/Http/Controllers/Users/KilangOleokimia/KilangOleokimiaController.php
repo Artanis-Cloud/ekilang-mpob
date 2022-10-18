@@ -1460,7 +1460,7 @@ class KilangOleokimiaController extends Controller
 
         $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->whereIn('prodcat',  ['03', '06', '08']);
-        })->orderBy('e104_c4')->get();
+        })->orderBy('e104_c3')->get();
 
         $totaliii = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c4');
 
@@ -1604,6 +1604,7 @@ class KilangOleokimiaController extends Controller
             $myDateTime = DateTime::createFromFormat('Y-m-d', $users->e104_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
             $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '1')->orderBy('e104_b4')->get();
+            // dd($ia);
 
             $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '2')->orderBy('e104_b4')->get();
 
@@ -1615,11 +1616,11 @@ class KilangOleokimiaController extends Controller
             // dd($iii);
 
 
-            $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->orderBy('e104_c4')
+            $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->orderBy('e104_c3')
                 ->get();
             // dd($iii);
 
-            $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $users->e104_nobatch)->where('e104_d3', '1')->get();
+            $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $users->e104_nobatch)->where('e104_d3', '1')->orderBy('e104_d4')->get();
             $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[0]->e104_d6);
             $formatteddat2 = $myDateTime2->format('d-m-Y');
             // $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();

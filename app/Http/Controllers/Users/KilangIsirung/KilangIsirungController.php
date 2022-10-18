@@ -902,6 +902,34 @@ class KilangIsirungController extends Controller
 
     public function isirung_bahagianvi()
     {
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first();
+
+        $total_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg3 = $total_bhg3 + $total2_bhg3;
+
+
+        $total_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg4 = $total_bhg4 + $total2_bhg4;
+
+        $total_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg5 = $total_bhg5 + $total2_bhg5;
+        // dd($user);
+
+        if ($total3_bhg3 != $user->e102_ac1) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
+        if ($total3_bhg4 != $user->e102_ag2) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        }
+        if ($total3_bhg5 != $user->e102_ag3) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        }
         $bulan = date("m") - 1;
         $tahun = date("Y");
         $breadcrumbs    = [
@@ -931,7 +959,7 @@ class KilangIsirungController extends Controller
 
 
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
-        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        // $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
@@ -947,6 +975,34 @@ class KilangIsirungController extends Controller
 
     public function isirung_bahagianvii()
     {
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first();
+
+        $total_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg3 = $total_bhg3 + $total2_bhg3;
+
+
+        $total_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg4 = $total_bhg4 + $total2_bhg4;
+
+        $total_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg5 = $total_bhg5 + $total2_bhg5;
+        // dd($user);
+
+        if ($total3_bhg3 != $user->e102_ac1) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
+        if ($total3_bhg4 != $user->e102_ag2) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        }
+        if ($total3_bhg5 != $user->e102_ag3) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        }
         $bulan = date("m") - 1;
         $tahun = date("Y");
         $breadcrumbs    = [
