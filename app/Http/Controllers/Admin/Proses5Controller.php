@@ -129,16 +129,26 @@ class Proses5Controller extends Controller
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
-        // foreach ($request->papar_ya as $key => $e91_reg) {
-        //     $pelesens[$key] = (object)[];
-        //     $penyata = E91Init::find($e91_reg);
-        //     $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
-        // }
+        foreach ($request->papar_ya as $key => $e91_reg) {
+            $pelesens[$key] = (object)[];
+            $penyata[$key] = E91Init::with('pelesen')->find($e91_reg);
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e91_nl)->first();
+
+            // dd($penyata);
+
+            // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e91_sdate);
+            // $formatteddate = $myDateTime->format('d-m-Y');
+
+            $query = E91Init::findOrFail($e91_reg);
+            $query->e91_flagcetak = 'Y';
+            $query->save();
+
+        }
         $layout = 'layouts.main';
 
-        // dd($pelesens);
+        // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses5.5papar-belum-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan'));
+        return view('admin.proses5.5papar-belum-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'penyata', 'pelesens'));
     }
 
 
@@ -190,143 +200,143 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e101_reg) {
             $pelesens[$key] = (object)[];
-            $penyata = E101Init::find($e101_reg);
-            $pelesens[$key] = Pelesen::where('e_nl', $penyata->e101_nl)->first();
+            $penyata[$key] = E101Init::with('pelesen')->find($e101_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e101_nl)->first();
 
-            $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $penyata->e101_reg)->whereHas('produk', function ($query) {
+            $penyatai[$key] = E101B::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
             })->get();
 
             $totalib5 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b5');
 
             //  dd($totalib5);
 
             $totalib6 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b6');
 
             //  dd($totalib5);
             $totalib7 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b7');
             //  dd($totalib5);
             $totalib8 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b8');
             //  dd($totalib5);
             $totalib9 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b9');
             //  dd($totalib5);
             $totalib10 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b10');
             //  dd($totalib5);
             $totalib11 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b11');
             //  dd($totalib5);
             $totalib12 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b12');
             //  dd($totalib5);
             $totalib13 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b13');
             //  dd($totalib5);
             $totalib14 = DB::table("e101_b")
-                ->where('e101_reg', $penyata->e101_reg)
+                ->where('e101_reg', $penyata[$key]->e101_reg)
                 ->where('e101_b3', '1')
                 ->sum('e101_b14');
 
-            $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $penyata->e101_reg)->whereHas('produk', function ($query) {
+            $penyataii[$key] = E101B::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
             })->get();
             // dd($penyataii);
 
-            $totaliib5 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
+            $totaliib5 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
             //  dd($totaliib5);
-            $totaliib6 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b6');
+            $totaliib6 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b6');
             //  dd($totaliib5);
-            $totaliib7 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b7');
+            $totaliib7 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b7');
             //  dd($totaliib5);
-            $totaliib8 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b8');
+            $totaliib8 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b8');
             //  dd($totaliib5);
-            $totaliib9 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b9');
+            $totaliib9 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b9');
             //  dd($totaliib5);
-            $totaliib10 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b10');
+            $totaliib10 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b10');
             //  dd($totaliib5);
-            $totaliib11 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b11');
+            $totaliib11 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b11');
             //  dd($totaliib5);
-            $totaliib12 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b12');
+            $totaliib12 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b12');
             //  dd($totaliib5);
-            $totaliib13 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b13');
+            $totaliib13 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b13');
             //  dd($totaliib5);
-            $totaliib14 = DB::table("e101_b")->where('e101_reg', $penyata->e101_reg)->where('e101_b3', '2')->sum('e101_b14');
+            $totaliib14 = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b14');
             //  dd($totaliib5);
 
-            $penyataiii = E101Init::where('e101_reg', $penyata->e101_reg)->first();
+            $penyataiii[$key] = E101Init::where('e101_reg', $penyata[$key]->e101_reg)->first();
             // dd($penyataiii);
 
-            $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->get();
+            $penyataiva[$key] = E101C::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->get();
             // dd($penyataiva);
 
-            $totalivac5 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
+            $totalivac5 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
             //   dd($totalivac5);
-            $totalivac6 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->sum('e101_c6');
+            $totalivac6 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c6');
             //   dd($totalivac5);
-            $totalivac7 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->sum('e101_c7');
+            $totalivac7 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c7');
             //   dd($totalivac5);
-            $totalivac8 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->sum('e101_c8');
+            $totalivac8 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c8');
             //   dd($totalivac5);
-            $totalivac9 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->sum('e101_c9');
+            $totalivac9 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c9');
             //   dd($totalivac5);
-            $totalivac10 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
+            $totalivac10 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
             //   dd($totalivac5);
 
-            $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $penyata->e101_reg)->where('e101_c3', 2)->get();
+            $penyataivb[$key] = E101C::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', 2)->get();
             // dd($penyataivb);
 
-            $totalivbc5 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
+            $totalivbc5 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
             //   dd($totalivac5);
-            $totalivbc6 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '2')->sum('e101_c6');
+            $totalivbc6 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c6');
             //   dd($totalivac5);
-            $totalivbc7 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '2')->sum('e101_c7');
+            $totalivbc7 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c7');
             //   dd($totalivac5);
-            $totalivbc8 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '2')->sum('e101_c8');
+            $totalivbc8 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c8');
             //   dd($totalivac5);
-            $totalivbc9 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '2')->sum('e101_c9');
+            $totalivbc9 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c9');
             //   dd($totalivac5);
-            $totalivbc10 = DB::table("e101_c")->where('e101_reg', $penyata->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
+            $totalivbc10 = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
             //   dd($totalivac5);
 
-            $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata->e101_reg)->where('e101_d3', 1)->get();
+            $penyatava[$key] = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', 1)->get();
             // dd($penyatava);
-            $totalvad5 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '1')->sum('e101_d5');
-            $totalvad6 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '1')->sum('e101_d6');
-            $totalvad7 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '1')->sum('e101_d7');
-            $totalvad8 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '1')->sum('e101_d8');
+            $totalvad5 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d5');
+            $totalvad6 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d6');
+            $totalvad7 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d7');
+            $totalvad8 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '1')->sum('e101_d8');
 
 
-            $penyatavb = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata->e101_reg)->where('e101_d3', 2)->get();
+            $penyatavb[$key] = E101D::with('e101init', 'prodcat')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', 2)->get();
             // dd($penyatavb);
-            $totalvbd5 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '2')->sum('e101_d5');
-            $totalvbd6 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '2')->sum('e101_d6');
-            $totalvbd7 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '2')->sum('e101_d7');
-            $totalvbd8 = DB::table("e101_d")->where('e101_reg', $penyata->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
+            $totalvbd5 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d5');
+            $totalvbd6 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d6');
+            $totalvbd7 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d7');
+            $totalvbd8 = DB::table("e101_d")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
 
-            $penyatavii = E101E::with('e101init', 'produk')->where('e101_reg', $penyata->e101_reg)->where('e101_e3', 1)->get();
+            $penyatavii[$key] = E101E::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_e3', 1)->get();
         }
 
 
@@ -447,27 +457,27 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e102_reg) {
             $pelesens[$key] = (object)[];
-            $penyata = E102Init::find($e102_reg);
-            $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
+            $penyata[$key] = E102Init::find($e102_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e102_nl)->first();
 
-            $penyatai = E102Init::where('e102_nl', $penyata->e102_nl)->first();
+            $penyatai[$key] = E102Init::where('e102_nl', $penyata[$key]->e102_nl)->first();
 
-            $penyataii = E102Init::where('e102_nl', $penyata->e102_nl)->first();
+            $penyataii[$key] = E102Init::where('e102_nl', $penyata[$key]->e102_nl)->first();
 
-            $penyataiii = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->get();
+            $penyataiii[$key] = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyataii[$key]->e102_reg)->where('e102_b3', '51')->get();
             // dd($penyataiii);
-            $totaliii = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
+            $totaliii = DB::table("e102b")->where('e102_b2', $penyataii[$key]->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
             // dd($totaliii);
 
-            $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->get();
+            $penyataiv[$key] = E102b::with('e102init')->where('e102_b2', $penyataii[$key]->e102_reg)->where('e102_b3', '04')->get();
 
-            $totaliv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->sum('e102_b6');
+            $totaliv = DB::table("e102b")->where('e102_b2', $penyataii[$key]->e102_reg)->where('e102_b3', '04')->sum('e102_b6');
 
-            $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->get();
+            $penyatav[$key] = E102b::with('e102init')->where('e102_b2', $penyataii[$key]->e102_reg)->where('e102_b3', '33')->get();
 
-            $totalv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
+            $totalv = DB::table("e102b")->where('e102_b2', $penyataii[$key]->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
 
-            $penyatavi = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
+            $penyatavi[$key] = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii[$key]->e102_reg)->where('e102_c3', '1')->get();
         }
 
         $layout = 'layouts.main';
@@ -531,7 +541,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-oleo-multi'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Oleokimia"],
+            ['link' => route('admin.5papar-belum-oleo-multi'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.5penyatabelumhantaroleo');
@@ -544,108 +554,108 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e104_reg) {
             $pelesens[$key] = (object)[];
-            $penyata = E104Init::find($e104_reg);
-            $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
+            $penyata[$key] = E104Init::find($e104_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e104_nl)->first();
 
-            $penyataia = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata->e104_reg)->whereHas('produk', function ($query) {
+            $penyataia[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
             })->get();
 
-            $total = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
+            $total = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
 
-            $total2 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b6');
+            $total2 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b6');
 
-            $total3 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b7');
+            $total3 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b7');
 
-            $total4 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b8');
+            $total4 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b8');
 
-            $total5 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b9');
+            $total5 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b9');
 
-            $total6 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b10');
+            $total6 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b10');
 
-            $total7 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b11');
+            $total7 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b11');
 
-            $total8 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b12');
+            $total8 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b12');
 
-            $total9 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '1')->sum('e104_b13');
+            $total9 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b13');
 
             // dd($penyatai);
 
-            $penyataib = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata->e104_reg)->whereHas('produk', function ($query) {
+            $penyataib[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
             })->get();
 
-            $totalib = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b5');
+            $totalib = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b5');
 
-            $totalib2 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b6');
+            $totalib2 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b6');
 
-            $totalib3 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b7');
+            $totalib3 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b7');
 
-            $totalib4 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b8');
+            $totalib4 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b8');
 
-            $totalib5 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b9');
+            $totalib5 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b9');
 
-            $totalib6 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b10');
+            $totalib6 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b10');
 
-            $totalib7 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b11');
+            $totalib7 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b11');
 
-            $totalib8 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b12');
+            $totalib8 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b12');
 
-            $totalib9 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '2')->sum('e104_b13');
+            $totalib9 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '2')->sum('e104_b13');
 
             // dd($penyataii);
 
 
-            $penyataic = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata->e104_reg)->whereHas('produk', function ($query) {
+            $penyataic[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '08');
             })->get();
 
-            $totalic = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b5');
+            $totalic = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b5');
 
-            $totalic2 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b6');
+            $totalic2 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b6');
 
-            $totalic3 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b7');
+            $totalic3 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b7');
 
-            $totalic4 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b8');
+            $totalic4 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b8');
 
-            $totalic5 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b9');
+            $totalic5 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b9');
 
-            $totalic6 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b10');
+            $totalic6 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b10');
 
-            $totalic7 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b11');
+            $totalic7 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b11');
 
-            $totalic8 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b12');
+            $totalic8 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b12');
 
-            $totalic9 = DB::table("e104_b")->where('e104_reg',  $penyata->e104_reg)->where('e104_b3', '3')->sum('e104_b13');
+            $totalic9 = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '3')->sum('e104_b13');
 
             // dd($penyataiii);
 
 
-            $penyataii = E104Init::where('e104_nl',  $penyata->e104_nl)->first();
+            $penyataii[$key] = E104Init::where('e104_nl',  $penyata[$key]->e104_nl)->first();
             // dd($penyataiva);
 
 
-            $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg',  $penyata->e104_reg)->whereHas('produk', function ($query) {
+            $penyataiii[$key] = E104C::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat',  ['03', '06', '08']);
             })->get();
 
-            $totaliii = DB::table("e104_c")->where('e104_reg',  $penyata->e104_reg)->sum('e104_c4');
+            $totaliii = DB::table("e104_c")->where('e104_reg',  $penyata[$key]->e104_reg)->sum('e104_c4');
 
-            $totaliii2 = DB::table("e104_c")->where('e104_reg',  $penyata->e104_reg)->sum('e104_c5');
+            $totaliii2 = DB::table("e104_c")->where('e104_reg',  $penyata[$key]->e104_reg)->sum('e104_c5');
 
-            $totaliii3 = DB::table("e104_c")->where('e104_reg',  $penyata->e104_reg)->sum('e104_c6');
+            $totaliii3 = DB::table("e104_c")->where('e104_reg',  $penyata[$key]->e104_reg)->sum('e104_c6');
 
-            $totaliii4 = DB::table("e104_c")->where('e104_reg',  $penyata->e104_reg)->sum('e104_c7');
+            $totaliii4 = DB::table("e104_c")->where('e104_reg',  $penyata[$key]->e104_reg)->sum('e104_c7');
 
-            $totaliii5 = DB::table("e104_c")->where('e104_reg',  $penyata->e104_reg)->sum('e104_c8');
+            $totaliii5 = DB::table("e104_c")->where('e104_reg',  $penyata[$key]->e104_reg)->sum('e104_c8');
             // dd($penyataiii);
 
 
-            $penyataiv = E104D::with('e104init', 'produk', 'negara')->where('e104_reg',  $penyata->e104_reg)->where('e104_d3', 1)->get();
+            $penyataiv[$key] = E104D::with('e104init', 'produk', 'negara')->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', 1)->get();
 
-            $totaliv = DB::table("e104_d")->where('e104_reg',  $penyata->e104_reg)->where('e104_d3', '1')->sum('e104_d7');
+            $totaliv = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '1')->sum('e104_d7');
 
-            $totaliv2 = DB::table("e104_d")->where('e104_reg',  $penyata->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
+            $totaliv2 = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
         }
 
 
@@ -755,18 +765,18 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
         foreach ($request->papar_ya as $key => $e07_reg) {
             $pelesens[$key] = (object)[];
-            $penyata = E07Init::find($e07_reg);
-            $pelesens[$key] = Pelesen::where('e_nl', $penyata->e07_nl)->first();
+            $penyata[$key] = E07Init::find($e07_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e07_nl)->first();
 
-            $penyatai = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $penyata->e07_reg)->whereHas('produk', function ($query) {
+            $penyatai[$key] = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $penyata[$key]->e07_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '!=', '07');
             })->get();
             // dd($penyata);
-            $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_stokawal');
-            $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_terima');
-            $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_edaran');
-            $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_pelarasan');
-            $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata->e07_reg)->sum('e07bt_stokakhir');
+            $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_stokawal');
+            $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_terima');
+            $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_edaran');
+            $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_pelarasan');
+            $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $penyata[$key]->e07_reg)->sum('e07bt_stokakhir');
         }
 
         $layout = 'layouts.main';
@@ -788,8 +798,6 @@ class Proses5Controller extends Controller
             'total5'
         ));
     }
-
-
 
 
     public function admin_5penyatabelumhantarbio()

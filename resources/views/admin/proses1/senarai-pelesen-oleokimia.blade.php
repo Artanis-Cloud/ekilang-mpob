@@ -159,7 +159,7 @@
                                     <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd">
-                                                {{-- <th>Bil.</th> --}}
+                                                <th style=" vertical-align: middle">Bil.</th>
                                                 <th style=" vertical-align: middle">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
@@ -173,7 +173,7 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd">
-                                                {{-- <th>Bil.</th> --}}
+                                                <th>Bil.</th>
                                                 <th>No. Lesen</th>
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
@@ -190,7 +190,7 @@
                                             @if ($data->pelesen)
 
                                                 <tr class="text-left">
-                                                    {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                    <td>{{ $loop->iteration }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                 {{ $data->e_nl }}</u></a>
@@ -222,7 +222,6 @@
                                                         <td style="text-align: center">-</td>
                                                     @endif
 
-                                                    {{-- <td>-</td> --}}
                                                 </tr>
                                                 @endif
                                             @endforeach

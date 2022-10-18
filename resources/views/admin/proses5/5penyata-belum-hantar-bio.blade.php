@@ -157,7 +157,7 @@
                                                     @endif
 
                                                 </div>
-{{--
+                                                    {{--
                                                         {{--
                                                 <button style="font-size:14px; background-color:#265960;color: white; border: 0px; float: right; border-radius: 2px; padding:7px 35px;"
                                                 onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Biodiesel.csv')">Excel <i class="fa fa-file-excel" style="color: #fff"></i></button> --}}
@@ -172,7 +172,9 @@
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil</th> --}}
-                                                            <th style="width: 7%">Papar?</th>
+                                                            <th style="width:7%; vertical-align: middle">Papar?
+                                                                <input name="select-all" id="select-all" type="checkbox" required
+                                                                value=""></th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             {{-- <th>Kod Pegawai</th> --}}
@@ -197,7 +199,7 @@
                                                          @foreach ($users as $data)
                                                             <tr>
                                                                 <td class="text-center">
-                                                                    <input name="papar_ya[]" type="checkbox" required
+                                                                    <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
                                                                         value="{{ $data->ebio_reg }}">&nbspYa
                                                                 </td>
 
@@ -221,9 +223,6 @@
                                                 </div>
                                                 <div class="text-left col-md-8">
                                                     <button type="submit" class="btn btn-primary ">Papar</button>
-
-
-
                                                 </div>
                                             </div>
                                         </form>
@@ -316,24 +315,24 @@
         downloadCSV(csv.join("\n"), filename);
         }
     </script>
-      <script>
+    <script>
         $(function(){
 
-    var requiredCheckboxes = $(':checkbox[required]');
+        var requiredCheckboxes = $(':checkbox[required]');
 
-    requiredCheckboxes.change(function(){
+        requiredCheckboxes.change(function(){
 
-        if(requiredCheckboxes.is(':checked')) {
-            requiredCheckboxes.removeAttr('required');
-        }
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            }
 
-        else {
-            requiredCheckboxes.attr('required', 'required');
-        }
-    });
+            else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
 
-    });
-</script>
+        });
+    </script>
 
 <script>
     $(document).ready(function () {
@@ -414,4 +413,40 @@
         });
     });
 </script>
+
+<script>
+    $(function(){
+
+    var requiredCheckboxes = $(':checkbox[required]');
+
+    requiredCheckboxes.change(function(){
+
+        if(requiredCheckboxes.is(':checked')) {
+            requiredCheckboxes.removeAttr('required');
+        }
+
+        else {
+            requiredCheckboxes.attr('required', 'required');
+        }
+    });
+
+    });
+</script>
+
+<script>
+    // Listen for click on toggle checkbox
+    $('#select-all').click(function(event) {
+        if(this.checked) {
+            // Iterate each checkbox
+            $(':checkbox').each(function() {
+                this.checked = true;
+            });
+        } else {
+            $(':checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+</script>
+
 @endsection

@@ -94,8 +94,7 @@
 
                             <section class="section">
                                 <div class="card">
-                                    {{-- <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
-                                        @csrf --}}
+
                                         <div class=" dropdown">
                                             <button class="btn btn-secondary dropdown-toggle"
                                                 style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
@@ -165,58 +164,71 @@
                                             onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Buah.csv')">Excel <i class="fa fa-file-excel" style="color: white"></i></button> --}}
 
                                         </div><br>
-                                        <div class="table-responsive">
-                                            {{-- <div id="tblData"> --}}
-                                                <table id="example" class="table table-bordered"
-                                                    style="width: 100%;">
-                                                    <thead>
-                                                        <tr style="background-color: #e9ecefbd">
-                                                            {{-- <th>Pilih?</th> --}}
-                                                            {{-- <th>Bil.</th> --}}
-                                                            <th style=" vertical-align: middle">No. Lesen<br></th>
-                                                            <th style=" vertical-align: middle">Nama Premis</th>
-                                                            <th style=" vertical-align: middle">Kod Pegawai</th>
-                                                            <th style=" vertical-align: middle">Emel Pegawai</th>
-                                                            <th style=" vertical-align: middle">No. Telefon Kilang</th>
-                                                            <th style=" vertical-align: middle">No. Siri</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr style="background-color: #e9ecefbd">
-                                                            {{-- <th>Pilih?</th> --}}
-                                                            {{-- <th>Bil.</th> --}}
-                                                            <th>No. Lesen<br></th>
-                                                            <th>Nama Premis</th>
-                                                            <th>Kod Pegawai</th>
-                                                            <th>Emel Pegawai</th>
-                                                            <th>No. Telefon Kilang</th>
-                                                            <th>No. Siri</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody style="word-break: break-word; font-size:12px">
-                                                        @foreach ($users as $data)
-                                                            <tr>
-                                                                {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                                <td>{{ $data->e_nl ?? '-' }}</td>
-                                                                <td>{{ $data->e_np ?? '-' }}</td>
-                                                                <td>{{ $data->kodpgw }}</td>
-
-                                                                <td>{{ $data->e_email ?? '-' }}</td>
-                                                                <td>{{ $data->e_notel ?? '-' }}</td>
-                                                                <td>{{ $data->nosiri }}</td>
+                                        <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
+                                            @csrf
+                                            <div class="table-responsive" id="example2">
+                                                {{-- <div id="tblData"> --}}
+                                                    <table id="example10" class="table table-bordered"
+                                                        style="width: 100%;">
+                                                        <thead>
+                                                            <tr style="background-color: #e9ecefbd">
+                                                                {{-- <th>Pilih?</th> --}}
+                                                                <th style="width:7%; vertical-align: middle">Papar?
+                                                                    <input name="select-all" id="select-all" type="checkbox" required
+                                                                    value=""></th>
+                                                                <th style=" vertical-align: middle">No. Lesen<br></th>
+                                                                <th style=" vertical-align: middle">Nama Premis</th>
+                                                                <th style=" vertical-align: middle">Kod Pegawai</th>
+                                                                <th style=" vertical-align: middle">No. Siri</th>
+                                                                <th style=" vertical-align: middle">Emel Pegawai</th>
+                                                                <th style=" vertical-align: middle">No. Telefon Kilang</th>
                                                             </tr>
-                                                        @endforeach
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr style="background-color: #e9ecefbd">
+                                                                {{-- <th>Pilih?</th> --}}
+                                                                <th style="width: 7%">Papar?</th>
+                                                                <th>No. Lesen<br></th>
+                                                                <th>Nama Premis</th>
+                                                                <th>Kod Pegawai</th>
+                                                                <th>No. Siri</th>
+                                                                <th>Emel Pegawai</th>
+                                                                <th>No. Telefon Kilang</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                        <tbody style="word-break: break-word; font-size:12px">
+                                                            @foreach ($users as $data)
+                                                                <tr>
+                                                                    <td class="text-center">
+                                                                        <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                                            value="{{ $data->e91_reg }}">&nbspYa
+                                                                    </td>
+                                                                    <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                    <td>{{ $data->e_np ?? '-' }}</td>
+                                                                    <td>{{ $data->kodpgw }}</td>
+                                                                    <td>{{ $data->nosiri }}</td>
 
-                                                    </tbody>
+                                                                    <td>{{ $data->e_email ?? '-' }}</td>
+                                                                    <td>{{ $data->e_notel ?? '-' }}</td>
+                                                                </tr>
+                                                            @endforeach
 
-                                                </table>
-                                            {{-- </div> --}}
-                                            {{-- <div class="text-left col-md-8">
-                                                <button class="btn btn-primary"
-                                                    onclick="exportTableToExcel('example')">Excel</button>
-                                            </div> --}}
-                                        </div>
-                                    {{-- </form> --}}
+                                                        </tbody>
+
+                                                    </table>
+                                                    <div class="text-left col-md-8">
+                                                        <button type="submit" class="btn btn-primary ">Papar</button>
+
+
+
+                                                    </div>
+                                                {{-- </div> --}}
+                                                {{-- <div class="text-left col-md-8">
+                                                    <button class="btn btn-primary"
+                                                        onclick="exportTableToExcel('example')">Excel</button>
+                                                </div> --}}
+                                            </div>
+                                        </form>
                                 </div>
                             </section>
                         </div>
@@ -233,6 +245,8 @@
 @endsection
 
 @section('scripts')
+
+
 
     <script>
         function openInit(evt, cityName) {
@@ -286,4 +300,121 @@
         downloadCSV(csv.join("\n"), filename);
         }
     </script>
+
+
+    <script>
+        $(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#example2 tfoot th').each(function () {
+            var title = $(this).text();
+            console.log(title);
+            $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+        });
+
+        // DataTable
+        var table = $('#example10').DataTable({
+
+            initComplete: function () {
+
+            // Apply the search
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+            },
+            dom: 'Bfrtip',
+
+
+                buttons: [
+
+                    'pageLength',
+                    {
+
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred"
+                    },
+                    {
+                            extend: 'pdfHtml5',
+                            text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+
+                            className: "prodpdf",
+                            title: function(doc) {
+                                    return $('#dt-title').text()
+                                    },
+                            customize: function (doc) {
+                                let table = doc.content[1].table.body;
+                                for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                                {
+                                    var test = table[i][0];
+                                }
+
+                            },
+                            customize: function(doc) {
+                            doc.content[1].table.body[0].forEach(function(h) {
+                                h.fillColor = '#0a7569';
+                            });
+                            }
+                        },
+                ],
+                "language": {
+                                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                                "zeroRecords": "Maaf, tiada rekod.",
+                                "info": "",
+                                "infoEmpty": "Tidak ada rekod yang tersedia",
+                                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                                "search": "Carian",
+                                "previous": "Sebelum",
+                                "paginate": {
+                                    "first": "Pertama",
+                                    "last": "Terakhir",
+                                    "next": "Seterusnya",
+                                    "previous": "Sebelumnya"
+                                },
+                            },
+                        order:[[3, 'asc'], [4, 'asc']]
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+
+        var requiredCheckboxes = $(':checkbox[required]');
+
+        requiredCheckboxes.change(function(){
+
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            }
+
+            else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+
+        });
+    </script>
+
+<script>
+    // Listen for click on toggle checkbox
+    $('#select-all').click(function(event) {
+        if(this.checked) {
+            // Iterate each checkbox
+            $(':checkbox').each(function() {
+                this.checked = true;
+            });
+        } else {
+            $(':checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+</script>
+
 @endsection

@@ -1234,9 +1234,11 @@ class Proses1Controller extends Controller
                 } else {
 
                     // dd($pelesen);
-                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'ASC')->get();
-                    // dd($users);
+                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'asc')
+                    ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+                    // dd($users[10]);
                     // $pelesen = Pelesen::get();
+
 
                     $breadcrumbs    = [
                         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1256,7 +1258,8 @@ class Proses1Controller extends Controller
             }
         } else {
             # code...// dd($pelesen);
-            $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->get();
+            $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'asc')
+            ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
             // dd($users);
             // $pelesen = Pelesen::get();
 
@@ -1285,7 +1288,8 @@ class Proses1Controller extends Controller
     public function admin_senaraipelesenpenapis()
     {
 
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->orderBy('e_status', 'asc')
+        ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
         // dd($users);
 
         $breadcrumbs    = [
@@ -1308,7 +1312,8 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenisirung()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL102')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL102')->orderBy('e_status', 'asc')
+        ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1330,7 +1335,8 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenoleokimia()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->orderBy('e_status', 'asc')
+        ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1352,7 +1358,8 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesensimpanan()
     {
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->get();
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->orderBy('e_status', 'asc')
+        ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

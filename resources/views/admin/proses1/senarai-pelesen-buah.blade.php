@@ -161,7 +161,7 @@
                                     <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd;  word-wrap:normal">
-                                                {{-- <th class="no-sort">Bil.</th> --}}
+                                                <th style=" vertical-align: middle;" class="no-sort">Bil.</th>
                                                 <th style=" vertical-align: middle; width:80px">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
@@ -176,7 +176,7 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd;">
-                                                {{-- <th>Bil.</th> --}}
+                                                <th>Bil.</th>
                                                 <th>No. Lesen</th>
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
@@ -190,10 +190,11 @@
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
+
                                             @foreach ($users as $data)
                                                 @if ($data->pelesen)
                                                     <tr class="text-left">
-                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                        <td>{{ $loop->iteration }}</td>
 
                                                         <td>
                                                             <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
@@ -293,6 +294,18 @@
         downloadCSV(csv.join("\n"), filename);
         }
     </script> --}}
+{{-- <script>
+    var table = document.getElementsByTagName('table')[0],
+    rows = table.getElementsByTagName('tr'),
+    text = 'textContent' in document ? 'textContent' : 'innerText';
+
+  for (var i = 0, len = rows.length; i < len; i++) {
+    rows[i].children[0][text] = i + ': ' + rows[i].children[0][text];
+  }
+</script> --}}
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.1/xlsx.full.min.js"></script>
     <script>
