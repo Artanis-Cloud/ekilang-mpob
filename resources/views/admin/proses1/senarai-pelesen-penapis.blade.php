@@ -55,7 +55,7 @@
                         {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
-                        <div class=" text-center">
+                        <div class=" text-center" id="title">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar
                             </h3>
@@ -221,7 +221,7 @@
                                                     @endif
 
                                                 </tr>
-                                                @endif
+                                            @endif
                                             @endforeach
 
                                         </tbody>

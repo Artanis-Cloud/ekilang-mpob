@@ -72,7 +72,7 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-12 text-center">
+                                    <div class="col-md-12 text-center" id="title">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Oleokimia - MPOB(EL) CM 4</h3>
 

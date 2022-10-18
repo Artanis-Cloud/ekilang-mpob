@@ -69,7 +69,7 @@
                         </div>
                             <div class="pl-3">
                                 <div class="row">
-                                    <div class="col-md-12 text-center">
+                                    <div class="col-md-12 text-center"  id="dt-title">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
 
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Isirung -
@@ -77,14 +77,15 @@
                                         <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
                                             Dihantar Sehingga Tarikh
                                             <p><span id="datetime"></span></p>
-                                            <script>
-                                                var dt = new Date();
-                                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
-                                                    1)).slice(-2)) + "/" + (dt.getFullYear());
-                                            </script>
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
+
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                            1)).slice(-2)) + "/" + (dt.getFullYear());
+                                    </script>
 
                                 </div>
 
@@ -165,9 +166,9 @@
 
                                         <form action="{{ route('admin.5papar.belum.isirung.form') }}" method="post">
                                             @csrf
-                                            <div class="table-responsive">
+                                            <div class="table-responsive" id="example2">
                                                 <div id="tblData">
-                                                    <table id="example" class="table table-bordered"
+                                                    <table id="example10" class="table table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">
@@ -311,6 +312,91 @@
         //call the function to download the CSV file
         downloadCSV(csv.join("\n"), filename);
         }
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#example2 tfoot th').each(function () {
+            var title = $(this).text();
+            console.log(title);
+            $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+        });
+
+        // DataTable
+        var table = $('#example10').DataTable({
+
+            initComplete: function () {
+
+            // Apply the search
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+                    $('input', this.footer()).on('keyup change clear', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+            },
+            dom: 'Bfrtip',
+
+
+                buttons: [
+
+                    'pageLength',
+                    {
+
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred"
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
+                        title: function(doc) {
+                                return $('#title').text()
+                                },
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+
+                    },
+                ],
+                "language": {
+                                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                                "zeroRecords": "Maaf, tiada rekod.",
+                                "info": "",
+                                "infoEmpty": "Tidak ada rekod yang tersedia",
+                                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                                "search": "Carian",
+                                "previous": "Sebelum",
+                                "paginate": {
+                                    "first": "Pertama",
+                                    "last": "Terakhir",
+                                    "next": "Seterusnya",
+                                    "previous": "Sebelumnya"
+                                },
+                            },
+                        order:[[3, 'asc'], [4, 'asc']]
+            });
+        });
     </script>
 
     <script>
