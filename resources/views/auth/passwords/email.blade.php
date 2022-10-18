@@ -159,7 +159,7 @@
                             </div>
 
                             <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror"
-                                name="lesen" placeholder="Sila Masukkan Alamat Emel">
+                                name="admin" placeholder="Sila Masukkan Alamat Emel">
 
                             @error('email')
                                 <div class="col-12 alert alert-danger">

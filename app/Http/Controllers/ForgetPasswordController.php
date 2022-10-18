@@ -20,21 +20,25 @@ class ForgetPasswordController extends Controller
 
     public function forgetPasswordSubmit(Request $request){
         // dd($request->all());
-        // $kat = $request->kat;
+        $kat = $request->kat;
 
-        // if ($kat == 'pelesen') {
-            // $user = User::where('username', $request->lesen)->first();
+        if ($kat == 'pelesen') {
+            $user = User::where('username', $request->lesen)->first();
             $custom_pass = Str::random(8);
 
             $user = User::where('username', $request->lesen)->first();
             $user->password = Hash::make($custom_pass);
             $user->save();
 
-        // } else {
-        //     $user = User::where('username', $request->admin)->first();
+        } else {
+            $user = User::where('username', $request->admin)->first();
+            $custom_pass = Str::random(8);
 
-        // }
-        // dd($user);
+            $user = User::where('username', $request->admin)->first();
+            $user->password = Hash::make($custom_pass);
+            $user->save();
+
+        }
         if (!$user) {
             return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
         }
