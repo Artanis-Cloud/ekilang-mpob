@@ -692,27 +692,28 @@ class KilangIsirungController extends Controller
         $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
 
         if ($semak_duplicate) {
-            // if ($semak_duplicate->e102_b6 == $request->e102_b6) {
+            if ($semak_duplicate->e102_b6 == $request->e102_b6) {
                 return redirect()->route('isirung.bahagianiv')
                     ->with('error', 'Maklumat Telah Tersedia');
-            // }
+            }
+
         }
+        // else {
+                $e102_b6 = $request->e102_b6;
+                $b6 = str_replace(',', '', $e102_b6);
 
-        $e102_b6 = $request->e102_b6;
-        $b6 = str_replace(',', '', $e102_b6);
+                // dd($request->all());
+                $penyata = E102B::findOrFail($id);
+                $penyata->e102_b4 = $request->e102_b4;
+                $penyata->e102_b5 = $request->e102_b5;
+                $penyata->e102_b6 = $b6;
 
-
-
-        // dd($request->all());
-        $penyata = E102B::findOrFail($id);
-        $penyata->e102_b4 = $request->e102_b4;
-        $penyata->e102_b5 = $request->e102_b5;
-        $penyata->e102_b6 = $b6;
-
-        $penyata->save();
+                $penyata->save();
+                    // }
 
         return redirect()->route('isirung.bahagianiv')
             ->with('success', 'Maklumat telah disimpan');
+
     }
 
 
