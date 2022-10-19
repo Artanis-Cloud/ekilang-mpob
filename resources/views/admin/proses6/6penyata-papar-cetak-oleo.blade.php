@@ -70,17 +70,22 @@
                         </div>
                             <div class="pl-3">
 
-                                <div class="row">
+                                <div class=" text-center">
+                                    <div id="title">
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Oleokimia - MPOB(EL) CM 4<br> </h3>
+                                        <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
 
-                                    <div class="col-md-12 text-center" id="title">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Oleokimia - MPOB(EL) CM 4</h3>
-
-                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata untuk
-                                            Paparan dan Cetakan</h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
+                                    <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+
+                                        var dt = new Date();
+                                        document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+                                    </script>
+                                    {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
 
