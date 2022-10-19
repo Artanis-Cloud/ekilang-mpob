@@ -228,7 +228,7 @@
                                 <input type="text" id="e_notel_pg" maxlength=40 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     {{-- onkeypress="return isNumberKey(event)" --}}
-                                    oninput="invokeFunc12();setCustomValidity(''); valid_notelpg(); phonenumber()"
+                                    oninput="invokeFunc12();setCustomValidity(''); valid_notelpg();" onkeypress="return isNumberKey(event)"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                     value="{{ $pelesen->e_notel_pg ?? '' }}" required>
                                 <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi
@@ -399,7 +399,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); FormatCurrency(this); valid_proses(); "
                                     onkeypress="return isNumberKey(event)"
-                                    value=" {{ $pelesen->kap_proses }}" required>
+                                    value=" {{ number_format($pelesen->kap_proses ?? 0,2) }}" required>
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
 
@@ -429,7 +429,7 @@
                                     oninput="invokeFunc19(); ableInput(); FormatCurrency(this); valid_cpo()" id="bil_tangki_cpo" required
                                     title="Sila isikan butiran ini." min="1"
                                     {{-- oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')" --}}
-                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
+                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->bil_tangki_cpo ?? 0,2) }}"
                                     required>
                                 <p type="hidden" id="err_bcpo" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
@@ -452,7 +452,7 @@
                                     oninput=" setCustomValidity(''); valid_cpo(); FormatCurrency(this) " id="kap_tangki_cpo"
                                     title="Sila isikan butiran ini." min="0"
                                     oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
-                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_tangki_cpo ,2) }}"
+                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_tangki_cpo ?? 0,2) }}"
                                     required>
                                 <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
@@ -476,7 +476,7 @@
 
 
                     <div class="row form-group justify-content-center" style="margin-top: 2%">
-                        <button type="button" class="btn btn-primary" onclick="check(); phonenumber()">Simpan</button>
+                        <button type="button" class="btn btn-primary" onclick="check()">Simpan</button>
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
@@ -583,6 +583,11 @@
         <script>
             $('.sub-form').submit(function() {
 
+                var x = $('#kap_proses').val();
+                x = x.replace(/,/g, '');
+                x = parseFloat(x, 10);
+                $('#kap_proses').val(x);
+
                 var x = $('#bil_tangki_cpo').val();
                 x = x.replace(/,/g, '');
                 x = parseFloat(x, 10);
@@ -599,7 +604,7 @@
 
             });
         </script>
-        <script>
+        {{-- <script>
 
             function phoneNumber(input){
                 var value = input.val();
@@ -625,7 +630,7 @@
                 phoneNumber($(this));
             });
 
-            </script>
+            </script> --}}
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".floatNumberField").change(function() {
