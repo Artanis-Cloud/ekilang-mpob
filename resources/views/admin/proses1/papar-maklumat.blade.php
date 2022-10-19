@@ -132,17 +132,44 @@
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
                                             <select class="form-control" name="kodpgw" id="kodpgw" required>
+                                                @if ($reg_pelesen->e_kat == 'PL101')
+                                                    <option {{ ($pelesen->kodpgw == 'FA') ? 'selected' : '' }} value="FA">FA</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FB') ? 'selected' : '' }} value="FB">FB</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FC') ? 'selected' : '' }} value="FC">FC</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FD') ? 'selected' : '' }} value="FD">FD</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FJ') ? 'selected' : '' }} value="FJ">FJ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FP') ? 'selected' : '' }} value="FP">FP</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FQ') ? 'selected' : '' }} value="FQ">FQ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FS') ? 'selected' : '' }} value="FS">FS</option>
 
-                                                <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
-                                                <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
-                                                <option {{ ($pelesen->kodpgw == 'KK') ? 'selected' : '' }} value="KK">KK</option>
-                                                <option {{ ($pelesen->kodpgw == 'MM') ? 'selected' : '' }} value="MM">MM</option>
-                                                <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
-                                                <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
-                                                <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
-                                                <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
-                                                <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
-                                                <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
+                                                @elseif ($reg_pelesen->e_kat == 'PL104')
+                                                    <option {{ ($pelesen->kodpgw == 'CA') ? 'selected' : '' }} value="CA">CA</option>
+                                                    <option {{ ($pelesen->kodpgw == 'CC') ? 'selected' : '' }} value="CC">CC</option>
+                                                    <option {{ ($pelesen->kodpgw == 'CJ') ? 'selected' : '' }} value="CJ">CJ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'CP') ? 'selected' : '' }} value="CP">CP</option>
+                                                    <option {{ ($pelesen->kodpgw == 'CS') ? 'selected' : '' }} value="CS">CS</option>
+
+                                                @elseif ($reg_pelesen->e_kat == 'PL111')
+                                                    <option {{ ($pelesen->kodpgw == 'BB') ? 'selected' : '' }} value="BB">BB</option>
+                                                    <option {{ ($pelesen->kodpgw == 'BC') ? 'selected' : '' }} value="BC">BC</option>
+                                                    <option {{ ($pelesen->kodpgw == 'BJ') ? 'selected' : '' }} value="BJ">BJ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'BP') ? 'selected' : '' }} value="BP">BP</option>
+                                                    <option {{ ($pelesen->kodpgw == 'BQ') ? 'selected' : '' }} value="BQ">BQ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'BS') ? 'selected' : '' }} value="BS">BS</option>
+
+                                                @else
+                                                    <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
+                                                    <option {{ ($pelesen->kodpgw == 'KK') ? 'selected' : '' }} value="KK">KK</option>
+                                                    <option {{ ($pelesen->kodpgw == 'MM') ? 'selected' : '' }} value="MM">MM</option>
+                                                    <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
+                                                    <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
+                                                    <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
+                                                    <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
+                                                    <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
+                                                    <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
+
+                                                @endif
 
                                             </select>
                                         </fieldset>
