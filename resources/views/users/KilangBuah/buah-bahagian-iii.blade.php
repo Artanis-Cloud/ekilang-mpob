@@ -137,7 +137,7 @@
                                                             name='e91_ai1' size="15" style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onkeypress="return isNumberKey(event);"
+                                                            onkeypress="return isNumberKey(event);" onClick="this.select();"
                                                             onchange=" autodecimal(this); validation_jumlah();FormatCurrency(this)" required
                                                             value="{{ old('e91_ai1') ?? (number_format($penyata->e91_ai1 ?? 0,2)) }}">
                                                         @error('e91_ai1')
@@ -156,7 +156,7 @@
                                                             name='e91_ai2' size="15" style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            onkeypress="return isNumberKey(event)" onClick="this.select();"
                                                             onchange="validation_jumlah();  autodecimal(this);FormatCurrency(this)" required
                                                             value="{{ old('e91_ai2') ?? (number_format($penyata->e91_ai2 ?? 0,2)) }}">
                                                         @error('e91_ai2')
@@ -175,7 +175,7 @@
                                                             name='e91_ai3' size="15" style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai3') ?? (number_format($penyata->e91_ai3 ?? 0,2)) }}"
                                                             onchange="validation_jumlah();  autodecimal(this);FormatCurrency(this)">
                                                         @error('e91_ai3')
@@ -194,7 +194,7 @@
                                                             name='e91_ai4' size="15" style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai4') ?? (number_format($penyata->e91_ai4 ?? 0,2)) }}"
                                                             onchange="validation_jumlah();  autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_ai4')
@@ -213,7 +213,7 @@
                                                             id='e91_ai5' size="15" id="text1" style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai5') ?? (number_format($penyata->e91_ai5 ?? 0,2)) }}"
                                                             onchange="validation_jumlah();  autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_ai5')
@@ -232,7 +232,7 @@
                                                             id='e91_ai6' size="15" id="text2" style="text-align: center"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_ai6') ?? (number_format($penyata->e91_ai6 ?? 0,2)) }}"
                                                             onchange="validation_jumlah();  autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_ai6')
