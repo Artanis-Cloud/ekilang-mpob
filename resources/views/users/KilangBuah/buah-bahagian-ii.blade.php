@@ -150,7 +150,7 @@
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
                                         oninput=" validate_two_decimal(this);setCustomValidity(''); invokeFunc();" maxlength="7" onchange="autodecimal(this);FormatCurrency(this)"
-                                        style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required
+                                        style="  text-align:right; width:96%" onkeypress="return isNumberKey(event)" id="e91_ah1" required  onClick="this.select();"
                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e91_ah1 ?? 0,2) }}">
                                 </div>
                                 <div class="col-md-3 mt-3">
@@ -198,7 +198,7 @@
                                     <input type="text" class="form-control text-currency" name='e91_ah4' onchange="ah4();FormatCurrency(this)"
                                         oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                         style="  text-align:right; margin-left:-3%; width:99%" onkeypress="return isNumberKey(event)" maxlength="5"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"  onClick="this.select();"
                                         required title="Sila isikan butiran ini."
                                         value=" {{number_format($penyata->e91_ah4 ?? 0,2) }}">
                                         <p style="text-align: right"><i>(1% Kadar Perahan)</i></p>
