@@ -2290,15 +2290,33 @@
                 },
                 dom: 'Bfrtip',
 
-
                 buttons: [
 
                     'pageLength',
+
                     {
 
                         extend: 'excel',
                         text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
-                        className: "fred"
+                        className: "fred",
+
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'Penyata Bulan',
+
+                        messageTop: function(doc) {
+                            return $('#tarikh').text()
+                        },
+
                     },
                     {
                         extend: 'pdfHtml5',
@@ -2306,16 +2324,11 @@
                         pageSize: 'TABLOID',
                         className: "prodpdf",
 
-                        responsive: true,
-                        autoWidth: true,
-                        pagingType: "full",
-
-
                         exportOptions: {
-                            columns: [1,2,3,4,5,6,7,8,9]
+                            columns: [1,2,3,4,5,6,7]
                         },
                         title: function(doc) {
-                                return $('#title').text()
+                                return $('#title').text() + $ ('#tarikh').text()
                                 },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
@@ -2332,30 +2345,29 @@
                         });
                         },
 
+                        filename: 'Penyata Bulan',
 
                     },
                 ],
                 "language": {
-                        "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                        "zeroRecords": "Maaf, tiada rekod.",
-                        "info": "",
-                        "infoEmpty": "Tidak ada rekod yang tersedia",
-                        "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                        "search": "Carian",
-                        "previous": "Sebelum",
-                        "paginate": {
-                            "first": "Pertama",
-                            "last": "Terakhir",
-                            "next": "Seterusnya",
-                            "previous": "Sebelumnya"
-                        },
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
                     },
-
+                },
 
             });
 
         });
-
 
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">

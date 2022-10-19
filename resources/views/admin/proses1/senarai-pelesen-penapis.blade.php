@@ -55,11 +55,21 @@
                         {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
-                        <div class=" text-center" id="title">
-                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar
-                            </h3>
-                            <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Penapis</b></h4>
+                        <div class=" text-center">
+                            <div id="title">
+                                <h3 style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
+                                <h5 style="color: rgb(39, 80, 71); ">KILANG PENAPIS</h5>
+
+                            </div>
+                            <p id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
+
+                            <script>
+                                var dt = new Date();
+                                document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+
+                                var dt = new Date();
+                                document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+                            </script>
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
@@ -154,11 +164,11 @@
 
                                 <br>
                                 <div class="table-responsive">
-                                    <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                    <table id="example101" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd">
                                                 <th style=" vertical-align: middle">Bil.</th>
-                                                <th style=" vertical-align: middle">No. Lesen</th>
+                                                <th style=" vertical-align: middle; width: 10%">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
                                                 <th style=" vertical-align: middle">No. Telefon</th>
@@ -266,4 +276,85 @@
       saveAs(new Blob([s2ab(wbout)], {type:"application/octet-stream"}), 'Senarai Pelesen Berdaftar Kilang Penapis.xlsx');
     })
   </script>
+
+
+    <script>
+
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#example101 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example101').DataTable({
+
+                initComplete: function () {
+
+                    // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                },
+                dom: 'Bfrtip',
+
+                buttons: [
+
+                    'pageLength',
+                    {
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred",
+
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'Senarai Pelesen Kilang Penapis',
+
+                        messageTop: function(doc) {
+                            return $('#tarikh').text()
+                        },
+                    },
+
+                ],
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
+
+
+            });
+
+        });
+
+
+    </script>
+
 @endsection

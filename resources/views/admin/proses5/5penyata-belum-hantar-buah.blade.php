@@ -70,24 +70,22 @@
                         </div>
                         <div class="pl-3">
 
+                            <div class=" text-center">
+                                <div id="title">
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4 <br> </h3>
+                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Belum Dihantar Sehingga Tarikh</h5>
 
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah
-                                        - MPOB(EL) MF 4</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
-                                        Dihantar Sehingga Tarikh
-                                        <p><span id="datetime"></span></p>
-                                        <script>
-                                            var dt = new Date();
-                                            document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
-                                                1)).slice(-2)) + "/" + (dt.getFullYear());
-                                        </script>
-                                    </h5>
                                 </div>
+                                <p id="tarikh"><span id="datetime"></span></p>
 
+                                <script>
+                                    var dt = new Date();
+                                    document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                        1)).slice(-2)) + "/" + (dt.getFullYear());
+                                </script>
+                                {{-- <p>Maklumat Kilang</p> --}}
                             </div>
+
 
                             <hr>
 
@@ -166,9 +164,9 @@
                                         </div><br>
                                         <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
                                             @csrf
-                                            <div class="table-responsive" id="example2">
+                                            <div class="table-responsive">
                                                 {{-- <div id="tblData"> --}}
-                                                    <table id="example10" class="table table-bordered"
+                                                    <table id="example91" class="table table-bordered"
                                                         style="width: 100%;">
                                                         <thead>
                                                             <tr style="background-color: #e9ecefbd">
@@ -303,84 +301,117 @@
 
 
     <script>
+
         $(document).ready(function () {
         // Setup - add a text input to each footer cell
-        $('#example2 tfoot th').each(function () {
+        $('#example91 tfoot th').each(function () {
             var title = $(this).text();
-            console.log(title);
             $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
         });
 
         // DataTable
-        var table = $('#example10').DataTable({
+            var table = $('#example91').DataTable({
 
-            initComplete: function () {
+                initComplete: function () {
 
-            // Apply the search
-            this.api()
-                .columns()
-                .every(function () {
-                    var that = this;
-                    $('input', this.footer()).on('keyup change clear', function () {
-                        if (that.search() !== this.value) {
-                            that.search(this.value).draw();
-                        }
-                    });
-                });
-            },
-            dom: 'Bfrtip',
-
+                    // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                },
+                dom: 'Bfrtip',
 
                 buttons: [
 
                     'pageLength',
+
                     {
 
                         extend: 'excel',
                         text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
-                        className: "fred"
+                        className: "fred",
+
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'Penyata Bulan',
+
+                        messageTop: function(doc) {
+                            return $('#tarikh').text()
+                        },
+
                     },
                     {
-                            extend: 'pdfHtml5',
-                            text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
 
-                            className: "prodpdf",
-                            title: function(doc) {
-                                    return $('#dt-title').text()
-                                    },
-                            customize: function (doc) {
-                                let table = doc.content[1].table.body;
-                                for (i = 1; i < table.length; i++) // skip table header row (i = 0)
-                                {
-                                    var test = table[i][0];
-                                }
-
-                            },
-                            customize: function(doc) {
-                            doc.content[1].table.body[0].forEach(function(h) {
-                                h.fillColor = '#0a7569';
-                            });
-                            }
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6]
                         },
-                ],
-                "language": {
-                                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                                "zeroRecords": "Maaf, tiada rekod.",
-                                "info": "",
-                                "infoEmpty": "Tidak ada rekod yang tersedia",
-                                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                                "search": "Carian",
-                                "previous": "Sebelum",
-                                "paginate": {
-                                    "first": "Pertama",
-                                    "last": "Terakhir",
-                                    "next": "Seterusnya",
-                                    "previous": "Sebelumnya"
+                        title: function(doc) {
+                                return $('#title').text() + $ ('#tarikh').text()
                                 },
-                            },
-                        order:[[3, 'asc'], [4, 'asc']]
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+                        filename: 'Penyata Belum Hantar Kilang Buah',
+
+                    },
+                ],
+
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+
+                },
+
+                order:[[3, 'asc'], [4, 'asc']]
+
+
             });
+
         });
+
     </script>
     <script>
         $(function(){
@@ -400,7 +431,6 @@
 
         });
     </script>
-
 <script>
     // Listen for click on toggle checkbox
     $('#select-all').click(function(event) {

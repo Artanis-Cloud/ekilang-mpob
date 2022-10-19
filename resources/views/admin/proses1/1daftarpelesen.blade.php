@@ -79,7 +79,7 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group" style="margin-bottom: 20px">
                                                 <select class="form-control" name="e_kat" id="e_kat" required
-                                                    onchange="poma(); showDetail()"
+                                                    onchange="poma(); showDetail(); showDetailkodpgw()"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kat()">
                                                     <option selected hidden disabled value="">Sila Pilih Kilang</option>
@@ -187,7 +187,59 @@
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label class="control-label col-form-label required">Kod Negeri </label>
                                             </div>
-                                            <div class="col-md-6" style="margin-bottom: 20px">
+                                            <div id="101_container" class="col-md-6" style="margin-bottom: 20px">
+                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity(''); valid_kodpgw()">
+                                                    <option value="">Sila Pilih</option>
+                                                    <option value="FA">FA</option>
+                                                    <option value="FB">FB</option>
+                                                    <option value="FC">FC</option>
+                                                    <option value="FD">FD</option>
+                                                    <option value="FJ">FJ</option>
+                                                    <option value="FP">FP</option>
+                                                    <option value="FQ">FQ</option>
+                                                    <option value="FS">FS</option>
+
+                                                </select>
+                                                <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di
+                                                        bahagian ini!</i></p>
+                                            </div>
+                                            <div id="104_container" class="col-md-6" style="margin-bottom: 20px">
+                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity(''); valid_kodpgw()">
+                                                    <option value="">Sila Pilih</option>
+                                                    <option value="CA">CA</option>
+                                                    <option value="CC">CC</option>
+                                                    <option value="CJ">CJ</option>
+                                                    <option value="CP">CP</option>
+                                                    <option value="CS">CS</option>
+
+                                                </select>
+                                                <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di
+                                                        bahagian ini!</i></p>
+                                            </div>
+                                            <div id="07_container" class="col-md-6" style="margin-bottom: 20px">
+                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity(''); valid_kodpgw()">
+                                                    <option value="">Sila Pilih</option>
+                                                    <option value="BB">BB</option>
+                                                    <option value="BC">BC</option>
+                                                    <option value="BJ">BJ</option>
+                                                    <option value="BP">BP</option>
+                                                    <option value="BQ">BQ</option>
+                                                    <option value="BS">BS</option>
+
+                                                </select>
+                                                <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
+                                                        pilihan di
+                                                        bahagian ini!</i></p>
+                                            </div>
+                                            <div id="91_container" class="col-md-6" style="margin-bottom: 20px">
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
@@ -205,6 +257,9 @@
                                                     <option value="SW">SW</option>
                                                     <option value="TT">TT</option>
                                                     <option value="WP">WP</option>
+                                                    </div>
+
+
                                                 </select>
                                                 <p type="hidden" id="err_kodpgw" style="color: red; display:none"><i>Sila buat
                                                         pilihan di
@@ -2084,12 +2139,42 @@
             }
         }
     </script>
-    {{-- toaster display --}}
-    {{-- <script>
-        @if (Session::get('success'))
-            toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
-        @elseif ($message = Session::get('error'))
-            toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
-        @endif
-    </script> --}}
+
+    <script type="text/javascript">
+        function showDetailkodpgw() {
+            var e_kat = $('#e_kat').val();
+
+            if (e_kat == "PL101") {
+                document.getElementById('101_container').style.display = "block";
+                document.getElementById('104_container').style.display = "none";
+                document.getElementById('07_container').style.display = "none";
+                document.getElementById('91_container').style.display = "none";
+
+            }
+            else if (e_kat == "PL104") {
+                document.getElementById('104_container').style.display = "block";
+                document.getElementById('101_container').style.display = "none";
+                document.getElementById('07_container').style.display = "none";
+                document.getElementById('91_container').style.display = "none";
+
+            }
+            else if (e_kat == "PL111") {
+                document.getElementById('07_container').style.display = "block";
+                document.getElementById('104_container').style.display = "none";
+                document.getElementById('101_container').style.display = "none";
+                document.getElementById('91_container').style.display = "none";
+
+            }
+            else {
+                document.getElementById('91_container').style.display = "block";
+                document.getElementById('101_container').style.display = "none";
+                document.getElementById('104_container').style.display = "none";
+                document.getElementById('07_container').style.display = "none";
+
+                // document.getElementById('isaw').style.display = "none";
+
+            }
+        }
+    </script>
+
 @endsection
