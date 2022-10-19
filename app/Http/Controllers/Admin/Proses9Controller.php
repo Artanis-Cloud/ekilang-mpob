@@ -334,7 +334,7 @@ class Proses9Controller extends Controller
 
                 // dd($bulan);
                 $users = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
-                    DATE_FORMAT(e.F911E, '%d-%m-%Y')  tkhsubmit
+                    DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit
                     from PL911P3 e, licensedb.license p
                     where e.F911D = '$request->tahun' and e.F911C = '$request->bulan' and
                     e.F911A = p.F201A");
@@ -428,8 +428,28 @@ class Proses9Controller extends Controller
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
+        elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL91') {
+            return $this->process_admin_9penyataterdahulu_buah_form($request->papar_ya, $request->tahun, $request->bulan);
+
+        }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL101') {
             return $this->process_admin_9penyataterdahulu_penapis_form($request->papar_ya, $request->tahun, $request->bulan);
+
+        }
+        elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL102') {
+            return $this->process_admin_9penyataterdahulu_isirung_form($request->papar_ya, $request->tahun, $request->bulan);
+
+        }
+        elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL104') {
+            return $this->process_admin_9penyataterdahulu_oleo_form($request->papar_ya, $request->tahun, $request->bulan);
+
+        }
+        elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL111') {
+            return $this->process_admin_9penyataterdahulu_simpanan_form($request->papar_ya, $request->tahun, $request->bulan);
+
+        }
+        elseif ($request->sumber == 'ekilang' && $request->sektor == 'PLBIO') {
+            return $this->process_admin_9penyataterdahulu_bio_form($request->papar_ya, $request->tahun, $request->bulan);
 
         }
     }
@@ -472,10 +492,10 @@ class Proses9Controller extends Controller
     //     return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'tahun', 'bulan', 'users', 'sektor'));
     // }
 
-    public function process_admin_9penyataterdahulu_buah_form(Request $request)
+    public function process_admin_9penyataterdahulu_buah_form($nobatch, $tahun, $bulan)
     {
         // dd($request->all());
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -490,14 +510,14 @@ class Proses9Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $sektor = $request->sektor;
+        // $sektor = $request->sektor;
 
 
-        $tahun = H91Init::where('e91_thn', $request->tahun);
-        $bulan = H91Init::where('e91_bln', $request->bulan);
+        $tahun = H91Init::where('e91_thn', $tahun);
+        $bulan = H91Init::where('e91_bln', $tahun);
         // dd($bulan);
 
-        foreach ($request->papar_ya as $key => $e91_nobatch) {
+        foreach ($nobatch as $key => $e91_nobatch) {
             // dd($e91_nobatch);
 
             $pelesens[$key] = (object)[];
@@ -517,7 +537,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'nolesen','layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'myDateTime', 'formatteddate'));
     }
 
     public function process_admin_pleid_buah_form($nobatch, $tahun, $bulan)
@@ -834,10 +854,10 @@ class Proses9Controller extends Controller
     }
 
 
-    public function process_admin_9penyataterdahulu_isirung_form(Request $request)
+    public function process_admin_9penyataterdahulu_isirung_form($nobatch, $tahun, $bulan)
     {
 
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -854,10 +874,10 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = H102Init::where('e102_thn', $request->tahun);
-        $bulan = H102Init::where('e102_bln', $request->bulan);
+        $tahun = H102Init::where('e102_thn', $tahun);
+        $bulan = H102Init::where('e102_bln', $bulan);
         // dd($bulan);
-        foreach ($request->papar_ya as $key => $e102_nobatch) {
+        foreach ($nobatch as $key => $e102_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata[$key] = H102Init::with('pelesen')->find($e102_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
@@ -906,9 +926,9 @@ class Proses9Controller extends Controller
     }
 
 
-    public function process_admin_9penyataterdahulu_oleo_form(Request $request)
+    public function process_admin_9penyataterdahulu_oleo_form($nobatch, $tahun, $bulan)
     {
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -926,10 +946,10 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = H104Init::where('e104_thn', $request->tahun);
-        $bulan = H104Init::where('e104_bln', $request->bulan);
+        $tahun = H104Init::where('e104_thn', $tahun);
+        $bulan = H104Init::where('e104_bln', $bulan);
         // dd($bulan);
-        foreach ($request->papar_ya as $key => $e104_nobatch) {
+        foreach ($nobatch as $key => $e104_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata[$key] = H104Init::with('pelesen')->find($e104_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
@@ -1059,9 +1079,9 @@ class Proses9Controller extends Controller
         ));
     }
 
-    public function process_admin_9penyataterdahulu_simpanan_form(Request $request)
+    public function process_admin_9penyataterdahulu_simpanan_form($nobatch, $tahun, $bulan)
     {
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -1079,10 +1099,10 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = H07Init::where('e07_thn', $request->tahun);
-        $bulan = H07Init::where('e07_bln', $request->bulan);
+        $tahun = H07Init::where('e07_thn', $tahun);
+        $bulan = H07Init::where('e07_bln', $bulan);
         // dd($bulan);
-        foreach ($request->papar_ya as $key => $e07_nobatch) {
+        foreach ($nobatch as $key => $e07_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata[$key] = H07Init::with('pelesen')->find($e07_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e07_nl)->first();
@@ -1117,12 +1137,12 @@ class Proses9Controller extends Controller
         ));
     }
 
-    public function process_admin_9penyataterdahulu_bio_form(Request $request)
+    public function process_admin_9penyataterdahulu_bio_form($nobatch, $tahun, $bulan)
     {
 
         // $this->admin_9penyataterdahulu_process($tahun1);
 
-        if (!$request->papar_ya) {
+        if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -1140,10 +1160,10 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = HBioInit::where('ebio_thn', $request->tahun);
-        $bulan = HBioInit::where('ebio_bln', $request->bulan);
+        $tahun = HBioInit::where('ebio_thn', $tahun);
+        $bulan = HBioInit::where('ebio_bln', $bulan);
         // dd($bulan);
-        foreach ($request->papar_ya as $key => $ebio_nobatch) {
+        foreach ($nobatch as $key => $ebio_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata[$key] = HBioInit::with('pelesen')->find($ebio_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();

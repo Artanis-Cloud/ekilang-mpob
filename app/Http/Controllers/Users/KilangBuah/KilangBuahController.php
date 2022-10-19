@@ -539,7 +539,7 @@ class KilangBuahController extends Controller
         //
         // dd($jumlah == $jumlah2);
 
-        if ($jumlah == $penyata->e91_ab1) {
+        if ($jumlah != $penyata->e91_ab1) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
         }
 
@@ -707,58 +707,62 @@ class KilangBuahController extends Controller
         //semak jumlah bahagian v
         // $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata2 = $penyata->e91_ab1;
 
-        // dd($penyata);
-
-        $jumlah_3 = ($penyata->e91_ai1 ?? 0) +
-            ($penyata->e91_ai2 ?? 0) +
-            ($penyata->e91_ai3 ?? 0) +
-            ($penyata->e91_ai4 ?? 0) +
-            ($penyata->e91_ai5 ?? 0) +
-            ($penyata->e91_ai6 ?? 0);
+        $jumlah_3 = ((floatval($penyata->e91_ai1 ?? 0)) +  (floatval($penyata->e91_ai2 ?? 0)) + (floatval($penyata->e91_ai3 ?? 0)) + (floatval($penyata->e91_ai4 ?? 0)) + (floatval($penyata->e91_ai5 ?? 0)) + (floatval($penyata->e91_ai6 ?? 0)));
+        // dd($jumlah_3 == $penyata2);
 
         $jumlah_4 = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
+            // dd($jumlah_4);
 
         $jumlah_5 = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
-
-
-        if ($jumlah_3 != $penyata->e91_ab1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
+        // dd($jumlah_3 != $penyata2);
+         if ($jumlah_3 != $penyata2){
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)2!');
         }
-        if ($jumlah_4 != $penyata->e91_ae2) {
+         else if ($jumlah_4 != $penyata->e91_ae2) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPO)!');
         }
-        if ($jumlah_5 != $penyata->e91_ae3) {
+        else if ($jumlah_5 != $penyata->e91_ae3) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        } else {
+            $breadcrumbs    = [
+                ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('buah.paparpenyata'), 'name' => "Penyata Bulanan"],
+            ];
+
+            $kembali = route('buah.bahagianvi');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            // $layout = 'layouts.kbuah';
+
+            $bulan = date("m") - 1;
+
+            $tahun = date("Y");
+
+            $user = User::first();
+            $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+            $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+
+            $totaliii = DB::table("e91_init")
+                ->where('e91_nl', auth()->user()->username)
+                ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
+
+                if ($penyata) {
+                    return view('users.KilangBuah.buah-papar-penyata', compact('returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun','jumlah_3', 'jumlah_4','jumlah_5','penyata2'));
+                } else {
+                    return redirect()->back()
+                        ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                }
         }
-        //end of semak jumlah bahagian v
+
         // dd($penyata->e91_ai1);
 
-        $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.paparpenyata'), 'name' => "Penyata Bulanan"],
-        ];
 
-        $kembali = route('buah.bahagianvi');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        // $layout = 'layouts.kbuah';
-
-        $bulan = date("m") - 1;
-
-        $tahun = date("Y");
-
-        $user = User::first();
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
-
-        $totaliii = DB::table("e91_init")
-            ->where('e91_nl', auth()->user()->username)
-            ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
 
         // $totaliii = DB::SUM('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6')
         //                         FROM e91_init;
@@ -767,12 +771,8 @@ class KilangBuahController extends Controller
 
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
 
-        if ($penyata) {
-            return view('users.KilangBuah.buah-papar-penyata', compact('returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
-        } else {
-            return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
-        }
+
+
     }
 
     public function buah_update_papar_penyata(Request $request)
