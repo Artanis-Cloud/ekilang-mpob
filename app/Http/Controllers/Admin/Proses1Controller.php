@@ -67,7 +67,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen_proses(Request $request)
     {
-        // dd( $request->all());
+        dd( $request->all());
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
@@ -92,7 +92,7 @@ class Proses1Controller extends Controller
             'e_status' => ['required', 'string'],
             'e_stock' => ['required', 'string'],
             'directory' => ['required', 'string'],
-            'kodpgw' => ['nullable'],
+            'kodpgw' => ['nullable', 'string'],
             'nosiri' => ['nullable', 'string'],
             'e_nl' => ['required', 'string', 'unique:pelesen'],
             'e_np' => ['required', 'string'],

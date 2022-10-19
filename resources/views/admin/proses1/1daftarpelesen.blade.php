@@ -182,16 +182,16 @@
                                                     bahagian ini!</i></p>
                                         </div>
                                     </div>
-                                    <div id="nonbio_container" style="display:none">
+                                    <div id="nonbio_container" style="display:block">
                                         <div class="row ml-5">
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label class="control-label col-form-label required">Kod Negeri </label>
                                             </div>
-                                            <div id="101_container" class="col-md-6" style="margin-bottom: 20px">
+                                            <div id="101_container" class="col-md-6" style="margin-bottom: 20px; display:none">
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option value="">Sila Pilih</option>
+                                                    <option selected value="">Sila Pilih</option>
                                                     <option value="FA">FA</option>
                                                     <option value="FB">FB</option>
                                                     <option value="FC">FC</option>
@@ -206,11 +206,11 @@
                                                         pilihan di
                                                         bahagian ini!</i></p>
                                             </div>
-                                            <div id="104_container" class="col-md-6" style="margin-bottom: 20px">
+                                            <div id="104_container" class="col-md-6" style="margin-bottom: 20px; display:none">
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option value="">Sila Pilih</option>
+                                                    <option selected value="">Sila Pilih</option>
                                                     <option value="CA">CA</option>
                                                     <option value="CC">CC</option>
                                                     <option value="CJ">CJ</option>
@@ -222,11 +222,11 @@
                                                         pilihan di
                                                         bahagian ini!</i></p>
                                             </div>
-                                            <div id="07_container" class="col-md-6" style="margin-bottom: 20px">
+                                            <div id="07_container" class="col-md-6" style="margin-bottom: 20px; display:none">
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option value="">Sila Pilih</option>
+                                                    <option selected value="">Sila Pilih</option>
                                                     <option value="BB">BB</option>
                                                     <option value="BC">BC</option>
                                                     <option value="BJ">BJ</option>
@@ -239,11 +239,11 @@
                                                         pilihan di
                                                         bahagian ini!</i></p>
                                             </div>
-                                            <div id="91_container" class="col-md-6" style="margin-bottom: 20px">
+                                            <div id="91_container" class="col-md-6" style="margin-bottom: 20px; display:block">
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option value="">Sila Pilih</option>
+                                                    <option selected value="">Sila Pilih</option>
                                                     <option value="JJ">JJ</option>
                                                     <option value="KB">KB</option>
                                                     <option value="KK">KK</option>
@@ -266,7 +266,6 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                         </div>
-
                                         <div class="row ml-5">
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label for="inputcom" class="control-label col-form-label required">Nombor
@@ -2138,14 +2137,14 @@
         function showDetail() {
             var e_kat = $('#e_kat').val();
 
-            if (e_kat != "PLBIO") {
-                document.getElementById('nonbio_container').style.display = "block";
-                document.getElementById('lain_container').style.display = "none";
+            if (e_kat == "PLBIO") {
+                document.getElementById('nonbio_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
 
 
             } else {
-                document.getElementById('nonbio_container').style.display = "none";
-                document.getElementById('lain_container').style.display = "block";
+                document.getElementById('nonbio_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "none";
 
                 // document.getElementById('isaw').style.display = "none";
 

@@ -133,10 +133,10 @@
                                         <fieldset class="form-group">
                                             <select class="form-control" name="kodpgw" id="kodpgw" required>
                                                 @if ($reg_pelesen->e_kat == 'PL101')
-                                                    <option {{ ($pelesen->kodpgw == 'FA') ? 'selected' : '' }} value="FA">FA</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FB') ? 'selected' : '' }} value="FB">FB</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FC') ? 'selected' : '' }} value="FC">FC</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FD') ? 'selected' : '' }} value="FD">FD</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FA' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FA">FA</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FB' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FB">FB</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FC' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FC">FC</option>
+                                                    <option {{ ($pelesen->kodpgw == 'FD' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FD">FD</option>
                                                     <option {{ ($pelesen->kodpgw == 'FJ') ? 'selected' : '' }} value="FJ">FJ</option>
                                                     <option {{ ($pelesen->kodpgw == 'FP') ? 'selected' : '' }} value="FP">FP</option>
                                                     <option {{ ($pelesen->kodpgw == 'FQ') ? 'selected' : '' }} value="FQ">FQ</option>
