@@ -157,7 +157,7 @@
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" onClick="this.select();"
-                                                            onchange="validation_jumlah();  autodecimal(this);FormatCurrency(this)" required
+                                                            onchange=" autodecimal(this);validation_jumlah(); FormatCurrency(this)" required
                                                             value="{{ old('e91_ai2') ?? (number_format($penyata->e91_ai2 ?? 0,2)) }}">
                                                         @error('e91_ai2')
                                                             <div class="alert alert-danger">
@@ -249,11 +249,11 @@
                                                         <b>Jumlah</b>
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <b><span id="total" name="total" onchange="FormatCurrency(this)">
-                                                                {{ old('total_hidden') ?? number_format($jumlah ?? 0,2) }}
+                                                        <b><span id="total" name="total" >
+                                                                {{ old('total') ?? number_format($jumlah ?? 0,2) }}
                                                             </span>
                                                             <input type="hidden" id="total_hidden" name="total_hidden"
-                                                                value="{{ number_format($jumlah ?? 0,2) }}">
+                                                                value="{{ old('total_hidden') ?? $jumlah }}">
                                                         </b>
                                                     </td>
 
@@ -331,6 +331,17 @@
 
             @endsection
             @section('scripts')
+            <script>
+            $(document).ready(function ()
+            {
+                var jumlah = document.getElementById('jumlah');
+                var jumlah2 = jumlah.value.replace(/,/g, '');
+                console.log(jumlah2);
+
+
+
+            });
+</script>
             {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
             {{-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> --}}
             <script language="javascript" type="text/javascript">
@@ -610,15 +621,35 @@
                     var ai6 = e91_ai6.value.replace(/,/g, '');
 
 
-                    var jumlah = $("#jumlah").val();
+                    var jumlah = document.getElementById('jumlah');
+                    var jumlah2 = jumlah.value.replace(/,/g, '');
+
                     var jumlah_input = 0;
 
                     jumlah_input = parseFloat(Number(ai1)) + parseFloat(Number(ai2)) +
                         parseFloat(Number(ai3)) + parseFloat(Number(ai4)) + parseFloat(Number(ai5)) + parseFloat(Number(ai6));
-                    jumlah_input = parseFloat(Number(jumlah_input));
+                    jumlah_input2 = parseFloat(Number(jumlah_input));
 
-                    document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
-                    document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
+
+                    // var val = ctrl.value;
+
+                    // jumlah_input = jumlah_input.replace(/,/g, "")
+                    // ctrl.value = "";
+                    // val += '';
+                    // x = val.split('.');
+                    // x1 = x[0];
+                    // x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    // var rgx = /(\d+)(\d{3})/;
+
+                    // while (rgx.test(x1)) {
+                    //     x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    // }
+
+                    // ctrl.value = x1 + x2;
+
+                    document.getElementById('total').innerHTML = jumlah_input2.toFixed(2);
+                    document.getElementById('total_hidden').value = jumlah_input2.toFixed(2);
 
                     console.log(document.getElementById('total_hidden').value);
                 }
