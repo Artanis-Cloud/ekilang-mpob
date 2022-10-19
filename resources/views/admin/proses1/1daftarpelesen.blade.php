@@ -50,7 +50,7 @@
                                         class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
-                        <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post" onsubmit="return check()"
+                        <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post" onsubmit="return check()" class="sub-form"
                             novalidate>
                             @csrf
                             <div class="card-body">
@@ -741,6 +741,19 @@
 
 @section('scripts')
     {{-- ajax daerah --}}
+    <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#kap_proses').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#kap_proses').val(x);
+
+
+            return true;
+
+        });
+    </script>
     <script>
         function poma() {
             var buah = document.getElementById('e_kat');
