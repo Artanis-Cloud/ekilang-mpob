@@ -118,7 +118,7 @@ class Proses1Controller extends Controller
             'e_syktinduk' => ['required', 'string'],
             'e_year' => ['required', 'string'],
             'e_group' => ['required', 'string'],
-            'e_poma' => ['required', 'string'],
+            'e_poma' => ['nullable', 'string'],
             'kap_proses' => ['required', 'string'],
             // 'bil_tangki_cpo' => ['required', 'string'],
             // 'bil_tangki_ppo' => ['required', 'string'],

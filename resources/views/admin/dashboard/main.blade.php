@@ -43,29 +43,29 @@
                                     <div>
                                         <p class="font-16 m-b-5">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
                                         <p class="font-16 m-b-5">Bulan:
-                                            @if (now()->month == 1)
+                                            @if (now()->month == 2)
                                                 <b>JANUARI</b> &nbsp;
-                                            @elseif (now()->month == 2)
-                                                <b>FEBRUARI</b> &nbsp;
                                             @elseif (now()->month == 3)
-                                                <b>MAC</b> &nbsp;
+                                                <b>FEBRUARI</b> &nbsp;
                                             @elseif (now()->month == 4)
-                                                <b>APRIL</b> &nbsp;
+                                                <b>MAC</b> &nbsp;
                                             @elseif (now()->month == 5)
-                                                <b>MEI</b> &nbsp;
+                                                <b>APRIL</b> &nbsp;
                                             @elseif (now()->month == 6)
-                                                <b>JUN</b> &nbsp;
+                                                <b>MEI</b> &nbsp;
                                             @elseif (now()->month == 7)
-                                                <b>JULAI</b> &nbsp;
+                                                <b>JUN</b> &nbsp;
                                             @elseif (now()->month == 8)
-                                                <b>OGOS</b> &nbsp;
+                                                <b>JULAI</b> &nbsp;
                                             @elseif (now()->month == 9)
-                                                <b>SEPTEMBER</b> &nbsp;
+                                                <b>OGOS</b> &nbsp;
                                             @elseif (now()->month == 10)
-                                                <b>OKTOBER</b> &nbsp;
+                                                <b>SEPTEMBER</b> &nbsp;
                                             @elseif (now()->month == 11)
-                                                <b>NOVEMBER</b> &nbsp;
+                                                <b>OKTOBER</b> &nbsp;
                                             @elseif (now()->month == 12)
+                                                <b>NOVEMBER</b> &nbsp;
+                                            @elseif (now()->month == 1)
                                                 <b>DECEMBER</b> &nbsp;
                                             @endif
 
