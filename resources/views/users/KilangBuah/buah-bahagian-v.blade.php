@@ -140,8 +140,8 @@
                                                                         <input type="text" size="15" id='e91_ak1'
                                                                             class="calc" name='e91_ak1' style="text-align:center"
                                                                             onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak1()"
-                                                                            value="{{ old('e91_ak1') ?? number_format($penyata->e91_ak1 ?? 0,2) }}" required
-                                                                            onchange="validation_jumlah(); ak1(); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                                                            value="{{ old('e91_ak1') ?? number_format($penyata->e91_ak1 ?? 0,2) }}" required onClick="this.select();"
+                                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak1')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -157,8 +157,8 @@
                                                                         <input type="text" size="15" id='e91_ak2'
                                                                             class="calc" name='e91_ak2' style="text-align:center"
                                                                             onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak2()"
-                                                                            value="{{ old('e91_ak2') ?? number_format($penyata->e91_ak2 ?? 0,2) }}" required
-                                                                            onchange="validation_jumlah(); ak2(); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                                                            value="{{ old('e91_ak2') ?? number_format($penyata->e91_ak2 ?? 0,2) }}" required onClick="this.select();"
+                                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak2')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -174,8 +174,8 @@
                                                                         <input type="text" size="15" id='e91_ak3'
                                                                             class="calc" name='e91_ak3' style="text-align:center"
                                                                             onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity(''); invoke_ak3()"
-                                                                            value="{{ old('e91_ak3') ?? number_format($penyata->e91_ak3 ?? 0,2) }}" required
-                                                                            onchange="validation_jumlah(); ak3(); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                                                            value="{{ old('e91_ak3') ?? number_format($penyata->e91_ak3 ?? 0,2) }}" required onClick="this.select();"
+                                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak3')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -335,45 +335,7 @@
             });
 
                 </script>
-                <script>
-                    function ak1() {
 
-                        // let decimal = ".00"
-                        var x = parseFloat(document.getElementById("e91_ak1").value);
-                        if (isNaN(x)) {
-                            x = 0.00;
-                        }
-                        var y = parseFloat(x).toFixed(2);
-                        document.querySelector("#e91_ak1").value = y;
-                        console.log(y);
-                    }
-                </script>
-                <script>
-                    function ak2() {
-
-                        // let decimal = ".00"
-                        var x = parseFloat(document.getElementById("e91_ak2").value);
-                        if (isNaN(x)) {
-                            x = 0.00;
-                        }
-                        var y = parseFloat(x).toFixed(2);
-                        document.querySelector("#e91_ak2").value = y;
-                        console.log(y);
-                    }
-                </script>
-                <script>
-                    function ak3() {
-
-                        // let decimal = ".00"
-                        var x = parseFloat(document.getElementById("e91_ak3").value);
-                        if (isNaN(x)) {
-                            x = 0.00;
-                        }
-                        var y = parseFloat(x).toFixed(2);
-                        document.querySelector("#e91_ak3").value = y;
-                        console.log(y);
-                    }
-                </script>
                 <script>
                     function invoke_ak1() {
                         addEventListener('keydown', function(evt) {
@@ -382,6 +344,8 @@
                                 console.log('successful');
                                 evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                                 document.getElementById('e91_ak2').focus();
+                                document.getElementById('e91_ak2').select();
+
                             }
 
                         });
@@ -400,6 +364,8 @@
                                 console.log('successful');
                                 evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                                 document.getElementById('e91_ak3').focus();
+                                document.getElementById('e91_ak3').select();
+
                             }
 
                         });
@@ -412,15 +378,23 @@
                 </script>
                     <script>
                         function validation_jumlah() {
-                            var e91_ak1 = $("#e91_ak1").val();
-                            var e91_ak2 = $("#e91_ak2").val();
-                            var e91_ak3 = $("#e91_ak3").val();
+
+
+                            var e91_ak1 = document.getElementById('e91_ak1');
+                            var ak1 = e91_ak1.value.replace(/,/g, '');
+
+                            var e91_ak2 = document.getElementById('e91_ak2');
+                            var ak2 = e91_ak2.value.replace(/,/g, '');
+
+
+                            var e91_ak3 = document.getElementById('e91_ak3');
+                            var ak3 = e91_ak3.value.replace(/,/g, '');
+
 
                             var jumlah = $("#jumlah").val();
                             var jumlah_input = 0;
 
-                            jumlah_input = parseFloat(Number(e91_ak1)) + parseFloat(Number(e91_ak2)) +
-                                parseFloat(Number(e91_ak3));
+                            jumlah_input = parseFloat(Number(ak1)) + parseFloat(Number(ak2)) + parseFloat(Number(ak3));
                             console.log(jumlah_input.toFixed(2));
                             document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
                         document.getElementById('total_hidden').value = jumlah_input.toFixed(2);

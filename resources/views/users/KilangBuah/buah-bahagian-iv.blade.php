@@ -416,6 +416,8 @@
                         console.log('successful');
                         evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                         document.getElementById('e91_aj2').focus();
+                        document.getElementById('e91_aj2').select();
+
                     }
 
                 });
@@ -434,6 +436,8 @@
                         console.log('successful');
                         evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                         document.getElementById('e91_aj3').focus();
+                        document.getElementById('e91_aj3').select();
+
                     }
 
                 });
@@ -452,6 +456,8 @@
                         console.log('successful');
                         evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                         document.getElementById('e91_aj4').focus();
+                        document.getElementById('e91_aj4').select();
+
                     }
 
                 });
@@ -470,6 +476,8 @@
                         console.log('successful');
                         evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                         document.getElementById('e91_aj5').focus();
+                        document.getElementById('e91_aj5').select();
+
                     }
 
                 });
@@ -488,6 +496,8 @@
                         console.log('successful');
                         evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                         document.getElementById('e91_aj8').focus();
+                        document.getElementById('e91_aj8').select();
+
                     }
 
                 });
