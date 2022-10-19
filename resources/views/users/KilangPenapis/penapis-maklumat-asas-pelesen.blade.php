@@ -125,8 +125,7 @@
                                 <input type="text" id="e_notel" class="form-control" maxlength=40
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
-                                    oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()" value="{{ $pelesen->e_notel }}"
-                                    onkeypress="return isNumberKey(event)" required>
+                                    oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()" value="{{ $pelesen->e_notel }}" required>
                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
@@ -206,7 +205,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                     oninput="this.setCustomValidity(''); invokeFunc12(); valid_notelpg()"
-                                    value="{{ $pelesen->e_notel_pg }}" onkeypress="return isNumberKey(event)" required>
+                                    value="{{ $pelesen->e_notel_pg }}" required>
                                     <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                                 </div>
