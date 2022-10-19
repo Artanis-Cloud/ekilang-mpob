@@ -146,9 +146,9 @@
                                                             id='e91_aj1' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj1()"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj1') ?? (number_format($penyata->e91_aj1 ?? 0,2)) }}"
-                                                            onchange="validation_jumlah(); aj1(); FormatCurrency(this)">
+                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_aj1')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -165,9 +165,9 @@
                                                             id='e91_aj2' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj2()"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj2') ?? (number_format($penyata->e91_aj2 ?? 0,2)) }}"
-                                                            onchange="validation_jumlah(); aj2(); FormatCurrency(this)">
+                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_aj2')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -184,9 +184,9 @@
                                                             id='e91_aj3' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj3()"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj3') ?? (number_format($penyata->e91_aj3 ?? 0,2)) }}"
-                                                            onchange="validation_jumlah(); aj3(); FormatCurrency(this)">
+                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_aj3')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -203,9 +203,9 @@
                                                             id='e91_aj4' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj4()"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj4') ?? (number_format($penyata->e91_aj4 ?? 0,2)) }}"
-                                                            onchange="validation_jumlah(); aj4(); FormatCurrency(this)">
+                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_aj4')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -222,9 +222,9 @@
                                                             id='e91_aj5' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity(''); invoke_aj5()"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj5') ?? (number_format($penyata->e91_aj5 ?? 0,2)) }}"
-                                                            onchange="validation_jumlah(); aj5(); FormatCurrency(this)">
+                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_aj5')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -241,9 +241,9 @@
                                                             name='e91_aj8' id='e91_aj8' style="text-align:center"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                            onkeypress="return isNumberKey(event)" required
+                                                            onkeypress="return isNumberKey(event)" required onClick="this.select();"
                                                             value="{{ old('e91_aj8') ?? (number_format($penyata->e91_aj8 ?? 0,2)) }}"
-                                                            onchange="validation_jumlah(); aj8(); FormatCurrency(this)">
+                                                            onchange="validation_jumlah(); autodecimal(this); FormatCurrency(this)">
                                                         @error('e91_aj8')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
@@ -578,19 +578,32 @@
             </script>
             <script>
                 function validation_jumlah() {
-                    var e91_aj1 = $("#e91_aj1").val();
-                    var e91_aj2 = $("#e91_aj2").val();
-                    var e91_aj3 = $("#e91_aj3").val();
-                    var e91_aj4 = $("#e91_aj4").val();
-                    var e91_aj5 = $("#e91_aj5").val();
-                    var e91_aj8 = $("#e91_aj8").val();
+
+
+                    var e91_aj1 = document.getElementById('e91_aj1');
+                    var aj1 = e91_aj1.value.replace(/,/g, '');
+
+                    var e91_aj2 = document.getElementById('e91_aj2');
+                    var aj2 = e91_aj2.value.replace(/,/g, '');
+
+                    var e91_aj3 = document.getElementById('e91_aj3');
+                    var aj3 = e91_aj3.value.replace(/,/g, '');
+
+                    var e91_aj4 = document.getElementById('e91_aj4');
+                    var aj4 = e91_aj4.value.replace(/,/g, '');
+
+                    var e91_aj5 = document.getElementById('e91_aj5');
+                    var aj5 = e91_aj5.value.replace(/,/g, '');
+
+                    var e91_aj8 = document.getElementById('e91_aj8');
+                    var aj8 = e91_aj8.value.replace(/,/g, '');
+
 
                     var jumlah = $("#jumlah").val();
                     var jumlah_input = 0;
 
-                    jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) +
-                        parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(
-                            e91_aj8));
+                    jumlah_input = parseFloat(Number(aj1)) + parseFloat(Number(aj2)) +
+                        parseFloat(Number(aj3)) + parseFloat(Number(aj4)) + parseFloat(Number(aj5)) + parseFloat(Number(aj8));
                     // console.log(jumlah_input.toFixed(2));
                     document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
                     document.getElementById('total_hidden').value = jumlah_input.toFixed(2);

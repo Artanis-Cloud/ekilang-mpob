@@ -138,7 +138,7 @@
                                                                 <input type="text" size="10" name='e91_aa1'
                                                                     id='e91_aa1' style="text-align: center"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
-                                                                    oninput="setCustomValidity(''); invokeFunc()"
+                                                                    oninput="setCustomValidity(''); invokeFunc()" onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_aa1 || $kilang->e91_aa1 == '0.00')
@@ -153,7 +153,7 @@
                                                                 <input type="text" size="10" name='e91_aa2'
                                                                     id='e91_aa2'required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    style="text-align: center"
+                                                                    style="text-align: center" onClick="this.select();"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
@@ -168,7 +168,7 @@
                                                                 <input type="text" size="10" name='e91_aa3'
                                                                     id='e91_aa3'required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    style="text-align: center"
+                                                                    style="text-align: center" onClick="this.select();"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
@@ -183,7 +183,7 @@
                                                                 <input type="text" size="10" name='e91_aa4'
                                                                     id='e91_aa4'required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                                    style="text-align: center"
+                                                                    style="text-align: center" onClick="this.select();"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     onkeypress="return isNumberKey(event)"
@@ -205,7 +205,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                             </td>
                                                             <td style="text-align:center;">
                                                                 <input type="text" size="10" name='e91_ab1'
-                                                                    id='e91_ab1'id="number" required
+                                                                    id='e91_ab1'id="number" required onClick="this.select();"
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     style="text-align: center"
@@ -225,7 +225,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc6()"
-                                                                    name='e91_ab2' id='e91_ab2'
+                                                                    name='e91_ab2' id='e91_ab2' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ab2 || $kilang->e91_ab2 == '0.00')
@@ -243,7 +243,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc7()"
                                                                     name='e91_ab3'
                                                                     id='e91_ab3'onkeypress="return isNumberKey(event)"
-                                                                    required
+                                                                    required onClick="this.select();"
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ab3 || $kilang->e91_ab3 == '0.00')
                                                                     value = "{{ number_format($kilang->e91_ab3,2) }}"
@@ -258,7 +258,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc8()"
-                                                                    name='e91_ab4'
+                                                                    name='e91_ab4' onClick="this.select();"
                                                                     id='e91_ab4'onkeypress="return isNumberKey(event)"
                                                                     required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -283,7 +283,7 @@ Penerimaan - Urusniaga yang tidak melibatkan pembayaran, termasuk pinjaman (loan
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc9()"
-                                                                    name='e91_ac1' id='e91_ac1'
+                                                                    name='e91_ac1' id='e91_ac1' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ac1 || $kilang->e91_ac1 == '0.00')
@@ -324,7 +324,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc10()"
-                                                                    name='e91_ad1' id='e91_ad1'
+                                                                    name='e91_ad1' id='e91_ad1' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ad1 || $kilang->e91_ad1 == '0.00')
@@ -340,7 +340,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc11()"
-                                                                    name='e91_ad2' id='e91_ad2'
+                                                                    name='e91_ad2' id='e91_ad2' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ad2 || $kilang->e91_ad2 == '0.00')
@@ -356,7 +356,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc12()"
-                                                                    name='e91_ad3' id='e91_ad3'
+                                                                    name='e91_ad3' id='e91_ad3' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ad3 || $kilang->e91_ad3 == '0.00')
@@ -376,7 +376,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     title="Jualan Tempatan merujuk kepada urusniaga yang dilakukan secara tempatan yang melibatkan pembayaran."></i>
                                                             </td>
                                                             <td style="text-align:center;">
-                                                                <input type="text" size="10"
+                                                                <input type="text" size="10" onClick="this.select();"
                                                                     style="text-align: center"
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange=" autodecimal(this); FormatCurrency(this)"
@@ -397,7 +397,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc14()"
-                                                                    name='e91_ae2' id='e91_ae2'
+                                                                    name='e91_ae2' id='e91_ae2' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ae2 || $kilang->e91_ae2 == '0.00')
@@ -413,7 +413,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc15()"
-                                                                    name='e91_ae3'
+                                                                    name='e91_ae3' onClick="this.select();"
                                                                     id='e91_ae3'onkeypress="return isNumberKey(event)"
                                                                     required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -430,7 +430,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc16()"
-                                                                    name='e91_ae4' id='e91_ae4'
+                                                                    name='e91_ae4' id='e91_ae4' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ae4 || $kilang->e91_ae4 == '0.00')
@@ -477,7 +477,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc17()"
                                                                     name='e91_ag1'
                                                                     id='e91_ag1'onkeypress="return isNumberKey(event)"
-                                                                    required
+                                                                    required onClick="this.select();"
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ag1 || $kilang->e91_ag1 == '0.00')
                                                                     value = "{{ number_format($kilang->e91_ag1,2) }}"
@@ -492,7 +492,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc18()"
-                                                                    name='e91_ag2' id='e91_ag2'
+                                                                    name='e91_ag2' id='e91_ag2' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     @if($kilang->e91_ag2 || $kilang->e91_ag2 == '0.00')
@@ -508,7 +508,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc19()"
-                                                                    name='e91_ag3' id='e91_ag3'
+                                                                    name='e91_ag3' id='e91_ag3' onClick="this.select();"
                                                                     onkeypress="return isNumberKey(event)" required
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="setTwoNumberDecimal()"
@@ -525,7 +525,7 @@ termasuk pengeluaran untuk 'Tol'."></i>
                                                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                     onchange="autodecimal(this); FormatCurrency(this)"
                                                                     oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                                    name='e91_ag4' id='e91_ag4'
+                                                                    name='e91_ag4' id='e91_ag4' onClick="this.select();"
                                                                     onchange="setTwoNumberDecimal()" required
                                                                     onkeypress="return isNumberKey(event)"
                                                                     @if($kilang->e91_ag4 || $kilang->e91_ag4 == '0.00')
