@@ -50,14 +50,14 @@
                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
                         <div align="">
-                            <table border="0" width="90%">
-                                <tbody>
+                            <table border="0" width="100%">
+                                <tbody style="float: right; width:10rem">
                                     <tr>
                                         <td width="10%" height="19">
                                             <p align=""><b></b></p>
                                         </td>
                                         <td width="88%" height="19">
-                                            <p align="right"><b>MPOB(EL) CM 4</b></p>
+                                            <p align="left"><b>MPOB(EL) CM 4</b></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -65,7 +65,7 @@
                                             <p align=""><b></b></p>
                                         </td>
                                         <td width="88%" height="19">
-                                            <p align="right"><b>MPOB(EL) PX 4-CM </b></p>
+                                            <p align="left"><b>MPOB(EL) PX 4-CM </b></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -73,7 +73,7 @@
                                             <p align=""><b></b></p>
                                         </td>
                                         <td width="88%" height="19">
-                                            <p align="right"><b>MPOB(EL) PM 4-CM </b></p>
+                                            <p align="left"><b>MPOB(EL) PM 4-CM </b></p>
                                         </td>
                                     </tr>
 
