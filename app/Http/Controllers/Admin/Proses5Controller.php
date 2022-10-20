@@ -1085,21 +1085,69 @@ class Proses5Controller extends Controller
         // dd($penyataia_save);
 
         // foreach($penyataia as $penyataia_save ){
+            $ebio_b5 =$request->get('ebio_b5');
+            $ebio_b6 = $request->get('ebio_b6');
+            $ebio_b7 = $request->get('ebio_b7');
+            $ebio_b8 = $request->get('ebio_b8');
+            $ebio_b9 = $request->get('ebio_b9');
+            $ebio_b10 = $request->get('ebio_b10');
+            $ebio_b11 = $request->get('ebio_b11');
+            $b5 = str_replace(',', '', $ebio_b5);
+            $b6 = str_replace(',', '', $ebio_b6);
+            $b7 = str_replace(',', '', $ebio_b7);
+            $b8 = str_replace(',', '', $ebio_b8);
+            $b9 = str_replace(',', '', $ebio_b9);
+            $b10 = str_replace(',', '', $ebio_b10);
+            $b11 = str_replace(',', '', $ebio_b11);
 
             $penyataia_save->ebio_b4 = $request->get('ebio_b4');
-            $penyataia_save->ebio_b5 = $request->get('ebio_b5');
-            $penyataia_save->ebio_b6 = $request->get('ebio_b6');
-            $penyataia_save->ebio_b7 = $request->get('ebio_b7');
-            $penyataia_save->ebio_b8 = $request->get('ebio_b8');
-            $penyataia_save->ebio_b9 = $request->get('ebio_b9');
-            $penyataia_save->ebio_b10 =$request->get('>ebio_b10');
-            $penyataia_save->ebio_b11 = $request->get('ebio_b11');
+            $penyataia_save->ebio_b5 = $b5;
+            $penyataia_save->ebio_b6 = $b6;
+            $penyataia_save->ebio_b7 = $b7;
+            $penyataia_save->ebio_b8 = $b8;
+            $penyataia_save->ebio_b9 = $b9;
+            $penyataia_save->ebio_b10 =$b10;
+            $penyataia_save->ebio_b11 = $b11;
         // dd($penyataia_save->ebio_b4);
 
             $penyataia_save->save();
         // }
 
 
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat telah dikemaskini');
+    }
+
+    public function admin_kemaskini_maklumat_ii(Request $request, $lesen)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.6penyatapaparcetakbio');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $penyataii_save = Hari::findOrFail($lesen);
+        // dd($penyataii_save);
+
+        // foreach($penyataia as $penyataia_save ){
+            $penyataii_save->hari_operasi = $request->get('hari_operasi');
+            $penyataii_save->kapasiti = $request->get('kapasiti');
+
+            $penyataii_save->save();
+        // }
+
+        // dd($penyataia_save->ebio_b4);
 
 
         return redirect()->back()
@@ -1127,15 +1175,29 @@ class Proses5Controller extends Controller
         // dd($penyataia_save);
 
         // foreach($penyataia as $penyataia_save ){
+            $ebio_b5 =$request->get('ebio_b5');
+            $ebio_b6 = $request->get('ebio_b6');
+            $ebio_b7 = $request->get('ebio_b7');
+            $ebio_b8 = $request->get('ebio_b8');
+            $ebio_b9 = $request->get('ebio_b9');
+            $ebio_b10 = $request->get('ebio_b10');
+            $ebio_b11 = $request->get('ebio_b11');
+            $b5 = str_replace(',', '', $ebio_b5);
+            $b6 = str_replace(',', '', $ebio_b6);
+            $b7 = str_replace(',', '', $ebio_b7);
+            $b8 = str_replace(',', '', $ebio_b8);
+            $b9 = str_replace(',', '', $ebio_b9);
+            $b10 = str_replace(',', '', $ebio_b10);
+            $b11 = str_replace(',', '', $ebio_b11);
 
             $penyataib_save->ebio_b4 = $request->get('ebio_b4');
-            $penyataib_save->ebio_b5 = $request->get('ebio_b5');
-            $penyataib_save->ebio_b6 = $request->get('ebio_b6');
-            $penyataib_save->ebio_b7 = $request->get('ebio_b7');
-            $penyataib_save->ebio_b8 = $request->get('ebio_b8');
-            $penyataib_save->ebio_b9 = $request->get('ebio_b9');
-            $penyataib_save->ebio_b10 =$request->get('>ebio_b10');
-            $penyataib_save->ebio_b11 = $request->get('ebio_b11');
+            $penyataib_save->ebio_b5 = $b5;
+            $penyataib_save->ebio_b6 = $b6;
+            $penyataib_save->ebio_b7 = $b7;
+            $penyataib_save->ebio_b8 = $b8;
+            $penyataib_save->ebio_b9 = $b9;
+            $penyataib_save->ebio_b10 =$b10;
+            $penyataib_save->ebio_b11 = $b11;
         // dd($penyataia_save->ebio_b4);
 
             $penyataib_save->save();
@@ -1261,22 +1323,36 @@ class Proses5Controller extends Controller
         ];
 
 
-        $penyataib_save = EBioB::findOrFail($id);
+        $penyataic_save = EBioB::findOrFail($id);
         // dd($penyataia_save);
 
         // foreach($penyataia as $penyataia_save ){
 
-            $penyataib_save->ebio_b4 = $request->get('ebio_b4');
-            $penyataib_save->ebio_b5 = $request->get('ebio_b5');
-            $penyataib_save->ebio_b6 = $request->get('ebio_b6');
-            $penyataib_save->ebio_b7 = $request->get('ebio_b7');
-            $penyataib_save->ebio_b8 = $request->get('ebio_b8');
-            $penyataib_save->ebio_b9 = $request->get('ebio_b9');
-            $penyataib_save->ebio_b10 =$request->get('>ebio_b10');
-            $penyataib_save->ebio_b11 = $request->get('ebio_b11');
-        // dd($penyataia_save->ebio_b4);
+            $ebio_b5 =$request->get('ebio_b5');
+            $ebio_b6 = $request->get('ebio_b6');
+            $ebio_b7 = $request->get('ebio_b7');
+            $ebio_b8 = $request->get('ebio_b8');
+            $ebio_b9 = $request->get('ebio_b9');
+            $ebio_b10 = $request->get('ebio_b10');
+            $ebio_b11 = $request->get('ebio_b11');
+            $b5 = str_replace(',', '', $ebio_b5);
+            $b6 = str_replace(',', '', $ebio_b6);
+            $b7 = str_replace(',', '', $ebio_b7);
+            $b8 = str_replace(',', '', $ebio_b8);
+            $b9 = str_replace(',', '', $ebio_b9);
+            $b10 = str_replace(',', '', $ebio_b10);
+            $b11 = str_replace(',', '', $ebio_b11);
 
-            $penyataib_save->save();
+            $penyataic_save->ebio_b4 = $request->get('ebio_b4');
+            $penyataic_save->ebio_b5 = $b5;
+            $penyataic_save->ebio_b6 = $b6;
+            $penyataic_save->ebio_b7 = $b7;
+            $penyataic_save->ebio_b8 = $b8;
+            $penyataic_save->ebio_b9 = $b9;
+            $penyataic_save->ebio_b10 =$b10;
+            $penyataic_save->ebio_b11 = $b11;
+
+            $penyataic_save->save();
         // }
 
 
@@ -1353,15 +1429,29 @@ class Proses5Controller extends Controller
         // dd($penyataia_save);
 
         // foreach($penyataia as $penyataia_save ){
+            $ebio_c4 =$request->get('ebio_c4');
+            $ebio_c5 = $request->get('ebio_c5');
+            $ebio_c6 = $request->get('ebio_c6');
+            $ebio_c7 = $request->get('ebio_c7');
+            $ebio_c8 = $request->get('ebio_c8');
+            $ebio_c9 = $request->get('ebio_c9');
+            $ebio_c10 = $request->get('ebio_c10');
+            $c4 = str_replace(',', '', $ebio_c4);
+            $c5 = str_replace(',', '', $ebio_c5);
+            $c6 = str_replace(',', '', $ebio_c6);
+            $c7 = str_replace(',', '', $ebio_c7);
+            $c8 = str_replace(',', '', $ebio_c8);
+            $c9 = str_replace(',', '', $ebio_c9);
+            $c10 = str_replace(',', '', $ebio_c10);
 
             $penyataiii_save->ebio_c3 = $request->get('ebio_c3');
-            $penyataiii_save->ebio_c4 = $request->get('ebio_c4');
-            $penyataiii_save->ebio_c5 = $request->get('ebio_c5');
-            $penyataiii_save->ebio_c6 = $request->get('ebio_c6');
-            $penyataiii_save->ebio_c7 = $request->get('ebio_c7');
-            $penyataiii_save->ebio_c8 = $request->get('ebio_c8');
-            $penyataiii_save->ebio_c9 =$request->get('ebio_c9');
-            $penyataiii_save->ebio_c10 = $request->get('ebio_c10');
+            $penyataiii_save->ebio_c4 = $c4;
+            $penyataiii_save->ebio_c5 = $c5;
+            $penyataiii_save->ebio_c6 = $c6;
+            $penyataiii_save->ebio_c7 = $c7;
+            $penyataiii_save->ebio_c8 = $c8;
+            $penyataiii_save->ebio_c9 = $c9;
+            $penyataiii_save->ebio_c10 =$c10;
         // dd($penyataia_save->ebio_b4);
 
             $penyataiii_save->save();
