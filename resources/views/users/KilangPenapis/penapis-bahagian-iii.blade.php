@@ -192,7 +192,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="mt-2">&nbsp;%</div>
+                                <div class="mt-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%</div>
                             </div>
 
                             <div class="row justify-content-center" >
@@ -218,7 +218,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                <div class="mt-2">&nbsp; %</div>
+                                <div class="mt-2">&nbsp;&nbsp;&nbsp; %</div>
 
 
                                 </div>
