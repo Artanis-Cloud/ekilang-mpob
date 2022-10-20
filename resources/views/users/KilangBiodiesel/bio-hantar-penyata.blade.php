@@ -51,7 +51,7 @@
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
                         <div align="">
                             <table border="0" width="100%">
-                                <tbody style="float: right; width:10rem">
+                                <tbody style="float: right; width:10rem; margin-right: -10px">
                                     <tr>
                                         <td width="10%" height="19">
                                             <p align=""><b></b></p>
