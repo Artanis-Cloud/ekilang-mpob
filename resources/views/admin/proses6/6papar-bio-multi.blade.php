@@ -573,7 +573,7 @@
                                                         @foreach ($penyataic[$key] as $dataic)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $dataic->produk->prodname }}</font>
+                                                                <font size="2">{{ $dataic->produk->proddesc ?? '-' }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $dataic->ebio_b4 }}</font>

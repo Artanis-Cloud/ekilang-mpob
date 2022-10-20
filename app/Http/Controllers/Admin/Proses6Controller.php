@@ -954,15 +954,16 @@ class Proses6Controller extends Controller
                 return $query->where('prodcat', '=', 01);
             })->get();
 
-            
+
 
             $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
             })->get();
 
-            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', ['03', '06', '08']);
-            })->get();
+            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->where('ebio_b3', '3')->get();
+
+        // $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+
 
             $penyataii[$key] = Hari::where('lesen',  $penyata[$key]->ebio_nl)->first();
             // dd($penyataiva);
