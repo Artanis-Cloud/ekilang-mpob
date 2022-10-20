@@ -1171,6 +1171,12 @@ class Proses1Controller extends Controller
         $penyata2->directory = $request->directory;
         $penyata2->save();
 
+        $map = User::where('username', $penyata->e_nl)->first();
+        $map->email = $request->e_email;
+        $map->map_flg = '1';
+        $map->map_sdate = now();
+        $map->save();
+
         //log audit trail admin
         Auth::user()->log(" UPDATE PELESEN {$penyata2->e_nl}");
 
