@@ -246,7 +246,7 @@
 
                                     <div class="col-md-6">
                                         <input type="text" id="company-column" class="form-control" placeholder="No Lesen"
-                                            name="e_initlesen">
+                                            name="e_initlesen" maxlength="12">
                                     </div>
                                 </div>
 
