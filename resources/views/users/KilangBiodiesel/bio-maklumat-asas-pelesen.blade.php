@@ -397,7 +397,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     onkeypress="return isNumberKey(event)"
                                     oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); valid_proses()"
-                                    value=" {{ $pelesen->kap_proses }}" required>
+                                    value=" {{ number_format($pelesen->kap_proses ?? 0,2) }}" required>
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
 
@@ -441,7 +441,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpo'
                                                 style="width:100%" size="15" id="bil_tangki_cpo" required
                                                 title="Sila isikan butiran ini." onkeypress="return isNumberKey(event)"
-                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');
+                                                value="{{ number_format($pelesen->bil_tangki_cpo ?? 0,2) }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');
                                                 validate_two_decimal(this); ableInput(); valid_cpo(); FormatCurrency(this)">
                                             @error('bil_tangki_cpo')
                                                 <div class="alert alert-danger">
@@ -453,7 +453,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_ppo" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_ppo(); FormatCurrency(this)">
+                                                value="{{ number_format($pelesen->bil_tangki_pp ?? 0,2) }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');validate_two_decimal(this); ableInput(); valid_ppo(); FormatCurrency(this)">
                                             @error('bil_tangki_ppo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -464,7 +464,7 @@
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_cpko" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_cpko(); FormatCurrency(this)">
+                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? 0,2) }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');validate_two_decimal(this); ableInput(); valid_cpko(); FormatCurrency(this)">
                                             @error('bil_tangki_cpko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -474,7 +474,7 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_ppko'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_ppko" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput();valid_ppko(); FormatCurrency(this)">
+                                                value="{{ number_format($pelesen->bil_tangki_ppko ?? 0,2) }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');validate_two_decimal(this); ableInput();valid_ppko(); FormatCurrency(this)">
                                             @error('bil_tangki_ppko')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -484,7 +484,7 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_oleo'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_oleo" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput();  valid_oleo(); FormatCurrency(this)">
+                                                value="{{ number_format($pelesen->bil_tangki_oleo ?? 0,2) }}" onchange="validation_jumlah()" oninput="this.setCustomValidity('');validate_two_decimal(this); ableInput();  valid_oleo(); FormatCurrency(this)">
                                             @error('bil_tangki_oleo')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -494,8 +494,8 @@
                                         <td><input type="text" class="form-control" name='bil_tangki_others'
                                                 size="15" onkeypress="return isNumberKey(event)" style="width:100%"
                                                 id="bil_tangki_others" required title="Sila isikan butiran ini."
-                                                value="{{ $pelesen->bil_tangki_others }}"
-                                                onchange="validation_jumlah()" oninput="this.setCustomValidity(''); ableInput(); valid_others(); FormatCurrency(this)">
+                                                value="{{ number_format($pelesen->bil_tangki_other ?? 0,2) }}"
+                                                onchange="validation_jumlah()" oninput="this.setCustomValidity('');validate_two_decimal(this); ableInput(); valid_others(); FormatCurrency(this)">
                                             @error('bil_tangki_others')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -511,9 +511,9 @@
 
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_cpo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');valid_cpo(); FormatCurrency(this)"
+                                                id="kap_tangki_cpo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');validate_two_decimal(this);valid_cpo(); FormatCurrency(this)"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ $pelesen->kap_tangki_cpo }}">
+                                                value="{{ number_format($pelesen->kap_tangki_cpo ?? 0,2) }}">
                                                 <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -525,9 +525,9 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_ppo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');  valid_ppo(); FormatCurrency(this)"
+                                                id="kap_tangki_ppo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');validate_two_decimal(this);  valid_ppo(); FormatCurrency(this)"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ $pelesen->kap_tangki_ppo }}">
+                                                value="{{ number_format($pelesen->kap_tangki_ppo ?? 0,2) }}">
                                                 <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -539,9 +539,9 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_cpko" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');  valid_cpko(); FormatCurrency(this)"
+                                                id="kap_tangki_cpko" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');validate_two_decimal(this);  valid_cpko(); FormatCurrency(this)"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ $pelesen->kap_tangki_cpko }}">
+                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? 0,2) }}">
                                                 <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -553,9 +553,9 @@
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_ppko'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_ppko" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); valid_ppko(); FormatCurrency(this)"
+                                                id="kap_tangki_ppko" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');validate_two_decimal(this); valid_ppko(); FormatCurrency(this)"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ $pelesen->kap_tangki_ppko }}">
+                                                value="{{ number_format($pelesen->kap_tangki_ppko ?? 0,2) }}">
                                                 <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -567,9 +567,9 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_oleo'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_oleo" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); valid_oleo(); FormatCurrency(this)"
+                                                id="kap_tangki_oleo" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');validate_two_decimal(this); valid_oleo(); FormatCurrency(this)"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ $pelesen->kap_tangki_oleo }}">
+                                                value="{{ number_format($pelesen->kap_tangki_oleo ?? 0,2) }}">
                                                 <p type="hidden" id="err_koleo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -581,9 +581,9 @@
                                         </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_others'
                                                 onkeypress="return isNumberKey(event)" style="width:100%"
-                                                id="kap_tangki_others" onchange="validation_jumlah2()" oninput="this.setCustomValidity(''); valid_others(); FormatCurrency(this)"
+                                                id="kap_tangki_others" onchange="validation_jumlah2()" oninput="this.setCustomValidity('');validate_two_decimal(this); valid_others(); FormatCurrency(this)"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ $pelesen->kap_tangki_others }}">
+                                                value="{{ number_format($pelesen->kap_tangki_other ?? 0,2) }}">
                                                 <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -742,6 +742,11 @@
             </script>
              <script>
                 $('.sub-form').submit(function() {
+
+                    var x = $('#kap_proses').val();
+                    x = x.replace(/,/g, '');
+                    x = parseFloat(x, 10);
+                    $('#kap_proses').val(x);
 
                     var x = $('#bil_tangki_cpo').val();
                     x = x.replace(/,/g, '');
@@ -957,38 +962,57 @@
         </script> --}}
         <script>
             function validation_jumlah() {
-                var bil_tangki_cpo = $("#bil_tangki_cpo").val();
-                var bil_tangki_ppo = $("#bil_tangki_ppo").val();
-                var bil_tangki_cpko = $("#bil_tangki_cpko").val();
-                var bil_tangki_ppko = $("#bil_tangki_ppko").val();
-                var bil_tangki_oleo = $("#bil_tangki_oleo").val();
-                var bil_tangki_others = $("#bil_tangki_others").val();
+                var bil_tangki_cpo = document.getElementById('bil_tangki_cpo');
+                var bcpo = bil_tangki_cpo.value.replace(/,/g, '');
+                var bil_tangki_ppo = document.getElementById('bil_tangki_ppo');
+                var bppo = bil_tangki_ppo.value.replace(/,/g, '');
+                var bil_tangki_cpko = document.getElementById('bil_tangki_cpko');
+                var bcpko = bil_tangki_cpko.value.replace(/,/g, '');
+                var bil_tangki_ppko = document.getElementById('bil_tangki_ppko');
+                var bppko = bil_tangki_ppko.value.replace(/,/g, '');
+                var bil_tangki_ppko = document.getElementById('bil_tangki_oleo');
+                var boleo = bil_tangki_oleo.value.replace(/,/g, '');
+                var bil_tangki_others = document.getElementById('bil_tangki_others');
+                var bothers = bil_tangki_others.value.replace(/,/g, '');
+
 
                 var jumlah = $("#jumlah").val();
                 var jumlah_input = 0;
 
-                jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
-                    parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
-                        bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
+                jumlah_input = parseFloat(Number(bcpo)) + parseFloat(Number(bppo)) +
+                    parseFloat(Number(bcpko)) + parseFloat(Number(bppko)) + parseFloat(Number(
+                        boleo)) + parseFloat(Number(bothers));
 
                 document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
             }
         </script>
         <script>
             function validation_jumlah2() {
-                var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-                var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-                var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-                var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-                var kap_tangki_oleo = $("#kap_tangki_oleo").val();
-                var kap_tangki_others = $("#kap_tangki_others").val();
+                var kap_tangki_cpo = document.getElementById('kap_tangki_cpo');
+                var kcpo = kap_tangki_cpo.value.replace(/,/g, '');
+
+                var kap_tangki_ppo = document.getElementById('kap_tangki_ppo');
+                var kppo = kap_tangki_ppo.value.replace(/,/g, '');
+
+                var kap_tangki_cpko = document.getElementById('kap_tangki_cpko');
+                var kcpko = kap_tangki_cpko.value.replace(/,/g, '');
+
+                var kap_tangki_ppko = document.getElementById('kap_tangki_ppko');
+                var kppko = kap_tangki_ppko.value.replace(/,/g, '');
+
+                var kap_tangki_oleo = document.getElementById('kap_tangki_oleo');
+                var koleo = kap_tangki_oleo.value.replace(/,/g, '');
+
+                var kap_tangki_others = document.getElementById('kap_tangki_others');
+                var kothers = kap_tangki_others.value.replace(/,/g, '');
+
 
                 var jumlah = $("#jumlah2").val();
                 var jumlah_input = 0;
 
-                jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                    parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                        kap_tangki_oleo)) + parseFloat(Number(kap_tangki_others));
+                jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
+                    parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(
+                        koleo)) + parseFloat(Number(kothers));
 
                 document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
             }
@@ -1000,7 +1024,7 @@
                     });
                 });
             </script>
-            <script>
+            {{-- <script>
                 var input = document.getElementById("kap_proses");
                 var lastValue = "";
 
@@ -1013,7 +1037,7 @@
                     else
                         input.value = lastValue;
                 }
-            </script>
+            </script> --}}
             <script>
                 function valid_nl() {
 
