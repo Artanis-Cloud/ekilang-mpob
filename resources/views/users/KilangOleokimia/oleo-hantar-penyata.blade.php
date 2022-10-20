@@ -938,13 +938,22 @@
             </script>
 
 
-            <script>
+            {{-- <script>
                 function myPrint(myfrm) {
                     var printdata = document.getElementById(myfrm);
                     newwin = window.open("");
                     newwin.document.write(printdata.outerHTML);
                     newwin.print();
                     newwin.close();
+                }
+            </script> --}}
+            <script>
+                function myPrint(myfrm) {
+                var restorepage = $('body').html();
+                var printcontent = $('#' + myfrm).clone();
+                $('body').empty().html(printcontent);
+                window.print();
+                $('body').html(restorepage);
                 }
             </script>
             <script>
