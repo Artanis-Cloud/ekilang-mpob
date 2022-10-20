@@ -10,6 +10,8 @@ class SyarikatPembeli extends Model
     use HasFactory;
 
     protected $table = 'syarikat_pembeli';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'id',
