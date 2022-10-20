@@ -348,36 +348,36 @@
                                                                     </td> --}}
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b5' style="text-align: right" id='ebio_b5'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b5 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b6' style="text-align: right" id='ebio_b6'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b6 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b7' style="text-align: right" id='ebio_b7'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b7 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b8' style="text-align: right" id='ebio_b8'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b8 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b9' style="text-align: right" id='ebio_b9'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b9 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b10' style="text-align: right" id='ebio_b10'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b10 ??  0,2) }}">
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b11' style="text-align: right" id='ebio_b11'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataia2->ebio_b11 ??  0,2) }}">
                                                                     </td>
                                                                     <td>
@@ -586,36 +586,36 @@
                                                                     </td> --}}
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b5' style="text-align: right" id='ebio_b5'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b5 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b6' style="text-align: right" id='ebio_b6'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b6 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b7' style="text-align: right" id='ebio_b7'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b7 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b8' style="text-align: right" id='ebio_b8'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b8 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b9' style="text-align: right" id='ebio_b9'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b9 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b10' style="text-align: right" id='ebio_b10'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b10 ??  0,2) }}">
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b11' style="text-align: right" id='ebio_b11'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataib2->ebio_b11 ??  0,2) }}">
                                                                     </td>
                                                                     <td>
@@ -822,22 +822,22 @@
                                                                     </td> --}}
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b5' style="text-align: right" id='ebio_b5'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataic2->ebio_b5 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b6' style="text-align: right" id='ebio_b6'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataic2->ebio_b6 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b7' style="text-align: right" id='ebio_b7'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataic2->ebio_b7 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b8' style="text-align: right" id='ebio_b8'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataic2->ebio_b8 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
@@ -847,11 +847,11 @@
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b10' style="text-align: right" id='ebio_b10'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataic2->ebio_b10 ??  0,2) }}">
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_b11' style="text-align: right" id='ebio_b11'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataic2->ebio_b11 ??  0,2) }}">
                                                                     </td>
                                                                     <td>
@@ -993,15 +993,54 @@
                                                 </b> </p>
                                             <table border="0" width="50%" cellspacing="0" cellpadding="0">
                                                 <tbody>
-                                                    <tr>
-                                                        <td width="380">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii->hari_operasi }} Hari</b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="380">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                        <td width="100"><b>:{{ $penyataii->kapasiti }} %</b></td>
-                                                    </tr>
+                                                    <form action="{{ route('admin.kemaskini.maklumat.bio.ii',  [$penyataii->lesen] ) }}"  class="sub-form"
+                                                        method="post" id="formii" >
+                                                        @csrf
+                                                        <tr>
+                                                            <td width="50%">Jumlah Hari Kilang Beroperasi Sebulan :</td>
+                                                            <td width="20%" align="left">
+                                                                <input type="text" name='hari_operasi' style="text-align: right" id='hari_operasi'
+                                                                class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                value=  "{{ $penyataii->hari_operasi ??  0 }}" >
+                                                            </td>
+                                                            <td width="20%">
+                                                                <b>&nbsp Hari</b>
+                                                            </td>
+                                                            {{-- <td width="100"><b>:{{ $penyataii->hari_operasi }}</b></td> --}}
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="50%">Kadar Penggunaan Kapasiti Sebulan :</td>
+                                                            <td width="20%" align="left">
+                                                                <input type="text" name='kapasiti' style="text-align: right" id='kapasiti'
+                                                                class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                value=  "{{ number_format($penyataii->kapasiti ??  0,2) }}" >
+                                                            </td>
+                                                            <td width="20%">
+                                                                <b>&nbsp %</b>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="50%"><b>Kemaskini</b></td>
+                                                            <td width="20%" align="left">
+                                                            <div class="icon" style="text-align: center">
 
+                                                                <button class="dt-button buttons-excel buttons-html5 mt-1" type="submit"
+                                                                    style="background-color: white; color: #0a7569; ">
+                                                                    <i class="fa fa-edit" style="color: #0a7569"></i> Kemaskini
+                                                                </button>
+
+                                                            </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    </form>
+                                                    <script>
+                                                        submitForms = function(){
+                                                            document.getElementById("formii").submit();
+                                                            // document.getElementById("form2").submit();
+                                                        }
+                                                    </script>
                                                 </tbody>
                                             </table><br>
 
@@ -1079,36 +1118,36 @@
                                                                     </td> --}}
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c4' style="text-align: right" id='ebio_c4'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c4 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c5' style="text-align: right" id='ebio_c5'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c5 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c6' style="text-align: right" id='ebio_c6'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c6 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c7' style="text-align: right" id='ebio_cb7'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c7 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c8' style="text-align: right" id='ebio_c8'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c8 ??  0,2) }}">
                                                                     </td>
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c9' style="text-align: right" id='ebio_c9'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c9 ??  0,2) }}">
                                                                     <td align="right">
                                                                         <input type="text" name='ebio_c10' style="text-align: right" id='ebio_c10'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
                                                                         value="{{ number_format($penyataiii2->ebio_c10 ??  0,2) }}">
                                                                     </td>
                                                                     <td>
@@ -1354,10 +1393,9 @@
     </script>
 
 
-<script>
+{{-- <script>
     $('.sub-form').submit(function() {
 
-        // var x = $(this).closest('form').find('input[name=ebio_b5]').val();
         var x = $('#ebio_b5').val();
         x = x.replace(/,/g, '');
         x = parseFloat(x, 10);
@@ -1402,6 +1440,6 @@
         return true;
 
     });
-</script>
+</script> --}}
 
 @endsection

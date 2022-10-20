@@ -145,6 +145,7 @@ Route::middleware('auth')->group(function () {
         Route::post('admin/5-kemaskini-maklumat-exeiii/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_exe_iii'])->name('admin.kemaskini.maklumat.bio.exe.iii');
         Route::post('admin/5-add-bio/formiii/{ebio_reg}', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_add_bahagian_iii'])->name('admin.add.bahagian.iii');
         Route::get('admin/5-delete-bio/formiii/{Id}',  [App\Http\Controllers\Admin\Proses5Controller::class, 'process_delete_bahagian_iii'])->name('admin.delete.bahagian.iii');
+        Route::post('admin/5-kemaskini-maklumat-ii/{lesen}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_ii'])->name('admin.kemaskini.maklumat.bio.ii');
 
 
 
