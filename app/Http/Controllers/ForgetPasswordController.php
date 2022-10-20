@@ -52,7 +52,7 @@ class ForgetPasswordController extends Controller
         $user->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
 
 
-        return redirect()->route('login')->with('success', 'Sistem telah menghantar pautan tetapan semula kata laluan anda melalui emel!');
+        return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
     }
 
     public function customChangePassword(Request $request)
