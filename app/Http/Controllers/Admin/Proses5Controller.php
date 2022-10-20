@@ -866,7 +866,7 @@ class Proses5Controller extends Controller
             })->get();
 
             $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', ['03', '06', '08']);
+                return $query->whereIn('prodcat', ['03', '06', '08']);
             })->get();
 
             $penyataii[$key] = Hari::where('lesen',  $penyata[$key]->ebio_nl)->first();
@@ -945,13 +945,18 @@ class Proses5Controller extends Controller
         $tahun1 = $request->tahun;
         $bulan1 = $request->bulan;
 
-//    dd($bulan1);
+        $flg = EBioInit::where('ebio_flg', 2)->get();
+//    dd($flg->ebio_flg);
+        // if ($tahun1 == now()->year && $bulan1 == now()->month){
+
+            // foreach($flg as $f){
+            if($flg){
 
                 $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel,
                 k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, e_bio_inits e, reg_pelesen k
                 WHERE p.e_nl = e.ebio_nl
-                and e.ebio_flg in ('2','3')
+                -- and e.ebio_flg in ('2','3')
                 and p.e_nl = k.e_nl
                 and k.e_kat = 'PLBIO'
                 and e.ebio_thn = $tahun1
@@ -962,9 +967,14 @@ class Proses5Controller extends Controller
                     return redirect()->back()
                     ->with('error', 'Penyata Tidak Wujud!');
                 }
+            }
+            // dd($users);
+            //   }
+        //     }
+        // else{
 
-        // dd($users);
-
+        // }
+        dd($users);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
