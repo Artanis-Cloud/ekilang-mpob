@@ -158,13 +158,13 @@
                                     <table id="examplebio" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd">
-                                                <th style=" vertical-align: middle">Bil.</th>
+                                                <th style=" vertical-align: middle; width:1%">Bil.</th>
                                                 <th style=" vertical-align: middle; width: 10%">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
                                                 <th style=" vertical-align: middle">No. Telefon</th>
-                                                <th style=" vertical-align: middle">Kod Pegawai</th>
-                                                <th style=" vertical-align: middle">No. Siri</th>
+                                                {{-- <th style=" vertical-align: middle">Kod Pegawai</th> --}}
+                                                {{-- <th style=" vertical-align: middle">No. Siri</th> --}}
                                                 <th style=" vertical-align: middle">Status e-Kilang</th>
                                                 <th style=" vertical-align: middle">Status e-Stok</th>
                                                 <th style=" vertical-align: middle">Direktori</th>
@@ -177,8 +177,8 @@
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
                                                 <th>No. Telefon</th>
-                                                <th>Kod Pegawai</th>
-                                                <th>No. Siri</th>
+                                                {{-- <th>Kod Pegawai</th> --}}
+                                                {{-- <th>No. Siri</th> --}}
                                                 <th>Status e-Kilang</th>
                                                 <th>Status e-Stok</th>
                                                 <th>Direktori</th>
@@ -189,7 +189,7 @@
                                             @foreach ($users as $data)
                                                 @if ($data->pelesen)
                                                     <tr class="text-left">
-                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td style="text-align: center">{{ $loop->iteration }}</td>
                                                         <td>
                                                             <a
                                                                 href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
@@ -198,8 +198,8 @@
                                                         <td>{{ $data->pelesen->e_np ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
-                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                        {{-- <td style="text-align: center">{{ $data->kodpgw }}</td> --}}
+                                                        {{-- <td style="text-align: center">{{ $data->nosiri }}</td> --}}
                                                         @if ($data->e_status == 1)
                                                             <td style="text-align: center">Aktif</td>
                                                         @elseif ($data->e_status == 2)

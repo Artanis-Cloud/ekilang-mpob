@@ -171,11 +171,10 @@
                                                         <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
                                             <td><input type="text" id="ebio_cc4{{ $data->ebio_cc1 }}" class="form-control"
                                                     style="text-align: center" placeholder=" Jualan / Edaran" onchange="validation_jumlah({{ $data->ebio_cc1 }}) ; autodecimal(this);FormatCurrency(this);"
-                                                    name="ebio_cc4[]" onkeypress="return isNumberKey(event)" onClick="this.select();" 
+                                                    name="ebio_cc4[]" onkeypress="return isNumberKey(event)" onClick="this.select();"
                                                     value="{{ number_format($data->ebio_cc4 ?? 0, 2) }}"></td>
                                             <td><input type="button" class="add btn btn-danger"
-                                                    style="display: block;
-                                                                margin: auto;"
+                                                    style="display: block; margin: auto;"
                                                     onclick="deleteRow({{ $data->ebio_cc1 }});" value="Hapus">
                                             </td>
 
@@ -199,18 +198,19 @@
                                         <td class="field"><input type="text" id="new_jumlah[]" class="form-control"
                                                 style="text-align: center" name='new_jumlah[]' placeholder="Jualan/Edaran"
                                                 onkeypress="return isNumberKey(event)"></td>
-                                        <td class="actions"><input type="button" class="add btn btn-primary"
+                                        <td class="actions"><input type="button" class="add btn btn-primary" style="display: block; margin: auto;"
                                                 disabled="disabled" onclick="add_row();" value="Tambah Maklumat">
                                         </td>
                                     </tr>
                                     <tr style="background-color: #d3d3d34d; text-align: center">
 
                                         <td colspan="2"><b>JUMLAH</b></td>
-                                        <td colspan="2"><b><span id="total" name="total">
+                                        <td ><b><span id="total" name="total">
                                                 </span>
                                                 <input type="hidden" id="total_hidden" name="total_hidden">
                                             </b>
                                         </td>
+                                        <td></td>
                                     </tr>
 
                                 </tbody>
