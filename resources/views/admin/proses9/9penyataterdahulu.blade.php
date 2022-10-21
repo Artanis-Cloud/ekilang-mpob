@@ -338,7 +338,9 @@
         function check() {
             // (B1) INIT
             var error = "",
-                field = "";
+                field = "",
+                sektor = document.getElementById('sektor').value;
+
 
             field = document.getElementById("sektor");
             if (!field.checkValidity()) {
@@ -356,13 +358,25 @@
                 console.log('masuk');
             }
             // kod produk
-            field = document.getElementById("bulan");
+            if (sektor == 'PLBIO') {
+                field = document.getElementById("bulan2");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
-                $('#bulan').css('border', '1px solid red');
-                document.getElementById('err_bulan').style.display = "block";
-                console.log('masuk');
+                $('#bulan2').css('border', '1px solid red');
+                document.getElementById('err_bulan2').style.display = "block";
+                console.log('masuk2');
             }
+
+            } else {
+                field = document.getElementById("bulan");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#bulan').css('border', '1px solid red');
+                        document.getElementById('err_bulan').style.display = "block";
+                        console.log('masuk');
+            }
+            }
+
             // kod produk
             field = document.getElementById("data");
             if (!field.checkValidity()) {
