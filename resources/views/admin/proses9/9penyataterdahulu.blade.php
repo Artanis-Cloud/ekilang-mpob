@@ -53,7 +53,7 @@
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
-                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get"  onsubmit="return Validate(this);check()" >
+                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get"  onsubmit="return Validate(this);check()" novalidate>
                             @csrf
                             <div class>
                                 <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:-2%; text-align:center">
