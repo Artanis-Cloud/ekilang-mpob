@@ -279,7 +279,7 @@
                                                                 <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
-                                                                        <select class="form-control" id="e102_b4"
+                                                                        <select class="form-control" id="e102_b4" disabled
                                                                             name="e102_b4"  oninput="enableKemaskini({{ $data->e102_b1 }})">
                                                                             <option hidden value="{{ $data->e102_b4 }}">
                                                                                 {{ $data->kodsl->catname ?? '' }}
@@ -300,7 +300,7 @@
                                                                 <label class="required">Dari </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
-                                                                        <select class="form-control" id="e102_b5"
+                                                                        <select class="form-control" id="e102_b5" disabled
                                                                             name="e102_b5"  oninput="enableKemaskini({{ $data->e102_b1 }})">
                                                                             <option selected hidden value="{{ $data->prodcat2->catid ?? '' }}">
                                                                                 {{ $data->prodcat2->catname ?? '' }}
@@ -317,7 +317,7 @@
                                                                 </div>
                                                                 <label class="required">Kuantiti </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e102_b6'
+                                                                    <input type="text" name='e102_b6'  onClick="this.select();"
                                                                         onkeypress="return isNumberKey(event)"  onchange="autodecimal(this);FormatCurrency(this)"
                                                                         class="form-control" id="e102_sb6{{ $data->e102_b1 }}" oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})"
                                                                         value="{{ old('e102_b6') ?? number_format($data->e102_b6 ?? 0,2) }}" required>
@@ -451,15 +451,15 @@
                                                                 <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
-                                                                        <select class="form-control" id="e102_b4"
-                                                                            name="e102_b4" oninput="enableKemaskini({{ $data->e102_b1 }})">
-                                                                            <option hidden value="{{ $data->e102_b4 }}">
+                                                                        <select class="form-control" id="e102_b4" readonly disabled
+                                                                            name="e102_b4">
+                                                                            <option hidden selected value="{{ $data->e102_b4 }}">
                                                                                 {{ $data->kodsl->catname ?? '' }}
                                                                             </option>
-                                                                            <option value="1"> SENDIRI
+                                                                            {{-- <option value="1"> SENDIRI
                                                                             </option>
                                                                             <option value="2"> LUAR
-                                                                            </option>
+                                                                            </option> --}}
 
                                                                         </select>
                                                                     </fieldset>
@@ -472,7 +472,7 @@
                                                                 <label class="required">Dari </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
-                                                                        <select class="form-control" id="e102_b5"
+                                                                        <select class="form-control" id="e102_b5" disabled
                                                                             name="e102_b5" oninput="enableKemaskini({{ $data->e102_b1 }})">
                                                                             <option selected hidden
                                                                                 value="{{ $data->prodcat2->catid ?? '' }}">
@@ -490,7 +490,7 @@
                                                                 </div>
                                                                 <label class="required">Kuantiti </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name="e102_b6"
+                                                                    <input type="text" name="e102_b6"  onClick="this.select();"
                                                                         onkeypress="return isNumberKey(event)" onchange="autodecimal(this);FormatCurrency(this)"
                                                                         class="form-control" id="e102_eb6{{ $data->e102_b1 }}" oninput="validate_two_decimal(this);enableKemaskini({{ $data->e102_b1}})"
                                                                         value="{{ old('e102_b6') ?? number_format($data->e102_b6 ?? 0,2) }}">

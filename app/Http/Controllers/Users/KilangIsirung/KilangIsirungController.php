@@ -518,8 +518,8 @@ class KilangIsirungController extends Controller
 
         // dd($request->all());
         $penyata = E102B::findOrFail($id);
-        $penyata->e102_b4 = $request->e102_b4;
-        $penyata->e102_b5 = $request->e102_b5;
+        // $penyata->e102_b4 = $request->e102_b4;
+        // $penyata->e102_b5 = $request->e102_b5;
         $penyata->e102_b6 = $b6;
 
         $penyata->save();
@@ -704,8 +704,8 @@ class KilangIsirungController extends Controller
 
                 // dd($request->all());
                 $penyata = E102B::findOrFail($id);
-                $penyata->e102_b4 = $request->e102_b4;
-                $penyata->e102_b5 = $request->e102_b5;
+                // $penyata->e102_b4 = $request->e102_b4;
+                // $penyata->e102_b5 = $request->e102_b5;
                 $penyata->e102_b6 = $b6;
 
                 $penyata->save();
@@ -890,8 +890,8 @@ class KilangIsirungController extends Controller
 
         // dd($request->all());
         $penyata = E102B::findOrFail($id);
-        $penyata->e102_b4 = $request->e102_b4;
-        $penyata->e102_b5 = $request->e102_b5;
+        // $penyata->e102_b4 = $request->e102_b4;
+        // $penyata->e102_b5 = $request->e102_b5;
         $penyata->e102_b6 = $b6;
 
         $penyata->save();
