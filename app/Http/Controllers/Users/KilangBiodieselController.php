@@ -1296,18 +1296,18 @@ class KilangBiodieselController extends Controller
         if ($user) {
             $ia = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '01');
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
-            $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+            $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
             // dd($ii);
 
-            $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+            $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
             // dd($ic);
 
             $ii = Hari::where('lesen', auth()->user()->username)->first();
             // dd($ii);
 
-            $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+            $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
 
             $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
             $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
@@ -1446,18 +1446,18 @@ class KilangBiodieselController extends Controller
 
         $ia = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '01');
-        })->get();
+        })->orderBy('ebio_b4')->get();
 
 
-        $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+        $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
         // dd($ib);
 
-        $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+        $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
         // dd($ic);
 
         $ii = Hari::where('lesen', auth()->user()->username)->first();
 
-        $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+        $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
 
         $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
         $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
@@ -1688,13 +1688,13 @@ class KilangBiodieselController extends Controller
         if ($users) {
             $myDateTime = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
-            $ia = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '1')->get();
+            $ia = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
-            $ib = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '2')->get();
+            $ib = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
 
             $ic = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat', [ '06', '08' ]);
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
             $ii = HHari::where('lesen', auth()->user()->username)->where('tahunbhg2', $users->ebio_thn)->where('bulan', $users->ebio_bln)->first();
 
@@ -1703,7 +1703,7 @@ class KilangBiodieselController extends Controller
 
             $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat', [ '03', '06', '08', '12' ]);
-            })->get();
+            })->orderBy('ebio_c3')->get();
             // dd($iii);
 
             $myDateTime2 = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
