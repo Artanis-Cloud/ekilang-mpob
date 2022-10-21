@@ -216,6 +216,7 @@ class KilangBuahController extends Controller
         $penyata->save();
 
         $map = User::where('username', $penyata->e_nl)->first();
+        $map->email = $request->e_email;
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
@@ -487,36 +488,24 @@ class KilangBuahController extends Controller
     {
 
         //    dd($request->all());
-        // $calculate = floatval($request->e91_ai1) + floatval($request->e91_ai2) + floatval($request->e91_ai3) +
-        //     floatval($request->e91_ai4) + floatval($request->e91_ai5) + floatval($request->e91_ai6);
-        //    dd($calculate);
-
-        // $total = floatval($request->jumlah);
-
-
-        // dd($request->total_hidden != $request->jumlah);
-
-            // dd($request->total_hidden == $request->jumlah);
-            $penyata = E91Init::findOrFail($id);
-            $penyata->e91_ai1 = $request->e91_ai1;
-            $penyata->e91_ai2 = $request->e91_ai2;
-            $penyata->e91_ai3 = $request->e91_ai3;
-            $penyata->e91_ai4 = $request->e91_ai4;
-            $penyata->e91_ai5 = $request->e91_ai5;
-            $penyata->e91_ai6 = $request->e91_ai6;
-            $penyata->save();
-            // dd($penyata);
-            return redirect()->route('buah.bahagianiv')
-            ->with('success', 'Maklumat telah disimpan');
-
-        // } else {
-
-        // }
-        if ($request->total_hidden != $request->jumlah) {
+        $calculate = floatval($request->e91_ai1) + floatval($request->e91_ai2) + floatval($request->e91_ai3) +
+            floatval($request->e91_ai4) + floatval($request->e91_ai5) + floatval($request->e91_ai6);
+        if (round($calculate)!= round(floatval($request->jumlah))) {
             return redirect()->back()->withInput()
             ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
         }
 
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_ai1 = $request->e91_ai1;
+        $penyata->e91_ai2 = $request->e91_ai2;
+        $penyata->e91_ai3 = $request->e91_ai3;
+        $penyata->e91_ai4 = $request->e91_ai4;
+        $penyata->e91_ai5 = $request->e91_ai5;
+        $penyata->e91_ai6 = $request->e91_ai6;
+        $penyata->save();
+        // dd($penyata);
+        return redirect()->route('buah.bahagianiv')
+        ->with('success', 'Maklumat telah disimpan');
 
 
     }
@@ -539,7 +528,7 @@ class KilangBuahController extends Controller
         //
         // dd($jumlah == $jumlah2);
 
-        if ($jumlah != $penyata->e91_ab1) {
+        if (round($jumlah) != round($penyata->e91_ab1)) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
         }
 
@@ -590,7 +579,7 @@ class KilangBuahController extends Controller
 
         $total = floatval($request->jumlah);
 
-        if ($calculate != $request->jumlah) {
+        if (round($calculate) != round($request->jumlah)) {
             return redirect()->back()->withInput()
                 ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (CPO)');
         }
@@ -622,7 +611,7 @@ class KilangBuahController extends Controller
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
-        if ($jumlah != $penyata->e91_ae2) {
+        if (round($jumlah) != round($penyata->e91_ae2)) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPO)!');
         }
         //end of semak jumlah bahagian iv
@@ -663,7 +652,7 @@ class KilangBuahController extends Controller
 
         $total = floatval($request->jumlah);
 
-        if ($calculate != $request->jumlah) {
+        if (round($calculate) != round($request->jumlah)) {
             return redirect()->back()->withInput()
                 ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (PK)');
         }
@@ -718,13 +707,13 @@ class KilangBuahController extends Controller
 
         $jumlah_5 = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
         // dd($jumlah_3 != $penyata2);
-         if ($jumlah_3 != $penyata2){
+         if (round($jumlah_3) != round($penyata2)){
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)2!');
         }
-         else if ($jumlah_4 != $penyata->e91_ae2) {
+         else if (round($jumlah_4) != round($penyata->e91_ae2)) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPO)!');
         }
-        else if ($jumlah_5 != $penyata->e91_ae3) {
+        else if (round($jumlah_5) != round($penyata->e91_ae3)) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         } else {
             $breadcrumbs    = [

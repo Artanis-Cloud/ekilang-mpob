@@ -1015,18 +1015,18 @@
                     for(var i=0;i<document.getElementsByName("jumlah_row_input[]").length;i++){
                         var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
                         // console.log('hidden_value',hidden_value);
-                        total += parseInt(hidden_value);
+                        total += parseFloat(hidden_value);
                     }
                     // for (let index = 0; index <= table_input_len; index++) {
                     //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
                     //     total += parseInt(hidden_value);
                     // }
                     // new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
-                    var num2 = total.toFixed(2);
-                    var num1 = new Intl.NumberFormat().format(total);
+                    // var num2 = total.toFixed(2);
+                    // var num1 = new Intl.NumberFormat().format(total);
 
-                    console.log(num1);
-                    document.getElementById("ebio_c8").value = num1;
+                    // console.log(num1);
+                    document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
                     // console.log("total", total);
 
 

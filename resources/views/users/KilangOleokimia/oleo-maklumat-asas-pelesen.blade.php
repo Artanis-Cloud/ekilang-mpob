@@ -126,7 +126,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
                                     oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()"
-                                    value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
+                                    value="{{ $pelesen->e_notel }}" required>
                                 <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
