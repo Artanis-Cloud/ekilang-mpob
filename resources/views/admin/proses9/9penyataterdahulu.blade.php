@@ -78,7 +78,7 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="sektor" name="sektor" required
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" onchange="bulan_2()"
                                                     oninput="setCustomValidity(''); valid_sektor()">
                                                     <option selected hidden disabled value="">Sila Pilih Sektor</option>
                                                     @if (auth()->user()->sub_cat)
@@ -145,7 +145,7 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-top:-1%">
+                                    <div class="row" style="margin-top:-1%; " id="bln1">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
                                         </label>
@@ -164,6 +164,35 @@
                                                     <option value="07">Julai</option>
                                                     <option value="08">Ogos</option>
                                                     <option value="09">September</option>
+                                                    <option value="10">Oktober</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">Disember</option>
+                                                </select>
+                                                <p type="hidden" id="err_bulan" style="color: red; display:none"><i>Sila buat pilihan
+                                                    di
+                                                    bahagian ini!</i></p>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:-1%; " id="bln2">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
+                                        </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="bulan2" name="bulan2" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity(''); valid_bulan()">
+                                                    <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                    <option value="1">Januari</option>
+                                                    <option value="2">Februari</option>
+                                                    <option value="3">Mac</option>
+                                                    <option value="4">April</option>
+                                                    <option value="5">Mei</option>
+                                                    <option value="6">Jun</option>
+                                                    <option value="7">Julai</option>
+                                                    <option value="8">Ogos</option>
+                                                    <option value="9">September</option>
                                                     <option value="10">Oktober</option>
                                                     <option value="11">November</option>
                                                     <option value="12">Disember</option>
@@ -218,7 +247,28 @@
 @endsection
 
 @section('scripts')
+<script>
+    $("#bln2").hide();
 
+    </script>
+
+    <script>
+        function bulan_2() {
+
+            if ($('#sektor').val() == 'PLBIO') {
+                $("#bln1").hide();
+                $("#bln2").show();
+                // console.log($("#bulan").val());
+
+            } else {
+                $("#bln1").show();
+                $("#bln2").hide();
+                console.log("others");
+
+            }
+
+        }
+    </script>
     <script>
         function valid_sektor() {
 
