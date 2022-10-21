@@ -449,7 +449,7 @@ class Proses9Controller extends Controller
 
         }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PLBIO') {
-            return $this->process_admin_9penyataterdahulu_bio_form($request->papar_ya, $request->tahun, $request->bulan);
+            return $this->process_admin_9penyataterdahulu_bio_form($request->papar_ya, $request->tahun, $request->bulan2);
 
         }
     }
