@@ -182,7 +182,7 @@
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="bulan2" name="bulan2" required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity(''); valid_bulan()">
+                                                    oninput="setCustomValidity('');>
                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                     <option value="1">Januari</option>
                                                     <option value="2">Februari</option>
@@ -197,7 +197,7 @@
                                                     <option value="11">November</option>
                                                     <option value="12">Disember</option>
                                                 </select>
-                                                <p type="hidden" id="err_bulan" style="color: red; display:none"><i>Sila buat pilihan
+                                                <p type="hidden" id="err_bulan2" style="color: red; display:none"><i>Sila buat pilihan
                                                     di
                                                     bahagian ini!</i></p>
                                             </fieldset>
