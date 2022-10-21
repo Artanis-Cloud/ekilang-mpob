@@ -491,9 +491,9 @@
                                                                         <div class="form-group">
                                                                             <input type="text" name='ebio_c8'
                                                                                 id="ebio_ec8{{ $data->ebio_c1 }}"
-                                                                                class="form-control"
+                                                                                class="form-control" readonly
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c8 ?? 0, 2) }}"
+                                                                                value="{{ number_format($data->ebio_c8 ?? 0, 2) }}" readonly
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec8({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
@@ -1027,6 +1027,7 @@
 
                     // console.log(num1);
                     document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
+                    // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
                     // console.log("total", total);
 
 
