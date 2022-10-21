@@ -1169,14 +1169,19 @@ class KilangBiodieselController extends Controller
         if($request->ebio_cc3){
             foreach ($request->ebio_cc3 as $key => $value) {
                 $syarikat_id = SyarikatPembeli::where('pembeli', $value)->first();
-                // dd($syarikat_id);
+
+                $ebio_cc4[$key] = str_replace(',', '', $request->ebio_cc4[$key]);
+
                 $bio = EBioCC::create([
                     'ebio_reg' => $penyata->ebio_reg,
                     'ebio_cc2' => 'AW',
                     'ebio_cc3' => $syarikat_id->id,
-                    'ebio_cc4' => $request->ebio_cc4[$key],
+                    'ebio_cc4' => $ebio_cc4[$key],
                 ]);
+
             }
+            // dd($ebio_cc4);
+
         }
         $total_jualan = EBioCC::where('ebio_reg', $penyata->ebio_reg)->sum('ebio_cc4');
 
