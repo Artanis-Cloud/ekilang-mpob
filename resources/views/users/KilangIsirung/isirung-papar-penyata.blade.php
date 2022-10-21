@@ -1052,12 +1052,12 @@
                 error += "Name must be 2-4 characters\r\n";
                 $('#e_notel').css('border-color', 'red');
                 document.getElementById('err_notel').style.display = "block";
-            } else if (field.value.length > 13 || field.value.length < 10) {
-                console.log(field.value.length);
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_notel').css('border-color', 'red');
-                document.getElementById('err_notel2').style.display = "block";
-                document.getElementById('err_notel').style.display = "none";
+            // } else if (field.value.length > 13 || field.value.length < 10) {
+            //     console.log(field.value.length);
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_notel').css('border-color', 'red');
+            //     document.getElementById('err_notel2').style.display = "block";
+            //     document.getElementById('err_notel').style.display = "none";
             }
             else {
                 $('#e_notel').css('border-color', '');
@@ -1135,10 +1135,10 @@ function valid_notel() {
             document.getElementById('err_notel2').style.display = "none";
 
 
-        } else if (str.value.length > 13 || str.value.length < 10) {
-            $('#e_notel').css('border-color', 'red');
-            document.getElementById('err_notel2').style.display = "block";
-            document.getElementById('err_notel').style.display = "none";
+        // } else if (str.value.length > 13 || str.value.length < 10) {
+        //     $('#e_notel').css('border-color', 'red');
+        //     document.getElementById('err_notel2').style.display = "block";
+        //     document.getElementById('err_notel').style.display = "none";
         }
         else {
             $('#e_notel').css('border-color', '');
