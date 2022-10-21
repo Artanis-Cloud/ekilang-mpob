@@ -151,7 +151,7 @@
                                                         @foreach ($senarai_syarikat as $data)
                                                             <tr id="row{{ $data->ebio_cc1 }}">
 
-                                                                <td style="text-align: center">{{ $loop->iteration }}</td>
+                                                                <td>{{ $loop->iteration }}</td>
                                                                 <td><input type="text" id="ebio_cc3" class="form-control" style="text-align: center"
                                                                         placeholder="Nama Syarikat" name="ebio_cc3[]"
                                                                         value="{{ $data->syarikat->pembeli ?? 0 }}" readonly></td>
@@ -163,8 +163,8 @@
                                                         </tr>
                                                         <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
                                                         <td><input type="text" id="ebio_cc4" class="form-control" style="text-align: center"
-                                                            placeholder=" Jualan / Edaran" name="ebio_cc4[]"  onkeypress="return isNumberKey(event)"
-                                                            value="{{ number_format($data->ebio_cc4 ?? 0,2) }}"></td>
+                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"  onkeypress="return isNumberKey(event)"
+                                                            value="{{ $data->ebio_cc4 ?? 0 }}"></td>
                                                             <td><input type="button" class="add btn btn-danger" style="display: block;
                                                                 margin: auto;"
                                                                 onclick="deleteRow({{ $data->ebio_cc1 }});" value="Hapus">
@@ -173,7 +173,6 @@
 
                                                             </tr>
                                                         @endforeach
-
                                                         <tr>
                                                             {{-- @endforeach --}}
                                                             <td></td>
@@ -314,16 +313,6 @@
     });
 </script>
 <script>
-    $(function() {
-        let total = 0;
-        for(var i=0;i<document.getElementsByName("ebio_cc4[]").length;i++){
-            var hidden_value = document.getElementsByName("ebio_cc4[]")[i].value;
-            // console.log('hidden_value',hidden_value);
-            total += parseFloat(hidden_value);
-        }
-        console.log(total);
-        document.getElementById("total").innerHTML = total.toFixed(2);
-    });
     function add_row() {
         // var seq = $seq;
         // seq += 1
@@ -332,23 +321,19 @@
         var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]").selectedIndex].text;
         var table = document.getElementById("data_table");
         var table_len = (table.rows.length) - 2;
-        console.log(new_jumlah);
-
-        // var newnjumlah = new_jumlah.toFixed(2);
-
         var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center'>" + table_len + "</td><td id='syarikat_row" +
-            table_len + "' style='text-align:center' >" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style='text-align:center'>" + new_jumlah +
+            table_len + "' style='text-align:center'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style='text-align:center'>" + new_jumlah +
             "</td><td><input type='hidden' id='jumlah_row" + table_len +
-            " name='ebio_cc4[]' value=" + new_jumlah +
+            "' name='jumlah_row_add[]' value=" + new_jumlah +
             "> <input type='button' value='Hapus' style='display: block; margin: auto' class='delete btn btn-danger' onclick='delete_row(" + table_len + ")'></td></tr>";
 
         var table_input = document.getElementById("cc3_4");
         var table_input_len = (table_input.rows.length);
         var row_input = table_input.insertRow(table_input_len).outerHTML =
-            "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='ebio_cc4" +
+            "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='jumlah_row_hidden" +
             table_input_len +
-            "' name='ebio_cc4_hidden[]' value=" + new_jumlah +
-            "><input  type='hidden' id='new_syarikat_hidden" + table_input_len +
+            "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+            "><input type='hidden' id='new_syarikat_hidden" + table_input_len +
             "' name='new_syarikat_hidden[]' value=" + new_syarikat +
             "></td></tr>";
 
@@ -356,25 +341,13 @@
         document.getElementById("new_jumlah[]").value = "";
 
         let total = 0;
-        //  console.log(total2);
+                    console.log(table_input_len);
 
-        for(var i=0;i<document.getElementsByName("ebio_cc4[]").length;i++){
-            var hidden_value = document.getElementsByName("ebio_cc4[]")[i].value;
-            // console.log('hidden_value',hidden_value);
-            total += parseFloat(hidden_value);
-        }
-
-
-        let total2 = 0;
-        for(var i=0;i<document.getElementsByName("ebio_cc4_hidden[]").length;i++){
-            var hidden_value = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
-            // console.log('hidden_value',hidden_value);
-            total2 += parseFloat(hidden_value);
-        }
-        console.log(new Intl.NumberFormat().format(total2.toFixed(2)));
-
-        var ftotal = total + total2;
-        // console.log(ftotal);
+                    for(var i=0;i<document.getElementsByName("jumlah_row_add[]").length;i++){
+                        var hidden_value = document.getElementsByName("jumlah_row_add[]")[i].value;
+                        // console.log('hidden_value',hidden_value);
+                        total += parseFloat(hidden_value);
+                    }
                     // for (let index = 0; index <= table_input_len; index++) {
                     //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
                     //     total += parseInt(hidden_value);
@@ -383,15 +356,15 @@
                     // var num2 = total.toFixed(2);
                     // var num1 = new Intl.NumberFormat().format(total);
 
-                    // console.log(total);
-        document.getElementById("total").innerHTML = ftotal.toFixed(2);
+                    // console.log(num1);
+                    document.getElementById("total").value = new Intl.NumberFormat().format(total.toFixed(2));
     }
 
     function delete_row(no) {
         document.getElementById("row" + no + "").outerHTML = "";
         // document.getElementById("row_input" + no + "").outerHTML = "";
 
-        document.getElementById("ebio_cc4" + (no - 1)).value = "";
+        document.getElementById("jumlah_row_hidden" + (no - 1)).value = "";
         document.getElementById("new_syarikat_hidden" + (no - 1)).value = "";
     }
 </script>

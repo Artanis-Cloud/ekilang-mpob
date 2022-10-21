@@ -1161,7 +1161,7 @@ class KilangBiodieselController extends Controller
                     'ebio_reg' => $penyata->ebio_reg,
                     'ebio_cc2' => 'AW',
                     'ebio_cc3' => $request->new_syarikat_hidden[$key],
-                    'ebio_cc4' => $request->jumlah_row_hidden[$key],
+                    'ebio_cc4' => $request->ebio_cc4_hidden[$key],
                 ]);
             }
         }
