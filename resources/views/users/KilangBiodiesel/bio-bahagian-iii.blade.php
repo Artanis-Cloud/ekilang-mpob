@@ -987,12 +987,12 @@
                     var table = document.getElementById("data_table");
                     var table_len = (table.rows.length) - 1;
 
-                    var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" +
+                    var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center' id='syarikat_row" +
                         table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
-                        "text-align:center" + ">" + new_jumlah +
+                        "text-align:center" + ">" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
                         "</td><td><input type='hidden' id='jumlah_row" + table_len +
                         "' name='jumlah_row_input[]' value=" + new_jumlah +
-                        "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
+                        "> <input type='button' value='Hapus' style='display: block; margin: auto' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
                         ")'></td></tr>";
 
                     var table_input = document.getElementById("cc3_4");
@@ -1016,7 +1016,10 @@
                         var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
                         // console.log('hidden_value',hidden_value);
                         total += parseFloat(hidden_value);
+                        // total2 = parseFloat(total).toFixed(2);
+
                     }
+
                     // for (let index = 0; index <= table_input_len; index++) {
                     //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
                     //     total += parseInt(hidden_value);
@@ -1025,8 +1028,8 @@
                     // var num2 = total.toFixed(2);
                     // var num1 = new Intl.NumberFormat().format(total);
 
-                    // console.log(num1);
-                    document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
+                    // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
                     // console.log("total", total);
 
@@ -1049,7 +1052,7 @@
                         console.log('hidden_value', hidden_value);
                         total += parseInt(hidden_value);
                     }
-                    document.getElementById("ebio_c8").value = total;
+                    document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
             </script>
 
