@@ -453,7 +453,7 @@
                                                         @foreach ($penyataib[$key] as $dataib)
                                                             <tr>
                                                                 <td align="left">
-                                                                    <font size="2">{{ $dataib->produk->proddesc }}</font>
+                                                                    <font size="2">{{ $dataib->produk->proddesc ?? ''}}</font>
                                                                 </td>
                                                                 <td align="center">
                                                                     <font size="2">{{ $dataib->ebio_b4 }}</font>
