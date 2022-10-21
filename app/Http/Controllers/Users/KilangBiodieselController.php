@@ -1696,7 +1696,7 @@ class KilangBiodieselController extends Controller
                 return $query->whereIn('prodcat', [ '06', '08' ]);
             })->orderBy('ebio_b4')->get();
 
-            $ii = HHari::where('lesen', auth()->user()->username)->where('tahunbhg2', $users->ebio_thn)->where('bulan', $users->ebio_bln)->first();
+            $ii = HHari::where('lesen', auth()->user()->username)->where('tahunbhg2', $users->ebio_thn)->where('bulanbhg2', $users->ebio_bln)->first();
 
             // dd($iii);
 
