@@ -178,7 +178,7 @@
                                     Jumlah Jam Pengilangan Isirung (PK)</label>
                             </div>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" style="text-align:right" name='e102_al3'
+                                <input type="text" class="form-control" style="text-align:right" name='e102_al3' onClick="this.select();"
                                     id="e102_al3" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
                                     title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc3()"
                                     value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
@@ -198,7 +198,7 @@
                                     Kadar Penggunaan Kapasiti Sebulan </label>
                             </div>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" style="text-align:right" name='e102_al4'
+                                <input type="text" class="form-control" style="text-align:right" name='e102_al4' onClick="this.select();"
                                     id="e102_al4" onkeypress="return isNumberKey(event)" required onchange="autodecimal(this); FormatCurrency(this)"
                                     title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); valid_percent()"
                                     value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">

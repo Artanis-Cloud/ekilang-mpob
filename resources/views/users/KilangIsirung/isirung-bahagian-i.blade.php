@@ -148,21 +148,21 @@
                                                     Stok Awal Di Premis</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aa1' id='e102_aa1' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="validate_two_decimal(this); this.setCustomValidity('');invokeFunc()"  onchange="autodecimal(this); FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{number_format($penyata->e102_aa1, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aa2' style="text-align: center" id='e102_aa2'  onchange="autodecimal(this);FormatCurrency(this)"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc2()"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_aa2, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aa3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc3()" id='e102_aa3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_aa3 ?? 0, 2) }}">
@@ -175,21 +175,21 @@
                                                     Stok Awal Di Pusat Simpanan/Gudang</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ab1' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc4()" id='e102_ab1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ab1 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ab2' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc5()" id='e102_ab2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ab2 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ab3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc6()" id='e102_ab3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ab3 ?? 0, 2) }}">
@@ -205,21 +205,21 @@
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ac1' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc7()" id='e102_ac1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format(($penyata->e102_ac1 ?? 0) + ($penyata->e102_ad1 ?? 0) ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ac2' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc8()" id='e102_ac2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format(($penyata->e102_ac2 ?? 0) + ($penyata->e102_ad2 ?? 0) ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ac3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc9()" id='e102_ac3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format(($penyata->e102_ac3 ?? 0) + ($penyata->e102_ad3 ?? 0) ?? 0, 2) }}">
@@ -247,7 +247,7 @@
                                                     Diproses</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ae1' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc10()" id='e102_ae1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ae1 ?? 0, 2) }}">
@@ -272,14 +272,14 @@
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_af2' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc11()" id='e102_af2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_af2 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_af3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc12()" id='e102_af3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_af3 ?? 0, 2) }}">
@@ -292,21 +292,21 @@
                                                     Jualan/Edaran Tempatan</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ag1' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc13()" id='e102_ag1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ag1 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ag2' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc14()" id='e102_ag2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ag2 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ag3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc15()" id='e102_ag3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ag3 ?? 0, 2) }}">
@@ -318,14 +318,14 @@
                                                 <td class="text-bold-500 ">H.
                                                     Hantar ke Pusat Simpanan/Gudang</td>
                                                 <td style="text-align:center;">
-                                                    <input type="text" size="10" name='e102_ah1' style="text-align: center"
+                                                    <input type="text" size="10" name='e102_ah1' style="text-align: center" onClick="this.select();"
                                                         required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                                         oninput="this.setCustomValidity('');invokeFunc16()" id='e102_ah1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ah1 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
-                                                    <input type="text" size="10" name='e102_ah2' style="text-align: center"
+                                                    <input type="text" size="10" name='e102_ah2' style="text-align: center" onClick="this.select();"
                                                         required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                                         oninput="this.setCustomValidity('');invokeFunc17()" id='e102_ah2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
@@ -333,7 +333,7 @@
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ah3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc18()" id='e102_ah3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ah3 ?? 0, 2) }}">
@@ -345,7 +345,7 @@
                                                 <td class="text-bold-500 ">I.
                                                     Eksport</td>
                                                 <td style="text-align:center;">
-                                                    <input type="text" size="10" name='e102_ai1' style="text-align: center"
+                                                    <input type="text" size="10" name='e102_ai1' style="text-align: center" onClick="this.select();"
                                                         required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                                         oninput="this.setCustomValidity('');invokeFunc19()" id='e102_ai1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
@@ -353,14 +353,14 @@
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ai2' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc20()" id='e102_ai2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ai2 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ai3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc21()" id='e102_ai3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ai3 ?? 0, 2) }}">
@@ -373,21 +373,21 @@
                                                     Stok Akhir di Premis</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aj1' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc22()" id='e102_aj1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_aj1 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aj2' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc23()" id='e102_aj2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_aj2 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aj3' style="text-align: center"
-                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                                        required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onClick="this.select();"
                                                         oninput="this.setCustomValidity('');invokeFunc24()" id='e102_aj3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_aj3 ?? 0, 2) }}">
@@ -399,21 +399,21 @@
                                                 <td class="text-bold-500 ">K.
                                                     Stok Akhir di Pusat Simpanan</td>
                                                 <td style="text-align:center;">
-                                                    <input type="text" size="10" name='e102_ak1' style="text-align: center"
+                                                    <input type="text" size="10" name='e102_ak1' style="text-align: center" onClick="this.select();"
                                                         required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                                         oninput="this.setCustomValidity('');invokeFunc25()" id='e102_ak1'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ak1 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
-                                                    <input type="text" size="10" name='e102_ak2' style="text-align: center"
+                                                    <input type="text" size="10" name='e102_ak2' style="text-align: center" onClick="this.select();"
                                                         required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                                         oninput="this.setCustomValidity('');invokeFunc26()" id='e102_ak2'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_ak2 ?? 0, 2) }}">
                                                 </td>
                                                 <td style="text-align:center;">
-                                                    <input type="text" size="10" name='e102_ak3' style="text-align: center"
+                                                    <input type="text" size="10" name='e102_ak3' style="text-align: center" onClick="this.select();"
                                                         required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                                         oninput="this.setCustomValidity('');invokeFunc27()" id='e102_ak3'  onchange="autodecimal(this);FormatCurrency(this)"
                                                         onkeypress="return isNumberKey(event)"
