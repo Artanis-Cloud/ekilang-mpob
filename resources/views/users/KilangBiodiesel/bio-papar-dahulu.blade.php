@@ -423,7 +423,7 @@
                                             @endphp
                                             @if($ib && !$ib->isEmpty())
 
-                                            @foreach ($ib as  $usersib)
+                                            @foreach ($ib as $usersib)
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2">{{  $usersib->produk->proddesc }}</font>

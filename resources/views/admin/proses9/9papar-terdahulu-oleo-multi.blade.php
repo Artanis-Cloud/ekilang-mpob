@@ -320,10 +320,10 @@
                                                 @foreach ($ia as $dataia)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{  $dataia->produk->proddesc }}</font>
+                                                            <font size="2">{{  $dataia->produk->proddesc ?? ''}}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2">{{  $dataia->e104_b4 }}</font>
+                                                            <font size="2">{{  $dataia->e104_b4 ?? ''}}</font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2">{{ number_format( $dataia->e104_b5 ??  0,2)  }}</font>

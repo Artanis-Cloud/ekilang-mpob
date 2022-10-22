@@ -213,7 +213,7 @@ Route::middleware('auth')->group(function () {
         Route::post('admin/9-papar-terdahulu-buah/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'process_admin_9penyataterdahulu_buah_form'])->name('admin.9papar-terdahulu-buah.form');
         Route::post('admin/9-papar-pleid-buah/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'process_admin_9penyataterdahulu_buah_form'])->name('admin.9papar-terdahulu-buah.form');
         Route::post('admin/9-papar-terdahulu-buah/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'process_admin_pleid_buah_form'])->name('admin.pleid.buah.multi');
-        Route::post('admin/9-papar-pleid/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'papar_penyata'])->name('admin.papar.penyata');
+        Route::post('admin/9-papar-penyata/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'papar_penyata'])->name('admin.papar.penyata');
         Route::post('admin/9-papar-terdahulu-penapis/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'process_admin_9penyataterdahulu_penapis_form'])->name('admin.9papar-terdahulu-penapis.form');
         Route::get('admin/9-papar-terdahulu-penapis/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'process_admin_9penyataterdahulu_penapis_form'])->name('admin.9papar-terdahulu-penapis-multi');
         Route::post('admin/9-papar-terdahulu-isirung/form', [App\Http\Controllers\Admin\Proses9Controller::class, 'process_admin_9penyataterdahulu_isirung_form'])->name('admin.9papar-terdahulu-isirung.form');
