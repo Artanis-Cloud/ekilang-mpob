@@ -353,8 +353,6 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
@@ -367,8 +365,6 @@
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
                                                             <td>{{ $data->e_np }}</td>
-                                                            <td>{{ $data->kodpgw }}</td>
-                                                            <td>{{ $data->nosiri }}</td>
                                                             <td>{{ $data->sdate }}</td>
 
                                                         </tr>

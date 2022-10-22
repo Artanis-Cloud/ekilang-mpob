@@ -209,16 +209,19 @@ class Proses9Controller extends Controller
         $tahuns = $request->tahun;
         if ($sektor == 'PLBIO') {
             $bulans = $request->bulan2;
+            $bulan1 = $request->bulan2;
+
 
         } else {
              $bulans = $request->bulan;
+            $bulan1 = $request->bulan;
+
 
         }
 
         // dd($bulans);
 
         $tahun1 = $request->tahun;
-        $bulan1 = $request->bulan;
 
         if ($sumber == 'ekilang') {
             if ($sektor == 'PL91') {
@@ -318,15 +321,14 @@ class Proses9Controller extends Controller
                 $tahun = HBioInit::where('tahun', $request->ebio_thn);
                 $bulan = HBioInit::where('bulan', $request->ebio_bln);
 
-                $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, k.kodpgw, e.ebio_nobatch, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, h_bio_inits e, reg_pelesen k
                 WHERE e.ebio_thn = '$request->tahun'
                 and e.ebio_bln = '$bulans'
                 and p.e_nl = e.ebio_nl
                 and e.ebio_flg = '3'
                 and p.e_nl = k.e_nl
-                and k.e_kat = 'PLBIO'
-                order by k.kodpgw, k.nosiri");
+                and k.e_kat = 'PLBIO'");
 
                 if (!$users) {
                     return redirect()->back()

@@ -81,7 +81,7 @@
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="sektor" name="sektor" required
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')" onchange="bulan_2()"
-                                                    oninput="setCustomValidity(''); valid_sektor()">
+                                                    oninput="setCustomValidity(''); valid_sektor();valid_bulan()">
                                                     <option selected hidden disabled value="">Sila Pilih Sektor</option>
                                                     @if (auth()->user()->sub_cat)
                                                     @foreach (json_decode(auth()->user()->sub_cat) as $cat)
@@ -149,7 +149,7 @@
                                     </div>
                                     <div class="row" style="margin-top:-1%; " id="bln1">
                                         <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label align-items-center">Bulan
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
@@ -184,7 +184,7 @@
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="bulan2" name="bulan2"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('');">
+                                                    oninput="setCustomValidity('');valid_bulan()">
                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                     <option value="1">Januari</option>
                                                     <option value="2">Februari</option>
@@ -303,22 +303,36 @@
 
         }
     </script>
-    {{-- <script>
+    <script>
         function valid_bulan() {
 
-            if ($('#bulan').val() == '') {
+            if($('#sektor').val() == 'PLBIO'){
+                if ($('#bulan2').val() == '') {
+                $('#bulan2').css('border', '1px solid red');
+                document.getElementById('err_bulan2').style.display = "block";
+
+
+            } else {
+                $('#bulan2').css('border', '');
+                document.getElementById('err_bulan2').style.display = "none";
+
+            }
+            } else {
+                if ($('#bulan').val() == '') {
                 $('#bulan').css('border', '1px solid red');
                 document.getElementById('err_bulan').style.display = "block";
 
 
-            } else {
-                $('#bulan').css('border', '');
-                document.getElementById('err_bulan').style.display = "none";
+                } else {
+                    $('#bulan').css('border', '');
+                    document.getElementById('err_bulan').style.display = "none";
 
+                }
             }
 
+
         }
-    </script> --}}
+    </script>
     <script>
         function valid_data() {
 
@@ -342,6 +356,7 @@
             var error = "",
                 field = "",
                 sektor = document.getElementById('sektor').value;
+                // console.log(sektor);
 
 
             field = document.getElementById("sektor");
@@ -360,9 +375,11 @@
                 console.log('masuk');
             }
             // kod produk
+            // field = document.getElementById("bulan2");
+            // console.log($('#bulan2').val() == null);
+
             if (sektor == 'PLBIO') {
-                field = document.getElementById("bulan2");
-            if (!field.checkValidity()) {
+            if ($('#bulan2').val() == '' || $('#bulan2').val() == null) {
                 error += "Name must be 2-4 characters\r\n";
                 $('#bulan2').css('border', '1px solid red');
                 document.getElementById('err_bulan2').style.display = "block";
@@ -370,8 +387,8 @@
             }
 
             } else {
-                field = document.getElementById("bulan");
-                    if (!field.checkValidity()) {
+                // field = document.getElementById("bulan");
+                    if ($('#bulan').val() == ''  || $('#bulan').val() == null) {
                         error += "Name must be 2-4 characters\r\n";
                         $('#bulan').css('border', '1px solid red');
                         document.getElementById('err_bulan').style.display = "block";
