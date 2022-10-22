@@ -44,7 +44,9 @@
         <div class="container-fluid">
             <!-- row -->
             <div class="card" style="margin-right:2%; margin-left:2%">
-
+   {{-- @if ($errors->any())
+                    {{ implode('', $errors->all('<div>:message</div>')) }}
+                @endif --}}
                 <div class="col-sm-12 col-lg-12">
 
                     <div class="card-body mt-3">
@@ -147,11 +149,11 @@
                                     </div>
                                     <div class="row" style="margin-top:-1%; " id="bln1">
                                         <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
+                                            class="text-right col-sm-4 control-label col-form-label align-items-center">Bulan
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="bulan" name="bulan" required
+                                                <select class="form-control" id="bulan" name="bulan"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_bulan()">
                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
@@ -180,7 +182,7 @@
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="bulan2" name="bulan2" required
+                                                <select class="form-control" id="bulan2" name="bulan2"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity('');">
                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
@@ -301,7 +303,7 @@
 
         }
     </script>
-    <script>
+    {{-- <script>
         function valid_bulan() {
 
             if ($('#bulan').val() == '') {
@@ -316,7 +318,7 @@
             }
 
         }
-    </script>
+    </script> --}}
     <script>
         function valid_data() {
 

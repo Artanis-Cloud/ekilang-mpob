@@ -320,12 +320,14 @@
                                                     $total_col_ebio_b11 = 0;
                                                 @endphp
                                                 @foreach ($ia[$key] as $dataia)
+                                                {{-- {{ dd($dataia) }} --}}
+
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{  $dataia->produk->proddesc }}</font>
+                                                            <font size="2">{{  $dataia->produk->proddesc ?? ''}}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2">{{  $dataia->ebio_b4 }}</font>
+                                                            <font size="2">{{  $dataia->ebio_b4 ?? '' }}</font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2">{{ number_format( $dataia->ebio_b5 ??  0,2)  }}</font>
@@ -422,43 +424,46 @@
                                                     $total_col_ebio_b10 = 0;
                                                     $total_col_ebio_b11 = 0;
                                                 @endphp
-                                                @foreach ($ib[$key] as  $dataib)
+
+                                                @foreach ($ib[$key] as $dataib)
+                                                {{-- {{ dd($dataib[$key]->produk->proddesc) }} --}}
+
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{  $dataia->produk->proddesc }}</font>
+                                                            <font size="2">{{  $dataib->produk->proddesc ?? '' }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2">{{  $dataia->ebio_b4 }}</font>
+                                                            <font size="2">{{  $dataib->ebio_b4 ?? ''}}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b5 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b5 ??  0,2)  }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b6 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b6 ??  0,2)  }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b7 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b7 ??  0,2)  }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b8 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b8 ??  0,2)  }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b9 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b9 ??  0,2)  }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b10 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b10 ??  0,2)  }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format( $dataia->ebio_b11 ??  0,2)  }}</font>
+                                                            <font size="2">{{ number_format( $dataib->ebio_b11 ??  0,2)  }}</font>
                                                         </td>
                                                         @php
-                                                            $total_col_ebio_b5 += $dataia->ebio_b5 ?? 0  ;
-                                                            $total_col_ebio_b6 += $dataia->ebio_b6 ?? 0  ;
-                                                            $total_col_ebio_b7 += $dataia->ebio_b7 ?? 0  ;
-                                                            $total_col_ebio_b8 += $dataia->ebio_b8 ?? 0  ;
-                                                            $total_col_ebio_b9 += $dataia->ebio_b9 ?? 0  ;
-                                                            $total_col_ebio_b10 += $dataia->ebio_b10 ?? 0  ;
-                                                            $total_col_ebio_b11 += $dataia->ebio_b11 ?? 0  ;
+                                                            $total_col_ebio_b5 += $dataib->ebio_b5 ?? 0  ;
+                                                            $total_col_ebio_b6 += $dataib->ebio_b6 ?? 0  ;
+                                                            $total_col_ebio_b7 += $dataib->ebio_b7 ?? 0  ;
+                                                            $total_col_ebio_b8 += $dataib->ebio_b8 ?? 0  ;
+                                                            $total_col_ebio_b9 += $dataib->ebio_b9 ?? 0  ;
+                                                            $total_col_ebio_b10 += $dataib->ebio_b10 ?? 0  ;
+                                                            $total_col_ebio_b11 += $dataib->ebio_b11 ?? 0  ;
 
                                                         @endphp
                                                     </tr>
@@ -526,13 +531,13 @@
                                                     $total_col_ebio_b10 = 0;
                                                     $total_col_ebio_b11 = 0;
                                                 @endphp
-                                                @foreach ($ic[$key] as  $dataic)
+                                                @foreach ($ic[$key] as $dataic)
                                                 <tr>
                                                     <td align="left">
-                                                        <font size="2">{{ $dataic->produk->proddesc }}</font>
+                                                        <font size="2">{{ $dataic->produk->proddesc ?? '' }}</font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2">{{ $dataic->ebio_b4 }}</font>
+                                                        <font size="2">{{ $dataic->ebio_b4 ?? '' }}</font>
                                                     </td>
                                                     <td align="right">
                                                         <font size="2">{{ number_format($dataic->ebio_b5 ??  0,2)}}</font>

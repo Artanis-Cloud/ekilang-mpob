@@ -192,7 +192,6 @@ class Proses9Controller extends Controller
         return Validator::make($data, [
             'sektor' => ['required', 'string'],
             'tahun' => ['required', 'string'],
-            'bulan' => ['required', 'string'],
             'data' => ['required', 'string'],
         ]);
     }
@@ -208,9 +207,15 @@ class Proses9Controller extends Controller
         $sektor = $request->sektor;
         $sumber = $request->data;
         $tahuns = $request->tahun;
-        $bulans = $request->bulan;
+        if ($sektor == 'PLBIO') {
+            $bulans = $request->bulan2;
 
-        // dd($data);
+        } else {
+             $bulans = $request->bulan;
+
+        }
+
+        // dd($bulans);
 
         $tahun1 = $request->tahun;
         $bulan1 = $request->bulan;
@@ -316,7 +321,7 @@ class Proses9Controller extends Controller
                 $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, k.kodpgw, e.ebio_nobatch, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, h_bio_inits e, reg_pelesen k
                 WHERE e.ebio_thn = '$request->tahun'
-                and e.ebio_bln = '$request->bulan'
+                and e.ebio_bln = '$bulans'
                 and p.e_nl = e.ebio_nl
                 and e.ebio_flg = '3'
                 and p.e_nl = k.e_nl
@@ -1141,6 +1146,7 @@ class Proses9Controller extends Controller
     {
 
         // $this->admin_9penyataterdahulu_process($tahun1);
+        // dd($nobatch);
 
         if (!$nobatch) {
             return redirect()->back()
@@ -1169,28 +1175,26 @@ class Proses9Controller extends Controller
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
 
-            $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '1')->get();
+            $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
 
-            $ib[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '2')->get();
+            $ib[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
 
 
-            $ic[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', [ '06', '08' ]);
-            })->get();
+            $ic[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
 
 
-            $ii[$key] = HHari::where('lesen',  $penyata[$key]->ebio_nl)->where('tahunbhg2', $penyata[$key]->ebio_thn)->where('bulan', $penyata[$key]->ebio_bln)->first();
+
+            $ii[$key] = HHari::where('lesen',  $penyata[$key]->ebio_nl)->where('tahunbhg2', $penyata[$key]->ebio_thn)->where('bulanbhg2', $penyata[$key]->ebio_bln)->first();
 
 
-            $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', [ '03', '06', '08', '12' ]);
-            })->get();
-// dd($iii);
+            $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->get();
+// dd($ib);
 
             $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
         }
+        // dd($ib);
 
 
         $layout = 'layouts.main';
