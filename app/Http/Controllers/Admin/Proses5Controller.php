@@ -857,24 +857,24 @@ class Proses5Controller extends Controller
 
             $penyataia[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
 
 
             $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
             $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat', ['03', '06', '08']);
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
             $penyataii[$key] = Hari::where('lesen',  $penyata[$key]->ebio_nl)->first();
             // dd($penyataiva);
 
             $penyataiii[$key] = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
-            })->get();
+            })->orderBy('ebio_c3')->get();
 
             // $wherestmt = "(";
             // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
