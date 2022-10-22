@@ -952,15 +952,15 @@ class Proses6Controller extends Controller
 
             $penyataia[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
 
 
             $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
-            })->get();
+            })->orderBy('ebio_b4')->get();
 
-            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->where('ebio_b3', '3')->get();
+            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
 
         // $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
 
@@ -970,7 +970,7 @@ class Proses6Controller extends Controller
 
             $penyataiii[$key] = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
-            })->get();
+            })->orderBy('ebio_c3')->get();
 
             // $wherestmt = "(";
             // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
