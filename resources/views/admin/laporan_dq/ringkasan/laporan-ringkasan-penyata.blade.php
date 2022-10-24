@@ -90,7 +90,7 @@
                                         </p>
 
                                         <div class="table-responsive">
-                                            <table border="1" class="table table-bordered" style="font-size: 14px">
+                                            <table border="1" class="table table-bordered" style="font-size: 14px" id="tbl1">
                                                 <thead style="text-align: center">
                                                     <tr>
                                                         <th style="background-color: #d3d3d34d ">Nama Syarikat</th>
@@ -111,7 +111,7 @@
                                         <font size="2.5"><b>TARIKH TERIMA PENYATA BULANAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" >
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl2" >
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Jan</th>
@@ -143,7 +143,7 @@
                                         <font size="2.5"><b>STOK AWAL BULAN DI PREMIS</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl3">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -176,8 +176,7 @@
                                                         <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         {{-- {{ dd($proddesc) }} --}}
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto">
-                                                                {{ number_format($data_bulanan_ebio_b5[$keyProduk][$i] ?? 0,2) }}</td>
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b5[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
                                                                 $total_col_bulan_b5[$i] += $data_bulanan_ebio_b5[$keyProduk][$i] ?? 0 ;
@@ -193,7 +192,8 @@
 
 
                                                 <tr style="background-color: #d3d3d34d" >
-                                                    <th colspan="2">Jumlah</th>
+                                                    <th colspan="1"></th>
+                                                    <th colspan="1">Jumlah</th>
                                                     @for ($i = 1; $i <= 12; $i++)
 
                                                     <td class="font-weight-bold text-center">{{ number_format( $total_col_bulan_b5[$i]?? 0,2) }}</td>
@@ -208,7 +208,7 @@
                                         <font size="2.5"><b>BELIAN / TERIMAAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl4">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -242,8 +242,7 @@
                                                             <td style="text-align: left"> {{ $keyProduk }}</td>
                                                             <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
-                                                                <td class="text-center" style="width:auto">
-                                                                    {{ number_format($data_bulanan_ebio_b6[$keyProduk][$i] ?? 0,2) }}</td>
+                                                                <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b6[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                                 @php
                                                                     $total_col_bulan_b6[$i] += $data_bulanan_ebio_b6[$keyProduk][$i] ?? 0 ;
@@ -255,7 +254,8 @@
                                                     @endforeach
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
-                                                        <th colspan="2">Jumlah</th>
+                                                        <th colspan="1"></th>
+                                                        <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
                                                             <td class="text-center">{{ number_format( $total_col_bulan_b6[$i] ?? 0,2) }}</td>
@@ -274,7 +274,7 @@
                                         <font size="2.5"><b>DIGUNAKAN UNTUK PROSES SELANJUTNYA</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl5">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -309,8 +309,7 @@
                                                             <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                             @for ($i=1; $i<=12;$i++)
 
-                                                                <td class="text-center" style="width:auto">
-                                                                    {{ number_format($data_bulanan_ebio_b7[$keyProduk][$i] ?? 0,2) }}</td>
+                                                                <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b7[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                                 @php
                                                                     $total_col_bulan_b7[$i] += $data_bulanan_ebio_b7[$keyProduk][$i] ?? 0 ;
@@ -322,7 +321,8 @@
                                                     @endforeach
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
-                                                        <th colspan="2">Jumlah</th>
+                                                        <th colspan="1"></th>
+                                                        <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
                                                             <td class="text-center">{{number_format( $total_col_bulan_b7[$i] ?? 0,2) }}</td>
@@ -341,7 +341,7 @@
                                         <font size="2.5"><b>PENGELUARAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl6">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -376,8 +376,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto">
-                                                                {{ number_format($data_bulanan_ebio_b8[$keyProduk][$i] ?? 0,2) }}</td>
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b8[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
                                                                 $total_col_bulan_b8[$i] += $data_bulanan_ebio_b8[$keyProduk][$i] ?? 0 ;
@@ -389,7 +388,8 @@
 
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
-                                                        <th colspan="2">Jumlah</th>
+                                                        <th colspan="1"></th>
+                                                        <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
                                                             <td class="text-center">{{number_format( $total_col_bulan_b8[$i] ?? 0,2) }}</td>
@@ -409,7 +409,7 @@
                                         <font size="2.5"><b>JUALAN / EDARAN TEMPATAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl7">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -444,8 +444,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto">
-                                                                {{ number_format($data_bulanan_ebio_b9[$keyProduk][$i] ?? 0,2) }}</td>
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b9[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
                                                                 $total_col_bulan_b9[$i] += $data_bulanan_ebio_b9[$keyProduk][$i] ?? 0 ;
@@ -457,7 +456,8 @@
 
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
-                                                        <th colspan="2">Jumlah</th>
+                                                        <th colspan="1"></th>
+                                                        <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
                                                         <td class="text-center">{{ number_format( $total_col_bulan_b9[$i] ?? 0,2) }}</td>
@@ -477,7 +477,7 @@
                                         <font size="2.5"><b>EKSPORT</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl8">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -512,8 +512,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto">
-                                                                {{ number_format($data_bulanan_ebio_b10[$keyProduk][$i] ?? 0,2) }}</td>
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b10[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
                                                                 $total_col_bulan_b10[$i] += $data_bulanan_ebio_b10[$keyProduk][$i] ?? 0 ;
@@ -525,7 +524,8 @@
 
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
-                                                        <th colspan="2">Jumlah</th>
+                                                        <th colspan="1"></th>
+                                                        <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
                                                             <td class="text-center">{{ number_format($total_col_bulan_b10[$i] ?? 0,2) }}</td>
@@ -545,7 +545,7 @@
                                         <font size="2.5"><b>STOK AKHIR BULAN DILAPOR</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
-                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px">
+                                            <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl9">
                                                 <thead>
                                                     <tr style="background-color: #d3d3d34d">
                                                         <th scope="col" style="vertical-align: middle; width: 5%">Kod Produk</th>
@@ -578,8 +578,7 @@
                                                         <td style="text-align: left"> {{ $keyProduk }}</td>
                                                         <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
                                                         @for ($i=1; $i<=12;$i++)
-                                                            <td class="text-center" style="width:auto">
-                                                                {{ number_format($data_bulanan_ebio_b11[$keyProduk][$i] ?? 0,2) }}</td>
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_b11[$keyProduk][$i] ?? 0,2) }}</td>
 
                                                             @php
                                                                 $total_col_bulan_b11[$i] += $data_bulanan_ebio_b11[$keyProduk][$i] ?? 0 ;
@@ -601,7 +600,10 @@
                                         </div>
                                     </body>
                                 </div>
-
+                                <button  onclick="tablesToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9'],
+                                ['Maklumat Syarikat','TARIKH TERIMA PENYATA BULANAN','STOK AWAL BULAN DI PREMIS','BELIAN DAN TERIMAAN','DIGUNAKAN UNTUK PROSES SELANJUTNYA','PENGELUARAN',
+                                'JUALAN DAN EDARAN TEMPATAN','EKSPORT','STOK AKHIR BULAN DILAPOR'],
+                                 'Ringkasan Penyata.xls', 'Excel')">Export to Excel</button>
                             </div>
 
                             <br>
@@ -624,7 +626,66 @@
 
     <!-- ======= Footer ======= -->
 
+<script>
+  var tablesToExcel = (function() {
+    var uri = 'data:application/vnd.ms-excel;base64,'
+    , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
+      + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
+      + '<Styles>'
+      + '<Style ss:ID="Currency"><NumberFormat ss:Format="Currency"></NumberFormat></Style>'
+      + '<Style ss:ID="Date"><NumberFormat ss:Format="Medium Date"></NumberFormat></Style>'
+      + '</Styles>'
+      + '{worksheets}</Workbook>'
+    , tmplWorksheetXML = '<Worksheet ss:Name="{nameWS}"><Table>{rows}</Table></Worksheet>'
+    , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
+    , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+    return function(tables, wsnames, wbname, appname) {
+      var ctx = "";
+      var workbookXML = "";
+      var worksheetsXML = "";
+      var rowsXML = "";
 
+      for (var i = 0; i < tables.length; i++) {
+        if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
+        for (var j = 0; j < tables[i].rows.length; j++) {
+          rowsXML += '<Row>'
+          for (var k = 0; k < tables[i].rows[j].cells.length; k++) {
+            var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
+            var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
+            var dataValue = tables[i].rows[j].cells[k].getAttribute("data-value");
+            dataValue = (dataValue)?dataValue:tables[i].rows[j].cells[k].innerHTML;
+            var dataFormula = tables[i].rows[j].cells[k].getAttribute("data-formula");
+            dataFormula = (dataFormula)?dataFormula:(appname=='Calc' && dataType=='DateTime')?dataValue:null;
+            ctx = {  attributeStyleID: (dataStyle=='Currency' || dataStyle=='Date')?' ss:StyleID="'+dataStyle+'"':''
+                   , nameType: (dataType=='Number' || dataType=='DateTime' || dataType=='Boolean' || dataType=='Error')?dataType:'String'
+                   , data: (dataFormula)?'':dataValue
+                   , attributeFormula: (dataFormula)?' ss:Formula="'+dataFormula+'"':''
+                  };
+            rowsXML += format(tmplCellXML, ctx);
+          }
+          rowsXML += '</Row>'
+        }
+        ctx = {rows: rowsXML, nameWS: wsnames[i] || 'Sheet' + i};
+        worksheetsXML += format(tmplWorksheetXML, ctx);
+        rowsXML = "";
+      }
+
+      ctx = {created: (new Date()).getTime(), worksheets: worksheetsXML};
+      workbookXML = format(tmplWorkbookXML, ctx);
+
+console.log(workbookXML);
+
+      var link = document.createElement("A");
+      link.href = uri + base64(workbookXML);
+      link.download = wbname || 'Workbook.xls';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  })();
+</script>
 
 
 
