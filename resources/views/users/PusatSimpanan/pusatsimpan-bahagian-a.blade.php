@@ -585,7 +585,7 @@
                 pelarasan_input = (parseFloat(Number(stokawal.replace(/,/g, ""))) + parseFloat(Number(penerimaan.replace(/,/g, "")))) -
                         parseFloat(Number(edaran.replace(/,/g, "")));
 
-                pelarasan_diff = pelarasan_input - stokakhir.value ;
+                pelarasan_diff =  stokakhir.value - pelarasan_input ;
 
                 console.log(pelarasan_diff);
                 // var stokakhir = $("#e07bt_stokakhir").val();
@@ -626,7 +626,7 @@
                 epelarasan_input = parseFloat(Number(estokawal.replace(/,/g, ""))) + parseFloat(Number(epenerimaan.replace(/,/g, ""))) -
                         parseFloat(Number(eedaran.replace(/,/g, "")));
 
-                epelarasan_diff = epelarasan_input - parseFloat(Number(estokakhir.value.replace(/,/g, "")));
+                epelarasan_diff = parseFloat(Number(estokakhir.value.replace(/,/g, ""))) - epelarasan_input ;
                 console.log(epelarasan_diff);
 
                 // if (epelarasan_input >= estokakhir.value) {
