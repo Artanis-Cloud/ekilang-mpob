@@ -790,7 +790,7 @@
                                                                 <font size="2">Tindakan</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataic && !$penyataic->isEmpty())
+                                                    {{-- @if($penyataic && !$penyataic->isEmpty()) --}}
                                                         @php
                                                             $total_col_ebio_b5 = 0;
                                                             $total_col_ebio_b6 = 0;
@@ -800,7 +800,7 @@
                                                             $total_col_ebio_b10 = 0;
                                                             $total_col_ebio_b11 = 0;
                                                         @endphp
-                                                        @foreach ($penyataic as $penyataic2)
+                                                        @foreach ($penyataic as $key => $penyataic2)
                                                             <form action="{{ route('admin.kemaskini.maklumat.bio.exe.c',  [$penyataic2->ebio_b1] ) }}"  class="sub-form"
                                                                 method="post" id="form3" >
                                                                 @csrf
@@ -920,8 +920,9 @@
                                                                 </div>
                                                             </div>
                                                         @endforeach
+                                                        {{-- @foreach ($penyataic as $penyataic2) --}}
                                                         <tr>
-                                                            <form action="{{ route('admin.add.bahagian.ic', [$penyataic2->ebio_reg] ) }}" method="post" id="add3">
+                                                            <form action="{{ route('admin.add.bahagian.ic', [$penyataic2->ebio_reg ?? 0] ) }}" method="post" id="add3">
                                                                 @csrf
                                                                 <td align="left">
                                                                     <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
@@ -977,11 +978,12 @@
                                                                 }
                                                             </script>
                                                         </tr>
-                                                    @else
+                                                        {{-- @endforeach --}}
+                                                    {{-- @else
                                                         <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                         </tr>
-                                                    @endif
+                                                    @endif --}}
 
                                                 </tbody>
                                             </table><br>
