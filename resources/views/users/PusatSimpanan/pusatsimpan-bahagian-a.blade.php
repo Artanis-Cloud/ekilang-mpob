@@ -582,10 +582,10 @@
                 var  stokakhir =   document.getElementById('e07bt_stokakhir');
 
 
-                pelarasan_input = parseFloat(Number(stokawal.replace(/,/g, ""))) + parseFloat(Number(penerimaan.replace(/,/g, ""))) -
+                pelarasan_input = (parseFloat(Number(stokawal.replace(/,/g, ""))) + parseFloat(Number(penerimaan.replace(/,/g, "")))) -
                         parseFloat(Number(edaran.replace(/,/g, "")));
 
-                pelarasan_diff = pelarasan_input - stokakhir.value;
+                pelarasan_diff = stokakhir.value - pelarasan_input;
 
                 console.log(pelarasan_diff);
                 // var stokakhir = $("#e07bt_stokakhir").val();
