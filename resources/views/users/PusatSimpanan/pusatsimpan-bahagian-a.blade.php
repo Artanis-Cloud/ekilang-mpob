@@ -155,7 +155,7 @@
                                     <input type="text" class="form-control" name='e07bt_stokawal'
                                         onkeypress="return isNumberKey(event)" id="e07bt_stokawal" required
                                         onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"  onClick="this.select();"
                                         oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_terima' style="width: 100%"
-                                        onkeypress="return isNumberKey(event)" id="e07bt_terima" required
+                                        onkeypress="return isNumberKey(event)" id="e07bt_terima" required  onClick="this.select();"
                                         onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc2()"
@@ -204,7 +204,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_edaran' style="width: 100%"
-                                        onkeypress="return isNumberKey(event)" id="e07bt_edaran" required
+                                        onkeypress="return isNumberKey(event)" id="e07bt_edaran" required  onClick="this.select();"
                                         onchange="autodecimal(this);  pelarasan(); FormatCurrency(this)"
                                         oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc3()"
@@ -253,7 +253,7 @@
                                     <input type="text" class="form-control" name='e07bt_stokakhir'
                                         style="width: 100%" onkeypress="return isNumberKey(event)" id="e07bt_stokakhir"
                                         required  onchange="autodecimal(this); pelarasan(); FormatCurrency(this)"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"  onClick="this.select();"
                                         oninput="this.setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">
@@ -360,7 +360,7 @@
                                                                     <div class="form-group">
                                                                         <input type="text" name='e07bt_produk'
                                                                             class="form-control"
-                                                                            value="{{ $data->produk->proddesc }}"
+                                                                            value="{{ $data->produk->proddesc ?? ''}}"
                                                                             readonly>
                                                                     </div>
                                                                     <label class="required">Stok Awal </label>
@@ -592,17 +592,17 @@
                 // console.log(parseFloat(Number(stokawal)));
 
 
-                if (pelarasan_input >= stokakhir.value) {
-                    console.log('sama');
-                    document.getElementById('e07bt_pelarasan').value = pelarasan_diff.toFixed(2);
-                    return true;
-                //     console.log(document.getElementById('e07bt_pelarasan').value);
+                // if (pelarasan_input >= stokakhir.value) {
+                //     console.log('sama');
+                //     document.getElementById('e07bt_pelarasan').value = pelarasan_diff.toFixed(2);
+                //     return true;
+                // //     console.log(document.getElementById('e07bt_pelarasan').value);
 
-                } else if (pelarasan_input < stokakhir.value ){
-                    console.log('taksama');
+                // } else if (pelarasan_input < stokakhir.value ){
+                //     console.log('taksama');
                     document.getElementById('e07bt_pelarasan').value =  pelarasan_diff.toFixed(2);
-                    return false
-                }
+                //     return false
+                // }
 
                     // document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
 

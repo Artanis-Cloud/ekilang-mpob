@@ -323,7 +323,7 @@ class PusatSimpananController extends Controller
         $tahun = date("Y");
 
         if ($user) {
-            $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->get();
+            $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->orderBy('e07bt_produk')->get();
 
             $produks = Produk::where('prodcat', '!=', '07')->orderBy('prodname')->get();
             // dd($produks);
@@ -589,7 +589,7 @@ class PusatSimpananController extends Controller
 
         $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '!=', '07');
-        })->get();
+        })->orderBy('e07bt_produk')->get();
         // dd($penyata);
         $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
         $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
@@ -758,7 +758,7 @@ class PusatSimpananController extends Controller
         if ($user) {
             $myDateTime = DateTime::createFromFormat('Y-m-d', $user->e07_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
-            $penyata = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->get();
+            $penyata = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->orderBy('e07bt_produk')->get();
             // dd($penyata);
             $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokawal');
             $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_terima');
