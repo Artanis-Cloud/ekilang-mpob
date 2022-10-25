@@ -53,14 +53,14 @@
 
 
                             <div align="">
-                                <table border="0" width="90%">
-                                    <tbody>
+                                <table border="0" width="100%">
+                                    <tbody style="float: right; width:10rem; margin-right: -10px">
                                         <tr>
                                             <td width="10%" height="19">
                                                 <p align=""><b></b></p>
                                             </td>
                                             <td width="88%" height="19">
-                                                <p align="right"><b>MPOB(EL) RF 4</b></p>
+                                                <p align="left"><b>MPOB(EL) RF 4</b></p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -68,7 +68,7 @@
                                                 <p align=""><b></b></p>
                                             </td>
                                             <td width="88%" height="19">
-                                                <p align="right"><b>MPOB(EL) PX 4-RF </b></p>
+                                                <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -76,7 +76,7 @@
                                                 <p align=""><b></b></p>
                                             </td>
                                             <td width="88%" height="19">
-                                                <p align="right"><b>MPOB(EL) PM 4-RF </b></p>
+                                                <p align="left"><b>MPOB(EL) PM 4-RF </b></p>
                                             </td>
                                         </tr>
 
@@ -161,7 +161,7 @@
                         <p></p>
 
                         <p align="left"><b>
-                                <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                <font color="#0c7c85">MAKLUMAT PELESEN </font>
                             </b></p>
 
                         <table border="0" width="80%" cellpadding="0" cellspacing="0">
@@ -278,7 +278,7 @@
                         </table>
                         <br>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                <font color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     SAWIT</font>
                             </b> </p>
                         <table border="1" class="table table-bordered" width="100%"
@@ -406,7 +406,7 @@
                             </tbody>
                         </table><br>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     ISIRUNG SAWIT</font>
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -533,22 +533,22 @@
                         </table><br>
 
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     HARI BEROPERASI DAN KADAR PENGGUNAAN KAPASITI
                                 </font>
                             </b> </p>
                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
-                                    <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
+                                    <td width="30%">Jumlah Hari Kilang Beroperasi Sebulan</td>
                                     <td width="40%"><b>{{ $iii->e101_a1 }} Hari</b></td>
                                 </tr>
                                 <tr>
-                                    <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
+                                    <td width="30%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
                                     <td width="40%"><b>{{ number_format($iii->e101_a2 ??  0,2) }} %</b></td>
                                 </tr>
                                 <tr>
-                                    <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
+                                    <td width="30%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                     </td>
                                     <td width="40%"><b>{{ number_format($iii->e101_a3 ??  0,2) }} %</b></td>
                                 </tr>
@@ -556,7 +556,7 @@
                         </table>
                         <br>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font color="#0c7c85">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN MAKANAN</font>
@@ -648,7 +648,7 @@
                         </table><br>
 
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                <font color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                     AKHIR
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN BUKAN MAKANAN</font>
@@ -740,7 +740,7 @@
                         </table><br>
 
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
+                                <font color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                     TERIMAAN BEKALAN PRODUK SAWIT -
                                     SENDIRI</font>
                             </b></p>
@@ -803,7 +803,7 @@
                             </tbody>
                         </table><br>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
+                                <font color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                     TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
                             </b></p>
@@ -865,7 +865,7 @@
                             </tbody>
                         </table><br>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -956,7 +956,7 @@
                             </tbody>
                         </table><br>
                         <p><b>
-                                <font color="#0000FF">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
+                                <font color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">

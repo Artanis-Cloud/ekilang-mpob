@@ -53,19 +53,15 @@
 
                         <body>
                             <div align="">
-                                <table border="0" width="90%">
-                                    <tbody>
+                                <table border="0" width="100%">
+                                    <tbody style=" width:10rem; margin-right: -10px">
                                         <tr>
-                                            <td width="10%" height="19">
-                                                <p align=""><b></b></p>
-                                            </td>
-                                            <td width="88%" height="19">
+                                            <td width="100%" height="19">
                                                 <p align="right"><b>MPOB(EL) KS 4</b></p>
                                             </td>
                                         </tr>
 
                                     </tbody>
-
                                 </table>
                             </div><br>
                             <p align="center">
