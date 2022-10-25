@@ -51,12 +51,7 @@
                                 <!-- Details Table -->
                                 <tr>
                                     <td>
-                                        MASA : 12-10-2022 09:53:03
-DARI: 500008704000-K.K.S. KLUANG O.P. PROCESSING SDN. BHD. (syazwanisaliman77@gmail.com)
-PENYATA: BULAN 09 TAHUN 2022
-TAJUK: cuba
-PINDAAN: cuba mencuba
-                                        <table cellpadding="0" cellspacing="0"
+                <table cellpadding="0" cellspacing="0"
                                             style="width: 100%; border: 1px solid #ededed">
                                             <tbody>
                                                 <tr>
@@ -65,7 +60,7 @@ PINDAAN: cuba mencuba
                                                         MASA:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $time }}</td>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                     <td

@@ -1352,6 +1352,11 @@ class KilangIsirungController extends Controller
 
         } else {
             $this->store_send_email2($request->all());
+            $pelesen = $this->store_send_email2($request->all());
+            // dd($pelesen);
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+
         }
 
 
