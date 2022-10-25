@@ -1,6 +1,12 @@
 @extends($layout)
 
+    {{-- <style>
+        #myfrm {
+            border: 1px solid rgb(3, 3, 3);
+        }
+    </style> --}}
 @section('content')
+
     <!-- ======= Hero Section ======= -->
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -307,7 +313,7 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                                 </b> </p>
 
-                                            <table border="1" style="width:70% " bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width:70% ; "  cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -1155,7 +1161,7 @@
 {{--
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a> --}}
-
+    <link rel="stylesheet" ref="myPrintStylesheet.css" type"text/css" media="print" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" >
     </script>
     <script type="text/javascript">
@@ -1173,8 +1179,9 @@
     </script>
     <script>
         function myPrint(myfrm) {
+
             var headstr = "<html><head><title></title></head><body>";
-            var footstr = "</body>";
+            var footstr = "</body></html>";
             var newstr = document.all.item(myfrm).innerHTML;
             var oldstr = document.body.innerHTML;
             document.body.innerHTML = headstr + newstr + footstr;

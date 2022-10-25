@@ -243,7 +243,7 @@
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option selected hidden value="">Sila Pilih</option>
+                                                    <option selected value="">Sila Pilih</option>
                                                     <option value="JJ">JJ</option>
                                                     <option value="KB">KB</option>
                                                     <option value="KK">KK</option>
@@ -257,7 +257,7 @@
                                                     <option value="SW">SW</option>
                                                     <option value="TT">TT</option>
                                                     <option value="WP">WP</option>
-                                                    </div>
+
 
 
                                                 </select>
@@ -2154,23 +2154,23 @@
 
     <script type="text/javascript">
         function showDetailkodpgw() {
-            var e_kat = $('#e_kat').val();
+            var e_kat = document.getElementById('e_kat');
 
-            if (e_kat == "PL101") {
+            if (e_kat.value == 'PL101') {
                 document.getElementById('101_container').style.display = "block";
                 document.getElementById('104_container').style.display = "none";
                 document.getElementById('07_container').style.display = "none";
                 document.getElementById('91_container').style.display = "none";
 
             }
-            else if (e_kat == "PL104") {
+            else if (e_kat.value == 'PL104') {
                 document.getElementById('104_container').style.display = "block";
                 document.getElementById('101_container').style.display = "none";
                 document.getElementById('07_container').style.display = "none";
                 document.getElementById('91_container').style.display = "none";
 
             }
-            else if (e_kat == "PL111") {
+            else if (e_kat.value == 'PL111') {
                 document.getElementById('07_container').style.display = "block";
                 document.getElementById('104_container').style.display = "none";
                 document.getElementById('101_container').style.display = "none";
