@@ -426,14 +426,14 @@
 
                                             <p>
                                                 <div class="required">Nama Pegawai Melapor:</div>
-                                                <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg()"
+                                                <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg(); this.value = this.value.toUpperCase()"
                                                     name='e07_npg' value="{{ $user->e07_npg }}">
                                                     <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
                                                         butiran di bahagian ini!</i></p>
                                             </p>
                                             <p>
                                                 <div class="required">Jawatan Pegawai Melapor:</div>
-                                                <input type="text" id="e_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg()"
+                                                <input type="text" id="e_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg(); this.value = this.value.toUpperCase()"
                                                     name='e07_jpg' value="{{ $user->e07_jpg }}">
                                                     <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
                                                         butiran di bahagian ini!</i></p>
@@ -441,7 +441,7 @@
                                             <p>
                                                 <div class="required">No Telefon Kilang:</div>
 
-                                                <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_notel()"
+                                                <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_notel(); this.value = this.value.toUpperCase()"
                                                     name="e07_notel" value="{{ $user->e07_notel }}" onkeypress="return isNumberKey(event)">
                                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                                         butiran di bahagian ini!</i></p>
