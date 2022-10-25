@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Pelesen;
 
+use App\Mail\Pelesen\HantarEmelMail;
 use App\Mail\Pelesen\HantarPendaftaranPelesenMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,7 +18,7 @@ class HantarEmelNotification extends Notification
      *
      * @return void
      */
-    public function __construct($password)
+    public function __construct($data)
     {
         $this->password = $password;
     }
@@ -41,7 +42,7 @@ class HantarEmelNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new HantarPendaftaranPelesenMail($notifiable, $this->password))->to($notifiable->email);
+        return (new HantarEmelMail($notifiable, $this->password))->to($notifiable->email);
     }
 
     /**
