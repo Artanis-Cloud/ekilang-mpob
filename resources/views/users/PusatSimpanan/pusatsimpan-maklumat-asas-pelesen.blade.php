@@ -361,7 +361,7 @@
                                                 style="width:100%" size="15" id="bil_tangki_cpo"
                                                 onkeypress="return isNumberKey(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc19(); ableInput(); valid_cpo(); FormatCurrency(this);validate_two_decimal(this)"
-                                                value="{{ number_format($pelesen->bil_tangki_cpo ?? '',2) }}"
+                                                value="{{ number_format($pelesen->bil_tangki_cpo ?? 0,2) }}"
                                                 onchange="validation_jumlah()" required>
                                             @error('kap_tangki')
                                                 <div class="alert alert-danger">
@@ -374,7 +374,7 @@
                                                 onkeypress="return isNumberKey(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc21(); ableInput(); valid_ppo(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="bil_tangki_ppo" title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->bil_tangki_ppo ?? '',2) }}" required
+                                                value="{{ number_format($pelesen->bil_tangki_ppo ?? 0,2) }}" required
                                                 onchange="validation_jumlah()">
                                             @error('bil_tangki_ppo')
                                                 <div class="alert alert-danger">
@@ -387,7 +387,7 @@
                                                 onkeypress="return isNumberKey(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc23(); ableInput(); valid_cpko(); FormatCurrency(this);validate_two_decimal(this)" style="width:100%"
                                                 id="bil_tangki_cpko" title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? '',2) }}" required
+                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? 0,2) }}" required
                                                 onchange="validation_jumlah()">
                                             @error('bil_tangki_cpko')
                                                 <div class="alert alert-danger">
@@ -399,7 +399,7 @@
                                                 onkeypress="return isNumberKey(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc25(); ableInput(); valid_ppko(); FormatCurrency(this);validate_two_decimal(this)" style="width:100%"
                                                 id="bil_tangki_ppko" title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->bil_tangki_ppko ?? '',2) }}" required
+                                                value="{{ number_format($pelesen->bil_tangki_ppko ?? 0,2) }}" required
                                                 onchange="validation_jumlah()">
                                             @error('bil_tangki_ppko')
                                                 <div class="alert alert-danger">
@@ -411,7 +411,7 @@
                                                 onkeypress="return isNumberKey(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc27(); ableInput(); valid_oleo(); FormatCurrency(this);validate_two_decimal(this)" style="width:100%"
                                                 id="bil_tangki_oleo" title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->bil_tangki_oleo ?? '',2) }}" required
+                                                value="{{ number_format($pelesen->bil_tangki_oleo ?? 0,2) }}" required
                                                 onchange="validation_jumlah()">
                                             @error('bil_tangki_oleo')
                                                 <div class="alert alert-danger">
@@ -423,7 +423,7 @@
                                                 onkeypress="return isNumberKey(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc29(); ableInput(); valid_others(); FormatCurrency(this);validate_two_decimal(this)" style="width:100%"
                                                 id="bil_tangki_others" title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->bil_tangki_others ?? '',2) }}" required
+                                                value="{{ number_format($pelesen->bil_tangki_others ?? 0,2) }}" required
                                                 onchange="validation_jumlah()">
                                             @error('bil_tangki_others')
                                                 <div class="alert alert-danger">
@@ -444,7 +444,7 @@
                                                 oninput="this.setCustomValidity(''); invokeFunc20(); valid_cpo(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="kap_tangki_cpo" onchange="validation_jumlah2()"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ number_format($pelesen->kap_tangki_cpo ?? '',2) }}">
+                                                value="{{ number_format($pelesen->kap_tangki_cpo ?? 0,2) }}">
                                             <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -459,7 +459,7 @@
                                                 oninput="this.setCustomValidity(''); invokeFunc22(); valid_ppo(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="kap_tangki_ppo" onchange="validation_jumlah2()"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ number_format($pelesen->kap_tangki_ppo ?? '',2) }}">
+                                                value="{{ number_format($pelesen->kap_tangki_ppo ?? 0,2) }}">
                                             <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -474,7 +474,7 @@
                                                 oninput="this.setCustomValidity(''); invokeFunc24(); valid_cpko(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="kap_tangki_cpko" onchange="validation_jumlah2()"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? '',2) }}">
+                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? 0,2) }}">
                                             <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -489,7 +489,7 @@
                                                 oninput="this.setCustomValidity('');invokeFunc26(); valid_ppko(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="kap_tangki_ppko" onchange="validation_jumlah2()"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ number_format($pelesen->kap_tangki_ppko ?? '',2) }}">
+                                                value="{{ number_format($pelesen->kap_tangki_ppko ?? 0,2) }}">
                                             <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -504,7 +504,7 @@
                                                 oninput="this.setCustomValidity('');invokeFunc28(); valid_oleo(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="kap_tangki_oleo" onchange="validation_jumlah2()"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ number_format($pelesen->kap_tangki_oleo ?? '',2) }}">
+                                                value="{{ number_format($pelesen->kap_tangki_oleo ?? 0,2) }}">
                                             <p type="hidden" id="err_koleo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -519,7 +519,7 @@
                                                 oninput="this.setCustomValidity(''); valid_others(); FormatCurrency(this);validate_two_decimal(this)"
                                                 style="width:100%" id="kap_tangki_others" onchange="validation_jumlah2()"
                                                 title="Sila isikan butiran ini." required
-                                                value="{{ number_format($pelesen->kap_tangki_others ?? '',2) }}">
+                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0,2) }}">
                                             <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila
                                                     isi butiran di
                                                     bahagian ini!</i></p>
