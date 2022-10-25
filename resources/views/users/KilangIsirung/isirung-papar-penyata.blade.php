@@ -967,7 +967,7 @@
                                 </p>
 
                                 <div class="form-group" style="padding-top: 10px; ">
-                                        <a href="{{ route('isirung.bahagianv') }}" class="btn btn-primary"
+                                        <a href="{{ route('isirung.bahagianvii') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                         <button type="button" class="btn btn-primary " id="checkBtn" onclick="check()"
                                         style="float: right">Hantar</button>

@@ -80,7 +80,7 @@
                                         </div>
                                     @enderror
 
-                                    <input type="text" id="e_ap2" class="form-control" maxlength="60"
+                                    <input type="text" id="e_ap2" class="form-control" maxlength="60" style="text-transform:uppercase"
                                         autocomplete="off" placeholder="Alamat Premis Berlesen 2" name="e_ap2"
                                         oninput="this.setCustomValidity(''); invokeFunc2()"
                                         value="{{ $pelesen->e_ap2 }}">
@@ -91,7 +91,7 @@
                                     @enderror
 
                                     <input type="text" id="e_ap3" class="form-control" maxlength="60"
-                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3"
+                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3" style="text-transform:uppercase"
                                         oninput="this.setCustomValidity(''); invokeFunc3()"
                                         value="{{ $pelesen->e_ap3 }}">
 
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_as1" class="form-control" autocomplete="off"
-                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" maxlength="60"
+                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" maxlength="60" style="text-transform:uppercase"
                                         value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         oninput="this.setCustomValidity(''); invokeFunc4(); valid_as()">
                                         <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
@@ -134,7 +134,7 @@
 
                                     <input type="text" id="e_as2" class="form-control" maxlength="60"
                                         autocomplete="off" placeholder="Alamat Surat Menyurat 2" name="e_as2"
-                                        oninput="this.setCustomValidity(''); invokeFunc5()"
+                                        oninput="this.setCustomValidity(''); invokeFunc5()"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_as2 }}">
                                     @error('e_as2')
                                         <div class="alert alert-danger">
@@ -143,7 +143,7 @@
                                     @enderror
 
                                     <input type="text" id="e_as3" class="form-control" maxlength="60"
-                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"  style="text-transform:uppercase"
                                         oninput="this.setCustomValidity(''); invokeFunc6()"
                                         value="{{ $pelesen->e_as3 }}">
                                     @error('e_as3')
@@ -217,7 +217,7 @@
                                         Nama Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_npg" class="form-control" maxlength="60"
+                                    <input type="text" id="e_npg" class="form-control" maxlength="60"  style="text-transform:uppercase"
                                         placeholder="Nama Pegawai Melapor" name="e_npg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc10(); valid_npg()"
                                         value="{{ $pelesen->e_npg }}" required>
                                         <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran di
@@ -236,7 +236,7 @@
                                         Jawatan Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_jpg" class="form-control" maxlength="60"
+                                    <input type="text" id="e_jpg" class="form-control" maxlength="60" style="text-transform:uppercase"
                                         placeholder="Jawatan Pegawai Melapor" name="e_jpg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc11(); valid_jpg()"
                                         value="{{ $pelesen->e_jpg }}" required>
                                         <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran di
@@ -294,7 +294,7 @@
                                         Nama Pegawai Bertanggungjawab</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_npgtg" class="form-control" maxlength="60"
+                                    <input type="text" id="e_npgtg" class="form-control" maxlength="60"  style="text-transform:uppercase"
                                         placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg()"
                                         value="{{ $pelesen->e_npgtg }}" required>
                                         <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi butiran di
@@ -313,7 +313,7 @@
                                         Jawatan Pegawai Bertanggungjawab<span  style="color:red">*</span></label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
+                                    <input type="text" id="e_jpgtg" class="form-control" maxlength="60"  style="text-transform:uppercase"
                                         placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg()"
                                         value="{{ $pelesen->e_jpgtg }}" required>
                                         <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi butiran di
@@ -353,7 +353,7 @@
                                         Syarikat Induk</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_syktinduk" class="form-control" maxlength="60"
+                                    <input type="text" id="e_syktinduk" class="form-control" maxlength="60"  style="text-transform:uppercase"
                                         placeholder="Syarikat Induk" name="e_syktinduk" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc17(); valid_syktinduk()"
                                         value="{{ $pelesen->e_syktinduk}}" required>
                                         <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi butiran di
@@ -376,9 +376,9 @@
                                         <select class="form-control" id="e_group" name="e_group" required oninput="this.setCustomValidity(''); invokeFunc18(); valid_kumpulan()">
 
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
-                                                Kerajaan</option>
+                                                KERAJAAN</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
-                                                Swasta</option>
+                                                SWASTA</option>
                                         </select>
                                         <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila isi butiran di
                                             bahagian ini!</i></p>
@@ -1161,15 +1161,15 @@
                     }
                     var e_ap1 = document.getElementById("e_ap1"),
                         e_as1 = document.getElementById("e_as1");
-                    e_as1.value = e_ap1.value;
+                    e_as1.value = e_ap1.value.toUpperCase();
 
                     var e_ap2 = document.getElementById("e_ap2"),
                         e_as2 = document.getElementById("e_as2");
-                    e_as2.value = e_ap2.value;
+                    e_as2.value = e_ap2.value.toUpperCase();
 
                     var e_ap3 = document.getElementById("e_ap3"),
                         e_as3 = document.getElementById("e_as3");
-                    e_as3.value = e_ap3.value;
+                    e_as3.value = e_ap3.value.toUpperCase();
 
 
                 }
