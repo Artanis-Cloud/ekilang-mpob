@@ -157,6 +157,17 @@
                                                     <option {{ ($pelesen->kodpgw == 'BQ') ? 'selected' : '' }} value="BQ">BQ</option>
                                                     <option {{ ($pelesen->kodpgw == 'BS') ? 'selected' : '' }} value="BS">BS</option>
 
+                                                @elseif ($reg_pelesen->e_kat == 'PL102')
+                                                    <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
+                                                    <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
+                                                    <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
+                                                    <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">BQ</option>
+                                                    <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
+                                                    <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
+                                                    <option {{ ($pelesen->kodpgw == 'SW') ? 'selected' : '' }} value="SW">SW</option>
+                                                    <option {{ ($pelesen->kodpgw == 'WP') ? 'selected' : '' }} value="WP">WP</option>
+
                                                 @else
                                                     <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
                                                     <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
@@ -168,6 +179,7 @@
                                                     <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
                                                     <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
                                                     <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
+                                                    <option {{ ($pelesen->kodpgw == 'WP') ? 'selected' : '' }} value="WP">WP</option>
 
                                                 @endif
 
