@@ -18,9 +18,13 @@ class HantarEmelNotification extends Notification
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($emel, $tajuk, $mesej)
     {
-        $this->password = $password;
+        // $this->name = auth()->users->name;
+        // $this->email = auth()->users->email;
+        $this->emel = $emel;
+        $this->tajuk = $tajuk;
+        $this->mesej = $mesej;
     }
 
     /**
@@ -42,7 +46,7 @@ class HantarEmelNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new HantarEmelMail($notifiable, $this->password))->to($notifiable->email);
+        return (new HantarEmelMail($notifiable, $this->emel, $this->tajuk, $this->mesej))->to($notifiable->email);
     }
 
     /**
