@@ -41,44 +41,46 @@ class Proses3Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
-        if(now()->month == 1){
+        $bulan = now()->month - 1;
+
+        if($bulan == 1){
             $month = 'JANUARI';
         } elseif(now()->format('m') == 2){
             $month = 'FEBRUARI';
         }
-        elseif(now()->month == 3){
+        elseif($bulan == 3){
             $month = 'MAC';
         }
-        elseif(now()->month == 4){
+        elseif($bulan == 4){
             $month = 'APRIL';
         }
-        elseif(now()->month == 5){
+        elseif($bulan == 5){
             $month = 'MEI';
         }
-        elseif(now()->month == 6){
+        elseif($bulan == 6){
             $month = 'JUN';
         }
-        elseif(now()->month == 7){
+        elseif($bulan == 7){
             $month = 'JULAI';
         }
-        elseif(now()->month == 8){
+        elseif($bulan == 8){
             $month = 'OGOS';
         }
-        elseif(now()->month == 9){
+        elseif($bulan == 9){
             $month = 'SEPTEMBER';
         }
-        elseif(now()->month == 10){
+        elseif($bulan == 10){
             $month = 'OKTOBER';
         }
-        elseif(now()->month == 11){
+        elseif($bulan == 11){
             $month = 'NOVEMBER';
         }
-        elseif(now()->month == 12){
+        elseif($bulan == 12){
             $month = 'DISEMBER';
         };
 
 
-        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout', 'month'));
+        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout', 'month', 'bulan'));
     }
 
     public function admin_3daftarpenyatapenapis()
