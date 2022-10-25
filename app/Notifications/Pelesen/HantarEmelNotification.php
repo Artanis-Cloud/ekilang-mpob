@@ -23,6 +23,7 @@ class HantarEmelNotification extends Notification
         // $this->name = auth()->users->name;
         // $this->email = auth()->users->email;
         $this->emel = $emel;
+        // dd($this->emel);
         $this->tajuk = $tajuk;
         $this->mesej = $mesej;
     }
@@ -46,6 +47,7 @@ class HantarEmelNotification extends Notification
      */
     public function toMail($notifiable)
     {
+        // dd($notifiable);
         return (new HantarEmelMail($notifiable, $this->emel, $this->tajuk, $this->mesej))->to($notifiable->email);
     }
 

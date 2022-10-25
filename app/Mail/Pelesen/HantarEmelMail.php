@@ -42,36 +42,16 @@ class HantarEmelMail extends Mailable
         $tz = new DateTimeZone('Asia/Kuala_Lumpur');
         $time->setTimezone($tz);
         $time->format('dd-mm-yyyy H:i:s');
+        $time2 = $time;
         $jenis = $this->emel;
         $tajuk = $this->tajuk;
         $mesej = $this->mesej;
         $penyata1 = date('m') - 1;
         $penyata2 = date('Y');
-        // $password = $this->password;
 
-        // $route = route('login');
-        // $reg_pelesen = RegPelesen::where('e_nl', $pelesen->username)->first();
-        // if($reg_pelesen->e_kat == 'PL91'){
-        //     $route = route('buah.tukarpassword');
-        // }
-        // elseif($reg_pelesen->e_kat == 'PL101'){
-        //     $route = route('penapis.tukarpassword');
-        // }
-        // elseif($reg_pelesen->e_kat == 'PL102'){
-        //     $route = route('isirung.tukarpassword');
-        // }
-        // elseif($reg_pelesen->e_kat == 'PL104'){
-        //     $route = route('oleo.tukarpassword');
-        // }
-        // elseif($reg_pelesen->e_kat == 'PL111'){
-        //     $route = route('pusatsimpan.tukarpassword');
-        // }
-        // elseif($reg_pelesen->e_kat == 'PLBIO'){
-        //     $route = route('bio.tukarpassword');
-        // }
 
         return $this->to($this->pelesen->email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
         ->subject('Penghantaran Emel Berjaya'. $this->pelesen->username)
-        ->view('email.pelesen.emel', compact('pelesen', 'time', 'tz','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
+        ->view('email.pelesen.emel', compact('pelesen', 'time', 'tz','tajuk','mesej', 'penyata1', 'penyata2','jenis','time2'));    }
 }
