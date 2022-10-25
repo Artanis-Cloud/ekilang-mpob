@@ -949,8 +949,9 @@ class Proses5Controller extends Controller
 //    dd($flg->ebio_flg);
         // if ($tahun1 == now()->year && $bulan1 == now()->month){
 
+
             // foreach($flg as $f){
-            if($flg){
+            // if($flg){
 
                 $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel,
                 k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
@@ -967,14 +968,14 @@ class Proses5Controller extends Controller
                     return redirect()->back()
                     ->with('error', 'Penyata Tidak Wujud!');
                 }
-            }
+            // }
             // dd($users);
             //   }
         //     }
         // else{
 
         // }
-        dd($users);
+        // dd($users);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],

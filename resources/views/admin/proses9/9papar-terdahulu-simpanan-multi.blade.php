@@ -59,7 +59,7 @@
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
                                             <div align="">
-                                                <table border="0" width="90%">
+                                                <table border="0" width="100%">
                                                     <tbody>
                                                         <tr>
                                                             <td width="" height="19">
