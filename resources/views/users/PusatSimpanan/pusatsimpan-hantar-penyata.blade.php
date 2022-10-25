@@ -468,15 +468,15 @@
     </script>
 
 
-    <script>
-        function myPrint(myfrm) {
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-    </script>
+<script>
+    function myPrint(myfrm) {
+    var restorepage = $('body').html();
+    var printcontent = $('#' + myfrm).clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
+    }
+</script>
     <script>
         document.addEventListener('keypress', function (e) {
             if (e.keyCode === 13 || e.which === 13) {
