@@ -180,7 +180,7 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" style="text-align:right" name='e102_al3' onClick="this.select();"
                                     id="e102_al3" onkeypress="return isNumberKey(event)" required onchange="FormatCurrency(this)"
-                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc3()"
+                                    title="Sila isikan butiran ini."  oninput="this.setCustomValidity(''); invokeFunc()"
                                     value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
                                 @error('e102_al3')
                                     <div class="alert alert-danger">
@@ -271,6 +271,25 @@
                         $(this).val(parseFloat($(this).val()).toFixed(2));
                     });
                 });
+            </script>
+             <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e102_al4').focus();
+                            document.getElementById('e102_al4').select();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
             </script>
                 <script>
                     function valid_percent() {
@@ -392,60 +411,7 @@
 
     });
 </script>
-<script>
-    function invokeFunc() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e102_al2').focus();
-            }
 
-        });
-    }
-
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc2() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e102_al3').focus();
-            }
-
-        });
-    }
-
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
-<script>
-    function invokeFunc3() {
-        addEventListener('keydown', function(evt) {
-            var whichKey = checkKey(evt);
-            if (whichKey == 13) {
-                console.log('successful');
-                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                document.getElementById('e102_al4').focus();
-            }
-
-        });
-    }
-
-    function checkKey(evt) {
-        console.log(evt.which);
-        return evt.which;
-    }
-</script>
 
 <script language="javascript" type="text/javascript">
     function FormatCurrency(ctrl) {

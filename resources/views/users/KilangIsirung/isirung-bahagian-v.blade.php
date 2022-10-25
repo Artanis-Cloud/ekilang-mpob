@@ -145,7 +145,7 @@
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <select class="form-control" id="e102_b5"oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                    oninput="this.setCustomValidity('');invokeFunc2(); valid_ke()"
+                                    oninput="this.setCustomValidity('');invokeFunc2(); valid_ke()" style="width: auto"
                                         name="e102_b5" required>
                                         <option selected hidden disabled value="">Sila Pilih</option>
 
