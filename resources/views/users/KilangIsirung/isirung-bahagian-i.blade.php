@@ -513,6 +513,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ab1').focus();
+                            document.getElementById('e102_ab1').select();
                         }
 
                     });
@@ -531,6 +532,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ab2').focus();
+                            document.getElementById('e102_ab2').select();
                         }
 
                     });
@@ -549,6 +551,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ab3').focus();
+                            document.getElementById('e102_ab3').select();
                         }
 
                     });
@@ -567,6 +570,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ac1').focus();
+                            document.getElementById('e102_ac1').select();
                         }
 
                     });
@@ -585,6 +589,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ac2').focus();
+                            document.getElementById('e102_ac2').select();
                         }
 
                     });
@@ -603,6 +608,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ac3').focus();
+                            document.getElementById('e102_ac3').select();
                         }
 
                     });
@@ -621,6 +627,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ae1').focus();
+                            document.getElementById('e102_ae1').select();
                         }
 
                     });
@@ -639,6 +646,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_af2').focus();
+                            document.getElementById('e102_af2').select();
                         }
 
                     });
@@ -657,6 +665,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_af3').focus();
+                            document.getElementById('e102_af3').select();
                         }
 
                     });
@@ -675,6 +684,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ag1').focus();
+                            document.getElementById('e102_ag1').select();
                         }
 
                     });
@@ -693,6 +703,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ag2').focus();
+                            document.getElementById('e102_ag2').select();
                         }
 
                     });
@@ -711,6 +722,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ag3').focus();
+                            document.getElementById('e102_ag3').select();
                         }
 
                     });
@@ -730,6 +742,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ah1').focus();
+                            document.getElementById('e102_ah1').select();
                         }
 
                     });
@@ -748,6 +761,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ah2').focus();
+                            document.getElementById('e102_ah2').select();
                         }
 
                     });
@@ -767,6 +781,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ah3').focus();
+                            document.getElementById('e102_ah3').select();
                         }
 
                     });
@@ -785,6 +800,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ai1').focus();
+                            document.getElementById('e102_ai1').select();
                         }
 
                     });
@@ -803,6 +819,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ai2').focus();
+                            document.getElementById('e102_ai2').select();
                         }
 
                     });
@@ -821,6 +838,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ai3').focus();
+                            document.getElementById('e102_ai3').select();
                         }
 
                     });
@@ -839,6 +857,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_aj1').focus();
+                            document.getElementById('e102_aj1').select();
                         }
 
                     });
@@ -857,6 +876,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_aj2').focus();
+                            document.getElementById('e102_aj2').select();
                         }
 
                     });
@@ -875,6 +895,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_aj3').focus();
+                            document.getElementById('e102_aj3').select();
                         }
 
                     });
@@ -893,6 +914,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ak1').focus();
+                            document.getElementById('e102_ak1').select();
                         }
 
                     });
@@ -911,6 +933,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ak2').focus();
+                            document.getElementById('e102_ak2').select();
                         }
 
                     });
@@ -929,6 +952,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_ak3').focus();
+                            document.getElementById('e102_ak3').select();
                         }
 
                     });
@@ -947,6 +971,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_aa2').focus();
+                            document.getElementById('e102_aa2').select();
                         }
 
                     });
@@ -965,6 +990,7 @@
                             console.log('successful');
                             evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
                             document.getElementById('e102_aa3').focus();
+                            document.getElementById('e102_aa3').select();
                         }
 
                     });
