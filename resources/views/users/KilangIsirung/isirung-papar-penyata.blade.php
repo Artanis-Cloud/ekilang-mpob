@@ -938,16 +938,16 @@
                                 @csrf
                                 <p>
                                     <div class="required">Nama Pegawai Melapor:</div>
-                                    <input type="text" id="e_npg" class="form-control" size="50"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc(); valid_npg()"
+                                    <input type="text" id="e_npg" class="form-control" size="50" style="text-transform:uppercase"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc(); valid_npg(); this.value = this.value.toUpperCase()"
                                         name='e102_npg' value="{{ $penyatai->e102_npg }}" required>
                                         <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
                                             butiran di bahagian ini!</i></p>
                                 </p>
                                 <p>
                                     <div class="required">Jawatan Pegawai Melapor:</div>
-                                    <input type="text" id="e_jpg" class="form-control" size="50"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc2(); valid_jpg()"
+                                    <input type="text" id="e_jpg" class="form-control" size="50" style="text-transform:uppercase"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc2(); valid_jpg(); this.value = this.value.toUpperCase()"
                                         name='e102_jpg' value="{{ $penyatai->e102_jpg }}" required>
                                         <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
                                             butiran di bahagian ini!</i></p>
@@ -955,8 +955,8 @@
                                 <p>
                                     <div class="required">No Telefon Kilang:</div>
 
-                                    <input type="text" id="e_notel" class="form-control" size="50"
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');valid_notel()"
+                                    <input type="text" id="e_notel" class="form-control" size="50" style="text-transform:uppercase"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');valid_notel(); this.value = this.value.toUpperCase()"
                                         name="e102_notel" value="{{ $penyatai->e102_notel }}" required>
                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i>
