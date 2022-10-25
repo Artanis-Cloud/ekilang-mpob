@@ -191,7 +191,7 @@
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option selected value="">Sila Pilih</option>
+                                                    <option selected hidden value="">Sila Pilih</option>
                                                     <option value="FA">FA</option>
                                                     <option value="FB">FB</option>
                                                     <option value="FC">FC</option>
@@ -210,7 +210,7 @@
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option selected value="">Sila Pilih</option>
+                                                    <option selected hidden value="">Sila Pilih</option>
                                                     <option value="CA">CA</option>
                                                     <option value="CC">CC</option>
                                                     <option value="CJ">CJ</option>
@@ -226,7 +226,7 @@
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option selected value="">Sila Pilih</option>
+                                                    <option selected hidden value="">Sila Pilih</option>
                                                     <option value="BB">BB</option>
                                                     <option value="BC">BC</option>
                                                     <option value="BJ">BJ</option>
@@ -243,7 +243,7 @@
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
-                                                    <option selected value="">Sila Pilih</option>
+                                                    <option selected hidden value="">Sila Pilih</option>
                                                     <option value="JJ">JJ</option>
                                                     <option value="KB">KB</option>
                                                     <option value="KK">KK</option>
