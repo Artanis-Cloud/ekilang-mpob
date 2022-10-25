@@ -325,7 +325,7 @@ class PusatSimpananController extends Controller
         if ($user) {
             $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->orderBy('e07bt_produk')->get();
 
-            $produks = Produk::where('prodcat', '!=', '07')->orderBy('prodname')->get();
+            $produks = Produk::where('prodcat', '!=', '07')->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
             // dd($produks);
             $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
             $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
