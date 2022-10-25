@@ -763,7 +763,7 @@
                                                 <font size="2">Tarikh Eksport</font>
                                             </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                <font size="2">Kuantiti
+                                                <font size="2">Kuantiti <br>
                                                     (Tan Metrik)</font>
                                             </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
@@ -830,7 +830,7 @@
                                                 <font size="2">Tarikh Import</font>
                                             </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                <font size="2">Kuantiti
+                                                <font size="2">Kuantiti <br>
                                                     (Tan Metrik)</font>
                                             </b></td>
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
