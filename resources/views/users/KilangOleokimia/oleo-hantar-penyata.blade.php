@@ -42,7 +42,7 @@
             <div class="card-body">
         <form method="get" action="" id="myfrm">
 
-                <div class="row">
+                {{-- <div class="row"> --}}
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
@@ -646,12 +646,12 @@
                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
-                                        <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                        <td width="40%"><b>{{ $penyataii->e104_a5 }} Hari</b></td>
+                                        <td width="30%">Jumlah Hari Kilang Beroperasi Sebulan</td>
+                                        <td width="40%"><b>: {{ $penyataii->e104_a5 }} Hari</b></td>
                                     </tr>
                                     <tr>
-                                        <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
-                                        <td width="40%"><b>{{ $penyataii->e104_a6 }} %</b></td>
+                                        <td width="30%">Kadar Penggunaan Kapasiti Sebulan</td>
+                                        <td width="40%"><b>: {{ $penyataii->e104_a6 }} %</b></td>
                                     </tr>
 
                                 </tbody>
@@ -897,7 +897,7 @@
                                         </p>
                         </body>
                     </div>
-                </div>
+                {{-- </div> --}}
 
             </div>
         </form>

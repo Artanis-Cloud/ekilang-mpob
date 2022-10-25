@@ -61,9 +61,15 @@
                             <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                         </div>
                     </div>
-                    <div class="col-2 align-self-center">
-                        <button type="button" class="btn btn-primary "
-                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+
+                    <div class="col-11 align-self-center" style="text-align: right">
+                        <button class="dt-button buttons-excel buttons-html5"   style="background-color: white; color: #0a7569; "
+                         onclick="tablesToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9'],
+                        ['Maklumat Syarikat','TARIKH TERIMA PENYATA BULANAN','STOK AWAL BULAN DI PREMIS','BELIAN DAN TERIMAAN','DIGUNAKAN UNTUK PROSES SELANJUTNYA','PENGELUARAN',
+                        'JUALAN DAN EDARAN TEMPATAN','EKSPORT','STOK AKHIR BULAN DILAPOR'],
+                         'Ringkasan Penyata.xls', 'Excel')"><i class="fa fa-file-excel" style="color: #0a7569"></i> Excel</button>
+                        <button type="button" class="dt-button buttons-excel buttons-html5"
+                            onclick="myPrint('myfrm')" value="print"><i class="fa fa-print"></i>Cetak</button>
                     </div>
                 </div>
                 <form method="get" action="" id="myfrm">
@@ -600,10 +606,6 @@
                                         </div>
                                     </body>
                                 </div>
-                                <button  onclick="tablesToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9'],
-                                ['Maklumat Syarikat','TARIKH TERIMA PENYATA BULANAN','STOK AWAL BULAN DI PREMIS','BELIAN DAN TERIMAAN','DIGUNAKAN UNTUK PROSES SELANJUTNYA','PENGELUARAN',
-                                'JUALAN DAN EDARAN TEMPATAN','EKSPORT','STOK AKHIR BULAN DILAPOR'],
-                                 'Ringkasan Penyata.xls', 'Excel')">Export to Excel</button>
                             </div>
 
                             <br>
