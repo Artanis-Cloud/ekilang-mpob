@@ -18,6 +18,8 @@ use App\Models\ProdCat2;
 use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarEmelNotification;
+use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
 use DateTime;
 use DB;
 use Illuminate\Support\Facades\Hash;
@@ -1343,9 +1345,16 @@ class KilangIsirungController extends Controller
         $this->validation_send_email($request->all())->validate();
         if ($request->file_upload) {
             $this->store_send_email($request->all());
+            $pelesen = $this->store_send_email($request->all());
+
+            $pelesen->notify((new HantarEmelNotification()));
+
+
         } else {
             $this->store_send_email2($request->all());
         }
+
+
 
 
         return redirect()->back()->with('success', 'Emel sudah dihantar');

@@ -281,7 +281,7 @@
 
 
                     <div class="text-left col-md-5">
-                        {{-- <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a> --}}
+                        <a href="{{ route('isirung.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
                     </div>
                     <div class="text-right col-md-7">
                         <a href="{{ route('isirung.bahagianvii') }}" type="button" class="btn btn-primary "  style="float: right"

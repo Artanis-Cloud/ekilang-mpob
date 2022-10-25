@@ -68,9 +68,9 @@
                                         Alamat Premis Berlesen</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" autocomplete="off"
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" style="text-transform:uppercase"
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                        oninput="this.setCustomValidity(''); invokeFunc(); valid_ap()"
+                                        oninput="this.setCustomValidity(''); invokeFunc(); valid_ap(); "
                                         required >
                                     <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
                                                                                 bahagian ini!</i></p>
@@ -398,8 +398,8 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc19(); valid_proses(); FormatCurrency()"
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); validate_two_decimal(this);  invokeFunc19(); valid_proses(); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses ?? 0,2) }}">
                                         <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                             bahagian ini!</i></p>
                                     @error('kap_proses')
@@ -428,8 +428,8 @@
 
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" name='bil_tangki_cpko' style="width:20%"
-                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_cpko(); FormatCurrency(this)"
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko }}"
+                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." oninput="this.setCustomValidity('');validate_two_decimal(this);  invokeFunc20(); ableInput(); valid_cpko(); FormatCurrency(this)"
+                                        onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->bil_tangki_cpko ?? 0,2) }}"
                                         required>
                                     @error('bil_tangki_cpko')
                                         <div class="alert alert-danger">
@@ -448,7 +448,7 @@
                                         style="width:20%" id="kap_tangki_cpko"
                                         oninput="this.setCustomValidity(''); validate_two_decimal(this); valid_cpko(); FormatCurrency(this)"
                                         title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->kap_tangki_cpko}}" required>
+                                        onkeypress="return isNumberKey(event)"  value="{{ number_format($pelesen->kap_tangki_cpko ?? 0,2)}}" required>
                                         <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
                                             butiran di
                                             bahagian ini!</i></p>
@@ -1059,6 +1059,11 @@
     </script>
      <script>
         $('.sub-form').submit(function() {
+
+            var x = $('#kap_proses').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#kap_proses').val(x);
 
             var x = $('#bil_tangki_cpko').val();
             x = x.replace(/,/g, '');

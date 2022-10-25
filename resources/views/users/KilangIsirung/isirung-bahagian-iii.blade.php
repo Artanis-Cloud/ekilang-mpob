@@ -1,5 +1,14 @@
 @extends('layouts.main')
-
+{{-- <style>
+    select {
+        width: 150px;
+        margin: 10px;
+    }
+    select:focus {
+        min-width: 150px;
+        width: auto;
+    }
+</style> --}}
 @section('content')
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -148,7 +157,7 @@
                                     <span class=""> Dari:</span>
                                 </div>
                                 <div class="col-md-2 mt-3">
-                                    <select class="form-control" id="e102_b5"  name='e102_b5' required
+                                    <select class="form-control" id="e102_b5"  name='e102_b5' required style="width: auto"
                                     oninvalid="this.setCustomValidity('Sila buat pilihan di bahagian ini')" oninput="this.setCustomValidity('');invokeFunc2(); valid_dari()">
                                         <option selected hidden disabled value="">Sila Pilih</option>
 
