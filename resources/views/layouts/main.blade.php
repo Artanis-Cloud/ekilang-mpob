@@ -83,13 +83,13 @@
     @media print {
         @page {size: auto !important};
         .table-bordered {
-  border: 1px solid #5d6161 !important; }
-  .table-bordered th,
-  .table-bordered td {
-    border: 1px solid #5d6161 !important; }
-  .table-bordered thead th,
-  .table-bordered thead td {
-    border-bottom-width: 2px; }
+        border: 1px solid #5d6161 !important; }
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #5d6161 !important; }
+        .table-bordered thead th,
+        .table-bordered thead td {
+            border-bottom-width: 2px; }
     }
 
     button.fred {

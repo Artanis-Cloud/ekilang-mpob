@@ -2157,31 +2157,45 @@
             var e_kat = document.getElementById('e_kat');
 
             if (e_kat.value == 'PL101') {
+
+
                 document.getElementById('101_container').style.display = "block";
                 document.getElementById('104_container').style.display = "none";
+                $('#104_container').remove();
                 document.getElementById('07_container').style.display = "none";
+                $('#07_container').remove();
                 document.getElementById('91_container').style.display = "none";
+                $('#91_container').remove();
 
             }
             else if (e_kat.value == 'PL104') {
                 document.getElementById('104_container').style.display = "block";
                 document.getElementById('101_container').style.display = "none";
+                $('#101_container').remove();
                 document.getElementById('07_container').style.display = "none";
+                $('#07_container').remove();
                 document.getElementById('91_container').style.display = "none";
+                $('#91_container').remove();
 
             }
             else if (e_kat.value == 'PL111') {
                 document.getElementById('07_container').style.display = "block";
                 document.getElementById('104_container').style.display = "none";
+                $('#104_container').remove();
                 document.getElementById('101_container').style.display = "none";
+                $('#101_container').remove();
                 document.getElementById('91_container').style.display = "none";
+                $('#91_container').remove();
 
             }
             else {
                 document.getElementById('91_container').style.display = "block";
                 document.getElementById('101_container').style.display = "none";
+                $('#101_container').remove();
                 document.getElementById('104_container').style.display = "none";
+                $('#104_container').remove();
                 document.getElementById('07_container').style.display = "none";
+                $('#07_container').remove();
 
                 // document.getElementById('isaw').style.display = "none";
 

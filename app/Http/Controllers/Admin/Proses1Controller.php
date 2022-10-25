@@ -92,6 +92,7 @@ class Proses1Controller extends Controller
             'e_status' => ['required', 'string'],
             'e_stock' => ['required', 'string'],
             'directory' => ['required', 'string'],
+
             'kodpgw' => ['nullable', 'string'],
             'nosiri' => ['nullable', 'string'],
             'e_nl' => ['required', 'string', 'unique:pelesen'],

@@ -1448,10 +1448,10 @@ pre {
   padding: 0.3rem; }
 
 .table-bordered {
-  border: 1px solid #5d6161 !important; }
+  border: 1px solid #dee2e6; }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #5d6161 !important; }
+    border: 1px solid #dee2e6; }
   .table-bordered thead th,
   .table-bordered thead td {
     border-bottom-width: 2px; }
