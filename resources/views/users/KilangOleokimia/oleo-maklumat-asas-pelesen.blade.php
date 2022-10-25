@@ -1379,7 +1379,7 @@ document.getElementById('myform').addEventListener('submit', validateForm);
             console.log('others' + others);
 
             // !x  !(x > 0)
-            if ((!cpo  !(cpo > 0)) && (!ppo   !(ppo > 0)) && (!cpko   !(cpko > 0))  && (!ppko   !(ppko > 0)) && (!oleo   !(oleo > 0)) && (!others   !(others > 0)) ) {
+            if ((!cpo || !(cpo > 0)) && (!ppo  || !(ppo > 0)) && (!cpko ||  !(cpko > 0))  && (!ppko ||  !(ppko > 0)) && (!oleo  || !(oleo > 0)) && (!others ||  !(others > 0)) ) {
                 console.log('lain');
 
                 toastr.error(
@@ -1640,7 +1640,7 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                 }
             </script>
 
-            <script>
+            {{-- <script>
                 $('#submit').click(function() {
                     var
                         $checkbox = $('#address'),
@@ -1673,7 +1673,7 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                 //         //     $("#deliveryadd").show();
                 //         // }
                 //     }
-            </script>
+            </script> --}}
             <script>
                 function alamat() {
 
@@ -1735,7 +1735,7 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                         }
 
                     });
-                },
+                }
 
                 function invokeFunc2() {
                     addEventListener('keydown', function(evt) {
