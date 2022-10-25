@@ -69,11 +69,8 @@
                         <div class="pl-3">
 
                             <div class=" text-center">
-                                <div id="title">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4 <br> </h3>
-                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
-
-                                </div>
+                                <div id="title"><h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4</h3>
+                                                <h5 style="color: rgb(39, 80, 71);">Senarai Penyata untuk Paparan dan Cetakan</h5></div>
                                 <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 <script>
