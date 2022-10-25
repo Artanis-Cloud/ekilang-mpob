@@ -38,8 +38,12 @@ class tryController extends Controller
 
         // $dt->setTimezone($tz);
         // $dt->format('dd-mm-yyyy H:i:s');
-        // $dt = date('Y-m-d');
-        // echo $dt->format('H:i:s');
+        // // $dt = date('Y-m-d');
+        // echo $dt->format('d-m-Y H:i:s');
+        
+        $dt = date('m') - 1;
+        echo '0', $dt;
+        dd($dt);
 
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;

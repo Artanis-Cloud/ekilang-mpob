@@ -1341,7 +1341,7 @@ class KilangIsirungController extends Controller
 
     public function isirung_send_email_proses(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $this->validation_send_email($request->all())->validate();
         if ($request->file_upload) {
             $this->store_send_email($request->all());
