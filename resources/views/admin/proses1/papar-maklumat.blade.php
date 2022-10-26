@@ -66,15 +66,15 @@
                                     Jenis Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_kat" id="e_kat"
+                                        <select class="form-control" name="e_kat" id="e_kat"  style="text-transform:uppercase"
                                         disabled>
 
-                                            <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }} value="PL91">Kilang Buah</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }} value="PL101">Kilang Penapis</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }} value="PL102">Kilang Isirung</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL104') ? 'selected' : '' }} value="PL104">Kilang Oleokimia</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL111') ? 'selected' : '' }} value="PL111">Pusat Simpanan</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PLBIO') ? 'selected' : '' }} value="PLBIO">Kilang Biodiesel</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }} value="PL91">KILANG BUAH</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }} value="PL101">KKILANG PENAPIS</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }} value="PL102">KILANG ISIRUNG</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL104') ? 'selected' : '' }} value="PL104">KILANG OLEOKIMIA</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL111') ? 'selected' : '' }} value="PL111">PUSAT SIMPANAN</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PLBIO') ? 'selected' : '' }} value="PLBIO">KILANG BIODIESEL</option>
                                         </select>
                                     </fieldset>
 
@@ -86,10 +86,10 @@
                                     Status e-Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_status" id="e_status"  required>
+                                        <select class="form-control" name="e_status" id="e_status"  style="text-transform:uppercase"  required>
 
-                                            <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">Aktif</option>
-                                            <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
+                                            <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">AKTIF</option>
+                                            <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">TIDAK AKTIF</option>
                                         </select>
                                     </fieldset>
 
@@ -101,9 +101,9 @@
                                     Status e-Mingguan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_stock" id="e_stock" required>
-                                            <option {{ ($reg_pelesen->e_stock == '1') ? 'selected' : '' }} value="1">Aktif</option>
-                                            <option {{ ($reg_pelesen->e_stock == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
+                                        <select class="form-control" name="e_stock" id="e_stock"  style="text-transform:uppercase" required>
+                                            <option {{ ($reg_pelesen->e_stock == '1') ? 'selected' : '' }} value="1">AKTIF</option>
+                                            <option {{ ($reg_pelesen->e_stock == '2') ? 'selected' : '' }} value="2">TIDAK AKTIF</option>
                                         </select>
                                     </fieldset>
 
@@ -115,9 +115,9 @@
                                     Status Direktori </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="directory" id="directory" required>
-                                            <option {{ ($reg_pelesen->directory == 'Y') ? 'selected' : '' }} value="Y">Ya</option>
-                                            <option {{ ($reg_pelesen->directory == 'N') ? 'selected' : '' }}value="N">Tidak</option>
+                                        <select class="form-control" name="directory" id="directory"  style="text-transform:uppercase" required>
+                                            <option {{ ($reg_pelesen->directory == 'Y') ? 'selected' : '' }} value="Y">YA</option>
+                                            <option {{ ($reg_pelesen->directory == 'N') ? 'selected' : '' }} value="N">TIDAK</option>
                                         </select>
                                     </fieldset>
 
@@ -131,7 +131,7 @@
                                         Kod Negeri </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="kodpgw" id="kodpgw" required>
+                                            <select class="form-control" name="kodpgw" id="kodpgw"  style="text-transform:uppercase" required>
                                                 @if ($reg_pelesen->e_kat == 'PL101')
                                                     <option {{ ($pelesen->kodpgw == 'FA' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FA">FA</option>
                                                     <option {{ ($pelesen->kodpgw == 'FB' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FB">FB</option>
@@ -194,7 +194,7 @@
                                         Nombor Siri </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <input type="text" id="nosiri" class="form-control" required
+                                            <input type="text" id="nosiri" class="form-control" required  style="text-transform:uppercase"
                                             placeholder="Nombor Siri" name="nosiri" maxlength="4" minlength="4"
                                             value="{{ $pelesen->nosiri ?? '' }}">
                                         </fieldset>
@@ -210,7 +210,7 @@
                                     Nombor Lesen </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                            <input type="text" id="e_nl" readonly class="form-control" required minlength="12" maxlength="12"
+                                            <input type="text" id="e_nl" readonly class="form-control" required minlength="12" maxlength="12"  style="text-transform:uppercase"
                                                 placeholder="Nombor Lesen" name="e_nl" value="{{ $pelesen->e_nl ?? '-' }}">
 
                                     </fieldset>
@@ -223,7 +223,7 @@
                                     Nama Premis </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <input type="text" id="e_np" class="form-control" required maxlength="60"
+                                        <input type="text" id="e_np" class="form-control" required maxlength="60"  style="text-transform:uppercase" oninput=" this.value = this.value.toUpperCase()"
                                         placeholder="Nama Premis" name="e_np" value="{{ $pelesen->e_np ?? '-' }}">
                                     </fieldset>
 
@@ -234,8 +234,8 @@
                                     class="text-left col-sm-3 control-label required col-form-label align-items-center">
                                     Alamat Premis Berlesen</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
-                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1"
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_ap1 }}" required>
                                     @error('e_ap1')
                                         <div class="alert alert-danger">
@@ -244,8 +244,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 25%; ">
-                                    <input type="text" id="e_ap2" class="form-control" maxlength="60"
-                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2"
+                                    <input type="text" id="e_ap2" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_ap2 }}">
                                         @error('e_ap2')
                                         <div class="alert alert-danger">
@@ -254,8 +254,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 25%;">
-                                    <input type="text" id="e_ap3" class="form-control" maxlength="60"
-                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3"
+                                    <input type="text" id="e_ap3" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_ap3 }}">
                                         @error('e_ap3')
                                         <div class="alert alert-danger">
@@ -270,8 +270,8 @@
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Alamat Surat Menyurat</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_as1" class="form-control" required maxlength="60"
-                                        placeholder="Alamat Surat Menyurat 1" name="e_as1"
+                                    <input type="text" id="e_as1" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Surat Menyurat 1" name="e_as1"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_as1 }}">
                                     @error('e_as1')
                                         <div class="alert alert-danger">
@@ -280,8 +280,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 25%">
-                                    <input type="text" id="e_as2" class="form-control" maxlength="60"
-                                        placeholder="Alamat Surat Menyurat 2" name="e_as2"
+                                    <input type="text" id="e_as2" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Surat Menyurat 2" name="e_as2"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_as2 }}">
                                         @error('e_as2')
                                         <div class="alert alert-danger">
@@ -290,8 +290,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 25%">
-                                    <input type="text" id="e_as3" class="form-control" maxlength="60"
-                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                    <input type="text" id="e_as3" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_as3 }}">
                                         @error('e_as3')
                                         <div class="alert alert-danger">
@@ -307,7 +307,7 @@
                                     No. Telefon (Pejabat / Kilang)</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel" class="form-control" maxlength="40"
-                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
+                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_notel }}" required
                                         onkeypress="return isNumberKey(event)">
                                     @error('e_notel')
@@ -323,7 +323,7 @@
                                     No. Faks</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_nofax" class="form-control" maxlength="40"
-                                        placeholder="No. Faks" name="e_nofax"
+                                        placeholder="No. Faks" name="e_nofax"  style="text-transform:uppercase"
                                         value="{{ $pelesen->e_nofax }}" >
                                     @error('e_nofax')
                                         <div class="alert alert-danger">
@@ -338,7 +338,7 @@
                                     Alamat Emel Kilang</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email" class="form-control"
-                                        placeholder="Alamat Emel" name="e_email" required maxlength="40"
+                                        placeholder="ALAMAT EMEL KILANG" name="e_email" required maxlength="40"
                                         value="{{ $pelesen->e_email }}" oninput="valid_email()">
 
                                         <p type="hidden" id="err_email" style="color: red; display:none">
@@ -350,8 +350,8 @@
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nama Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_npg" class="form-control" required maxlength="60"
-                                        placeholder="Nama Pegawai Melapor" name="e_npg"
+                                    <input type="text" id="e_npg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Nama Pegawai Melapor" name="e_npg" style="text-transform:uppercase"
                                         value="{{ $pelesen->e_npg }}" oninput="valid_npg()">
 
                                         <p type="hidden" id="err_npg" style="color: red; display:none">
@@ -363,8 +363,8 @@
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Jawatan Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_jpg" class="form-control" required maxlength="60"
-                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"
+                                    <input type="text" id="e_jpg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg" style="text-transform:uppercase"
                                         value="{{ $pelesen->e_jpg }}" oninput="valid_jpg()">
 
                                         <p type="hidden" id="err_jpg" style="color: red; display:none">
@@ -377,7 +377,7 @@
                                     No. Telefon Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel_pg" class="form-control"
-                                        placeholder="No. Telefon Pegawai Melapor"
+                                        placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
                                         name="e_notel_pg" required maxlength="40"
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}"
                                         oninput="valid_notel_pg()">
@@ -392,7 +392,7 @@
                                     Alamat Emel Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pg" class="form-control"
-                                        placeholder="Alamat Emel Pegawai Melapor" required maxlength="40"
+                                        placeholder="ALAMAT EMEL PEGAWAI MELAPOR" required maxlength="40"
                                         name="e_email_pg" value="{{ $pelesen->e_email_pg }}" oninput="valid_email_pg()">
 
                                         <p type="hidden" id="err_email_pg" style="color: red; display:none">
@@ -404,8 +404,8 @@
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
                                     Nama Pegawai Bertanggungjawab</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_npgtg" class="form-control" required maxlength="60"
-                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
+                                    <input type="text" id="e_npgtg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg" style="text-transform:uppercase"
                                         value="{{ $pelesen->e_npgtg }}" oninput="valid_npgtg()" >
 
                                         <p type="hidden" id="err_npgtg" style="color: red; display:none">
@@ -419,8 +419,8 @@
                                     Jawatan Pegawai
                                     Bertanggungjawab</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_jpgtg" class="form-control" required maxlength="60"
-                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
+                                    <input type="text" id="e_jpgtg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
+                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" style="text-transform:uppercase"
                                         value="{{ $pelesen->e_jpgtg }}" oninput="valid_jpgtg()">
 
                                         <p type="hidden" id="err_jpgtg" style="color: red; display:none">
@@ -434,7 +434,7 @@
                                     Alamat Emel Pengurus</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pengurus" class="form-control" required maxlength="40"
-                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
+                                        placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
                                         value="{{ $pelesen->e_email_pengurus }}" oninput="valid_email_pengurus()">
 
                                         <p type="hidden" id="err_email_pengurus" style="color: red; display:none">
@@ -447,7 +447,7 @@
                                     Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="negeri_id" name='e_negeri' required
+                                        <select class="form-control" id="negeri_id" name='e_negeri' required style="text-transform:uppercase"
                                             onchange="ajax_daerah(this);ajax_kawasan(this)">
                                             @if($pelesen->negeri)
                                                 @foreach ($negeri as $data)
@@ -475,7 +475,7 @@
                                     Daerah </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="daerah_id" name='e_daerah' required
+                                        <select class="form-control" id="daerah_id" name='e_daerah' required style="text-transform:uppercase"
                                             placeholder="Daerah">
                                             @if($pelesen->negeri)
                                                 @foreach ($pelesen->negeri->daerahs as $daerah)
@@ -503,7 +503,7 @@
                                     Kawasan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="kawasan_id" name='e_kawasan' required>
+                                        <select class="form-control" id="kawasan_id"   style="text-transform:uppercase" name='e_kawasan' required>
                                             @if($pelesen->negeri)
                                                 <option value="{{ $pelesen->negeri->kod_region }}" selected hidden disabled>
                                                     {{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
@@ -522,8 +522,8 @@
                                     Syarikat Induk</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_syktinduk" class="form-control" required maxlength="60"
-                                        placeholder="Syarikat Induk" name="e_syktinduk"
-                                        value="{{ $pelesen->e_syktinduk}}" oninput="valid_syktinduk()">
+                                        placeholder="Syarikat Induk" name="e_syktinduk" style="text-transform:uppercase"
+                                        value="{{ $pelesen->e_syktinduk}}" oninput="valid_syktinduk(); this.value = this.value.toUpperCase()"">
 
                                         <p type="hidden" id="err_syktinduk" style="color: red; display:none">
                                             <i>Sila isi butiran di bahagian ini!</i></p>
@@ -535,7 +535,7 @@
                                     Tahun Mula Beroperasi</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)"
-                                    placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4"
+                                    placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4" style="text-transform:uppercase"
                                     value="{{ $pelesen->e_year ?? '' }}" oninput="valid_year()">
 
                                     <p type="hidden" id="err_year" style="color: red; display:none">
@@ -548,13 +548,13 @@
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="e_group" name="e_group" required oninput="valid_group()">
+                                        <select class="form-control" id="e_group" name="e_group"  style="text-transform:uppercase" required oninput="valid_group()">
                                             <option selected value="">Sila Pilih Kumpulan</option>
 
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
-                                                Kerajaan</option>
+                                                KERAJAAN</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
-                                                Swasta</option>
+                                                SWASTA</option>
                                         </select>
 
                                         <p type="hidden" id="err_group" style="color: red; display:none">
@@ -573,11 +573,11 @@
                                         POMA </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="e_poma" name="e_poma" required>
+                                            <select class="form-control" id="e_poma"  style="text-transform:uppercase" name="e_poma" required>
                                                 <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
-                                                    Ya</option>
+                                                    YA</option>
                                                 <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
-                                                    Tidak</option>
+                                                    TIDAK</option>
                                             </select>
                                         </fieldset>
 
@@ -592,7 +592,7 @@
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control" required maxlength="10"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" style="text-transform:uppercase"
                                         onkeypress="return isNumberKey(event)"
                                         value="{{ $pelesen->kap_proses  }}" oninput="valid_proses()">
 

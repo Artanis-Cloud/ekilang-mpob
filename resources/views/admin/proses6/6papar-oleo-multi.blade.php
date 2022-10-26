@@ -152,7 +152,7 @@
                                                             Nama Premis
                                                         </td>
 
-                                                        <td width="88%" height="19"><b>
+                                                        <td width="88%" height="19" style="text-transform:uppercase"><b>
                                                                 {{ $data->pelesen->e_np }}
                                                             </b></td>
 
@@ -179,7 +179,7 @@
 
                                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_ap1 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_ap1 }}</b></td>
 
                                                     </tr>
 
@@ -187,7 +187,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_ap2 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_ap2 }}</b></td>
 
                                                     </tr>
 
@@ -195,7 +195,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_ap3 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_ap3 }}</b></td>
 
                                                     </tr>
 
@@ -203,7 +203,7 @@
 
                                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_as1 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_as1 }}</b></td>
 
                                                     </tr>
 
@@ -211,7 +211,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_as2 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_as2 }}</b></td>
 
                                                     </tr>
 
@@ -219,7 +219,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_as3 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_as3 }}</b></td>
 
                                                     </tr>
 
@@ -251,7 +251,7 @@
 
                                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_npg }}</b></td>
 
                                                     </tr>
 
@@ -259,7 +259,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_jpg }}</b></td>
 
                                                     </tr>
 
@@ -267,7 +267,7 @@
 
                                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_npgtg }}</b></td>
 
                                                     </tr>
 
@@ -275,7 +275,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
 
                                                     </tr>
 
@@ -813,10 +813,10 @@
                                                 {{ $formatteddate }}
                                             </p>
 
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                            <p  style="text-transform:uppercase">Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 {{ $data->pelesen->e_npg }}
                                             </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                            <p  style="text-transform:uppercase">Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                                 {{ $data->pelesen->e_jpg }}
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
