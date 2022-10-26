@@ -21,6 +21,7 @@ class HantarEmelMail extends Mailable
      */
     public function __construct($pelesen, $emel, $tajuk, $mesej)
     {
+        // dd($pelesen);
         // $this->name = auth()->users->name;
         // $this->email = auth()->users->email;
         $this->pelesen = $pelesen;
@@ -38,20 +39,19 @@ class HantarEmelMail extends Mailable
     {
         $pelesen = $this->pelesen;
 
-        $time = new DateTime();
-        $tz = new DateTimeZone('Asia/Kuala_Lumpur');
-        $time->setTimezone($tz);
-        $time->format('dd-mm-yyyy H:i:s');
-        $time2 = $time;
+        $time = $pelesen->Date;
+        $dt = date("d-m-Y H:i:s", strtotime($time));
         $jenis = $this->emel;
         $tajuk = $this->tajuk;
         $mesej = $this->mesej;
         $penyata1 = date('m') - 1;
         $penyata2 = date('Y');
+        // dd($dt);
 
 
-        return $this->to($this->pelesen->email, $this->pelesen->name)
+
+        return $this->to($this->pelesen->FromEmail, $this->pelesen->FromName)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-        ->subject('Penghantaran Emel Berjaya'. $this->pelesen->username)
-        ->view('email.pelesen.emel', compact('pelesen', 'time', 'tz','tajuk','mesej', 'penyata1', 'penyata2','jenis','time2'));    }
+        ->subject('Penghantaran Emel Berjaya'. $this->pelesen->FromLicense)
+        ->view('email.pelesen.emel', compact('pelesen', 'time', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
 }

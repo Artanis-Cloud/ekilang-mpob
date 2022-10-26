@@ -43,7 +43,7 @@
                                 <!-- Title -->
                                 <tr>
                                     <td style="padding:0 15px; text-align:center;">
-                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">EMEL {{ $jenis }}</h1>
+                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif; text-transform:uppercase"">EMEL {{ $jenis }}</h1>
                                         <span style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece;
                                         width:100px;"></span>
                                     </td>
@@ -60,7 +60,7 @@
                                                         MASA:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        </td>
+                                                        {{ $dt }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -68,7 +68,7 @@
                                                         DARI:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $pelesen->name }}({{ $pelesen->email }})</td>
+                                                        {{ $pelesen->FromName }} &nbsp; ({{ $pelesen->FromEmail }})</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -92,7 +92,7 @@
                                                         KANDUNGAN:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $mesej }}</td>
+                                                        {!! $mesej !!}</td>
                                                 </tr>
 
                                                 {{-- <tr>
