@@ -284,7 +284,7 @@ class KilangOleokimiaController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -465,7 +465,7 @@ class KilangOleokimiaController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -657,7 +657,7 @@ class KilangOleokimiaController extends Controller
         } else {
 
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -811,7 +811,7 @@ class KilangOleokimiaController extends Controller
 
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -883,7 +883,7 @@ class KilangOleokimiaController extends Controller
 
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
     public function oleo_add_bahagian_iii(Request $request)

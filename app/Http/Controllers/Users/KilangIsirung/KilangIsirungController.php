@@ -211,7 +211,7 @@ class KilangIsirungController extends Controller
             return view('users.KilangIsirung.isirung-bahagian-i', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -295,7 +295,7 @@ class KilangIsirungController extends Controller
             return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun','cpko','pkc'));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -411,7 +411,7 @@ class KilangIsirungController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -597,7 +597,7 @@ class KilangIsirungController extends Controller
             'total', 'total2', 'total3', 'penyatai','bulan','tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -793,7 +793,7 @@ class KilangIsirungController extends Controller
             'penyata2', 'user', 'total', 'total2', 'total3', 'penyatai','bulan','tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -1219,7 +1219,7 @@ class KilangIsirungController extends Controller
             ));
         } else {
             return redirect()->back()
-            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+            ->with('error', 'Sila hubungi pegawai MPOB');
         }
 
 

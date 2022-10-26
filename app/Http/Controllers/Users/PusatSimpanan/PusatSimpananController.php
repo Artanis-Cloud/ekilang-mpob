@@ -349,7 +349,7 @@ class PusatSimpananController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 

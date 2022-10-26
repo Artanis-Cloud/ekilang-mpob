@@ -304,7 +304,7 @@ class KilangBuahController extends Controller
             return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
 
         // dd($kilang);
@@ -413,7 +413,7 @@ class KilangBuahController extends Controller
             return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker', 'status_prestasi'));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -480,7 +480,7 @@ class KilangBuahController extends Controller
             return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -562,7 +562,7 @@ class KilangBuahController extends Controller
             return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah3', 'bulan', 'tahun','jumlah','jumlah2'));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -640,7 +640,7 @@ class KilangBuahController extends Controller
             return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -745,7 +745,7 @@ class KilangBuahController extends Controller
                     return view('users.KilangBuah.buah-papar-penyata', compact('returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun','jumlah_3', 'jumlah_4','jumlah_5','penyata2'));
                 } else {
                     return redirect()->back()
-                        ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                        ->with('error', 'Sila hubungi pegawai MPOB');
                 }
         }
 
