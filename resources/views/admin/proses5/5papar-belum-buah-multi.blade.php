@@ -268,7 +268,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_npg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -276,7 +276,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_jpg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -284,7 +284,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_npgtg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -292,7 +292,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -1116,10 +1116,10 @@
                                                 {{-- {{ $formatteddate }} --}}
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->pelesen->e_npg }}
+                                                <span style="text-transform:uppercase"> {{ $data->pelesen->e_npg }}</span>
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->pelesen->e_jpg }}
+                                                <span style="text-transform:uppercase"> {{ $data->pelesen->e_jpg }}</span>
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 

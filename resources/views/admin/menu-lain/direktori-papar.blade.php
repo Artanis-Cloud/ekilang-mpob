@@ -75,44 +75,44 @@
                                         @foreach ($query as $data)
                                             <tr style="margin-left:2%">
                                                 <td><b>{{ $loop->iteration }}.</b></td>
-                                                <td colspan=3><b>{{ $data->e_np }}</b></td>
+                                                <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp</td>
                                                 <td>Postal add </td>
                                                 <td>:</td>
-                                                <td>{{ $data->e_as1 }}</td>
+                                                <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
-                                                <td>{{ $data->e_as2 }}</td>
+                                                <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
-                                                <td>{{ $data->e_as3 }}</td>
+                                                <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp</td>
                                                 <td>Factory add</td>
                                                 <td>:</td>
-                                                <td>{{ $data->e_ap1 }}</td>
+                                                <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
                                             </tr>
 
                                             <tr>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
-                                                <td>{{ $data->e_ap2 }}</td>
+                                                <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
                                                 <td>&nbsp</td>
-                                                <td>{{ $data->e_ap3 }}</td>
+                                                <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
                                             </tr>
 
                                             <tr>
