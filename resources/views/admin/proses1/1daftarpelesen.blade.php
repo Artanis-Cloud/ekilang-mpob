@@ -188,7 +188,7 @@
                                                 <label class="control-label col-form-label required">Kod Negeri </label>
                                             </div>
                                             <div id="101_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw" id="kodpgw" style="text-transform:uppercase"
+                                                <select class="form-control" id="kodpgw" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -207,7 +207,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="104_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw2" id="kodpgw" style="text-transform:uppercase"
+                                                <select class="form-control"  id="kodpgw2" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -223,7 +223,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="07_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw3" id="kodpgw" style="text-transform:uppercase"
+                                                <select class="form-control" id="kodpgw3" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -240,7 +240,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="102_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw4" id="kodpgw" style="text-transform:uppercase"
+                                                <select class="form-control" id="kodpgw4" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -260,7 +260,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="91_container" class="col-md-6" style="margin-bottom: 20px; display:block">
-                                                <select class="form-control" name="kodpgw5" id="kodpgw" style="text-transform:uppercase"
+                                                <select class="form-control" id="kodpgw5" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected value="">Sila Pilih</option>
