@@ -202,7 +202,7 @@
                                                                             value="{{ $data->e91_reg }}">&nbspYa
                                                                     </td>
                                                                     <td>{{ $data->e_nl ?? '-' }}</td>
-                                                                    <td>{{ $data->e_np ?? '-' }}</td>
+                                                                    <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
                                                                     <td>{{ $data->kodpgw }}</td>
                                                                     <td>{{ $data->nosiri }}</td>
 

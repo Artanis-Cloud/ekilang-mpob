@@ -614,11 +614,63 @@
 
                     jumlah_input = parseFloat(Number(aj1)) + parseFloat(Number(aj2)) +
                         parseFloat(Number(aj3)) + parseFloat(Number(aj4)) + parseFloat(Number(aj5)) + parseFloat(Number(aj8));
-                    // console.log(jumlah_input.toFixed(2));
+                    console.log(jumlah_input);
                     document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
                     document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
+                    console.log(document.getElementById('total_hidden').value);
+
 
                 }
+            </script>
+            <script type="text/javascript">
+                window.onload = function () {
+                    //Reference the DropDownList.
+                    var total = document.getElementById("total");
+                    var e91_aj1 = document.getElementById('e91_aj1');
+                    var aj1 = e91_aj1.value.replace(/,/g, '');
+
+                    var e91_aj2 = document.getElementById('e91_aj2');
+                    var aj2 = e91_aj2.value.replace(/,/g, '');
+
+                    var e91_aj3 = document.getElementById('e91_aj3');
+                    var aj3 = e91_aj3.value.replace(/,/g, '');
+
+                    var e91_aj4 = document.getElementById('e91_aj4');
+                    var aj4 = e91_aj4.value.replace(/,/g, '');
+
+                    var e91_aj5 = document.getElementById('e91_aj5');
+                    var aj5 = e91_aj5.value.replace(/,/g, '');
+
+                    var e91_aj8 = document.getElementById('e91_aj8');
+                    var aj8 = e91_aj8.value.replace(/,/g, '');
+
+                    var jumlah_input = 0;
+
+                    jumlah_input = parseFloat(Number(aj1)) + parseFloat(Number(aj2)) +
+                        parseFloat(Number(aj3)) + parseFloat(Number(aj4)) + parseFloat(Number(aj5)) + parseFloat(Number(aj8));
+                    console.log(jumlah_input);
+                    // document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                    document.getElementById('total').innerHTML = (jumlah_input.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+
+                    // var val = ctrl.value;
+
+                    // jumlah_input = jumlah_input.replace(/,/g, "")
+                    // // ctrl.value = "";
+                    // jumlah_input += '';
+                    // x = jumlah_input.split('.');
+                    // x1 = x[0];
+                    // x2 = x.length > 1 ? '.' + x[1] : '';
+
+                    // var rgx = /(\d+)(\d{3})/;
+
+                    // while (rgx.test(x1)) {
+                    //     x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    // }
+
+                    // ctrl.value = x1 + x2;
+                    }
+
             </script>
             <script>
                 document.addEventListener('keypress', function(e) {

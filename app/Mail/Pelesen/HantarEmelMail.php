@@ -52,6 +52,6 @@ class HantarEmelMail extends Mailable
 
         return $this->to($this->pelesen->FromEmail, $this->pelesen->FromName)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-        ->subject('Penghantaran Emel Berjaya'. $this->pelesen->FromLicense)
+        ->subject('Penghantaran Emel Berjaya - '. $this->pelesen->FromLicense)
         ->view('email.pelesen.emel', compact('pelesen', 'time', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
 }

@@ -1121,11 +1121,11 @@
                                             <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                                 {{ $formatteddate }}
                                             </p>
-                                            <p style="text-transform:uppercase">Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->pelesen->e_npg }}
+                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                                <span style="text-transform:uppercase">{{ $data->pelesen->e_npg }}</span>
                                             </p>
-                                            <p style="text-transform:uppercase">Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->pelesen->e_jpg }}
+                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                                <span style="text-transform:uppercase">{{ $data->pelesen->e_jpg }}</span>
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
