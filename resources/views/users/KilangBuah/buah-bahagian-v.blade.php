@@ -396,7 +396,7 @@
 
                             jumlah_input = parseFloat(Number(ak1)) + parseFloat(Number(ak2)) + parseFloat(Number(ak3));
                             console.log(jumlah_input.toFixed(2));
-                            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                            document.getElementById('total').innerHTML = (jumlah_input.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                         document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
 
                         }

@@ -615,7 +615,7 @@
                     jumlah_input = parseFloat(Number(aj1)) + parseFloat(Number(aj2)) +
                         parseFloat(Number(aj3)) + parseFloat(Number(aj4)) + parseFloat(Number(aj5)) + parseFloat(Number(aj8));
                     console.log(jumlah_input);
-                    document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                    document.getElementById('total').innerHTML = (jumlah_input.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
                     console.log(document.getElementById('total_hidden').value);
 

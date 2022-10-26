@@ -170,7 +170,7 @@
                                         </div>
                                     </div>
 
-                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+                                    {{-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -199,7 +199,7 @@
                                             <!-- /.modal-content -->
                                         </div>
                                         <!-- /.modal-dialog -->
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>
