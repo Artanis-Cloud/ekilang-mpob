@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\CustomForgetPassword\ResetPasswordMail;
 use App\Models\PasswordReset;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
 use App\Notifications\Pelesen\HantarTukarPasswordPelesenNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -49,7 +50,9 @@ class ForgetPasswordController extends Controller
         // ]);
 
         // Mail::send(new ResetPasswordMail($user, $custom_pass));
-        $user->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
+        $user->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
+
+        // $user->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
 
 
         return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');

@@ -280,7 +280,7 @@ class KilangBiodieselController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -455,7 +455,7 @@ class KilangBiodieselController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -633,7 +633,7 @@ class KilangBiodieselController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -774,7 +774,7 @@ class KilangBiodieselController extends Controller
             return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
@@ -908,7 +908,7 @@ class KilangBiodieselController extends Controller
         } else {
 
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
         // $penyata = [];
         // $totaliiic4 = 0;
@@ -1385,7 +1385,7 @@ class KilangBiodieselController extends Controller
             ));
         } else {
             return redirect()->back()
-                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Sila hubungi pegawai MPOB');
         }
     }
 
