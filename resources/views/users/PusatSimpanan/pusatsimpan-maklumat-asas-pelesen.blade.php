@@ -64,8 +64,8 @@
                                     Alamat Premis Berlesen</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_ap1" class="form-control" maxlength=60  style="text-transform:uppercase"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                <input type="text" id="e_ap1" class="form-control" maxlength=60
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc(); valid_ap(); this.value = this.value.toUpperCase()">
                                 <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
@@ -99,8 +99,8 @@
                                     Alamat Surat Menyurat</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_as1" class="form-control" maxlength=60  style="text-transform:uppercase"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                <input type="text" id="e_as1" class="form-control" maxlength=60
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc4(); valid_as(); this.value = this.value.toUpperCase()">
                                 <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
@@ -605,7 +605,7 @@
             <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
             <script src="{{ asset('theme/js/app.js') }}"></script>
 
-            <script src="assets/js/main.js"></script>
+            {{-- <script src="assets/js/main.js"></script> --}}
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -618,6 +618,15 @@
                 //  var data = $('bil_tangki_jumlah').html();
                 // $('#jumlah').html(data);
             </script>
+            {{-- <script>
+               function upper(data) {
+                data2 = document.getElementById(this);
+                console.log(data2);
+                    data2.value = data2.value.toUpperCase()
+                };
+                //  var data = $('bil_tangki_jumlah').html();
+                // $('#jumlah').html(data);
+            </script> --}}
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -1009,7 +1018,7 @@
                 console.log('others' + others);
 
                 // !x  !(x > 0)
-                if ((!cpo  !(cpo > 0)) && (!ppo   !(ppo > 0)) && (!cpko   !(cpko > 0))  && (!ppko   !(ppko > 0)) && (!oleo   !(oleo > 0)) && (!others   !(others > 0)) ) {
+                if ((!cpo || !(cpo > 0)) && (!ppo  ||  !(ppo > 0)) && (!cpko   || !(cpko > 0))  && (!ppko   || !(ppko > 0)) && (!oleo  ||  !(oleo > 0)) && (!others   || !(others > 0)) ) {
                     console.log('lain');
 
                     toastr.error(
@@ -1634,7 +1643,7 @@
                 }
             </script>
 
-            <script>
+            {{-- <script>
                 $('#submit').click(function() {
                     var
                         $checkbox = $('#address'),
@@ -1667,7 +1676,7 @@
                 //         //     $("#deliveryadd").show();
                 //         // }
                 //     }
-            </script>
+            </script> --}}
             <script>
                 function alamat() {
 

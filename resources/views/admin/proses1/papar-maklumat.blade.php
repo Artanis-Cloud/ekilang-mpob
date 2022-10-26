@@ -210,7 +210,7 @@
                                     Nombor Lesen </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                            <input type="text" id="e_nl" class="form-control" required minlength="12" maxlength="12"
+                                            <input type="text" id="e_nl" readonly class="form-control" required minlength="12" maxlength="12"
                                                 placeholder="Nombor Lesen" name="e_nl" value="{{ $pelesen->e_nl ?? '-' }}">
 
                                     </fieldset>
