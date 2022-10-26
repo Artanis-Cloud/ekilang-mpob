@@ -131,7 +131,7 @@
                                         Nama Premis
                                     </td>
 
-                                    <td width="88%" height="19"><b>
+                                    <td width="88%" height="19" style="text-transform:uppercase"><b>
                                             {{ auth()->user()->name }}
                                         </b></td>
 
@@ -158,7 +158,7 @@
 
                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_ap1 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_ap1 }}</b></td>
 
                                 </tr>
 
@@ -166,7 +166,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_ap2 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_ap2 }}</b></td>
 
                                 </tr>
 
@@ -174,7 +174,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_ap3 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_ap3 }}</b></td>
 
                                 </tr>
 
@@ -182,7 +182,7 @@
 
                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_as1 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_as1 }}</b></td>
 
                                 </tr>
 
@@ -190,7 +190,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_as2 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_as2 }}</b></td>
 
                                 </tr>
 
@@ -198,7 +198,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_as3 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_as3 }}</b></td>
 
                                 </tr>
 
@@ -224,7 +224,7 @@
 
                                 <tr>
 
-                                    <td width="35%">Alamat emel </td>
+                                    <td width="35%">Alamat Emel Kilang</td>
 
                                     <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
@@ -234,7 +234,7 @@
 
                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_npg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_npg }}</b></td>
 
                                 </tr>
 
@@ -242,7 +242,7 @@
 
                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_jpg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_jpg }}</b></td>
 
                                 </tr>
 
@@ -250,7 +250,7 @@
 
                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_npgtg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_npgtg }}</b></td>
 
                                 </tr>
 
@@ -258,7 +258,7 @@
 
                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_jpgtg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_jpgtg }}</b></td>
 
                                 </tr>
 
@@ -1133,14 +1133,14 @@
 
                             <p>
                             <div class="required">Nama Pegawai Melapor:</div> &nbsp;&nbsp;
-                            <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg()"
+                            <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  style="text-transform:uppercase" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_npg(); this.value = this.value.toUpperCase()"
                                 name='e_npg' value="">
                                 <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
                                     butiran di bahagian ini!</i></p>
                             </p>
                             <p>
                             <div class="required">Jawatan Pegawai Melapor:</div> &nbsp;&nbsp;
-                            <input type="text" id="e_jpg"class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg()"
+                            <input type="text" id="e_jpg"class="form-control" size="50" maxlength="60" required  style="text-transform:uppercase" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); valid_jpg(); this.value = this.value.toUpperCase()"
                                 name='e_jpg' value="">
                                 <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
                                     butiran di bahagian ini!</i></p>

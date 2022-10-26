@@ -144,7 +144,7 @@
                                     <td width="25%" height="19">Nama Premis
                                     </td>
 
-                                    <td width="88%" height="19"><b>{{ auth()->user()->name }}
+                                    <td width="88%" height="19" style="text-transform:uppercase" ><b>{{ auth()->user()->name }}
                                         </b></td>
 
                                 </tr>
@@ -169,7 +169,7 @@
 
                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_ap1 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_ap1 }}</b></td>
 
                                 </tr>
 
@@ -177,7 +177,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_ap2 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_ap2 }}</b></td>
 
                                 </tr>
 
@@ -185,7 +185,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_ap3 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_ap3 }}</b></td>
 
                                 </tr>
 
@@ -193,7 +193,7 @@
 
                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_as1 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_as1 }}</b></td>
 
                                 </tr>
 
@@ -201,7 +201,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_as2 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_as2 }}</b></td>
 
                                 </tr>
 
@@ -209,7 +209,7 @@
 
                                     <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_as3 }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_as3 }}</b></td>
 
                                 </tr>
 
@@ -245,7 +245,7 @@
 
                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_npg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_npg }}</b></td>
 
                                 </tr>
 
@@ -253,7 +253,7 @@
 
                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_jpg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_jpg }}</b></td>
 
                                 </tr>
 
@@ -261,7 +261,7 @@
 
                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_npgtg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_npgtg }}</b></td>
 
                                 </tr>
 
@@ -269,7 +269,7 @@
 
                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                    <td width="65%"><b>{{ $pelesen->e_jpgtg }}</b></td>
+                                    <td width="65%" style="text-transform:uppercase" ><b>{{ $pelesen->e_jpgtg }}</b></td>
 
                                 </tr>
 
@@ -1023,10 +1023,10 @@
                             method="post"  novalidate>
                             @csrf
                             <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{$date }} </b></p>
-                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyataiii->e101_npg  }}</b>
+                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyataiii->e101_npg  }}</span></b>
                             </p>
-                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyataiii->e101_jpg }}</b></p>
-                            <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyataiii->e101_notel }}</b>
+                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyataiii->e101_jpg }}</span></b></p>
+                            <p>No Telefon Kilang:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyataiii->e101_notel }}</span></b>
                             </p>
                             </body>
 

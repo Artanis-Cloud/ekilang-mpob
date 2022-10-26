@@ -65,19 +65,19 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_ap1" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc(); valid_ap()">
+                                    oninput="this.setCustomValidity(''); invokeFunc(); valid_ap(); this.value = this.value.toUpperCase()">
                                     <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                                 <input type="text" id="e_ap2" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc2()">
+                                    oninput="this.setCustomValidity(''); invokeFunc2(); this.value = this.value.toUpperCase()">
                                 <input type="text" id="e_ap3" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc3()">
+                                    oninput="this.setCustomValidity(''); invokeFunc3(); this.value = this.value.toUpperCase()">
                             </div>
                         </div>
 
@@ -100,19 +100,19 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_as1" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" required style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc4(); valid_as()">
+                                    oninput="this.setCustomValidity(''); invokeFunc4(); valid_as(); this.value = this.value.toUpperCase()">
                                     <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                                 <input type="text" id="e_as2" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc5()">
+                                    oninput="this.setCustomValidity(''); invokeFunc5(); this.value = this.value.toUpperCase()">
                                 <input type="text" id="e_as3" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 3" name="e_as3" value="{{ $pelesen->e_as3 }}"
-                                    oninput="this.setCustomValidity(''); invokeFunc6()">
+                                    oninput="this.setCustomValidity(''); invokeFunc6(); this.value = this.value.toUpperCase()">
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_notel" class="form-control" maxlength=40
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
+                                    placeholder="NO. TELEFON PEJABAT/KILANG" name="e_notel"
                                     oninput="this.setCustomValidity(''); invokeFunc7(); valid_notel()" value="{{ $pelesen->e_notel }}" required>
                                     <p type="hidden" id="err_notel" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -138,7 +138,7 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_nofax" class="form-control" maxlength=40
-                                    placeholder="No. Faks"
+                                    placeholder="NO. FAKS"
                                     name="e_nofax" value="{{ $pelesen->e_nofax }}"
                                     onkeypress="return isNumberKey(event)"
                                     oninput=" invokeFunc8()">
@@ -152,7 +152,7 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="email" id="e_email" class="form-control" maxlength=60
-                                    placeholder="Alamat Emel"
+                                    placeholder="ALAMAT EMEL KILANG"
                                     oninvalid="setCustomValidity('Sila isi Alamat Emel Kilang dengan betul')"
                                     name="e_email" value="{{ $pelesen->e_email }}" required
                                     oninput="this.setCustomValidity(''); invokeFunc9(); valid_email(); ValidateEmail()">
@@ -170,10 +170,10 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_npg" class="form-control" maxlength=60
-                                    placeholder="Nama Pegawai Melapor"
+                                    placeholder="Nama Pegawai Melapor" style="text-transform:uppercase"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_npg"
                                     value="{{ $pelesen->e_npg }}" required
-                                    oninput="this.setCustomValidity(''); invokeFunc10(); valid_npg()">
+                                    oninput="this.setCustomValidity(''); invokeFunc10(); valid_npg(); this.value = this.value.toUpperCase()">
                                     <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
@@ -186,8 +186,8 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_jpg" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    oninput="this.setCustomValidity(''); invokeFunc11(); valid_jpg()"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
+                                    oninput="this.setCustomValidity(''); invokeFunc11(); valid_jpg(); this.value = this.value.toUpperCase()"
                                     placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}"
                                     required>
                                     <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi butiran di
@@ -203,7 +203,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_notel_pg" maxlength=40 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
+                                    placeholder="NO. TELEFON PEGAWAI MELAPOR" name="e_notel_pg"
                                     oninput="this.setCustomValidity(''); invokeFunc12(); valid_notelpg()"
                                     value="{{ $pelesen->e_notel_pg }}" required>
                                     <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi butiran di
@@ -219,7 +219,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_email_pg" maxlength=100 class="form-control"
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
+                                    placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg"
                                     oninput="this.setCustomValidity(''); invokeFunc13(); valid_emailpg(); ValidateEmail()"
                                     value="{{ $pelesen->e_email_pg }}" required multiple>
                                     <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila isi butiran di
@@ -234,9 +234,9 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_npgtg" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                    oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg()" value="{{ $pelesen->e_npgtg }}"
+                                    oninput="this.setCustomValidity(''); invokeFunc14(); valid_npgtg(); this.value = this.value.toUpperCase()" value="{{ $pelesen->e_npgtg }}"
                                     required>
                                     <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -251,9 +251,9 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_jpgtg" class="form-control" maxlength=60
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                    oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg()" value="{{ $pelesen->e_jpgtg }}"
+                                    oninput="this.setCustomValidity(''); invokeFunc15(); valid_jpgtg(); this.value = this.value.toUpperCase()" value="{{ $pelesen->e_jpgtg }}"
                                     required>
                                     <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -268,7 +268,7 @@
                             <div class="col-md-7">
                                 <input type="email" id="e_email_pengurus" class="form-control" maxlength=100
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
+                                    placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
                                     oninput="this.setCustomValidity(''); invokeFunc16(); valid_emailpengurus()"
                                     value="{{ $pelesen->e_email_pengurus }}" required multiple>
                                     <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila isi butiran di
@@ -284,8 +284,8 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_syktinduk" class="form-control"
                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                    placeholder="Syarikat Induk" name="e_syktinduk"
-                                    oninput="this.setCustomValidity(''); invokeFunc17(); valid_syktinduk()"
+                                    placeholder="Syarikat Induk" name="e_syktinduk" style="text-transform:uppercase"
+                                    oninput="this.setCustomValidity(''); invokeFunc17(); valid_syktinduk(); this.value = this.value.toUpperCase()"
                                     value="{{ $pelesen->e_syktinduk }}" required>
                                     <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
@@ -302,12 +302,12 @@
                                     <select class="form-control" id="e_group" name="e_group" required
                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                         oninput="this.setCustomValidity(''); valid_kumpulan()">
-                                        <option selected value="">Sila Pilih Kumpulan</option>
+                                        <option selected value="">SILA PILIH KUMPULAN</option>
 
                                         <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
-                                            Kerajaan</option>
+                                            KERAJAAN</option>
                                         <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
-                                            Swasta</option>
+                                            SWASTA</option>
                                     </select>
                                     <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila buat pilihan di
                                         bahagian ini!</i></p>
@@ -323,7 +323,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="kap_proses" class="form-control"
                                     onkeyup="FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                    placeholder="KAPASITI PEMPROSESAN/TAHUN" name="kap_proses"
                                     onchange="validation_jumlah()" oninput="this.setCustomValidity(''); valid_proses(); invokeFunc18()"
                                     onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses ?? 0,2) }}" required>
                                     <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
@@ -1694,15 +1694,15 @@ document.getElementById('myform').addEventListener('submit', validateForm);
                     }
                     var e_ap1 = document.getElementById("e_ap1"),
                         e_as1 = document.getElementById("e_as1");
-                    e_as1.value = e_ap1.value;
+                    e_as1.value = e_ap1.value.toUpperCase();
 
                     var e_ap2 = document.getElementById("e_ap2"),
                         e_as2 = document.getElementById("e_as2");
-                    e_as2.value = e_ap2.value;
+                    e_as2.value = e_ap2.value.toUpperCase();
 
                     var e_ap3 = document.getElementById("e_ap3"),
                         e_as3 = document.getElementById("e_as3");
-                    e_as3.value = e_ap3.value;
+                    e_as3.value = e_ap3.value.toUpperCase();
 
 
                 }
