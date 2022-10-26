@@ -205,29 +205,29 @@
                                                         <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                 {{ $data->e_nl }}</u></a>
                                                     </td>
-                                                    <td>{{ $data->pelesen->e_np ?? '-' }}</td>
+                                                    <td  style="text-transform:uppercase" >{{ $data->pelesen->e_np ?? '-' }}</td>
                                                     <td>{{ $data->pelesen->e_email ?? '-' }}</td>
                                                     <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
                                                     <td style="text-align: center">{{ $data->kodpgw }}</td>
                                                     <td style="text-align: center">{{ $data->nosiri }}</td>
                                                     @if ($data->e_status == 1)
-                                                        <td style="text-align: center">Aktif</td>
+                                                        <td style="text-align: center">AKTIF</td>
                                                     @elseif ($data->e_status == 2)
-                                                        <td style="text-align: center">Tidak Aktif</td>
+                                                        <td style="text-align: center">TIDAK AKTIF</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
                                                     @if ($data->e_stock == 1)
-                                                        <td style="text-align: center">Aktif</td>
+                                                        <td style="text-align: center">AKTIF</td>
                                                     @elseif ($data->e_stock == 2)
-                                                        <td style="text-align: center">Tidak Aktif</td>
+                                                        <td style="text-align: center">TIDAK AKTIF</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
                                                     @if ($data->directory == 'Y')
-                                                        <td style="text-align: center">Ya</td>
+                                                        <td style="text-align: center">YA</td>
                                                     @elseif ($data->directory == 'N')
-                                                        <td style="text-align: center">Tidak</td>
+                                                        <td style="text-align: center">TIDAK</td>
                                                     @else
                                                         <td style="text-align: center">-</td>
                                                     @endif
