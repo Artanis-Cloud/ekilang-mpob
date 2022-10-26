@@ -648,7 +648,8 @@
 
                     // ctrl.value = x1 + x2;
 
-                    document.getElementById('total').innerHTML = jumlah_input2.toFixed(2);
+                    // document.getElementById('total').innerHTML = jumlah_input2.toFixed(2);
+                    document.getElementById('total').innerHTML = (jumlah_input2.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     document.getElementById('total_hidden').value = jumlah_input2.toFixed(2);
 
                     console.log(document.getElementById('total_hidden').value);
