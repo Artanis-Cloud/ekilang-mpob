@@ -24,23 +24,23 @@ class ForgetPasswordController extends Controller
         $kat = $request->kat;
 
         if ($kat == 'pelesen') {
-            $user = User::where('username', $request->lesen)->first();
+            $pelesen = User::where('username', $request->lesen)->first();
             $custom_pass = Str::random(8);
 
-            $user = User::where('username', $request->lesen)->first();
-            $user->password = Hash::make($custom_pass);
-            $user->save();
+            $pelesen = User::where('username', $request->lesen)->first();
+            $pelesen->password = Hash::make($custom_pass);
+            $pelesen->save();
 
         } else {
-            $user = User::where('username', $request->admin)->first();
+            $pelesen = User::where('username', $request->admin)->first();
             $custom_pass = Str::random(8);
 
-            $user = User::where('username', $request->admin)->first();
-            $user->password = Hash::make($custom_pass);
-            $user->save();
+            $pelesen = User::where('username', $request->admin)->first();
+            $pelesen->password = Hash::make($custom_pass);
+            $pelesen->save();
 
         }
-        if (!$user) {
+        if (!$pelesen) {
             return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
         }
 
@@ -50,9 +50,9 @@ class ForgetPasswordController extends Controller
         // ]);
 
         // Mail::send(new ResetPasswordMail($user, $custom_pass));
-        $user->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
+        // $user->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
 
-        // $user->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
+        $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
 
 
         return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
