@@ -133,7 +133,7 @@
                                                                     value="{{ $data->e91_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_np }}</td>
                                                             <td>{{ $data->kodpgw }}</td>
                                                             <td>{{ $data->nosiri }}</td>
                                                             <td>{{ $data->sdate }}</td>
@@ -178,7 +178,7 @@
                                                                     value="{{ $data->e101_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_np }}</td>
                                                             <td>{{ $data->kodpgw }}</td>
                                                             <td>{{ $data->nosiri }}</td>
                                                             <td>{{ $data->sdate }}</td>
@@ -226,7 +226,7 @@
                                                                     value="{{ $data->e102_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_np }}</td>
                                                             <td>{{ $data->kodpgw }}</td>
                                                             <td>{{ $data->nosiri }}</td>
                                                             <td>{{ $data->sdate }}</td>
@@ -273,7 +273,7 @@
                                                                     value="{{ $data->e104_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_np }}</td>
                                                             <td>{{ $data->kodpgw }}</td>
                                                             <td>{{ $data->nosiri }}</td>
                                                             <td>{{ $data->sdate }}</td>
@@ -320,7 +320,7 @@
                                                                     value="{{ $data->e07_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_np }}</td>
                                                             <td>{{ $data->kodpgw }}</td>
                                                             <td>{{ $data->nosiri }}</td>
                                                             <td>{{ $data->sdate }}</td>
@@ -364,7 +364,7 @@
                                                                     value="{{ $data->ebio_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
-                                                            <td>{{ $data->e_np }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_np }}</td>
                                                             <td>{{ $data->sdate }}</td>
 
                                                         </tr>
@@ -419,7 +419,7 @@
                                                                     value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
-                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
 
@@ -471,7 +471,7 @@
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
-                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
 
@@ -526,7 +526,7 @@
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
-                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
 
@@ -580,7 +580,7 @@
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
-                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
 
@@ -634,7 +634,7 @@
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
-                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
 
@@ -687,7 +687,7 @@
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
-                                                            <td>{{ $data->namapremis }}</td>
+                                                            <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
 

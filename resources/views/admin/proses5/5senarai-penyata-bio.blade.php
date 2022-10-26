@@ -105,7 +105,7 @@
                                                         <a href="{{ route('admin.kemaskini.maklumat.bio', $data->ebio_reg) }}"><u>
                                                             {{ $data->e_nl ?? '-' }}</u></a></td>
 
-                                                        <td>{{ $data->e_np ?? '-' }}</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
                                                         <td>{{ $data->e_email ?? '-' }}</td>
                                                         <td>{{ $data->e_notel ?? '-' }}</td>
                                                         <td style="text-align: center">{{ $data->kodpgw }}</td>
