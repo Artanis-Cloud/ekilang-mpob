@@ -70,55 +70,55 @@
                                     </p>
                                     <div class="row ml-5">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            @if ($errors->any())
+                                            {{-- @if ($errors->any())
                                             {{ implode('', $errors->all('<div>:message</div>')) }}
-                                            @endif
+                                            @endif --}}
                                             <label for="fname" class="control-label col-form-label required">
                                                 Jenis Kilang</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <fieldset class="form-group" style="margin-bottom: 20px">
+                                            <fieldset class="form-group" style="margin-bottom: 20px ">
                                                 <select class="form-control" name="e_kat" id="e_kat" required
-                                                    onchange="poma(); showDetail(); showDetailkodpgw()"
+                                                    onchange="poma(); showDetail(); showDetailkodpgw()" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kat()">
                                                     <option selected hidden disabled value="">Sila Pilih Kilang</option>
                                                     @if (auth()->user()->sub_cat)
                                                         @foreach (json_decode(auth()->user()->sub_cat) as $cat)
                                                             @if ($cat == 'PL91')
-                                                                <option value="PL91">Kilang Buah</option>
+                                                                <option value="PL91">KILANG BUAH</option>
                                                             @endif
                                                             @if ($cat == 'PL101')
-                                                                <option value="PL101">Kilang Penapis</option>
+                                                                <option value="PL101">KILANG PENAPIS</option>
                                                             @endif
                                                             @if ($cat == 'PL102')
-                                                                <option value="PL102">Kilang Isirung</option>
+                                                                <option value="PL102">KILANG ISIRUNG</option>
                                                             @endif
                                                             @if ($cat == 'PL104')
-                                                                <option value="PL104">Kilang Oleokimia</option>
+                                                                <option value="PL104">KILANG OLEOKIMIA</option>
                                                             @endif
                                                             @if ($cat == 'PL111')
-                                                                <option value="PL111">Pusat Simpanan</option>
+                                                                <option value="PL111">PUSAT SIMPANAN</option>
                                                             @endif
                                                             @if ($cat == 'PLBIO')
-                                                                <option value="PLBIO">Kilang Biodiesel</option>
+                                                                <option value="PLBIO">KILANG BIODIESEL</option>
                                                             @endif
                                                             @if ($cat == null)
-                                                                <option value="PL91">Kilang Buah</option>
-                                                                <option value="PL101">Kilang Penapis</option>
-                                                                <option value="PL102">Kilang Isirung</option>
-                                                                <option value="PL104">Kilang Oleokimia</option>
-                                                                <option value="PL111">Pusat Simpanan</option>
-                                                                <option value="PL102">Kilang Biodiesel</option>
+                                                                <option value="PL91">KILANG BUAH</option>
+                                                                <option value="PL101">KILANG PENAPIS</option>
+                                                                <option value="PL102">KILANG ISIRUNG</option>
+                                                                <option value="PL104">KILANG OLEOKIMIA</option>
+                                                                <option value="PL111">PUSAT SIMPANAN</option>
+                                                                <option value="PL102">KILANG BIODIESEL</option>
                                                             @endif
                                                         @endforeach
                                                     @else
-                                                        <option value="PL91">Kilang Buah</option>
-                                                        <option value="PL101">Kilang Penapis</option>
-                                                        <option value="PL102">Kilang Isirung</option>
-                                                        <option value="PL104">Kilang Oleokimia</option>
-                                                        <option value="PL111">Pusat Simpanan</option>
-                                                        <option value="PL102">Kilang Biodiesel</option>
+                                                    <option value="PL91">KILANG BUAH</option>
+                                                    <option value="PL101">KILANG PENAPIS</option>
+                                                    <option value="PL102">KILANG ISIRUNG</option>
+                                                    <option value="PL104">KILANG OLEOKIMIA</option>
+                                                    <option value="PL111">PUSAT SIMPANAN</option>
+                                                    <option value="PL102">KILANG BIODIESEL</option>
                                                     @endif
 
                                                 </select>
@@ -134,12 +134,12 @@
                                             <label class="control-label col-form-label required">Status e-Kilang</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_status" required id="e_status"
+                                            <select class="form-control" name="e_status" required id="e_status" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity(''); valid_status()">
                                                 <option selected value="">Sila Pilih</option>
-                                                <option value="1">Aktif</option>
-                                                <option value="2">Tidak Aktif</option>
+                                                <option value="1">AKTIF</option>
+                                                <option value="2">TIDAK AKTIF</option>
                                             </select>
                                             <p type="hidden" id="err_status" style="color: red; display:none"><i>Sila buat
                                                     pilihan di
@@ -152,12 +152,12 @@
                                             <label class="control-label col-form-label required">Status e-Mingguan</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_stock" required id="e_stock"
+                                            <select class="form-control" name="e_stock" required id="e_stock" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity(''); valid_stock()">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
-                                                <option value="1">Aktif</option>
-                                                <option value="2">Tidak Aktif</option>
+                                                <option value="1">AKTIF</option>
+                                                <option value="2">TIDAK AKTIF</option>
                                             </select>
                                             <p type="hidden" id="err_stock" style="color: red; display:none"><i>Sila buat
                                                     pilihan di
@@ -170,12 +170,12 @@
                                             <label class="control-label col-form-label required">Status Direktori</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <select class="form-control" name="directory" required id="directory"
+                                            <select class="form-control" name="directory" required id="directory" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity(''); valid_dir()">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
-                                                <option value="Y">Ya</option>
-                                                <option value="N">Tidak</option>
+                                                <option value="Y">YA</option>
+                                                <option value="N">TIDAK</option>
                                             </select>
                                             <p type="hidden" id="err_dir" style="color: red; display:none"><i>Sila buat
                                                     pilihan di
@@ -188,7 +188,7 @@
                                                 <label class="control-label col-form-label required">Kod Negeri </label>
                                             </div>
                                             <div id="101_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control"  id="kodpgw"
+                                                <select class="form-control" name="kodpgw" id="kodpgw" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -207,7 +207,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="104_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control"  id="kodpgw2"
+                                                <select class="form-control" name="kodpgw2" id="kodpgw" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -223,7 +223,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="07_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control"  id="kodpgw3"
+                                                <select class="form-control" name="kodpgw3" id="kodpgw" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -240,7 +240,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="102_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control"  id="kodpgw4"
+                                                <select class="form-control" name="kodpgw4" id="kodpgw" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -260,7 +260,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="91_container" class="col-md-6" style="margin-bottom: 20px; display:block">
-                                                <select class="form-control"  id="kodpgw5"
+                                                <select class="form-control" name="kodpgw5" id="kodpgw" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected value="">Sila Pilih</option>
@@ -291,7 +291,7 @@
                                             </div>
                                             <div class="col-md-6" style="margin-bottom: 20px;">
                                                 <input type="text" id="nosiri" class="form-control"
-                                                    onkeypress="return isNumberKey(event)"
+                                                    onkeypress="return isNumberKey(event)" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
                                                     oninput="setCustomValidity(''); invokeFunc(); valid_nosiri()"
                                                     placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
@@ -311,7 +311,7 @@
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_nl" class="form-control" required
-                                                onkeypress="return isNumberKey(event)"
+                                                onkeypress="return isNumberKey(event)" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="12"
                                                 oninput="setCustomValidity(''); invokeFunc2(); valid_nl()"
                                                 placeholder="Nombor Lesen" name="e_nl" value="{{ old('nombor_lesen') }}">
@@ -332,9 +332,9 @@
                                                 Premis</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_np" class="form-control" required
+                                            <input type="text" id="e_np" class="form-control" required style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc3(); valid_np()"
+                                                oninput="setCustomValidity(''); invokeFunc3(); valid_np(); this.value = this.value.toUpperCase()"
                                                 placeholder="Nama Premis" name="e_np" value="{{ old('nama_premis') }}">
                                             <p type="hidden" id="err_np" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -350,9 +350,9 @@
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 10px;">
                                             <div class="form-group" style="margin-bottom: 10px">
-                                                <input type="text" id="e_ap1" maxlength=60 class="form-control"
+                                                <input type="text" id="e_ap1" maxlength=60 class="form-control" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                    oninput="setCustomValidity(''); invokeFunc4(); valid_ap()"
+                                                    oninput="setCustomValidity(''); invokeFunc4(); valid_ap(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Premis 1" name="e_ap1" required
                                                     value="{{ old('alamat_premis_1') }}">
                                                 <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi
@@ -361,17 +361,17 @@
                                             </div>
                                             <div class="form-group" style="margin-bottom: 10px">
                                                 {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                                <input type="text" id="e_ap2" maxlength=60 class="form-control"
+                                                <input type="text" id="e_ap2" maxlength=60 class="form-control" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                    oninput="setCustomValidity(''); invokeFunc5()"
+                                                    oninput="setCustomValidity(''); invokeFunc5(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Premis 2" name="e_ap2"
                                                     value="{{ old('alamat_premis_1') }}">
                                             </div>
                                             <div class="form-group">
                                                 {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                                 <input type="text" id="e_ap3" class="form-control" maxlength="60"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    oninput="setCustomValidity(''); invokeFunc6()"
+                                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
+                                                    oninput="setCustomValidity(''); invokeFunc6(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Premis 3" name="e_ap3"
                                                     value="{{ old('alamat_premis_1') }}">
                                             </div>
@@ -385,9 +385,9 @@
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 10px;">
                                             <div class="form-group" style="margin-bottom: 10px;">
-                                                <input type="text" id="e_as1" class="form-control"
+                                                <input type="text" id="e_as1" class="form-control" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                    oninput="setCustomValidity(''); invokeFunc7(); valid_as()"
+                                                    oninput="setCustomValidity(''); invokeFunc7(); valid_as(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" required
                                                     value="{{ old('alamat_surat_1') }}">
                                                 <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi
@@ -396,9 +396,9 @@
                                             </div>
                                             <div class="form-group" style="margin-bottom: 10px;">
                                                 {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
-                                                <input type="text" id="e_as2" class="form-control"
+                                                <input type="text" id="e_as2" class="form-control" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                    oninput="setCustomValidity(''); invokeFunc8()"
+                                                    oninput="setCustomValidity(''); invokeFunc8(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                                     value="{{ old('alamat_surat_1') }}">
 
@@ -406,9 +406,9 @@
 
                                             <div class="form-group">
                                                 {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
-                                                <input type="text" id="e_as3" class="form-control"
+                                                <input type="text" id="e_as3" class="form-control" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                    oninput="setCustomValidity(''); invokeFunc9()"
+                                                    oninput="setCustomValidity(''); invokeFunc9(); this.value = this.value.toUpperCase()"
                                                     placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                                     value="{{ old('alamat_surat_1') }}">
                                             </div>
@@ -421,7 +421,7 @@
                                                 Kilang</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_notel" class="form-control"
+                                            <input type="text" id="e_notel" class="form-control" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                                 oninput="setCustomValidity(''); invokeFunc10(); valid_notel()"
                                                 placeholder="No. Telefon Kilang" name="e_notel" required
@@ -438,7 +438,7 @@
                                                 Kilang</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_nofax" class="form-control"
+                                            <input type="text" id="e_nofax" class="form-control" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                                 oninput="setCustomValidity(''); invokeFunc11()" placeholder="No. Faks Kilang"
                                                 name="e_nofax" value="{{ old('no_faks_kilang') }}">
@@ -454,7 +454,7 @@
                                             <input type="text" id="e_email" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                                 oninput="setCustomValidity(''); invokeFunc12(); valid_email(); ValidateEmail()"
-                                                placeholder="Alamat Emel Kilang" name="e_email" required
+                                                placeholder="ALAMAT EMEL KILANG" name="e_email" required
                                                 value="{{ old('emel_kilang') }}">
                                             <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -476,9 +476,9 @@
                                                 Melapor</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_npg" class="form-control"
+                                            <input type="text" id="e_npg" class="form-control" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc13(); valid_npg()"
+                                                oninput="setCustomValidity(''); invokeFunc13(); valid_npg(); this.value = this.value.toUpperCase()"
                                                 placeholder="Nama Pegawai Melapor" name="e_npg" required
                                                 value="{{ old('nama_pegawai_lapor') }}">
                                             <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
@@ -493,10 +493,10 @@
                                                 Pegawai Melapor</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" id="e_jpg" style="margin-bottom: 10px;"
+                                            <input type="text" id="e_jpg" style="margin-bottom: 10px;" style="text-transform:uppercase"
                                                 class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                maxlength="60" oninput="setCustomValidity(''); invokeFunc14(); valid_jpg()"
-                                                placeholder="Jawatan Pegawai Melapor" name="e_jpg" required
+                                                maxlength="60" oninput="setCustomValidity(''); invokeFunc14(); valid_jpg(); this.value = this.value.toUpperCase()"
+                                                placeholder="JAWATAN PEGAWAI MELAPOR" name="e_jpg" required
                                                 value="{{ old('jawatan_pegawai_lapor') }}">
                                             <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -511,7 +511,7 @@
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_notel_pg" class="form-control" required
-                                                placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg'
+                                                placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg' style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                                 oninput="setCustomValidity(''); invokeFunc15(); valid_notelpg()"
                                                 value="{{ old('e_notel_pg') }}">
@@ -530,7 +530,7 @@
                                             <input type="text" id="e_email_pg" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                                 oninput="setCustomValidity(''); invokeFunc16(); valid_emailpg()"
-                                                placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" required
+                                                placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg" required
                                                 value="{{ old('emel_pegawai') }}">
                                             <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila
                                                     isi butiran di
@@ -545,9 +545,9 @@
                                                 Bertanggungjawab</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_npgtg" class="form-control"
+                                            <input type="text" id="e_npgtg" class="form-control" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc17(); valid_npgtg()"
+                                                oninput="setCustomValidity(''); invokeFunc17(); valid_npgtg(); this.value = this.value.toUpperCase()"
                                                 placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg" required
                                                 value="{{ old('nama_pegawai_jawab') }}">
                                             <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi
@@ -564,8 +564,8 @@
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_jpgtg" class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                oninput="setCustomValidity(''); invokeFunc18(); valid_jpgtg()" maxlength="60"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
+                                                oninput="setCustomValidity(''); invokeFunc18(); valid_jpgtg(); this.value = this.value.toUpperCase()" maxlength="60"
                                                 placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" required
                                                 value="{{ old('jawatan_pegawai_jawab') }}">
                                             <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi
@@ -583,7 +583,7 @@
                                             <input type="text" id="e_email_pengurus" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                                 oninput="setCustomValidity(''); invokeFunc19(); valid_emailpengurus()"
-                                                placeholder="Alamat Emel Pengurus" name="e_email_pengurus" required
+                                                placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus" required
                                                 value="{{ old('e_emel_pengurus') }}">
                                             <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila
                                                     isi butiran di
@@ -599,8 +599,8 @@
                                                 Negeri</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <fieldset class="form-group" style="margin-bottom: 20px;">
-                                                <select class="form-control" id="negeri_id" name="e_negeri"
+                                            <fieldset class="form-group" style="margin-bottom: 20px">
+                                                <select class="form-control" id="negeri_id" name="e_negeri" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); invokeFunc20(); valid_negeri()"
                                                     onchange="ajax_daerah(this);ajax_kawasan(this)" required>
@@ -624,9 +624,9 @@
                                                 Daerah</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <fieldset class="form-group" style="margin-bottom: 20px;">
+                                            <fieldset class="form-group" style="margin-bottom: 20px">
                                                 <select class="form-control" id="daerah_id" name='e_daerah' required
-                                                    placeholder="Daerah"
+                                                    placeholder="Daerah" style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); invokeFunc21(); valid_daerah()">
                                                     <option selected hidden disabled value="">Sila Pilih Negeri Terlebih
@@ -647,7 +647,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
-                                                <select class="form-control" id="kawasan_id" name='e_kawasan' required
+                                                <select class="form-control" id="kawasan_id" name='e_kawasan' required style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); invokeFunc22(); valid_kawasan()">
                                                     <option value="" selected hidden disabled>Sila Pilih
@@ -666,9 +666,9 @@
                                                 Syarikat Induk</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_syktinduk" class="form-control" required
+                                            <input type="text" id="e_syktinduk" class="form-control" required style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc23(); valid_syktinduk()"
+                                                oninput="setCustomValidity(''); invokeFunc23(); valid_syktinduk(); this.value = this.value.toUpperCase()"
                                                 placeholder="Syarikat Induk" name="e_syktinduk">
                                             <p type="hidden" id="err_syktinduk" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -682,7 +682,7 @@
                                                 Tahun Mula Beroperasi</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_year" class="form-control" required
+                                            <input type="text" id="e_year" class="form-control" required style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
                                                 oninput="setCustomValidity(''); invokeFunc24(); valid_year()"
                                                 placeholder="Tahun Mula Beroperasi" name="e_year">
@@ -699,12 +699,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <fieldset class="form-group" style="margin-bottom: 20px;">
-                                                <select class="form-control" name="e_group" required id="e_group"
+                                                <select class="form-control" name="e_group" required id="e_group"  style="text-transform:uppercase"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); invokeFunc25(); valid_kumpulan()">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
-                                                    <option value="GOV">Kerajaan</option>
-                                                    <option value="IND">Swasta</option>
+                                                    <option value="GOV">KERAJAAN</option>
+                                                    <option value="IND">SWASTA</option>
                                                 </select>
                                                 <p type="hidden" id="err_group" style="color: red; display:none"><i>Sila
                                                     buat pilihan di
@@ -720,12 +720,12 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group" style="margin-bottom: 20px;">
-                                                    <select class="form-control" name="e_poma" id="e_poma"
+                                                    <select class="form-control" name="e_poma" id="e_poma" style="text-transform:uppercase"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                         oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
                                                         <option selected hidden value="">Sila Pilih</option>
-                                                        <option value="poma">Ya</option>
-                                                        <option value="NULL">Tidak</option>
+                                                        <option value="poma">YA</option>
+                                                        <option value="NULL">TIDAK</option>
                                                     </select>
                                                     <p type="hidden" id="err_poma" style="color: red; display:none"><i>Sila isi
                                                         butiran di
@@ -741,7 +741,7 @@
                                                 Kapasiti Pemprosesan / Tahun</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="kap_proses" class="form-control"
+                                            <input type="text" id="kap_proses" class="form-control" style="text-transform:uppercase"
                                                 placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 onkeypress="return isNumberKey(event)"
