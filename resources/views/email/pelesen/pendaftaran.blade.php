@@ -91,7 +91,7 @@
                                                     <td
                                                         style="padding: 10px; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
                                                         Sila Klik di sini:</td>
-                                                    <td style="padding: 10px; color: #455056;"><a href="{{ $route }}" target="_blank"">Log Masuk</a></td>
+                                                    <td ><a href="{{ $route }}" target="_blank"">Log Masuk</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
