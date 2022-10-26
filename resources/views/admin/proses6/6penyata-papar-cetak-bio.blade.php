@@ -173,6 +173,8 @@
                                                     <th style="width:7%; vertical-align: middle">Papar?
                                                         <input name="select-all" id="select-all" type="checkbox" required
                                                         value=""></th>
+                                                        <th style="width: 7%; vertical-align: middle">Sudah Cetak?<br></th>
+
                                                     <th>No. Lesen<br></th>
                                                     <th>Nama Premis</th>
                                                     {{-- <th>Kod Pegawai</th> --}}
@@ -187,6 +189,7 @@
                                             <tfoot>
                                                 <tr style="background-color: #e9ecefbd">
                                                     <th style="width: 7%">Papar?</th>
+                                                    <th style="width: 7%">Sudah Cetak?<br></th>
                                                     <th>No. Lesen<br></th>
                                                     <th>Nama Premis</th>
                                                     {{-- <th>Kod Pegawai</th> --}}
@@ -204,10 +207,12 @@
                                                             <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
                                                                 value="{{ $data->ebio_reg }}">&nbspYa
                                                         </td>
-
+                                                        <td class="text-center">
+                                                            {{ $data->e91_flagcetak ?? 'N' }}
+                                                        </td>
 
                                                         <td>{{ $data->e_nl ?? '-' }}</td>
-                                                        <td>{{ $data->e_np ?? '-' }}</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
                                                         {{-- <td>{{ $data->kodpgw }}</td> --}}
 
                                                         <td>{{ $data->e_email ?? '-' }}</td>

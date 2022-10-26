@@ -1363,7 +1363,7 @@ class KilangIsirungController extends Controller
 
 
 
-        return redirect()->back()->with('success', 'Emel sudah dihantar');
+        return redirect()->back()->with('success', 'Emel sudah dihantar ke alamat emel', ['FromEmail' => auth()->user()->email]);
     }
 
     protected function validation_send_email(array $data)
