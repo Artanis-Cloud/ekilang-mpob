@@ -188,7 +188,7 @@
                                                 <label class="control-label col-form-label required">Kod Negeri </label>
                                             </div>
                                             <div id="101_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                <select class="form-control"  id="kodpgw"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -207,7 +207,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="104_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                <select class="form-control"  id="kodpgw2"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -223,7 +223,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="07_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                <select class="form-control"  id="kodpgw3"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
@@ -240,14 +240,14 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="102_container" class="col-md-6" style="margin-bottom: 20px; display:none">
-                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                <select class="form-control"  id="kodpgw4"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected hidden value="">Sila Pilih</option>
                                                     <option value="JJ">JJ</option>
                                                     <option value="NS">NS</option>
                                                     <option value="PH">PH</option>
-                                                    <option value="PH">PK</option>
+                                                    <option value="PK">PK</option>
                                                     <option value="PP">PP</option>
                                                     <option value="SA">SA</option>
                                                     <option value="SS">SS</option>
@@ -260,7 +260,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                             <div id="91_container" class="col-md-6" style="margin-bottom: 20px; display:block">
-                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                <select class="form-control"  id="kodpgw5"
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity(''); valid_kodpgw()">
                                                     <option selected value="">Sila Pilih</option>
@@ -923,7 +923,7 @@
     <script type="text/javascript">
         $("document").ready(function() {
             setTimeout(function() {
-                $("#message").remove(); //tambah untuk remove flash message
+                $("#message").removeAttr('value'); //tambah untuk remove flash message
             }, 5000); // 5 secs  (1 sec = 1000)
         });
     </script>
@@ -2178,62 +2178,68 @@
 
 
                 document.getElementById('101_container').style.display = "block";
+                $('#kodpgw').attr('name','kodpgw');
+
                 document.getElementById('102_container').style.display = "none";
-                $('#12_container').remove();
+                // $('#102_container').attr('name','kodpgw');
                 document.getElementById('104_container').style.display = "none";
-                $('#104_container').remove();
+                // $('#104_container').removeAttr('name');
                 document.getElementById('07_container').style.display = "none";
-                $('#07_container').remove();
+                // $('#07_container').removeAttr('name');
                 document.getElementById('91_container').style.display = "none";
-                $('#91_container').remove();
+                // $('#91_container').removeAttr('name');
 
             }
             else if (e_kat.value == 'PL104') {
                 document.getElementById('104_container').style.display = "block";
+                $('#kodpgw2').attr('name','kodpgw');
                 document.getElementById('102_container').style.display = "none";
-                $('#12_container').remove();
+                // $('#12_container').removeAttr('name');
                 document.getElementById('101_container').style.display = "none";
-                $('#101_container').remove();
+                // $('#101_container').removeAttr('name');
                 document.getElementById('07_container').style.display = "none";
-                $('#07_container').remove();
+                // $('#07_container').removeAttr('name');
                 document.getElementById('91_container').style.display = "none";
-                $('#91_container').remove();
+                // $('#91_container').removeAttr('name');
 
             }
             else if (e_kat.value == 'PL111') {
                 document.getElementById('07_container').style.display = "block";
+                $('#kodpgw3').attr('name','kodpgw');
                 document.getElementById('102_container').style.display = "none";
-                $('#12_container').remove();
+                // $('#12_container').removeAttr('kodpgw');
                 document.getElementById('104_container').style.display = "none";
-                $('#104_container').remove();
+                // $('#104_container').removeAttr('kodpgw');
                 document.getElementById('101_container').style.display = "none";
-                $('#101_container').remove();
+                // $('#101_container').removeAttr('kodpgw');
                 document.getElementById('91_container').style.display = "none";
-                $('#91_container').remove();
+                // $('#91_container').removeAttr('kodpgw');
 
             }
             else if (e_kat.value == 'PL102') {
                 document.getElementById('102_container').style.display = "block";
+                $('#kodpgw4').attr('name','kodpgw');
                 document.getElementById('07_container').style.display = "none";
-                $('#07_container').remove();
+                // $('#07_container').removeAttr('kodpgw');
                 document.getElementById('104_container').style.display = "none";
-                $('#104_container').remove();
+                // $('#104_container').removeAttr('kodpgw');
                 document.getElementById('101_container').style.display = "none";
-                $('#101_container').remove();
+                // $('#101_container').removeAttr('kodpgw');
                 document.getElementById('91_container').style.display = "none";
-                $('#91_container').remove();
+                // $('#91_container').removeAttr('kodpgw');
 
             }
             else {
                 document.getElementById('91_container').style.display = "block";
+                $('#kodpgw5').attr('name','kodpgw');
                 document.getElementById('102_container').style.display = "none";
-                $('#12_container').remove();
+                // $('#12_container').removeAttr('kodpgw');
                 document.getElementById('101_container').style.display = "none";
-                $('#101_container').remove();
+                // $('#101_container').removeAttr('kodpgw');
                 document.getElementById('104_container').style.display = "none";
-                $('#104_container').remove();
+                // $('#104_container').removeAttr('kodpgw');
                 document.getElementById('07_container').style.display = "none";
-                $('#07_container').remove();
+                // $('#07_container').removeAttr('kodpgw');
 
                 // document.getElementById('isaw').style.display = "none";
 

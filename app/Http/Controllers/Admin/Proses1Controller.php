@@ -67,7 +67,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen_proses(Request $request)
     {
-        // dd( $request->all());
+        dd( $request->all());
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
