@@ -1346,6 +1346,7 @@ class KilangIsirungController extends Controller
         if ($request->file_upload) {
             $this->store_send_email($request->all());
             $pelesen = $this->store_send_email($request->all());
+            // $pelesen =
 
             $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
 
