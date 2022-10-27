@@ -725,6 +725,16 @@
                                                     </td>
                                                     {{-- </div> --}}
                                                 </tr>
+                                                <tr style="background-color: #d3d3d34d; text-align: center">
+
+                                                    <td><b>JUMLAH</b></td>
+                                                    <td><b><span id="total" name="total">
+                                                            </span>
+                                                            <input type="hidden" id="total_hidden" name="total_hidden">
+                                                        </b>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -985,7 +995,7 @@
                         .selectedIndex].text;
 
                     var table = document.getElementById("data_table");
-                    var table_len = (table.rows.length) - 1;
+                    var table_len = (table.rows.length) - 2;
 
                     var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center' id='syarikat_row" +
                         table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
@@ -1030,6 +1040,7 @@
 
                     // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
                     // console.log("total", total);
 
@@ -1039,8 +1050,8 @@
                 function delete_row(no) {
                     document.getElementById("row" + no + "").remove();
                     // document.getElementById("row_input" + no + "").outerHTML = "";
-                    document.getElementById("jumlah_row_hidden" + (no - 1)).remove();
-                    document.getElementById("new_syarikat_hidden" + (no - 1)).remove();
+                    document.getElementById("jumlah_row_hidden" + (no - 2)).remove();
+                    document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
 
                     var x = document.getElementsByName('jumlah_row_hidden[]');
 

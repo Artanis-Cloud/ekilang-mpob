@@ -21,6 +21,7 @@ use App\Models\ProfileBulanan;
 use App\Models\RegPelesen;
 use App\Models\SyarikatPembeli;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarEmelNotification;
 use Carbon\Carbon;
 use DateTime;
 use DB;
@@ -1565,8 +1566,16 @@ class KilangBiodieselController extends Controller
 
        if ($request->file_upload) {
             $this->store_send_email($request->all());
+            $pelesen = $this->store_send_email($request->all());
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+
         } else {
             $this->store_send_email2($request->all());
+            $pelesen = $this->store_send_email2($request->all());
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+
         }
 
         return redirect()->back()->with('success', 'Emel sudah dihantar');
