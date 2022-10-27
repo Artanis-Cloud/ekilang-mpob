@@ -94,28 +94,10 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="basicSelect" name="tahun">
-                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
-
-                                                    <option>2003</option>
-                                                    <option>2004</option>
-                                                    <option>2005</option>
-                                                    <option>2006</option>
-                                                    <option>2007</option>
-                                                    <option>2008</option>
-                                                    <option>2009</option>
-                                                    <option>2010</option>
-                                                    <option>2011</option>
-                                                    <option>2012</option>
-                                                    <option>2013</option>
-                                                    <option>2014</option>
-                                                    <option>2015</option>
-                                                    <option>2016</option>
-                                                    <option>2017</option>
-                                                    <option>2018</option>
-                                                    <option>2019</option>
-                                                    <option>2020</option>
-                                                    <option>2021</option>
-                                                    <option>2022</option>
+                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                @for ($i = 2011; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
 
 
 
@@ -137,18 +119,18 @@
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="basicSelect" name="bulan">
                                                     <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                    <option>JANUARI</option>
-                                                    <option>FEBRUARI</option>
-                                                    <option>MAC</option>
-                                                    <option>APRIL</option>
-                                                    <option>MEI</option>
-                                                    <option>JUN</option>
-                                                    <option>JULAI</option>
-                                                    <option>OGOS</option>
-                                                    <option>SEPTEMBER</option>
-                                                    <option>OKTOBER</option>
-                                                    <option>NOVEMBER</option>
-                                                    <option>DISEMBER</option>
+                                                    <option value="01">JANUARI</option>
+                                                    <option value="02">FEBRUARI</option>
+                                                    <option value="03">MAC</option>
+                                                    <option value="04">APRIL</option>
+                                                    <option value="05">MEI</option>
+                                                    <option value="06">JUN</option>
+                                                    <option value="07">JULAI</option>
+                                                    <option value="08">OGOS</option>
+                                                    <option value="09">SEPTEMBER</option>
+                                                    <option value="10">OKTOBER</option>
+                                                    <option value="11">NOVEMBER</option>
+                                                    <option value="12">DISEMBER</option>
 
 
 
