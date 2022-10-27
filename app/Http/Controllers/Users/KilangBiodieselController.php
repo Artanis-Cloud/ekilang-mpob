@@ -1579,13 +1579,13 @@ class KilangBiodieselController extends Controller
 
         }
         if ($emel == 'pindaan') {
-            return redirect()->back()->with('success', 'BERJAYA! Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+            return redirect()->back()->with('success', 'Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
         } elseif ($emel == 'cadangan') {
-            return redirect()->back()->with('success', 'BERJAYA! Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+            return redirect()->back()->with('success', 'Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
         } else {
-            return redirect()->back()->with('success', 'BERJAYA! Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+            return redirect()->back()->with('success', 'Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
         }
         // return redirect()->back()->with('success', 'Emel sudah dihantar');

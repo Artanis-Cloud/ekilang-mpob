@@ -1,24 +1,6 @@
 @extends('layouts.main')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> --}}
 
-<style>
-
-    @media screen
-    {
-        .noScreen{
-            display:none;}
-    }
-
-    body {
-        counter-reset: section;
-    }
-
-    .count:before {
-        counter-increment: section;
-        content: counter(section);
-    }
-
-</style>
 
 @section('content')
     <!-- ============================================================== -->
@@ -373,13 +355,7 @@
                 $('#kilang').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
                 $('#stok').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
             });
-            // <select class="form-control" name="e_stock" required id="e_stock" style="text-transform:uppercase"
-            //                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-            //                                     oninput="setCustomValidity(''); valid_stock()">
-            //                                     <option selected hidden disabled value="">Sila Pilih</option>
-            //                                     <option value="1">AKTIF</option>
-            //                                     <option value="2">TIDAK AKTIF</option>
-            //                                 </select>
+
             // DataTable
             var table = $('#example91').DataTable({
 
@@ -406,14 +382,7 @@
                                 }
                             });
                         });
-                        // .every(function () {
-                        //     var that = this;
-                        //     $('select', this.footer()).on('keyup change clear', function () {
-                        //         if (that.search() !== this.value) {
-                        //             that.search(this.value).draw();
-                        //         }
-                        //     });
-                        // });
+                      
                 },
                 dom: 'Bfrtip',
 
@@ -436,7 +405,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Senarai Pelesen Kilang Biodiesel',
+                        filename: 'Senarai Pelesen Kilang Buah',
 
                         messageTop: function(doc) {
                             return $('#tarikh').text()
