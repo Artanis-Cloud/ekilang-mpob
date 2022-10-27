@@ -483,38 +483,38 @@ class Proses1Controller extends Controller
 
 
         if ($dtlpelesen && $makpelesen) {
-        $individu = $oer->lineplot_individu ;
-        $daerah = $oer->lineplot_daerah ;
-        $negeri = $oer->lineplot_negeri ;
-        $semsia = $oer->lineplot_semenanjung ;
-        $msia = $oer->lineplot_malaysia ;
-        $labelx = $oer->labelx ;
-        $nama_negeri = $oer->nama_negeri ;
-        $nama_daerah = $oer->nama_daerah ;
+        $individu = $oer['lineplot_individu'];
+        $daerah = $oer['lineplot_daerah'];
+        $negeri = $oer['lineplot_negeri'];
+        $semsia = $oer['lineplot_semenanjung'];
+        $msia = $oer['lineplot_malaysia'];
+        $labelx = $oer['labelx'];
+        $nama_negeri = $oer['nama_negeri'];
+        $nama_daerah = $oer['nama_daerah'];
         $nama_daerah2 = trim(preg_replace('/\s+/', '', $nama_daerah));
 
-        $cluster = $data->cluster ;
-        $kawasan = $data->kawasan ;
-        $nama_kilang = $data->namakilang ;
-        $flgdaerah = $data->flgdaerah ;
-        $thn1 = $data->thn1 ;
-        $thn2 = $data->thn2 ;
-        $thn3 = $data->thn3 ;
+        $cluster = $data['cluster'];
+        $kawasan = $data['kawasan'];
+        $nama_kilang = $data['namakilang'];
+        $flgdaerah = $data['flgdaerah'];
+        $thn1 = $data['thn1'];
+        $thn2 = $data['thn2'];
+        $thn3 = $data['thn3'];
         // dd($oer);
 
 
         if ($flgdaerah == 'Y') {
-            $result3b = $data->result3b ;
-            $result2 = $data->result2 ;
-            $result1 = $data->result1 ;
+            $result3b = $data['result3b'];
+            $result2 = $data['result2'];
+            $result1 = $data['result1'];
 
 
             return view('admin.proses1.admin-papar-prestasi-oer', compact('flgdaerah','nolesen', 'dtlpelesen','returnArr', 'result3b', 'result1', 'result2', 'oer', 'individu', 'daerah', 'negeri', 'semsia', 'msia', 'labelx','nama_daerah','nama_negeri','nama_daerah2','nama_kilang','thn1','thn2','thn3','cluster','kawasan'));
         }
         elseif ($flgdaerah == 'N') {
-            $result6a = $data->result6a ;
-            $result5 = $data->result5 ;
-            $result7 = $data->result7 ;
+            $result6a = $data['result6a'];
+            $result5 = $data['result5'];
+            $result7 = $data['result7'];
 
             // dd($flgdaerah);
             // $this->display_oerdata($request->tahun);
