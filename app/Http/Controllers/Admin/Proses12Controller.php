@@ -36,6 +36,32 @@ class Proses12Controller extends Controller
         return view('admin.proses12.12validation', compact('returnArr', 'layout'));
     }
 
+    public function admin_validasi_proses(Request $request)
+    {
+        // dd($request->all());
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+        $sektor = $request->e_kat;
+
+        //kilang buah
+        if ($sektor == 'PL91') {
+            $query1 = DB::connection('mysql4')->select("SELECT p.F911B as nobatch,l.F201A as nolesen,l.F201T as nama,l.F201U4 as kodnegeri,codedb.negeri.nama_negeri, round(p.F911J1,2) as cpo_prod,round(p.F911J2,2) as pk_prod,round(p.F911I,2) as ffb_proc FROM pldb.PL911P3 AS p
+			INNER JOIN licensedb.license as l ON p.F911A = l.F201A
+			INNER JOIN codedb.negeri ON l.F201U4 = codedb.negeri.kod_negeri
+			where p.F911A = l.F201A and
+            p.F911D = '$tahun' and
+            p.F911C = '$bulan' and
+            (round(p.F911J1,2) > 0 or round(p.F911J2,2)> 0) and
+            (p.F911I in (0) or p.F911I is null)
+			group by p.F911D, p.F911C, l.F201U4, l.F201U2");
+        }
+        $this->validation_tambah_pembeli($request->all())->validate();
+        $this->store_tambah_pembeli($request->all());
+
+
+        return redirect()->back()->with('success', 'Pembeli sudah ditambah');
+    }
+
     // protected function validation_direktori(array $data)
     // {
     //     return Validator::make($data, [
