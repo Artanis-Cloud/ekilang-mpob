@@ -317,7 +317,7 @@
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr style="background-color: #d3d3d370">
+                                                    <tr class="redd" style="background-color: #d3d3d370 !important; ">
                                                         <td width="220" >
                                                             <p align="center"><b>
                                                                     <font size="2.7">Butiran</font>
@@ -1161,7 +1161,7 @@
 {{--
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a> --}}
-    <link rel="stylesheet" ref="myPrintStylesheet.css" type"text/css" media="print" />
+            <link rel="stylesheet" media="print" href="print.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" >
     </script>
     <script type="text/javascript">

@@ -976,10 +976,11 @@ class Proses5Controller extends Controller
 
         // }
         // dd($users);
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.5penyatakemaskini.process'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.9penyataterdahulu');
@@ -1040,8 +1041,7 @@ class Proses5Controller extends Controller
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-                ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+                ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
             ];
 
             $kembali = route('admin.9penyataterdahulu');
