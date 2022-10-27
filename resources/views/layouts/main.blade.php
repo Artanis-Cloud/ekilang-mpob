@@ -164,6 +164,9 @@
         background-position: -750% 0;
       }
     }
+
+    .dataTables_filter, .dataTables_info { display: none; }
+
 </style>
 
 <body>

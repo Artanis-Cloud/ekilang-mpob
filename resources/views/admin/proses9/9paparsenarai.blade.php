@@ -115,7 +115,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -124,7 +124,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -170,6 +170,17 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
+                                                <tfoot>
+                                                    <tr class="text-center">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+
+                                                    </tr>
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -218,6 +229,16 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>No Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -733,7 +754,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example22').DataTable({
                 "language": {
@@ -753,7 +774,115 @@
                 },
             });
         });
-    </script>
+    </script> --}}
+        <script>
+
+            $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#example22 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+            });
+
+            // DataTable
+                var table = $('#example22').DataTable({
+
+                    initComplete: function () {
+
+                        // Apply the search
+                        this.api()
+                            .columns()
+                            .every(function () {
+                                var that = this;
+                                $('input', this.footer()).on('keyup change clear', function () {
+                                    if (that.search() !== this.value) {
+                                        that.search(this.value).draw();
+                                    }
+                                });
+                            });
+                    },
+                    dom: 'Bfrtip',
+
+                    buttons: [
+
+                        'pageLength',
+
+                        {
+
+                            extend: 'excel',
+                            text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                            className: "fred",
+
+                            title: function(doc) {
+                                return $('#title').text()
+                            },
+
+                            customize: function(xlsx) {
+                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                            var style = xlsx.xl['styles.xml'];
+                            $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                            $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                            },
+
+                            filename: 'Penyata Bulan',
+
+                            messageTop: function(doc) {
+                                return $('#tarikh').text()
+                            },
+
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                            pageSize: 'TABLOID',
+                            className: "prodpdf",
+
+                            exportOptions: {
+                                columns: [1,2,3,4,5,6,7]
+                            },
+                            title: function(doc) {
+                                    return $('#title').text() + $ ('#tarikh').text()
+                                    },
+                            customize: function (doc) {
+                                let table = doc.content[1].table.body;
+                                for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                                {
+                                    var test = table[i][0];
+                                }
+
+                            },
+                            customize: function(doc) {
+                            doc.content[1].table.body[0].forEach(function(h) {
+                                h.fillColor = '#0a7569';
+
+                            });
+                            },
+
+                            filename: 'Penyata Bulan',
+
+                        },
+                    ],
+                    "language": {
+                        "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                        "zeroRecords": "Maaf, tiada rekod.",
+                        "info": "",
+                        "infoEmpty": "Tidak ada rekod yang tersedia",
+                        "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                        "search": "Carian",
+                        "previous": "Sebelum",
+                        "paginate": {
+                            "first": "Pertama",
+                            "last": "Terakhir",
+                            "next": "Seterusnya",
+                            "previous": "Sebelumnya"
+                        },
+                    },
+
+                });
+
+            });
+
+        </script>
     {{-- <script>
         $(function() {
 

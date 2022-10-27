@@ -23,6 +23,9 @@ class Proses11Controller extends Controller
 
         $listemel = Ekmessage::orderBy('Date', 'DESC')->get();
         // dd($listemel);
+        // $date = $listemel->Date;
+        // $dt = date("d-m-Y H:i:s", strtotime($date));
+
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

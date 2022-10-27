@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+<style>
+    .dataTables_filter, .dataTables_info { display: none; }
+</style>
 @section('content')
     </style>
     <!-- ============================================================== -->
@@ -82,6 +84,17 @@
 
                                                 </tr>
                                             </thead>
+                                            <tfoot>
+                                                <tr class="text-center">
+                                                    <th>Bil.</th>
+                                                    <th>Nama Pelesen</th>
+                                                    <th>No Lesen</th>
+                                                    <th>Kategori</th>
+                                                    <th>Tarikh</th>
+                                                    <th>Tindakan</th>
+
+                                                </tr>
+                                            </tfoot>
                                             <tbody style="word-break: break-word; font-size:12px">
                                                 @foreach ($listemel as $data)
                                                     <tr>
@@ -89,7 +102,7 @@
                                                         <td>{{ $data->FromName }}</td>
                                                         <td>{{ $data->FromLicense }}</td>
                                                         <td>{{ $data->Category }}</td>
-                                                        <td>{{ $data->Date }}</td>
+                                                        <td>{{ date("d-m-Y H:i:s", strtotime($data->Date)) }}</td>
                                                         <td>
                                                             <div class="btn">
                                                                 <a
@@ -159,6 +172,9 @@
             });
         });
     </script> --}}
+    <script>
+        $('example').dataTable({bFilter: false, bInfo: false});
+        </script>
     <script>
         function printWindow() {
             bV = parseInt(navigator.appVersion)
