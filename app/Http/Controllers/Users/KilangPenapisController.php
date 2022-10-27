@@ -2221,6 +2221,7 @@ class KilangPenapisController extends Controller
     public function penapis_send_email_proses(Request $request)
     {
         // dd($request->all());
+        $emel = $request->TypeOfEmail;
         $this->validation_send_email($request->all())->validate();
 
         if ($request->file_upload) {
@@ -2230,7 +2231,17 @@ class KilangPenapisController extends Controller
         }
 
 
-        return redirect()->back()->with('success', 'Emel sudah dihantar');
+        // return redirect()->back()->with('success', 'Emel sudah dihantar');
+        if ($emel == 'pindaan') {
+            return redirect()->back()->with('success', 'BERJAYA! Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        } elseif ($emel == 'cadangan') {
+            return redirect()->back()->with('success', 'BERJAYA! Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        } else {
+            return redirect()->back()->with('success', 'BERJAYA! Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        }
     }
 
     protected function validation_send_email(array $data)

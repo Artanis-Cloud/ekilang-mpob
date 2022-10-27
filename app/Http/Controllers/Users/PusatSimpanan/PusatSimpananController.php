@@ -632,6 +632,7 @@ class PusatSimpananController extends Controller
     public function pusatsimpan_send_email_proses(Request $request)
     {
         // dd($request->all());
+        $emel = $request->TypeOfEmail;
         $this->validation_send_email($request->all())->validate();
         //$this->store_send_email($request->all());
 
@@ -641,8 +642,17 @@ class PusatSimpananController extends Controller
             $this->store_send_email2($request->all());
         }
 
+        if ($emel == 'pindaan') {
+            return redirect()->back()->with('success', 'BERJAYA! Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
-        return redirect()->back()->with('success', 'Emel sudah dihantar');
+        } elseif ($emel == 'cadangan') {
+            return redirect()->back()->with('success', 'BERJAYA! Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        } else {
+            return redirect()->back()->with('success', 'BERJAYA! Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        }
+        // return redirect()->back()->with('success', 'Emel sudah dihantar');
     }
 
     protected function validation_send_email(array $data)
