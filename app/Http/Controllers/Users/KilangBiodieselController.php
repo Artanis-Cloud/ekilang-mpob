@@ -1560,6 +1560,7 @@ class KilangBiodieselController extends Controller
 
     public function bio_send_email_proses(Request $request)
     {
+        $emel = $request->TypeOfEmail;
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
        // $this->store_send_email($request->all());
@@ -1577,8 +1578,17 @@ class KilangBiodieselController extends Controller
             $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
 
         }
+        if ($emel == 'pindaan') {
+            return redirect()->back()->with('success', 'BERJAYA! Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
-        return redirect()->back()->with('success', 'Emel sudah dihantar');
+        } elseif ($emel == 'cadangan') {
+            return redirect()->back()->with('success', 'BERJAYA! Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        } else {
+            return redirect()->back()->with('success', 'BERJAYA! Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
+
+        }
+        // return redirect()->back()->with('success', 'Emel sudah dihantar');
     }
 
     protected function validation_send_email(array $data)
