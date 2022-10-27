@@ -986,6 +986,10 @@ class Proses1Controller extends Controller
     }
 
 	 $makpelesen = $this->get_pelesen($nolesen);
+
+     if ($makpelesen) {
+        # code...
+
 	 foreach ($makpelesen as $row1) {
         $enp = $row1->namakilang;
         $cluster = strtoupper($row1->nama_cluster);
@@ -1115,7 +1119,11 @@ class Proses1Controller extends Controller
         return redirect()->back()
         ->with('error', 'Data Tidak Wujud! ');
     }
-	}
+	} else{
+        return redirect()->back()
+        ->with('error', 'Data Tidak Wujud! ');
+    }
+}
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)
     {
