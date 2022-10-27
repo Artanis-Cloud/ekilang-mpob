@@ -181,7 +181,17 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd">
-                                                <th>Bil.</th>
+                                                <th id="bil" value="Bil.">Bil.</th>
+                                                <th id="nl">No. Lesen</th>
+                                                <th id="np">Nama Premis</th>
+                                                <th id="email">Emel</th>
+                                                <th id="tel">No. Telefon</th>
+                                                <th id="kodpgw">Kod Pegawai</th>
+                                                <th id="nosiri">No. Siri</th>
+                                                <th id="kilang">Status e-Kilang</th>
+                                                <th id="stok">Status e-Stok</th>
+                                                <th id="dir">Direktori</th>
+                                                {{-- <th>Bil.</th>
                                                 <th>No. Lesen</th>
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
@@ -190,7 +200,7 @@
                                                 <th>No. Siri</th>
                                                 <th>Status e-Kilang</th>
                                                 <th>Status e-Stok</th>
-                                                <th>Direktori</th>
+                                                <th>Direktori</th> --}}
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
@@ -198,7 +208,7 @@
                                             @if ($data->pelesen)
 
                                                 <tr class="text-left">
-                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td class="count"></td>
                                                     <td>
                                                         <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                 {{ $data->e_nl }}</u></a>
@@ -209,16 +219,16 @@
                                                     <td style="text-align: center">{{ $data->kodpgw }}</td>
                                                     <td style="text-align: center">{{ $data->nosiri }}</td>
                                                     @if ($data->e_status == 1)
-                                                        <td style="text-align: center">Aktif</td>
+                                                        <td style="text-align: center"><span hidden style="display:none">1</span>Aktif</td>
                                                     @elseif ($data->e_status == 2)
-                                                        <td style="text-align: center">Tidak Aktif</td>
+                                                        <td style="text-align: center"><span hidden style="display:none">2</span>Tidak Aktif</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
                                                     @if ($data->e_stock == 1)
-                                                        <td style="text-align: center">Aktif</td>
+                                                        <td style="text-align: center"><span hidden style="display:none">1</span>Aktif</td>
                                                     @elseif ($data->e_stock == 2)
-                                                        <td style="text-align: center">Tidak Aktif</td>
+                                                        <td style="text-align: center"><span hidden style="display:none">2</span>Tidak Aktif</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
@@ -277,8 +287,98 @@
     })
   </script>
 
+<script>
 
-    <script>
+    $(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#example101 tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+            $('#kilang').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
+            $('#stok').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
+        });
+
+        // DataTable
+        var table = $('#example101').DataTable({
+
+            initComplete: function () {
+
+                // Apply the search
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('select', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+
+            },
+            dom: 'Bfrtip',
+
+            buttons: [
+
+                'pageLength',
+                {
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
+                    },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Senarai Pelesen Kilang Penapis',
+
+                    messageTop: function(doc) {
+                        return $('#tarikh').text()
+                    },
+                },
+
+            ],
+            "language": {
+                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                "zeroRecords": "Maaf, tiada rekod.",
+                "info": "",
+                "infoEmpty": "Tidak ada rekod yang tersedia",
+                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                "search": "Carian",
+                "previous": "Sebelum",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+
+
+        });
+
+    });
+
+
+</script>
+    {{-- <script>
 
         $(document).ready(function () {
             // Setup - add a text input to each footer cell
@@ -355,6 +455,6 @@
         });
 
 
-    </script>
+    </script> --}}
 
 @endsection

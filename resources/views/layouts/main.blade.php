@@ -190,6 +190,21 @@
 
     .dataTables_filter, .dataTables_info { display: none; }
 
+    @media screen
+    {
+        .noScreen{
+            display:none;}
+    }
+
+    body {
+        counter-reset: section;
+    }
+
+    .count:before {
+        counter-increment: section;
+        content: counter(section);
+    }
+
 </style>
 
 <body>
