@@ -40,10 +40,10 @@ class tryController extends Controller
         // $dt->format('dd-mm-yyyy H:i:s');
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
-        
-        $dt = date('m') - 1;
-        echo '0', $dt;
-        dd($dt);
+
+       $bulan = now()->month - 1;
+        // echo '0', $dt;
+        dd($bulan);
 
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;

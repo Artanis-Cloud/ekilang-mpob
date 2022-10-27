@@ -8,6 +8,16 @@
         .noScreen{
             display:none;}
     }
+
+    body {
+        counter-reset: section;
+    }
+
+    .count:before {
+        counter-increment: section;
+        content: counter(section);
+    }
+
 </style>
 
 @section('content')
@@ -176,7 +186,7 @@
                                     <table id="example91" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd;  word-wrap:normal">
-                                                <th style=" vertical-align: middle;" class="no-sort">Bil.</th>
+                                                <th style=" vertical-align: middle; width:1%" class="no-sort">Bil.</th>
                                                 <th style=" vertical-align: middle; width: 10%">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
@@ -193,17 +203,17 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd;">
-                                                <th>Bil.</th>
-                                                <th>No. Lesen</th>
-                                                <th>Nama Premis</th>
-                                                <th>Emel</th>
-                                                <th>No. Telefon</th>
-                                                <th>Kod Pegawai</th>
-                                                <th>No. Siri</th>
-                                                <th>Status e-Kilang</th>
-                                                <th>Status e-Stok</th>
-                                                <th>Direktori</th>
-                                                <th>Prestasi OER</th>
+                                                <th id="bil" value="Bil.">Bil.</th>
+                                                <th id="nl">No. Lesen</th>
+                                                <th id="np">Nama Premis</th>
+                                                <th id="email">Emel</th>
+                                                <th id="tel">No. Telefon</th>
+                                                <th id="kodpgw">Kod Pegawai</th>
+                                                <th id="nosiri">No. Siri</th>
+                                                <th id="kilang">Status e-Kilang</th>
+                                                <th id="stok">Status e-Stok</th>
+                                                <th id="dir">Direktori</th>
+                                                <th id="oer">Prestasi OER</th>
                                                 <th class="noScreen">Bilangan Tangki CPO</th>
                                                 <th class="noScreen">Kapasiti Tangki CPO</th>
                                             </tr>
@@ -213,7 +223,7 @@
                                             @foreach ($users as $data)
                                                 @if ($data->pelesen)
                                                     <tr class="text-left">
-                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td class="count"></td>
 
                                                         <td>
                                                             <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
@@ -226,16 +236,16 @@
                                                         <td  style="text-align: center">{{ $data->kodpgw }}</td>
                                                         <td style="text-align: center">{{ $data->nosiri }}</td>
                                                         @if ($data->e_status == 1)
-                                                            <td style="text-align: center">Aktif</td>
+                                                            <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
-                                                            <td style="text-align: center">Tidak Aktif</td>
+                                                            <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
                                                         @if ($data->e_stock == 1)
-                                                            <td style="text-align: center">Aktif</td>
+                                                            <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_stock == 2)
-                                                            <td style="text-align: center">Tidak Aktif</td>
+                                                            <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
@@ -360,6 +370,110 @@
             $('#example91 tfoot th').each(function () {
                 var title = $(this).text();
                 $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+                $('#kilang').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
+                $('#stok').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
+            });
+            // <select class="form-control" name="e_stock" required id="e_stock" style="text-transform:uppercase"
+            //                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+            //                                     oninput="setCustomValidity(''); valid_stock()">
+            //                                     <option selected hidden disabled value="">Sila Pilih</option>
+            //                                     <option value="1">AKTIF</option>
+            //                                     <option value="2">TIDAK AKTIF</option>
+            //                                 </select>
+            // DataTable
+            var table = $('#example91').DataTable({
+
+                initComplete: function () {
+
+                    // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('select', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                        // .every(function () {
+                        //     var that = this;
+                        //     $('select', this.footer()).on('keyup change clear', function () {
+                        //         if (that.search() !== this.value) {
+                        //             that.search(this.value).draw();
+                        //         }
+                        //     });
+                        // });
+                },
+                dom: 'Bfrtip',
+
+                buttons: [
+
+                    'pageLength',
+                    {
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred",
+
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'Senarai Pelesen Kilang Biodiesel',
+
+                        messageTop: function(doc) {
+                            return $('#tarikh').text()
+                        },
+                    },
+
+                ],
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
+
+
+            });
+
+        });
+
+
+    </script>
+    {{-- <script>
+
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#example91 tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
             });
 
             // DataTable
@@ -446,6 +560,6 @@
         });
 
 
-    </script>
+    </script> --}}
 
 @endsection
