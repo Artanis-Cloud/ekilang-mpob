@@ -482,7 +482,7 @@ class Proses1Controller extends Controller
         $makpelesen = $this->get_pelesen($nolesen);
 
 
-        if ($dtlpelesen || $makpelesen) {
+        if ($dtlpelesen && $makpelesen) {
         $individu = $oer->lineplot_individu ;
         $daerah = $oer->lineplot_daerah ;
         $negeri = $oer->lineplot_negeri ;
