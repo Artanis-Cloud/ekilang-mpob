@@ -1609,16 +1609,18 @@ class KilangBiodieselController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => $file,
 
         ]);
     }
+
     protected function store_send_email2(array $data)
     {
+
 
         return Ekmessage::create([
             // 'Id' => $data['Id'],
@@ -1626,11 +1628,11 @@ class KilangBiodieselController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => null,
 
         ]);
     }
