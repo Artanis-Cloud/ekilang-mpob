@@ -1342,6 +1342,7 @@ class KilangIsirungController extends Controller
     public function isirung_send_email_proses(Request $request)
     {
         // dd($request->all());
+        $emel = $request->TypeOfEmail;
         $this->validation_send_email($request->all())->validate();
         if ($request->file_upload) {
             $this->store_send_email($request->all());
@@ -1356,14 +1357,20 @@ class KilangIsirungController extends Controller
             $pelesen = $this->store_send_email2($request->all());
             // dd($pelesen);
 
+
             $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
 
         }
+        if ($emel == 'pindaan') {
+            return redirect()->back()->with('success', 'BERJAYA! Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
+        } elseif ($emel == 'cadangan') {
+            return redirect()->back()->with('success', 'BERJAYA! Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
+        } else {
+            return redirect()->back()->with('success', 'BERJAYA! Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
-
-        return redirect()->back()->with('success', 'Emel sudah dihantar ke alamat emel', ['FromEmail' => auth()->user()->email]);
+        }
     }
 
     protected function validation_send_email(array $data)
