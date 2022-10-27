@@ -707,8 +707,10 @@ class Proses1Controller extends Controller
         }
 
         $makpelesen = $this->get_pelesen($nolesen);
-        dd($makpelesen);
+        // dd($makpelesen);
 
+        if ($makpelesen) {
+            # code...
         foreach ($makpelesen as $row1) {
             $enp = $row1->namakilang;
             $cluster = strtoupper($row1->nama_cluster);
@@ -943,11 +945,16 @@ class Proses1Controller extends Controller
         // $tajuk = "LAPURAN PRESTASI OER $namakilang BAGI TAHUN $thn3, $thn2 & $thn1";
         return $array;
     }
+
     else{
         return redirect()->back()
         ->with('error', 'Data Tidak Wujud! ');
     }
+    } else{
+        return redirect()->back()
+        ->with('error', 'Data Tidak Wujud! ');
     }
+}
 
     function display_oerdata($nolesen,$notahun)
 {
