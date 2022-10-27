@@ -164,7 +164,7 @@
                                             </div><br>
                                             <div class="table-responsive">
                                                 <div id="tblData">
-                                                    <table id="example" class="table table-bordered"
+                                                    <table id="example5" class="table table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr style="background-color: #e9ecefbd">

@@ -1,6 +1,15 @@
 @extends('layouts.main')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> --}}
 
+<style>
+
+    @media screen
+    {
+        .noScreen{
+            display:none;}
+    }
+</style>
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -56,12 +65,13 @@
                     </div>
                     <div class="pl-3">
                         <div class=" text-center">
-                            <div id="title">
-                                <h3 style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
-                                <h5 style="color: rgb(39, 80, 71); ">KILANG BUAH</h5>
+                            <div>
+                                <h3 id="title" style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
+                                <h5 id="tarikh" style="color: rgb(39, 80, 71); ">KILANG BUAH</h5>
+                                {{-- <p >Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p> --}}
 
                             </div>
-                            <p id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
+
 
                             <script>
                                 var dt = new Date();
@@ -177,6 +187,8 @@
                                                 <th style=" vertical-align: middle">Status<br> e-Stok</th>
                                                 <th style=" vertical-align: middle">Direktori</th>
                                                 <th style=" vertical-align: middle">Prestasi OER</th>
+                                                <th class="noScreen" style=" vertical-align: middle">Bilangan Tangki CPO</th>
+                                                <th class="noScreen" style=" vertical-align: middle">Kapasiti Tangki CPO</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -192,6 +204,8 @@
                                                 <th>Status e-Stok</th>
                                                 <th>Direktori</th>
                                                 <th>Prestasi OER</th>
+                                                <th class="noScreen">Bilangan Tangki CPO</th>
+                                                <th class="noScreen">Kapasiti Tangki CPO</th>
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
@@ -207,8 +221,9 @@
                                                         </td>
                                                         <td>{{ $data->pelesen->e_np ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
-                                                        <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
+
+                                                        <td >{{ $data->pelesen->e_notel ?? '-' }}</td>
+                                                        <td  style="text-align: center">{{ $data->kodpgw }}</td>
                                                         <td style="text-align: center">{{ $data->nosiri }}</td>
                                                         @if ($data->e_status == 1)
                                                             <td style="text-align: center">Aktif</td>
@@ -234,6 +249,10 @@
                                                         <td style="text-align: center">
                                                             <a href="{{ route('admin.prestasi.oer', $data->e_nl) }}"><u>
                                                                     {{ $data->e_nl ?? '-' }}</u></a></td>
+
+                                                        <td class="noScreen" style="text-align: center">{{ $data->pelesen->bil_tangki_cpo }}</td>
+                                                        <td class="noScreen" style="text-align: center">{{ $data->pelesen->lap_tangki_cpo }}</td>
+
 
                                                         {{-- <td>-</td> --}}
                                                     </tr>
@@ -375,17 +394,33 @@
                         },
 
                         customize: function(xlsx) {
-                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                        var style = xlsx.xl['styles.xml'];
-                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
-                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                            // var sSh = xlsx.xl['styles.xml'];
+
+                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                            var style = xlsx.xl['styles.xml'];
+
+                            $( 'row c', sheet ).attr( 's', '25' );
+
+                            var tagName = style.getElementsByTagName('sz');
+                            for (i = 0; i < tagName.length; i++) {
+                            tagName[i].setAttribute("val", "14");
+                            // tagName[1].setAttribute("val", "20");
+                            }
+                            console.log(tagName)
+
+                            $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                            // $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                            $('row:first c', sheet).attr('s', '2').attr('s', '32').attr('s', '51').css('font-size', '60pt');
+
+
+
                         },
 
-                        filename: 'Senarai Pelesen Kilang Biodiesel',
+                        filename: 'Senarai Pelesen Kilang Buah',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
+                        // messageTop: function(doc) {
+                        //     return $('#tarikh').text()
+                        // },
                     },
 
                 ],
