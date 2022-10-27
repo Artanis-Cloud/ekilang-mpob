@@ -312,7 +312,7 @@
                                 @foreach ($ia as $data)
                                     <tr>
                                         <td align="left">
-                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                            <font size="2">{{ $data->produk->proddesc }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->produk->prodid }}</font>
@@ -410,7 +410,7 @@
                                 @foreach ($ib as $data)
                                     <tr>
                                         <td align="left">
-                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                            <font size="2">{{ $data->produk->proddesc }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->produk->prodid }}</font>
@@ -509,7 +509,7 @@
                                 @foreach ($ic as $data)
                                     <tr>
                                         <td align="left">
-                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                            <font size="2">{{ $data->produk->proddesc }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->produk->prodid }}</font>
@@ -625,7 +625,7 @@
                                 @foreach ($iii as $data)
                                     <tr>
                                         <td align="left">
-                                            <font size="2">{{ $data->produk->prodname }}</font>
+                                            <font size="2">{{ $data->produk->proddesc }}</font>
                                         </td>
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->produk->prodid }}</font>
