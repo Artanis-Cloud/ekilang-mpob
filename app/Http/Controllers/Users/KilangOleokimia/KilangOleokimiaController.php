@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarEmelNotification;
+use App\Notifications\Pelesen\HantarEmelNotification2;
 use DateTime;
 use DB;
 use Illuminate\Support\Facades\Hash;
@@ -1906,8 +1908,14 @@ class KilangOleokimiaController extends Controller
         $this->validation_send_email($request->all())->validate();
         if ($request->file_upload) {
             $this->store_send_email($request->all());
+            $pelesen = $this->store_send_email($request->all());
+
+            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
         } else {
             $this->store_send_email2($request->all());
+            $pelesen = $this->store_send_email2($request->all());
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
         }
 
         if ($emel == 'pindaan') {
@@ -1931,7 +1939,7 @@ class KilangOleokimiaController extends Controller
             // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
+            // 'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);
@@ -1959,8 +1967,10 @@ class KilangOleokimiaController extends Controller
 
         ]);
     }
+
     protected function store_send_email2(array $data)
     {
+
 
         return Ekmessage::create([
             // 'Id' => $data['Id'],

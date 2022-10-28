@@ -4,7 +4,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Pendaftaran Pelesen Berjaya</title>
+    <title>Tetapan Semula Kata Laluan</title>
     <meta name="description" content="Appointment Reminder Email Template">
 </head>
 <style>
@@ -43,7 +43,7 @@
                                 <!-- Title -->
                                 <tr>
                                     <td style="padding:0 15px; text-align:center;">
-                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">Pendaftaran Pelesen Berjaya</h1>
+                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">Tetapan Semula Kata Laluan</h1>
                                         <span style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece;
                                         width:100px;"></span>
                                     </td>

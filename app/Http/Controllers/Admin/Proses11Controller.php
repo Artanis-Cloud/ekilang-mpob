@@ -91,7 +91,7 @@ class Proses11Controller extends Controller
         // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
         $emel = Ekmessage::find($MsgID);
         // $pengumuman = \DB::table('pengumuman')->get();
-        // dd($id);
+        // dd($emel);
 
         return view('admin.proses11.11paparemel', compact('returnArr', 'layout', 'emel'));
 

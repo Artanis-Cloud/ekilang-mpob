@@ -22,6 +22,7 @@ use App\Models\RegPelesen;
 use App\Models\SyarikatPembeli;
 use App\Models\User;
 use App\Notifications\Pelesen\HantarEmelNotification;
+use App\Notifications\Pelesen\HantarEmelNotification2;
 use Carbon\Carbon;
 use DateTime;
 use DB;
@@ -1569,7 +1570,7 @@ class KilangBiodieselController extends Controller
             $this->store_send_email($request->all());
             $pelesen = $this->store_send_email($request->all());
 
-            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
 
         } else {
             $this->store_send_email2($request->all());

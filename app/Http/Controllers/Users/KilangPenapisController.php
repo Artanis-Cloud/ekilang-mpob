@@ -19,6 +19,8 @@ use App\Models\User;
 use App\Models\Pelesen;
 use App\Models\ProdCat;
 use App\Models\Produk;
+use App\Notifications\Pelesen\HantarEmelNotification;
+use App\Notifications\Pelesen\HantarEmelNotification2;
 use DateTime;
 use Illuminate\Http\Request;
 use DB;
@@ -2226,8 +2228,14 @@ class KilangPenapisController extends Controller
 
         if ($request->file_upload) {
             $this->store_send_email($request->all());
+            $pelesen = $this->store_send_email($request->all());
+
+            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
         } else {
             $this->store_send_email2($request->all());
+            $pelesen = $this->store_send_email2($request->all());
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
         }
 
 
@@ -2252,7 +2260,7 @@ class KilangPenapisController extends Controller
             // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            // 'file_upload' => ['mimes:jpeg,doc,docx,xls,png,jpg,xlsx']
+            // 'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);
@@ -2283,6 +2291,7 @@ class KilangPenapisController extends Controller
 
     protected function store_send_email2(array $data)
     {
+
 
         return Ekmessage::create([
             // 'Id' => $data['Id'],
