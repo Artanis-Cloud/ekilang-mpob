@@ -1332,18 +1332,18 @@
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                            {{ $formatteddate }}
+                                            {{ $formatteddate ?? '-' }}
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $penyata->pelesen->e_npg }}
+                                            {{ $penyata->pelesen->e_npg ?? '-' }}
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            {{ $penyata->pelesen->e_jpg }}
+                                            {{ $penyata->pelesen->e_jpg ?? '-' }}
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $penyata->pelesen->e_notel }}
+                                            {{ $penyata->pelesen->e_notel ?? '-' }}
                                         </p>
 
 

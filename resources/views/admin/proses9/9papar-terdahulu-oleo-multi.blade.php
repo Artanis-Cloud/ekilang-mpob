@@ -759,7 +759,7 @@
                                                             <font size="2">Tarikh Eksport</font>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                            <font size="2">Kuantiti
+                                                            <font size="2">Kuantiti <br>
                                                                 (Tan Metrik)</font>
                                                         </b></td>
                                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
@@ -800,26 +800,71 @@
                                                     </td>
                                                 </tr>
                                                 @endforeach
-                                                {{-- <tr>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
+                                            </tbody>
+                                        </table><br>
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+
+                                            </font>
+                                        </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
+                                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
+                                                        </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Kod Produk</font>
+                                                        </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Nombor Borang Kastam 2</font>
+                                                        </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Tarikh Eksport</font>
+                                                        </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                            <font size="2">Kuantiti <br>
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <font size="2">Destinasi Negara</font>
+                                                    </b></td>
+                                                </tr>
+                                                @foreach ($iv as $dataiv)
+                                                <tr>
+                                                    <td align="left">
+                                                        <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
+                                                    </td>
+                                                    <td align="left">
+                                                        <font size="2">{{ $dataiv->produk->prodid ?? ''}}</font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b></b></font>
+                                                        <font size="2">{{ $dataiv->e104_d5  ?? ''}}</font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b></b></font>
+                                                        <font size="2">{{ $formatteddat2 ?? '' }}</font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b></b></font>
+                                                        <font size="2">{{ number_format($dataiv->e104_d7 ??  0,2) ?? '' }}</font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliv7 ??  0,2) }}</b></font>
+                                                        <font size="2">{{number_format ($dataiv->e104_d8 ??  0,2) ?? '' }}</font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliv8 ??  0,2) }}</b></font>
+                                                        <font size="2">{{ $dataiv->e104_d9  ?? ''}}</font>
                                                     </td>
-                                                </tr> --}}
+                                                    <td align="right">
+                                                        <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table><br>
 
