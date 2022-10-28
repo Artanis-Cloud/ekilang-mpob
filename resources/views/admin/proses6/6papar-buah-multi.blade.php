@@ -94,18 +94,18 @@
                                             <table border="0" width="100%">
                                                 <tbody style=" width:10rem; margin-right: -10px">
                                                     <tr>
-                                                        <td width="88%" height="19">
+                                                        <td width="88%" >
                                                             <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
                                                         </td>
-                                                        <td width="12%" height="19">
+                                                        <td width="12%" >
                                                             <p align="left"><b>MPOB(EL) MF 4</b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="80%" height="19">
+                                                        <td width="80%" >
                                                             <p align=""><b></b></p>
                                                         </td>
-                                                        <td width="20%" height="19">
+                                                        <td width="20%" >
                                                             <p align="left"><b>MPOB(EL) PX 4-M </b></p>
                                                         </td>
                                                     </tr>
@@ -313,7 +313,7 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                                 </b> </p>
 
-                                            <table border="1" style="width:70% ; "  cellspacing="0"
+                                            <table border="1" style="width:95%; "  cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -351,25 +351,25 @@
                                                             <font size="2.7">A. Stok Awal Di Premis</font>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_aa1 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center">
+                                                            <p style="text-align: right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_aa2 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="110">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_aa3 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_aa4 ?? 0, 2) }}</font>
                                                             </p>
@@ -380,25 +380,25 @@
                                                             <font size="2.7">B. Pembelian/Terimaan</font>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ab1 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ab2 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="110">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ab3 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ab4 ?? 0, 2) }}</font>
                                                             </p>
@@ -409,7 +409,7 @@
                                                             <font size="2.7">C. Diproses</font>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ac1 ?? 0, 2) }}</font>
                                                             </p>
@@ -426,19 +426,19 @@
                                                             <p align="left">&nbsp;</p>
                                                         </td>
                                                         <td width="135">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ad1 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="110">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ad2 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ad3 ?? 0, 2) }}</font>
                                                             </p>
@@ -449,25 +449,25 @@
                                                             <font size="2.7">E. Penjualan/Pengedaran Tempatan</font>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ae1 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ae2 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="110">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ae3 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ae4 ?? 0, 2) }}</font>
                                                             </p>
@@ -504,25 +504,25 @@
                                                             <font size="2.7">G. Stok Akhir Di Premis</font>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ag1 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ag2 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="110">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ag3 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
                                                         <td width="120">
-                                                            <p align="center">
+                                                            <p align="right">
                                                                 <font size="2.7">
                                                                     {{ number_format($data->e91_ag4 ?? 0, 2) }}</font>
                                                             </p>
@@ -591,10 +591,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
-
-                                            <br>
-
+                                            </table><div style="page-break-after: always"></div><br>
 
 
                                             <table border="1" style="width:70% " cellspacing="0" cellpadding="0"
@@ -804,7 +801,7 @@
                                             <p>
                                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                                     {{ $data->e91_ah18 ?? '-' }}</font>
-                                            </p><br>
+                                            </p>
 
 
 
@@ -902,7 +899,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p align="left">
@@ -1015,7 +1012,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p align="left">
@@ -1074,7 +1071,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1112,7 +1109,7 @@
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
@@ -1134,11 +1131,7 @@
 
 
                                     </body>
-                                </div>
-
-
-
-                                <br><hr>
+                                </div><hr>
 
                             @endforeach
                         </form>
