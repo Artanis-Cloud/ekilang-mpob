@@ -307,7 +307,7 @@
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                                 </b> </p>
 
-                                            <table border="1" style="width:70% " bordercolor="#000000" cellspacing="0"
+                                            <table border="1" style="width:95% " bordercolor="#000000" cellspacing="0"
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
@@ -585,9 +585,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
-
-                                            <br>
+                                            </table><div style="page-break-after: always"></div><br>
 
 
 
@@ -896,7 +894,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p align="left">
@@ -1009,7 +1007,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p align="left">
@@ -1068,7 +1066,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
@@ -1106,7 +1104,7 @@
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
                                                     </tr>
                                                 </tbody>
-                                            </table><br>
+                                            </table>
 
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
@@ -1128,10 +1126,7 @@
 
 
                                     </body>
-                                </div>
-
-
-                                <br><hr>
+                                </div><hr>
 
                             @endforeach
                         </form>

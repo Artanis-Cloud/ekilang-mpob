@@ -1,5 +1,15 @@
 @extends('layouts.main')
 
+<style>
+
+    @media print
+    {
+        @page {size: auto !important}
+        .noPrint{display:none;}
+        .noScreen{}
+    }
+</style>
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -263,17 +273,37 @@
         <div class="modal fade bs-example-modal-lg" id="TOTAL" tabindex="-1" role="dialog"
             aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+                <div class="modal-content" id="printableArea" >
                     <div class="modal-header">
                         <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Semua Sektor</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <div class="noPrint">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                        </div>
                     </div>
+                    <p class="text-center" style="margin-top:1%">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
+
+
+                    <script>
+                        var dt = new Date();
+                        document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+
+                        var dt = new Date();
+                        document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+                    </script>
                     <div class="modal-body">
-                        <div class="text-right col-md-1">
+
+                        <div class="noPrint">
+
                             {{-- <button onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">EXCEL</button> --}}
                             <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('cuba')"
                             style="background-color: white; color: #0a7569; ">
                             <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                            </button>
+
+                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                            style="background-color:white; color: #f90a0a; " >
+                            <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
                         </button>
                         </div><br>
                         <div class="table-responsive">
@@ -405,10 +435,13 @@
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                         </button> --}}
-                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Tutup</span>
-                        </button>
+                        <div class="noPrint">
+                            <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Tutup</span>
+                            </button>
+
+                        </div>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -925,6 +958,19 @@
                 },
             }
         });
+    </script>
+
+    <script>
+        function printDiv(printableArea) {
+            var printContents = document.getElementById(printableArea).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
     </script>
 
     <script>

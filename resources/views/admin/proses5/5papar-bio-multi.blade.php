@@ -798,7 +798,7 @@
                                                                 <font size="2">Tarikh Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Kuantiti
+                                                                <font size="2">Kuantiti <br>
                                                                     (Tan Metrik)</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
