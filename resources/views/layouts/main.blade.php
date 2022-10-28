@@ -57,6 +57,11 @@
     {{-- <link rel="stylesheet" href="print.css" type="text/css" media="print" /> --}}
 </head>
 <style>
+
+    .noScreenPelesen{
+        display:none;
+    }
+
     .required:after {
         content: " *";
         color: red;
@@ -86,34 +91,24 @@
         @page {
             size: auto !important;
             overflow:visible !important;
-            -webkit-print-color-adjust: exact !important;
         }
+
         .table-bordered {
-            -webkit-print-color-adjust: exact !important;
-            border: 1px solid #5d6161 !important;
+        border: 1px solid #5d6161 !important;
         }
-
-
 
         .table-bordered th,
         .table-bordered td {
-            -webkit-print-color-adjust: exact !important;
             border: 1px solid #5d6161 !important;
-            /* background-color: #f90a0a !important; */
         }
 
         .table-bordered thead th,
         .table-bordered thead td {
             border-bottom-width: 2px;
-            -webkit-print-color-adjust: exact !important;
         }
 
-        .table-bordered tr, {
-           background-color: #f90a0a !important;
-        }
 
     }
-
 
     button.fred {
     /* border-color: #25877b !important; */

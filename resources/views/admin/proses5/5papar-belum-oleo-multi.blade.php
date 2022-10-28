@@ -798,7 +798,7 @@
                                                                 <font size="2">Tarikh Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Kuantiti
+                                                                <font size="2">Kuantiti<br>
                                                                     (Tan Metrik)</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
@@ -815,8 +815,51 @@
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
                                                     </tr>
 
-                                            </tbody>
-                                        </table><br>
+                                                </tbody>
+                                            </table><br>
+
+                                            <p><b>
+                                                    <font style="font-size: 15px" color="#0c7c85">
+                                                        BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+
+                                                    </font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr style="background-color: #d3d3d370">
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Nama Produk Sawit</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Nombor Borang Kastam 2</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Tarikh Eksport</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kuantiti<br>
+                                                                    (Tan Metrik)</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                            <font size="2">Nilai (RM)</font>
+                                                        </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Negara</font>
+                                                        </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                            <font size="2">Destinasi Negara</font>
+                                                        </b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center" colspan="8">Tiada Rekod</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table><br>
 
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

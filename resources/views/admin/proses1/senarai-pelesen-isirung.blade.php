@@ -181,6 +181,30 @@
                                                 <th style=" vertical-align: middle">Status e-Kilang</th>
                                                 <th style=" vertical-align: middle">Status e-Stok</th>
                                                 <th style=" vertical-align: middle">Direktori</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Premis Berlesen 1</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Premis Berlesen 2</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Premis Berlesen 3</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Surat Menyurat 1</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Surat Menyurat 2</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Surat Menyurat 3</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">No. Faks</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Kilang</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Nama Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Jawatan Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">No. Telefon Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Nama Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Jawatan Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Pengurus</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Negeri</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Daerah</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kawasan</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Syarikat Induk</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Tahun Mula Beroperasi</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kumpulan</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kapasiti Pemprosesan / Tahun</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Bilangan Tangki CPKO</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kapasiti Tangki Simpanan CPKO (Tan)</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -195,6 +219,30 @@
                                                 <th>Status e-Kilang</th>
                                                 <th>Status e-Stok</th>
                                                 <th>Direktori</th>
+                                                <th class="noScreenPelesen">Alamat Premis Berlesen 1</th>
+                                                <th class="noScreenPelesen">Alamat Premis Berlesen 2</th>
+                                                <th class="noScreenPelesen">Alamat Premis Berlesen 3</th>
+                                                <th class="noScreenPelesen">Alamat Surat Menyurat 1</th>
+                                                <th class="noScreenPelesen">Alamat Surat Menyurat 2</th>
+                                                <th class="noScreenPelesen">Alamat Surat Menyurat 3</th>
+                                                <th class="noScreenPelesen">No. Faks</th>
+                                                <th class="noScreenPelesen">Alamat Emel Kilang</th>
+                                                <th class="noScreenPelesen">Nama Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">Jawatan Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">No. Telefon Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">Alamat Emel Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">Nama Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen">Jawatan Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen">Alamat Emel Pengurus</th>
+                                                <th class="noScreenPelesen">Negeri</th>
+                                                <th class="noScreenPelesen">Daerah</th>
+                                                <th class="noScreenPelesen">Kawasan</th>
+                                                <th class="noScreenPelesen">Syarikat Induk</th>
+                                                <th class="noScreenPelesen">Tahun Mula Beroperasi</th>
+                                                <th class="noScreenPelesen">Kumpulan</th>
+                                                <th class="noScreenPelesen">Kapasiti Pemprosesan / Tahun</th>
+                                                <th class="noScreenPelesen">Bilangan Tangki CPKO</th>
+                                                <th class="noScreenPelesen">Kapasiti Tangki Simpanan CPKO (Tan)</th>
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
@@ -233,6 +281,30 @@
                                                     @else
                                                         <td style="text-align: center">-</td>
                                                     @endif
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_ap1 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_ap2 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_ap3 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_as1 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_as2 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_as3 ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_nofax ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_npg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_jpg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_notel_pg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email_pg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_npgtg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_jpgtg ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email_pengurus ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_negeri ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_daerah ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_region ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_syktinduk ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_year ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_group ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kap_proses ?? '-'  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->bil_tangki_cpko ?? 0  }}</td>
+                                                    <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kap_tangki_cpko ?? 0  }}</td>
 
                                                 </tr>
                                             @endif

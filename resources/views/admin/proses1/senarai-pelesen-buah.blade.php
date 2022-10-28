@@ -1,6 +1,15 @@
 @extends('layouts.main')
 {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> --}}
 
+<style>
+
+    @media screen
+    {
+        .noScreen{
+            display:none;
+        }
+    }
+</style>
 
 @section('content')
     <!-- ============================================================== -->
@@ -60,7 +69,7 @@
                             <div>
                                 <h3 id="title" style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
                                 <h5 id="tarikh" style="color: rgb(39, 80, 71); ">KILANG BUAH</h5>
-                                {{-- <p >Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p> --}}
+                                <p >Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
 
                             </div>
 
@@ -167,8 +176,8 @@
                                 <div class="table-responsive" >
                                     <table id="example91" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
-                                            <tr style="background-color: #e9ecefbd;  word-wrap:normal">
-                                                <th style=" vertical-align: middle; width:1%" class="no-sort">Bil.</th>
+                                            <tr style="background-color: #e9ecefbd;  word-wrap:normal; font-size:14px">
+                                                <th style=" vertical-align: middle;" class="no-sort">Bil.</th>
                                                 <th style=" vertical-align: middle; width: 10%">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
@@ -178,6 +187,28 @@
                                                 <th style=" vertical-align: middle">Status<br> e-Kilang</th>
                                                 <th style=" vertical-align: middle">Status<br> e-Stok</th>
                                                 <th style=" vertical-align: middle">Direktori</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Premis Berlesen 1</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Premis Berlesen 2</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Premis Berlesen 3</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Surat Menyurat 1</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Surat Menyurat 2</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Surat Menyurat 3</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">No. Faks</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Kilang</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Nama Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Jawatan Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">No. Telefon Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Pegawai Melapor</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Nama Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Jawatan Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Pengurus</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Negeri</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Daerah</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kawasan</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Syarikat Induk</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Tahun Mula Beroperasi</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kumpulan</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Kapasiti Pemprosesan / Tahun</th>
                                                 <th style=" vertical-align: middle">Prestasi OER</th>
                                                 <th class="noScreen" style=" vertical-align: middle">Bilangan Tangki CPO</th>
                                                 <th class="noScreen" style=" vertical-align: middle">Kapasiti Tangki CPO</th>
@@ -195,6 +226,29 @@
                                                 <th id="kilang">Status e-Kilang</th>
                                                 <th id="stok">Status e-Stok</th>
                                                 <th id="dir">Direktori</th>
+                                                <th id="oer">Prestasi OER</th>
+                                                <th class="noScreenPelesen">Alamat Premis Berlesen 1</th>
+                                                <th class="noScreenPelesen">Alamat Premis Berlesen 2</th>
+                                                <th class="noScreenPelesen">Alamat Premis Berlesen 3</th>
+                                                <th class="noScreenPelesen">Alamat Surat Menyurat 1</th>
+                                                <th class="noScreenPelesen">Alamat Surat Menyurat 2</th>
+                                                <th class="noScreenPelesen">Alamat Surat Menyurat 3</th>
+                                                <th class="noScreenPelesen">No. Faks</th>
+                                                <th class="noScreenPelesen">Alamat Emel Kilang</th>
+                                                <th class="noScreenPelesen">Nama Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">Jawatan Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">No. Telefon Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">Alamat Emel Pegawai Melapor</th>
+                                                <th class="noScreenPelesen">Nama Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen">Jawatan Pegawai Bertanggungjawab</th>
+                                                <th class="noScreenPelesen">Alamat Emel Pengurus</th>
+                                                <th class="noScreenPelesen">Negeri</th>
+                                                <th class="noScreenPelesen">Daerah</th>
+                                                <th class="noScreenPelesen">Kawasan</th>
+                                                <th class="noScreenPelesen">Syarikat Induk</th>
+                                                <th class="noScreenPelesen">Tahun Mula Beroperasi</th>
+                                                <th class="noScreenPelesen">Kumpulan</th>
+                                                <th class="noScreenPelesen">Kapasiti Pemprosesan / Tahun</th>
                                                 <th id="oer">Prestasi OER</th>
                                                 <th class="noScreen">Bilangan Tangki CPO</th>
                                                 <th class="noScreen">Kapasiti Tangki CPO</th>
@@ -215,8 +269,8 @@
                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
 
                                                         <td >{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td  style="text-align: center">{{ $data->kodpgw }}</td>
-                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                        <td  style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
+                                                        <td style="text-align: center">{{ $data->nosiri ?? '-' }}</td>
                                                         @if ($data->e_status == 1)
                                                             <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
@@ -238,12 +292,34 @@
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_ap1 ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_ap2 ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_ap3 ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_as1 ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_as2 ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_as3 ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_nofax ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_npg ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_jpg ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_notel_pg ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email_pg ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_npgtg ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_jpgtg ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email_pengurus ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_negeri ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_daerah ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_region ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_syktinduk ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_year ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_group ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kap_proses ?? '-'  }}</td>
                                                         <td style="text-align: center">
                                                             <a href="{{ route('admin.prestasi.oer', $data->e_nl) }}"><u>
                                                                     {{ $data->e_nl ?? '-' }}</u></a></td>
 
-                                                        <td class="noScreen" style="text-align: center">{{ $data->pelesen->bil_tangki_cpo }}</td>
-                                                        <td class="noScreen" style="text-align: center">{{ $data->pelesen->lap_tangki_cpo }}</td>
+                                                        <td class="noScreen" style="text-align: center">{{ $data->pelesen->bil_tangki_cpo ?? 0 }}</td>
+                                                        <td class="noScreen" style="text-align: center">{{ $data->pelesen->kap_tangki_cpo ?? 0  }}</td>
 
 
                                                         {{-- <td>-</td> --}}
@@ -382,7 +458,7 @@
                                 }
                             });
                         });
-                      
+
                 },
                 dom: 'Bfrtip',
 
