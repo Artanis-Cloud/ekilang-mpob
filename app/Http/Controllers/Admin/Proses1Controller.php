@@ -417,6 +417,7 @@ class Proses1Controller extends Controller
             'jumlah2',
             'jumlah3',
             'jumlah4'
+
         ));
     }
 
@@ -1127,6 +1128,38 @@ class Proses1Controller extends Controller
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)
     {
+
+        // dd($request->bil_tangki_oleo ?? 0);
+        $bcpo = $request->bil_tangki_cpo ?? 0;
+        $bppo = $request->bil_tangki_ppo ?? 0;
+        $bcpko = $request->bil_tangki_cpko ?? 0;
+        $bppko = $request->bil_tangki_ppko ?? 0;
+        $boleo = $request->bil_tangki_oleo ?? 0;
+        $bothers = $request->bil_tangki_others ?? 0;
+
+        $kcpo = $request->kap_tangki_cpo ?? 0;
+        $kppo = $request->kap_tangki_ppo ?? 0;
+        $kcpko = $request->kap_tangki_cpko ?? 0;
+        $kppko = $request->kap_tangki_ppko ?? 0;
+        $koleo = $request->kap_tangki_oleo ?? 0;
+        $kothers = $request->kap_tangki_others ?? 0;
+
+        $ubcpo = str_replace(',', '', $bcpo);
+        $ubppo = str_replace(',', '', $bppo);
+        $ubcpko = str_replace(',', '', $bcpko);
+        $ubppko = str_replace(',', '', $bppko);
+        $uboleo = str_replace(',', '', $boleo);
+        $ubothers = str_replace(',', '', $bothers);
+
+        $ukcpo = str_replace(',', '', $kcpo);
+        $ukppo = str_replace(',', '', $kppo);
+        $ukcpko = str_replace(',', '', $kcpko);
+        $ukppko = str_replace(',', '', $kppko);
+        $ukoleo = str_replace(',', '', $koleo);
+        $ukothers = str_replace(',', '', $kothers);
+
+
+        // dd($request->all());
         $penyata = Pelesen::findOrFail($id);
         $penyata->e_status = $request->e_status;
         // $penyata->directory = $request->directory;
@@ -1159,19 +1192,19 @@ class Proses1Controller extends Controller
         $penyata->e_year = $request->e_year;
         $penyata->e_email_pengurus = $request->e_email_pengurus;
         $penyata->kap_proses = $request->kap_proses;
-        $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
-        $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
-        $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
-        $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
-        $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
-        $penyata->bil_tangki_others = $request->bil_tangki_others;
-        $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
-        $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
-        $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
-        $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
-        $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
-        $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
-        $penyata->kap_tangki_others = $request->kap_tangki_others;
+        $penyata->bil_tangki_cpo = $ubcpo;
+        $penyata->bil_tangki_ppo = $ubppo;
+        $penyata->bil_tangki_cpko = $ubcpko;
+        $penyata->bil_tangki_ppko = $ubppko;
+        $penyata->bil_tangki_oleo = $uboleo;
+        $penyata->bil_tangki_others = $ubothers;
+        // $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+        $penyata->kap_tangki_cpo = $ukcpo;
+        $penyata->kap_tangki_ppo = $ukppo;
+        $penyata->kap_tangki_cpko = $ukcpko;
+        $penyata->kap_tangki_ppko = $ukppko;
+        $penyata->kap_tangki_oleo = $ukoleo;
+        $penyata->kap_tangki_others = $ukothers;
         // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
         $penyata->save();
 
