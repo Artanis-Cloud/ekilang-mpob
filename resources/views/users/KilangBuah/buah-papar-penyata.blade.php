@@ -311,25 +311,25 @@
                                         <font size="2.7">A. Stok Awal Di Premis</font>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_aa1 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="135">
-                                        <p style="text-align: center">
+                                        <p style="text-align: right">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_aa2 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="110">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_aa3 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_aa4 ?? 0, 2) }}</font>
                                         </p>
@@ -340,25 +340,25 @@
                                         <font size="2.7">B. Belian/Terimaan</font>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ab1 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="135">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ab2 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="110">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ab3 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ab4 ?? 0, 2) }}</font>
                                         </p>
@@ -369,40 +369,40 @@
                                         <font size="2.7">C. Diproses</font>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ac1 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="135" bgcolor="#C0C0C0"
-                                        style="text-align: center; vertical-align:middle">&nbsp;</td>
+                                        style="text-align: right; vertical-align:middle">&nbsp;</td>
                                     <td width="110" bgcolor="#C0C0C0"
-                                        style="text-align: center; vertical-align:middle">&nbsp;</td>
+                                        style="text-align: right; vertical-align:middle">&nbsp;</td>
                                     <td width="120" bgcolor="#C0C0C0"
-                                        style="text-align: center; vertical-align:middle">&nbsp;</td>
+                                        style="text-align: right; vertical-align:middle">&nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td width="220">
                                         <font size="2.7">D. Pengeluaran</font>
                                     </td>
                                     <td width="120" bgcolor="#C0C0C0"
-                                        style="text-align: center; vertical-align:middle">
+                                        style="text-align: right; vertical-align:middle">
                                         <p align="left">&nbsp;</p>
                                     </td>
                                     <td width="135">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ad1 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="110">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ad2 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ad3 ?? 0, 2) }}</font>
                                         </p>
@@ -413,25 +413,25 @@
                                         <font size="2.7">E. Jualan/Edaran Tempatan</font>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ae1 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="135">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ae2 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="110">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ae3 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ae4 ?? 0, 2) }}</font>
                                         </p>
@@ -442,23 +442,23 @@
                                         <font size="2.7">F. Eksport</font>
                                     </td>
                                     <td width="120" bgcolor="#C0C0C0"
-                                        style="text-align: center; vertical-align:middle">
+                                        style="text-align: right; vertical-align:middle">
                                         <p align="left">&nbsp;</p>
                                     </td>
                                     <td width="135" bgcolor="#C0C0C0">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7"></font>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </p>
                                     </td>
                                     <td width="110" bgcolor="#C0C0C0">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7" </font>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </p>
                                     </td>
                                     <td width="120" bgcolor="#C0C0C0">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7"></font>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         </p>
@@ -469,25 +469,25 @@
                                         <font size="2.7">G. Stok Akhir Di Premis</font>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ag1 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="135">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ag2 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="110">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ag3 ?? 0, 2) }}</font>
                                         </p>
                                     </td>
                                     <td width="120">
-                                        <p style="text-align: center; vertical-align:middle">
+                                        <p style="text-align: right; vertical-align:middle">
                                             <font size="2.7">
                                                 {{ number_format($penyata->e91_ag4 ?? 0, 2) }}</font>
                                         </p>

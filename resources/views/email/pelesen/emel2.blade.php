@@ -4,7 +4,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <title>Pendaftaran Pelesen Berjaya</title>
+    <title>EMEL PINDAAN SISTEM E-KILANG</title>
     <meta name="description" content="Appointment Reminder Email Template">
 </head>
 <style>
@@ -43,7 +43,7 @@
                                 <!-- Title -->
                                 <tr>
                                     <td style="padding:0 15px; text-align:center;">
-                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">Pendaftaran Pelesen Berjaya</h1>
+                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif; text-transform:uppercase"">EMEL {{ $jenis }}</h1>
                                         <span style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece;
                                         width:100px;"></span>
                                     </td>
@@ -51,48 +51,64 @@
                                 <!-- Details Table -->
                                 <tr>
                                     <td>
-                                        <table cellpadding="0" cellspacing="0"
+                <table cellpadding="0" cellspacing="0"
                                             style="width: 100%; border: 1px solid #ededed">
                                             <tbody>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Nama Pengguna:</td>
+                                                        MASA:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $pelesen->name }}</td>
+                                                        {{ $dt }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        No Lesen:</td>
+                                                        DARI:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $pelesen->username }}</td>
+                                                        {{ $pelesen->FromName }} &nbsp; ({{ $pelesen->FromEmail }})</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Emel Pengguna:</td>
+                                                        PENYATA:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $pelesen->email }}</td>
+                                                        BULAN 0{{ $penyata1 }} TAHUN {{ $penyata2 }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Kata Laluan Sementara:</td>
+                                                        TAJUK:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $password }}</td>
+                                                        {{ $tajuk }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
+                                                        KANDUNGAN:</td>
+                                                    <td
+                                                        style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
+                                                        {!! $mesej !!}</td>
+                                                </tr>
+                                                    <td
+                                                        style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
+                                                        LAMPIRAN:</td>
+                                                    <td style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
+                                                        <a target='_blank' href="{{ asset('storage/'.$pelesen->file_upload) }}">Klik Disini</a></td>
+                                                {{-- <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td> --}}
+
                                                 </tr>
 
-                                                <tr>
+                                                {{-- <tr>
                                                     <td
                                                         style="padding: 10px; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Sila Klik di sini:</td>
+                                                        PINDAAN:</td>
                                                     <td style="padding: 10px; color: #455056;"><a href="{{ $route }}" target="_blank"">Log Masuk</a></td>
-                                                </tr>
+                                                </tr> --}}
                                             </tbody>
                                         </table>
                                     </td>

@@ -14,6 +14,8 @@ use App\Models\Pelesen;
 use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarEmelNotification;
+use App\Notifications\Pelesen\HantarEmelNotification2;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -638,8 +640,14 @@ class PusatSimpananController extends Controller
 
         if ($request->file_upload) {
             $this->store_send_email($request->all());
+            $pelesen = $this->store_send_email($request->all());
+
+            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
         } else {
             $this->store_send_email2($request->all());
+            $pelesen = $this->store_send_email2($request->all());
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
         }
 
         if ($emel == 'pindaan') {
@@ -663,7 +671,7 @@ class PusatSimpananController extends Controller
             // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
+            // 'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);
@@ -683,11 +691,11 @@ class PusatSimpananController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            // 'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => $file,
 
         ]);
     }
@@ -695,17 +703,18 @@ class PusatSimpananController extends Controller
     protected function store_send_email2(array $data)
     {
 
+
         return Ekmessage::create([
             // 'Id' => $data['Id'],
             'Date' => date("Y-m-d H:i:s"),
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            // 'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => null,
 
         ]);
     }

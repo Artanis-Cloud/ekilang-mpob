@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class HantarEmelMail extends Mailable
+class HantarEmelMail2 extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -54,5 +54,6 @@ class HantarEmelMail extends Mailable
         return $this->to($this->pelesen->FromEmail, $this->pelesen->FromName)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
         ->subject('Penghantaran Emel Berjaya - '. $this->pelesen->FromLicense)
-        ->view('email.pelesen.emel', compact('pelesen', 'time', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
+        // ->attach('storage/'.$pelesen->file_upload)
+        ->view('email.pelesen.emel2', compact('pelesen', 'time', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
 }

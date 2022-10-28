@@ -81,5 +81,5 @@ class HantarTukarPasswordPelesenMail extends Mailable
         return $this->to($this->pelesen->email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
         ->subject('Tukar Kata Laluan '. $this->pelesen->username)
-        ->view('email.pelesen.pendaftaran', compact('pelesen', 'password', 'route'));    }
+        ->view('email.pelesen.newpass', compact('pelesen', 'password', 'route'));    }
 }

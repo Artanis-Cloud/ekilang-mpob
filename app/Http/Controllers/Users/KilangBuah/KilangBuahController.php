@@ -12,6 +12,8 @@ use App\Models\Pelesen;
 use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarEmelNotification;
+use App\Notifications\Pelesen\HantarEmelNotification2;
 use DateTime;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -865,8 +867,14 @@ class KilangBuahController extends Controller
 
         if ($request->file_upload) {
             $this->store_send_email($request->all());
+            $pelesen = $this->store_send_email($request->all());
+
+            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
         } else {
             $this->store_send_email2($request->all());
+            $pelesen = $this->store_send_email2($request->all());
+
+            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
         }
 
         if ($emel == 'pindaan') {
@@ -882,7 +890,6 @@ class KilangBuahController extends Controller
 
         // return redirect()->back()->with('success', 'Emel sudah dihantar');
     }
-
     protected function validation_send_email(array $data)
     {
         return Validator::make($data, [
@@ -899,9 +906,8 @@ class KilangBuahController extends Controller
 
     protected function store_send_email(array $data)
     {
-        // dd($data['file_upload']);
-        //store file
 
+        //store file
         if ($data['file_upload']) {
             $file = $data['file_upload']->store('email/attachement', 'public');
         }
@@ -916,13 +922,14 @@ class KilangBuahController extends Controller
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => $file,
 
         ]);
     }
 
     protected function store_send_email2(array $data)
     {
+
 
         return Ekmessage::create([
             // 'Id' => $data['Id'],
@@ -934,7 +941,7 @@ class KilangBuahController extends Controller
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => null,
 
         ]);
     }
