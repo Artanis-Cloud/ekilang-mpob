@@ -397,6 +397,14 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>

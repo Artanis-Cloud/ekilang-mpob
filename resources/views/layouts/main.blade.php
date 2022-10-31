@@ -99,6 +99,7 @@
 
         .table-bordered th,
         .table-bordered td {
+            -webkit-print-color-adjust: exact !important;
             border: 1px solid #5d6161 !important;
         }
 
@@ -106,6 +107,11 @@
         .table-bordered thead td {
             border-bottom-width: 2px;
         }
+
+        /* .redd{
+            background-color: #095950 !important;
+            color-adjust: exact;
+        } */
 
 
     }

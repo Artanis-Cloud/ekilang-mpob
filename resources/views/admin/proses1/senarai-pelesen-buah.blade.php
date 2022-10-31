@@ -249,7 +249,6 @@
                                                 <th class="noScreenPelesen">Tahun Mula Beroperasi</th>
                                                 <th class="noScreenPelesen">Kumpulan</th>
                                                 <th class="noScreenPelesen">Kapasiti Pemprosesan / Tahun</th>
-                                                <th id="oer">Prestasi OER</th>
                                                 <th class="noScreen">Bilangan Tangki CPO</th>
                                                 <th class="noScreen">Kapasiti Tangki CPO</th>
                                             </tr>
@@ -512,99 +511,6 @@
 
 
     </script>
-    {{-- <script>
 
-        $(document).ready(function () {
-            // Setup - add a text input to each footer cell
-            $('#example91 tfoot th').each(function () {
-                var title = $(this).text();
-                $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
-            });
-
-            // DataTable
-            var table = $('#example91').DataTable({
-
-                initComplete: function () {
-
-                    // Apply the search
-                    this.api()
-                        .columns()
-                        .every(function () {
-                            var that = this;
-                            $('input', this.footer()).on('keyup change clear', function () {
-                                if (that.search() !== this.value) {
-                                    that.search(this.value).draw();
-                                }
-                            });
-                        });
-                },
-                dom: 'Bfrtip',
-
-                buttons: [
-
-                    'pageLength',
-                    {
-                        extend: 'excel',
-                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
-                        className: "fred",
-
-                        title: function(doc) {
-                            return $('#title').text()
-                        },
-
-                        customize: function(xlsx) {
-                            // var sSh = xlsx.xl['styles.xml'];
-
-                            var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                            var style = xlsx.xl['styles.xml'];
-
-                            $( 'row c', sheet ).attr( 's', '25' );
-
-                            var tagName = style.getElementsByTagName('sz');
-                            for (i = 0; i < tagName.length; i++) {
-                            tagName[i].setAttribute("val", "14");
-                            // tagName[1].setAttribute("val", "20");
-                            }
-                            console.log(tagName)
-
-                            $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
-                            // $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
-                            $('row:first c', sheet).attr('s', '2').attr('s', '32').attr('s', '51').css('font-size', '60pt');
-
-
-
-                        },
-
-                        filename: 'Senarai Pelesen Kilang Buah',
-
-                        // messageTop: function(doc) {
-                        //     return $('#tarikh').text()
-                        // },
-                    },
-
-                ],
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-
-
-            });
-
-        });
-
-
-    </script> --}}
 
 @endsection

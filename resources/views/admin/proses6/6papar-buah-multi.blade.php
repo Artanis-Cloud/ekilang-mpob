@@ -73,7 +73,7 @@
 
                                     {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <body><h1 style="page-break-before:always"></h1>
+                                    <body>
                                         {{-- <p align="left">
                                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
@@ -106,7 +106,7 @@
                                                             <p align=""><b></b></p>
                                                         </td>
                                                         <td width="20%" >
-                                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-M </b></p>
                                                         </td>
                                                     </tr>
 
@@ -317,9 +317,9 @@
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr class="redd" style="background-color: #d3d3d370 !important; ">
+                                                    <tr class="redd" style="background-color: #d3d3d370 ">
                                                         <td width="220" >
-                                                            <p align="center"><b>
+                                                            <p align="center" style="box-shadow: inset 0 0 0 1000px gold;"><b>
                                                                     <font size="2.7">Butiran</font>
                                                                 </b></p>
                                                         </td>
@@ -1131,7 +1131,7 @@
 
 
                                     </body>
-                                </div><hr>
+                                </div><hr><h1 style="page-break-after:always"></h1>
 
                             @endforeach
                         </form>
