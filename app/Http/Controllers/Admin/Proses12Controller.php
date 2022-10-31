@@ -42,6 +42,7 @@ class Proses12Controller extends Controller
         $tahun = $request->tahun;
         $bulan = $request->bulan;
         $sektor = $request->e_kat;
+        $blnthn = $bulan . $tahun;
 
         //kilang buah
         if ($sektor == 'PL91') {
@@ -54,6 +55,17 @@ class Proses12Controller extends Controller
             (round(p.F911J1,2) > 0 or round(p.F911J2,2)> 0) and
             (p.F911I in (0) or p.F911I is null)
 			group by p.F911D, p.F911C, l.F201U4, l.F201U2");
+
+            $query2 =  DB::connection('mysql4')->select("SELECT p.F911B as nobatch,p.F911A as nolesen,l.F201T as nama,c.nama_negeri,p.F911C,p.F911D,m.cap_lesen,m.cap_kat
+            FROM pldb.PL911P3 AS p
+            left JOIN licensedb.license as l ON p.F911A = l.F201A
+            left JOIN codedb.negeri as c ON l.F201U4 = c.kod_negeri
+            LEFT JOIN lesen_master.mpku_caps as m ON p.F911A = m.cap_lesen and m.cap_mmyyyy = '$blnthn' and m.cap_kat='04'
+            WHERE
+            p.F911D = '$tahun' AND
+            p.F911C = '$bulan'  AND
+            (m.cap_lesen is null or l.F201A is null) AND
+            p.F911I> 0");
 
 
         $breadcrumbs    = [
@@ -70,7 +82,7 @@ class Proses12Controller extends Controller
         $layout = 'layouts.admin';
         // $this->validation_tambah_pembeli($request->all())->validate();
         // $this->store_tambah_pembeli($request->all());
-        return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1'));
+        return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1','query2'));
     } else {
         return redirect()->back()->with('error', 'Data tidak wujud!');
 
