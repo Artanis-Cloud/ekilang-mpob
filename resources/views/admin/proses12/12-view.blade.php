@@ -1,5 +1,16 @@
 @extends('layouts.main')
+<style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      /* border: 1px solid #ddd; */
+    }
 
+    /* th, td {
+      text-align: left;
+      padding: 16px;
+    } */
+    </style>
 @section('content')
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -188,7 +199,7 @@
                                     </table>
                                     @elseif ($sektor == 'PL101')
 
-                                    <table id="example" class="table table-bordered">
+                                    <table id="example2" class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
