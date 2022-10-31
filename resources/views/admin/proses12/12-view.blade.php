@@ -122,6 +122,9 @@
                                     {{-- </div> --}}
 
                                 </div>
+                                <br>
+                                <hr>
+                                <br>
                                 <div class="table-responsive">
                                     <div id="tblData">
                                     <table id="example2" class="table table-bordered"
@@ -194,6 +197,54 @@
     @endsection
 
     @section('scripts')
+    <script>
+
+        $(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#example2 tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+        });
+
+        // DataTable
+            var table = $('#example').DataTable({
+
+                initComplete: function () {
+
+                    // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                },
+
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
+
+            });
+
+        });
+
+    </script>
         {{-- <script>
             $(document).ready(function() {
                 $('#example').DataTable({
