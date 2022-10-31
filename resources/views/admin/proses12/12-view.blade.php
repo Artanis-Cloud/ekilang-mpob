@@ -66,12 +66,11 @@
                                     <table id="example" class="table table-bordered"
                                         style="width: 100%;">
                                         <thead>
-                                            <tr style="background-color: #e9ecefbd">
+                                            <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
 
                                                 <th>No. Batch<br></th>
                                                 <th>No. Lesen</th>
-                                                {{-- <th>Kod Pegawai</th> --}}
                                                 <th>Nama</th>
                                                 <th>Negeri</th>
                                                 <th>Pengeluaran CPO</th>
@@ -87,32 +86,26 @@
                                             <tr style="background-color: #e9ecefbd">
                                                 <th>No. Batch<br></th>
                                                 <th>No. Lesen</th>
-                                                {{-- <th>Kod Pegawai</th> --}}
                                                 <th>Nama</th>
                                                 <th>Negeri</th>
                                                 <th>Pengeluaran CPO</th>
                                                 <th>Pengeluaran PK</th>
                                                 <th>FFB Proses</th>
                                                 <th>Catatan</th>
-
-                                                {{-- <th>No. Siri</th> --}}
                                             </tr>
                                         </tfoot>
                                         @if($query1 && !$query1->isEmpty())
                                         <tbody style="word-break: break-word; font-size:12px">
                                              @foreach ($query1 as $data)
                                                 <tr>
-                                                <td>{{ $data->nobatch }}<br></td>
-                                                <td>{{ $data->nolesen }}</td>
-                                                <td>{{ $data->nama }}</td>
-                                                <td>{{ $data->nama_negeri }}</td>
-                                                <td>{{ $data->cpo_prod }}</td>
-                                                <td>{{ $data->pk_prod }}</td>
-                                                <td>{{ $data->ffb_proc }}</td>
+                                                <td>{{ $data->nobatch ?? ''}}<br></td>
+                                                <td>{{ $data->nolesen ?? ''}}</td>
+                                                <td>{{ $data->nama ?? ''}}</td>
+                                                <td>{{ $data->nama_negeri ?? 'TIADA' }}</td>
+                                                <td>{{ $data->cpo_prod ?? ''}}</td>
+                                                <td>{{ $data->pk_prod ?? ''}}</td>
+                                                <td>{{ $data->ffb_proc ?? '' }}</td>
                                                 <td>FFB Proses tiada</td>
-
-
-                                                    {{-- <td>{{ $data->nosiri }}</td> --}}
 
 
 
@@ -129,51 +122,62 @@
                                     {{-- </div> --}}
 
                                 </div>
+                                <div class="table-responsive">
+                                    <div id="tblData">
+                                    <table id="example2" class="table table-bordered"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
+
+
+                                                <th>No. Batch<br></th>
+                                                <th>No. Lesen</th>
+                                                <th>Nama</th>
+                                                <th>Negeri</th>
+                                                <th>Kapasiti Pengilangan Dilulus</th>
+                                                <th>Catatan</th>
+
+
+                                                {{-- <th>No. Siri</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr style="background-color: #e9ecefbd">
+                                                <th>No. Batch<br></th>
+                                                <th>No. Lesen</th>
+                                                <th>Nama</th>
+                                                <th>Negeri</th>
+                                                <th>Kapasiti Pengilangan Dilulus</th>
+                                                <th>Catatan</th>
+                                            </tr>
+                                        </tfoot>
+                                        @if($query2 && !$query2->isEmpty())
+                                        <tbody style="word-break: break-word; font-size:12px">
+                                             @foreach ($query2 as $data)
+                                                <tr>
+                                                <td>{{ $data->nobatch ?? ''}}<br></td>
+                                                <td>{{ $data->nolesen ?? ''}}</td>
+                                                <td>{{ $data->nama ?? ''}}</td>
+                                                <td>{{ $data->nama_negeri ?? 'TIADA'}}</td>
+                                                <td>{{ $data->cap_lesen ?? ''}}</td>
 
 
 
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                        @else
+                                        <td colspan="8" style="text-align: center">Tiada kesalahan Kapasiti Pengilangan Dilulus</td>
+
+                                        @endif
+
+                                    </table>
+                                    {{-- </div> --}}
+
+                                </div>
 
 
-
-
-
-
-
-
-
-
-
-
-                                    {{-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
-                                        aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-hidden="true">×</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menghantar validasi ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div> --}}
 
                                 </div>
                             </div>
