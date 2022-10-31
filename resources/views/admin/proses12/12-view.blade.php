@@ -207,7 +207,7 @@
                                                 <th style="text-align: center; vertical-align: middle">No. Lesen</th>
                                                 <th style="text-align: center; vertical-align: middle">Nama</th>
                                                 <th style="text-align: center; vertical-align: middle">Negeri</th>
-                                                <th style="text-align: center; vertical-align: middle; width:15%">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle; width:10%">Kapasiti Pengilangan Dilulus</th>
                                                 <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
                                                 <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
                                                 <th style="text-align: center; vertical-align: middle">Catatan</th>
