@@ -61,7 +61,7 @@
 
                                 <div class="pl-3">
 
-                                    <body><h1 style="page-break-before:always"></h1>
+                                    <body>
                                         {{-- <p align="left">
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
@@ -436,7 +436,7 @@
                                     </body>
                                 </div>
 
-                                <br><hr>
+                                <br><hr><h1 style="page-break-after:always"></h1>
 
                             @endforeach
                         </form>

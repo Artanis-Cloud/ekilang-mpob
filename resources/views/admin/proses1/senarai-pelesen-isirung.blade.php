@@ -171,7 +171,7 @@
                                     <table id="example102" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd">
-                                                <th style=" vertical-align: middle">Bil.</th>
+                                                <th style=" vertical-align: middle" class="no-sort">Bil.</th>
                                                 <th style=" vertical-align: middle; width: 10%">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
@@ -209,15 +209,15 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd">
-                                                <th>Bil.</th>
+                                                <th value="Bil.">Bil.</th>
                                                 <th>No. Lesen</th>
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
                                                 <th>No. Telefon</th>
                                                 <th>Kod Pegawai</th>
                                                 <th>No. Siri</th>
-                                                <th>Status e-Kilang</th>
-                                                <th>Status e-Stok</th>
+                                                <th id="kilang">Status e-Kilang</th>
+                                                <th id="stok">Status e-Stok</th>
                                                 <th>Direktori</th>
                                                 <th class="noScreenPelesen">Alamat Premis Berlesen 1</th>
                                                 <th class="noScreenPelesen">Alamat Premis Berlesen 2</th>
@@ -250,7 +250,7 @@
                                             @if ($data->pelesen)
 
                                                 <tr class="text-left">
-                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td class="count"></td>
                                                     <td>
                                                         <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                 {{ $data->e_nl }}</u></a>
@@ -261,16 +261,16 @@
                                                     <td style="text-align: center">{{ $data->kodpgw }}</td>
                                                     <td style="text-align: center">{{ $data->nosiri }}</td>
                                                     @if ($data->e_status == 1)
-                                                        <td style="text-align: center">Aktif</td>
+                                                        <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                     @elseif ($data->e_status == 2)
-                                                        <td style="text-align: center">Tidak Aktif</td>
+                                                    <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
                                                     @if ($data->e_stock == 1)
-                                                        <td style="text-align: center">Aktif</td>
+                                                        <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                     @elseif ($data->e_stock == 2)
-                                                        <td style="text-align: center">Tidak Aktif</td>
+                                                        <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
@@ -361,6 +361,8 @@
             $('#example102 tfoot th').each(function () {
                 var title = $(this).text();
                 $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+                $('#kilang').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
+                $('#stok').html('<select type="text" class="form-control"><option selected  value="">SEMUA</option><option value="1">AKTIF</option><option value="2">TIDAK AKTIF</option></select>');
             });
 
             // DataTable
@@ -369,6 +371,16 @@
                 initComplete: function () {
 
                     // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('select', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
                     this.api()
                         .columns()
                         .every(function () {
