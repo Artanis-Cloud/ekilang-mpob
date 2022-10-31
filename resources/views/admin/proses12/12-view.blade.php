@@ -220,7 +220,7 @@
                                                 <th style="text-align: center; vertical-align: middle">Catatan</th>
                                             </tr>
                                         </tfoot>
-                                        @if($query1 && !$query1->isEmpty())
+                                        @if($query1)
                                         <tbody style="word-break: break-word; font-size:12px">
                                              @foreach ($query1 as $data)
                                                 <tr>
