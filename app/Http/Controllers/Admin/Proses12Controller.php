@@ -72,9 +72,11 @@ class Proses12Controller extends Controller
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.12validation'), 'name' => "Validasi"],
+                ['link' => route('admin.12validation'), 'name' => "Paparan Validasi"],
+
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.12validation');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -109,9 +111,11 @@ class Proses12Controller extends Controller
                 $breadcrumbs    = [
                     ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                     ['link' => route('admin.12validation'), 'name' => "Validasi"],
+                ['link' => route('admin.12validation'), 'name' => "Paparan Validasi"],
+
                 ];
 
-                $kembali = route('admin.dashboard');
+                $kembali = route('admin.12validation');
 
                 $returnArr = [
                     'breadcrumbs' => $breadcrumbs,
@@ -139,9 +143,11 @@ class Proses12Controller extends Controller
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.12validation'), 'name' => "Validasi"],
+                ['link' => route('admin.12validation'), 'name' => "Paparan Validasi"],
+
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.12validation');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -176,9 +182,10 @@ class Proses12Controller extends Controller
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.12validation'), 'name' => "Validasi"],
+                ['link' => route('admin.12validation'), 'name' => "Paparan Validasi"],
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.12validation');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
