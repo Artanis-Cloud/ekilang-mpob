@@ -421,6 +421,136 @@ class Proses1Controller extends Controller
         ));
     }
 
+    public function admin_cetak_surat($e_id, RegPelesen $reg_pelesen)
+    {
+
+        $reg_pelesen = RegPelesen::find($e_id);
+        // $reg_pelesen = RegPelesen::where('e_nl', );
+        // dd($reg_pelesen);
+        $tarikh = date("d-m-Y");
+        $pelesen = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->first();
+        $pelesen2 = Pelesen::with('negeri', 'negeri.daerahs')->where('e_nl', $reg_pelesen->e_nl)->whereRelation('negeri.daerahs', 'daerah.kod_daerah', $pelesen->e_daerah)->first();
+
+        // dd($pelesen2);
+
+
+
+        if ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL91') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL91') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL101') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL101') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senarai.pelesen.batal.penapis'), 'name' => "Senarai Pelesen Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL102') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_kat == 'PL102' && $reg_pelesen->e_status == '2') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senarai.pelesen.batal.isirung'), 'name' => "Senarai Pelesen Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL104') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL104') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senarai.pelesen.batal.oleokimia'), 'name' => "Senarai Pelesen Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL111') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL111') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senarai.pelesen.batal.simpanan'), 'name' => "Senarai Pelesen Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PLBIO') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Biodiesel"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO') {
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senarai.pelesen.batal.bio'), 'name' => "Senarai Pelesen Biodiesel Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        }
+
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
+
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        // $pelesen = Pelesen::find($e_id);
+        // dd($pelesen);
+        // $pengumuman = \DB::table('pengumuman')->get();
+        // dd($id);
+
+        return view('admin.proses1.admin-cetak-surat', compact(
+            'returnArr',
+            'layout',
+            'pelesen',
+            'pelesen2',
+            'negeri',
+            'reg_pelesen',
+            'tarikh'
+
+
+        ));
+    }
+
     public function admin_prestasi_oer($nolesen)
     {
         // $test = DB::connection('mysql3')->select("SELECT tahun, bulan, oer_cpo FROM oercluster
