@@ -63,11 +63,11 @@
                             <div class="container center ">
                                 <div class="table-responsive">
                                     <div id="tblData">
+                             @if ($sektor == 'PL91')
                                     <table id="example" class="table table-bordered"
                                         style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
-
 
                                                 <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
                                                 <th style="text-align: center; vertical-align: middle">No. Lesen</th>
@@ -163,9 +163,227 @@
                                                 <td>{{ $data->nama ?? ''}}</td>
                                                 <td>{{ $data->nama_negeri ?? 'TIADA'}}</td>
                                                 <td>{{ $data->cap_lesen ?? ''}}</td>
+                                                @if ($data->nama == '' || $data->nama_negeri == '' || $data->cap_lesen =='')
+                                                <td style="font: red">
+                                                    <ul>
+                                                    @if ($data->nama == '')
+                                                        <li>Pelesen tidak berdaftar dalam Sistem PLEID.</li>
+                                                    @elseif ($data->nama_negeri == '')
+                                                        <li>Negeri tidak disetkan dalam Sistem PLEID.</li>
+                                                    @elseif ($data->cap_lesen == '')
+                                                        <li>Pelesen tiada kapasiti pengilangan dilulus pada bulan ini.</li>
+                                                    @else
+                                                    @endif
+                                                    </ul>
+                                                <td>
+                                                @else
+                                                <td></td>
+                                                @endif
+                                            @endforeach
+
+                                        </tbody>
+                                        @else
+                                        <td colspan="8" style="text-align: center">Tiada kesalahan Kapasiti Pengilangan Dilulus</td>
+
+                                        @endif
+
+                                    </table>
+                                    @elseif ($sektor == 'PL101')
+
+                                    <table id="example" class="table table-bordered"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
+
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
 
 
+                                                {{-- <th>No. Siri</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr style="background-color: #e9ecefbd">
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
+                                            </tr>
+                                        </tfoot>
+                                        @if($query1 && !$query1->isEmpty())
+                                        <tbody style="word-break: break-word; font-size:12px">
+                                             @foreach ($query1 as $data)
+                                                <tr>
+                                                <td>{{ $data->nobatch ?? ''}}<br></td>
+                                                <td>{{ $data->nolesen ?? ''}}</td>
+                                                <td>{{ $data->nama ?? ''}}</td>
+                                                <td>{{ $data->nama_negeri ?? 'TIADA' }}</td>
+                                                <td>{{ $data->cap_lulus ?? ''}}</td>
+                                                <td>{{ $data->minyaksawit_proses ?? ''}}</td>
+                                                <td>{{ $data->minyakisirong_proses ?? '' }}</td>
+                                                @if ($data->nama == '' || $data->nama_negeri == '' || $data->cap_lesen =='' || $data->cap_lulus == 0)
+                                                <td style="font: red">
+                                                    <ul>
+                                                    @if ($data->nama == '')
+                                                        <li>Pelesen tidak berdaftar dalam Sistem PLEID.</li>
+                                                    @elseif ($data->nama_negeri == '')
+                                                        <li>Negeri tidak disetkan dalam Sistem PLEID.</li>
+                                                    @elseif ($data->cap_lesen == '')
+                                                        <li>Pelesen tiada kapasiti pengilangan dilulus pada bulan ini.</li>
+                                                    @elseif ($data->cap_lulus == 0)
+                                                        <li>Kapasiti pengilangan dilulus adalah 0<</li>
+                                                    @else
+                                                    @endif
+                                                    </ul>
+                                                <td>
+                                                @else
+                                                <td></td>
+                                                @endif
+                                                </tr>
+                                            @endforeach
 
+                                        </tbody>
+                                        @else
+                                        <td colspan="8" style="text-align: center">Tiada kesalahan Kapasiti Pengilangan Dilulus</td>
+
+                                        @endif
+
+                                    </table>
+                                    @elseif ($sektor == 'PL102')
+                                    <table id="example" class="table table-bordered"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
+
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
+
+
+                                                {{-- <th>No. Siri</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr style="background-color: #e9ecefbd">
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
+                                            </tr>
+                                        </tfoot>
+                                        @if($query1 && !$query1->isEmpty())
+                                        <tbody style="word-break: break-word; font-size:12px">
+                                             @foreach ($query1 as $data)
+                                                <tr>
+                                                <td>{{ $data->nobatch ?? ''}}<br></td>
+                                                <td>{{ $data->nolesen ?? ''}}</td>
+                                                <td>{{ $data->nama ?? ''}}</td>
+                                                <td>{{ $data->nama_negeri ?? 'TIADA' }}</td>
+                                                <td>{{ $data->cap_lesen ?? ''}}</td>
+                                                @if ($data->nama == '' || $data->nama_negeri == '' || $data->cap_lesen == '' )
+                                                <td style="font: red">
+                                                    <ul>
+                                                    @if ($data->nama == '')
+                                                        <li>Pelesen tidak berdaftar dalam Sistem PLEID.</li>
+                                                    @elseif ($data->nama_negeri == '')
+                                                        <li>Negeri tidak disetkan dalam Sistem PLEID.</li>
+                                                    @elseif ($data->cap_lesen == '')
+                                                        <li>Pelesen tiada kapasiti pengilangan dilulus pada bulan ini.</li>
+                                                    @else
+                                                    @endif
+                                                    </ul>
+                                                <td>
+                                                @else
+                                                <td></td>
+                                                @endif
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                        @else
+                                        <td colspan="8" style="text-align: center">Tiada kesalahan Kapasiti Pengilangan Dilulus</td>
+
+                                        @endif
+
+                                    </table>
+                                    @elseif ($sektor == 'PL104')
+                                    <table id="example" class="table table-bordered"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
+
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Lain-Lain Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
+
+
+                                                {{-- <th>No. Siri</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr style="background-color: #e9ecefbd">
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Lain-Lain Diproses</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
+                                            </tr>
+                                        </tfoot>
+                                        @if($query1 && !$query1->isEmpty())
+                                        <tbody style="word-break: break-word; font-size:12px">
+                                             @foreach ($query1 as $data)
+                                                <tr>
+                                                <td>{{ $data->nobatch ?? ''}}<br></td>
+                                                <td>{{ $data->nolesen ?? ''}}</td>
+                                                <td>{{ $data->nama ?? ''}}</td>
+                                                <td>{{ $data->nama_negeri ?? 'TIADA' }}</td>
+                                                <td>{{ $data->cap_lulus ?? ''}}</td>
+                                                <td>{{ $data->minyaksawit_proses ?? ''}}</td>
+                                                <td>{{ $data->minyakisirong_proses ?? ''}}</td>
+                                                <td>{{ $data->lainlain_proses ?? ''}}</td>
+                                                @if ($data->nama == '' || $data->nama_negeri == '' || $data->cap_lesen == '' || $data->cap_lulus== '' )
+                                                <td style="font: red">
+                                                    <ul>
+                                                    @if ($data->nama == '')
+                                                        <li>Pelesen tidak berdaftar dalam Sistem PLEID.</li>
+                                                    @elseif ($data->nama_negeri == '')
+                                                        <li>Negeri tidak disetkan dalam Sistem PLEID.</li>
+                                                    @elseif ($data->cap_lesen == '')
+                                                        <li>Pelesen tiada kapasiti pengilangan dilulus pada bulan ini.</li>
+                                                    @elseif ($data->cap_lulus == 0)
+                                                        <li>Kapasiti pengilangan dilulus adalah 0</li>
+                                                    @else
+                                                    @endif
+                                                    </ul>
+                                                <td>
+                                                @else
+                                                <td></td>
+                                                @endif
                                                 </tr>
                                             @endforeach
 
@@ -182,7 +400,7 @@
 
 
 
-                                </div>
+
                             </div>
                         </div>
                     </div>
