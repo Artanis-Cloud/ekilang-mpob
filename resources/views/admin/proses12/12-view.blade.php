@@ -63,7 +63,7 @@
                             <div class="container center ">
                                 <div class="table-responsive">
                                     <div id="tblData">
-                                    <table id="examplebio" class="table table-bordered"
+                                    <table id="example" class="table table-bordered"
                                         style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd">
@@ -127,7 +127,7 @@
 
                                     </table>
                                     {{-- </div> --}}
-                                  
+
                                 </div>
 
 
@@ -142,96 +142,7 @@
 
 
 
-                                <div class="row" style="margin-top:-2%">
 
-                                    <label for="fname"
-                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">
-                                        Sektor Kilang</label>
-                                    <div class="col-md-6">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" id="basicSelect" name="e_kat" required>
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="PL91">KILANG BUAH</option>
-                                                <option value="PL101">KILANG PENAPIS</option>
-                                                <option value="PL102">KILANG ISIRUNG</option>
-                                                <option value="PL104">KILANG OLEOKIMIA</option>
-                                                <option value="PL111">PUSAT SIMPANAN</option>
-                                                <option value="PLBIO">KILANG BIODIESEL</option>
-
-                                            </select>
-
-                                        </fieldset>
-                                        @error('e_kat')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila buat pilihan di bahagian ini</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    </div>
-                                    <div class="row" style="margin-top:-1%">
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
-                                        </label>
-                                        <div class="col-md-6">
-                                            <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="tahun">
-                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                @for ($i = 2011; $i <= date('Y'); $i++)
-                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
-
-
-
-                                                </select>
-                                            </fieldset>
-                                            @error('tahun')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila buat pilihan di bahagian ini</strong>
-                                            </div>
-                                        @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="row" style="margin-top:-1%">
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
-                                        </label>
-                                        <div class="col-md-6">
-                                            <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="bulan">
-                                                    <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                    <option value="01">JANUARI</option>
-                                                    <option value="02">FEBRUARI</option>
-                                                    <option value="03">MAC</option>
-                                                    <option value="04">APRIL</option>
-                                                    <option value="05">MEI</option>
-                                                    <option value="06">JUN</option>
-                                                    <option value="07">JULAI</option>
-                                                    <option value="08">OGOS</option>
-                                                    <option value="09">SEPTEMBER</option>
-                                                    <option value="10">OKTOBER</option>
-                                                    <option value="11">NOVEMBER</option>
-                                                    <option value="12">DISEMBER</option>
-
-
-
-                                                </select>
-                                            </fieldset>
-                                            @error('bulan')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila buat pilihan di bahagian ini</strong>
-                                            </div>
-                                        @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="row center mt-3">
-                                        <div class="col-md-12 center mb-3">
-                                            <button type="submit" class="btn btn-primary center" style="margin-left:45%"
-                                                data-toggle="modal" data-target="#myModal">Hantar</button>
-                                            {{-- <button type="submit">YA</button> --}}
-                                        </div>
-                                    </div>
 
                                     {{-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel" aria-hidden="true">
@@ -279,7 +190,7 @@
     @endsection
 
     @section('scripts')
-        <script>
+        {{-- <script>
             $(document).ready(function() {
                 $('#example').DataTable({
                     "language": {
@@ -299,5 +210,5 @@
                     },
                 });
             });
-        </script>
+        </script> --}}
     @endsection
