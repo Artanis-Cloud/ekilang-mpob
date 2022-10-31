@@ -207,7 +207,7 @@
                                                 <th style="text-align: center; vertical-align: middle">No. Lesen</th>
                                                 <th style="text-align: center; vertical-align: middle">Nama</th>
                                                 <th style="text-align: center; vertical-align: middle">Negeri</th>
-                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle; width:75%">Kapasiti Pengilangan Dilulus</th>
                                                 <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
                                                 <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
                                                 <th style="text-align: center; vertical-align: middle">Catatan</th>
@@ -445,7 +445,67 @@
                             });
                         });
                 },
+                dom: 'Bfrtip',
 
+                buttons: [
+
+                    'pageLength',
+
+                    {
+
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred",
+
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'e-Kilang',
+
+                        messageTop: function(doc) {
+                            return $('#tarikh').text()
+                        },
+
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
+
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6,7]
+                        },
+                        title: function(doc) {
+                                return $('#title').text() + $ ('#tarikh').text()
+                                },
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+                        filename: 'Penyata Bulan',
+
+                    },
+                ],
                 "language": {
                     "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
