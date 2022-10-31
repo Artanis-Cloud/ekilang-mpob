@@ -394,6 +394,7 @@
                                         @endif
 
                                     </table>
+                                    @endif
                                     {{-- </div> --}}
 
                                 </div>
