@@ -191,7 +191,7 @@
                                     @elseif ($sektor == 'PL101')
 
                                     <table id="example" class="table table-bordered"
-                                        style="width: 100%;">
+                                        >
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
@@ -241,11 +241,11 @@
                                                     @elseif ($data->cap_lesen == '')
                                                         <li>Pelesen tiada kapasiti pengilangan dilulus pada bulan ini.</li>
                                                     @elseif ($data->cap_lulus == 0)
-                                                        <li>Kapasiti pengilangan dilulus adalah 0<</li>
+                                                        <li>Kapasiti pengilangan dilulus adalah 0</li>
                                                     @else
                                                     @endif
                                                     </ul>
-                                                <td>
+                                                </td>
                                                 @else
                                                 <td></td>
                                                 @endif
