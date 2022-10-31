@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Lain-lain</h4>
+                    <h4 class="page-title">Validasi</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -58,10 +58,96 @@
                             </h6>
                         </div>
                         <hr>
-                        <form action="{{ route('admin.validasi.proses') }}" method="post">
-                            @csrf
+
                         <div class="card-body">
                             <div class="container center ">
+                                <div class="table-responsive">
+                                    <div id="tblData">
+                                    <table id="examplebio" class="table table-bordered"
+                                        style="width: 100%;">
+                                        <thead>
+                                            <tr style="background-color: #e9ecefbd">
+
+
+                                                <th>No. Batch<br></th>
+                                                <th>No. Lesen</th>
+                                                {{-- <th>Kod Pegawai</th> --}}
+                                                <th>Nama</th>
+                                                <th>Negeri</th>
+                                                <th>Pengeluaran CPO</th>
+                                                <th>Pengeluaran PK</th>
+                                                <th>FFB Proses</th>
+                                                <th>Catatan</th>
+
+
+                                                {{-- <th>No. Siri</th> --}}
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr style="background-color: #e9ecefbd">
+                                                <th>No. Batch<br></th>
+                                                <th>No. Lesen</th>
+                                                {{-- <th>Kod Pegawai</th> --}}
+                                                <th>Nama</th>
+                                                <th>Negeri</th>
+                                                <th>Pengeluaran CPO</th>
+                                                <th>Pengeluaran PK</th>
+                                                <th>FFB Proses</th>
+                                                <th>Catatan</th>
+
+                                                {{-- <th>No. Siri</th> --}}
+                                            </tr>
+                                        </tfoot>
+                                        <tbody style="word-break: break-word; font-size:12px">
+                                             @foreach ($users as $data)
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                            value="{{ $data->ebio_reg }}">&nbspYa
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{ $data->e91_flagcetak ?? 'N' }}
+                                                    </td>
+
+                                                    <td>{{ $data->e_nl ?? '-' }}</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
+                                                    {{-- <td>{{ $data->kodpgw }}</td> --}}
+
+                                                    <td>{{ $data->e_email ?? '-' }}</td>
+                                                    <td>{{ $data->e_notel ?? '-' }}</td>
+                                                    <td>{{ $data->sdate }}</td>
+
+                                                    {{-- <td>{{ $data->nosiri }}</td> --}}
+
+
+
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+
+                                    </table>
+                                    {{-- </div> --}}
+                                    <div class="text-left col-md-8">
+                                        <button type="submit" class="btn btn-primary ">Papar</button>
+
+
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <div class="row" style="margin-top:-2%">
 
                                     <label for="fname"
@@ -152,7 +238,6 @@
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>
-                                </form>
 
                                     {{-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel" aria-hidden="true">

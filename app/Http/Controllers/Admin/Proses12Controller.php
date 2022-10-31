@@ -54,12 +54,30 @@ class Proses12Controller extends Controller
             (round(p.F911J1,2) > 0 or round(p.F911J2,2)> 0) and
             (p.F911I in (0) or p.F911I is null)
 			group by p.F911D, p.F911C, l.F201U4, l.F201U2");
-        }
-        $this->validation_tambah_pembeli($request->all())->validate();
-        $this->store_tambah_pembeli($request->all());
 
 
-        return redirect()->back()->with('success', 'Pembeli sudah ditambah');
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.12validation'), 'name' => "Validasi"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+        // $this->validation_tambah_pembeli($request->all())->validate();
+        // $this->store_tambah_pembeli($request->all());
+        return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1'));
+    } else {
+        return redirect()->back()->with('error', 'Data tidak wujud!');
+
+    }
+
+
+        // return redirect()->back()->with('success', 'Pembeli sudah ditambah');
     }
 
     // protected function validation_direktori(array $data)
