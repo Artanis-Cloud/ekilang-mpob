@@ -69,14 +69,14 @@
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
 
-                                                <th style="vertical-align: middle">No. Batch<br></th>
-                                                <th style="vertical-align: middle">No. Lesen</th>
-                                                <th style="vertical-align: middle">Nama</th>
-                                                <th style="vertical-align: middle">Negeri</th>
-                                                <th style="vertical-align: middle">Pengeluaran CPO</th>
-                                                <th style="vertical-align: middle">Pengeluaran PK</th>
-                                                <th style="vertical-align: middle">FFB Proses</th>
-                                                <th style="vertical-align: middle">Catatan</th>
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Pengeluaran CPO</th>
+                                                <th style="text-align: center; vertical-align: middle">Pengeluaran PK</th>
+                                                <th style="text-align: center; vertical-align: middle">FFB Proses</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
 
 
                                                 {{-- <th>No. Siri</th> --}}
@@ -133,12 +133,12 @@
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
 
-                                                <th style="vertical-align: middle">No. Batch<br></th>
-                                                <th style="vertical-align: middle">No. Lesen</th>
-                                                <th style="vertical-align: middle">Nama</th>
-                                                <th style="vertical-align: middle">Negeri</th>
-                                                <th style="vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
-                                                <th style="vertical-align: middle">Catatan</th>
+                                                <th style="text-align: center; vertical-align: middle">No. Batch<br></th>
+                                                <th style="text-align: center; vertical-align: middle">No. Lesen</th>
+                                                <th style="text-align: center; vertical-align: middle">Nama</th>
+                                                <th style="text-align: center; vertical-align: middle">Negeri</th>
+                                                <th style="text-align: center; vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center; vertical-align: middle">Catatan</th>
 
 
                                                 {{-- <th>No. Siri</th> --}}
