@@ -106,6 +106,8 @@ class Proses12Controller extends Controller
 				group by l.F201A,nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus HAVING minyaksawit_proses>0 or minyakisirong_proses>0
 				order by l.F201A");
 
+                dd($query1);
+
 
 
                 $breadcrumbs    = [
