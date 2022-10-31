@@ -64,8 +64,7 @@
                                 <div class="table-responsive">
                                     <div id="tblData">
                              @if ($sektor == 'PL91')
-                                    <table id="example" class="table table-bordered"
-                                        style="width: 100%;">
+                                    <table id="example" class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
@@ -94,7 +93,7 @@
                                                 <th style="text-align: center">Catatan</th>
                                             </tr>
                                         </tfoot>
-                                        @if($query1 && !$query1->isEmpty())
+                                        @if($query1)
                                         <tbody style="word-break: break-word; font-size:12px">
                                              @foreach ($query1 as $data)
                                                 <tr>
@@ -127,8 +126,7 @@
                                 <br>
                                 <div class="table-responsive">
                                     <div id="tblData">
-                                    <table id="example2" class="table table-bordered"
-                                        style="width: 100%;">
+                                    <table id="example2" class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
@@ -154,7 +152,7 @@
                                                 <th style="text-align: center">Catatan</th>
                                             </tr>
                                         </tfoot>
-                                        @if($query2 && !$query2->isEmpty())
+                                        @if($query2)
                                         <tbody style="word-break: break-word; font-size:12px">
                                              @foreach ($query2 as $data)
                                                 <tr>
@@ -190,8 +188,7 @@
                                     </table>
                                     @elseif ($sektor == 'PL101')
 
-                                    <table id="example" class="table table-bordered"
-                                        >
+                                    <table id="example" class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
@@ -203,9 +200,6 @@
                                                 <th style="text-align: center; vertical-align: middle">Minyak Sawit Diproses</th>
                                                 <th style="text-align: center; vertical-align: middle">Minyak Isirung Sawit Diproses</th>
                                                 <th style="text-align: center; vertical-align: middle">Catatan</th>
-
-
-                                                {{-- <th>No. Siri</th> --}}
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -260,8 +254,7 @@
 
                                     </table>
                                     @elseif ($sektor == 'PL102')
-                                    <table id="example" class="table table-bordered"
-                                        style="width: 100%;">
+                                    <table id="example" class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
@@ -286,7 +279,7 @@
                                                 <th style="text-align: center; vertical-align: middle">Catatan</th>
                                             </tr>
                                         </tfoot>
-                                        @if($query1 && !$query1->isEmpty())
+                                        @if($query1)
                                         <tbody style="word-break: break-word; font-size:12px">
                                              @foreach ($query1 as $data)
                                                 <tr>
@@ -322,8 +315,7 @@
 
                                     </table>
                                     @elseif ($sektor == 'PL104')
-                                    <table id="example" class="table table-bordered"
-                                        style="width: 100%;">
+                                    <table id="example" class="table table-bordered">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
@@ -354,7 +346,7 @@
                                                 <th style="text-align: center; vertical-align: middle">Catatan</th>
                                             </tr>
                                         </tfoot>
-                                        @if($query1 && !$query1->isEmpty())
+                                        @if($query1)
                                         <tbody style="word-break: break-word; font-size:12px">
                                              @foreach ($query1 as $data)
                                                 <tr>
