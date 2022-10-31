@@ -98,24 +98,19 @@
                                                 {{-- <th>No. Siri</th> --}}
                                             </tr>
                                         </tfoot>
+                                        @if($query1 && !$query1->isEmpty())
                                         <tbody style="word-break: break-word; font-size:12px">
-                                             @foreach ($users as $data)
+                                             @foreach ($query1 as $data)
                                                 <tr>
-                                                    <td class="text-center">
-                                                        <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
-                                                            value="{{ $data->ebio_reg }}">&nbspYa
-                                                    </td>
-                                                    <td class="text-center">
-                                                        {{ $data->e91_flagcetak ?? 'N' }}
-                                                    </td>
+                                                <td>{{ $data->nobatch }}<br></td>
+                                                <td>{{ $data->nolesen }}</td>
+                                                <td>{{ $data->nama }}</td>
+                                                <td>{{ $data->nama_negeri }}</td>
+                                                <td>{{ $data->cpo_prod }}</td>
+                                                <td>{{ $data->pk_prod }}</td>
+                                                <td>{{ $data->ffb_proc }}</td>
+                                                <td>FFB Proses tiada</td>
 
-                                                    <td>{{ $data->e_nl ?? '-' }}</td>
-                                                    <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
-                                                    {{-- <td>{{ $data->kodpgw }}</td> --}}
-
-                                                    <td>{{ $data->e_email ?? '-' }}</td>
-                                                    <td>{{ $data->e_notel ?? '-' }}</td>
-                                                    <td>{{ $data->sdate }}</td>
 
                                                     {{-- <td>{{ $data->nosiri }}</td> --}}
 
@@ -125,15 +120,14 @@
                                             @endforeach
 
                                         </tbody>
+                                        @else
+                                        <td colspan="8" style="text-align: center">Tiada kesalahan FFB Proses</td>
+
+                                        @endif
 
                                     </table>
                                     {{-- </div> --}}
-                                    <div class="text-left col-md-8">
-                                        <button type="submit" class="btn btn-primary ">Papar</button>
-
-
-
-                                    </div>
+                                  
                                 </div>
 
 
