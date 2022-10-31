@@ -69,14 +69,14 @@
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
 
-                                                <th>No. Batch<br></th>
-                                                <th>No. Lesen</th>
-                                                <th>Nama</th>
-                                                <th>Negeri</th>
-                                                <th>Pengeluaran CPO</th>
-                                                <th>Pengeluaran PK</th>
-                                                <th>FFB Proses</th>
-                                                <th>Catatan</th>
+                                                <th style="vertical-align: middle">No. Batch<br></th>
+                                                <th style="vertical-align: middle">No. Lesen</th>
+                                                <th style="vertical-align: middle">Nama</th>
+                                                <th style="vertical-align: middle">Negeri</th>
+                                                <th style="vertical-align: middle">Pengeluaran CPO</th>
+                                                <th style="vertical-align: middle">Pengeluaran PK</th>
+                                                <th style="vertical-align: middle">FFB Proses</th>
+                                                <th style="vertical-align: middle">Catatan</th>
 
 
                                                 {{-- <th>No. Siri</th> --}}
@@ -84,14 +84,14 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd">
-                                                <th>No. Batch<br></th>
-                                                <th>No. Lesen</th>
-                                                <th>Nama</th>
-                                                <th>Negeri</th>
-                                                <th>Pengeluaran CPO</th>
-                                                <th>Pengeluaran PK</th>
-                                                <th>FFB Proses</th>
-                                                <th>Catatan</th>
+                                                <th style="text-align: center">No. Batch<br></th>
+                                                <th style="text-align: center">No. Lesen</th>
+                                                <th style="text-align: center">Nama</th>
+                                                <th style="text-align: center">Negeri</th>
+                                                <th style="text-align: center">Pengeluaran CPO</th>
+                                                <th style="text-align: center">Pengeluaran PK</th>
+                                                <th style="text-align: center">FFB Proses</th>
+                                                <th style="text-align: center">Catatan</th>
                                             </tr>
                                         </tfoot>
                                         @if($query1 && !$query1->isEmpty())
@@ -133,12 +133,12 @@
                                             <tr style="background-color: #e9ecefbd; text-align:center; vertical-align:middle">
 
 
-                                                <th>No. Batch<br></th>
-                                                <th>No. Lesen</th>
-                                                <th>Nama</th>
-                                                <th>Negeri</th>
-                                                <th>Kapasiti Pengilangan Dilulus</th>
-                                                <th>Catatan</th>
+                                                <th style="vertical-align: middle">No. Batch<br></th>
+                                                <th style="vertical-align: middle">No. Lesen</th>
+                                                <th style="vertical-align: middle">Nama</th>
+                                                <th style="vertical-align: middle">Negeri</th>
+                                                <th style="vertical-align: middle">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="vertical-align: middle">Catatan</th>
 
 
                                                 {{-- <th>No. Siri</th> --}}
@@ -146,12 +146,12 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd">
-                                                <th>No. Batch<br></th>
-                                                <th>No. Lesen</th>
-                                                <th>Nama</th>
-                                                <th>Negeri</th>
-                                                <th>Kapasiti Pengilangan Dilulus</th>
-                                                <th>Catatan</th>
+                                                <th style="text-align: center">No. Batch<br></th>
+                                                <th style="text-align: center">No. Lesen</th>
+                                                <th style="text-align: center">Nama</th>
+                                                <th style="text-align: center">Negeri</th>
+                                                <th style="text-align: center">Kapasiti Pengilangan Dilulus</th>
+                                                <th style="text-align: center">Catatan</th>
                                             </tr>
                                         </tfoot>
                                         @if($query2 && !$query2->isEmpty())
@@ -207,7 +207,7 @@
         });
 
         // DataTable
-            var table = $('#example').DataTable({
+            var table = $('#example2').DataTable({
 
                 initComplete: function () {
 
