@@ -68,6 +68,24 @@ class Proses12Controller extends Controller
             p.F911I> 0");
 
 
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.12validation'), 'name' => "Validasi"],
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+            // $this->validation_tambah_pembeli($request->all())->validate();
+            // $this->store_tambah_pembeli($request->all());
+            return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1','query2'));
+
+
         } elseif ($sektor == 'PL101') {
             $query1 =  DB::connection('mysql4')->select("SELECT a.F101A4 as nobatch, l.F201A as nolesen,l.F201T AS nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus,
 				SUM(CASE  WHEN b.F101B3 = '1' THEN  b.F101B10 ELSE NULL END)  AS minyaksawit_proses,
@@ -85,6 +103,25 @@ class Proses12Controller extends Controller
 				 cap_lulus=0)
 				group by l.F201A,nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus HAVING minyaksawit_proses>0 or minyakisirong_proses>0
 				order by l.F201A");
+
+
+
+                $breadcrumbs    = [
+                    ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                    ['link' => route('admin.12validation'), 'name' => "Validasi"],
+                ];
+
+                $kembali = route('admin.dashboard');
+
+                $returnArr = [
+                    'breadcrumbs' => $breadcrumbs,
+                    'kembali'     => $kembali,
+                ];
+                $layout = 'layouts.admin';
+                // $this->validation_tambah_pembeli($request->all())->validate();
+                // $this->store_tambah_pembeli($request->all());
+                return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1'));
+
         } elseif ($sektor == 'PL102') {
             $query1 =  DB::connection('mysql4')->select("SELECT p.F1021B as nobatch,p.F1021A as nolesen,l.F201T as nama,c.nama_negeri,p.F1021D,p.F1021C,m.cap_lesen,m.cap_kat
 				FROM pldb.pl1021p3  AS p
@@ -96,6 +133,25 @@ class Proses12Controller extends Controller
 				p.F1021C = '$bulan'  AND
 				 (m.cap_lesen is null or l.F201A is null) AND
 				 p.F1021K> 0");
+
+
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.12validation'), 'name' => "Validasi"],
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+            // $this->validation_tambah_pembeli($request->all())->validate();
+            // $this->store_tambah_pembeli($request->all());
+            return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1'));
+
         } elseif ($sektor == 'PL104') {
             $query1 =  DB::connection('mysql4')->select("SELECT a.F104A4 as nobatch, l.F201A as nolesen,l.F201T AS nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus,
                 SUM(CASE  WHEN b.F104B3 = '1' THEN  b.F104B10 ELSE NULL END)  AS minyaksawit_proses,
@@ -114,28 +170,29 @@ class Proses12Controller extends Controller
                 cap_lulus=0)
                 group by l.F201A,nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus HAVING minyaksawit_proses>0 or minyakisirong_proses>0 or lainlain_proses>0
                 order by l.F201A");
+
+
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.12validation'), 'name' => "Validasi"],
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+            // $this->validation_tambah_pembeli($request->all())->validate();
+            // $this->store_tambah_pembeli($request->all());
+            return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1'));
         }
         else {
             return redirect()->back()->with('error', 'Data tidak wujud!');
 
         }
-
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.12validation'), 'name' => "Validasi"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-        // $this->validation_tambah_pembeli($request->all())->validate();
-        // $this->store_tambah_pembeli($request->all());
-        return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1','query2'));
 
 
 
