@@ -68,6 +68,59 @@ class Proses12Controller extends Controller
             p.F911I> 0");
 
 
+        } elseif ($sektor == 'PL101') {
+            $query1 =  DB::connection('mysql4')->select("SELECT a.F101A4 as nobatch, l.F201A as nolesen,l.F201T AS nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus,
+				SUM(CASE  WHEN b.F101B3 = '1' THEN  b.F101B10 ELSE NULL END)  AS minyaksawit_proses,
+				SUM(CASE  WHEN b.F101B3 = '2' THEN  b.F101B10 ELSE NULL END)  AS minyakisirong_proses
+				FROM
+				pldb.pl101bp3 AS b
+				LEFT JOIN pldb.pl101ap3 AS a ON b.F101B2 = a.F101A4
+				LEFT JOIN licensedb.license AS l ON l.F201A = a.F101A1
+				LEFT JOIN codedb.negeri AS c ON l.F201U4 = c.kod_negeri
+				LEFT JOIN lesen_master.mpku_caps as m ON a.F101A1 = m.cap_lesen AND m.cap_mmyyyy = '$blnthn' AND m.cap_kat = '06'
+				WHERE
+				a.F101A6 = '$tahun' AND
+				a.F101A5 = '$bulan' and
+				(m.cap_lesen IS null OR
+				 cap_lulus=0)
+				group by l.F201A,nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus HAVING minyaksawit_proses>0 or minyakisirong_proses>0
+				order by l.F201A");
+        } elseif ($sektor == 'PL102') {
+            $query1 =  DB::connection('mysql4')->select("SELECT p.F1021B as nobatch,p.F1021A as nolesen,l.F201T as nama,c.nama_negeri,p.F1021D,p.F1021C,m.cap_lesen,m.cap_kat
+				FROM pldb.pl1021p3  AS p
+				left JOIN licensedb.license as l ON p.F1021A = l.F201A
+				left JOIN codedb.negeri as c ON l.F201U4 = c.kod_negeri
+				LEFT JOIN lesen_master.mpku_caps as m ON p.F1021A = m.cap_lesen and m.cap_mmyyyy = '$blnthn' and m.cap_kat='05'
+				WHERE
+				p.F1021D = '$tahun' AND
+				p.F1021C = '$bulan'  AND
+				 (m.cap_lesen is null or l.F201A is null) AND
+				 p.F1021K> 0");
+        } elseif ($sektor == 'PL104') {
+            $query1 =  DB::connection('mysql4')->select("SELECT a.F104A4 as nobatch, l.F201A as nolesen,l.F201T AS nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus,
+                SUM(CASE  WHEN b.F104B3 = '1' THEN  b.F104B10 ELSE NULL END)  AS minyaksawit_proses,
+                SUM(CASE  WHEN b.F104B3 = '2' THEN  b.F104B10 ELSE NULL END)  AS minyakisirong_proses,
+                SUM(CASE  WHEN b.F104B3 = '3' THEN  b.F104B10 ELSE NULL END)  AS lainlain_proses
+                FROM
+                pldb.pl104bp1 AS b
+                LEFT JOIN pldb.pl104ap1 AS a ON b.F104B2 = a.F104A4
+                LEFT JOIN licensedb.license AS l ON l.F201A = a.F104A1
+                LEFT JOIN codedb.negeri AS c ON l.F201U4 = c.kod_negeri
+                LEFT JOIN lesen_master.mpku_caps as m ON a.F104A1 = m.cap_lesen AND m.cap_mmyyyy = '$blnthn' AND m.cap_kat = '06'
+                WHERE
+                a.F104A6 = '$tahun' AND
+                a.F104A5 = '$bulan' and
+                (m.cap_lesen IS null OR
+                cap_lulus=0)
+                group by l.F201A,nama,c.kod_negeri,c.nama_negeri,m.cap_lesen,m.cap_kat,m.cap_lulus HAVING minyaksawit_proses>0 or minyakisirong_proses>0 or lainlain_proses>0
+                order by l.F201A");
+        }
+        else {
+            return redirect()->back()->with('error', 'Data tidak wujud!');
+
+        }
+
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.12validation'), 'name' => "Validasi"],
@@ -83,10 +136,7 @@ class Proses12Controller extends Controller
         // $this->validation_tambah_pembeli($request->all())->validate();
         // $this->store_tambah_pembeli($request->all());
         return view('admin.proses12.12-view', compact('returnArr', 'layout', 'tahun','bulan', 'sektor','query1','query2'));
-    } else {
-        return redirect()->back()->with('error', 'Data tidak wujud!');
 
-    }
 
 
         // return redirect()->back()->with('success', 'Pembeli sudah ditambah');
