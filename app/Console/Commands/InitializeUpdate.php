@@ -47,7 +47,7 @@ class InitializeUpdate extends Command
     public function handle()
     {
         $tahun = date('Y');
-        $bulan = date('m');
+        $bulan = date('m') - 1;
         $current_date = date('Y-m-d');
         $date = Init::where('tahun', $tahun)->first();
 
