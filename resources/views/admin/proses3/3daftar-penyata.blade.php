@@ -325,132 +325,132 @@
                                                 <th class="text-center" scope="row">1</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sjan" value="{{ $date->sjan }}">
+                                                    name="sjan" value="{{ $date->sjan ?? '' }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="ejan" value="{{ $date->ejan }}">
+                                                    name="ejan" value="{{ $date->ejan ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">2</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sfeb" value="{{ $date->sfeb }}">
+                                                    name="sfeb" value="{{ $date->sfeb  ?? '' }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="efeb" value="{{  $date->efeb }}">
+                                                    name="efeb" value="{{  $date->efeb ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">3</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="smac" value="{{  $date->smac  }}">
+                                                    name="smac" value="{{  $date->smac  ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="emac" value="{{  $date->emac  }}">
+                                                    name="emac" value="{{  $date->emac ?? ''   }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center" scope="row">4</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sapr" value="{{  $date->sapr  }}">
+                                                    name="sapr" value="{{  $date->sapr  ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="eapr" value="{{  $date->eapr  }}">
+                                                    name="eapr" value="{{  $date->eapr  ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">5</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="smei" value="{{  $date->smei  }}">
+                                                    name="smei" value="{{  $date->smei  ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="emei" value="{{  $date->emei  }}">
+                                                    name="emei" value="{{  $date->emei ?? ''   }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">6</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sjun" value="{{  $date->sjun  }}">
+                                                    name="sjun" value="{{  $date->sjun  ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="ejun" value="{{  $date->ejun  }}">
+                                                    name="ejun" value="{{  $date->ejun  ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center" scope="row">7</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sjul" value="{{  $date->sjul  }}">
+                                                    name="sjul" value="{{  $date->sjul  ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="ejul" value="{{ $date->ejul }}">
+                                                    name="ejul" value="{{ $date->ejul  ?? '' }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">8</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sogos" value="{{ $date->sogos }}">
+                                                    name="sogos" value="{{ $date->sogos ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="eogos" value="{{ $date->eogos }}">
+                                                    name="eogos" value="{{ $date->eogos ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">9</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="ssept" value="{{ $date->ssept }}">
+                                                    name="ssept" value="{{ $date->ssept ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="esept" value="{{ $date->esept }}">
+                                                    name="esept" value="{{ $date->esept ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center" scope="row">10</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sokt" value="{{ $date->sokt }}">
+                                                    name="sokt" value="{{ $date->sokt ?? ''  }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="eokt" value="{{ $date->eokt }}">
+                                                    name="eokt" value="{{ $date->eokt ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">11</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="snov" value="{{ $date->snov }}">
+                                                    name="snov" value="{{ $date->snov ?? '' }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="enov" value="{{ $date->enov }}">
+                                                    name="enov" value="{{ $date->enov ?? ''  }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">12</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="sdec" value="{{ $date->sdec }}">
+                                                    name="sdec" value="{{ $date->sdec ?? '' }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="edec" value="{{ $date->edec }}">
+                                                    name="edec" value="{{ $date->edec ?? ''  }}">
                                                 </td>
                                             </tr>
 
