@@ -40,76 +40,89 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:2%; margin-left:2%; margin-top:2%">
+        <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%; margin-top: 20px">
+            <div class="col-1 align-self-center">
+                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+            </div>
+
+            <div class="col-11 align-self-center" style="text-align: right">
+                <button type="button" class="btn btn-primary " style="margin: 1%"
+                    onclick="myPrint('myfrm')" value="print">Cetak</button>
+            </div>
+        </div>
+        <div class="card" style="margin-right:2%; margin-left:2%;">
 
             <br>
             <div class="card-body">
+                <form method="get" action="" id="myfrm">
+
                     <div class="pl-3">
 
                         <p align=left>04/B/437/4/13/</p>
-                           <p>{{ $tarikh }}</p>
-                           <p>PENGURUS<br>
-                              {{ $pelesen->e_np }}<br>
-                              {{ $pelesen->e_as1 }}<br>
-                              {{ $pelesen->e_as2 }}<br>
-                              {{ $pelesen->e_as3 }}</p>
-                           <p>Tuan/Puan,</p>
-                           <p><b>PENDAFTARAN PEMEGANG LESEN UNTUK AKSES KE SISTEM e-KILANG BAGI PENGHANTARAN PENYATA BULANAN</b></p>
-                           <p>Perkara di atas adalah dirujuk.</p>
-                           <p align=justify>
+                        <p>{{ $tarikh }}</p>
+                        <p>PENGURUS<br>
+                            {{ $pelesen->e_np }}<br>
+                            {{ $pelesen->e_as1 }}<br>
+                            {{ $pelesen->e_as2 }}<br>
+                            {{ $pelesen->e_as3 }}</p>
+                        <p>Tuan/Puan,</p>
+                        <p><b>PENDAFTARAN PEMEGANG LESEN UNTUK AKSES KE SISTEM e-KILANG BAGI PENGHANTARAN PENYATA BULANAN</b></p>
+                        <p>Perkara di atas adalah dirujuk.</p>
+                        <p align=justify>
                             Sebagaimana yang telah disyaratkan, pemegang lesen MPOB hendaklah mengemukakan penyata bulanan pada tiap-tiap bulan selewat-lewatnya pada 7hb pada bulan yang berikutnya. Ini selaras dengan peruntukan Peraturan 21, Peraturan-peraturan Lembaga Minyak Sawit Malaysia (Pelesenan) 2005, Akta Lembaga Minyak Sawit Malaysia 1998 (Akta 582).</p>
-                           <p align=justify>Sehubungan dengan itu, tuan/puan telah didaftarkan ke sistem tersebu dan boleh diakses melaluai pautan <a href="http://www.ekilang.com.my"><u>www.ekilang.com.my</u></a> menggunakan butir-butir seperti berikut:</p>
-                           <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:
-                           collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
-                             <tr>
-                               <td width="26%">No Lesen :</td>
-                               <td width="74%">{{ $pelesen->e_nl }}</td>
-                             </tr>
-                             <tr>
-                               <td width="26%">Nama Premis :</td>
-                               <td width="74%">{{ $pelesen->e_np }}</td>
-                             </tr>
-                             <tr>
-                               <td width="26%">Password :</td>
-                               <td width="74%">Sila semak emel kilang anda.</td>
-                             </tr>
-                           </table>
-                           <br>
-                           <p>Sila daftar masuk ke sistem tersebut dan kemaskini maklumat asas pemegang lesen dengan segera.</p>
-                           <p>Jika terdapat sebarang pertanyaan berkaitan perkara ini, tuan/puan boleh menghubungi pegawai berikut :</p>
-                           <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
-                           bordercolor="#111111" width="100%" id="AutoNumber2">
-                             <tr>
-                               <td width="33%">1. Aziana Misnan </td>
-                               <td width="33%">03-78022955 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aziana.misnan@mpob.gov.my</td>
-                             </tr>
-                             <tr>
-                               <td width="33%">2. Nor Baayah Mohammed Yusop</td>
-                               <td width="33%">03-78022865 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abby@mpob.gov.my</td>
-                             </tr>
-                             <tr>
-                               <td width="33%">3. Nor Syaida Abdul Halim</td>
-                               <td width="33%">03-78022914 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nor.syaida@mpob.gov.my</td>
-                             </tr>
-                             <tr>
-                               <td width="33%">4. Rominizam Mustapa</td>
-                               <td width="33%">03-78022918 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rominizam@mpob.gov.my</td>
-                             </tr>
-                             <tr>
-                               <td width="33%">5. Rohidayati Sukhaila</td>
-                               <td width="33%">03-78022991 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rohidayati@mpob.gov.my</td>
-                             </tr>
-                           </table>
+                        <p align=justify>Sehubungan dengan itu, tuan/puan telah didaftarkan ke sistem tersebu dan boleh diakses melaluai pautan <a href="http://www.ekilang.com.my"><u>www.ekilang.com.my</u></a> menggunakan butir-butir seperti berikut:</p>
+                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:
+                        collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+                            <tr>
+                            <td width="26%">No Lesen :</td>
+                            <td width="74%">{{ $pelesen->e_nl }}</td>
+                            </tr>
+                            <tr>
+                            <td width="26%">Nama Premis :</td>
+                            <td width="74%">{{ $pelesen->e_np }}</td>
+                            </tr>
+                            <tr>
+                            <td width="26%">Password :</td>
+                            <td width="74%">Sila semak emel kilang anda.</td>
+                            </tr>
+                        </table>
+                        <br>
+                        <p>Sila daftar masuk ke sistem tersebut dan kemaskini maklumat asas pemegang lesen dengan segera.</p>
+                        <p>Jika terdapat sebarang pertanyaan berkaitan perkara ini, tuan/puan boleh menghubungi pegawai berikut :</p>
+                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                        bordercolor="#111111" width="100%" id="AutoNumber2">
+                            <tr>
+                            <td width="33%">1. Aziana Misnan </td>
+                            <td width="33%">03-78022955 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aziana.misnan@mpob.gov.my</td>
+                            </tr>
+                            <tr>
+                            <td width="33%">2. Nor Baayah Mohammed Yusop</td>
+                            <td width="33%">03-78022865 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abby@mpob.gov.my</td>
+                            </tr>
+                            <tr>
+                            <td width="33%">3. Nor Syaida Abdul Halim</td>
+                            <td width="33%">03-78022914 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nor.syaida@mpob.gov.my</td>
+                            </tr>
+                            <tr>
+                            <td width="33%">4. Rominizam Mustapa</td>
+                            <td width="33%">03-78022918 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rominizam@mpob.gov.my</td>
+                            </tr>
+                            <tr>
+                            <td width="33%">5. Rohidayati Sukhaila</td>
+                            <td width="33%">03-78022991 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rohidayati@mpob.gov.my</td>
+                            </tr>
+                        </table>
                         </br>
-                           <p>Sekian terima kasih.</p>
-                           <p>Saya yang menurut perintah,</p>
-                           {{-- <p>&nbsp;</p> --}}
-                           <p>NIK ABDULLAH NIK IDRIS<br>
-                           b/p Ketua Pengarah MPOB</p>
-                           <p>Surat ini adalah cetakan komputer. Tandatangan tidak diperlukan.</p>
+                        <p>Sekian terima kasih.</p>
+                        <p>Saya yang menurut perintah,</p>
+                        {{-- <p>&nbsp;</p> --}}
+                        <p>NIK ABDULLAH NIK IDRIS<br>
+                        b/p Ketua Pengarah MPOB</p>
+                        <p>Surat ini adalah cetakan komputer. Tandatangan tidak diperlukan.</p>
 
                     </div>
-                </div>
+
+                </form>
             </div>
         </div>
 
@@ -310,6 +323,15 @@ function valid_notel() {
         function checkKey(evt) {
             console.log(evt.which);
             return evt.which;
+        }
+    </script>
+    <script>
+        function myPrint(myfrm) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + myfrm).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
         }
     </script>
 

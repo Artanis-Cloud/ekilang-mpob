@@ -112,4 +112,20 @@ class Proses11Controller extends Controller
         return $pdf->stream();
     }
 
+    public function admin_11papar_file($MsgID, Ekmessage $emel)
+    {
+        # code...
+        $emel = Ekmessage::find($MsgID);
+        $emels = Ekmessage::where('MsgID', $emel->MsgID)->first('file_upload');
+
+        // dd($emels);
+        $array = [
+            'emel' => $emels
+        ];
+
+        $pdf = PDF::loadView('admin.proses11.11print', $array)->setPaper('a4', 'vertical');
+        // return $pdf->download('invoice.pdf');
+        return $pdf->stream();
+    }
+
 }

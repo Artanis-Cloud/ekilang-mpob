@@ -107,7 +107,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -129,7 +131,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->e91_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -162,7 +164,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -185,7 +189,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->e101_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -221,7 +225,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -243,7 +249,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->e102_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -278,7 +284,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -300,7 +308,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->e104_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -335,7 +343,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -357,7 +367,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->e07_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -391,7 +401,9 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Tarikh Hantar</th>
@@ -409,7 +421,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
+                                                                <input name="papar_ya[]" type="checkbox"  id="checkbox-1"
                                                                     value="{{ $data->ebio_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -443,7 +455,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
@@ -464,7 +478,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
@@ -495,7 +509,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
@@ -516,7 +532,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
@@ -550,7 +566,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
@@ -571,7 +589,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
@@ -604,7 +622,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
@@ -625,7 +645,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
@@ -658,7 +678,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
@@ -679,7 +701,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
@@ -711,7 +733,9 @@
                                             <table id="example22" class="table table-bordered" style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
+                                                        <th style="width:7%; vertical-align: middle">Papar?
+                                                            <input name="select-all" id="select-all" type="checkbox"
+                                                            value=""></th>
                                                         <th>No Lesen</th>{{--</form>--}}
                                                         <th>Nama Premis</th>
                                                         <th>No Batch</th>
@@ -732,7 +756,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nolesen1 }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
@@ -911,45 +935,20 @@
             });
 
         </script>
-    {{-- <script>
-        $(function() {
 
-            var requiredCheckboxes = $(':checkbox[required]');
-
-            requiredCheckboxes.change(function() {
-
-                if (requiredCheckboxes.is(':checked')) {
-                    requiredCheckboxes.removeAttr('required');
-                } else {
-                    requiredCheckboxes.attr('required', 'required');
-                }
-            });
-
+    <script>
+        // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {
+            if(this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function() {
+                    this.checked = false;
+                });
+            }
         });
-    </script> --}}
-
-    {{-- <script>
-
-
-        var check_opt = document.getElementsByClassName('checkit');
-        console.log(check_opt);
-        var btn = document.getElementById('submit');
-
-        function detect() {
-            btn.disabled = true;
-            for (var index = 0; index < check_opt.length; ++index) {
-                console.log(index);
-                if (check_opt[index].checked == true) {
-                    console.log(btn);
-                    btn.disabled = false;
-                }
-            }
-        }
-        window.onload = function() {
-            for (var i = 0; i < check_opt.length; i++) {
-                check_opt[i].addEventListener('click', detect)
-            }
-            // when unchecked or checked, run the function
-        }
-    </script> --}}
+    </script>
 @endsection

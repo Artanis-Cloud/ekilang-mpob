@@ -124,6 +124,18 @@
                                                                     </i>
                                                                 </a>
                                                             </div>
+                                                            @if($data->file_upload)
+
+                                                                <div class="btn">
+                                                                    <a
+                                                                        target='_blank' href="{{ asset('storage/'.$data->file_upload) }}" >
+                                                                        <i class="fa fa-paperclip" id="change" onclick="func()"
+                                                                            style="color: #228c1c; font-size:18px; padding: 0rem 0rem;">
+                                                                        </i>
+                                                                    </a>
+                                                                </div>
+                                                            @else
+                                                            @endif
                                                         </td>
 
                                                     </tr>
@@ -151,27 +163,13 @@
 @endsection
 
 @section('scripts')
-    {{-- <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-    </script> --}}
+    <script>
+        function func()
+        {
+            document.getElementById("change").style.color="red";
+            document.getElementById("change").style.font="calibri";
+        }
+    </script>
     <script>
         $('example').dataTable({bFilter: false, bInfo: false});
         </script>

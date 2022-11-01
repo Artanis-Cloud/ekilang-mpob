@@ -66,8 +66,8 @@
                     </div>
                     <div class="pl-3">
                         <div class=" text-center">
-                            <div>
-                                <h3 id="title" style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
+                            <div id="title">
+                                <h3 style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
                                 <h5 id="tarikh" style="color: rgb(39, 80, 71); ">KILANG BUAH</h5>
                                 <p >Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
 
@@ -492,15 +492,21 @@
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
+
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+
                         },
+
+                        // customize: function(xlsx2) {
+                        // var sheet = xlsx2.xl.worksheets['sheet1.xml'];
+
+                        // },
 
                         filename: 'Senarai Pelesen Kilang Buah',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
+
                     },
 
                 ],
