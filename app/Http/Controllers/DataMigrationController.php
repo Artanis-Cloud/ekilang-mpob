@@ -19,6 +19,7 @@ class DataMigrationController extends Controller
 {
     public function change_eyear()
     {
+        // $job = DB::table('cron_job_test')->delete();
         $pelesens = Pelesen::get();
         $year = null;
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Console\Kernel;
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\H91Init;
@@ -77,6 +78,7 @@ class Proses1Controller extends Controller
         $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
 
         $pelesen->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
+        // $pelesen->notify((new Kernel()));
 
         //log audit trail admin
         Auth::user()->log(" ADD PELESEN {$pelesen->username}");

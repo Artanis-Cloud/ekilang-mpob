@@ -13,8 +13,21 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+
+
+    protected $commands = [
+        Commands\InitializeUpdate::class
+    ];
+
     protected function schedule(Schedule $schedule)
     {
+
+
+        // $schedule->call([App\Http\Controllers\Admin\Proses3try::class, 'crtest'])->everyMinute()->runInBackground();
+        // $schedule->call(function () {
+        //     DB::table('cron_jobs_test')->delete();
+        // })->everyMinute()->runInBackground();
+        $schedule->command('initialize:update')->everyMinute()->runInBackground();
         // $schedule->command('inspire')->hourly();
     }
 
