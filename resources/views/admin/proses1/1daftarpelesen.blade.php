@@ -742,9 +742,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group" style="margin-bottom: 20px;">
-                                                    <select class="form-control" name="e_poma" id="e_poma" style="text-transform:uppercase"
+                                                    <select class="form-control" name="e_biogas" id="e_biogas" style="text-transform:uppercase"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                        oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
+                                                        oninput="setCustomValidity(''); biogas()">
                                                         <option selected hidden value="">SILA PILIH</option>
                                                         <option value="1">YA</option>
                                                         <option value="2">TIDAK</option>
@@ -760,18 +760,19 @@
                                         <div class="row">
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label for="inputcom" class="control-label col-form-label required">
-                                                    POMA</label>
+                                                    Apakah status loji biogas tersebut?</label>
                                             </div>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group" style="margin-bottom: 20px;">
-                                                    <select class="form-control" name="e_poma" id="e_poma" style="text-transform:uppercase"
+                                                    <select class="form-control" name="e_status_biogas" id="e_status_biogas" style="text-transform:uppercase"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                        oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
-                                                        <option selected hidden value="">Sila Pilih</option>
-                                                        <option value="poma">YA</option>
-                                                        <option value="NULL">TIDAK</option>
+                                                        oninput="setCustomValidity(''); ">
+                                                        <option selected hidden value="">SILA PILIH</option>
+                                                        <option value="3">TELAH SIAP</option>
+                                                        <option value="2">DALAM PEMBINAAN</option>
+                                                        <option value="1">DALAM PERANCANGAN</option>
                                                     </select>
-                                                    <p type="hidden" id="err_poma" style="color: red; display:none"><i>Sila isi
+                                                    <p type="hidden" id="err_biogas2" style="color: red; display:none"><i>Sila isi
                                                         butiran di
                                                         bahagian ini!</i></p>
                                                 </fieldset>
@@ -873,13 +874,34 @@
     <script>
         function poma() {
             var buah = document.getElementById('e_kat');
+            // console.log(buah.value == 'PL91');
 
             if (buah.value == 'PL91')
             {
                 document.getElementById('poma').style.display = "block";
+                document.getElementById('biogas').style.display = "block";
 
             } else {
                 document.getElementById('poma').style.display = "none";
+                document.getElementById('biogas').style.display = "none";
+
+            }
+
+        }
+        </script>
+
+    <script>
+        function biogas() {
+            var biogas = document.getElementById('e_biogas');
+
+            if (biogas.value == '1')
+            {
+                document.getElementById('status_biogas').style.display = "block";
+
+            } else {
+                document.getElementById('status_biogas').style.display = "none";
+                document.getElementById('e_status_biogas').value = null;
+
 
             }
 
