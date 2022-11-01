@@ -51,47 +51,47 @@ class InitializeUpdate extends Command
         $current_date = date('Y-m-d');
         $date = Init::where('tahun', $tahun)->first();
 
-        if ($bulan == '01') {
+        if ($bulan == 1) {
             $sdate = $date->sjan;
             $edate = $date->ejan;
         }
-        elseif ($bulan == '02') {
+        elseif ($bulan == 2) {
             $sdate = $date->sfeb;
             $edate = $date->efeb;
         }
-        elseif ($bulan == '03') {
+        elseif ($bulan == 3) {
             $sdate = $date->smac;
             $edate = $date->emac;
         }
-        elseif ($bulan == '04') {
+        elseif ($bulan == 4) {
             $sdate = $date->sapr;
             $edate = $date->eapr;
         }
-        elseif ($bulan == '05') {
+        elseif ($bulan == 5) {
             $sdate = $date->smei;
             $edate = $date->emei;
         }
-        elseif ($bulan == '06') {
+        elseif ($bulan == 6) {
             $sdate = $date->sjun;
             $edate = $date->ejun;
         }
-        elseif ($bulan == '07') {
+        elseif ($bulan == 7) {
             $sdate = $date->sjul;
             $edate = $date->ejul;
         }
-        elseif ($bulan == '08') {
+        elseif ($bulan == 8) {
             $sdate = $date->sogos;
             $edate = $date->eogos;
         }
-        elseif ($bulan == '09') {
+        elseif ($bulan == 9) {
             $sdate = $date->ssept;
             $edate = $date->esept;
         }
-        elseif ($bulan == '10') {
+        elseif ($bulan == 10) {
             $sdate = $date->sokt;
             $edate = $date->eokt;
         }
-        elseif ($bulan == '11') {
+        elseif ($bulan == 11) {
             $sdate = $date->snov;
             $edate = $date->enov;
         }
