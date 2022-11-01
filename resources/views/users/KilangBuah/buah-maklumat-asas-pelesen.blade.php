@@ -628,6 +628,20 @@
             });
             </script> --}}
             <script>
+                $(document).ready(function() {
+                    var biogas = document.getElementById('e_biogas');
+
+                        if (biogas.value == '1')
+                        {
+                            document.getElementById('biogas').style.display = "block";
+
+                        } else {
+                            document.getElementById('biogas').style.display = "none";
+
+                        }
+                });
+                </script>
+            <script>
                 function biogas() {
                     var biogas = document.getElementById('e_biogas');
 

@@ -208,6 +208,7 @@
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Syarikat Induk</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Tahun Mula Beroperasi</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Kumpulan</th>
+                                                <th class="noScreenPelesen" style=" vertical-align: middle">Status Biogas</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Kapasiti Pemprosesan / Tahun</th>
                                                 <th style=" vertical-align: middle">Prestasi OER</th>
                                                 <th class="noScreen" style=" vertical-align: middle">Bilangan Tangki CPO</th>
@@ -248,6 +249,7 @@
                                                 <th class="noScreenPelesen">Syarikat Induk</th>
                                                 <th class="noScreenPelesen">Tahun Mula Beroperasi</th>
                                                 <th class="noScreenPelesen">Kumpulan</th>
+                                                <th class="noScreenPelesen">Status Biogas</th>
                                                 <th class="noScreenPelesen">Kapasiti Pemprosesan / Tahun</th>
                                                 <th class="noScreen">Bilangan Tangki CPO</th>
                                                 <th class="noScreen">Kapasiti Tangki CPO</th>
@@ -312,6 +314,20 @@
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_syktinduk ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_year ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_group ?? '-'  }}</td>
+                                                        {{-- <td class="noScreenPelesen" style="text-align: center">-</td> --}}
+                                                        @if ($data->pelesen->e_biogas == '1' && $data->pelesen->e_status_biogas == '1')
+                                                            {{-- @if ($data->pelesen->e_status_biogas == '1') --}}
+                                                                <td class="noScreenPelesen"  style="text-align: center">Dalam Perancangan</td>
+                                                        @elseif ($data->pelesen->e_biogas == '1' && $data->pelesen->e_status_biogas == '2')
+                                                                <td class="noScreenPelesen"  style="text-align: center">Dalam Pembinaan</td>
+                                                        @elseif ($data->pelesen->e_biogas == '1' && $data->pelesen->e_status_biogas == '3')
+                                                                <td class="noScreenPelesen"  style="text-align: center">Telah Siap</td>
+                                                        @elseif ($data->pelesen->e_biogas == '2')
+                                                            <td class="noScreenPelesen"  style="text-align: center">Tidak</td>
+                                                        @else
+                                                            <td class="noScreenPelesen"  style="text-align: center">-</td>
+
+                                                        @endif
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kap_proses ?? '-'  }}</td>
                                                         <td style="text-align: center">
                                                             <a href="{{ route('admin.prestasi.oer', $data->e_nl) }}"><u>

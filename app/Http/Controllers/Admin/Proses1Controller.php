@@ -172,6 +172,8 @@ class Proses1Controller extends Controller
             'e_syktinduk' => $data['e_syktinduk'],
             'e_group' => $data['e_group'],
             'e_poma' =>  $data['e_poma'],
+            'e_biogas' =>  $data['e_biogas'],
+            'e_status_biogas' =>  $data['e_status_biogas'],
             'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],
@@ -310,6 +312,9 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+
+            $kembali = route('admin.senaraipelesenbuah');
+
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -317,6 +322,11 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.dashboard');
+
+
+            // $kembali = route('admin.senaraipelesenbuah');
+
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -324,6 +334,9 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+
+            $kembali = route('admin.senaraipelesenpenapis');
+
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -331,6 +344,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.dashboard');
+
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL102') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -338,6 +353,9 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+
+            $kembali = route('admin.senaraipelesenisirung');
+
         } elseif ($reg_pelesen->e_kat == 'PL102' && $reg_pelesen->e_status == '2') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -345,6 +363,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.dashboard');
+
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL104') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -352,6 +372,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.senaraipelesenoleokimia');
+
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL104') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -359,6 +381,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.dashboard');
+
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL111') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -366,6 +390,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.senaraipelesensimpanan');
+
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL111') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -373,6 +399,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.dashboard');
+
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PLBIO') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -380,6 +408,8 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.senaraipelesenbio');
+
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -387,10 +417,11 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+            $kembali = route('admin.dashboard');
+
         }
 
 
-        $kembali = route('admin.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -1319,6 +1350,8 @@ class Proses1Controller extends Controller
         $penyata->e_syktinduk = $request->e_syktinduk;
         $penyata->e_group = $request->e_group;
         $penyata->e_poma = $request->e_poma;
+        $penyata->e_biogas = $request->e_biogas;
+        $penyata->e_status_biogas = $request->e_status_biogas;
         $penyata->e_year = $request->e_year;
         $penyata->e_email_pengurus = $request->e_email_pengurus;
         $penyata->kap_proses = $request->kap_proses;
@@ -1422,6 +1455,9 @@ class Proses1Controller extends Controller
                     // dd($pelesen);
                     $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->orderBy('e_status', 'asc')
                     ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+                    // $users = RegPelesen::with('pelesen')->where('e_nl', '673209658329')->orderBy('e_status', 'asc')
+                    // ->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->first();
+                    // dd($users);
                     // dd($users[10]);
                     // $pelesen = Pelesen::get();
 

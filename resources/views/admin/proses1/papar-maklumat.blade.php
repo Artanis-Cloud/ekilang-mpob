@@ -584,6 +584,52 @@
                                     </div>
 
                                 </div>
+                                <div class="row mb-2" style="margin-top: -7px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname" class=" control-label col-form-label required">
+                                            Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="e_biogas" name="e_biogas" required
+                                                oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                <option selected  value="">SILA PILIH</option>
+                                                <option {{ $pelesen->e_biogas == '1' ? 'selected' : '' }} value="1">
+                                                    YA</option>
+                                                <option {{ $pelesen->e_biogas == '2' ? 'selected' : '' }} value="2">
+                                                    TIDAK</option>
+                                            </select>
+                                            <p type="hidden" id="err_biogas" style="color: red; display:none"><i>Sila buat
+                                                    pilihan di bahagian ini!</i></p>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div id="biogas" style="display: none">
+                                <div class="row mb-2" style="margin-top: -7px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname" class=" control-label col-form-label required">
+                                            Apakah status loji biogas tersebut? </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="e_status_biogas" name="e_status_biogas"
+                                                oninput="setCustomValidity(''); valid_statusbiogas()"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                <option selected value="">SILA PILIH</option>
+                                                <option {{ $pelesen->e_status_biogas == '3' ? 'selected' : '' }} value="3">
+                                                    TELAH SIAP</option>
+                                                <option {{ $pelesen->e_status_biogas == '2' ? 'selected' : '' }} value="2">
+                                                    DALAM PEMBINAAN</option>
+                                                <option {{ $pelesen->e_status_biogas == '1' ? 'selected' : '' }} value="1">
+                                                    DALAM PERANCANGAN</option>
+                                            </select>
+                                            <p type="hidden" id="err_biogas2" style="color: red; display:none"><i>Sila buat
+                                                    pilihan di bahagian ini!</i></p>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
 
                             @endif
                             <div class="row mb-2">
@@ -1143,6 +1189,37 @@
             console.log(removedDecimal);
         }
     </script>
+    <script>
+    $(document).ready(function() {
+        var biogas = document.getElementById('e_biogas');
+
+            if (biogas.value == '1')
+            {
+                document.getElementById('biogas').style.display = "block";
+
+            } else {
+                document.getElementById('biogas').style.display = "none";
+
+            }
+    });
+    </script>
+       <script>
+        function biogas() {
+            var biogas = document.getElementById('e_biogas');
+
+            if (biogas.value == '1')
+            {
+                document.getElementById('biogas').style.display = "block";
+
+            } else {
+                document.getElementById('biogas').style.display = "none";
+                document.getElementById('e_status_biogas').value = null;
+
+
+            }
+
+        }
+        </script>
     <script>
         $('.sub-form').submit(function() {
 
