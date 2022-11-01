@@ -42,12 +42,10 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $tahun = date('Y');
-        $bulan = date('m');
-
-        $init = Init::where('tahun', $tahun)->get();
+        $time = date("h:i:s");
+        $dt = date("h:i:s", strtotime($time));
         // echo '0', $dt;
-        dd($init);
+        dd($dt);
 
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;
