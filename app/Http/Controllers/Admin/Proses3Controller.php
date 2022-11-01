@@ -28,6 +28,8 @@ class Proses3Controller extends Controller
     public function admin_3daftarpenyata()
 
     {
+        $tahun = date('Y');
+        $date= Init::where('tahun', $tahun)->first();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -82,7 +84,7 @@ class Proses3Controller extends Controller
         };
 
 
-        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout', 'month', 'bulan'));
+        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout', 'month', 'bulan', 'tahun', 'date'));
     }
 
     public function admin_3daftarpenyatapenapis()

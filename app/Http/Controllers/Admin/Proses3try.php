@@ -31,7 +31,9 @@ class Proses3Controller extends Controller
     {
         // $time = date("h:i:s");
         // $dt = date("h:i:s", strtotime($time));
+        // $sche = $schedule->
         $job = DB::table('cron_job_test')->delete();
+        // $schedule->$job->->everyMinute();
 
 
         // $data = CronJobTest::
