@@ -111,6 +111,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/3-daftar-penyata/process', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_initialize'])->name('admin.initialize');
         Route::get('admin/3-daftar-satu-penyata/process', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_initialize_satu'])->name('admin.initialize.satu');
+        Route::get('admin/3-daftar-setahun/process', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3initialize_setahun'])->name('admin.initialize.setahun');
 
 
         Route::get('admin/4-EKilang-PLEID', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');

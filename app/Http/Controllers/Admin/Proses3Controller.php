@@ -13,12 +13,14 @@ use App\Models\E91Init;
 use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Init;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class Proses3Controller extends Controller
 {
@@ -724,5 +726,86 @@ class Proses3Controller extends Controller
 
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata pelesen ini telah diinitialize');
+    }
+
+    public function admin_3initialize_setahun(Request $request)
+    {
+
+        $tahun = date('Y');
+        $bulan = date('m');
+
+        $init = Init::where('tahun', $tahun)->first();
+
+        if ($init) {
+            // dd($request->all());
+            $penyata = Init::where('tahun', $tahun)->first();
+            $penyata->tahun = $tahun;
+            $penyata->sjan = $request->sjan;
+            $penyata->ejan = $request->ejan;
+            $penyata->sfeb = $request->sfeb;
+            $penyata->efeb = $request->efeb;
+            $penyata->smac = $request->smac;
+            $penyata->emac = $request->emac;
+            $penyata->sapr = $request->sapr;
+            $penyata->eapr = $request->eapr;
+            $penyata->smei = $request->smei;
+            $penyata->emei = $request->emei;
+            $penyata->sjun = $request->sjun;
+            $penyata->ejun = $request->ejun;
+            $penyata->sjul = $request->sjul;
+            $penyata->ejul = $request->ejul;
+            $penyata->sogos = $request->sogos;
+            $penyata->eogos = $request->eogos;
+            $penyata->ssept = $request->ssept;
+            $penyata->esept = $request->esept;
+            $penyata->sokt = $request->sokt;
+            $penyata->eokt = $request->eokt;
+            $penyata->snov = $request->snov;
+            $penyata->enov = $request->enov;
+            $penyata->sdec = $request->sdec;
+            $penyata->edec = $request->edec;
+            $penyata->save();
+        } else {
+            // $count = Init::max('id');
+
+            $query = Init::create([
+                // 'ebio_reg' => $count + 1,
+                'tahun'  => $tahun,
+                'sjan'  => $request->sjan,
+                'ejan'  => $request->ejan,
+                'sfeb'  => $request->sfeb,
+                'efeb'  => $request->efeb,
+                'smac'  => $request->smac,
+                'emac'  => $request->emac,
+                'sapr'  => $request->sapr,
+                'eapr'  => $request->eapr,
+                'smei'  => $request->smei,
+                'emei'  => $request->emei,
+                'sjun'  => $request->sjun,
+                'ejun'  => $request->ejun,
+                'sjul'  => $request->sjul,
+                'ejul'  => $request->ejul,
+                'sogos'  => $request->sogos,
+                'eogos'  => $request->eogos,
+                'ssept'  => $request->ssept,
+                'esept'  => $request->esept,
+                'sokt'  => $request->sokt,
+                'eokt'  => $request->eokt,
+                'snov'  => $request->snov,
+                'enov'  => $request->enov,
+                'sdec'  => $request->sdec,
+                'edec'  => $request->edec,
+            ]);
+        }
+
+
+
+        //log audit trail admin
+        Auth::user()->log("Initialize setahun");
+
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat initialize telah disimpan');
     }
 }

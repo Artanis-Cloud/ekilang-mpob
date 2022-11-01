@@ -297,8 +297,8 @@
                 </div>
 
                 <div id="month" class="tabcontent">
-                    <form action="{{ route('admin.initialize.satu') }}">
-
+                    <form action="{{ route('admin.initialize.setahun') }}">
+                        @csrf
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:2%">Initialize Pelesen</h3>
                             <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru
@@ -325,132 +325,132 @@
                                                 <th class="text-center" scope="row">1</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sjan" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="ejan" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">2</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sfeb" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="efeb" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">3</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="smac" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="emac" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center" scope="row">4</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sapr" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="eapr" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">5</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="smei" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="emei" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">6</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sjun" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="ejun" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center" scope="row">7</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sjul" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="ejul" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">8</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sogos" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="eogos" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">9</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="ssept" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="esept" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center" scope="row">10</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sokt" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="eokt" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">11</th>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="snov" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="enov" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th class="text-center"  scope="row">12</th>
                                                 <td >
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="sdec" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                                 <td>
                                                     <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
-                                                    name="e_ddate" value="{{ old('date', date('Y-m-d')) }}">
+                                                    name="edec" value="{{ old('date', date('Y-m-d')) }}">
                                                 </td>
                                             </tr>
 
@@ -463,13 +463,13 @@
                                 <br>
                                 <div class="row center">
                                     <div class="col-md-12 center">
-                                        <button type="button" class="btn btn-primary center" style="margin-left:45%"
+                                        <button type="submit" class="btn btn-primary center" style="margin-left:45%"
                                             data-toggle="modal" data-target="#myModal2">Initialize</button>
                                         {{-- <button type="submit">YA</button> --}}
                                     </div>
                                 </div>
 
-                                <div id="myModal2" class="modal fade" tabindex="-1" role="dialog"
+                                {{-- <div id="myModal2" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -497,7 +497,7 @@
                                         <!-- /.modal-content -->
                                     </div>
                                     <!-- /.modal-dialog -->
-                                </div>
+                                </div> --}}
 
                             </div>
                         </div>

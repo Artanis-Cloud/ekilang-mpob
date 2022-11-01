@@ -9,6 +9,7 @@ use App\Models\EBioInit;
 use App\Models\Hari;
 use App\Models\HBioCC;
 use App\Models\HHari;
+use App\Models\Init;
 use App\Models\Oerdaerah;
 use App\Models\Oernegeri;
 use App\Models\Pengumuman;
@@ -41,9 +42,12 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-       $bulan = now()->month - 1;
+        $tahun = date('Y');
+        $bulan = date('m');
+
+        $init = Init::where('tahun', $tahun)->get();
         // echo '0', $dt;
-        dd($bulan);
+        dd($init);
 
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;

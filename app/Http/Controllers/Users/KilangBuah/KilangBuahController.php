@@ -185,6 +185,8 @@ class KilangBuahController extends Controller
             $penyata->e_syktinduk = $request->e_syktinduk;
             $penyata->e_group = $request->e_group;
             $penyata->e_poma = $request->e_poma;
+            $penyata->e_biogas = $request->e_biogas;
+            $penyata->e_status_biogas = $request->e_status_biogas;
             $penyata->kap_proses = $request->kap_proses;
             $penyata->kap_tangki = $request->kap_tangki;
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
@@ -210,6 +212,8 @@ class KilangBuahController extends Controller
             $penyata->e_syktinduk = $request->e_syktinduk;
             $penyata->e_group = $request->e_group;
             $penyata->e_poma = $request->e_poma;
+            $penyata->e_biogas = $request->e_biogas;
+            $penyata->e_status_biogas = $request->e_status_biogas;
             $penyata->kap_proses = $request->kap_proses;
             $penyata->kap_tangki = $request->kap_tangki;
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
