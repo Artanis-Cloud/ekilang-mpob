@@ -101,12 +101,12 @@ class InitializeUpdate extends Command
         }
 
         if ($sdate == $current_date ) {
-            // $this->initialize_proses_pl91($edate);
-            // $this->initialize_proses_pl101($edate);
+            $this->initialize_proses_pl91($edate);
+            $this->initialize_proses_pl101($edate);
             $this->initialize_proses_pl102($edate);
-            // $this->initialize_proses_pl104($edate);
-            // $this->initialize_proses_pl111($edate);
-            // $this->initialize_proses_plbio($edate);
+            $this->initialize_proses_pl104($edate);
+            $this->initialize_proses_pl111($edate);
+            $this->initialize_proses_plbio($edate);
         }
 
     }
@@ -208,7 +208,7 @@ class InitializeUpdate extends Command
             $query = E101Init::create([
                 'e101_reg' => $key + 1,
                 'e101_nl' => $e_nl,
-                'e101_bln' => now()->format('m'),
+                'e101_bln' => now()->format('m') - 1,
                 'e101_thn' => now()->year,
                 'e101_flg' => '1',
                 'e101_sdate' => NULL,
@@ -296,7 +296,7 @@ class InitializeUpdate extends Command
             $query = E104Init::create([
                 'e104_reg' => $key + 1,
                 'e104_nl' => $e_nl,
-                'e104_bln' => now()->format('m'),
+                'e104_bln' => now()->format('m') - 1,
                 'e104_thn' => now()->year,
                 'e104_flg' => '1',
                 'e104_sdate' => NULL,
@@ -322,7 +322,7 @@ class InitializeUpdate extends Command
             $query = E07Init::create([
                 'e07_reg' => $key + 1,
                 'e07_nl' => $e_nl,
-                'e07_bln' => now()->format('m'),
+                'e07_bln' => now()->format('m') - 1,
                 'e07_thn' => now()->year,
                 'e07_flg' => '1',
                 'e07_sdate' => NULL,
@@ -347,7 +347,7 @@ class InitializeUpdate extends Command
             $query = EBioInit::create([
                 'ebio_reg' => $key + 1,
                 'ebio_nl' => $e_nl,
-                'ebio_bln' => now()->format('m'),
+                'ebio_bln' => now()->format('m') - 1,
                 'ebio_thn' => now()->year,
                 'ebio_flg' => '1',
                 'ebio_sdate' => NULL,
