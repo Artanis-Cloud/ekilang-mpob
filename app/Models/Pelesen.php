@@ -61,6 +61,8 @@ class Pelesen extends Model
         'e_group',
         'e_subgroup',
         'e_poma',
+        'e_biogas',
+        'e_status_biogas',
         'e_year',
         'e_cluster',
         'e_katkilang',

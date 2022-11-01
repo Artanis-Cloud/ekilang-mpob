@@ -391,6 +391,53 @@
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <label for="fname" class=" control-label col-form-label required">
+                                    Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
+                            </div>
+                            <div class="col-md-7">
+                                <fieldset class="form-group">
+                                    <select class="form-control" id="e_biogas" name="e_biogas" required
+                                        oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                        <option selected  value="">SILA PILIH</option>
+                                        <option {{ $pelesen->e_biogas == '1' ? 'selected' : '' }} value="1">
+                                            YA</option>
+                                        <option {{ $pelesen->e_biogas == '2' ? 'selected' : '' }} value="2">
+                                            TIDAK</option>
+                                    </select>
+                                    <p type="hidden" id="err_biogas" style="color: red; display:none"><i>Sila buat
+                                            pilihan di bahagian ini!</i></p>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div id="biogas" style="display: none">
+                        <div class="row justify-content-center" style="margin:20px 0px" >
+                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                <label for="fname" class=" control-label col-form-label required">
+                                    Apakah status loji biogas tersebut? </label>
+                            </div>
+                            <div class="col-md-7">
+                                <fieldset class="form-group">
+                                    <select class="form-control" id="e_status_biogas" name="e_status_biogas"
+                                        oninput="setCustomValidity(''); valid_statusbiogas()"
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                        <option selected value="">SILA PILIH</option>
+                                        <option {{ $pelesen->e_status_biogas == '3' ? 'selected' : '' }} value="3">
+                                            TELAH SIAP</option>
+                                        <option {{ $pelesen->e_status_biogas == '2' ? 'selected' : '' }} value="2">
+                                            DALAM PEMBINAAN</option>
+                                        <option {{ $pelesen->e_status_biogas == '1' ? 'selected' : '' }} value="1">
+                                            DALAM PERANCANGAN</option>
+                                    </select>
+                                    <p type="hidden" id="err_biogas2" style="color: red; display:none"><i>Sila buat
+                                            pilihan di bahagian ini!</i></p>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="row justify-content-center" style="margin:20px 0px">
+                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                <label for="fname" class=" control-label col-form-label required">
                                     Kapasiti Pemprosesan / Tahun</label>
                             </div>
                             <div class="col-md-7">
@@ -580,6 +627,21 @@
 
             });
             </script> --}}
+            <script>
+                function biogas() {
+                    var biogas = document.getElementById('e_biogas');
+
+                    if (biogas.value == '1')
+                    {
+                        document.getElementById('biogas').style.display = "block";
+
+                    } else {
+                        document.getElementById('biogas').style.display = "none";
+
+                    }
+
+                }
+                </script>
         <script>
             $('.sub-form').submit(function() {
 
@@ -875,6 +937,50 @@
                 }
             </script>
             <script>
+                function valid_biogas() {
+
+                    if ($('#e_biogas').val() == '') {
+                        $('#e_biogas').css('border-color', 'red');
+                        document.getElementById('err_biogas').style.display = "block";
+
+
+                    } else if ($('#e_biogas').val() == '2')  {
+                        document.getElementById('e_status_biogas').value = null;
+
+                    } else {
+                        $('#e_biogas').css('border-color', '');
+                        document.getElementById('err_biogas').style.display = "none";
+
+                    }
+                    console.log($('#e_status_biogas').val());
+
+                }
+            </script>
+            <script>
+                function valid_statusbiogas() {
+
+                    if ($('#e_biogas').val() == '1') {
+                        if ($('#e_status_biogas').val() == '') {
+                        $('#e_status_biogas').css('border-color', 'red');
+                        document.getElementById('err_biogas2').style.display = "block";
+
+
+                    } else {
+                        $('#e_status_biogas').css('border-color', '');
+                        document.getElementById('err_biogas2').style.display = "none";
+                    }
+
+                    }
+                    else {
+                        $('#e_status_biogas').css('border-color', '');
+                        document.getElementById('err_biogas2').style.display = "none";
+
+                    }
+
+
+                }
+            </script>
+            <script>
                 function valid_proses() {
 
                     if ($('#kap_proses').val() == '') {
@@ -1073,6 +1179,28 @@
                         $('#e_poma').css('border-color', 'red');
                         document.getElementById('err_poma').style.display = "block";
                     }
+
+
+                    field = document.getElementById("e_biogas");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_biogas').css('border-color', 'red');
+                        document.getElementById('err_biogas').style.display = "block";
+
+
+                    }
+
+
+                    if ($('#e_biogas').val() == '1') {
+                        if ($('#e_status_biogas').val() == '') {
+                        error += "Name must be 2-4 characters\r\n";
+                        $('#e_status_biogas').css('border-color', 'red');
+                        document.getElementById('err_biogas2').style.display = "block";
+
+
+                    }
+                    }
+
 
                     cpo = $('#bil_tangki_cpo').val();
                     kcpo = $('#kap_tangki_cpo').val();
