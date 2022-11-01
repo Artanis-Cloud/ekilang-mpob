@@ -734,6 +734,50 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="biogas" style="display:none">
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                                <label for="inputcom" class="control-label col-form-label required">
+                                                    Adakah terdapat kemudahan loji biogas di tapak kilang?</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group" style="margin-bottom: 20px;">
+                                                    <select class="form-control" name="e_poma" id="e_poma" style="text-transform:uppercase"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
+                                                        <option selected hidden value="">SILA PILIH</option>
+                                                        <option value="1">YA</option>
+                                                        <option value="2">TIDAK</option>
+                                                    </select>
+                                                    <p type="hidden" id="err_biogas" style="color: red; display:none"><i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i></p>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="status_biogas" style="display:none">
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                                <label for="inputcom" class="control-label col-form-label required">
+                                                    POMA</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group" style="margin-bottom: 20px;">
+                                                    <select class="form-control" name="e_poma" id="e_poma" style="text-transform:uppercase"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
+                                                        <option selected hidden value="">Sila Pilih</option>
+                                                        <option value="poma">YA</option>
+                                                        <option value="NULL">TIDAK</option>
+                                                    </select>
+                                                    <p type="hidden" id="err_poma" style="color: red; display:none"><i>Sila isi
+                                                        butiran di
+                                                        bahagian ini!</i></p>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
