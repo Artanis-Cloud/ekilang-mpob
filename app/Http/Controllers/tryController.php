@@ -42,9 +42,9 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $ldate = date('Y-m-d');
+        $bulan = date('m') - 1;
        // echo '0', $dt;
-        dd($ldate);
+        dd($bulan);
 
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;
