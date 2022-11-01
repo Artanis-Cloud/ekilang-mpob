@@ -319,7 +319,7 @@
                                                 <tbody>
                                                     <tr class="redd" style="background-color: #d3d3d370 ">
                                                         <td width="220" >
-                                                            <p align="center" style="box-shadow: inset 0 0 0 1000px gold;"><b>
+                                                            <p align="center" ><b>
                                                                     <font size="2.7">Butiran</font>
                                                                 </b></p>
                                                         </td>

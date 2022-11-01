@@ -60,9 +60,9 @@
                             <div id="title">
                                 <h3 style="color:  rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar </h3>
                                 <h5 style="color: rgb(39, 80, 71); ">KILANG OLEOKIMIA</h5>
+                                <p id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
 
                             </div>
-                            <p id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
 
                             <script>
                                 var dt = new Date();
@@ -458,15 +458,16 @@
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
+
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+
                         },
 
                         filename: 'Senarai Pelesen Kilang Oleokimia',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
+
                     },
 
                 ],

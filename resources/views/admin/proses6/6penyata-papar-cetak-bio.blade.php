@@ -78,9 +78,9 @@
                                 <div id="title">
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Biodiesel - MPOB(EL) <br> </h3>
                                     <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
+                                <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 </div>
-                                <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 <script>
                                     var dt = new Date();

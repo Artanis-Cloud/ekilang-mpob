@@ -2358,15 +2358,14 @@
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
                         filename: 'Penyata Bulan',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
+
 
                     },
                     {
@@ -2470,11 +2469,8 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Bulanan',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
 
                     },
                     {
@@ -2504,7 +2500,7 @@
                         });
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Bulanan',
 
                     },
                 ],

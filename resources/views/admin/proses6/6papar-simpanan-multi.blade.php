@@ -312,25 +312,25 @@
                                                                     <font size="2">{{ $datai->produk->prodid }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_stokawal }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_stokawal ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_terima }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_terima ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_import }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_import ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_edaran }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_edaran ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_eksport }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_eksport ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_pelarasan }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_pelarasan ?? 0, 2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_stokakhir }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_stokakhir ?? 0, 2) }}</font>
                                                                 </td>
                                                             </tr>
                                                         @endforeach

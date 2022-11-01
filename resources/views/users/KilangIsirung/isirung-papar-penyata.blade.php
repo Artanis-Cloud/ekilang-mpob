@@ -267,7 +267,7 @@
                                 class="table table-bordered">
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
-                                        <td width="255"style="text-align: center; vertical-align:middle">
+                                        <td width="255" style="text-align: center; vertical-align:middle">
                                             <b>
                                                     <font size="2"> Butir-Butir</font>
                                                 </b>
