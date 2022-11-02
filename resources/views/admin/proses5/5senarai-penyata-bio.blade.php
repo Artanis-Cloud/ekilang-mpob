@@ -82,8 +82,8 @@
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
                                                 <th style=" vertical-align: middle">No. Telefon</th>
-                                                <th style=" vertical-align: middle">Kod Pegawai</th>
-                                                <th style=" vertical-align: middle">No. Siri</th>
+                                                {{-- <th style=" vertical-align: middle">Kod Pegawai</th> --}}
+                                                {{-- <th style=" vertical-align: middle">No. Siri</th> --}}
                                             </tr>
                                         </thead>
                                         <tfoot>
