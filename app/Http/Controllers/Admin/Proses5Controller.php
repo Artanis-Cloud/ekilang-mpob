@@ -1052,9 +1052,11 @@ class Proses5Controller extends Controller
                 return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
             })->get();
 
+            if ($penyata->ebio_sdate) {
+                $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->ebio_sdate);
+                $formatteddate = $myDateTime->format('d-m-Y');
+            }
 
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->ebio_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
 
 
             $breadcrumbs    = [
