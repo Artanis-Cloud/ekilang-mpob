@@ -1075,6 +1075,7 @@ class Proses5Controller extends Controller
 
         // dd($penyataia);
         // $data = DB::table('pelesen')->get();
+        if ($penyata->ebio_sdate) {
         return view('admin.proses5.5kemaskini-bio-view', compact(
             'returnArr',
             'layout',
@@ -1092,6 +1093,25 @@ class Proses5Controller extends Controller
             'produk_c',
             'produkiii',
         ));
+    }
+    else {
+        return view('admin.proses5.5kemaskini-bio-view', compact(
+            'returnArr',
+            'layout',
+            'tahun',
+            'bulan',
+            'penyata',
+            'penyataia',
+            'penyataib',
+            'penyataic',
+            'penyataii',
+            'penyataiii',
+            'produk',
+            'produk_b',
+            'produk_c',
+            'produkiii',
+        ));
+    }
     }
 
 
