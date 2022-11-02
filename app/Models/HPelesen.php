@@ -18,6 +18,7 @@ class HPelesen extends Model
     protected $fillable = [
         'e_id',
         'e_nl',
+        'e_nlkppk',
         'e_thn',
         'e_bln',
         'e_np',
@@ -71,6 +72,7 @@ class HPelesen extends Model
         'e_status',
         'e_email_pengurus',
         'kap_proses',
+        'kap_tangki',
         'bil_tangki_cpo',
         'bil_tangki_ppo',
         'bil_tangki_cpko',
