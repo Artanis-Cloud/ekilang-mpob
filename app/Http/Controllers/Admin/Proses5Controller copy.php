@@ -945,42 +945,24 @@ class Proses5Controller extends Controller
         $tahun1 = $request->tahun;
         $bulan1 = $request->bulan;
 
-        $day = date('d');
-        $month = date('m');
-
-        $flg = EBioInit::get();
+        $flg = EBioInit::where('ebio_flg', 2)->get();
 //    dd($flg->ebio_flg);
         // if ($tahun1 == now()->year && $bulan1 == now()->month){
 
 
             // foreach($flg as $f){
             // if($flg){
-                if ($day <= 31 && $month == $bulan1) {
-                    $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel, e.ebio_thn, e.ebio_bln,
-                    k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-                    FROM pelesen p, e_bio_inits e, reg_pelesen k
-                    WHERE p.e_nl = e.ebio_nl
-                    -- and e.ebio_flg in ('2','3')
-                    and p.e_nl = k.e_nl
-                    and k.e_kat = 'PLBIO'
-                    -- and e.ebio_thn = $tahun1
-                    -- and e.ebio_bln = $bulan1
-                    order by k.kodpgw, k.nosiri");
-                }
-                else {
-                    $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_nobatch, p.e_notel, e.ebio_thn, e.ebio_bln,
-                    k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-                    FROM pelesen p, h_bio_inits e, reg_pelesen k
-                    WHERE p.e_nl = e.ebio_nl
-                    -- and e.ebio_flg in ('2','3')
-                    and p.e_nl = k.e_nl
-                    and k.e_kat = 'PLBIO'
-                    and e.ebio_thn = $tahun1
-                    and e.ebio_bln = $bulan1
-                    order by k.kodpgw, k.nosiri");
-                }
-                dd($users);
 
+                $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel,
+                k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+                FROM pelesen p, e_bio_inits e, reg_pelesen k
+                WHERE p.e_nl = e.ebio_nl
+                -- and e.ebio_flg in ('2','3')
+                and p.e_nl = k.e_nl
+                and k.e_kat = 'PLBIO'
+                and e.ebio_thn = $tahun1
+                and e.ebio_bln = $bulan1
+                order by k.kodpgw, k.nosiri");
 
                 if (!$users) {
                     return redirect()->back()
@@ -1009,7 +991,7 @@ class Proses5Controller extends Controller
         ];
 
         // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
-        return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
+        return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1'));
     }
 
 

@@ -43,7 +43,9 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $check = HPelesen::where('e_nl', '500008704000')->where('e_thn', '2022')->where('e_bln', '11')->first();
+        $password = Hash::make('12345');
+        dd($password);
+
 
 
 

@@ -98,6 +98,8 @@
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
+                                            {{-- {{ dd($flg == '3') }} --}}
+                                            @if ($day <= 31 && $month == $bulan1)
                                             @foreach ($users as $data)
                                                     <tr class="text-left">
                                                         {{-- <td>{{ $loop->iteration }}</td> --}}
@@ -113,6 +115,24 @@
 
                                                     </tr>
                                             @endforeach
+                                            @else
+                                            @foreach ($users as $data)
+                                                    <tr class="text-left">
+                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                        <td>
+                                                        <a href="{{ route('admin.kemaskini.maklumat.bio', $data->ebio_nobatch) }}"><u>
+                                                            {{ $data->e_nl ?? '-' }}</u></a></td>
+
+                                                        <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
+                                                        <td>{{ $data->e_email ?? '-' }}</td>
+                                                        <td>{{ $data->e_notel ?? '-' }}</td>
+                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
+                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
+
+                                                    </tr>
+                                            @endforeach
+                                            @endif
+
 
                                         </tbody>
 
