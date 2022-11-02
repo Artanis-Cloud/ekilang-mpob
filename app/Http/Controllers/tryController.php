@@ -9,6 +9,7 @@ use App\Models\EBioInit;
 use App\Models\Hari;
 use App\Models\HBioCC;
 use App\Models\HHari;
+use App\Models\HPelesen;
 use App\Models\Init;
 use App\Models\Oerdaerah;
 use App\Models\Oernegeri;
@@ -42,9 +43,13 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $bulan = date('m') - 1;
+        $check = HPelesen::where('e_nl', '500008704000')->where('e_thn', '2022')->where('e_bln', '11')->first();
+
+
+
+
        // echo '0', $dt;
-        dd($bulan);
+        // dd(!$check);
 
         // if ($loginmills) {
         //     $idno_daerah = $loginmills->maxoerdaerah_id    ;
