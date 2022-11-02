@@ -93,12 +93,12 @@
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
                                                 <th>No. Telefon</th>
-                                                <th>Kod Pegawai</th>
-                                                <th>No. Siri</th>
+                                                {{-- <th>Kod Pegawai</th> --}}
+                                                {{-- <th>No. Siri</th> --}}
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
-                                            {{-- {{ dd($flg == '3') }} --}}
+                                            {{ dd($day <= 31 && $month == $bulan1) }}
                                             @if ($day <= 31 && $month == $bulan1)
                                             @foreach ($users as $data)
                                                     <tr class="text-left">
@@ -110,8 +110,8 @@
                                                         <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
                                                         <td>{{ $data->e_email ?? '-' }}</td>
                                                         <td>{{ $data->e_notel ?? '-' }}</td>
-                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
-                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                        {{-- <td style="text-align: center">{{ $data->kodpgw }}</td> --}}
+                                                        {{-- <td style="text-align: center">{{ $data->nosiri }}</td> --}}
 
                                                     </tr>
                                             @endforeach
@@ -126,8 +126,8 @@
                                                         <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
                                                         <td>{{ $data->e_email ?? '-' }}</td>
                                                         <td>{{ $data->e_notel ?? '-' }}</td>
-                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
-                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                        {{-- <td style="text-align: center">{{ $data->kodpgw }}</td> --}}
+                                                        {{-- <td style="text-align: center">{{ $data->nosiri }}</td> --}}
 
                                                     </tr>
                                             @endforeach
