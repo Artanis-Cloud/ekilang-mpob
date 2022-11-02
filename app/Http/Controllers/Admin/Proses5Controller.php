@@ -979,7 +979,7 @@ class Proses5Controller extends Controller
                     and e.ebio_bln = $bulan1
                     order by k.kodpgw, k.nosiri");
                 }
-                dd($users);
+                // dd($users);
 
 
                 if (!$users) {
