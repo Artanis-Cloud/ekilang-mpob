@@ -53,6 +53,8 @@ class HantarTukarPasswordPelesenMail extends Mailable
         }
         elseif($reg_pelesen->e_kat == 'PLBIO'){
             $route = route('bio.tukarpassword');
+        } elseif($reg_pelesen->e_kat == 'admin'){
+            $route = route('admin.tukarpassword');
         }
 
         // $reg_pelesen = User::where('username', $pelesen->username)->first();
