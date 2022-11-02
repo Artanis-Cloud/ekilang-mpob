@@ -273,7 +273,7 @@
                                                         <td  style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
                                                         <td style="text-align: center">{{ $data->nosiri ?? '-' }}</td>
                                                         @if ($data->e_status == 1)
-                                                            <td style="text-align: center"><span hidden>1</span>Aktif</td>
+                                                            <td style="text-align: center" hi><span hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
                                                             <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                         @else

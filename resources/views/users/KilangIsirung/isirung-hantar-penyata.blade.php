@@ -54,29 +54,29 @@
                     <body>
                         <div align="">
                             <table border="0" width="100%">
-                                <tbody style="float: right; width:10rem; margin-right: -10px">
+                                <tbody style=" width:10rem; margin-right: -10px">
                                     <tr>
-                                        <td width="10%" height="19">
+                                        <td width="85%" height="19">
                                             <p align=""><b></b></p>
                                         </td>
-                                        <td width="88%" height="19">
+                                        <td width="15%" height="19">
                                             <p align="left"><b>MPOB(EL) CF 4</b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="10%" height="19">
+                                        <td width="85%" height="19">
                                             <p align=""><b></b></p>
                                         </td>
-                                        <td width="88%" height="19">
-                                            <p align="left"><b>MPOB(EL) PM 4-CF </b></p>
+                                        <td width="15%" height="19">
+                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PM 4-CF </b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="10%" height="19">
+                                        <td width="87%" height="19">
                                             <p align=""><b></b></p>
                                         </td>
-                                        <td width="88%" height="19">
-                                            <p align="left"><b>MPOB(EL) PX 4-CF </b></p>
+                                        <td width="12%" height="19">
+                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-CF </b></p>
                                         </td>
                                     </tr>
 
