@@ -98,7 +98,7 @@
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
-                                            {{ dd($day <= 31 && $month == $bulan1) }}
+                                            {{-- {{ dd($day <= 31 && $month == $bulan1) }} --}}
                                             @if ($day <= 31 && $month == $bulan1)
                                             @foreach ($users as $data)
                                                     <tr class="text-left">
