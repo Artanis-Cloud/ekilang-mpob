@@ -1055,7 +1055,7 @@ class Proses5Controller extends Controller
             if ($penyata->ebio_sdate) {
                 $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->ebio_sdate);
                 $formatteddate = $myDateTime->format('d-m-Y');
-            }
+            // }
 
 
 
@@ -1075,7 +1075,7 @@ class Proses5Controller extends Controller
 
         // dd($penyataia);
         // $data = DB::table('pelesen')->get();
-        if ($penyata->ebio_sdate) {
+        // if ($penyata->ebio_sdate) {
         return view('admin.proses5.5kemaskini-bio-view', compact(
             'returnArr',
             'layout',
@@ -1095,6 +1095,21 @@ class Proses5Controller extends Controller
         ));
     }
     else {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $layout = 'layouts.main';
+
         return view('admin.proses5.5kemaskini-bio-view', compact(
             'returnArr',
             'layout',

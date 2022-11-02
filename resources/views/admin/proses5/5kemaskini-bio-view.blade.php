@@ -448,7 +448,7 @@
                                                             </div>
                                                         @endforeach
                                                         <tr>
-                                                            <form action="{{ route('admin.add.bahagian.ia', [$penyataia2->ebio_reg]  ) }}" method="post" id="add">
+                                                            <form action="{{ route('admin.add.bahagian.ia', [$penyata->ebio_reg]  ) }}" method="post" id="add">
                                                                 @csrf
                                                                 <td align="left">
                                                                     <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
@@ -685,7 +685,7 @@
                                                             </div>
                                                         @endforeach
                                                         <tr>
-                                                            <form action="{{ route('admin.add.bahagian.ib', [$penyataib2->ebio_reg] ) }}" method="post" id="add2">
+                                                            <form action="{{ route('admin.add.bahagian.ib', [$penyata->ebio_reg] ) }}" method="post" id="add2">
                                                                 @csrf
                                                                 <td align="left">
                                                                     <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
@@ -922,7 +922,7 @@
                                                         @endforeach
                                                         {{-- @foreach ($penyataic as $penyataic2) --}}
                                                         <tr>
-                                                            <form action="{{ route('admin.add.bahagian.ic', [$penyataic2->ebio_reg ?? 0] ) }}" method="post" id="add3">
+                                                            <form action="{{ route('admin.add.bahagian.ic', [$penyata->ebio_reg ?? 0] ) }}" method="post" id="add3">
                                                                 @csrf
                                                                 <td align="left">
                                                                     <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
@@ -1219,7 +1219,7 @@
                                                             </div>
                                                         @endforeach
                                                         <tr>
-                                                            <form action="{{ route('admin.add.bahagian.iii', [$penyataiii2->ebio_reg] ) }}" method="post" id="add5">
+                                                            <form action="{{ route('admin.add.bahagian.iii', [$penyata->ebio_reg] ) }}" method="post" id="add5">
                                                                 @csrf
                                                                 <td align="left">
                                                                     <select class="form-control" id="ebio_c3" name="ebio_c3"  onchange="ajax_produk(this);" >
