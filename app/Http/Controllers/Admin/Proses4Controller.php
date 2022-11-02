@@ -163,8 +163,8 @@ class Proses4Controller extends Controller
                 $e_syktinduk = $selects->pelesen->e_syktinduk ;
                 $stk_npg = $selects->pelesen->stk_npg ;
                 $stk_notel = $selects->pelesen->stk_notel ;
-                $stk_nofax = $selects->pelesen->stk_nofax ;
-                $stk_email = $selects->pelesen->stk_email ;
+                $stk_nofax = $selects->pelesen->stk_nofax  ;
+                $stk_email = $selects->pelesen->stk_email  ;
                 $stk_syktinduk = $selects->pelesen->stk_syktinduk ;
                 $stk_cpo_kap =  (float)  $selects->pelesen->stk_cpo_kap ;
                 $stk_rbdpo_kap = (float) $selects->pelesen->stk_rbdpo_kap ;
@@ -179,47 +179,82 @@ class Proses4Controller extends Controller
                 $e_poma =  $selects->pelesen->e_poma ;
                 $e_biogas =  $selects->pelesen->e_biogas ;
                 $e_status_biogas =  $selects->pelesen->e_status_biogas ;
-                $e_year =  $selects->pelesen->e_year ;
+                $e_year =  $selects->pelesen->e_year ?? 0;
                 $e_cluster =  $selects->pelesen->e_cluster ;
                 $e_katkilang =  $selects->pelesen->e_katkilang ;
                 $e_status =  $selects->pelesen->e_status ;
                 $e_email_pengurus =  $selects->pelesen->e_email_pengurus ;
                 $kap_proses =  $selects->pelesen->kap_proses ;
-                $kap_tangki =  $selects->pelesen->kap_tangki ;
+                $kap_tangki =  $selects->pelesen->kap_tangki  ;
                 $bil_tangki_cpo =  $selects->pelesen->bil_tangki_cpo ;
-                $bil_tangki_ppo =  $selects->pelesen->bil_tangki_ppo ;
+                $bil_tangki_ppo =  $selects->pelesen->bil_tangki_ppo  ;
                 $bil_tangki_cpko =  $selects->pelesen->bil_tangki_cpko ;
                 $bil_tangki_ppko =  $selects->pelesen->bil_tangki_ppko ;
-                $bil_tangki_oleo =  $selects->pelesen->bil_tangki_oleo ;
+                $bil_tangki_oleo =  $selects->pelesen->bil_tangki_oleo  ;
                 $bil_tangki_oleo =  $selects->pelesen->bil_tangki_others ;
                 $bil_tangki_jumlah =  $selects->pelesen->bil_tangki_jumlah ;
                 $kap_tangki_cpo =  $selects->pelesen->kap_tangki_cpo ;
                 $kap_tangki_ppo =  $selects->pelesen->kap_tangki_ppo ;
-                $kap_tangki_cpko =  $selects->pelesen->kap_tangki_cpko ;
-                $kap_tangki_ppko =  $selects->pelesen->kap_tangki_ppko ;
-                $kap_tangki_oleo =  $selects->pelesen->kap_tangki_oleo ;
+                $kap_tangki_cpko =  $selects->pelesen->kap_tangki_cpko  ;
+                $kap_tangki_ppko =  $selects->pelesen->kap_tangki_ppko  ;
+                $kap_tangki_oleo =  $selects->pelesen->kap_tangki_oleo  ;
                 $kap_tangki_others =  $selects->pelesen->kap_tangki_others ;
-                $kap_tangki_jumlah =  $selects->pelesen->kap_tangki_jumlah ;
+                $kap_tangki_jumlah =  $selects->pelesen->kap_tangki_jumlah  ;
 
                 $str="'";
+                $np = str_replace($str, "\'", $e_np);
+                $ap1 = str_replace($str, "\'", $e_ap1);
+                $ap2 = str_replace($str, "\'", $e_ap2);
+                $ap3 = str_replace($str, "\'", $e_ap3);
+                $as1 = str_replace($str, "\'", $e_as1);
+                $as2 = str_replace($str, "\'", $e_as2);
+                $as3 = str_replace($str, "\'", $e_as3);
                 $npg = str_replace($str, "\'", $e_npg);
+                $npg1 = str_replace($str, "\'", $eqc_npg);
+                $npg2 = str_replace($str, "\'", $e_npgtg);
 
                 $idmax = HPelesen::max('e_id');
+
+                if ($idmax)
+                {
+                    $idno = $idmax + 1;
+                    // dd($idno);
+                }
 
                 $check = HPelesen::where('e_nl', $e_nl)->where('e_thn', $e_thn)->where('e_bln', $e_bln)->first();
 
                 if (!$check) {
                     //insert data to hpelesen
-                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idmax,'$e_nl',
-                    $e_thn,$e_bln,'$e_nlkppk','$e_np','$e_ap1','$e_ap2',
-                    '$e_ap3','$e_as1','$e_as2','$e_as3','$e_notel','$e_nofax','$e_email','$npg',
-                    '$e_jpg','$e_notel_pg','$e_email_pg','$kodpgw','$nosiri','$e_npgtg',
-                    '$e_jpgtg','$eqc_npg','$eqc_jpg','$eqc_email','$e_asnegeri','$e_asdaerah','$e_negeri','$e_daerah','$e_kawasan',
-                    '$e_syktinduk','$stk_npg','$stk_notel','$stk_nofax','$stk_email','$stk_syktinduk','$stk_cpo_kap','$stk_rbdpo_kap','$stk_rbdpl_kap',
-                    '$stk_rbdps_kap','$stk_lainppo_kap','$stk_ppo_kap','$stk_po_kap','$stk_pfad_kap','$e_group','$e_subgroup','$e_poma','$e_biogas',
-                    '$e_status_biogas',$e_year,'$e_cluster','$e_katkilang','$e_status','$e_email_pengurus','$kap_proses','$kap_tangki','$bil_tangki_cpo',
-                    '$bil_tangki_ppo','$bil_tangki_cpko','$bil_tangki_ppko','$bil_tangki_oleo','$bil_tangki_oleo','$bil_tangki_jumlah',
-                    '$kap_tangki_cpo','$kap_tangki_ppo','$kap_tangki_cpko','$kap_tangki_ppko','$kap_tangki_oleo','$kap_tangki_others','$kap_tangki_jumlah')");
+                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl',
+                    $e_thn,$e_bln,'$e_nlkppk','$np','$ap1','$ap2',
+                    '$ap3',
+                    '$as1',
+                    '$as2',
+                    '$as3',
+                    '$e_notel',
+                    '$e_nofax',
+                    '$e_email',
+                    '$npg',
+                    '$e_jpg',
+                    '$e_notel_pg',
+                    '$e_email_pg',
+                    '$kodpgw',
+                    '$nosiri',
+                    '$npg2',
+                    '$e_jpgtg',
+                    '$npg1',
+                    '$eqc_jpg',
+                    '$eqc_email',
+                    '$e_asnegeri',
+                    '$e_asdaerah',
+                    '$e_negeri',
+                    '$e_daerah',
+                    '$e_kawasan',
+                    '$e_syktinduk','$stk_npg','$stk_notel','$stk_nofax','$stk_email','$stk_syktinduk',$stk_cpo_kap,$stk_rbdpo_kap,$stk_rbdpl_kap,
+                    $stk_rbdps_kap,$stk_lainppo_kap,$stk_ppo_kap,$stk_po_kap,$stk_pfad_kap,'$e_group','$e_subgroup','$e_poma','$e_biogas',
+                    '$e_status_biogas', $e_year,
+                    '$e_cluster','$e_katkilang','$e_status','$e_email_pengurus','$kap_proses',
+                    '$kap_tangki','$bil_tangki_cpo','$bil_tangki_ppo','$bil_tangki_cpko','$bil_tangki_ppko','$bil_tangki_oleo','$bil_tangki_oleo','$bil_tangki_jumlah','$kap_tangki_cpo','$kap_tangki_ppo','$kap_tangki_cpko','$kap_tangki_ppko','$kap_tangki_oleo','$kap_tangki_others','$kap_tangki_jumlah')");
                 }
 
 
