@@ -47,24 +47,24 @@
                     <body>
                         <div align="">
                             <table border="0" width="100%">
-                                <tbody style="float: right; width:10rem; margin-right: -10px">
+
+                                <tbody style=" width:10rem; margin-right: -10px">
                                     <tr>
-                                        <td width="10%" height="19">
+                                        <td width="88%" height="19">
                                             <p align=""><b></b></p>
                                         </td>
-                                        <td width="88%" height="19">
+                                        <td width="12%" height="19">
                                             <p align="left"><b>MPOB(EL) MF 4</b></p>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="10%" height="19">
+                                        <td width="80%" height="19">
                                             <p align=""><b></b></p>
                                         </td>
-                                        <td width="88%" height="19">
-                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                        <td width="20%" height="19">
+                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-M </b></p>
                                         </td>
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div><br>

@@ -65,7 +65,7 @@
                                             <p align=""><b></b></p>
                                         </td>
                                         <td width="88%" height="19">
-                                            <p align="left"><b>MPOB(EL) PX 4-CM </b></p>
+                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-CM </b></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -73,7 +73,7 @@
                                             <p align=""><b></b></p>
                                         </td>
                                         <td width="88%" height="19">
-                                            <p align="left"><b>MPOB(EL) PM 4-CM </b></p>
+                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PM 4-CM </b></p>
                                         </td>
                                     </tr>
 
