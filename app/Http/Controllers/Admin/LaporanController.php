@@ -2065,7 +2065,7 @@ class LaporanController extends Controller
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '2'
                     AND b.ebio_b4 = '04'
-                    AND p.e_negeri ='13')");
+                    AND p.e_negeri ='13'");
         //ppko
 
 
@@ -2077,7 +2077,7 @@ class LaporanController extends Controller
                 AND h.ebio_nobatch = b.ebio_nobatch
                 AND b.ebio_b3 = '2'
                 AND b.ebio_b4 <> '04'
-                AND p.e_negeri ='13')");
+                AND p.e_negeri ='13'");
 
         //sarawak
         //cpo
@@ -2090,7 +2090,7 @@ class LaporanController extends Controller
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '1'
                     AND b.ebio_b4 = '01'
-                    AND p.e_negeri ='14')");
+                    AND p.e_negeri ='14'");
 
         //ppo
 
@@ -2102,7 +2102,7 @@ class LaporanController extends Controller
                 AND h.ebio_nobatch = b.ebio_nobatch
                 AND b.ebio_b3 = '1'
                 AND b.ebio_b4 <> '01'
-                AND p.e_negeri ='14')");
+                AND p.e_negeri ='14'");
 
         //cpko
 
@@ -2114,7 +2114,7 @@ class LaporanController extends Controller
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '2'
                     AND b.ebio_b4 = '04'
-                    AND p.e_negeri ='14')");
+                    AND p.e_negeri ='14'");
 
         $srwkppko = DB::select("SELECT sum(b.ebio_b11) as ppko_srwk
                     FROM h_bio_b_s b, h_bio_inits h, pelesen p
@@ -2124,23 +2124,23 @@ class LaporanController extends Controller
                     AND h.ebio_nobatch = b.ebio_nobatch
                     AND b.ebio_b3 = '2'
                     AND b.ebio_b4 <> '04'
-                    AND p.e_negeri ='14')");
+                    AND p.e_negeri ='14'");
 
 
         // if (($tahun == 2013 and $bulan >= 4) or ($tahun > 2013)) {
             //formula baru
-            $cpo_sm = $querycpo3[0]->cpo_sm_3;
-            $ppo_sm = $queryppo3[0]->ppo_sm_3;
-            $cpko_sm = $querycpko3[0]->cpko_sm_3;
-            $ppko_sm = $queryppko3[0]->ppko_sm_3;
-            $cpo_sbh = $sbhcpo3[0]->cpo_sbh_3;
-            $ppo_sbh = $sbhppo3[0]->ppo_sbh_3;
-            $cpko_sbh = $sbhcpko3[0]->cpko_sbh_3;
-            $ppko_sbh = $sbhppko3[0]->ppko_sbh_3;
-            $cpo_srwk = $srwkcpo3[0]->cpo_srwk_3;
-            $ppo_srwk = $srwkppo3[0]->ppo_srwk_3;
-            $cpko_srwk = $srwkcpko3[0]->cpko_srwk_3;
-            $ppko_srwk = $srwkppko3[0]->ppko_srwk_3;
+            $cpo_sm = $querycpo[0]->cpo_sm;
+            $ppo_sm = $queryppo[0]->ppo_sm;
+            $cpko_sm = $querycpko[0]->cpko_sm;
+            $ppko_sm = $queryppko[0]->ppko_sm;
+            $cpo_sbh = $sbhcpo[0]->cpo_sbh;
+            $ppo_sbh = $sbhppo[0]->ppo_sbh;
+            $cpko_sbh = $sbhcpko[0]->cpko_sbh;
+            $ppko_sbh = $sbhppko[0]->ppko_sbh;
+            $cpo_srwk = $srwkcpo[0]->cpo_srwk;
+            $ppo_srwk = $srwkppo[0]->ppo_srwk;
+            $cpko_srwk = $srwkcpko[0]->cpko_srwk;
+            $ppko_srwk = $srwkppko[0]->ppko_srwk;
         // } elseif ($tahun > 2013 and $bulan < 4) {
             //formula baru
         //     $cpo_sm = $querycpo3[0]->cpo_sm_3;
@@ -2191,71 +2191,31 @@ class LaporanController extends Controller
             'tahun' => $tahun,
             'bulan' => $bulan,
 
-            'querycpo1' => $querycpo1,
-            'querycpo2' => $querycpo2,
-            'querycpo3' => $querycpo3,
-
+            'querycpo' => $querycpo,
             'queryppo' => $queryppo,
-            'queryppo1' => $queryppo1,
-            'queryppo2' => $queryppo2,
-            'queryppo3' => $queryppo3,
-
-            'querycpko1' => $querycpko1,
-            'querycpko2' => $querycpko2,
-            'querycpko3' => $querycpko3,
-
-            'queryppko1' => $queryppko1,
-            'queryppko2' => $queryppko2,
-            'queryppko3' => $queryppko3,
+            'querycpko' => $querycpko,
+            'queryppko' => $queryppko,
 
             'cpo_sm' => $cpo_sm,
             'ppo_sm' => $ppo_sm,
             'cpko_sm' => $cpko_sm,
             'ppko_sm' => $ppko_sm,
 
-            'sbhcpo1' => $sbhcpo1,
-            'sbhcpo2' => $sbhcpo2,
-            'sbhcpo3' => $sbhcpo3,
-
+            'sbhcpo' => $sbhcpo,
             'sbhppo' => $sbhppo,
-            'sbhppo1' => $sbhppo1,
-            'sbhppo2' => $sbhppo2,
-            'sbhppo3' => $sbhppo3,
-
-            'sbhcpko1' => $sbhcpko1,
-            'sbhcpko2' => $sbhcpko2,
-            'sbhcpko3' => $sbhcpko3,
-
-            'sbhppko1' => $sbhppko1,
-            'sbhppko2' => $sbhppko2,
-            'sbhppko3' => $sbhppko3,
-
+            'sbhcpko' => $sbhcpko,
+            'sbhppko' => $sbhppko,
             'sbhppo' => $sbhppo,
-            'sbhppo1' => $sbhppo1,
-            'sbhppo2' => $sbhppo2,
-            'sbhppo3' => $sbhppo3,
 
             'cpo_sbh' => $cpo_sbh,
             'ppo_sbh' => $ppo_sbh,
             'cpko_sbh' => $cpko_sbh,
             'ppko_sbh' => $ppko_sbh,
 
-            'srwkcpo1' => $srwkcpo1,
-            'srwkcpo2' => $srwkcpo2,
-            'srwkcpo3' => $srwkcpo3,
-
+            'srwkcpo' => $srwkcpo,
             'srwkppo' => $srwkppo,
-            'srwkppo1' => $srwkppo1,
-            'srwkppo2' => $srwkppo2,
-            'srwkppo3' => $srwkppo3,
-
-            'srwkcpko1' => $srwkcpko1,
-            'srwkcpko2' => $srwkcpko2,
-            'srwkcpko3' => $srwkcpko3,
-
-            'srwkppko1' => $srwkppko1,
-            'srwkppko2' => $srwkppko2,
-            'srwkppko3' => $srwkppko3,
+            'srwkcpko' => $srwkcpko,
+            'srwkppko' => $srwkppko,
 
             'cpo_srwk' => $cpo_srwk,
             'ppo_srwk' => $ppo_srwk,
