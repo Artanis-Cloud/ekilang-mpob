@@ -342,7 +342,7 @@
                                                             <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatai[$key] && !$penyatai[$key]->isEmpty())
+                                                {{-- @if($penyatai[$key] && !$penyatai[$key]->isEmpty()) --}}
                                                     @foreach ($penyatai[$key] as $datai)
                                                         <tr>
                                                             <td align="left">
@@ -383,11 +383,11 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                @else
+                                                {{-- @else
                                                     <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                     </tr>
-                                                @endif
+                                                @endif --}}
 
                                                 <tr>
                                                     <td align="center">
@@ -474,7 +474,7 @@
                                                             <font size="2">Stok Akhir Di Pusat Simpanan</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataii[$key] && !$penyataii[$key]->isEmpty())
+                                                {{-- @if($penyataii[$key] && !$penyataii[$key]->isEmpty()) --}}
                                                     @foreach ($penyataii[$key] as $dataii)
                                                         <tr>
                                                             <td align="left">
@@ -515,11 +515,11 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                @else
+                                                {{-- @else
                                                     <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                     </tr>
-                                                @endif
+                                                @endif --}}
 
                                                 <tr>
                                                     <td align="center">
@@ -619,7 +619,7 @@
                                                             <font size="2">Stok Akhir</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataiva[$key] && !$penyataiva[$key]->isEmpty())
+                                                {{-- @if($penyataiva[$key] && !$penyataiva[$key]->isEmpty())/ --}}
                                                     @foreach ($penyataiva[$key] as $dataiva)
                                                     <tr>
                                                         <td align="left">
@@ -648,11 +648,11 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                @else
+                                                {{-- @else
                                                     <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                     </tr>
-                                                @endif
+                                                @endif --}}
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -717,7 +717,7 @@
                                                             <font size="2">Stok Akhir</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyataivb[$key] && !$penyataivb[$key]->isEmpty())
+                                                {{-- @if($penyataivb[$key] && !$penyataivb[$key]->isEmpty()) --}}
                                                     @foreach ($penyataivb[$key] as $dataivb)
                                                     <tr>
                                                         <td align="left">
@@ -746,11 +746,11 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                @else
+                                                {{-- @else
                                                     <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                     </tr>
-                                                @endif
+                                                @endif --}}
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -805,7 +805,7 @@
                                                             <font size="2">PPKO</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatava[$key] && !$penyatava[$key]->isEmpty())
+                                                {{-- @if($penyatava[$key] && !$penyatava[$key]->isEmpty()) --}}
                                                     @foreach ($penyatava[$key] as $datava)
                                                     <tr>
                                                         <td align="left">
@@ -825,11 +825,11 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                @else
+                                                {{-- @else
                                                     <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                     </tr>
-                                                @endif
+                                                @endif --}}
 
                                                 <tr>
                                                     <td align="center">
@@ -874,7 +874,7 @@
                                                             <font size="2">PPKO</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatavb[$key] && !$penyatavb[$key]->isEmpty())
+                                                {{-- @if($penyatavb[$key] && !$penyatavb[$key]->isEmpty()) --}}
                                                     @foreach ($penyatavb[$key] as $datavb)
                                                     <tr>
                                                         <td align="left">
@@ -894,11 +894,11 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                @else
+                                                {{-- @else
                                                     <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
                                                     </tr>
-                                                @endif
+                                                @endif --}}
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -980,11 +980,37 @@
                                                     </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                             </tbody>
+                                            <tr >
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
                                         </table><br>
                                         <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1019,12 +1045,38 @@
                                                         </b></td>
                                                 </tr>
                                                 <tr >
-                                                    <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">
+                                                    {{-- <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">
                                                         <font size="2.7">Tiada Rekod</font>
-                                                    </td>
+                                                    </td> --}}
 
                                                 </tr>
                                             </tbody>
+                                            <tr>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
                                         </table><br>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya

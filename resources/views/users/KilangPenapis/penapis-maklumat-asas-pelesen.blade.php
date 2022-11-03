@@ -353,65 +353,65 @@
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpo' min="0"
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc19(); ableInput(); valid_cpo();FormatCurrency(this)"
-                                                size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)"
+                                                size="15" id="bil_tangki_cpo" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_cpo ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_ppo'
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc20(); ableInput(); valid_ppo();FormatCurrency(this)"
-                                                size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)"
+                                                size="15" id="bil_tangki_ppo" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_ppo ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td>
                                             <input type="text" class="form-control" name='bil_tangki_cpko'
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc21(); ableInput(); valid_cpko();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_cpko"
-                                                onkeypress="return isNumberKey(event)"
+                                                onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_cpko ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td> <input type="text" class="form-control" name='bil_tangki_ppko'
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc22(); ableInput(); valid_ppko();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_ppko"
-                                                onkeypress="return isNumberKey(event)"
+                                                onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_ppko ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
                                                 onchange="validation_jumlah()" required>
                                         </td>
                                         <td><input type="text" class="form-control" name='bil_tangki_others'
                                                 style="width:100%" oninput="this.setCustomValidity(''); ableInput(); valid_others();FormatCurrency(this)"
                                                 size="15" id="bil_tangki_others"
-                                                onkeypress="return isNumberKey(event)"
+                                                onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->bil_tangki_others ?? 0,2) }}" onchange="validation_jumlah()"
+                                                value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}" onchange="validation_jumlah()"
                                                 required>
                                         </td>
                                         <td>
                                             <b><span
-                                                    id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}</span></b>
+                                                    id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
                                         </td>
                                     </tr>
                                     <tr style="vertical-align: top">
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
                                                 style="width:100%" oninput="invokeFunc24(); valid_cpo();FormatCurrency(this)"
-                                                id="kap_tangki_cpo" onkeypress="return isNumberKey(event)"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpo,2) }}"
-                                                 required>
+                                                id="kap_tangki_cpo" onkeypress="return point(event)"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
+                                                onchange="validation_jumlah2()" required>
                                                 <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc25(); valid_ppo();FormatCurrency(this)"
-                                                id="kap_tangki_ppo" onkeypress="return isNumberKey(event)"
+                                                id="kap_tangki_ppo" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppo ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}"
                                                 onchange="validation_jumlah2()" required>
                                                 <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -419,9 +419,9 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc26(); valid_cpko();FormatCurrency(this)"
-                                                id="kap_tangki_cpko" onkeypress="return isNumberKey(event)"
+                                                id="kap_tangki_cpko" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpko ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}"
                                                 onchange="validation_jumlah2()" required>
                                                 <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -429,9 +429,9 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppko'
                                                 style="width:100%" oninput="this.setCustomValidity(''); invokeFunc27(); valid_ppko();FormatCurrency(this)"
-                                                id="kap_tangki_ppko" onkeypress="return isNumberKey(event)"
+                                                id="kap_tangki_ppko" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppko ?? 0,2) }}"
+                                                title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}"
                                                 onchange="validation_jumlah2()" required>
                                                 <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -439,17 +439,17 @@
                                         </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_others' min=0
                                                 style="width:100%" oninput="this.setCustomValidity(''); valid_others();FormatCurrency(this)"
-                                                id="kap_tangki_others" onkeypress="return isNumberKey(event)"
+                                                id="kap_tangki_others" onkeypress="return point(event)"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 title="Sila isikan butiran ini."
-                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0,2) }}" oninput="validation_jumlah2()"
+                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}" oninput="validation_jumlah2()"
                                                 required>
                                                 <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
                                         </td>
                                         <td><b><span id="kap_tangki_jumlah">
-                                                    {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
+                                                    {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
                                                 </span>
                                             </b>
                                         </td>
@@ -824,27 +824,32 @@
                         parseFloat(Number(bcpko)) + parseFloat(Number(bppko)) + parseFloat(Number(
                             bothers));
 
-                    document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+                    document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
             </script>
             <script>
                 function validation_jumlah2() {
                 // $(document).ready(function() {
 
-                    var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-                    var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-                    var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-                    var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-                    var kap_tangki_others = $("#kap_tangki_others").val();
+                    var kap_tangki_cpo =  document.getElementById('kap_tangki_cpo');
+                    var kcpo = kap_tangki_cpo.value.replace(/,/g, '');
+                    var kap_tangki_ppo =  document.getElementById('kap_tangki_ppo');
+                    var kppo = kap_tangki_ppo.value.replace(/,/g, '');
+                    var kap_tangki_cpko =  document.getElementById('kap_tangki_cpko');
+                    var kcpko = kap_tangki_cpko.value.replace(/,/g, '');
+                    var kap_tangki_ppko =  document.getElementById('kap_tangki_ppko');
+                    var kppko = kap_tangki_ppko.value.replace(/,/g, '');
+                    var kap_tangki_others =  document.getElementById('kap_tangki_others');
+                    var kothers = kap_tangki_others.value.replace(/,/g, '');
 
                     var jumlah = $("#jumlah2").val();
                     var jumlah_input = 0;
 
-                    jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                        parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                            kap_tangki_others));
+                    jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
+                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(
+                            kothers));
 
-                    document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+                    document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
             </script>
         @endsection

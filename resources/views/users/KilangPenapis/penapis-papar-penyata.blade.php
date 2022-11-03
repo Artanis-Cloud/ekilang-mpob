@@ -918,8 +918,8 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                            <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
-                                <font size="2">Tiada Rekod</font></td>
+                            {{-- <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
+                                <font size="2">Tiada Rekod</font></td> --}}
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
@@ -980,8 +980,8 @@
                                         </b></td>
                                 </tr>
                             </tbody>
-                            <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
-                                <font size="2">Tiada Rekod</font></td>
+                            {{-- <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
+                                <font size="2">Tiada Rekod</font></td> --}}
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>

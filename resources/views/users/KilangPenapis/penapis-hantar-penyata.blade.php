@@ -538,16 +538,16 @@
                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                             <tbody>
                                 <tr>
-                                    <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                    <td width="40%"><b>{{ $penyataiii->e101_a1 }} Hari</b></td>
+                                    <td width="30%">Jumlah Hari Kilang Beroperasi Sebulan</td>
+                                    <td width="40%"><b>{{ $penyataiii->e101_a1 ?? 0 }} Hari</b></td>
                                 </tr>
                                 <tr>
-                                    <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
+                                    <td width="30%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
                                     <td width="40%"><b>{{ number_format($penyataiii->e101_a2 ?? 0, 2) }} %</b>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
+                                    <td width="30%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                     </td>
                                     <td width="40%"><b>{{ number_format($penyataiii->e101_a3 ?? 0, 2) }} %</b>
                                     </td>
@@ -922,7 +922,7 @@
                                 @endforeach
                             </tbody>
                             <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
-                                <font size="2">Tiada Rekod</font></td>
+                                {{-- <font size="2">Tiada Rekod</font></td> --}}
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
@@ -984,7 +984,7 @@
                                 </tr>
                             </tbody>
                             <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
-                                <font size="2">Tiada Rekod</font></td>
+                                {{-- <font size="2">Tiada Rekod</font></td> --}}
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
