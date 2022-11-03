@@ -992,7 +992,7 @@ class Proses5Controller extends Controller
                 ->with('error', 'Penyata Tidak Wujud!');
             }else{
 
-
+                // dd($users);
             return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
 
             }
@@ -1035,7 +1035,7 @@ class Proses5Controller extends Controller
 
         // $pelesen = EBioInit::where('ebio_reg', $ebio_reg)->first();
             //  dd($pelesen);
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.5penyatakemaskinibio');
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
@@ -1118,7 +1118,7 @@ class Proses5Controller extends Controller
             ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
         ];
 
-        $kembali = route('admin.9penyataterdahulu');
+        $kembali = route('admin.5penyatakemaskinibio');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -1153,7 +1153,7 @@ class Proses5Controller extends Controller
 
         // $pelesen = EBioInit::where('ebio_reg', $ebio_nobatch)->first();
             //  dd($pelesen);
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.5penyatakemaskinibio');
 
         $produk = Produk::whereIn('prodcat', ['01' ])->orderBy('prodname')->get();
         $produk_b = Produk::whereIn('prodcat', ['02' ])->orderBy('prodname')->get();

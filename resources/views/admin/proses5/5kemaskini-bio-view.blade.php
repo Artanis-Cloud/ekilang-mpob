@@ -995,7 +995,7 @@
                                                 </b> </p>
                                             <table border="0" width="50%" cellspacing="0" cellpadding="0">
                                                 <tbody>
-                                                    <form action="{{ route('admin.kemaskini.maklumat.bio.ii',  [$penyataii->lesen] ) }}"  class="sub-form"
+                                                    <form action="{{ route('admin.kemaskini.maklumat.bio.ii',  [$penyataii->lesen ] ) }}"  class="sub-form"
                                                         method="post" id="formii" >
                                                         @csrf
                                                         <tr>
