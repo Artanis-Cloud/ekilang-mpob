@@ -172,7 +172,7 @@
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil</th> --}}
                                                             <th style="width:7%; vertical-align: middle">Papar?
-                                                                <input name="select-all" id="select-all" type="checkbox" required
+                                                                <input name="select-all" id="select-all" type="checkbox" 
                                                                 value=""></th>
                                                             <th style=" vertical-align: middle">No. Lesen<br></th>
                                                             <th style=" vertical-align: middle">Nama Premis</th>
