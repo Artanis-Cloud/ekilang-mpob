@@ -203,7 +203,7 @@ class Proses9Controller extends Controller
 
         $this->validation_terdahulu($request->all())->validate();
 
-        dd($request->all());
+        // dd($request->all());
         $sektor = $request->sektor;
         $sumber = $request->data;
         $tahuns = $request->tahun;
