@@ -919,7 +919,7 @@ class Proses5Controller extends Controller
             ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.6penyatapaparcetakbio');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -949,51 +949,7 @@ class Proses5Controller extends Controller
         $month = date('m');
 
         $flg = EBioInit::get();
-//    dd($flg->ebio_flg);
-        // if ($tahun1 == now()->year && $bulan1 == now()->month){
 
-
-            // foreach($flg as $f){
-            // if($flg){
-                if ($day <= 31 && $month == $bulan1) {
-                    $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel, e.ebio_thn, e.ebio_bln,
-                    k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-                    FROM pelesen p, e_bio_inits e, reg_pelesen k
-                    WHERE p.e_nl = e.ebio_nl
-                    -- and e.ebio_flg in ('2','3')
-                    and p.e_nl = k.e_nl
-                    and k.e_kat = 'PLBIO'
-                    -- and e.ebio_thn = $tahun1
-                    -- and e.ebio_bln = $bulan1
-                    order by k.kodpgw, k.nosiri");
-                }
-                else {
-                    $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_nobatch, p.e_notel, e.ebio_thn, e.ebio_bln,
-                    k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-                    FROM pelesen p, h_bio_inits e, reg_pelesen k
-                    WHERE p.e_nl = e.ebio_nl
-                    -- and e.ebio_flg in ('2','3')
-                    and p.e_nl = k.e_nl
-                    and k.e_kat = 'PLBIO'
-                    and e.ebio_thn = $tahun1
-                    and e.ebio_bln = $bulan1
-                    order by k.kodpgw, k.nosiri");
-                }
-                // dd($users);
-
-
-                if (!$users) {
-                    return redirect()->back()
-                    ->with('error', 'Penyata Tidak Wujud!');
-                }
-            // }
-            // dd($users);
-            //   }
-        //     }
-        // else{
-
-        // }
-        // dd($users);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1001,15 +957,62 @@ class Proses5Controller extends Controller
             ['link' => route('admin.5penyatakemaskini.process'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
-        $kembali = route('admin.9penyataterdahulu');
+        $kembali = route('admin.5penyatakemaskinibio');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
+//    dd($flg->ebio_flg);
+        // if ($tahun1 == now()->year && $bulan1 == now()->month){
 
-        // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
-        return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
+
+            // foreach($flg as $f){
+            // if($flg){
+        if ($day <= 31 && $month == $bulan1) {
+            $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel, e.ebio_thn, e.ebio_bln,
+            k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+            FROM pelesen p, e_bio_inits e, reg_pelesen k
+            WHERE p.e_nl = e.ebio_nl
+            -- and e.ebio_flg in ('2','3')
+            and p.e_nl = k.e_nl
+            and k.e_kat = 'PLBIO'
+            -- and e.ebio_thn = $tahun1
+            -- and e.ebio_bln = $bulan1
+            order by k.kodpgw, k.nosiri");
+
+
+            return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
+
+
+
+            if (!$users) {
+                return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+            }
+
+        }
+        else {
+            $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_nobatch, p.e_notel, e.ebio_thn, e.ebio_bln,
+            k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+            FROM pelesen p, h_bio_inits e, reg_pelesen k
+            WHERE p.e_nl = e.ebio_nl
+            -- and e.ebio_flg in ('2','3')
+            and p.e_nl = k.e_nl
+            and k.e_kat = 'PLBIO'
+            and e.ebio_thn = $tahun1
+            and e.ebio_bln = $bulan1
+            order by k.kodpgw, k.nosiri");
+
+            return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
+
+            if (!$users) {
+                return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+            }
+
+        }
+
     }
 
 
