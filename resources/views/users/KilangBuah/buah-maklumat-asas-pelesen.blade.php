@@ -472,11 +472,11 @@
                                     Bilangan Tangki</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%"
+                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%" onClick="this.select();"
                                     oninput="invokeFunc19(); ableInput(); FormatCurrency(this); valid_cpo()" id="bil_tangki_cpo" required
                                     title="Sila isikan butiran ini." min="1"
                                     {{-- oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')" --}}
-                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->bil_tangki_cpo ?? 0,2) }}"
+                                    onkeypress="return point(event)" value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
                                     required>
                                 <p type="hidden" id="err_bcpo" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
@@ -495,11 +495,11 @@
                                     Kapasiti Tangki Simpanan (Tan)</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%"
+                                <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%" onClick="this.select();"
                                     oninput=" setCustomValidity(''); valid_cpo(); FormatCurrency(this) " id="kap_tangki_cpo"
                                     title="Sila isikan butiran ini." min="0"
                                     oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
-                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_tangki_cpo ?? 0,2) }}"
+                                    onkeypress="return point(event)" value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
                                     required>
                                 <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
