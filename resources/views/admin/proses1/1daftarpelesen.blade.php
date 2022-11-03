@@ -1555,12 +1555,12 @@
             }
 
             // kap proses
-            field = document.getElementById("kap_proses");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#kap_proses').css('border-color', 'red');
-                document.getElementById('err_proses').style.display = "block";
-            }
+            // field = document.getElementById("kap_proses");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#kap_proses').css('border-color', 'red');
+            //     document.getElementById('err_proses').style.display = "block";
+            // }
 
             // alamat premis 1
             field = document.getElementById("e_ap1");
@@ -1626,36 +1626,36 @@
             //     document.getElementById('err_emailpg').style.display = "block";
             // }
             // emel pegawai melapor
-            field = document.getElementById("e_notel_pg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_notel_pg').css('border-color', 'red');
-                document.getElementById('err_notelpg').style.display = "block";
-            }
+            // field = document.getElementById("e_notel_pg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_notel_pg').css('border-color', 'red');
+            //     document.getElementById('err_notelpg').style.display = "block";
+            // }
 
             // nama pegawai bertanggungjawab
-            field = document.getElementById("e_npgtg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_npgtg').css('border-color', 'red');
-                document.getElementById('err_npgtg').style.display = "block";
-            }
+            // field = document.getElementById("e_npgtg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_npgtg').css('border-color', 'red');
+            //     document.getElementById('err_npgtg').style.display = "block";
+            // }
 
             // jawatan pegawai bertanggungjawab
-            field = document.getElementById("e_jpgtg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_jpgtg').css('border-color', 'red');
-                document.getElementById('err_jpgtg').style.display = "block";
-            }
+            // field = document.getElementById("e_jpgtg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_jpgtg').css('border-color', 'red');
+            //     document.getElementById('err_jpgtg').style.display = "block";
+            // }
 
             // emel pengurus
-            field = document.getElementById("e_email_pengurus");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_email_pengurus').css('border-color', 'red');
-                document.getElementById('err_emailpengurus').style.display = "block";
-            }
+            // field = document.getElementById("e_email_pengurus");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_email_pengurus').css('border-color', 'red');
+            //     document.getElementById('err_emailpengurus').style.display = "block";
+            // }
 
             // emel pengurus
             field = document.getElementById("negeri_id");
