@@ -951,7 +951,7 @@ class Proses5Controller extends Controller
         $bulan1 = $request->bulan;
 
         $day = date('d');
-        $month = date('m');
+        $month = date('m') - 1 ;
 
         $flg = EBioInit::get();
 
@@ -971,6 +971,7 @@ class Proses5Controller extends Controller
 //    dd($flg->ebio_flg);
         // if ($tahun1 == now()->year && $bulan1 == now()->month){
 
+            // dd($day <= 31 && $month == $bulan1);
 
             // foreach($flg as $f){
             // if($flg){
@@ -1022,6 +1023,7 @@ class Proses5Controller extends Controller
 
             }
         }
+
 
     }
 
