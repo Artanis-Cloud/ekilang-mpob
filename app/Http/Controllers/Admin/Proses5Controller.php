@@ -1008,6 +1008,8 @@ class Proses5Controller extends Controller
             and e.ebio_bln = $bulan1
             order by k.kodpgw, k.nosiri");
 
+            dd($users);
+
             return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
 
             if (!$users) {
