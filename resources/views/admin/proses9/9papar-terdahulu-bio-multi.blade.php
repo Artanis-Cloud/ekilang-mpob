@@ -715,7 +715,7 @@
                                             </tbody>
                                         </table><br>
                                         <p><b>
-                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+                                            <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT
 
                                             </font>
                                         </b></p>
@@ -750,12 +750,111 @@
                                                     </b></td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="center" colspan = "8">
+                                                    {{-- <td align="center" colspan = "8">
                                                         <font size="2">Tiada Rekod</font>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
 
                                             </tbody>
+
+                                            <tr style="background-color: #d3d3d370">
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
+
+                                        </table><br>
+
+
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">
+                                                BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT PRODUK SAWIT
+
+                                            </font>
+                                        </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
+                                                    <td width="15%" align="center"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Produk</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Nombor Borang Kastam 1</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Tarikh Import</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kuantiti<br>
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Negara Sumber Import</font>
+                                                    </b></td>
+                                                </tr>
+                                                {{-- <tr>
+                                                    <td class="text-center" colspan="8">Tiada Rekod</td>
+                                                </tr> --}}
+
+                                            </tbody>
+
+                                            <tr style="background-color: #d3d3d370">
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
                                         </table><br>
 
 

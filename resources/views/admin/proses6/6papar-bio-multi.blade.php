@@ -200,7 +200,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->e_as1 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->pelesen->e_as1 }}</b></td>
 
                                                 </tr>
 
@@ -379,9 +379,9 @@
 
                                                         @endforeach
                                                     @else
-                                                        <tr>
+                                                        {{-- <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr>
+                                                        </tr> --}}
                                                     @endif
 
                                                     <tr style="background-color: #d3d3d34d" >
@@ -394,7 +394,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($dipremis ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
 
                                                     </tr>
@@ -441,13 +441,13 @@
                                                     </tr>
                                                     @if($penyataib[$key] && !$penyataib[$key]->isEmpty())
                                                         @php
-                                                            $total_col_ebio_b5 = 0;
-                                                            $total_col_ebio_b6 = 0;
-                                                            $total_col_ebio_b7 = 0;
-                                                            $total_col_ebio_b8 = 0;
-                                                            $total_col_ebio_b9 = 0;
-                                                            $total_col_ebio_b10 = 0;
-                                                            $total_col_ebio_b11 = 0;
+                                                            $total_col_ebiob_b5 = 0;
+                                                            $total_col_ebiob_b6 = 0;
+                                                            $total_col_ebiob_b7 = 0;
+                                                            $total_col_ebiob_b8 = 0;
+                                                            $total_col_ebiob_b9 = 0;
+                                                            $total_col_ebiob_b10 = 0;
+                                                            $total_col_ebiob_b11 = 0;
                                                             $total_dipremis2 = 0;
                                                         @endphp
                                                         @foreach ($penyataib[$key] as $dataib)
@@ -485,35 +485,36 @@
                                                                     <font size="2">{{ number_format($dataib->ebio_b11 ??  0,2) }}</font>
                                                                 </td>
                                                                 @php
-                                                                    $total_col_ebio_b5 += $dataib->ebio_b5 ?? 0  ;
-                                                                    $total_col_ebio_b6 += $dataib->ebio_b6 ?? 0  ;
-                                                                    $total_col_ebio_b7 += $dataib->ebio_b7 ?? 0  ;
-                                                                    $total_col_ebio_b8 += $dataib->ebio_b8 ?? 0  ;
-                                                                    $total_col_ebio_b9 += $dataib->ebio_b9 ?? 0  ;
-                                                                    $total_col_ebio_b10 += $dataib->ebio_b10 ?? 0  ;
+                                                                    $total_col_ebiob_b5 += $dataib->ebio_b5 ?? 0  ;
+                                                                    $total_col_ebiob_b6 += $dataib->ebio_b6 ?? 0  ;
+                                                                    $total_col_ebiob_b7 += $dataib->ebio_b7 ?? 0  ;
+                                                                    $total_col_ebiob_b8 += $dataib->ebio_b8 ?? 0  ;
+                                                                    $total_col_ebiob_b9 += $dataib->ebio_b9 ?? 0  ;
+                                                                    $total_col_ebiob_b10 += $dataib->ebio_b10 ?? 0  ;
+                                                                    $total_col_ebiob_b11 += $dataib->ebio_b11 ?? 0  ;
                                                                     $total_dipremis2 += $dipremis2 ?? 0  ;
                                                                 @endphp
                                                             </tr>
 
                                                         @endforeach
                                                     @else
-                                                        <tr>
+                                                        {{-- <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr>
+                                                        </tr> --}}
                                                     @endif
 
                                                     <tr style="background-color: #d3d3d34d" >
                                                         <td align="center" colspan="2">
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b5 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b6 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b7 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b8 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b9 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b10 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebiob_b11 ?? 0,2) }}</b></td>
                                                         {{-- {{ dd($total_dipremis2) }} --}}
 
 
@@ -561,13 +562,13 @@
                                                     </tr>
                                                     @if($penyataic[$key] && !$penyataic[$key]->isEmpty())
                                                         @php
-                                                            $total_col_ebio_b5 = 0;
-                                                            $total_col_ebio_b6 = 0;
-                                                            $total_col_ebio_b7 = 0;
-                                                            $total_col_ebio_b8 = 0;
-                                                            $total_col_ebio_b9 = 0;
-                                                            $total_col_ebio_b10 = 0;
-                                                            $total_col_ebio_b11 = 0;
+                                                            $total_col_ebioc_b5 = 0;
+                                                            $total_col_ebioc_b6 = 0;
+                                                            $total_col_ebioc_b7 = 0;
+                                                            $total_col_ebioc_b8 = 0;
+                                                            $total_col_ebioc_b9 = 0;
+                                                            $total_col_ebioc_b10 = 0;
+                                                            $total_col_ebioc_b11 = 0;
                                                             $total_dipremis3 = 0;
                                                         @endphp
                                                         @foreach ($penyataic[$key] as $dataic)
@@ -603,36 +604,36 @@
                                                                 <font size="2">{{number_format( $dataic->ebio_b11 ??  0,2) }}</font>
                                                             </td>
                                                             @php
-                                                                $total_col_ebio_b5 += $dataic->ebio_b5 ?? 0  ;
-                                                                $total_col_ebio_b6 += $dataic->ebio_b6 ?? 0  ;
-                                                                $total_col_ebio_b7 += $dataic->ebio_b7 ?? 0  ;
-                                                                $total_col_ebio_b8 += $dataic->ebio_b8 ?? 0  ;
-                                                                $total_col_ebio_b9 += $dataic->ebio_b9 ?? 0  ;
-                                                                $total_col_ebio_b10 += $dataic->ebio_b10 ?? 0  ;
-                                                                $total_col_ebio_b11 += $dataic->ebio_b11 ?? 0  ;
+                                                                $total_col_ebioc_b5 += $dataic->ebio_b5 ?? 0  ;
+                                                                $total_col_ebioc_b6 += $dataic->ebio_b6 ?? 0  ;
+                                                                $total_col_ebioc_b7 += $dataic->ebio_b7 ?? 0  ;
+                                                                $total_col_ebioc_b8 += $dataic->ebio_b8 ?? 0  ;
+                                                                $total_col_ebioc_b9 += $dataic->ebio_b9 ?? 0  ;
+                                                                $total_col_ebioc_b10 += $dataic->ebio_b10 ?? 0  ;
+                                                                $total_col_ebioc_b11 += $dataic->ebio_b11 ?? 0  ;
                                                                 $total_dipremis3 += $dipremis3 ?? 0  ;
                                                             @endphp
                                                         </tr>
 
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
 
                                                 <tr style="background-color: #d3d3d34d" >
                                                     <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b5 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b6 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b7 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b8 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b9 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b10 ?? 0,2) }}</b></td>
                                                     <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b11 ?? 0,2) }}</b></td>
 
                                                 </tr>
                                                 </tbody>
@@ -753,9 +754,9 @@
 
                                                         @endforeach
                                                     @else
-                                                        <tr>
+                                                        {{-- <tr>
                                                             <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr>
+                                                        </tr> --}}
                                                     @endif
 
                                                     <tr style="background-color: #d3d3d34d" >
@@ -777,7 +778,7 @@
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">
-                                                        BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+                                                        BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT
 
                                                     </font>
                                                 </b></p>
@@ -811,13 +812,110 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td class="text-center" colspan="8">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
 
                                             </tbody>
+
+                                            <tr style="background-color: #d3d3d370">
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
                                         </table><br>
 
+
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">
+                                                BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT PRODUK SAWIT
+
+                                            </font>
+                                        </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
+                                                    <td width="15%" align="center"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Produk</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Nombor Borang Kastam 1</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Tarikh Import</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kuantiti<br>
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Negara Sumber Import</font>
+                                                    </b></td>
+                                                </tr>
+                                                {{-- <tr>
+                                                    <td class="text-center" colspan="8">Tiada Rekod</td>
+                                                </tr> --}}
+
+                                            </tbody>
+
+                                            <tr style="background-color: #d3d3d370">
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>JUMLAH</b></font>
+                                                </td>
+                                                <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                                <td align="right">
+                                                    <font size="2"><b>0.00</b></font>
+                                                </td>
+                                            </tr>
+                                        </table><br>
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
