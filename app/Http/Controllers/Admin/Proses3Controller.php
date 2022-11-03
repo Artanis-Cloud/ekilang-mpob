@@ -713,6 +713,7 @@ class Proses3Controller extends Controller
                     return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
                 }   else{
                 $count = EBioInit::max('ebio_reg');
+                $count2 = Hari::max('id');
 
                 $query = EBioInit::create([
                     'ebio_reg' => $count + 1,
@@ -728,6 +729,17 @@ class Proses3Controller extends Controller
                     'ebio_jpg' => NULL,
                     'ebio_notel' => NULL,
                     'ebio_flagcetak' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+
+                $query = Hari::create([
+                    'id' => $count2 + 1,
+                    'lesen' => $request->e_initlesen,
+                    'bulanbhg2' => now()->format('m') - 1,
+                    'tahunbhg2' => now()->year,
+                    'hari_operasi' => NULL,
+                    'kapasiti' => NULL,
                     'created_at' => NULL,
                     'updated_at' => NULL,
                 ]);
