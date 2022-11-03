@@ -464,10 +464,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <br>
-                            <div  style='page-break-after:always'></div>
                             <p><b>
-                                    <font style="font-size: 15px;  color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
+                                    <font style="font-size: 15px;"  color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN, KADAR
                                         PERAHAN DAN HARGA </font>
                                 </b> </p>
 
@@ -518,10 +516,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
-
-                            <br>
-
+                            </table><div style="page-break-after: always"></div><br>
 
 
                             <table border="1" style="width: 70%" cellspacing="0" cellpadding="0"
@@ -736,7 +731,7 @@
                             <p>
                                 <font size="2.7">Lain-lain jawapan, sila nyatakan (max. 100 character):
                                     {{ $penyata->e91_ah18 ?? '-' }}</font>
-                            </p><br>
+                            </p>
 
 
 
@@ -820,7 +815,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table>
 
 
                             <p align="left">
@@ -917,7 +912,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table>
 
 
                             <p align="left">
@@ -974,8 +969,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
-                            <div  style='page-break-after:always'></div>
+                            </table>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                 </b></p>
@@ -1008,11 +1002,11 @@
                                             <font size="2.7"><b>Destinasi Negara</b></font>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
 
-                                    </tr>
-                                    <tr  style="background-color: #d3d3d370">
+                                    </tr> --}}
+                                    <tr >
                                         <td style="text-align: center; vertical-align:middle">
                                             <font size="2"><b>JUMLAH</b></font>
                                         </td>
@@ -1039,7 +1033,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table>
 
                             <p style="font-size: 16px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,

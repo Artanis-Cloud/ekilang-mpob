@@ -240,7 +240,7 @@ class Proses6Controller extends Controller
 
             $penyatai[$key] = E101B::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
-            })->get();
+            })->orderBy('e101_b4')->get();
 
             $totalib5[$key] = DB::table("e101_b")
                 ->where('e101_reg', $penyata[$key]->e101_reg)
@@ -297,7 +297,7 @@ class Proses6Controller extends Controller
 
             $penyataii[$key] = E101B::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
-            })->get();
+            })->orderBy('e101_b4')->get();
             // dd($penyataii);
 
             $totaliib5[$key] = DB::table("e101_b")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
@@ -324,7 +324,7 @@ class Proses6Controller extends Controller
             $penyataiii[$key] = E101Init::where('e101_reg', $penyata[$key]->e101_reg)->first();
             // dd($penyataiii);
 
-            $penyataiva[$key] = E101C::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->get();
+            $penyataiva[$key] = E101C::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->orderBy('e101_c4')->get();
             // dd($penyataiva);
 
             $totalivac5[$key] = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
@@ -340,7 +340,7 @@ class Proses6Controller extends Controller
             $totalivac10[$key] = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
             //   dd($totalivac5);
 
-            $penyataivb[$key] = E101C::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', 2)->get();
+            $penyataivb[$key] = E101C::with('e101init', 'produk')->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', 2)->orderBy('e101_c4')->get();
             // dd($penyataivb);
 
             $totalivbc5[$key] = DB::table("e101_c")->where('e101_reg', $penyata[$key]->e101_reg)->where('e101_c3', '2')->sum('e101_c5');

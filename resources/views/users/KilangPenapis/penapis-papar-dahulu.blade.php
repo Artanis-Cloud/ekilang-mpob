@@ -896,7 +896,7 @@
                                             <font size="2">Destinasi Negara</font>
 
                                             <tr>
-                                                <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+                                                {{-- <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td> --}}
 
                                             </tr>
                                             <tr  style="background-color: #d3d3d370">
@@ -988,7 +988,7 @@
                                         </b></td>
                                 </tr>
                                 <tr>
-                                    <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
+                                    {{-- <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td> --}}
 
                                 </tr>
                                 <tr  style="background-color: #d3d3d370">
