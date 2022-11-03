@@ -114,14 +114,14 @@
                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                         oninput="setCustomValidity('')">
                                             <option selected hidden disabled value="">Sila Pilih Produk</option>
-                                            <option value="RBDPO">RBDPO</option>
-                                            <option value="RBDPL">RBDPL</option>
-                                            <option value="RBDPS">RBDPS</option>
-                                            <option value="PFAD">PFAD</option>
-                                            <option value="RBDPKO">RBDPKO</option>
-                                            <option value="RBDPKL">RBDPKL</option>
-                                            <option value="RBDPKS">RBDPKS</option>
-                                            <option value="PKFAD">PKFAD</option>
+                                            <option value="GK">RBDPO</option>
+                                            <option value="29">RBDPL</option>
+                                            <option value="27">RBDPS</option>
+                                            <option value="35">PFAD</option>
+                                            <option value="30">RBDPKO</option>
+                                            <option value="32">RBDPKL</option>
+                                            <option value="31">RBDPKS</option>
+                                            <option value="56">PKFAD</option>
                                         </select>
 
                                     </div>
@@ -155,46 +155,40 @@
                                             </thead>
                                             <tbody>
                                                 @php
-                                                    $total_besar = 0;
+                                                    $dipremis_pposem = 0;
+                                                    $total_dipremis_pposem = 0;
                                                     $total_stok_akhir = 0;
                                                 @endphp
                                                 @if ($ppo_sem)
                                                     @if (is_array($ppo_sem) || is_object($ppo_sem))
                                                         @foreach ($ppo_sem as $data)
                                                             <tr class="text-right">
-                                                                <td scope="row" class="text-left">{{ $data->lesen }}
+                                                                <td scope="row" class="text-left">{{ $data->e_nl }}
                                                                 </td>
-                                                                <td class="text-left">{{ $data->kilang }}</td>
+                                                                <td class="text-left">{{ $data->e_np }}</td>
                                                                 <td class="text-left">{{ $data->negeri }}</td>
-                                                                <td>{{ number_format($data->ppo_hasil ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($data->stok_awal ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($data->bekalan_belian ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($data->bekalan_penerimaan ?? 0, 2) }}
+                                                                <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}
                                                                 </td>
-                                                                <td>{{ number_format($data->bekalan_import ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($total_3a_3b = $data->stok_awal + $data->bekalan_belian + $data->bekalan_penerimaan + $data->bekalan_import ?? 0, 2) }}
+                                                                <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($dipremis_pposem = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7) - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                                 </td>
-                                                                <td>{{ number_format($data->ppo_proses ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($data->jualan_jualan ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($data->jualan_edaran ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($data->jualan_eksport ?? 0, 2) }}</td>
-                                                                <td>{{ number_format($total_3c_3d = $data->ppo_proses + $data->jualan_jualan + $data->jualan_edaran + $data->jualan_eksport ?? 0, 2) }}
-                                                                </td>
-                                                                <td>{{ number_format($total = $data->ppo_hasil + ($total_3a_3b - $total_3c_3d) ?? 0, 2) }}
-                                                                </td>
-                                                                <td>{{ number_format($data->stok_akhir ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                             </tr>
                                                             @php
-                                                            $total_besar += $total;
-                                                            $total_stok_akhir += $data->stok_akhir;
+                                                            $total_dipremis_pposem += $dipremis_pposem;
+                                                            $total_stok_akhir += $data->ebio_b11;
                                                         @endphp
                                                         @endforeach
                                                     @endif
                                                 @endif
 
                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                    <th colspan="14">Jumlah</th>
-                                                    <td>{{ number_format($total_besar ?? 0, 2) }}</td>
+                                                    <th colspan="9">Jumlah</th>
+                                                    <td>{{ number_format($total_dipremis_pposem ?? 0, 2) }}</td>
                                                     <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                                 </tr>
                                             </tbody>
@@ -222,7 +216,7 @@
                                                     <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            {{-- <tbody>
                                                 @php
                                                     $total_besar = 0;
                                                     $total_stok_akhir = 0;
@@ -262,11 +256,11 @@
                                                 @endif
 
                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                    <th colspan="14">Jumlah</th>
+                                                    <th colspan="9">Jumlah</th>
                                                     <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                                     <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                                 </tr>
-                                            </tbody>
+                                            </tbody> --}}
                                         </table>
                                     </div>
 
@@ -291,7 +285,7 @@
                                                     <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            {{-- <tbody>
                                                 @php
                                                     $total_besar = 0;
                                                     $total_stok_akhir = 0;
@@ -331,11 +325,11 @@
                                                 @endif
 
                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                    <th colspan="14">Jumlah</th>
+                                                    <th colspan="9">Jumlah</th>
                                                     <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                                     <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                                 </tr>
-                                            </tbody>
+                                            </tbody> --}}
                                         </table>
                                     </div>
 
