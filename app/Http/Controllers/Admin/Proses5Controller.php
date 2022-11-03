@@ -32,6 +32,7 @@ use App\Models\HHari;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\Penyata;
 use App\Models\Produk;
 use App\Models\RegPelesen;
 use DateTime;
@@ -985,14 +986,14 @@ class Proses5Controller extends Controller
             -- and e.ebio_bln = $bulan1
             order by k.kodpgw, k.nosiri");
 
-
-            return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
-
-
-
             if (!$users) {
                 return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
+            }else{
+
+
+            return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
+
             }
 
         }
@@ -1008,13 +1009,15 @@ class Proses5Controller extends Controller
             and e.ebio_bln = $bulan1
             order by k.kodpgw, k.nosiri");
 
-            return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
 
             if (!$users) {
                 return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
-            }
+            }else{
 
+            return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
+
+            }
         }
 
     }
@@ -1138,7 +1141,7 @@ class Proses5Controller extends Controller
     }
     }
 
-    public function admin_kemaskini_maklumat_dahulu($ebio_nobatch, Request $request)
+    public function admin_kemaskini_maklumat_dahulu($ebio_nobatch, Penyata $penyata)
     {
 
         // $reg_pelesen = RegPelesen::where('e_nl', );
