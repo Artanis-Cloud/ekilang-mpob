@@ -77,7 +77,7 @@
                                     <table id="example10" class="table table-bordered text-center" style="width: 100%;">
                                         <thead>
                                             <tr style="background-color: #e9ecefbd;  word-wrap:normal">
-                                                {{-- <th class="no-sort">Bil.</th> --}}
+                                                <th class="no-sort" style="width: 10px">Bil.</th>
                                                 <th style=" vertical-align: middle; width:100px">No. Lesen</th>
                                                 <th style=" vertical-align: middle">Nama Premis</th>
                                                 <th style=" vertical-align: middle">Emel</th>
@@ -88,7 +88,7 @@
                                         </thead>
                                         <tfoot>
                                             <tr style="background-color: #e9ecefbd;">
-                                                {{-- <th>Bil.</th> --}}
+                                                <th>Bil.</th>
                                                 <th>No. Lesen</th>
                                                 <th>Nama Premis</th>
                                                 <th>Emel</th>
@@ -102,7 +102,7 @@
                                             @if ($day <= 31 && $month == $bulan1)
                                             @foreach ($users as $data)
                                                     <tr class="text-left">
-                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                        <td class="count"></td>
                                                         <td>
                                                         <a href="{{ route('admin.kemaskini.maklumat.bio', $data->ebio_reg) }}"><u>
                                                             {{ $data->e_nl ?? '-' }}</u></a></td>
@@ -118,9 +118,9 @@
                                             @else
                                             @foreach ($users as $data)
                                                     <tr class="text-left">
-                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                        <td class="count"></td>
                                                         <td>
-                                                        <a href="{{ route('admin.kemaskini.maklumat.bio', $data->ebio_nobatch) }}"><u>
+                                                        <a href="{{ route('admin.kemaskini.maklumat.dahulu.bio', $data->ebio_nobatch) }}"><u>
                                                             {{ $data->e_nl ?? '-' }}</u></a></td>
 
                                                         <td style="text-transform:uppercase">{{ $data->e_np ?? '-' }}</td>
