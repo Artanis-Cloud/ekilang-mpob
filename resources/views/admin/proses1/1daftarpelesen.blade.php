@@ -472,14 +472,16 @@
                                     </p>
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Nama Pegawai
+                                            <label for="inputcom" class="control-label col-form-label ">Nama Pegawai
                                                 Melapor</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_npg" class="form-control" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc13(); valid_npg(); this.value = this.value.toUpperCase()"
-                                                placeholder="Nama Pegawai Melapor" name="e_npg" required
+                                                oninput="setCustomValidity(''); invokeFunc13();
+                                                // valid_npg();
+                                                 this.value = this.value.toUpperCase()"
+                                                placeholder="Nama Pegawai Melapor" name="e_npg"
                                                 value="{{ old('nama_pegawai_lapor') }}">
                                             <p type="hidden" id="err_npg" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -489,14 +491,16 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Jawatan
+                                            <label for="inputcom" class="control-label col-form-label">Jawatan
                                                 Pegawai Melapor</label>
                                         </div>
                                         <div class="col-md-6">
                                             <input type="text" id="e_jpg" style="margin-bottom: 10px;" style="text-transform:uppercase"
                                                 class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                maxlength="60" oninput="setCustomValidity(''); invokeFunc14(); valid_jpg(); this.value = this.value.toUpperCase()"
-                                                placeholder="JAWATAN PEGAWAI MELAPOR" name="e_jpg" required
+                                                maxlength="60" oninput="setCustomValidity(''); invokeFunc14();
+                                                // valid_jpg();
+                                                this.value = this.value.toUpperCase()"
+                                                placeholder="JAWATAN PEGAWAI MELAPOR" name="e_jpg"
                                                 value="{{ old('jawatan_pegawai_lapor') }}">
                                             <p type="hidden" id="err_jpg" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -506,14 +510,15 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">No. Telefon
+                                            <label for="inputcom" class="control-label col-form-label ">No. Telefon
                                                 Pegawai Melapor</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <input type="text" id="e_notel_pg" class="form-control" required
+                                            <input type="text" id="e_notel_pg" class="form-control"
                                                 placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg' style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                                oninput="setCustomValidity(''); invokeFunc15(); valid_notelpg()"
+                                                oninput="setCustomValidity(''); invokeFunc15();
+                                                // valid_notelpg()"
                                                 value="{{ old('e_notel_pg') }}">
                                             <p type="hidden" id="err_notelpg" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -523,14 +528,15 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Alamat Emel
+                                            <label for="inputcom" class="control-label col-form-label">Alamat Emel
                                                 Pegawai Melapor</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_email_pg" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                                oninput="setCustomValidity(''); invokeFunc16(); valid_emailpg()"
-                                                placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg" required
+                                                oninput="setCustomValidity(''); invokeFunc16();
+                                                // valid_emailpg()"
+                                                placeholder="ALAMAT EMEL PEGAWAI MELAPOR" name="e_email_pg"
                                                 value="{{ old('emel_pegawai') }}">
                                             <p type="hidden" id="err_emailpg" style="color: red; display:none"><i>Sila
                                                     isi butiran di
@@ -540,15 +546,17 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Nama
+                                            <label for="inputcom" class="control-label col-form-label ">Nama
                                                 Pegawai
                                                 Bertanggungjawab</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_npgtg" class="form-control" style="text-transform:uppercase"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
-                                                oninput="setCustomValidity(''); invokeFunc17(); valid_npgtg(); this.value = this.value.toUpperCase()"
-                                                placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg" required
+                                                oninput="setCustomValidity(''); invokeFunc17();
+                                                // valid_npgtg();
+                                                this.value = this.value.toUpperCase()"
+                                                placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
                                                 value="{{ old('nama_pegawai_jawab') }}">
                                             <p type="hidden" id="err_npgtg" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -558,15 +566,17 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Jawatan
+                                            <label for="inputcom" class="control-label col-form-label">Jawatan
                                                 Pegawai
                                                 Bertanggungjawab</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_jpgtg" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
-                                                oninput="setCustomValidity(''); invokeFunc18(); valid_jpgtg(); this.value = this.value.toUpperCase()" maxlength="60"
-                                                placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" required
+                                                oninput="setCustomValidity(''); invokeFunc18();
+                                                // valid_jpgtg();
+                                                this.value = this.value.toUpperCase()" maxlength="60"
+                                                placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
                                                 value="{{ old('jawatan_pegawai_jawab') }}">
                                             <p type="hidden" id="err_jpgtg" style="color: red; display:none"><i>Sila isi
                                                     butiran di
@@ -576,14 +586,15 @@
 
                                     <div class="row ">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">Alamat Emel
+                                            <label for="inputcom" class="control-label col-form-label">Alamat Emel
                                                 Pengurus</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
                                             <input type="text" id="e_email_pengurus" class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
-                                                oninput="setCustomValidity(''); invokeFunc19(); valid_emailpengurus()"
-                                                placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus" required
+                                                oninput="setCustomValidity(''); invokeFunc19();
+                                                // valid_emailpengurus()"
+                                                placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
                                                 value="{{ old('e_emel_pengurus') }}">
                                             <p type="hidden" id="err_emailpengurus" style="color: red; display:none"><i>Sila
                                                     isi butiran di
@@ -782,7 +793,7 @@
 
                                     <div class="row">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
-                                            <label for="inputcom" class="control-label col-form-label required">
+                                            <label for="inputcom" class="control-label col-form-label">
                                                 Kapasiti Pemprosesan / Tahun</label>
                                         </div>
                                         <div class="col-md-6" style="margin-bottom: 20px;">
@@ -790,8 +801,10 @@
                                                 placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 onkeypress="return isNumberKey(event)"
-                                                oninput="validate_two_decimal(this); setCustomValidity('');  valid_proses(); FormatCurrency(this);"
-                                                required>
+                                                oninput="validate_two_decimal(this); setCustomValidity('');
+                                                // valid_proses();
+                                                FormatCurrency(this);"
+                                              >
                                             <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
@@ -1590,28 +1603,28 @@
             }
 
             // nama pegawai melapor
-            field = document.getElementById("e_npg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_npg').css('border-color', 'red');
-                document.getElementById('err_npg').style.display = "block";
-            }
+            // field = document.getElementById("e_npg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_npg').css('border-color', 'red');
+            //     document.getElementById('err_npg').style.display = "block";
+            // }
 
             // jawatan pegawai melapor
-            field = document.getElementById("e_jpg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_jpg').css('border-color', 'red');
-                document.getElementById('err_jpg').style.display = "block";
-            }
+            // field = document.getElementById("e_jpg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_jpg').css('border-color', 'red');
+            //     document.getElementById('err_jpg').style.display = "block";
+            // }
 
             // no tel pegawai melapor
-            field = document.getElementById("e_email_pg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_email_pg').css('border-color', 'red');
-                document.getElementById('err_emailpg').style.display = "block";
-            }
+            // field = document.getElementById("e_email_pg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_email_pg').css('border-color', 'red');
+            //     document.getElementById('err_emailpg').style.display = "block";
+            // }
             // emel pegawai melapor
             field = document.getElementById("e_notel_pg");
             if (!field.checkValidity()) {
