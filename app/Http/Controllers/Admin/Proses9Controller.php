@@ -324,7 +324,7 @@ class Proses9Controller extends Controller
                 $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, h_bio_inits e, reg_pelesen k
                 WHERE e.ebio_thn = '$request->tahun'
-                and e.ebio_bln = '$bulans'
+                and e.ebio_bln = '$request->bulan2'
                 and p.e_nl = e.ebio_nl
                 and e.ebio_flg = '3'
                 and p.e_nl = k.e_nl
