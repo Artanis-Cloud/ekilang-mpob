@@ -625,7 +625,7 @@
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 2 : KADAR PERAHAN CPKO, KADAR PEROLEHAN
                                                         PKC, JAM PENGILANGAN DAN PENGGUNAAN
-                                                        KAPASITI</font>
+                                                        KAPASITI PEMPROSESAN</font>
                                                 </b> </p>
 
                                             <table border="0" width="50%" cellspacing="0" cellpadding="0">

@@ -208,7 +208,7 @@
                                                                 value="{{ $data->ebio_reg }}">&nbspYa
                                                         </td>
                                                         <td class="text-center">
-                                                            {{ $data->e91_flagcetak ?? 'N' }}
+                                                            {{ $data->ebio_flagcetak ?? 'N' }}
                                                         </td>
 
                                                         <td>{{ $data->e_nl ?? '-' }}</td>

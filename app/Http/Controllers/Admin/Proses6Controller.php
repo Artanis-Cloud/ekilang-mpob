@@ -891,16 +891,16 @@ class Proses6Controller extends Controller
 
     public function admin_6penyatapaparcetakbio()
     {
-        $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg,
-        k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
-        FROM pelesen p, e_bio_inits e, reg_pelesen k
-        WHERE p.e_nl = e.ebio_nl
-        and e.ebio_flg in ('2','3')
-        and p.e_nl = k.e_nl
-        and k.e_kat = 'PLBIO'
-        order by k.kodpgw, k.nosiri");
+        // $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg,
+        // k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+        // FROM pelesen p, e_bio_inits e, reg_pelesen k
+        // WHERE p.e_nl = e.ebio_nl
+        // and e.ebio_flg in ('2','3')
+        // and p.e_nl = k.e_nl
+        // and k.e_kat = 'PLBIO'
+        // order by k.kodpgw, k.nosiri");
 
-        $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg,
+        $users = DB::select("SELECT e.ebio_nl, e.ebio_flagcetak, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_reg, p.e_notel,
         k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
         FROM pelesen p, e_bio_inits e, reg_pelesen k
         WHERE p.e_nl = e.ebio_nl

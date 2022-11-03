@@ -308,7 +308,9 @@
                                             </thead>
                                             <tbody>
                                                 @if ($result)
-
+                                                @php
+                                                    $total_bulan_kuantiti = 0;
+                                                @endphp
                                                 @foreach ($result as $key => $data)
                                                     <tr>
                                                         @foreach ($jualan_bio[$data->e_nl] as $kodProduk => $test)
@@ -323,14 +325,24 @@
                                                                 </td>
 
 
-                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
-                                                                    <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk] ?? 00) }}</b>
+                                                                <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
+                                                                    <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk] ?? 0,2) }}</b>
                                                                 </td>
+                                                                @php
+                                                                    $total_bulan_kuantiti += $jualan_bio[$data->e_nl][$kodProduk] ?? 0;
+                                                                @endphp
                                                             </tr>
                                                         @endforeach
                                                     </tr>
 
                                                 @endforeach
+
+                                                <tr style="background-color: #d3d3d34d">
+                                                    <th class="text-right" colspan="5"><b>Jumlah</b></th>
+                                                    <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
+                                                        <b>{{ number_format($total_bulan_kuantiti ?? 0,2) }}</b></td>
+
+                                                </tr>
                                                 @endif
                                             </tbody><br>
 
