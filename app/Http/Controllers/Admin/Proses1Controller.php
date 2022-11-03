@@ -68,7 +68,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen_proses(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
@@ -1607,6 +1607,10 @@ class Proses1Controller extends Controller
     {
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
 
+        foreach($users as $key =>  $res_daerah){
+            $data_daerah[$key] = Daerah::where('kod_negeri',$res_daerah->pelesen->e_negeri)->where('kod_daerah',$res_daerah->pelesen->e_daerah)->first();
+         }
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen"],
@@ -1622,7 +1626,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-bio', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses1.senarai-pelesen-bio', compact('returnArr', 'layout', 'users', 'data_daerah'));
     }
 
     public function admin_senaraipelesenbatalbuah()

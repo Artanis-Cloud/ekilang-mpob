@@ -183,8 +183,8 @@
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Nama Pegawai Bertanggungjawab</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Jawatan Pegawai Bertanggungjawab</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Alamat Emel Pengurus</th>
-                                                <th class="noScreenPelesen" style=" vertical-align: middle">Negeri</th>
-                                                <th class="noScreenPelesen" style=" vertical-align: middle">Daerah</th>
+                                                <th class="noScreenPelesen"  style=" vertical-align: middle">Negeri</th>
+                                                <th class="noScreenPelesen"  style=" vertical-align: middle">Daerah</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Kawasan</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Syarikat Induk</th>
                                                 <th class="noScreenPelesen" style=" vertical-align: middle">Tahun Mula Beroperasi</th>
@@ -231,8 +231,8 @@
                                                 <th class="noScreenPelesen">Nama Pegawai Bertanggungjawab</th>
                                                 <th class="noScreenPelesen">Jawatan Pegawai Bertanggungjawab</th>
                                                 <th class="noScreenPelesen">Alamat Emel Pengurus</th>
-                                                <th class="noScreenPelesen">Negeri</th>
-                                                <th class="noScreenPelesen">Daerah</th>
+                                                <th class="noScreenPelesen" >Negeri</th>
+                                                <th class="noScreenPelesen" >Daerah</th>
                                                 <th class="noScreenPelesen">Kawasan</th>
                                                 <th class="noScreenPelesen">Syarikat Induk</th>
                                                 <th class="noScreenPelesen">Tahun Mula Beroperasi</th>
@@ -254,10 +254,10 @@
                                         </tfoot>
                                         <tbody style="max-width: 100px;
                                             word-break: break-word; font-size:12px">
-                                            @foreach ($users as $data)
+                                            @foreach ($users as $key => $data)
                                                 @if ($data->pelesen)
                                                     <tr class="text-left">
-                                                        <td class="count"></td>
+                                                        <td></td>
                                                         <td>
                                                             <a
                                                                 href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
@@ -304,9 +304,9 @@
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_npgtg ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_jpgtg ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_email_pengurus ?? '-'  }}</td>
-                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_negeri ?? '-'  }}</td>
-                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_daerah ?? '-'  }}</td>
-                                                        <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->kod_region ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen"  style="text-align: center">{{ $data->pelesen->negeri->nama_negeri ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen"  style="text-align: center">{{ $data_daerah[$key]->nama_daerah ?? '-'  }}</td>
+                                                        <td class="noScreenPelesen"  style="text-align: center">{{ $data->pelesen->negeri->nama_region ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_syktinduk ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_year ?? '-'  }}</td>
                                                         <td class="noScreenPelesen" style="text-align: center">{{ $data->pelesen->e_group ?? '-'  }}</td>
@@ -458,7 +458,16 @@
 
             });
 
-        });
+
+
+            table.on('order.dt search.dt', function () {
+                table.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+                table.cell(cell).invalidate('dom');
+            });
+        }).draw();
+
+                });
 
 
     </script>

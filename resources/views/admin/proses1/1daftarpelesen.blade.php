@@ -2326,4 +2326,23 @@
         }
     </script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#checkBtn').click(function() {
+            b5 = $('#kap_proses').val();
+
+            let x5 = b5;
+            if (x5 == '') {
+                x5 = x5 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+
+            document.getElementById("kap_proses").value = x5;
+
+
+        });
+    });
+</script>
+
 @endsection
