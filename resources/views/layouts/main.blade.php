@@ -2740,7 +2740,7 @@ $('ul > li> a').on('click', function() {
                 //     });
                 // });
 
-                @if (auth()->user()->map_flg == false)
+                @if (auth()->user()->map_flg == '0')
                     window.onload = function() {
                         document.getElementById('map-message-warning').click();
                     }
