@@ -160,7 +160,7 @@ class DashboardAdminController extends Controller
             and p.e_nl = r.e_nl
             and r.e_kat = 'PLBIO'
             and e.ebio_sdate is not null
-            and e.ebio_flg = '2'
+            and e.ebio_flg in ('2','3')
             and DAY(e.ebio_sdate) = '$i'
             group by e.ebio_sdate
             order by e.ebio_sdate");

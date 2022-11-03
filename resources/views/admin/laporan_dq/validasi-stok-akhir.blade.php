@@ -173,7 +173,7 @@
                                             @if (is_array($cpo_sem) || is_object($cpo_sem))
                                                 @foreach ($cpo_sem as $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->lesen }}</td>
+                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
                                                         <td class="text-left">{{ $data->kilang }}</td>
                                                         <td class="text-left">{{ $data->negeri }}</td>
                                                         <td>{{ number_format($data->stok_awal ?? 0, 2) }}</td>
