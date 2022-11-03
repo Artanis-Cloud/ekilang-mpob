@@ -170,7 +170,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap1 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap1 ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -178,7 +178,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap2 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap2 ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -186,7 +186,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap3 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_ap3 ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -194,7 +194,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%"><b>{{ $penyata->e_as1 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->e_as1 ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -202,7 +202,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as2 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as2 ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -210,7 +210,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as3 }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as3 ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -218,7 +218,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_notel ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -226,7 +226,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_nofax ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -234,7 +234,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_email ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -242,7 +242,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_npg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_npg ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -250,7 +250,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_jpg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_jpg ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -258,7 +258,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_npgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_npgtg ?? '-' }}</b></td>
 
                                                 </tr>
 
@@ -266,7 +266,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%"><b>{{ $penyata->pelesen->e_jpgtg }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_jpgtg ?? '-' }}</b></td>
 
                                                 </tr>
 

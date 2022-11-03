@@ -584,7 +584,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <br>
+                        <br><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     RINGKASAN PRODUK BIODIESEL DAN GLYCERINE</font>
