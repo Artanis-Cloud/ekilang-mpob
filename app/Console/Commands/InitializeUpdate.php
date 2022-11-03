@@ -8,6 +8,7 @@ use App\Models\E102Init;
 use App\Models\E104Init;
 use App\Models\E91Init;
 use App\Models\EBioInit;
+use App\Models\Hari;
 use App\Models\Init;
 use App\Models\RegPelesen;
 use Illuminate\Console\Command;
@@ -338,6 +339,7 @@ class InitializeUpdate extends Command
         $reg_pelesen = RegPelesen::where('e_kat', 'PLBIO')->where('e_status', '1')->get();
 
         $ebio_init = DB::table('e_bio_inits')->delete();
+        $hari = DB::table('haris')->delete();
         $ebio_b = DB::table('e_bio_b_s')->delete();
         $ebio_c = DB::table('e_bio_c_s')->delete();
         $ebio_cc = DB::table('e_bio_cc')->delete();
@@ -358,6 +360,17 @@ class InitializeUpdate extends Command
                 'ebio_jpg' => NULL,
                 'ebio_notel' => NULL,
                 'ebio_flagcetak' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ]);
+
+            $query = Hari::create([
+                'id' => $key + 1,
+                'lesen' => $e_nl,
+                'bulanbhg2' => now()->format('m') - 1,
+                'tahunbhg2' => now()->year,
+                'hari_operasi' => NULL,
+                'kapasiti' => NULL,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ]);

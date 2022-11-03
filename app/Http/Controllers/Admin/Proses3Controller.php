@@ -13,6 +13,7 @@ use App\Models\E91Init;
 use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Hari;
 use App\Models\Init;
 use App\Models\Negeri;
 use App\Models\Pelesen;
@@ -205,11 +206,11 @@ class Proses3Controller extends Controller
     public function admin_initialize(Request $request)
     {
         // dd($request->e_tahun);
-        $this->initialize_proses_pl91($request->e_ddate);
-        $this->initialize_proses_pl101($request->e_ddate);
-        $this->initialize_proses_pl102($request->e_ddate);
-        $this->initialize_proses_pl104($request->e_ddate);
-        $this->initialize_proses_pl111($request->e_ddate);
+        // $this->initialize_proses_pl91($request->e_ddate);
+        // $this->initialize_proses_pl101($request->e_ddate);
+        // $this->initialize_proses_pl102($request->e_ddate);
+        // $this->initialize_proses_pl104($request->e_ddate);
+        // $this->initialize_proses_pl111($request->e_ddate);
         $this->initialize_proses_plbio($request->e_ddate);
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata telah diinitialize');
@@ -441,8 +442,9 @@ class Proses3Controller extends Controller
     public function initialize_proses_plbio($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PLBIO')->where('e_status', '1')->get();
-
+        // $hariid = Hari::max('id');
         $ebio_init = DB::table('e_bio_inits')->delete();
+        $hari = DB::table('haris')->delete();
         $ebio_b = DB::table('e_bio_b_s')->delete();
         $ebio_c = DB::table('e_bio_c_s')->delete();
         $ebio_cc = DB::table('e_bio_cc')->delete();
@@ -452,7 +454,7 @@ class Proses3Controller extends Controller
             $query = EBioInit::create([
                 'ebio_reg' => $key + 1,
                 'ebio_nl' => $e_nl,
-                'ebio_bln' => now()->format('m'),
+                'ebio_bln' => now()->format('m') - 1,
                 'ebio_thn' => now()->year,
                 'ebio_flg' => '1',
                 'ebio_sdate' => NULL,
@@ -463,6 +465,16 @@ class Proses3Controller extends Controller
                 'ebio_jpg' => NULL,
                 'ebio_notel' => NULL,
                 'ebio_flagcetak' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ]);
+            $query = Hari::create([
+                'id' => $key + 1,
+                'lesen' => $e_nl,
+                'bulanbhg2' => now()->format('m') - 1,
+                'tahunbhg2' => now()->year,
+                'hari_operasi' => NULL,
+                'kapasiti' => NULL,
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ]);
