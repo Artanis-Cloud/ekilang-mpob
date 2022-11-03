@@ -200,7 +200,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -263,7 +263,7 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -331,7 +331,7 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -402,7 +402,7 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="14">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -471,7 +471,7 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="14">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -540,7 +540,7 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="14">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -607,7 +607,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -672,7 +672,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -737,7 +737,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -804,7 +804,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -869,7 +869,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
@@ -934,7 +934,7 @@
                                             @endif
                                         @endif
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="13">Jumlah</th>
+                                            <th colspan="9">Jumlah</th>
                                             <td>{{ number_format($total_besar ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                         </tr>
