@@ -361,7 +361,7 @@
                                     </tr>
                                 @endforeach
 
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -486,7 +486,7 @@
                                     </tr>
                                 @endforeach
 
-                                <tr  style="background-color: #d3d3d370">
+                                <tr >
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -614,7 +614,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -706,7 +706,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -739,7 +739,7 @@
                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     SENDIRI</font>
                             </b></p>
-                        <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                        <table border="1" style="width: 100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr  style="background-color: #d3d3d370">
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
@@ -777,7 +777,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -800,7 +800,7 @@
                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
                             </b></p>
-                        <table border="1" style="width: 60%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                        <table border="1" style="width: 100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr  style="background-color: #d3d3d370">
                                     <td width="15%" style="text-align: center; vertical-align:middle"><b>
@@ -838,7 +838,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr >
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -920,11 +920,17 @@
                             </tbody>
                             {{-- <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
                                 <font size="2">Tiada Rekod</font></td> --}}
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -933,17 +939,11 @@
                                     <td align="right">
                                         <font size="2"><b>0.00</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
                                 </tr>
                         </table><br>
@@ -979,14 +979,18 @@
                                             <font size="2">Negara Sumber</font>
                                         </b></td>
                                 </tr>
-                            </tbody>
-                            {{-- <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
-                                <font size="2">Tiada Rekod</font></td> --}}
-                                <tr  style="background-color: #d3d3d370">
+
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -995,19 +999,14 @@
                                     <td align="right">
                                         <font size="2"><b>0.00</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
                                 </tr>
+                            </tbody>
                         </table><br>
 
                         <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">

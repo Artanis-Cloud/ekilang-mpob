@@ -310,7 +310,7 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach
-                                                    <tr  style="background-color: #d3d3d370">
+                                                    <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
@@ -377,11 +377,11 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td width="8%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
 
-                                                    </tr>
-                                                    <tr  style="background-color: #d3d3d370">
+                                                    </tr> --}}
+                                                    <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
