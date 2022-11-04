@@ -89,30 +89,70 @@
                         <br>
                         <p>Sila daftar masuk ke sistem tersebut dan kemaskini maklumat asas pemegang lesen dengan segera.</p>
                         <p>Jika terdapat sebarang pertanyaan berkaitan perkara ini, tuan/puan boleh menghubungi pegawai berikut :</p>
-                        <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
-                        bordercolor="#111111" width="100%" id="AutoNumber2">
-                            <tr>
-                            <td width="33%">1. Aziana Misnan </td>
-                            <td width="33%">03-78022955 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aziana.misnan@mpob.gov.my</td>
-                            </tr>
-                            <tr>
-                            <td width="33%">2. Nor Baayah Mohammed Yusop</td>
-                            <td width="33%">03-78022865 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abby@mpob.gov.my</td>
-                            </tr>
-                            <tr>
-                            <td width="33%">3. Nor Syaida Abdul Halim</td>
-                            <td width="33%">03-78022914 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nor.syaida@mpob.gov.my</td>
-                            </tr>
-                            <tr>
-                            <td width="33%">4. Rominizam Mustapa</td>
-                            <td width="33%">03-78022918 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rominizam@mpob.gov.my</td>
-                            </tr>
-                            <tr>
-                            <td width="33%">5. Rohidayati Sukhaila</td>
-                            <td width="33%">03-78022991 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rohidayati@mpob.gov.my</td>
-                            </tr>
-                        </table>
-                        </br>
+                        @if ($reg_pelesen->e_kat == 'PL91')
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                            bordercolor="#111111" width="100%" id="AutoNumber2">
+                                <tr>
+                                <td width="33%">3. Nor Syaida Abdul Halim</td>
+                                <td width="33%">03-78022914 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nor.syaida@mpob.gov.my</td>
+                                </tr>
+                                <tr>
+                                <td width="33%">4. Rominizam Mustapa</td>
+                                <td width="33%">03-78022918 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rominizam@mpob.gov.my</td>
+                                </tr>
+                            </table>
+
+                        @elseif($reg_pelesen->e_kat == 'PL101')
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                            bordercolor="#111111" width="100%" id="AutoNumber2">
+                                <tr>
+                                <td width="33%">1. Aziana Misnan </td>
+                                <td width="33%">03-78022955 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aziana.misnan@mpob.gov.my</td>
+                                </tr>
+                         
+                            </table>
+                        @elseif($reg_pelesen->e_kat == 'PL102')
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                            bordercolor="#111111" width="100%" id="AutoNumber2">
+
+                                <tr>
+                                <td width="33%">2. Nor Baayah Mohammed Yusop</td>
+                                <td width="33%">03-78022865 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abby@mpob.gov.my</td>
+                                </tr>
+
+                            </table>
+                            @elseif($reg_pelesen->e_kat == 'PL104')
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                            bordercolor="#111111" width="100%" id="AutoNumber2">
+                                <tr>
+                                <td width="33%">1. Aziana Misnan </td>
+                                <td width="33%">03-78022955 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aziana.misnan@mpob.gov.my</td>
+                                </tr>
+
+                            </table>
+                        @elseif($reg_pelesen->e_kat == 'PL111')
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                            bordercolor="#111111" width="100%" id="AutoNumber2">
+
+                                <tr>
+                                <td width="33%">2. Nor Baayah Mohammed Yusop</td>
+                                <td width="33%">03-78022865 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abby@mpob.gov.my</td>
+                                </tr>
+
+                            </table>
+                        @elseif($reg_pelesen->e_kat == 'PLBIO')
+                            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse"
+                            bordercolor="#111111" width="100%" id="AutoNumber2">
+
+                                <tr>
+                                <td width="33%">5. Rohidayati Sukhaila</td>
+                                <td width="33%">03-78022991 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rohidayati@mpob.gov.my</td>
+                                </tr>
+                            </table>
+
+
+                        @endif
+                        <br>
                         <p>Sekian terima kasih.</p>
                         <p>Saya yang menurut perintah,</p>
                         {{-- <p>&nbsp;</p> --}}
