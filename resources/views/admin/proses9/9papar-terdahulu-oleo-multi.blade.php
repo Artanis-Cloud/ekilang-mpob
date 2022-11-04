@@ -772,7 +772,33 @@
                                                         <font size="2">Destinasi Negara</font>
                                                     </b></td>
                                                 </tr>
-                                                @foreach ($iv as $dataiv)
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
+                                                {{-- @foreach ($iv as $dataiv)
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
@@ -799,7 +825,7 @@
                                                         <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
                                                     </td>
                                                 </tr>
-                                                @endforeach
+                                                @endforeach --}}
                                             </tbody>
                                         </table><br>
                                         <p><b>
@@ -837,7 +863,33 @@
                                                         <font size="2">Destinasi Negara</font>
                                                     </b></td>
                                                 </tr>
-                                                @foreach ($iv as $dataiv)
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
+                                                {{-- @foreach ($iv as $dataiv)
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
@@ -864,7 +916,7 @@
                                                         <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
                                                     </td>
                                                 </tr>
-                                                @endforeach
+                                                @endforeach --}}
                                             </tbody>
                                         </table><br>
 

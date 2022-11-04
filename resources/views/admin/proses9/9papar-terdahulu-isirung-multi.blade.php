@@ -586,10 +586,10 @@
                                                 @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
+                                                        <font size="2"><b>JUMLAH</b></font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
+                                                        <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>{{  number_format($totaliii ??  0,2) }}</b></font>
@@ -630,10 +630,10 @@
                                                 @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
+                                                        <font size="2"><b>JUMLAH</b></font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
+                                                        <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>{{  number_format($totaliv ??  0,2) }}</b></font>
@@ -670,10 +670,10 @@
                                                 @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>-</b></font>
+                                                        <font size="2"><b>JUMLAH</b></font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2"><b>JUMLAH</b></font>
+                                                        <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>{{ number_format( $totalv ??  0,2) }}</b></font>
@@ -714,7 +714,33 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                 </tr>
-                                                @foreach ($vi as $datavi)
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
+                                                {{-- @foreach ($vi as $datavi)
                                                 <tr>
                                                     <td>{{ $datavi->produk->proddesc }}</td>
                                                     <td>{{ $datavi->e102_c4 }}</td>
@@ -725,7 +751,7 @@
                                                     <td>{{ $datavi->e102_c9 }}</td>
                                                     <td>{{ $datavi->negara->namanegara }}</td>
                                                 </tr>
-                                                @endforeach
+                                                @endforeach --}}
                                             </tbody>
                                         </table><br>
 
@@ -761,7 +787,33 @@
                                                             <font size="2">Negara Sumber</font>
                                                         </b></td>
                                                 </tr>
-                                                @foreach ($vi as $datavi)
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
+                                                {{-- @foreach ($vi as $datavi)
                                                 <tr>
                                                     <td>{{ $datavi->produk->proddesc }}</td>
                                                     <td>{{ $datavi->e102_c4 }}</td>
@@ -772,7 +824,7 @@
                                                     <td>{{ $datavi->e102_c9 }}</td>
                                                     <td>{{ $datavi->negara->namanegara }}</td>
                                                 </tr>
-                                                @endforeach
+                                                @endforeach --}}
                                             </tbody>
                                         </table><br>
 

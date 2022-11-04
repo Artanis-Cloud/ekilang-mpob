@@ -731,9 +731,9 @@
                                                             </tr>
                                                             @endforeach
                                                         @else
-                                                            <tr>
+                                                            {{-- <tr>
                                                                 <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                            </tr>
+                                                            </tr> --}}
                                                         @endif
                                                         <tr>
                                                             <td align="center">
@@ -773,7 +773,7 @@
                                                     <tbody>
                                                         <tr style="background-color: #d3d3d370">
                                                             <td width="15%" align="center"><b>
-                                                                    <font size="2"> Produk Oleokimia</font>
+                                                                    <font size="2"> Nama Produk Sawit</font>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Kod Produk</font>
@@ -799,7 +799,30 @@
                                                             </b></td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-center" colspan="8">Tiada Rekod</td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
                                                         </tr>
 
                                                     </tbody>
@@ -842,7 +865,30 @@
                                                             </b></td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-center" colspan="8">Tiada Rekod</td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
                                                         </tr>
 
                                                     </tbody>

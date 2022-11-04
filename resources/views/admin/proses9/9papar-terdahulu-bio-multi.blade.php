@@ -363,7 +363,7 @@
                                                     </tr>
                                                 @endforeach
 
-                                                <tr style="background-color: #d3d3d34d" >
+                                                <tr>
                                                     <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
@@ -469,7 +469,7 @@
                                                     </tr>
                                                 @endforeach
 
-                                                <tr style="background-color: #d3d3d34d" >
+                                                <tr >
                                                     <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
@@ -572,7 +572,7 @@
                                                 </tr>
                                                 @endforeach
 
-                                                <tr style="background-color: #d3d3d34d" >
+                                                <tr>
                                                     <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
@@ -699,7 +699,7 @@
                                                 </tr>
                                                 @endforeach
 
-                                                <tr style="background-color: #d3d3d34d" >
+                                                <tr>
                                                     <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
@@ -756,12 +756,17 @@
                                                 </tr>
 
                                             </tbody>
-
-                                            <tr style="background-color: #d3d3d370">
+                                            <tr>
                                                 <td style="text-align: center; vertical-align:middle">
                                                     <font size="2"><b>JUMLAH</b></font>
                                                 </td>
                                                 <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="center">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="center">
                                                     <font size="2"><b>-</b></font>
                                                 </td>
                                                 <td align="right">
@@ -770,17 +775,11 @@
                                                 <td align="right">
                                                     <font size="2"><b>0.00</b></font>
                                                 </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
+                                                <td align="center">
+                                                    <font size="2"><b>-</b></font>
                                                 </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
-                                                </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
-                                                </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
+                                                <td align="center">
+                                                    <font size="2"><b>-</b></font>
                                                 </td>
                                             </tr>
 
@@ -828,12 +827,17 @@
                                                 </tr> --}}
 
                                             </tbody>
-
-                                            <tr style="background-color: #d3d3d370">
+                                            <tr>
                                                 <td style="text-align: center; vertical-align:middle">
                                                     <font size="2"><b>JUMLAH</b></font>
                                                 </td>
                                                 <td style="text-align: center; vertical-align:middle">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="center">
+                                                    <font size="2"><b>-</b></font>
+                                                </td>
+                                                <td align="center">
                                                     <font size="2"><b>-</b></font>
                                                 </td>
                                                 <td align="right">
@@ -842,17 +846,11 @@
                                                 <td align="right">
                                                     <font size="2"><b>0.00</b></font>
                                                 </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
+                                                <td align="center">
+                                                    <font size="2"><b>-</b></font>
                                                 </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
-                                                </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
-                                                </td>
-                                                <td align="right">
-                                                    <font size="2"><b>0.00</b></font>
+                                                <td align="center">
+                                                    <font size="2"><b>-</b></font>
                                                 </td>
                                             </tr>
                                         </table><br>

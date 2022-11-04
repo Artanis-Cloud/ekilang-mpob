@@ -383,9 +383,9 @@
                                                         </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
 
                                                 <tr>
@@ -515,9 +515,9 @@
                                                         </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
 
                                                 <tr>
@@ -648,9 +648,9 @@
                                                     </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                                 <tr>
                                                     <td align="center">
@@ -746,9 +746,9 @@
                                                     </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                                 <tr>
                                                     <td align="center">
@@ -810,7 +810,7 @@
                                                         <td align="left">
                                                             <font size="2">{{ $datava->prodcat->catname}}</font>
                                                         </td>
-                                                        <td align="center">
+                                                        <td align="right">
                                                             <font size="2">{{ number_format($datava->e101_d5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
@@ -825,16 +825,16 @@
                                                     </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
 
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td align="center">
+                                                    <td align="right">
                                                         <font size="2"><b>{{ number_format($totalvad5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
@@ -879,7 +879,7 @@
                                                         <td align="left">
                                                             <font size="2">{{ $datavb->prodcat->catname }}</font>
                                                         </td>
-                                                        <td align="center">
+                                                        <td align="right">
                                                             <font size="2">{{ number_format($datavb->e101_d5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
@@ -894,15 +894,15 @@
                                                     </tr>
                                                     @endforeach
                                                 @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td align="center">
+                                                    <td align="right">
                                                         <font size="2"><b>{{ number_format($totalvbd5[$key] ??  0,2) }}</b></font>
                                                     </td>
                                                     <td align="right">
@@ -949,40 +949,32 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                 </tr>
-                                                @if($penyatavii[$key] && !$penyatavii[$key]->isEmpty())
-                                                    @foreach ($penyatavii[$key] as $datavii)
-                                                    <tr>
-                                                        <td align="left">
-                                                            <font size="2">{{ $datavii->produk->proddesc }}</font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2">{{ $datavii->e101_e4 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $datavii->e101_e5 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $data->e101_e6 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($datavii->e101_e7 ??  0,2) }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($datavii->e101_e8 ??  0,2) }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $datavii->e101_e9 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $datavii->negara[0]->namanegara }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                @else
-                                                    <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
-                                                @endif
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table><br>
                                         <p><b>
@@ -1017,11 +1009,31 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                 </tr>
-                                                <tr >
-                                                    <td width="14%" style="text-align: center; vertical-align:middle" colspan="8">
-                                                        <font size="2.7">Tiada Rekod</font>
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table><br>

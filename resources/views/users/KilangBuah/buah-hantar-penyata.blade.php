@@ -268,7 +268,7 @@
                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                 </b> </p>
 
-                            <table border="1" style="width:70% " bordercolor="#000000" cellspacing="0" cellpadding="0"
+                            <table border="1" style="width:95% " bordercolor="#000000" cellspacing="0" cellpadding="0"
                                 bordercolorlight="#FFFFFF" bordercolordark="#000000" class="table table-bordered">
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
@@ -1072,30 +1072,30 @@
                                         </td> --}}
 
                                     </tr>
-                                    <tr  style="background-color: #d3d3d370">
-                                        <td style="text-align: center; vertical-align:middle">
-                                            <font size="2"><b>JUMLAH</b></font>
+                                    <tr>
+                                        <td width="14%" align="center">
+                                            <font size="2.7"><b>JUMLAH</b></font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle">
-                                            <font size="2"><b>-</b></font>
+                                        <td width="7%" align="center">
+                                            <font size="2.7"><b>-</b></font>
                                         </td>
-                                        <td align="right">
-                                            <font size="2"><b>0.00</b></font>
+                                        <td width="15%" align="center">
+                                            <font size="2.7"><b>-</b></font>
                                         </td>
-                                        <td align="right">
-                                            <font size="2"><b>0.00</b></font>
+                                        <td width="12%" align="center">
+                                            <font size="2.7"><b>-</b></font>
                                         </td>
-                                        <td align="right">
-                                            <font size="2"><b>0.00</b></font>
+                                        <td width="10%" align="right">
+                                            <font size="2.7"><b>0.00</b></font>
                                         </td>
-                                        <td align="right">
-                                            <font size="2"><b>0.00</b></font>
+                                        <td width="11%" align="right">
+                                            <font size="2.7"><b>0.00</b></font>
                                         </td>
-                                        <td align="right">
-                                            <font size="2"><b>0.00</b></font>
+                                        <td width="6%" align="center">
+                                            <font size="2.7"><b>-</b></font>
                                         </td>
-                                        <td align="right">
-                                            <font size="2"><b>0.00</b></font>
+                                        <td width="15%" align="center">
+                                            <font size="2.7"><b>-</b></font>
                                         </td>
                                     </tr>
                                 </tbody>

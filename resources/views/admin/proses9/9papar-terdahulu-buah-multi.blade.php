@@ -1082,7 +1082,30 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="8" style="text-align: center">Tiada Rekod</td>
+                                                        <td width="14%" align="center">
+                                                            <font size="2.7"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td width="7%" align="center">
+                                                            <font size="2.7"><b>-</b></font>
+                                                        </td>
+                                                        <td width="15%" align="center">
+                                                            <font size="2.7"><b>-</b></font>
+                                                        </td>
+                                                        <td width="12%" align="center">
+                                                            <font size="2.7"><b>-</b></font>
+                                                        </td>
+                                                        <td width="10%" align="right">
+                                                            <font size="2.7"><b>0.00</b></font>
+                                                        </td>
+                                                        <td width="11%" align="right">
+                                                            <font size="2.7"><b>0.00</b></font>
+                                                        </td>
+                                                        <td width="6%" align="center">
+                                                            <font size="2.7"><b>-</b></font>
+                                                        </td>
+                                                        <td width="15%" align="center">
+                                                            <font size="2.7"><b>-</b></font>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

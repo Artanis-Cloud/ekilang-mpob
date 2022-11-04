@@ -392,10 +392,10 @@
                                                         </b></td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="center">
+                                                    <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td align="center">
+                                                    <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">

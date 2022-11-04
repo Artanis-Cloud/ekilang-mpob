@@ -364,7 +364,7 @@
                                     </tr>
                                 @endforeach
 
-                                <tr  style="background-color: #d3d3d370">
+                                <tr >
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -410,7 +410,7 @@
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
-                                <tr style="background-color: #d3d3d370">
+                                <tr>
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Sawit</font>
                                         </b></td>
@@ -489,7 +489,7 @@
                                     </tr>
                                 @endforeach
 
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -617,7 +617,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -709,7 +709,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
@@ -766,7 +766,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->prodcat->catname }}</font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle">
+                                        <td style="text-align: right; vertical-align:middle">
                                             <font size="2">{{ number_format($data->e101_d5 ?? 0, 2) }}</font>
                                         </td>
                                         <td align="right">
@@ -780,11 +780,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td style="text-align: center; vertical-align:middle">
+                                    <td style="text-align: right; vertical-align:middle">
                                         <font size="2"><b>{{ number_format($totalvad5 ?? 0, 2) }}</b></font>
                                     </td>
                                     <td align="right">
@@ -827,7 +827,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->prodcat->catname }}</font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle">
+                                        <td style="text-align: right; vertical-align:middle">
                                             <font size="2">{{ number_format($data->e101_d5 ?? 0, 2) }}</font>
                                         </td>
                                         <td align="right">
@@ -841,11 +841,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td style="text-align: center; vertical-align:middle">
+                                    <td style="text-align: right; vertical-align:middle">
                                         <font size="2"><b>{{ number_format($totalvbd5 ?? 0, 2) }}</b></font>
                                     </td>
                                     <td align="right">
@@ -923,11 +923,18 @@
                             </tbody>
                             <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
                                 {{-- <font size="2">Tiada Rekod</font></td> --}}
-                                <tr  style="background-color: #d3d3d370">
+
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -936,17 +943,11 @@
                                     <td align="right">
                                         <font size="2"><b>0.00</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
                                 </tr>
                         </table><br>
@@ -982,14 +983,17 @@
                                             <font size="2">Negara Sumber</font>
                                         </b></td>
                                 </tr>
-                            </tbody>
-                            <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">
-                                {{-- <font size="2">Tiada Rekod</font></td> --}}
-                                <tr  style="background-color: #d3d3d370">
+                                <tr>
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
                                     <td style="text-align: center; vertical-align:middle">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
+                                    </td>
+                                    <td align="center">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -998,19 +1002,14 @@
                                     <td align="right">
                                         <font size="2"><b>0.00</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>0.00</b></font>
+                                    <td align="center">
+                                        <font size="2"><b>-</b></font>
                                     </td>
                                 </tr>
+                            </tbody>
                         </table><br>
 
                         <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
