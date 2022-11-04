@@ -1096,10 +1096,10 @@
                                                 {{ $formatteddate }}
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <span  style="text-transform:uppercase">{{ $data->h_pelesen->e91_npg }}</span>
+                                                <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_npg }}</span>
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <span  style="text-transform:uppercase">{{ $data->h_pelesen->e91_jpg }}</span>
+                                                <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_jpg }}</span>
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
