@@ -8,6 +8,7 @@ use App\Models\E07Init;
 use App\Models\Ekmessage;
 use App\Models\H07Btranshipment;
 use App\Models\H07Init;
+use App\Models\HPelesen;
 use App\Models\Negara;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
@@ -766,7 +767,7 @@ class PusatSimpananController extends Controller
 
         // $user = User::first();
         // dd($user);
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = HPelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
         $user = H07Init::where('e07_nl', auth()->user()->username)

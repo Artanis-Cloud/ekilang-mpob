@@ -13,6 +13,7 @@ use App\Models\HBioB;
 use App\Models\HBioC;
 use App\Models\HBioInit;
 use App\Models\HHari;
+use App\Models\HPelesen;
 use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -1698,7 +1699,7 @@ class KilangBiodieselController extends Controller
 
         $user = User::first();
         // dd($user);
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = HPelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
 

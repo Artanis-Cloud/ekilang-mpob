@@ -129,7 +129,7 @@
                                                 </td>
 
                                                 <td width="88%" height="19"><b>
-                                                    {{ $users->pelesen->e_nl }}
+                                                    {{ auth()->user()->username  }}
                                                     </b></td>
 
                                             </tr>
@@ -141,7 +141,7 @@
                                                 </td>
 
                                                 <td width="88%" height="19" style="text-transform:uppercase"><b>
-                                                    {{ $users->pelesen->e_np }}
+                                                    {{ auth()->user()->name  }}
                                                     </b></td>
 
                                             </tr>
@@ -155,7 +155,7 @@
 
 
                                     <p align="left"><b>
-                                            <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
+                                            <font style="font-size: 15px" color="#0c7c85">MAKLUMAT h_pelesen </font>
                                         </b></p>
 
                                     <table border="0" width="80%" cellpadding="0" cellspacing="0">
@@ -167,7 +167,7 @@
 
                                                 <td width="35%">Alamat Premis Berlesen</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_ap1 }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_ap1 ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -175,7 +175,7 @@
 
                                                 <td width="35%">&nbsp;</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_ap2 }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_ap2 ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -183,7 +183,7 @@
 
                                                 <td width="35%">&nbsp;</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_ap3 }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_ap3 ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -191,7 +191,7 @@
 
                                                 <td width="35%">Alamat Surat Menyurat</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_as1 }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_as1 ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -199,7 +199,7 @@
 
                                                 <td width="35%">&nbsp;</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_as2 }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_as2 ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -207,7 +207,7 @@
 
                                                 <td width="35%">&nbsp;</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_as3 }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_as3 ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -215,7 +215,7 @@
 
                                                 <td width="35%">No Telefon</td>
 
-                                                <td width="65%"><b>{{ $users->pelesen->e_notel }}</b></td>
+                                                <td width="65%"><b>{{ $pelesen->e_notel ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -223,7 +223,7 @@
 
                                                 <td width="35%">No Faks </td>
 
-                                                <td width="65%"><b>{{ $users->pelesen->e_nofax }}</b></td>
+                                                <td width="65%"><b>{{ $pelesen->e_nofax ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -231,7 +231,7 @@
 
                                                 <td width="35%">Alamat emel </td>
 
-                                                <td width="65%"><b>{{ $users->pelesen->e_email }}</b></td>
+                                                <td width="65%"><b>{{ $pelesen->e_email ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -239,7 +239,7 @@
 
                                                 <td width="35%">Nama Pegawai Melapor</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_npg }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_npg ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -247,7 +247,7 @@
 
                                                 <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_jpg }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_jpg ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -255,7 +255,7 @@
 
                                                 <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_npgtg }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_npgtg ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -263,7 +263,7 @@
 
                                                 <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                <td width="65%" style="text-transform:uppercase"><b>{{ $users->pelesen->e_jpgtg }}</b></td>
+                                                <td width="65%" style="text-transform:uppercase"><b>{{ $pelesen->e_jpgtg ?? ''  }}</b></td>
 
                                             </tr>
 
@@ -465,9 +465,9 @@
                                                 </tr>
                                             @endforeach
                                             @else
-                                                <tr>
+                                                {{-- <tr>
                                                     <td colspan="9" class="text-center" style="height:40px">Tiada Rekod</td>
-                                                </tr>
+                                                </tr> --}}
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" >
@@ -575,9 +575,9 @@
                                             </tr>
                                             @endforeach
                                             @else
-                                                <tr>
+                                                {{-- <tr>
                                                     <td colspan="9" class="text-center" style="height:40px">Tiada Rekod</td>
-                                                </tr>
+                                                </tr> --}}
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" >
@@ -708,9 +708,9 @@
                                             </tr>
                                             @endforeach
                                             @else
-                                                <tr>
+                                                {{-- <tr>
                                                     <td colspan="9" class="text-center" style="height:40px">Tiada Rekod</td>
-                                                </tr>
+                                                </tr> --}}
                                             @endif
 
                                             <tr style="background-color: #d3d3d34d" >
@@ -764,9 +764,9 @@
                                                 </b></td>
                                             </tr>
                                             <tr>
-                                                <td align="center" colspan = "8">
+                                                {{-- <td align="center" colspan = "8">
                                                     <font size="2">Tiada Rekod</font>
-                                                </td>
+                                                </td> --}}
                                             </tr>
 
                                         </tbody>
@@ -780,14 +780,14 @@
                                     </p>
 
                                     <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                       <span  style="text-transform:uppercase"> {{ $users->ebio_npg }}</span>
+                                       <span  style="text-transform:uppercase"> {{ $pelesen->e_npg ?? ''  }}</span>
                                     </p>
                                     <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                        <span  style="text-transform:uppercase">{{ $users->ebio_jpg }}</span>
+                                        <span  style="text-transform:uppercase">{{ $pelesen->e_jpg ?? ''  }}</span>
                                     </p>
                                     <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                        <span  style="text-transform:uppercase">{{ $users->pelesen->e_notel }}</span>
+                                        <span  style="text-transform:uppercase">{{ $pelesen->e_notel ?? '' }}</span>
                                     </p>
 
 

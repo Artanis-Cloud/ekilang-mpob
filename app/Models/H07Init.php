@@ -45,4 +45,9 @@ class H07Init extends Model
 
         return $this->hasOne(Pelesen::class, 'e_nl', 'e07_nl');
     }
+    public function h_pelesen()
+    {
+
+        return $this->hasOne(HPelesen::class, 'e_nl', 'e07_nl');
+    }
 }

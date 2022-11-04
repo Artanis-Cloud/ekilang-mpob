@@ -72,4 +72,9 @@ class H102Init extends Model
 
         return $this->hasOne(Pelesen::class, 'e_nl', 'e102_nl');
     }
+    public function h_pelesen()
+    {
+
+        return $this->hasOne(HPelesen::class, 'e_nl', 'e102_nl');
+    }
 }

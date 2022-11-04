@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\E91Init;
 use App\Models\Ekmessage;
 use App\Models\H91Init;
+use App\Models\HPelesen;
 use App\Models\Negara;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
@@ -1804,7 +1805,7 @@ class KilangBuahController extends Controller
 
         $user = User::first();
         // dd($user);
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = HPelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
         // $date = DB::select("SELECT DATE_FORMAT(e91_init, %d %c %Y)

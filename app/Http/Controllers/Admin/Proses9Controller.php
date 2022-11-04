@@ -528,7 +528,7 @@ class Proses9Controller extends Controller
             // dd($e91_nobatch);
 
             $pelesens[$key] = (object)[];
-            $penyata[$key]  = H91Init::with('pelesen')->find($e91_nobatch);
+            $penyata[$key]  = H91Init::with('h_pelesen')->find($e91_nobatch);
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
@@ -538,7 +538,7 @@ class Proses9Controller extends Controller
 
         }
 //   dd($pelesens);
-
+        // dd($penyata);
 
         $layout = 'layouts.main';
 
@@ -646,10 +646,10 @@ class Proses9Controller extends Controller
         // dd($bulan);
         foreach ($nobatch as $key => $e101_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata[$key]  = H101Init::with('pelesen')->find($e101_nobatch);
+            $penyata[$key]  = H101Init::with('h_pelesen')->find($e101_nobatch);
 
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key] ->e101_nl)->first();
-
+            // dd($penyata);
 
             $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $penyata[$key] ->e101_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '01');
@@ -886,7 +886,7 @@ class Proses9Controller extends Controller
         // dd($bulan);
         foreach ($nobatch as $key => $e102_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = H102Init::with('pelesen')->find($e102_nobatch);
+            $penyata[$key] = H102Init::with('h_pelesen')->find($e102_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
 
             $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_b3', '51')->get();
@@ -958,7 +958,7 @@ class Proses9Controller extends Controller
         // dd($bulan);
         foreach ($nobatch as $key => $e104_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = H104Init::with('pelesen')->find($e104_nobatch);
+            $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
 
@@ -1111,7 +1111,7 @@ class Proses9Controller extends Controller
         // dd($bulan);
         foreach ($nobatch as $key => $e07_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = H07Init::with('pelesen')->find($e07_nobatch);
+            $penyata[$key] = H07Init::with('h_pelesen')->find($e07_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e07_nl)->first();
             $a = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->get();
             $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokawal');
@@ -1173,7 +1173,7 @@ class Proses9Controller extends Controller
         // dd($bulan);
         foreach ($nobatch as $key => $ebio_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = HBioInit::with('pelesen')->find($ebio_nobatch);
+            $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
 
