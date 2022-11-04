@@ -13,6 +13,7 @@ use App\Models\H101Init;
 use App\Models\H101B;
 use App\Models\H101C;
 use App\Models\H101D;
+use App\Models\HPelesen;
 use App\Models\KodSl;
 use App\Models\Negara;
 use App\Models\User;
@@ -1980,7 +1981,7 @@ class KilangPenapisController extends Controller
 
         $user = User::first();
         // dd($user);
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = HPelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
 

@@ -154,7 +154,7 @@
 
                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_ap1 }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_ap1 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -162,7 +162,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_ap2 }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_ap2 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -170,7 +170,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_ap3 }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_ap3 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -178,7 +178,7 @@
 
                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_as1 }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_as1 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -186,7 +186,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_as2 }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_as2 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -194,7 +194,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_as3 }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_as3 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -202,7 +202,7 @@
 
                                         <td width="35%">No. Telefon</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_notel }}</b>
+                                        <td width="65%"><b>{{ $pelesen->e_notel ?? '' }}</b>
 
                                         </td>
 
@@ -212,7 +212,7 @@
 
                                         <td width="35%">No. Faks</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_nofax }}</b>
+                                        <td width="65%"><b>{{ $pelesen->e_nofax ?? '' }}</b>
 
                                         </td>
 
@@ -222,7 +222,7 @@
 
                                         <td width="35%">Alamat emel </td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_email ?? '' }}</b></td>
 
                                     </tr>
 
@@ -230,7 +230,7 @@
 
                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_npg }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_npg ?? '' }}</b></td>
 
                                     </tr>
 
@@ -238,7 +238,7 @@
 
                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_jpg }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_jpg ?? '' }}</b></td>
 
                                     </tr>
 
@@ -246,7 +246,7 @@
 
                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_npgtg }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_npgtg ?? '' }}</b></td>
 
                                     </tr>
 
@@ -254,7 +254,7 @@
 
                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                        <td width="65%"><b>{{ $pelesen->e_jpgtg }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_jpgtg ?? '' }}</b></td>
 
                                     </tr>
 
@@ -345,9 +345,9 @@
                                         </tr>
                                     @endforeach
                                     @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
 
                                     <tr style="background-color: #d3d3d370">
@@ -470,9 +470,9 @@
                                         </tr>
                                     @endforeach
                                     @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
 
                                     <tr style="background-color: #d3d3d370">
@@ -594,9 +594,9 @@
                                     </tr>
                                     @endforeach
                                     @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                     <tr style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
@@ -734,9 +734,9 @@
                                     </tr>
                                     @endforeach
                                     @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                     <tr  style="background-color: #d3d3d370">
                                         <td style="text-align: center; vertical-align:middle">
@@ -831,9 +831,9 @@
                                     </tr>
                                     @endforeach
                                     @else
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 @endif
                                     {{-- <tr>
                                         <td style="text-align: center; vertical-align:middle">
@@ -891,10 +891,10 @@
                                             <font size="2">Negara Sumber Import</font>
                                         </b></td>
                                 </tr>
-                                <tr >
+                                {{-- <tr >
                                     <td width="15%" style="text-align: center; vertical-align:middle" colspan="8">Tiada Rekod</td>
 
-                                </tr>
+                                </tr> --}}
                                 <tr  style="background-color: #d3d3d370">
                                     <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
@@ -930,10 +930,10 @@
                                         benar, lengkap dan selaras dengan rekod harian.
                             </b></p>
                             <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $formatteddate }}</b></p>
-                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $users->e104_npg }}</b>
+                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e_npg ?? '' }}</b>
                             </p>
-                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $users->e104_jpg }}</b></p>
-                            <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $users->e104_notel }}</b>
+                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e_jpg ?? '' }}</b></p>
+                            <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel ?? '' }}</b>
                             </p>
                         </body>
 

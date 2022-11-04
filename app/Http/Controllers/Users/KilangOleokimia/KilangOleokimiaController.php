@@ -12,6 +12,7 @@ use App\Models\H104B;
 use App\Models\H104C;
 use App\Models\H104D;
 use App\Models\H104Init;
+use App\Models\HPelesen;
 use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -1593,7 +1594,7 @@ class KilangOleokimiaController extends Controller
 
         $user = User::first();
         // dd($user);
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = HPelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
 

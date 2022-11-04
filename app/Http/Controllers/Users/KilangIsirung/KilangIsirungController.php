@@ -12,6 +12,7 @@ use App\Models\Ekmessage;
 use App\Models\H102b;
 use App\Models\H102c;
 use App\Models\H102Init;
+use App\Models\HPelesen;
 use App\Models\KodSl;
 use App\Models\Negara;
 use App\Models\ProdCat2;
@@ -1479,7 +1480,7 @@ class KilangIsirungController extends Controller
 
         $user = User::first();
         // dd($user);
-        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = HPelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
         $users = H102Init::where('e102_nl', auth()->user()->username)
