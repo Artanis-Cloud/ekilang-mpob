@@ -2738,113 +2738,38 @@ class LaporanController extends Controller
 
 
 
-        // DB::connection('mysql2')->select("SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_hasil' and `penyata`.`menu` in ('cpo_cpko') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_hasil,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_awal' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_awal,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_belian' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_belian,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_penerimaan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_penerimaan,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_import' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_import,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_proses' and `penyata`.`menu` in ('ppo')THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_proses,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_jualan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_jualan,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_edaran' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_edaran,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_eksport' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_eksport,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_akhir' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_akhir
-        // FROM
-        //     penyata,
-        //     kilang,
-        //     negeri,
-        //     produk,
-        //     profile_bulanan
-
-        //     WHERE
-        //     `penyata`.`tahun` =  '$tahun' AND//
-        //     `penyata`.`bulan` =  '$bulan' AND//
-        //     `profile_bulanan`.`tahun` =  '$tahun' AND//
-        //     `profile_bulanan`.`bulan` =  '$bulan' AND//
-        //      `penyata`.`menu` in ('ppo','cpo_cpko') AND//
-        //      negeri.nama_negeri not in ( 'SABAH','SARAWAK') AND//
-        //      `penyata`.`lesen` = `kilang`.`e_nl` AND//
-        //      kilang.e_apnegeri = negeri.id_negeri AND//
-        //      `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND" . $sqlstmt1 .
-        //     "`kilang`.`jenis` <>  'dummy' AND" . $sqlstmt2 .
-        //     "`penyata`.`kuantiti` <>  0 AND
-        //       `penyata`.`kod_produk` =`produk`.`nama_produk`
-        //       GROUP by lesen");
-
         //   dd($ppo_sem);
 
         //RBDPO - SABAH
+        $ppo_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b, produk k
+        WHERE h.ebio_thn = '$tahun'
+        AND h.ebio_bln = '$bulan'
+        AND p.e_negeri = '13'
+        AND h.ebio_nl = p.e_nl
+        AND k.prodid = b.ebio_b4
+        AND p.e_negeri = n.kod_negeri
+        AND b.ebio_b3 = '1'
+        AND b.ebio_b4 = '$produk'
+        AND  $sqlstmt1
+        GROUP by p.e_nl");
 
-        // $ppo_sabah = DB::connection('mysql2')->select("SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_hasil' and `penyata`.`menu` in ('cpo_cpko') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_hasil,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_awal' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_awal,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_belian' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_belian,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_penerimaan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_penerimaan,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_import' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_import,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_proses' and `penyata`.`menu` in ('ppo')THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_proses,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_jualan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_jualan,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_edaran' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_edaran,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_eksport' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_eksport,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_akhir' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_akhir
-        // FROM
-        //     penyata,
-        //     kilang,
-        //     negeri,
-        //     produk,
-        //     profile_bulanan
-
-        //     WHERE
-        //     `penyata`.`tahun` =  '$tahun' AND
-        //     `penyata`.`bulan` =  '$bulan' AND
-        //     `profile_bulanan`.`tahun` =  '$tahun' AND
-        //     `profile_bulanan`.`bulan` =  '$bulan' AND
-        //      `penyata`.`menu` in ('ppo','cpo_cpko') AND
-        //      negeri.nama_negeri in ('SABAH') AND
-        //      `penyata`.`lesen` = `kilang`.`e_nl` AND
-        //      kilang.e_apnegeri = negeri.id_negeri AND
-        //      `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND" . $sqlstmt1 .
-        //     "`kilang`.`jenis` <>  'dummy' AND `penyata`.`kuantiti` <>  0 AND
-        //       `penyata`.`kod_produk` =`produk`.`nama_produk`
-        //       GROUP by lesen");
-
-        //   dd($ppo_sem);
 
         //RBDPO - SARAWAK
 
-        // $ppo_srwk = DB::connection('mysql2')->select("SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_hasil' and `penyata`.`menu` in ('cpo_cpko') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_hasil,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_awal' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_awal,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_belian' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_belian,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_penerimaan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_penerimaan,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_import' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_import,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_proses' and `penyata`.`menu` in ('ppo')THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_proses,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_jualan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_jualan,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_edaran' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_edaran,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_eksport' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_eksport,
-        // SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_akhir' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_akhir
-        // FROM
-        //     penyata,
-        //     kilang,
-        //     negeri,
-        //     produk,
-        //     profile_bulanan
+        $ppo_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b, produk k
+        WHERE h.ebio_thn = '$tahun'
+        AND h.ebio_bln = '$bulan'
+        AND p.e_negeri = '14'
+        AND h.ebio_nl = p.e_nl
+        AND k.prodid = b.ebio_b4
+        AND p.e_negeri = n.kod_negeri
+        AND b.ebio_b3 = '1'
+        AND b.ebio_b4 = '$produk'
+        AND  $sqlstmt1
+        GROUP by p.e_nl");
 
-        //     WHERE
-        //     `penyata`.`tahun` =  '$tahun' AND
-        //     `penyata`.`bulan` =  '$bulan' AND
-        //     `profile_bulanan`.`tahun` =  '$tahun' AND
-        //     `profile_bulanan`.`bulan` =  '$bulan' AND
-        //      `penyata`.`menu` in ('ppo','cpo_cpko') AND
-        //      negeri.nama_negeri in ( 'SARAWAK') AND
-        //      `penyata`.`lesen` = `kilang`.`e_nl` AND
-        //      kilang.e_apnegeri = negeri.id_negeri AND
-        //      `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND" . $sqlstmt1 .
-        //     "`produk`.`kumpulan_produk` = '1' AND
-        //      `kilang`.`jenis` <>  'dummy' AND `penyata`.`kuantiti` <>  0 AND
-        //       `penyata`.`kod_produk` =`produk`.`nama_produk`
-        //       GROUP by lesen");
-
-        //   dd($ppo_sem);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2866,8 +2791,8 @@ class LaporanController extends Controller
             'produk' => $produk,
 
             'ppo_sem' => $ppo_sem,
-            // 'ppo_sabah' => $ppo_sabah,
-            // 'ppo_srwk' => $ppo_srwk,
+            'ppo_sabah' => $ppo_sabah,
+            'ppo_srwk' => $ppo_srwk,
 
 
             'breadcrumbs' => $breadcrumbs,
@@ -2886,8 +2811,9 @@ class LaporanController extends Controller
     {
         $bulan = Bulan::get();
 
-        $hebahan = DB::connection('mysql2')->select("SELECT* FROM hebahan_proses
-        order by tahun, bulan");
+        $hebahan = HebahanProses::orderBy('tahun')->orderBy('bulan')->get();
+        // DB::connection('mysql2')->select("SELECT * FROM hebahan_proses
+        // order by tahun, bulan");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2908,28 +2834,15 @@ class LaporanController extends Controller
     public function admin_edit_minyak_sawit_diproses(Request $request, $id)
     {
         // $hebahan = DB::connection('mysql2')->select("SELECT $id FROM hebahan_proses");
+        $hebahan = HebahanProses::findOrFail($id);
+        $hebahan->tahun = $request->tahun;
+        $hebahan->bulan = $request->bulan;
+        $hebahan->cpo_msia = $request->cpo_msia;
+        $hebahan->ppo_msia = $request->ppo_msia;
+        $hebahan->cpko_msia = $request->cpko_msia;
+        $hebahan->ppko_msia = $request->ppko_msia;
 
-        $tahun = $request->input('tahun');
-        $bulan = $request->input('bulan');
-        $cpo_msia = $request->input('cpo_msia');
-        $ppo_msia = $request->input('ppo_msia');
-        $cpko_msia = $request->input('cpko_msia');
-        $ppko_msia = $request->input('ppko_msia');
-        DB::connection('mysql2')->select("UPDATE hebahan_proses SET tahun = '$tahun', bulan='$bulan',
-        cpo_msia= '$cpo_msia',ppo_msia='$ppo_msia',cpko_msia ='$cpko_msia',ppko_msia='$ppko_msia'
-        WHERE id='$id'");
-
-        // $hebahan = DB::connection('mysql2')->table('hebahan_proses')->where('id', $id)->update(array('cpko_msia' => $cpko_msia));
-
-
-        // $hebahan = DB::connection('mysql2')->select("SELECT * FROM hebahan_proses WHERE id='$id");
-        // $hebahan->tahun = $request->tahun;
-        // $hebahan->bulan = $request->bulan;
-        // $hebahan->cpo_msia = $request->cpo_msia;
-        // $hebahan->ppo_msia = $request->ppo_msia;
-        // $hebahan->cpko_msia = $request->cpko_msia;
-        // $hebahan->ppko_msia = $request->ppko_msia;
-        // $hebahan->save();
+        $hebahan->save();
 
 
         return redirect()->route('admin.minyak.sawit.diproses')
@@ -2938,7 +2851,7 @@ class LaporanController extends Controller
 
     public function admin_delete_minyak_sawit_diproses($id)
     {
-        DB::connection('mysql2')->select("delete from hebahan_proses where id = '$id'");
+        DB::select("delete from hebahan_proses where id = '$id'");
 
         return redirect()->route('admin.minyak.sawit.diproses')
             ->with('success', 'Maklumat Dihapuskan');
@@ -2947,7 +2860,8 @@ class LaporanController extends Controller
 
     public function admin_tambah_proses()
     {
-        $data = DB::connection('mysql2')->select("SELECT* FROM hebahan_proses");
+        $data = HebahanProses::get();
+        // DB::connection('mysql2')->select("SELECT* FROM hebahan_proses");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2975,65 +2889,53 @@ class LaporanController extends Controller
         //malaysia
         //--> cpo
 
-        $querycpo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_msia_1
-            FROM `penyata` ,produk, kilang
-            WHERE
-            `penyata`.`tahun` =  '$tahun' AND
-            `penyata`.`bulan` =  '$bulan' AND
-            `penyata`.`menu` = 'cpo_cpko' AND
-            `penyata`.`penyata` in  ('cpo_proses') AND
-            `produk`.`kumpulan_produk` =  '1' AND
-            `penyata`.`kod_produk` = 'CPO' AND
-            `kilang`.`jenis` <>  'dummy' AND
-            `penyata`.`lesen` = `kilang`.`e_nl` AND
-            `penyata`.`lesen` = `kilang`.`e_nl` AND
-            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+        $querycpo1 = DB::select("SELECT sum(b.ebio_b8) as cpo_msia_1
+        FROM h_bio_b_s b, h_bio_inits h, pelesen p
+        WHERE h.ebio_thn = '$tahun'
+        AND h.ebio_bln = '$bulan'
+        AND p.e_nl = h.ebio_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
+        AND b.ebio_b3 = '1'
+        AND b.ebio_b4 = '01'");
+
 
         //--> ppo
 
-        $queryppo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_msia_1
-            FROM `penyata` ,  kilang, produk
-            WHERE
-            `penyata`.`tahun` =  '$tahun' AND
-            `penyata`.`bulan` =  '$bulan' AND
-            `penyata`.`menu` = 'ppo' AND
-            `penyata`.`penyata` in  ('ppo_proses') AND
-            `produk`.`kumpulan_produk` =  '1' AND
-            `penyata`.`kod_produk` <> 'CPO' AND
-            `kilang`.`jenis` <>  'dummy' AND
-            `penyata`.`lesen` = `kilang`.`e_nl` AND
-            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+        $queryppo1 = DB::select("SELECT sum(b.ebio_b8) as ppo_msia_1
+        FROM h_bio_b_s b, h_bio_inits h, pelesen p
+        WHERE h.ebio_thn = '2022'
+        AND h.ebio_bln = '11'
+        AND p.e_nl = h.ebio_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
+        AND b.ebio_b3 = '1'
+        AND b.ebio_b4 <> '01'");
+
 
 
         //--> cpko
 
-        $querycpko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_msia_1
-            FROM `penyata` ,  kilang, produk
-            WHERE
-            `penyata`.`tahun` =  '$tahun' AND
-            `penyata`.`bulan` =  '$bulan' AND
-            `penyata`.`menu` = 'cpo_cpko' AND
-            `penyata`.`penyata` in  ('cpo_proses') AND
-            `penyata`.`kod_produk` = 'CPKO' AND
-            `kilang`.`jenis` <>  'dummy' AND
-            `penyata`.`lesen` = `kilang`.`e_nl` AND
-            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+        $querycpko1 =  DB::select("SELECT sum(b.ebio_b8) as cpko_msia_1
+        FROM h_bio_b_s b, h_bio_inits h, pelesen p
+        WHERE h.ebio_thn = '2022'
+        AND h.ebio_bln = '11'
+        AND p.e_nl = h.ebio_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
+        AND b.ebio_b3 = '2'
+        AND b.ebio_b4 = '04'");
+
 
 
         //--> ppko
 
-        $queryppko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_msia_1
-            FROM `penyata` ,kilang,produk
-            WHERE
-            `penyata`.`tahun` =  '$tahun' AND
-            `penyata`.`bulan` =  '$bulan' AND
-            `penyata`.`menu` = 'ppo' AND
-            `penyata`.`penyata` in  ('ppo_proses') AND
-            `penyata`.`kod_produk` <> 'CPKO' AND
-            `kilang`.`jenis` <>  'dummy' AND
-            `penyata`.`lesen` = `kilang`.`e_nl` AND
-            `produk`.`kumpulan_produk` =  '2' AND
-            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+        $queryppko1 =  DB::select("SELECT sum(b.ebio_b8) as ppko_msia_1
+        FROM h_bio_b_s b, h_bio_inits h, pelesen p
+        WHERE h.ebio_thn = '2022'
+        AND h.ebio_bln = '11'
+        AND p.e_nl = h.ebio_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
+        AND b.ebio_b3 = '2'
+        AND b.ebio_b4 <> '04'");
+        
 
 
         $cpo_msia = $querycpo1[0]->cpo_msia_1;
