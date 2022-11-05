@@ -273,14 +273,14 @@
                                                         <td  style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
                                                         <td style="text-align: center">{{ $data->nosiri ?? '-' }}</td>
                                                         @if ($data->e_status == 1)
-                                                            <td style="text-align: center" hi><span hidden>1</span>Aktif</td>
+                                                            <td style="text-align: center" hi><span id="mySpan" hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
                                                             <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
                                                         @if ($data->e_stock == 1)
-                                                            <td style="text-align: center"><span hidden>1</span>Aktif</td>
+                                                            <td style="text-align: center"><span hidden >1</span>Aktif</td>
                                                         @elseif ($data->e_stock == 2)
                                                             <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
                                                         @else
@@ -493,6 +493,7 @@
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
                         $( 'row c', sheet ).attr( 's', '25' );
+                        $('#mySpan').prop('hidden', true);
 
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");

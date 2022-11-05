@@ -90,6 +90,15 @@
 
                                                         </tr>
                                                     </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th style="text-align:center">Bil</th>
+                                                            <th style="text-align:center">Nama Syarikat<br></th>
+                                                            <th style="text-align:center">Tindakan</th>
+
+
+                                                        </tr>
+                                                    </tfoot>
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach($pembeli as $data)
                                                         <tr>
@@ -240,8 +249,91 @@
 
 @section('scripts')
 <script>
-    $(document).ready(function() {
-        $('#example22').DataTable({
+
+    $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#example22 tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+    });
+
+    // DataTable
+        var table = $('#example22').DataTable({
+
+            initComplete: function () {
+
+                // Apply the search
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+            },
+            dom: 'Bfrtip',
+
+            buttons: [
+
+                'pageLength',
+
+                {
+
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
+                    },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Penyata Bulan',
+
+
+
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                    pageSize: 'TABLOID',
+                    className: "prodpdf",
+
+                    exportOptions: {
+                        columns: [1,2,3,4,5,6,7]
+                    },
+                    title: function(doc) {
+                            return $('#title').text() + $ ('#tarikh').text()
+                            },
+                    customize: function (doc) {
+                        let table = doc.content[1].table.body;
+                        for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                        {
+                            var test = table[i][0];
+                        }
+
+                    },
+                    customize: function(doc) {
+                    doc.content[1].table.body[0].forEach(function(h) {
+                        h.fillColor = '#0a7569';
+
+                    });
+                    },
+
+                    filename: 'Penyata Bulan',
+
+                },
+            ],
             "language": {
                 "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                 "zeroRecords": "Maaf, tiada rekod.",
@@ -257,8 +349,11 @@
                     "previous": "Sebelumnya"
                 },
             },
+
         });
+
     });
+
 </script>
 
 @endsection
