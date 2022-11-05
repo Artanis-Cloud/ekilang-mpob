@@ -43,17 +43,8 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $cpo_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6,  b.ebio_b7,  b.ebio_b8,  b.ebio_b9,  b.ebio_b10,  b.ebio_b11
-        FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
-        WHERE h.ebio_thn = '2022'
-        AND h.ebio_bln = '10'
-        AND p.e_negeri not in ('13','14')
-        AND h.ebio_nl = p.e_nl
-        AND p.e_negeri = n.kod_negeri
-        AND b.ebio_b3 = '1'
-        AND b.ebio_b4 = '01'
-        GROUP by p.e_nl");
-        dd($cpo_sem);
+        $password = Hash::make('12345');
+        dd($password);
 
 
 
