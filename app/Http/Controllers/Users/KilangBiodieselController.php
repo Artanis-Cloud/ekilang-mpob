@@ -44,7 +44,7 @@ class KilangBiodieselController extends Controller
 
     public function bio_maklumatasaspelesen()
     {
-
+        // dd(date('d-m'));
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('bio.maklumatasaspelesen'), 'name' => "Maklumat Asas Pelesen"],
@@ -172,6 +172,7 @@ class KilangBiodieselController extends Controller
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
+// dd($map);
 
         return redirect()->route('bio.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
