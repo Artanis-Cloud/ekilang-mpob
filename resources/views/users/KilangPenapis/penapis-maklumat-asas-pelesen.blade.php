@@ -393,7 +393,7 @@
                                                 required>
                                         </td>
                                         <td>
-                                            <b><span
+                                            <b><span  style="font-size: 10pt"
                                                     id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
                                         </td>
                                     </tr>
@@ -448,7 +448,7 @@
                                                     butiran di
                                                     bahagian ini!</i></p>
                                         </td>
-                                        <td><b><span id="kap_tangki_jumlah">
+                                        <td><b><span id="kap_tangki_jumlah" style="font-size: 10pt">
                                                     {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
                                                 </span>
                                             </b>
