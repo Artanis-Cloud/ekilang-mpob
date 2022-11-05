@@ -935,7 +935,7 @@
             {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
 
                 <div class="form-group" style="padding: 20px; ">
-                        <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
+                        <a href="{{ route('oleo.bahagianv') }}" class="btn btn-primary"
                             style="float: left;">Sebelumnya</a>
 
                         <button type="button" class="btn btn-primary " style="float: right; " id="checkBtn" onclick="check()">Hantar</button>

@@ -1062,7 +1062,7 @@
                             {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
 
                             <div class="form-group" style="padding-top: 10px; ">
-                                    <a href="{{ route('penapis.bahagianv') }}" class="btn btn-primary"
+                                    <a href="{{ route('penapis.bahagianvii') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
                                     <button type="button" class="btn btn-primary " style="float: right" onclick="check()">Hantar</button>
                                     {{-- <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
