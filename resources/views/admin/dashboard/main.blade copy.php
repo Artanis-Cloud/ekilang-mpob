@@ -307,23 +307,20 @@
                         </button>
                         </div><br>
                         <div class="table-responsive">
-                            
                             <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                                 <thead style="text-align: center">
                                     <tr>
                                         <th>Tarikh</th>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                            {{-- @php --}}
-                                                {{-- // $total_bulan[$i] = 0;
-                                                // $total_kapasiti[$i] = 0;
-                                                // $total_kapasiti_bio = 0;
-                                            // @endphp --}}
-                                            {{-- @if ($i == '1') --}}
-                                                <th scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $i }}hb
-                                                </th>
-
-                                        @endfor
+                                        <th>1hb</th>
+                                        <th>2hb</th>
+                                        <th>3hb</th>
+                                        <th>4hb</th>
+                                        <th>5hb</th>
+                                        <th>6hb</th>
+                                        <th>7hb</th>
+                                        <th>8hb</th>
+                                        <th>9hb</th>
+                                        <th>10hb</th>
                                         <th>Jumlah</th>
                                     </tr>
                                 </thead>
@@ -331,23 +328,32 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Buah </td>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL91[$i][0]->pelesen }}
-                                                </td>
-                                        @endfor
-
+                                        <td style="text-align: center">{{ $PL91[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[10][0]->pelesen }} </td>
                                         <td style="text-align: center">{{ $PL91_total }} / {{ $PC91[0]->pelesen }}
                                             &nbsp; ({{ round($percent91, 2) }}%)</td>
                                     </tr>
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Penapis </td>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL101[$i][0]->pelesen }}
-                                                </td>
-                                        @endfor
+                                        <td style="text-align: center">{{ $PL101[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[10][0]->pelesen }} </td>
                                         <td style="text-align: center">{{ $PL101_total }} / {{ $PC101[0]->pelesen }}
                                             &nbsp; ({{ round($percent101, 2) }}%)</td>
 
@@ -355,11 +361,16 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Isirung </td>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL102[$i][0]->pelesen }}
-                                                </td>
-                                        @endfor
+                                        <td style="text-align: center">{{ $PL102[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[10][0]->pelesen }} </td>
                                         <td style="text-align: center">{{ $PL102_total }} / {{ $PC102[0]->pelesen }}
                                             &nbsp; ({{ round($percent102, 2) }}%)</td>
 
@@ -367,11 +378,16 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Oleokimia </td>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL104[$i][0]->pelesen }}
-                                                </td>
-                                        @endfor
+                                        <td style="text-align: center">{{ $PL104[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[10][0]->pelesen }} </td>
                                         <td style="text-align: center">{{ $PL104_total }} / {{ $PC104[0]->pelesen }}
                                             &nbsp; ({{ round($percent104, 2) }}%)</td>
 
@@ -379,11 +395,16 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Pusat Simpanan </td>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL111[$i][0]->pelesen }}
-                                                </td>
-                                        @endfor
+                                        <td style="text-align: center">{{ $PL111[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[10][0]->pelesen }} </td>
                                         <td style="text-align: center">{{ $PL111_total }} / {{ $PC111[0]->pelesen }}
                                             &nbsp; ({{ round($percent111, 2) }}%)</td>
 
@@ -391,11 +412,16 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Biodiesel </td>
-                                        @for ($i = 1; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PLBIO[$i][0]->pelesen }}
-                                                </td>
-                                        @endfor
+                                        <td style="text-align: center">{{ $PLBIO[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[10][0]->pelesen }} </td>
                                         <td style="text-align: center">{{ $PLBIO_total }} / {{ $PCBIO[0]->pelesen }}
                                             &nbsp; ({{ round($percentBIO, 2) }}%)</td>
 
@@ -465,7 +491,7 @@
                     });
                 }
             });
-            // console.log(Labels);
+            console.log(Labels);
 
         });
         Labels.push('Kilang Buah');
@@ -474,7 +500,7 @@
         Labels.push('Kilang Oleokimia');
         Labels.push('Pusat Simpanan');
         Labels.push('Kilang Biodiesel');
-        // console.log(Labels);
+        console.log(Labels);
         const ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -546,7 +572,7 @@
                     let datasetLabel = e.chart.data.datasets[datasetIndex].label;
                     let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
                     let label = e.chart.data.labels[dataIndex];
-                    // console.log(label);
+                    console.log(label);
                     if (label == 'Kilang Buah') {
                         $('#PL91').modal('show');
                     } else if (label == 'Kilang Penapis') {
@@ -628,28 +654,20 @@
     <script>
 
         const ctx2 = document.getElementById('myChart2');
-
-        var days2 = {{ $days }};
-        // console.log(days2);
-        let labels2 = [];
-        let data2 = [];
-        var array2 = @json($PL91);
-        // console.log(array2);
-        for (let index2 = 1; index2 <= days2; index2++) {
-            const pl91 = array2[index2];
-            labels2.push(pl91[0]['days']+'hb');
-            data2.push(pl91[0]['pelesen']);
-        }
-
         var myChart2 = new Chart(ctx2, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: labels2,
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb' ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: data2,
+                    data: [{{ $PL91[1][0]->pelesen }}, {{ $PL91[2][0]->pelesen }},
+                        {{ $PL91[3][0]->pelesen }}, {{ $PL91[4][0]->pelesen }},
+                        {{ $PL91[5][0]->pelesen }}, {{ $PL91[6][0]->pelesen }},
+                        {{ $PL91[7][0]->pelesen }}, {{ $PL91[8][0]->pelesen }},
+                        {{ $PL91[9][0]->pelesen }}, {{ $PL91[10][0]->pelesen }}
+                    ],
 
 
                     backgroundColor: [
@@ -685,31 +703,26 @@
                     }
                 },
             }
+
+
         });
     </script>
     <script>
         const ctx3 = document.getElementById('myChart3');
-
-        var days = {{ $days }};
-        let labels = [];
-        let data = [];
-        var array = @json($PL101);
-        // console.log(array);
-        for (let index = 1; index <= days; index++) {
-            const pl101 = array[index];
-            labels.push(pl101[0]['days']+'hb');
-            data.push(pl101[0]['pelesen']);
-        }
-
         var myChart3 = new Chart(ctx3, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: labels,
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb' ],
                 datasets: [{
                     // label: '# of Votes',
-                    data:data,
+                    data: [{{ $PL101[1][0]->pelesen }}, {{ $PL101[2][0]->pelesen }},
+                        {{ $PL101[3][0]->pelesen }}, {{ $PL101[4][0]->pelesen }},
+                        {{ $PL101[5][0]->pelesen }}, {{ $PL101[6][0]->pelesen }},
+                        {{ $PL101[7][0]->pelesen }}, {{ $PL101[8][0]->pelesen }},
+                        {{ $PL101[9][0]->pelesen }}, {{ $PL101[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.2)',
                     ],
@@ -748,25 +761,20 @@
 
     <script>
         const ctx4 = document.getElementById('myChart4');
-        var days4 = {{ $days }};
-        let labels4 = [];
-        let data4 = [];
-        var array4 = @json($PL102);
-        // console.log(array4);
-        for (let index4 = 1; index4 <= days4; index4++) {
-            const pl102 = array4[index4];
-            labels4.push(pl102[0]['days']+'hb');
-            data4.push(pl102[0]['pelesen']);
-        }
         var myChart4 = new Chart(ctx4, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: labels4,
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: data4,
+                    data: [{{ $PL102[1][0]->pelesen }}, {{ $PL102[2][0]->pelesen }},
+                        {{ $PL102[3][0]->pelesen }}, {{ $PL102[4][0]->pelesen }},
+                        {{ $PL102[5][0]->pelesen }}, {{ $PL102[6][0]->pelesen }},
+                        {{ $PL102[7][0]->pelesen }}, {{ $PL102[8][0]->pelesen }},
+                        {{ $PL102[9][0]->pelesen }}, {{ $PL102[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
                         'rgba(255, 206, 86, 0.2)',
                     ],
@@ -803,27 +811,20 @@
     </script>
     <script>
         const ctx5 = document.getElementById('myChart5');
-
-        var days5 = {{ $days }};
-        let labels5 = [];
-        let data5 = [];
-        var array5 = @json($PL104);
-        console.log(array5);
-        for (let index5 = 1; index5 <= days5; index5++) {
-            const pl104 = array5[index5];
-            labels5.push(pl104[0]['days']+'hb');
-            data5.push(pl104[0]['pelesen']);
-        }
-
         var myChart5 = new Chart(ctx5, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: labels5,
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: data5,
+                    data: [{{ $PL104[1][0]->pelesen }}, {{ $PL104[2][0]->pelesen }},
+                        {{ $PL104[3][0]->pelesen }}, {{ $PL104[4][0]->pelesen }},
+                        {{ $PL104[5][0]->pelesen }}, {{ $PL104[6][0]->pelesen }},
+                        {{ $PL104[7][0]->pelesen }}, {{ $PL104[8][0]->pelesen }},
+                        {{ $PL104[9][0]->pelesen }}, {{ $PL104[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',
                     ],
@@ -860,25 +861,20 @@
     </script>
     <script>
         const ctx6 = document.getElementById('myChart6');
-        var days6 = {{ $days }};
-        let labels6 = [];
-        let data6 = [];
-        var array6 = @json($PL111);
-        // console.log(array);
-        for (let index6 = 1; index6 <= days6; index6++) {
-            const pl111 = array6[index6];
-            labels6.push(pl111[0]['days']+'hb');
-            data6.push(pl111[0]['pelesen']);
-        }
         var myChart6 = new Chart(ctx6, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: labels6,
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: data6,
+                    data: [{{ $PL111[1][0]->pelesen }}, {{ $PL111[2][0]->pelesen }},
+                        {{ $PL111[3][0]->pelesen }}, {{ $PL111[4][0]->pelesen }},
+                        {{ $PL111[5][0]->pelesen }}, {{ $PL111[6][0]->pelesen }},
+                        {{ $PL111[7][0]->pelesen }}, {{ $PL111[8][0]->pelesen }},
+                        {{ $PL111[9][0]->pelesen }}, {{ $PL111[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
                         'rgba(153, 102, 255, 0.2)',
                     ],
@@ -915,25 +911,20 @@
     </script>
     <script>
         const ctx7 = document.getElementById('myChart7');
-        var days7 = {{ $days }};
-        let labels7 = [];
-        let data7 = [];
-        var array7 = @json($PLBIO);
-        // console.log(array);
-        for (let index7 = 1; index7 <= days7; index7++) {
-            const plbio = array7[index7];
-            labels7.push(plbio[0]['days']+'hb');
-            data7.push(plbio[0]['pelesen']);
-        }
         var myChart7 = new Chart(ctx7, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: labels7,
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: data7,
+                    data: [{{ $PLBIO[1][0]->pelesen }}, {{ $PLBIO[2][0]->pelesen }},
+                        {{ $PLBIO[3][0]->pelesen }}, {{ $PLBIO[4][0]->pelesen }},
+                        {{ $PLBIO[5][0]->pelesen }}, {{ $PLBIO[6][0]->pelesen }},
+                        {{ $PLBIO[7][0]->pelesen }}, {{ $PLBIO[8][0]->pelesen }},
+                        {{ $PLBIO[9][0]->pelesen }}, {{ $PLBIO[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
                         'rgba(255, 159, 64, 0.2)'
                     ],
