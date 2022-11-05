@@ -41,7 +41,7 @@ class UpdateFlg extends Command
         $user = User::get();
 
         // if (auth()->user()->map_flg == 1) {
-            if (date('d-m') == '01-01' || date('d-m') == '05-11') {
+            if (date('d-m') == '01-01' || date('d-m') == '01-07') {
                 foreach($user as $data) {
                     $data->map_flg = 0;
                     $data->save();
