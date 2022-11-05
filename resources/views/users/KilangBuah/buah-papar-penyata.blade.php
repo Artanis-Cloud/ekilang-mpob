@@ -1159,7 +1159,7 @@
                             {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
 
                             <div class="form-group " style="padding-top: 10px; ">
-                                    <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
+                                    <a href="{{ route('buah.bahagianvi') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
 
                                     <button type="button" class="btn btn-primary "
