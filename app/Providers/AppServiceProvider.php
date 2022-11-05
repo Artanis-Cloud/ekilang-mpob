@@ -61,11 +61,13 @@ class AppServiceProvider extends ServiceProvider
                     $not_admin = true;
                 }
 
-                $map_date_expired = date('Y-m-d', strtotime("+6 months", strtotime(auth()->user()->map_sdate)));
-                if (auth()->user()->map_flg == true) {
-                    if (now() > $map_date_expired) {
+                // $map_flg = User::where('username', auth()->user()->username)->first();
+                // dd($map_flg);
+                // $map_date_expired = date('Y-m-d', strtotime("+6 months", strtotime(auth()->user()->map_sdate)));
+                if (auth()->user()->map_flg == 1) {
+                    if (date('m') == '01' || date('m') == '07') {
                         $user = User::find(auth()->user()->id);
-                        $user->map_flg = false;
+                        $user->map_flg = 0;
                         $user->save();
                     }
                 }
@@ -78,7 +80,8 @@ class AppServiceProvider extends ServiceProvider
                 [
                     "layoutpenyata" => $layoutpenyata,
                     "map_url" => $map_url,
-                    "map_date_expired" => $map_date_expired,
+                    // "map_flg" => $map_flg,
+                    // "map_date_expired" => $map_date_expired,
                     "not_admin" => $not_admin
                 ]
             );

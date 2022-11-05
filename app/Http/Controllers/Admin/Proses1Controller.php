@@ -266,6 +266,7 @@ class Proses1Controller extends Controller
             'stock' => $data['e_stock'],
             'directory' => $data['directory'],
             'map_sdate' => now(),
+            'map_flg' => 0,
         ]);
     }
 

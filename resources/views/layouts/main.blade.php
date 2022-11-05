@@ -2715,7 +2715,7 @@ $('ul > li> a').on('click', function() {
 @yield('scripts')
 @if ($map_url)
     @if ($not_admin)
-        @if (now() > $map_date_expired)
+        @if (auth()->user()->map_flg == 0)
             <script>
                 $('#map-message-warning').click(function() {
                     swal({
