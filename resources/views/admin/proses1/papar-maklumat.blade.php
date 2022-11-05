@@ -762,7 +762,7 @@
                                                     value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}" onchange="validation_jumlah()"
                                                     required>
                                             </td>
-                                            <td style="font-size: 9pt; padding-top: 8px; padding-left: 8px" >
+                                            <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" >
                                                 <b><span
                                                         id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
                                             </td>
@@ -818,7 +818,7 @@
                                                         butiran di
                                                         bahagian ini!</i></p>
                                             </td>
-                                            <td style="font-size: 9pt; padding-top: 8px; padding-left: 8px" ><b><span id="kap_tangki_jumlah">
+                                            <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" ><b><span id="kap_tangki_jumlah">
                                                         {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
                                                     </span>
                                                 </b>
@@ -987,10 +987,10 @@
                                             </div>
                                         @enderror
                                     </td>
-                                    <td style="font-size: 9pt; padding-top: 8px; padding-left: 8px" >
+                                    <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" >
                                         <b>
                                             <span
-                                                id="bil_tangki_jumlah"  style="font-size: 9pt">{{ old('bil_tangki_jumlah') ?? number_format($jumlah3) }}</span>
+                                                id="bil_tangki_jumlah"  style="font-size: 10pt">{{ old('bil_tangki_jumlah') ?? number_format($jumlah3) }}</span>
                                         </b>
                                     </td>
                                 </tr>
@@ -1080,7 +1080,7 @@
                                             </div>
                                         @enderror
                                     </td>
-                                    <td style="font-size: 9pt; padding-top: 8px; padding-left: 8px" > <b><span id="kap_tangki_jumlah">
+                                    <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" > <b><span id="kap_tangki_jumlah">
                                                 {{ old('kap_tangki_jumlah') ?? number_format($jumlah4) }}
                                             </span>
                                         </b>
