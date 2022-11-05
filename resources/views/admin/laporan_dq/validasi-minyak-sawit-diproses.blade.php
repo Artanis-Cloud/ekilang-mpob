@@ -161,10 +161,10 @@
                                                                     <th>{{ $data->lesen }}</th>
                                                                     <td>{{ $data->kilang }}</td>
                                                                     <td>{{ $data->negeri }}</td>
-                                                                    <td class=text-right>{{ number_format($data->cpo_msia_1 ?? 0,2) }}</td>
+                                                                    <td class=text-right>{{ number_format($data->ebio_b8 ?? 0,2) }}</td>
                                                                 </tr>
                                                                 @php
-                                                                    $total += $data->cpo_msia_1;
+                                                                    $total += $data->ebio_b8;
                                                                 @endphp
                                                             @endforeach
                                                             {{-- @php
@@ -206,10 +206,10 @@
                                                                     <th>{{ $data->lesen }}</th>
                                                                     <td>{{ $data->kilang }}</td>
                                                                     <td>{{ $data->negeri }}</td>
-                                                                    <td class=text-right>{{ number_format($data->ppo_msia_1 ?? 0,2) }}</td>
+                                                                    <td class=text-right>{{ number_format($data->ebio_b8 ?? 0,2) }}</td>
                                                                 </tr>
                                                                 @php
-                                                                    $total += $data->ppo_msia_1;
+                                                                    $total += $data->ebio_b8;
                                                                 @endphp
                                                             @endforeach
                                                             {{-- @php
@@ -250,10 +250,10 @@
                                                                         <th>{{ $data->lesen }}</th>
                                                                         <td>{{ $data->kilang }}</td>
                                                                         <td>{{ $data->negeri }}</td>
-                                                                        <td class=text-right>{{ number_format($data->cpko_msia_1 ?? 0,2) }}</td>
+                                                                        <td class=text-right>{{ number_format($data->ebio_b8 ?? 0,2) }}</td>
                                                                     </tr>
                                                                     @php
-                                                                    $total += $data->cpko_msia_1;
+                                                                    $total += $data->ebio_b8;
                                                                     @endphp
                                                                 @endforeach
 
@@ -293,10 +293,10 @@
                                                                         <th>{{ $data->lesen }}</th>
                                                                         <td>{{ $data->kilang }}</td>
                                                                         <td>{{ $data->negeri }}</td>
-                                                                        <td class=text-right>{{ number_format($data->ppko_msia_1 ?? 0,2) }}</td>
+                                                                        <td class=text-right>{{ number_format($data->ebio_b8 ?? 0,2) }}</td>
                                                                     </tr>
                                                                 @php
-                                                                    $total += $data->ppko_msia_1;
+                                                                    $total += $data->ebio_b8;
                                                                 @endphp
                                                                 @endforeach
 
