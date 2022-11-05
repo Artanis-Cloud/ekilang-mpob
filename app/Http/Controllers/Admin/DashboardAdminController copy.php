@@ -30,133 +30,105 @@ class DashboardAdminController extends Controller
         $PL111_total = 0;
         $PLBIO_total = 0;
         $bulan = date('m') - 1;
-        $tahun = date('Y');
-        $initdate = Init::where('tahun', $tahun)->first();
+        $initdate = Init::get();
 
-        if($bulan == 1){
+        if($bulan == 1)
             $enddate = $initdate->ejan;
-
-        }
-        elseif($bulan == 2){
+        elseif($bulan == 2)
             $enddate = $initdate->efeb;
-
-        }
-        elseif($bulan == 3){
-
+        elseif($bulan == 3)
             $enddate = $initdate->emac;
-        }
-        elseif($bulan == 4){
+        elseif($bulan == 4)
             $enddate = $initdate->eapr;
-
-        }
         elseif($bulan == 5)
-        {
             $enddate = $initdate->emei;
-
-        }
-        elseif($bulan == 6){
+        elseif($bulan == 6)
             $enddate = $initdate->ejun;
-
-        }
-        elseif($bulan == 7){
+        elseif($bulan == 7)
             $enddate = $initdate->ejul;
-
-        }
-        elseif($bulan == 8){
+        elseif($bulan == 8)
             $enddate = $initdate->eogos;
-
-        }
-        elseif($bulan == 9){
+        elseif($bulan == 9)
             $enddate = $initdate->esept;
-
-        }
-        elseif($bulan == 10){
+        elseif($bulan == 10)
             $enddate = $initdate->eokt;
-
-        }
-        elseif($bulan == 11){
+        elseif($bulan == 11)
             $enddate = $initdate->enov;
-
-        }
-        else{
+        else
             $enddate = $initdate->edec;
 
-        }
-        // dd($enddate);
+
+
         //total pelesen hantar penyata setiap hari
         // $PL91_total untuk total keseluruhan 10 hari
         // $PL91[$i][0] mengikut hari
 
-        for ($i = 1; $i <= date('d', strtotime($enddate)); $i++) { //haribulan
-            $data = DB::select("SELECT e.e91_sdate as date, count(e.e91_nl) as pelesen, DAY(e.e91_sdate) as days
-            from e91_init e, reg_pelesen r
-            where e.e91_nl = r.e_nl
+        for ($i = 1; $i <= $enddate; $i++) { //haribulan
+            $data = DB::select("SELECT date_format(e.e91_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
+            from pelesen p, e91_init e, reg_pelesen r
+            where p.e_nl = e.e91_nl
+            and p.e_nl = r.e_nl
             and r.e_kat = 'PL91'
             and e.e91_sdate is not null
-            and e.e91_flg in ('2','3')
-            and DAY(e.e91_sdate) = '$i'");
-            // group by e.e91_sdate
-            // order by e.e91_sdate
-            // dd($data);
+            and e.e91_flg ='2'
+            and DAY(e.e91_sdate) = '$i'
+            group by e.e91_sdate
+            order by e.e91_sdate");
 
-            if ($data[0]->date != null) {
+            if ($data) {
                 $PL91[$i] = $data;
                 $PL91_total += $data[0]->pelesen;
             } else {
                 $PL91[$i][0] = (object)[];
                 $PL91[$i][0]->date = $i;
-                $PL91[$i][0]->days = $i;
                 $PL91[$i][0]->pelesen = 0;
                 $PL91_total += 0;
             }
         }
 
-        for ($i = 1; $i <= date('d', strtotime($enddate)); $i++) { //haribulan
-            $data = DB::select("SELECT e.e101_sdate as date, count(e.e101_nl) as pelesen, DAY(e.e101_sdate) as days
-            from e101_init e, reg_pelesen r
-            where e.e101_nl = r.e_nl
+        for ($i = 1; $i <= $enddate; $i++) { //haribulan
+            $data = DB::select("SELECT date_format(e.e101_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
+            from pelesen p, e101_init e, reg_pelesen r
+            where p.e_nl = e.e101_nl
+            and p.e_nl = r.e_nl
             and r.e_kat = 'PL101'
             and e.e101_sdate is not null
-            and e.e101_flg in ('2','3')
-            and DAY(e.e101_sdate) = $i");
-            // -- group by e.e101_sdate
-            // order by e.e101_sdate
+            and e.e101_flg ='2'
+            and DAY(e.e101_sdate) = '$i'
+            group by e.e101_sdate
+            order by e.e101_sdate");
 
-            if ($data[0]->date != null) {
+            if ($data) {
                 $PL101[$i] = $data;
                 $PL101_total += $data[0]->pelesen;
-
             } else {
                 $PL101[$i][0] = (object)[];
                 $PL101[$i][0]->date = $i;
-                $PL101[$i][0]->days = $i;
                 $PL101[$i][0]->pelesen = 0;
                 $PL101_total += 0;
             }
         }
-        // dd($PL101);
 
-
-        for ($i = 1; $i <= date('d', strtotime($enddate)); $i++) { //haribulan
-            $data = DB::select("SELECT e.e102_sdate as date, count(e.e102_nl) as pelesen, DAY(e.e102_sdate) as days
-            from e102_init e, reg_pelesen r
-            where e.e102_nl = r.e_nl
+        for ($i = 1; $i <= $enddate; $i++) { //haribulan
+            $data = DB::select("SELECT date_format(e.e102_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
+            from pelesen p, e102_init e, reg_pelesen r
+            where p.e_nl = e.e102_nl
+            and p.e_nl = r.e_nl
             and r.e_kat = 'PL102'
+            -- and e.e102_flg = '2'
             and e.e102_sdate is not null
-            and e.e102_flg in ('2','3')
-            and DAY(e.e102_sdate) = '$i'");
-            // group by e.e102_sdate
-            // order by e.e102_sdate
+            and e.e102_flg ='2'
+            and DAY(e.e102_sdate) = '$i'
+            group by e.e102_sdate
+            order by e.e102_sdate");
 
-            if ($data[0]->date != null) {
+            if ($data) {
                 $PL102[$i] = $data;
                 $PL102_total += $data[0]->pelesen;
-                // dd($PL102);
 
             } else {
                 $PL102[$i][0] = (object)[];
                 $PL102[$i][0]->date = $i;
-                $PL102[$i][0]->days = $i;
                 $PL102[$i][0]->pelesen = 0;
                 $PL102_total += 0;
             }
@@ -165,71 +137,70 @@ class DashboardAdminController extends Controller
 
         // dd($PL102);
 
-        for ($i = 1; $i <= date('d', strtotime($enddate)); $i++) { //haribulan
-            $data = DB::select("SELECT e.e104_sdate as date, count(e.e104_nl) as pelesen, DAY(e.e104_sdate) as days
-            from e104_init e, reg_pelesen r
-            WHERE e.e104_nl = r.e_nl
+        for ($i = 1; $i <= $enddate; $i++) { //haribulan
+            $data = DB::select("SELECT date_format(e.e104_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
+            from pelesen p, e104_init e, reg_pelesen r
+            where p.e_nl = e.e104_nl
+            and p.e_nl = r.e_nl
             and r.e_kat = 'PL104'
             and e.e104_sdate is not null
-            and e.e104_flg in ('2','3')
-            and DAY(e.e104_sdate) = '$i'");
-            // group by e.e104_sdate
-            // order by e.e104_sdate
-            // dd($data);
+            and e.e104_flg ='2'
+            and DAY(e.e104_sdate) = '$i'
+            group by e.e104_sdate
+            order by e.e104_sdate");
 
-            if ($data[0]->date != null) {
+            if ($data) {
                 $PL104[$i] = $data;
                 $PL104_total += $data[0]->pelesen;
             } else {
                 $PL104[$i][0] = (object)[];
                 $PL104[$i][0]->date = $i;
-                $PL104[$i][0]->days = $i;
                 $PL104[$i][0]->pelesen = 0;
                 $PL104_total += 0;
             }
         }
 
-        for ($i = 1; $i <= date('d', strtotime($enddate)); $i++) { //haribulan
-            $data = DB::select("SELECT e.e07_sdate as date, count(e.e07_nl) as pelesen, DAY(e.e07_sdate) as days
-            from e07_init e, reg_pelesen r
-            where e.e07_nl = r.e_nl
+        for ($i = 1; $i <= $enddate; $i++) { //haribulan
+            $data = DB::select("SELECT date_format(e.e07_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
+            from pelesen p, e07_init e, reg_pelesen r
+            where p.e_nl = e.e07_nl
+            and p.e_nl = r.e_nl
             and r.e_kat = 'PL111'
             and e.e07_sdate is not null
-            and e.e07_flg in ('2','3')
-            and DAY(e.e07_sdate) = '$i'");
-            // group by e.e07_sdate
-            // order by e.e07_sdate
+            and e.e07_flg = '2'
+            and DAY(e.e07_sdate) = '$i'
+            group by e.e07_sdate
+            order by e.e07_sdate");
 
-            if ($data[0]->date != null) {
+            if ($data) {
                 $PL111[$i] = $data;
                 $PL111_total += $data[0]->pelesen;
             } else {
                 $PL111[$i][0] = (object)[];
                 $PL111[$i][0]->date = $i;
-                $PL111[$i][0]->days = $i;
                 $PL111[$i][0]->pelesen = 0;
                 $PL111_total += 0;
             }
         }
 
-        for ($i = 1; $i <= date('d', strtotime($enddate)); $i++) { //haribulan
-            $data = DB::select("SELECT e.ebio_sdate as date, count(e.ebio_nl) as pelesen, DAY(e.ebio_sdate) as days
-            from e_bio_inits e, reg_pelesen r
-            where e.ebio_nl = r.e_nl
+        for ($i = 1; $i <= $enddate; $i++) { //haribulan
+            $data = DB::select("SELECT date_format(e.ebio_sdate,'%d-%m-%Y') as date, count(p.e_nl) as pelesen
+            from pelesen p, e_bio_inits e, reg_pelesen r
+            where p.e_nl = e.ebio_nl
+            and p.e_nl = r.e_nl
             and r.e_kat = 'PLBIO'
             and e.ebio_sdate is not null
             and e.ebio_flg in ('2','3')
-            and DAY(e.ebio_sdate) = '$i'");
-            // group by e.ebio_sdate
-            // order by e.ebio_sdate
+            and DAY(e.ebio_sdate) = '$i'
+            group by e.ebio_sdate
+            order by e.ebio_sdate");
 
-            if ($data[0]->date != null) {
+            if ($data) {
                 $PLBIO[$i] = $data;
                 $PLBIO_total += $data[0]->pelesen;
             } else {
                 $PLBIO[$i][0] = (object)[];
                 $PLBIO[$i][0]->date = $i;
-                $PLBIO[$i][0]->days = $i;
                 $PLBIO[$i][0]->pelesen = 0;
                 $PLBIO_total += 0;
             }
@@ -237,12 +208,12 @@ class DashboardAdminController extends Controller
 
 
         //total pelesen yang sudah hantar penyata setiap sektor
-        $total91 = E91Init::where('e91_flg', ['2','3'])->count();
-        $total101 = E101Init::where('e101_flg',['2','3'])->count();
-        $total102 = E102Init::where('e102_flg', ['2','3'])->count();
-        $total104 = E104Init::where('e104_flg', ['2','3'])->count();
-        $total111 = E07Init::where('e07_flg', ['2','3'])->count();
-        $totalBIO = EBioInit::where('ebio_flg', ['2','3'])->count();
+        $total91 = E91Init::where('e91_flg', '2')->count();
+        $total101 = E101Init::where('e101_flg', '2')->count();
+        $total102 = E102Init::where('e102_flg', '2')->count();
+        $total104 = E104Init::where('e104_flg', '2')->count();
+        $total111 = E07Init::where('e07_flg', '2')->count();
+        $totalBIO = EBioInit::where('ebio_flg', '2')->count();
 
         $total_overall = ($total91 + $total101 + $total102 + $total104 + $total111 + $totalBIO);
         // dd($total_overall);
@@ -306,7 +277,7 @@ class DashboardAdminController extends Controller
             }
 
 
-        $days = date('d', strtotime($enddate));
+
 
         $array = [
             'PL91_total' => $PL91_total,
@@ -343,8 +314,6 @@ class DashboardAdminController extends Controller
             'percent104' => $percent104,
             'percent111' => $percent111,
             'percentBIO' => $percentBIO,
-
-            'days' => $days
         ];
 
         // dd($PCBIO);
