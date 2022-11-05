@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
         //     DB::table('cron_jobs_test')->delete();
         // })->everyMinute()->runInBackground();
         $schedule->command('initialize:update')->daily()->runInBackground();
-        $schedule->command('update:flg')->monthly()->runInBackground();
+        $schedule->command('update:flg')->everyMinute()->runInBackground();
         // $schedule->command('inspire')->hourly();
     }
 
