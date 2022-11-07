@@ -71,7 +71,7 @@
                                                     <tbody style=" width:10rem; margin-right: -10px">
                                                         <tr>
                                                             <td width="85%" height="19">
-                                                                <p align=""><b>{{ $data->h_pelesen->kodpgw }}{{ $data->h_pelesen->nosiri }}</b></p>
+                                                                <p align=""><b>{{ $data[$key]->kodpgw }}{{ $data[$key]->nosiri }}</b></p>
                                                             </td>
                                                             <td width="15%" height="19">
                                                                 <p align="left"><b>MPOB(EL) RF 4</b></p>
@@ -110,20 +110,20 @@
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
                                                     BULAN :
-                                                    @if($data->e101_bln == "01") JANUARI
-                                                        @elseif($data->e101_bln == "02") FEBRUARI
-                                                        @elseif($data->e101_bln == "03") MAC
-                                                        @elseif($data->e101_bln == "04") APRIL
-                                                        @elseif($data->e101_bln == "05") MEI
-                                                        @elseif($data->e101_bln == "06") JUN
-                                                        @elseif($data->e101_bln == "07") JULAI
-                                                        @elseif($data->e101_bln == "08") OGOS
-                                                        @elseif($data->e101_bln == "09") SEPTEMBER
-                                                        @elseif($data->e101_bln == "10") OKTOBER
-                                                        @elseif($data->e101_bln == "11") NOVEMBER
-                                                        @elseif($data->e101_bln == "12") DISEMBER
+                                                    @if($data[$key]->e101_bln == "01") JANUARI
+                                                        @elseif($data[$key]->e101_bln == "02") FEBRUARI
+                                                        @elseif($data[$key]->e101_bln == "03") MAC
+                                                        @elseif($data[$key]->e101_bln == "04") APRIL
+                                                        @elseif($data[$key]->e101_bln == "05") MEI
+                                                        @elseif($data[$key]->e101_bln == "06") JUN
+                                                        @elseif($data[$key]->e101_bln == "07") JULAI
+                                                        @elseif($data[$key]->e101_bln == "08") OGOS
+                                                        @elseif($data[$key]->e101_bln == "09") SEPTEMBER
+                                                        @elseif($data[$key]->e101_bln == "10") OKTOBER
+                                                        @elseif($data[$key]->e101_bln == "11") NOVEMBER
+                                                        @elseif($data[$key]->e101_bln == "12") DISEMBER
                                                         @endif
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data->e101_thn }}
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data[$key]->e101_thn }}
                                                 </b><br>
 
                                             </p>
@@ -139,7 +139,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                {{ $data->h_pelesen->e_nl }}
+                                                                {{ $data[$key]->e_nl }}
                                                             </b></td>
 
                                                     </tr>
@@ -151,7 +151,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19" style="text-transform:uppercase"><b>
-                                                                {{ $data->h_pelesen->e_np }}
+                                                                {{ $data[$key]->e_np }}
                                                             </b></td>
 
                                                     </tr>
@@ -177,7 +177,7 @@
 
                                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_ap1 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_ap1 }}</b></td>
 
                                                     </tr>
 
@@ -185,7 +185,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_ap2 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_ap2 }}</b></td>
 
                                                     </tr>
 
@@ -193,7 +193,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_ap3 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_ap3 }}</b></td>
 
                                                     </tr>
 
@@ -201,7 +201,7 @@
 
                                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_as1 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_as1 }}</b></td>
 
                                                     </tr>
 
@@ -209,7 +209,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_as2 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_as2 }}</b></td>
 
                                                     </tr>
 
@@ -217,7 +217,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_as3 }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_as3 }}</b></td>
 
                                                     </tr>
 
@@ -225,7 +225,7 @@
 
                                                         <td width="35%">No Telefon</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_notel }}</b></td>
+                                                        <td width="65%"><b>{{ $data[$key]->e_notel }}</b></td>
 
                                                     </tr>
 
@@ -233,7 +233,7 @@
 
                                                         <td width="35%">No Faks</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_nofax }}</b></td>
+                                                        <td width="65%"><b>{{ $data[$key]->e_nofax }}</b></td>
 
                                                     </tr>
 
@@ -241,7 +241,7 @@
 
                                                         <td width="35%">Alamat emel </td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_email }}</b></td>
+                                                        <td width="65%"><b>{{ $data[$key]->e_email }}</b></td>
 
                                                     </tr>
 
@@ -249,7 +249,7 @@
 
                                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_npg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_npg }}</b></td>
 
                                                     </tr>
 
@@ -257,7 +257,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_jpg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_jpg }}</b></td>
 
                                                     </tr>
 
@@ -265,14 +265,14 @@
 
                                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_npgtg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_npgtg }}</b></td>
 
                                                     </tr>
                                                     <tr>
 
                                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_jpgtg }}</b></td>
+                                                        <td width="65%" style="text-transform:uppercase"><b>{{ $data[$key]->e_jpgtg }}</b></td>
 
                                                     </tr>
 
@@ -369,7 +369,7 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach --}}
-{{-- 
+{{--
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
