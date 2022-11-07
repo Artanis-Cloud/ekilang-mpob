@@ -14,6 +14,7 @@ use App\Models\HBioC;
 use App\Models\HBioInit;
 use App\Models\HHari;
 use App\Models\HPelesen;
+use App\Models\Kapasiti;
 use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -90,6 +91,8 @@ class KilangBiodieselController extends Controller
 
     public function bio_update_maklumat_asas_pelesen(Request $request, $id)
     {
+
+        $tahun = date('Y');
         // dd($request->all());
         if (isset($request['alamat_sama'])) {
             $penyata = Pelesen::findOrFail($id);
@@ -172,6 +175,23 @@ class KilangBiodieselController extends Controller
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
+
+        $kapasiti = Kapasiti::where('e_nl', $penyata->e_nl)->where('tahun', $tahun)->first();
+        $kapasiti->jan = $request->kap_proses;
+        $kapasiti->feb = $request->kap_proses;
+        $kapasiti->mac = $request->kap_proses;
+        $kapasiti->apr = $request->kap_proses;
+        $kapasiti->mei = $request->kap_proses;
+        $kapasiti->jun = $request->kap_proses;
+        $kapasiti->jul = $request->kap_proses;
+        $kapasiti->ogs = $request->kap_proses;
+        $kapasiti->sept = $request->kap_proses;
+        $kapasiti->okt = $request->kap_proses;
+        $kapasiti->nov = $request->kap_proses;
+        $kapasiti->dec = $request->kap_proses;
+        $kapasiti->save();
+
+
 // dd($map);
 
         return redirect()->route('bio.maklumatasaspelesen')
