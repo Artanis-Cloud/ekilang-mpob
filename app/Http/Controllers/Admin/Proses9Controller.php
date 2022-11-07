@@ -568,7 +568,7 @@ class Proses9Controller extends Controller
 
         $check = H91Init::with('h_pelesen')->where('e91_nobatch', $nobatch)->where('e91_thn', $tahun)->where('e91_bln', $bulan)->first();
         // $check2 = $check->h_pelesen->e101_thn ==
-        // dd($check);
+        dd($check);
         if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
