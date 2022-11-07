@@ -435,6 +435,9 @@ class Proses9Controller extends Controller
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
+        elseif ($request->sumber == 'pleid' && $request->sektor == 'PL101') {
+            return $this->process_admin_pleid_penapis_form($request->papar_ya, $request->tahun, $request->bulan);
+        }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL91') {
             return $this->process_admin_9penyataterdahulu_buah_form($request->papar_ya, $request->tahun, $request->bulan);
 
@@ -814,13 +817,27 @@ class Proses9Controller extends Controller
         foreach ($nobatch as $key => $nobatch1) {
             $pelesens[$key] = (object)[];
 
-            $query = H101Init::with('pelesen')->where('e101_nobatch', $nobatch1)->first();
+            $query = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->first();
+            $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$nobatch1'");
+
 
             $penyata1[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
             e.F101B10, e.F101B11, e.F101B12, e.F101B13, e.F101B14
             from pl101bp3 e, codedb.commodity_l p
             where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l
             order by e.F101B4");
+
+            $totalib5 = DB::connection('mysql4')->select("SELECT SUM(F101B5) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib6 = DB::connection('mysql4')->select("SELECT SUM(F101B6) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib7 = DB::connection('mysql4')->select("SELECT SUM(F101B7) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib8 = DB::connection('mysql4')->select("SELECT SUM(F101B8) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib9 = DB::connection('mysql4')->select("SELECT SUM(F101B9) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib10 = DB::connection('mysql4')->select("SELECT SUM(F101B10) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib11 = DB::connection('mysql4')->select("SELECT SUM(F101B11) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib12 = DB::connection('mysql4')->select("SELECT SUM(F101B12) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib13 = DB::connection('mysql4')->select("SELECT SUM(F101B13) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib14 = DB::connection('mysql4')->select("SELECT SUM(F101B14) FROM pl101bp3 where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+
             // dd($penyata);
 
             $penyata2[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
@@ -862,8 +879,8 @@ class Proses9Controller extends Controller
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
-            // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->tkhsubmit);
-            // $formatteddate = $myDateTime->format('d-m-Y');
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $users->tkhsubmit);
+            $formatteddate = $myDateTime->format('d-m-Y');
 
         }
 //   dd($pelesens);
@@ -873,7 +890,20 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan'));
+        return view('admin.proses9.9papar-pleid-buah-multi', compact(
+            'returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan',
+            'totalib5',
+            'totalib6',
+            'totalib7',
+            'totalib8',
+            'totalib9',
+            'totalib10',
+            'totalib11',
+            'totalib12',
+            'totalib13',
+            'totalib14',
+            'users',
+        ));
     }
 
 
