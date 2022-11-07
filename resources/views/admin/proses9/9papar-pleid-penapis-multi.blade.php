@@ -382,10 +382,12 @@
                                                         <td align="center">
                                                             <font size="2.7"><b>-</b></font>
                                                         </td>
+                                                        @foreach ($totalib5[$nobatch_key] as $total5_key => $total5)
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib5[$nobatch1] ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td align="right">
+                                                        @endforeach
+                                                        {{-- <td align="right">
                                                             <font size="2.7"><b>{{ number_format($totalib6[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
@@ -411,7 +413,7 @@
                                                         </td>
                                                         <td align="right">
                                                             <font size="2.7"><b>{{ number_format($totalib14[$nobatch1] ??  0,2) }}</b></font>
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 </tbody>
                                             </table>
