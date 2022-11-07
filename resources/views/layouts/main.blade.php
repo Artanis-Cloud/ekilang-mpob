@@ -2363,7 +2363,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Bulanan',
 
 
 
@@ -2378,7 +2378,7 @@
                             columns: [1,2,3,4,5,6,7]
                         },
                         title: function(doc) {
-                                return $('#title').text() + $ ('#tarikh').text()
+                                return $('#title').text()
                                 },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
