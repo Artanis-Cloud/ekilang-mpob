@@ -518,16 +518,13 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                <tfoot>
-                                                    <tr style="background-color: #e9ecefbd">
-                                                        <th>Papar</th>
-                                                        <th>No Lesen</th>
-                                                        <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
-                                                        <th>Tarikh Hantar</th>
-                                                    </tr>
-                                                </tfoot>
+                                                <tr style="background-color: #e9ecefbd">
+                                                    <th>Papar</th>
+                                                    <th>No Lesen</th>
+                                                    <th>Nama Premis</th>
+                                                    <th>No Batch</th>
+                                                    <th>Tarikh Hantar</th>
+                                                </tr>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -580,8 +577,7 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
+                                                        <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
@@ -636,8 +632,7 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
+                                                        <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
@@ -692,8 +687,7 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
+                                                        <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
@@ -747,8 +741,7 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
+                                                        <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
