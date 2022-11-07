@@ -75,10 +75,12 @@
                         <div class="pl-3">
 
                             <div class=" text-center">
+
+                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Biodiesel - MPOB(EL) <br> </h3>
+                                <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
                                 <div id="title">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Biodiesel - MPOB(EL) <br> </h3>
-                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
-                                <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
+                                    <div class="noScreenPelesen">Penyata Bulanan Biodiesel - MPOB(EL)</div>
+                                    <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 </div>
 
@@ -360,15 +362,14 @@
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Bulanan',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
+
 
                     },
                     {
@@ -381,7 +382,7 @@
                             columns: [1,2,3,4,5]
                         },
                         title: function(doc) {
-                                return $('#title').text() + $ ('#tarikh').text()
+                                return $('#title').text()
                                 },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
