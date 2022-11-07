@@ -774,7 +774,7 @@ class Proses9Controller extends Controller
 
     public function process_admin_pleid_penapis_form($nobatch, $tahun, $bulan)
     {
-        dd($nobatch);
+        // dd($nobatch);
         // dd($bulan);
         if (!$nobatch) {
             return redirect()->back()
@@ -877,7 +877,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-//   dd($pelesens);
+  dd($query);
 
 
         $layout = 'layouts.main';
