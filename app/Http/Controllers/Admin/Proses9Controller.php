@@ -802,7 +802,7 @@ class Proses9Controller extends Controller
             $pelesens[$key] = (object)[];
 
             $query = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->first();
-            dd($query);
+            dd($nobatch);
             $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$nobatch1'");
 
 
