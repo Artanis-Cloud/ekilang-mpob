@@ -803,7 +803,7 @@ class Proses9Controller extends Controller
             $e_nl = H101Init::where('e101_nobatch', $nobatch1)->first();
 
             $query = H101Init::with('h_pelesen')->where('e_nl', $e_nl->e_nl)->first();
-            dd($query);
+            dd($e_nl);
             $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$nobatch1'");
 
 
