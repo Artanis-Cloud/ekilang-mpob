@@ -464,7 +464,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -473,7 +473,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -518,7 +518,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -527,7 +527,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -575,7 +575,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -584,7 +584,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -631,7 +631,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -640,7 +640,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -687,7 +687,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -696,7 +696,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -742,7 +742,7 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                {{-- <tfoot>
+                                                <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
@@ -751,7 +751,7 @@
                                                         <th>No Siri</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
-                                                </tfoot> --}}
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
