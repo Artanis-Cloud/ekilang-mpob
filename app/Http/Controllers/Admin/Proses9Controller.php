@@ -565,6 +565,11 @@ class Proses9Controller extends Controller
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
+
+        $check = H91Init::with('h_pelesen')->where('e91_nobatch', $nobatch)->where('e91_thn', $tahun)->where('e91_bln', $bulan)->first();
+        // $check2 = $check->h_pelesen->e101_thn ==
+        // dd($check);
+        if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
@@ -584,11 +589,11 @@ class Proses9Controller extends Controller
         // dd($bulan);
         // $nolesen = auth()->users->username;
         foreach ($nobatch as $key => $e91_nobatch) {
-            $pelesens[$key] = (object)[];
+            $pelesens[$e91_nobatch] = (object)[];
 
-            $query[$key] = H91Init::with('pelesen')->where('e91_nobatch', $e91_nobatch)->first();
+            $query[$e91_nobatch] = H91Init::with('h_pelesen')->where('e91_nobatch', $e91_nobatch)->first();
 
-            $penyata[$key] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
+            $penyata[$e91_nobatch] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
                       DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
                     F911G1, F911G2, F911G3, F911G4, F911H1, F911H2,
                     F911H3, F911H4, F911I, F911J1, F911J2,
@@ -612,7 +617,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-//   dd($query);
+  dd($query);
 // dd($penyata);
 
 
@@ -621,7 +626,11 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns'));
+        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns','check'));
+    } else {
+        return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+    }
+
     }
 
     public function process_admin_9penyataterdahulu_penapis_form($nobatch, $tahun, $bulan)
