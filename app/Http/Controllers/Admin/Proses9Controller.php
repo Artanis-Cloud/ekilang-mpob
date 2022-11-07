@@ -826,7 +826,7 @@ class Proses9Controller extends Controller
             $pelesens[$key] = (object)[];
 
 
-           $query = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
+           $query[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
             FROM h101_init e, h_pelesen p
             WHERE p.e_nl = e.e101_nl
@@ -903,7 +903,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-  dd($query);
+//   dd($query);
 
 
         $layout = 'layouts.main';
