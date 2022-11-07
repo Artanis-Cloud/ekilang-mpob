@@ -847,16 +847,16 @@ class Proses9Controller extends Controller
             where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l
             order by e.F101B4");
 
-            $totalib5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B5) as total5 FROM pl101bp3 e, codedb.commodity_l p where  e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B6) as total6 FROM pl101bp3 e, codedb.commodity_l p where  e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B7) as total7 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B8) as total8 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib9[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B9) as total9 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib10[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B10) as total10 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib11[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B11) as total11 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib12[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B12) as total12 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib13[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B13) as total13 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
-            $totalib14[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B14) as total14 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l");
+            $totalib5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B5) as total5 FROM pl101bp3 e, codedb.commodity_l p where  e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B6) as total6 FROM pl101bp3 e, codedb.commodity_l p where  e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B7) as total7 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B8) as total8 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib9[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B9) as total9 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib10[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B10) as total10 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib11[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B11) as total11 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib12[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B12) as total12 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib13[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B13) as total13 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
+            $totalib14[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101B14) as total14 FROM pl101bp3 e, codedb.commodity_l p where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l");
 
             // dd($penyata);
 

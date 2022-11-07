@@ -387,6 +387,51 @@
                                                             <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
                                                         </td>
                                                         @endforeach
+                                                        @foreach ($totalib6[$nobatch_key] as $total6_key => $total6)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib7[$nobatch_key] as $total7_key => $total7)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib8[$nobatch_key] as $total8_key => $total8)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib9[$nobatch_key] as $total9_key => $total9)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib10[$nobatch_key] as $total10_key => $total10)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib11[$nobatch_key] as $total11_key => $total11)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib12[$nobatch_key] as $total12_key => $total12)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total12->total12 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib13[$nobatch_key] as $total13_key => $total13)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total13->total13 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalib14[$nobatch_key] as $total14_key => $total14)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total14->total14 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
                                                         {{-- <td align="right">
                                                             <font size="2.7"><b>{{ number_format($totalib6[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
