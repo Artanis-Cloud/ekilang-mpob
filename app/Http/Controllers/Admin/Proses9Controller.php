@@ -789,6 +789,7 @@ class Proses9Controller extends Controller
         // dd($bulan);
         // $nolesen = auth()->users->username;
         $check = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
+        dd($check);
         if ($check->h_pelesen) {
 
             $breadcrumbs    = [
