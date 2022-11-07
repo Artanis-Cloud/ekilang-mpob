@@ -334,7 +334,7 @@
                                                     </tr>
                                                     {{-- {{ dd($penyata1) }} --}}
                                                     @foreach ($penyata1 as $key => $datai)
-                                                    {{dd($datai)   }}
+                                                    {{dd($datai[$key])   }}
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2.7">{{ $datai[$key]->comm_desc }}</font>
