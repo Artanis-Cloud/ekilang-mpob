@@ -1011,7 +1011,7 @@
 
 
                                             <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                                {{ $formatteddate }}
+                                                {{ $users[$key]->tkhsubmit }}
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
