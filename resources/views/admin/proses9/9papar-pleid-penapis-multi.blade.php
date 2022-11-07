@@ -54,7 +54,7 @@
                     <form method="get" action="" id="myfrm">
                         {{ dd($query) }}
 
-                        @foreach ($query as $key =>  $data)
+                        {{-- @foreach ($query as $key =>  $data) --}}
 
 
                             <div class="card-body">
@@ -1034,7 +1034,7 @@
 
                             <br><hr><h1 style="page-break-after:always"></h1>
 
-                        @endforeach
+                        {{-- @endforeach --}}
                     </form>
                     <div class="row justify-content-center ">
 
