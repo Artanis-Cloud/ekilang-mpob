@@ -369,7 +369,7 @@
                                                             </td>
                                                         </tr>
                                                     @endforeach --}}
-
+{{-- 
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
@@ -407,7 +407,7 @@
                                                         <td align="right">
                                                             <font size="2.7"><b>{{ number_format($totalib14 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </tbody>
                                             </table>
                                             <br>
