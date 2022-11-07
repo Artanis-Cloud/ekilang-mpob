@@ -798,10 +798,14 @@ class Proses9Controller extends Controller
         // $bulan = H91Init::where('e91_bln', $request->bulan);
         // dd($bulan);
         // $nolesen = auth()->users->username;
+        $check = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
+        if ($check->h_pelesen) {
+
         foreach ($nobatch as $key => $nobatch1) {
             $pelesens[$key] = (object)[];
 
-            $query = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+
+                $query = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
             FROM h101_init e, h_pelesen p
             WHERE e.e101_bln = '$bulan'
@@ -877,7 +881,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-  dd($query);
+//   dd($query);
 
 
         $layout = 'layouts.main';
@@ -906,6 +910,13 @@ class Proses9Controller extends Controller
             'totalib14',
             'users',
         ));
+            }
+            else {
+                return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+            }
+
+
+
     }
 
 
