@@ -332,7 +332,7 @@
                                                                 <font size="2.7">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                     </tr>
-                                                    {{-- {{ dd($penyata1) }} --}}
+                                                    {{ dd($penyata1) }}
                                                     @foreach ($penyata1 as $key => $datai)
                                                     {{-- {{dd($datai)}} --}}
                                                         <tr>
