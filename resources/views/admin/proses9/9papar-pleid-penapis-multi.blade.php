@@ -337,40 +337,40 @@
                                                     {{-- {{dd($datai)}} --}}
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2.7">{{ $data[0]->comm_desc }}</font>
+                                                                <font size="2.7">{{ $datai[0]->comm_desc }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2.7">{{ $data[0]->F101B4 }}</font>
+                                                                <font size="2.7">{{ $datai[0]->F101B4 }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B5 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B5 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B6 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B6 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B7 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B7 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B8 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B8 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B9 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B9 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B10 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B10 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B11 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B11 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7"> {{ number_format($data[0]->F101B12 ??  0,2) }}</font>
+                                                                <font size="2.7"> {{ number_format($datai[0]->F101B12 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B13 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B13 ??  0,2) }}</font>
                                                             </td>
                                                             <td align="right">
-                                                                <font size="2.7">{{ number_format($data[0]->F101B14 ??  0,2) }}</font>
+                                                                <font size="2.7">{{ number_format($datai[0]->F101B14 ??  0,2) }}</font>
                                                             </td>
                                                         </tr>
                                                     @endforeach
