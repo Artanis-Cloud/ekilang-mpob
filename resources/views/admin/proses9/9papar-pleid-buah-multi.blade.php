@@ -293,10 +293,10 @@
                                             </table>
                                             <br>
                                             {{-- @endforeach --}}
-                                            {{ dd($penyata) }}
+                                            {{-- {{ dd($penyata) }} --}}
 
-                                            @foreach ($penyata as $key => $data)
-                                            {{-- {{ dd($data[$key]) }} --}}
+                                            @foreach ($penyata[$nobatch_key] as $penyata_key => $data)
+                                            {{ dd($data) }}
 
 
                                             {{-- @foreach ($data as $key => $data2) --}}
