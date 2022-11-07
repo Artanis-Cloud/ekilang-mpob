@@ -531,7 +531,7 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
-                                                                    value="{{ $data->nolesen1 }}">&nbspYa
+                                                                    value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
@@ -587,7 +587,7 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
-                                                                    value="{{ $data->nolesen1 }}">&nbspYa
+                                                                    value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
@@ -642,7 +642,7 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
-                                                                    value="{{ $data->nolesen1 }}">&nbspYa
+                                                                    value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
@@ -697,7 +697,7 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
-                                                                    value="{{ $data->nolesen1 }}">&nbspYa
+                                                                    value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
@@ -751,7 +751,7 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
-                                                                    value="{{ $data->nolesen1 }}">&nbspYa
+                                                                    value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
