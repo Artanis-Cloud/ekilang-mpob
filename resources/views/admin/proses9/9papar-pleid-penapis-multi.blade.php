@@ -334,7 +334,7 @@
                                                     </tr>
                                                     {{-- {{ dd($penyata1) }} --}}
                                                     @foreach ($penyata1 as $key => $datai)
-                                                    {{dd($datai[$key])   }}
+                                                    {{-- {{dd($datai[$key])   }} --}}
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2.7">{{ $datai[$key]->comm_desc }}</font>
@@ -375,7 +375,7 @@
                                                         </tr>
                                                     @endforeach
 
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
                                                         </td>
@@ -412,7 +412,7 @@
                                                         <td align="right">
                                                             <font size="2.7"><b>{{ number_format($totalib14 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </tbody>
                                             </table>
                                             <br>
