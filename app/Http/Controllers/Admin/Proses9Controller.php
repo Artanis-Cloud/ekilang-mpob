@@ -801,7 +801,10 @@ class Proses9Controller extends Controller
         // $nolesen = auth()->users->username;
         $checks = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->get();
         // $check2 = $check->h_pelesen->e101_thn ==
-        dd($checks);
+        // dd($checks);
+        foreach ($checks as $check) {
+            # code...
+
         if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
 
             $breadcrumbs    = [
@@ -931,6 +934,7 @@ class Proses9Controller extends Controller
             else {
                 return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
             }
+        }
 
 
 
