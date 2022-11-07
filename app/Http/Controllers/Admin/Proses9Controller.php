@@ -887,7 +887,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-  dd($query[$key]);
+  dd($query);
 
 
         $layout = 'layouts.main';
