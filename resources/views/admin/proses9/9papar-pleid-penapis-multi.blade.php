@@ -54,8 +54,8 @@
                     <form method="get" action="" id="myfrm">
                         {{-- {{ dd($query) }} --}}
 
-                        @foreach ($query[$key] as $key =>  $data)
-                        {{ dd($data[$key]) }}
+                        @foreach ($query[$key] as $data)
+                        {{ dd($data) }}
 
 
                             <div class="card-body">
