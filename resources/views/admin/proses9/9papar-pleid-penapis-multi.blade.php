@@ -55,7 +55,7 @@
                         {{-- {{ dd($query) }} --}}
 
                         @foreach ($query as $key =>  $data)
-                        {{-- {{ dd($data) }} --}}
+                        {{ dd($data[$key]) }}
 
 
                             <div class="card-body">
