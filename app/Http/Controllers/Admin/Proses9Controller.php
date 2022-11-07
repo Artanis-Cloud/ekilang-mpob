@@ -780,17 +780,7 @@ class Proses9Controller extends Controller
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
-        ];
 
-        $kembali = route('admin.9penyataterdahulu.process');
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
         // $sektor = $request->sektor;
 
 
@@ -800,6 +790,18 @@ class Proses9Controller extends Controller
         // $nolesen = auth()->users->username;
         $check = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
         if ($check->h_pelesen) {
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+                ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+            ];
+
+            $kembali = route('admin.9penyataterdahulu.process');
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
 
         foreach ($nobatch as $key => $nobatch1) {
             // dd($nobatch1);
