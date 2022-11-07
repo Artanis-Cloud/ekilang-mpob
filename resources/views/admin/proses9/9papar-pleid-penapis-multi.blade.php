@@ -52,10 +52,10 @@
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <form method="get" action="" id="myfrm">
-                        {{ dd($query[$key]) }}
+                        {{-- {{ dd($query) }} --}}
 
-                        @foreach ($query[$key] as $data)
-                        {{-- {{ dd($data) }} --}}
+                        @foreach ($query as $key => $data)
+                        {{ dd($data) }}
 
 
                             <div class="card-body">
