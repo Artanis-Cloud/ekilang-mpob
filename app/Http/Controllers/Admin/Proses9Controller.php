@@ -826,7 +826,7 @@ class Proses9Controller extends Controller
             AND p.e_bln = '$bulan'");
 
             // H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
-            dd($query);
+            dd($query[0]->kodpgw);
             $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$nobatch1'");
 
 
