@@ -517,13 +517,15 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
-                                                <tr style="background-color: #e9ecefbd">
-                                                    <th>Papar</th>
-                                                    <th>No Lesen</th>
-                                                    <th>Nama Premis</th>
-                                                    <th>No Batch</th>
-                                                    <th>Tarikh Hantar</th>
-                                                </tr>
+                                                <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar</th>
+                                                        <th>No Lesen</th>
+                                                        <th>Nama Premis</th>
+                                                        <th>No Batch</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
