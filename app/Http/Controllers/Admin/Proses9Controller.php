@@ -799,9 +799,9 @@ class Proses9Controller extends Controller
         // $bulan = H91Init::where('e91_bln', $request->bulan);
         // dd($bulan);
         // $nolesen = auth()->users->username;
-        $check = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
+        $checks = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->get();
         // $check2 = $check->h_pelesen->e101_thn ==
-        dd($check);
+        dd($checks);
         if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
 
             $breadcrumbs    = [
