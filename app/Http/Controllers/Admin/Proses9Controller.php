@@ -801,7 +801,15 @@ class Proses9Controller extends Controller
         foreach ($nobatch as $key => $nobatch1) {
             $pelesens[$key] = (object)[];
 
-            $query = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
+            $query = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1. p.e_ap2,
+            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg,
+            FROM h101_init e, h_pelesen p
+            WHERE e.e101_bln = '$bulan'
+            AND e.e101_thn = '$tahun'
+            AND p.e_thn = '$tahun'
+            AND p.e_bln = '$bulan'");
+
+            // H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch1)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->first();
             dd($query);
             $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$nobatch1'");
 
