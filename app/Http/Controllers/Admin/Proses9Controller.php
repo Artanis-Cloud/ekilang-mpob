@@ -877,7 +877,7 @@ class Proses9Controller extends Controller
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-pleid-buah-multi', compact(
-            'returnArr', 'layout', 'query', 'pelesens', 'e_nl'
+            'returnArr', 'layout', 'query', 'pelesens', 'e_nl',
             'penyata1',
             'penyata2',
             'penyata3',
