@@ -383,34 +383,34 @@
                                                             <font size="2.7"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib5 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib5[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib6 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib6[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib7 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib7[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib8 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib8[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib9 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib9[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib10 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib10[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib11 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib11[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib12 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib12[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib13 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib13[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totalib14 ??  0,2) }}</b></font>
+                                                            <font size="2.7"><b>{{ number_format($totalib14[$nobatch1] ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
