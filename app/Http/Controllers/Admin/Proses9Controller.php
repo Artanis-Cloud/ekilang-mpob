@@ -823,10 +823,10 @@ class Proses9Controller extends Controller
 
         foreach ($nobatch as $key => $nobatch1) {
             // dd($nobatch1);
-            $pelesens[$key] = (object)[];
+            $pelesens[$nobatch1] = (object)[];
 
 
-           $query[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
+           $query[$nobatch1] = DB::select("SELECT p.kodpgw, p.nosiri, e.e101_bln, e.e101_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e101_nobatch,
             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
             FROM h101_init e, h_pelesen p
             WHERE p.e_nl = e.e101_nl
@@ -841,7 +841,7 @@ class Proses9Controller extends Controller
             $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$nobatch1'");
 
 
-            $penyata1[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
+            $penyata1[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
             e.F101B10, e.F101B11, e.F101B12, e.F101B13, e.F101B14
             from pl101bp3 e, codedb.commodity_l p
             where e.F101B2 = '$nobatch1' and e.F101B3 = '1' and e.F101B4 = p.comm_code_l
@@ -860,37 +860,37 @@ class Proses9Controller extends Controller
 
             // dd($penyata);
 
-            $penyata2[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
+            $penyata2[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101B4, e.F101B5, e.F101B6, e.F101B7, e.F101B8, e.F101B9,
             e.F101B10, e.F101B11, e.F101B12, e.F101B13, e.F101B14
             from pl101bp3 e, codedb.commodity_l p
             where e.F101B2 = '$nobatch1' and e.F101B3 = '2' and e.F101B4 = p.comm_code_l
             order by e.F101B4");
             // dd($penyata);
 
-            $penyata3[$key] = DB::connection('mysql4')->select("SELECT F101A7, F101A8, F101A9
+            $penyata3[$nobatch1] = DB::connection('mysql4')->select("SELECT F101A7, F101A8, F101A9
             from pl101ap3
             where F101A4 = '$nobatch1'");
             // dd($penyata);
 
-            $penyata4a[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            $penyata4a[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
             e.F101C10
             from pl101cp3 e, codedb.commodity_l p
             where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
             // dd($penyata);
 
-            $penyata4b[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            $penyata4b[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
             e.F101C10
             from pl101cp3 e, codedb.commodity_l p
             where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
             // dd($penyata);
 
-            $penyata5a[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            $penyata5a[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
             e.F101C10
             from pl101cp3 e, codedb.commodity_l p
             where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
             // dd($penyata);
 
-            $penyata5b[$key] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
+            $penyata5b[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
             e.F101C10
             from pl101cp3 e, codedb.commodity_l p
             where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
@@ -903,7 +903,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-//   dd($penyata1);
+  dd($penyata1);
 
 
         $layout = 'layouts.main';
