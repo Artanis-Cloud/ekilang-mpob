@@ -329,7 +329,7 @@
                                                                 <font size="2.7">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyata1 as $key => $datai)
+                                                    {{-- @foreach ($penyata1 as $key => $datai)
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2.7">{{ $datai[$key]->comm_desc }}</font>
@@ -368,7 +368,7 @@
                                                                 <font size="2.7">{{ number_format($datai[$key]->F101B14 ??  0,2) }}</font>
                                                             </td>
                                                         </tr>
-                                                    @endforeach
+                                                    @endforeach --}}
 
                                                     <tr>
                                                         <td align="center">
