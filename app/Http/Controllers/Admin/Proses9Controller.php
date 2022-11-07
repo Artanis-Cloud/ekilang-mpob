@@ -560,7 +560,7 @@ class Proses9Controller extends Controller
           );
         // dd($bulans);
 
-        dd($nobatch);
+        // dd($nobatch);
         if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
