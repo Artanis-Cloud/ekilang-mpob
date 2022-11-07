@@ -469,8 +469,7 @@
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
+                                                        <th>No Batch</th>
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </tfoot>
