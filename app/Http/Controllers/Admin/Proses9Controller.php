@@ -580,6 +580,9 @@ class Proses9Controller extends Controller
         }
         // $check2 = $check->h_pelesen->e101_thn ==
         // dd($checks);
+        if ($checks) {
+            # code...
+
         foreach($checks as $check){
         if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
         $breadcrumbs    = [
@@ -629,7 +632,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-  dd($query);
+//   dd($query);
 // dd($penyata);
 
 
@@ -639,12 +642,18 @@ class Proses9Controller extends Controller
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns','checks'));
-    } else {
+    }
+  else {
         return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
     }
 }
+} else {
+    return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
 
-    }
+}
+}
+
+    
 
     public function process_admin_9penyataterdahulu_penapis_form($nobatch, $tahun, $bulan)
     {
