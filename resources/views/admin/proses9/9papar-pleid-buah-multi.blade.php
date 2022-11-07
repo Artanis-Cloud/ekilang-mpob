@@ -62,7 +62,7 @@
 
                         @foreach ($query as $nobatch_key => $data)
 
-                        {{ dd($data) }}
+                        {{-- {{ dd($data) }} --}}
 
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
@@ -293,7 +293,7 @@
                                             </table>
                                             <br>
                                             {{-- @endforeach --}}
-                                            {{-- {{ dd($penyata) }} --}}
+                                            {{ dd($penyata) }}
 
                                             @foreach ($penyata as $key => $data)
                                             {{-- {{ dd($data[$key]) }} --}}
