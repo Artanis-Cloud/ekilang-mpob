@@ -370,7 +370,7 @@
                                                         </tr>
                                                     @endforeach
 
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
                                                         </td>
@@ -407,7 +407,7 @@
                                                         <td align="right">
                                                             <font size="2.7"><b>{{ number_format($totalib14 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </tbody>
                                             </table>
                                             <br>
@@ -1011,7 +1011,7 @@
 
 
                                             <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                                {{ $users[$key]->tkhsubmit }}
+                                                {{-- {{ $users[$key]->tkhsubmit }} --}}
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <span  style="text-transform:uppercase">&nbsp;&nbsp;</span>
