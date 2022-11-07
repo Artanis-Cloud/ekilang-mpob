@@ -879,8 +879,8 @@ class Proses9Controller extends Controller
             // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
 
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $users->tkhsubmit);
-            $formatteddate = $myDateTime->format('d-m-Y');
+            // $myDateTime = DateTime::createFromFormat('Y-m-d', $users->tkhsubmit);
+            // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
 //   dd($pelesens);
