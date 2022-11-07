@@ -576,7 +576,7 @@ class Proses9Controller extends Controller
 
         $checks = H91Init::with('h_pelesen')->where('e91_nobatch', $nobatch)->where('e91_thn', $tahun)->where('e91_bln', $bulan)->get();
         // $check2 = $check->h_pelesen->e101_thn ==
-        dd($check);
+        dd($checks);
         foreach($checks as $check){
         if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
         $breadcrumbs    = [
