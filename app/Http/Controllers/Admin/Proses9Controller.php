@@ -802,7 +802,7 @@ class Proses9Controller extends Controller
         if ($check->h_pelesen) {
 
         foreach ($nobatch as $key => $nobatch1) {
-            dd($nobatch1);
+            // dd($nobatch1);
             $pelesens[$key] = (object)[];
 
 
@@ -882,7 +882,7 @@ class Proses9Controller extends Controller
             // $formatteddate = $myDateTime->format('d-m-Y');
 
         }
-//   dd($query);
+  dd($query);
 
 
         $layout = 'layouts.main';
