@@ -900,7 +900,7 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-pleid-buah-multi', compact(
+        return view('admin.proses9.9papar-pleid-penapis-multi', compact(
             'returnArr', 'layout', 'query', 'pelesens',
             'penyata1',
             'penyata2',
