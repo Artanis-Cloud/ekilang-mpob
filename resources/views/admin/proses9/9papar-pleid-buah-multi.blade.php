@@ -58,7 +58,7 @@
 
                         {{-- @foreach ($bulans as $data) --}}
 
-                        {{-- {{ dd($query) }} --}}
+                        {{ dd($query) }}
 
                         @foreach ($query as $key => $data)
 
