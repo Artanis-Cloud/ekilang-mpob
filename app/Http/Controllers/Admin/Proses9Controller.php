@@ -568,8 +568,9 @@ class Proses9Controller extends Controller
 
 
         foreach ($nobatch as $no){
+            dd($no);
         $checks = H91Init::with('h_pelesen')->where('e91_nobatch', $no)->where('e91_thn', $tahun)->where('e91_bln', $bulan)->get();
-        dd($checks);
+        // dd($checks);
         }
         // $check2 = $check->h_pelesen->e101_thn ==
         // dd($checks);
