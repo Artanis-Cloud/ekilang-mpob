@@ -72,15 +72,14 @@
                         </div>
                             <div class="pl-3">
                                 <div class="row" >
-                                    <div class="col-md-12 text-center" id="title">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
 
-                                        <h3 id="yr" style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
-                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
-                                            Dihantar Sehingga Tarikh
-                                            <p><span id="datetime"></span></p>
-                                        </h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
+                                    <h3 id="yr" style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
+                                    <h5 style="color: rgb(39, 80, 71);">Senarai Penyata untuk Paparan dan Cetakan</h5>
+
+
+                                    <div id="title">
+                                        <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</div>
+                                        <p id="tarikh"><span id="datetime"></span></p>
                                     </div>
 
                                 </div>
@@ -166,7 +165,7 @@
                                                 onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Biodiesel.csv')">Excel <i class="fa fa-file-excel" style="color: #fff"></i></button> --}}
 
                                             </div><br>
-                                            <form action="{{ route('admin.5papar.bio.form') }}" method="post">
+                                            <form action="{{ route('admin.5papar.bio.form') }}" id="tickform" method="post">
                                                 @csrf
                                             <div class="table-responsive" id="example2">
                                                 <div id="tblData">
@@ -176,7 +175,7 @@
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil</th> --}}
                                                             <th style="width:7%; vertical-align: middle">Papar?
-                                                                <input name="select-all" id="select-all" type="checkbox" required
+                                                                <input name="select-all" id="select-all" type="checkbox"
                                                                 value=""></th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
@@ -202,7 +201,7 @@
                                                          @foreach ($users as $data)
                                                             <tr>
                                                                 <td class="text-center">
-                                                                    <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                                    <input name="papar_ya[]" type="checkbox" id="checkbox-1"
                                                                         value="{{ $data->ebio_reg }}">&nbspYa
                                                                 </td>
 
@@ -371,9 +370,25 @@
                 'pageLength',
                 {
 
+
                     extend: 'excel',
                     text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
-                    className: "fred"
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
+                    },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Penyata Belum Hantar Kilang Biodiesel',
+
                 },
                 {
                         extend: 'pdfHtml5',
@@ -384,50 +399,7 @@
                         exportOptions: {
                             columns: [1,2,3,4]
                         },
-                        customize: function(doc) {
-                            doc.content.splice( 0, 0, {
-                                margin: [ 7, 0, 0, -45 ],
-                                width: 85,
-                                height: 55,
-                                alignment: 'right',
-                                image: 'base64...'
-                            });
 
-                            let downloadDate=`${moment(new Date(), 'YYYY-MM-DD HH:mm:ss').format('DD-MM-YYYY')}`;
-                            let downloadTime=`${moment(new Date(), 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD HH:mm:ss')}`.slice(11,16);
-
-                            doc.content.splice( 2, 0, {
-                                alignment: 'left',
-                                fontSize:12,
-                                margin: [ 0, 0, -10, 20 ],
-                                color:"#003d66",
-                                text:`${downloadDate} / ${downloadTime} Hrs`
-                            });
-
-                            doc.defaultStyle.alignment = 'center';
-                            doc.defaultStyle.color = '#666';
-
-                            doc.styles.title.color="#00c4cc";
-                            doc.styles.title.alignment="left";
-                            doc.styles.title.fontSize=14;
-
-
-                            if(doc.content[3].table.body[0]){
-                                let columns=doc.content[3].table.body[0].length;
-                                let widths=[];
-
-                                for (let i = 0; i < columns; i++) {
-                                    widths.push(`${99/columns}%`)
-                                }
-
-                                doc.content[3].table.widths = widths;
-                            }
-
-                            doc.styles.tableHeader.fontSize=12;
-                            doc.styles.tableHeader.fillColor="#003d66";
-                            doc.styles.tableBodyOdd.margin =[5, 5, 5, 5];
-                            doc.styles.tableBodyEven.margin = [5, 5, 5, 5];
-                        },
                         title: function(doc) {
                                 return $('#title').text()
                                 },
@@ -443,7 +415,9 @@
                         doc.content[1].table.body[0].forEach(function(h) {
                             h.fillColor = '#0a7569';
                         });
-                        }
+                        },
+
+                        filename: 'Penyata Belum Hantar Kilang Biodiesel',
                     },
             ],
             "language": {
@@ -464,23 +438,13 @@
         });
     });
 </script>
-
-<script>
-    $(function(){
-
-    var requiredCheckboxes = $(':checkbox[required]');
-
-    requiredCheckboxes.change(function(){
-
-        if(requiredCheckboxes.is(':checked')) {
-            requiredCheckboxes.removeAttr('required');
+<script type="text/javascript">
+    $('#tickform').on("submit", function (e) {
+        var arr = $(this).serialize().toString();
+        if(arr.indexOf("papar_ya") < 0){
+            e.preventDefault();
+            toastr.error("Sila pilih sekurang-kurangnya satu pilihan untuk meneruskan");
         }
-
-        else {
-            requiredCheckboxes.attr('required', 'required');
-        }
-    });
-
     });
 </script>
 

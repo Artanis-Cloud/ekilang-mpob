@@ -2465,11 +2465,12 @@
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulanan',
+                        filename: 'Penyata Bulanan Belum Hantar',
 
 
                     },
@@ -2482,9 +2483,9 @@
                         exportOptions: {
                             columns: [1,2,3,4,5,6]
                         },
-                        // title: function(doc) {
-                        //         return $('#title').text() + $ ('#tarikh').text()
-                        //         },
+                        title: function(doc) {
+                                return $('#title').text()
+                                },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
                             for (i = 1; i < table.length; i++) // skip table header row (i = 0)
@@ -2500,7 +2501,7 @@
                         });
                         },
 
-                        filename: 'Penyata Bulanan',
+                        filename: 'Penyata Bulanan Belum Hantar',
 
                     },
                 ],

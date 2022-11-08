@@ -160,7 +160,7 @@
 
                                         </div>
                                     </div><br>
-                                    <form action="{{ route('admin.6papar.penapis.form') }}" method="post">
+                                    <form action="{{ route('admin.6papar.penapis.form') }}" id="tickform" method="post">
                                         @csrf
                                         <div class="table-responsive">
                                             <table id="example" class="table table-bordered"
@@ -168,7 +168,7 @@
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th style="width:100%; vertical-align: middle">Papar?
-                                                            <input name="select-all" id="select-all" type="checkbox" required
+                                                            <input name="select-all" id="select-all" type="checkbox"
                                                             value=""></th>
                                                         <th style="width: 7%; vertical-align: middle">Sudah Cetak?<br></th>
                                                         <th style="width: 11%; vertical-align: middle">No. Lesen<br></th>
@@ -195,7 +195,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td class="text-center">
-                                                                <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                                <input name="papar_ya[]" type="checkbox"  id="checkbox-1"
                                                                     value="{{ $data->e101_reg }}">&nbspYa
                                                             </td>
                                                             <td class="text-center">
@@ -281,22 +281,14 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-    <script>
-            $(function(){
 
-        var requiredCheckboxes = $(':checkbox[required]');
-
-        requiredCheckboxes.change(function(){
-
-            if(requiredCheckboxes.is(':checked')) {
-                requiredCheckboxes.removeAttr('required');
+    <script type="text/javascript">
+        $('#tickform').on("submit", function (e) {
+            var arr = $(this).serialize().toString();
+            if(arr.indexOf("papar_ya") < 0){
+                e.preventDefault();
+                toastr.error("Sila pilih sekurang-kurangnya satu pilihan untuk meneruskan");
             }
-
-            else {
-                requiredCheckboxes.attr('required', 'required');
-            }
-        });
-
         });
     </script>
 
