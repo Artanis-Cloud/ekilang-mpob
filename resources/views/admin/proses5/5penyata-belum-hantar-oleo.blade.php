@@ -68,24 +68,21 @@
 
                         </div>
                             <div class="pl-3">
-                                <div class="row">
-                                    <div class="col-md-12 text-center">
-                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                <div class=" text-center">
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Oleokimia - MPOB(EL) CM 4 <br> </h3>
+                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Belum Dihantar Sehingga Tarikh</h5>
 
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Oleokimia - MPOB(EL) CM 4</h3>
-                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
-                                            Dihantar Sehingga Tarikh
-                                            <p><span id="datetime"></span></p>
-                                            <script>
-                                                var dt = new Date();
-                                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
-                                                    1)).slice(-2)) + "/" + (dt.getFullYear());
-                                            </script>
-                                        </h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
-
+                                    <div id="title">
+                                        <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Oleokimia Belum Dihantar Sehingga Tarikh</div>
+                                        <p id="tarikh"><span id="datetime"></span></p>
                                     </div>
 
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                            1)).slice(-2)) + "/" + (dt.getFullYear());
+                                    </script>
+                                    {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
 
                                 <hr>
@@ -93,7 +90,7 @@
 
                                 <section class="section">
                                     <div class="card">
-                                        <form action="{{ route('admin.5papar.belum.oleo.form') }}" method="post">
+                                        <form action="{{ route('admin.5papar.belum.oleo.form') }}" id="tickform" method="post">
                                             @csrf
                                             <div class=" dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle"
@@ -171,7 +168,7 @@
                                                         <tr style="background-color: #e9ecefbd">
 
                                                             <th style="width:7%; vertical-align: middle">Papar?
-                                                                <input name="select-all" id="select-all" type="checkbox" required
+                                                                <input name="select-all" id="select-all" type="checkbox"
                                                                 value=""></th>
                                                             <th style=" vertical-align: middle">No. Lesen<br></th>
                                                             <th style=" vertical-align: middle">Nama Premis</th>
@@ -197,7 +194,7 @@
                                                         @foreach ($users as $data)
                                                             <tr>
                                                                 <td class="text-center">
-                                                                    <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                                    <input name="papar_ya[]" type="checkbox"  id="checkbox-1"
                                                                         value="{{ $data->e104_reg }}">&nbspYa
                                                                 </td>
                                                                 <td>{{ $data->e_nl ?? '-' }}</td>
@@ -272,22 +269,13 @@
         }
     </script>
 
-    <script>
-        $(function(){
-
-        var requiredCheckboxes = $(':checkbox[required]');
-
-        requiredCheckboxes.change(function(){
-
-            if(requiredCheckboxes.is(':checked')) {
-                requiredCheckboxes.removeAttr('required');
+    <script type="text/javascript">
+        $('#tickform').on("submit", function (e) {
+            var arr = $(this).serialize().toString();
+            if(arr.indexOf("papar_ya") < 0){
+                e.preventDefault();
+                toastr.error("Sila pilih sekurang-kurangnya satu pilihan untuk meneruskan");
             }
-
-            else {
-                requiredCheckboxes.attr('required', 'required');
-            }
-        });
-
         });
     </script>
 

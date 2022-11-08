@@ -71,12 +71,13 @@
                         <div class="pl-3">
 
                             <div class=" text-center">
-                                <div id="title">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4 <br> </h3>
-                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Belum Dihantar Sehingga Tarikh</h5>
+                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4 <br> </h3>
+                                <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Bulanan Kilang Buah Belum Dihantar Sehingga Tarikh</h5>
 
+                                <div id="title">
+                                    <div class="noScreenPelesen">Senarai Penyata Belum Dihantar Sehingga Tarikh</div>
+                                    <p id="tarikh"><span id="datetime"></span></p>
                                 </div>
-                                <p id="tarikh"><span id="datetime"></span></p>
 
                                 <script>
                                     var dt = new Date();
@@ -86,9 +87,7 @@
                                 {{-- <p>Maklumat Kilang</p> --}}
                             </div>
 
-
                             <hr>
-
 
                             <section class="section">
                                 <div class="card">
@@ -162,7 +161,7 @@
                                             onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Buah.csv')">Excel <i class="fa fa-file-excel" style="color: white"></i></button> --}}
 
                                         </div><br>
-                                        <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
+                                        <form action="{{ route('admin.5papar.belum.buah.form') }}" id="hobbieform" method="post">
                                             @csrf
                                             <div class="table-responsive">
                                                 {{-- <div id="tblData"> --}}
@@ -172,7 +171,7 @@
                                                             <tr style="background-color: #e9ecefbd">
                                                                 {{-- <th>Pilih?</th> --}}
                                                                 <th style="width:7%; vertical-align: middle">Papar?
-                                                                    <input name="select-all" id="select-all" type="checkbox" required
+                                                                    <input name="select-all" id="select-all" type="checkbox"
                                                                     value=""></th>
                                                                 <th style=" vertical-align: middle">No. Lesen<br></th>
                                                                 <th style=" vertical-align: middle">Nama Premis</th>
@@ -198,7 +197,7 @@
                                                             @foreach ($users as $data)
                                                                 <tr>
                                                                     <td class="text-center">
-                                                                        <input name="papar_ya[]" type="checkbox" required id="checkbox-1"
+                                                                        <input class="checkboxes" name="papar_ya[]" type="checkbox" id="checkbox-1"
                                                                             value="{{ $data->e91_reg }}">&nbspYa
                                                                     </td>
                                                                     <td>{{ $data->e_nl ?? '-' }}</td>
@@ -345,15 +344,13 @@
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
                         $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Belum Hantar Kilang Buah',
 
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
 
                     },
                     {
@@ -366,7 +363,7 @@
                             columns: [1,2,3,4,5,6]
                         },
                         title: function(doc) {
-                                return $('#title').text() + $ ('#tarikh').text()
+                                return $('#title').text()
                                 },
                         customize: function (doc) {
                             let table = doc.content[1].table.body;
@@ -413,38 +410,29 @@
         });
 
     </script>
-    <script>
-        $(function(){
-
-        var requiredCheckboxes = $(':checkbox[required]');
-
-        requiredCheckboxes.change(function(){
-
-            if(requiredCheckboxes.is(':checked')) {
-                requiredCheckboxes.removeAttr('required');
+    <script type="text/javascript">
+        $('#hobbieform').on("submit", function (e) {
+            var arr = $(this).serialize().toString();
+            if(arr.indexOf("papar_ya") < 0){
+                e.preventDefault();
+                toastr.error("Sila pilih sekurang-kurangnya satu pilihan untuk meneruskan");
             }
-
-            else {
-                requiredCheckboxes.attr('required', 'required');
-            }
-        });
-
         });
     </script>
-<script>
-    // Listen for click on toggle checkbox
-    $('#select-all').click(function(event) {
-        if(this.checked) {
-            // Iterate each checkbox
-            $(':checkbox').each(function() {
-                this.checked = true;
-            });
-        } else {
-            $(':checkbox').each(function() {
-                this.checked = false;
-            });
-        }
-    });
-</script>
+    <script>
+        // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {
+            if(this.checked) {
+                // Iterate each checkbox
+                $(':checkbox').each(function() {
+                    this.checked = true;
+                });
+            } else {
+                $(':checkbox').each(function() {
+                    this.checked = false;
+                });
+            }
+        });
+    </script>
 
 @endsection
