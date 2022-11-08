@@ -975,7 +975,7 @@ class Proses9Controller extends Controller
 
             }
             // dd($query);
-    //   dd($totalib5);
+      dd($totaliib5);
 
 
             $layout = 'layouts.main';
