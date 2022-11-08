@@ -949,12 +949,12 @@ class Proses9Controller extends Controller
                 where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
                 // dd($penyata);
 
-                $totalivac5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C5) as total5 FROM pl101bp3 e, codedb.commodity_l p where  e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
-                $totalivac6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C6) as total6 FROM pl101bp3 e, codedb.commodity_l p where  e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
-                $totalivac7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C7) as total7 FROM pl101bp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
-                $totalivac8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C8) as total8 FROM pl101bp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
-                $totalivac9[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C9) as total9 FROM pl101bp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
-                $totalivac10[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C10) as total10 FROM pl101bp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+                $totalivac5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C5) as total5 FROM pl101cp3 e, codedb.commodity_l p where  e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+                $totalivac6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C6) as total6 FROM pl101cp3 e, codedb.commodity_l p where  e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+                $totalivac7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C7) as total7 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+                $totalivac8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C8) as total8 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+                $totalivac9[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C9) as total9 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
+                $totalivac10[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C10) as total10 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '1' and e.F101C4 = p.comm_code_l");
 
 
                 $penyata4b[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
