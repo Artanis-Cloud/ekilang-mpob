@@ -485,8 +485,8 @@
                                                             </b></td>
                                                     </tr>
                                                     @foreach ($penyata2[$nobatch_key] as $penyata2_key => $dataii)
-                                                    {{ dd($penyata2) }}
-                                                    <tr>
+                                                    {{-- {{ dd($penyata2) }} --}}
+                                                    {{-- <tr>
                                                         <td align="left">
                                                             <font size="2.7">{{ $dataii->comm_desc }}</font>
                                                         </td>
@@ -523,9 +523,9 @@
                                                         <td align="right">
                                                             <font size="2.7">{{ number_format($dataii->F101B14 ??  0,2) }}</font>
                                                         </td>
-                                                    </tr>
-                                                    @endforeach
-                                                    <tr>
+                                                    </tr> --}}
+                                                    {{-- @endforeach --}}
+                                                    {{-- <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
                                                         </td>
@@ -583,7 +583,7 @@
                                                         </td>
                                                         @endforeach
 
-                                                    </tr>
+                                                    </tr> --}}
 
                                                    {{-- <tr>
                                                         <td align="center">
