@@ -15,6 +15,7 @@ use App\Models\RegPelesen;
 use App\Models\User;
 use App\Notifications\Pelesen\HantarEmelNotification;
 use App\Notifications\Pelesen\HantarEmelNotification2;
+use App\Notifications\Pelesen\HantarPenyataNotification;
 use DateTime;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -791,8 +792,16 @@ class KilangBuahController extends Controller
         $penyata2->save();
 
 
+
+        $daripada = $request->all();
+        $kepada = User::where('username', auth()->user()->username)->first();
+
+        $kepada->notify((new HantarPenyataNotification($kepada, $daripada)));
+
+
         return redirect()->route('buah.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
+
     }
 
     public function buah_hantar_penyata()
@@ -873,13 +882,18 @@ class KilangBuahController extends Controller
         if ($request->file_upload) {
             $this->store_send_email($request->all());
             $pelesen = $this->store_send_email($request->all());
+            $kepada = User::where('username', auth()->user()->username)->first();
+            // $daripada = User::where('username', auth()->user()->username)->first();
 
-            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
+
+            $kepada->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
         } else {
             $this->store_send_email2($request->all());
             $pelesen = $this->store_send_email2($request->all());
+            $kepada = User::where('username', auth()->user()->username)->first();
 
-            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+
+            $kepada->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
         }
 
         if ($emel == 'pindaan') {

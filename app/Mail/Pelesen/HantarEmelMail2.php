@@ -40,8 +40,8 @@ class HantarEmelMail2 extends Mailable
         $pelesen = $this->pelesen;
         // dd($pelesen);
 
-        $time = $pelesen->Date;
-        $dt = date("d-m-Y H:i:s", strtotime($time));
+        // $time = $pelesen->Date;
+        $dt = date("d-m-Y H:i:s");
         $jenis = $this->emel;
         $tajuk = $this->tajuk;
         $mesej = $this->mesej;
@@ -51,9 +51,9 @@ class HantarEmelMail2 extends Mailable
 
 
 
-        return $this->to($this->pelesen->FromEmail, $this->pelesen->FromName)
+        return $this->to($this->pelesen->email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-        ->subject('Penghantaran Emel Berjaya - '. $this->pelesen->FromLicense)
+        ->subject('Penghantaran Emel Berjaya - '. $this->pelesen->username)
         // ->attach('storage/'.$pelesen->file_upload)
-        ->view('email.pelesen.emel2', compact('pelesen', 'time', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
+        ->view('email.pelesen.emel2', compact('pelesen', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
 }

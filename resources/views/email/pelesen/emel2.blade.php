@@ -68,15 +68,21 @@
                                                         DARI:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $pelesen->FromName }} &nbsp; ({{ $pelesen->FromEmail }})</td>
+                                                        {{ $pelesen->name }} &nbsp; ({{ $pelesen->email }})</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
                                                         PENYATA:</td>
-                                                    <td
+                                                        @if ($penyata1 == 1 || $penyata1 == 2 || $penyata1 == 3 || $penyata1 == 4 || $penyata1 == 5 || $penyata1 == 6 || $penyata1 == 7 || $penyata1 == 8 || $penyata1 == 9)
+                                                        <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
                                                         BULAN 0{{ $penyata1 }} TAHUN {{ $penyata2 }}</td>
+                                                    @else
+                                                        <td
+                                                        style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
+                                                        BULAN {{ $penyata1 }} TAHUN {{ $penyata2 }}</td>
+                                                    @endif
                                                 </tr>
                                                 <tr>
                                                     <td
