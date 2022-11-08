@@ -60,9 +60,34 @@ class HantarPenyataNotification extends Notification
 
     public function toDatabase($notifiable)
     {
-    // dd($notifiable);
+    // dd($notifiab.le);
+        if (auth()->user()->category == 'PL91') {
+            $route = route('buah.hantar.penyata');
 
-        $route = route('buah.hantar.penyata');
+        }
+        elseif(auth()->user()->category == 'PL101') {
+            $route = route('penapis.hantar.penyata');
+
+        }
+        elseif(auth()->user()->category == 'PL102') {
+            $route = route('isirung.hantar.penyata');
+
+        }
+        elseif(auth()->user()->category == 'PL104') {
+            $route = route('oleo.hantar.penyata');
+
+        }
+        elseif(auth()->user()->category == 'PL111') {
+            $route = route('pusatsimpan.hantar.penyata');
+
+        }
+        elseif(auth()->user()->category == 'PLBIO') {
+            $route = route('bio.hantar.penyata');
+
+        }
+
+
+
         $month = date('m') - 1;
         if ($month == 1) {
             $bulan = 'Januari';
