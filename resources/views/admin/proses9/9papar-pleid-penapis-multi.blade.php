@@ -525,7 +525,7 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                    {{-- <tr>
+                                                    <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
                                                         </td>
@@ -583,7 +583,7 @@
                                                         </td>
                                                         @endforeach
 
-                                                    </tr> --}}
+                                                    </tr>
 
                                                    {{-- <tr>
                                                         <td align="center">
