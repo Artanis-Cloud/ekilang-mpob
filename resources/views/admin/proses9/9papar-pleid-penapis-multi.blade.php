@@ -52,7 +52,7 @@
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <form method="get" action="" id="myfrm">
-                        {{ dd($query) }}
+                        {{-- {{ dd($query) }} --}}
 
                         @foreach ($query as $nobatch_key => $data)
                         {{-- {{ dd($data) }} --}}
