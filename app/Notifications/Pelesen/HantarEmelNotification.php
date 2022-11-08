@@ -18,11 +18,13 @@ class HantarEmelNotification extends Notification
      *
      * @return void
      */
-    public function __construct($emel, $tajuk, $mesej)
+    public function __construct($emel, $tajuk, $mesej, $kepada, $daripada)
     {
         // $this->name = auth()->users->name;
         // $this->email = auth()->users->email;
         $this->emel = $emel;
+        $this->kepada = $kepada;
+        $this->daripada = $daripada;
         // dd($this->emel);
         $this->tajuk = $tajuk;
         $this->mesej = $mesej;
@@ -36,7 +38,7 @@ class HantarEmelNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -49,6 +51,31 @@ class HantarEmelNotification extends Notification
     {
         // dd($notifiable);
         return (new HantarEmelMail($notifiable, $this->emel, $this->tajuk, $this->mesej))->to($notifiable->email);
+    }
+
+    public function toDatabase($notifiable)
+    {
+    // dd($notifiable);
+
+    if ($this->emel == 'pindaan') {
+        $emel = 'Pindaan';
+    } elseif($this->emel == 'cadangan')  {
+        $emel = 'Cadangan';
+    }   else {
+        $emel = 'Pertanyaan';
+
+    }
+
+    // $route = redirect()->back();
+
+
+        return [
+            'kepada' => $this->kepada,
+            'daripada' => $this->daripada,
+            'tajuk' => "Emel {$emel} Sudah Dihantar",
+            'created_at' => $notifiable->created_at,
+            'route' => [],
+        ];
     }
 
     /**
