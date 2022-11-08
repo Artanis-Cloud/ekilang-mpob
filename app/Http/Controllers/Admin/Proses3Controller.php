@@ -50,7 +50,7 @@ class Proses3Controller extends Controller
 
         if($bulan == 1){
             $month = 'JANUARI';
-        } elseif(now()->format('m') == 2){
+        } elseif($bulan == 2){
             $month = 'FEBRUARI';
         }
         elseif($bulan == 3){
@@ -508,7 +508,7 @@ class Proses3Controller extends Controller
                 $query = E91Init::create([
                     'e91_reg' => $count + 1,
                     'e91_nl' => $request->e_initlesen,
-                    'e91_bln' => now()->format('m'),
+                    'e91_bln' => now()->format('m') - 1,
                     'e91_thn' => now()->year,
                     'e91_flg' => '1',
                     'e91_sdate' => NULL,
@@ -595,7 +595,7 @@ class Proses3Controller extends Controller
                 $query = E101Init::create([
                     'e101_reg' => $count + 1,
                     'e101_nl' => $request->e_initlesen,
-                    'e101_bln' => now()->format('m'),
+                    'e101_bln' => now()->format('m') - 1,
                     'e101_thn' => now()->year,
                     'e101_flg' => '1',
                     'e101_sdate' => NULL,
@@ -618,7 +618,7 @@ class Proses3Controller extends Controller
                 $query = E102Init::create([
                     'e102_reg' => $count + 1,
                     'e102_nl' => $request->e_initlesen,
-                    'e102_bln' => now()->format('m'),
+                    'e102_bln' => now()->format('m') - 1,
                     'e102_thn' => now()->year,
                     'e102_flg' => '1',
                     'e102_sdate' => NULL,
@@ -673,7 +673,7 @@ class Proses3Controller extends Controller
                 $query = E104Init::create([
                     'e104_reg' => $count + 1,
                     'e104_nl' => $request->e_initlesen,
-                    'e104_bln' => now()->format('m'),
+                    'e104_bln' => now()->format('m') - 1,
                     'e104_thn' => now()->year,
                     'e104_flg' => '1',
                     'e104_sdate' => NULL,
@@ -696,7 +696,7 @@ class Proses3Controller extends Controller
                 $query = E07Init::create([
                     'e07_reg' => $count + 1,
                     'e07_nl' => $request->e_initlesen,
-                    'e07_bln' => now()->format('m'),
+                    'e07_bln' => now()->format('m') - 1,
                     'e07_thn' => now()->year,
                     'e07_flg' => '1',
                     'e07_sdate' => NULL,
@@ -718,7 +718,7 @@ class Proses3Controller extends Controller
                 $query = EBioInit::create([
                     'ebio_reg' => $count + 1,
                     'ebio_nl' => $request->e_initlesen,
-                    'ebio_bln' => now()->format('m'),
+                    'ebio_bln' => now()->format('m') - 1,
                     'ebio_thn' => now()->year,
                     'ebio_flg' => '1',
                     'ebio_sdate' => NULL,
