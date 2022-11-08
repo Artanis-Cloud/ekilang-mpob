@@ -484,9 +484,9 @@
                                                                 <font size="2.7">Stok Akhir Di Pusat Simpanan</font>
                                                             </b></td>
                                                     </tr>
-                                                    {{-- @foreach ($penyata2[$nobatch_key] as $penyata2_key => $dataii) --}}
+                                                    @foreach ($penyata2[$nobatch_key] as $penyata2_key => $dataii)
                                                     {{-- {{ dd($penyata2) }} --}}
-                                                    {{-- <tr>
+                                                    <tr>
                                                         <td align="left">
                                                             <font size="2.7">{{ $dataii->comm_desc }}</font>
                                                         </td>
@@ -523,8 +523,8 @@
                                                         <td align="right">
                                                             <font size="2.7">{{ number_format($dataii->F101B14 ??  0,2) }}</font>
                                                         </td>
-                                                    </tr> --}}
-                                                    {{-- @endforeach --}}
+                                                    </tr>
+                                                    @endforeach
                                                     {{-- <tr>
                                                         <td align="center">
                                                             <font size="2.7"><b>JUMLAH</b></font>
