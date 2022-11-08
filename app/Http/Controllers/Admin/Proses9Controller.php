@@ -976,10 +976,23 @@ class Proses9Controller extends Controller
                 where e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
                 // dd($penyata);
 
+                $totalvad5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D5) as total5 FROM pl101dp3 e, prod_cat p where  e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
+                $totalvad6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D6) as total6 FROM pl101dp3 e, prod_cat p where  e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
+                $totalvad7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D7) as total7 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
+                $totalvad8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D8) as total8 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
+
+
                 $penyata5b[$nobatch1] = DB::connection('mysql4')->select("SELECT p.catname, e.F101D5, e.F101D6, e.F101D7, e.F101D8
                 from pl101dp3 e, prod_cat p
                 where e.F101D2 = '$nobatch1' and e.F101D3= '2' and e.F101D4 = p.catid");
                 // dd($penyata);
+
+                $totalvbd5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D5) as total5 FROM pl101dp3 e, prod_cat p where  e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
+                $totalvbd6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D6) as total6 FROM pl101dp3 e, prod_cat p where  e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
+                $totalvbd7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D7) as total7 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
+                $totalvbd8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101D8) as total8 FROM pl101dp3 e, prod_cat p where e.F101D2 = '$nobatch1' and e.F101D3 = '2' and e.F101D4 = p.catid");
+
+
 
                 // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
                 // $pelesens[$key] = Pelesen::where('e_nl', $penyata_id[$key] ->e91_nl)->first();
@@ -1038,6 +1051,14 @@ class Proses9Controller extends Controller
                 'totalivbc8',
                 'totalivbc9',
                 'totalivbc10',
+                'totalvad5',
+                'totalvad6',
+                'totalvad7',
+                'totalvad8',
+                'totalvbd5',
+                'totalvbd6',
+                'totalvbd7',
+                'totalvbd8',
                 'users',
             ));
 
