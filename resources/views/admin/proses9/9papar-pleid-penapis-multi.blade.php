@@ -485,6 +485,7 @@
                                                             </b></td>
                                                     </tr>
                                                     @foreach ($penyata2[$nobatch_key] as $penyata2_key => $dataii)
+                                                    {{ dd($penyata2) }}
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2.7">{{ $dataii->comm_desc }}</font>
