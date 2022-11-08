@@ -1108,7 +1108,7 @@ class Proses9Controller extends Controller
 
                         }
                 //   dd($totalib5);
-            dd($query);
+            dd($nobatch);
 
 
 
