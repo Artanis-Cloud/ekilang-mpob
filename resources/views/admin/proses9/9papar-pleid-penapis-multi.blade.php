@@ -532,11 +532,7 @@
                                                         <td align="center">
                                                             <font size="2.7"><b>-</b></font>
                                                         </td>
-                                                        {{-- {{ dd($totaliib5) }} --}}
-
                                                         @foreach ($totaliib5[$nobatch_key] as $total5_key => $total5)
-                                                        {{-- {{ dd($total5) }} --}}
-
                                                         <td align="right">
                                                             <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
                                                         </td>
@@ -658,35 +654,76 @@
                                                                 <font size="2.7">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    {{-- @foreach ($iva as $dataiva)
+                                                    @foreach ($penyata4a[$nobatch_key] as $penyata4a_key => $dataiva)
+
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2.7">{{ $dataiva->produk->proddesc }}</font>
+                                                            <font size="2.7">{{ $dataiva->comm_desc }}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2.7">{{ $dataiva->e101_c4 }}</font>
+                                                            <font size="2.7">{{ $dataiva->F101C4 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7">{{ number_format($dataiva->e101_c5 ??  0,2) }}</font>
+                                                            <font size="2.7">{{ number_format($dataiva->F101C5 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7">{{ number_format($dataiva->e101_c6 ??  0,2) }}</font>
+                                                            <font size="2.7">{{ number_format($dataiva->F101C6 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7">{{ number_format($dataiva->e101_c7 ??  0,2) }}</font>
+                                                            <font size="2.7">{{ number_format($dataiva->F101C7 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7">{{ number_format($dataiva->e101_c8 ??  0,2) }}</font>
+                                                            <font size="2.7">{{ number_format($dataiva->F101C8 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7">{{ number_format($dataiva->e101_c9 ??  0,2) }}</font>
+                                                            <font size="2.7">{{ number_format($dataiva->F101C9 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2.7">{{ number_format($dataiva->e101_c10 ??  0,2) }}</font>
+                                                            <font size="2.7">{{ number_format($dataiva->F101C10 ??  0,2) }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
+                                                        <td align="center">
+                                                            <font size="2.7"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2.7"><b>-</b></font>
+                                                        </td>
+                                                        @foreach ($totalivac5[$nobatch_key] as $total5_key => $total5)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalivac6[$nobatch_key] as $total6_key => $total6)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalivac7[$nobatch_key] as $total7_key => $total7)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalivac8[$nobatch_key] as $total8_key => $total8)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalivac9[$nobatch_key] as $total9_key => $total9)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totalivac10[$nobatch_key] as $total10_key => $total10)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+
+
+                                                    </tr>
+                                                    {{-- <tr>
                                                         <td style="text-align: center; vertical-align:middle">
                                                             <font size="2.7"><b>JUMLAH</b></font>
                                                         </td>
