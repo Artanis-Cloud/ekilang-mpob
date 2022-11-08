@@ -864,7 +864,7 @@ class Proses9Controller extends Controller
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
- dd($tahun <= 2022);
+//  dd($tahun <= 2022);
         if ($tahun <= 2022) {
 
 
@@ -1108,6 +1108,8 @@ class Proses9Controller extends Controller
 
                         }
                 //   dd($totalib5);
+            dd($query);
+
 
 
                         $layout = 'layouts.main';
