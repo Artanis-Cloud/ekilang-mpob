@@ -484,7 +484,7 @@
                                                                 <font size="2.7">Stok Akhir Di Pusat Simpanan</font>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyata2[$nobatch_key] as $penyata2_key => $dataii)
+                                                    {{-- @foreach ($penyata2[$nobatch_key] as $penyata2_key => $dataii) --}}
                                                     {{-- {{ dd($penyata2) }} --}}
                                                     {{-- <tr>
                                                         <td align="left">
