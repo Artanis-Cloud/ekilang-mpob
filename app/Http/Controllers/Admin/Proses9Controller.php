@@ -963,16 +963,22 @@ class Proses9Controller extends Controller
                 where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
                 // dd($penyata);
 
-                $penyata5a[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
-                e.F101C10
-                from pl101cp3 e, codedb.commodity_l p
-                where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $totalivbc5[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C5) as total5 FROM pl101cp3 e, codedb.commodity_l p where  e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $totalivbc6[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C6) as total6 FROM pl101cp3 e, codedb.commodity_l p where  e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $totalivbc7[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C7) as total7 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $totalivbc8[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C8) as total8 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $totalivbc9[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C9) as total9 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $totalivbc10[$nobatch1] = DB::connection('mysql4')->select("SELECT SUM(e.F101C10) as total10 FROM pl101cp3 e, codedb.commodity_l p where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+
+
+                $penyata5a[$nobatch1] = DB::connection('mysql4')->select("SELECT p.catname, e.F101D5, e.F101D6, e.F101D7, e.F101D8
+                from pl101dp3 e, prod_cat p
+                where e.F101D2 = '$nobatch1' and e.F101D3 = '1' and e.F101D4 = p.catid");
                 // dd($penyata);
 
-                $penyata5b[$nobatch1] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F101C4, e.F101C5, e.F101C6, e.F101C7, e.F101C8, e.F101C9,
-                e.F101C10
-                from pl101cp3 e, codedb.commodity_l p
-                where e.F101C2 = '$nobatch1' and e.F101C3 = '2' and e.F101C4 = p.comm_code_l");
+                $penyata5b[$nobatch1] = DB::connection('mysql4')->select("SELECT p.catname, e.F101D5, e.F101D6, e.F101D7, e.F101D8
+                from pl101dp3 e, prod_cat p
+                where e.F101D2 = '$nobatch1' and e.F101D3= '2' and e.F101D4 = p.catid");
                 // dd($penyata);
 
                 // $penyata[$key]  = H91Init::with('pelesen')->whereRelation('pelesen','e_nl', $penyata_id[$key] ->e91_nl)->first();
@@ -1026,6 +1032,12 @@ class Proses9Controller extends Controller
                 'totalivac8',
                 'totalivac9',
                 'totalivac10',
+                'totalivbc5',
+                'totalivbc6',
+                'totalivbc7',
+                'totalivbc8',
+                'totalivbc9',
+                'totalivbc10',
                 'users',
             ));
 
