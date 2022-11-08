@@ -25,10 +25,10 @@ class ForgetPasswordController extends Controller
 
         if ($kat == 'pelesen') {
             $pelesen = User::where('username', $request->lesen)->first();
-            $custom_pass = new stdClass();
             $custom_pass = Str::random(8);
 
             $pelesen = User::where('username', $request->lesen)->first();
+            $pelesen->password = new stdClass();
             $pelesen->password = Hash::make($custom_pass);
             $pelesen->save();
 
