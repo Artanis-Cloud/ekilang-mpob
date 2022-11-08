@@ -959,7 +959,10 @@
 
 
                     } else if ($('#e_biogas').val() == '2')  {
+                        $('#e_biogas').css('border-color', '');
                         document.getElementById('e_status_biogas').value = null;
+                        document.getElementById('err_biogas').style.display = "none";
+
 
                     } else {
                         $('#e_biogas').css('border-color', '');
