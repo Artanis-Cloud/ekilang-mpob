@@ -1002,6 +1002,16 @@ class Proses9Controller extends Controller
                 'totalib12',
                 'totalib13',
                 'totalib14',
+                'totaliib5',
+                'totaliib6',
+                'totaliib7',
+                'totaliib8',
+                'totaliib9',
+                'totaliib10',
+                'totaliib11',
+                'totaliib12',
+                'totaliib13',
+                'totaliib14',
                 'users',
             ));
 
