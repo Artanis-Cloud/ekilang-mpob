@@ -620,7 +620,7 @@ class Proses9Controller extends Controller
 
                         // dd($penyata);
                         // $data = DB::table('pelesen')->get();
-                        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns','checks'));
+                        return view('admin.proses9.9papar-pleid-buah-multi', compact('returnArr', 'layout', 'query', 'pelesens', 'penyata', 'tahun', 'bulan','bulans','tahuns'));
 
 
         } elseif ($tahun > 2022) {
@@ -650,7 +650,15 @@ class Proses9Controller extends Controller
                         foreach ($nobatch as $key => $e91_nobatch) {
                             $pelesens[$e91_nobatch] = (object)[];
 
-                            $query[$e91_nobatch] = H91Init::with('h_pelesen')->where('e91_nobatch', $e91_nobatch)->first();
+                            $query[$e91_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e91_bln, e.e91_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e91_nobatch,
+                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                            FROM h91_init e, h_pelesen p
+                            WHERE p.e_nl = e.e91_nl
+                            AND e.e91_nobatch = '$e91_nobatch'
+                            AND e.e91_thn = '$tahun'
+                            AND p.e_thn = '$tahun'
+                            AND p.e_bln = '$bulan'
+                            AND e.e91_bln = '$bulan'");
 
                             $penyata[$e91_nobatch] = DB::connection('mysql4')->select("SELECT e.F911A nolesen1, e.F911A nolesen, p.F201T namapremis, e.F911B nobatch,
                                     DATE_FORMAT(e.F911E, '%d-%m-%Y') tkhsubmit,
