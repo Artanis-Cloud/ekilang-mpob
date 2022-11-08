@@ -974,6 +974,7 @@ class Proses9Controller extends Controller
                 // $formatteddate = $myDateTime->format('d-m-Y');
 
             }
+            dd($query);
     //   dd($totalib5);
 
 
@@ -1108,7 +1109,7 @@ class Proses9Controller extends Controller
 
                         }
                 //   dd($totalib5);
-            dd($nobatch);
+            // dd($nobatch);
 
 
 
