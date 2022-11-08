@@ -533,15 +533,10 @@
                                                             <font size="2.7"><b>-</b></font>
                                                         </td>
                                                         @foreach ($totaliib5[$nobatch_key] as $total5_key => $total5)
-                                                        @if ($total5)
+                                                        {{ dd($total5) }}
                                                         <td align="right">
                                                             <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
                                                         </td>
-                                                        @else
-                                                        <td align="right">
-                                                            <font size="2.7"><b>0.00</b></font>
-                                                        </td>
-                                                        @endif
                                                         @endforeach
                                                         {{-- @foreach ($totaliib6[$nobatch_key] as $total6_key => $total6)
                                                         <td align="right">
