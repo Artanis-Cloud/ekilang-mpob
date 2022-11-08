@@ -589,44 +589,6 @@
 
                                                     </tr>
 
-                                                   {{-- <tr>
-                                                        <td align="center">
-                                                            <font size="2.7"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2.7"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib5 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib6 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib7 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib8 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib9 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib10 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib12 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib13 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2.7"><b>{{ number_format($totaliib14 ??  0,2) }}</b></font>
-                                                        </td>
-                                                    </tr> --}}
                                                 </tbody>
                                             </table>
 
@@ -640,19 +602,22 @@
                                             </b></p>
                                             <table border="0" width="60%" cellspacing="0" cellpadding="0">
                                                 <tbody>
+                                                    @foreach ($penyata3[$nobatch_key] as $penyata3_key => $data)
+
                                                     <tr>
                                                         <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        {{-- <td width="40%"><b>{{ $data->e101_a1 }} Hari</b></td> --}}
+                                                        <td width="40%"><b>{{ $data->F101A7 }} Hari</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
-                                                        {{-- <td width="40%"><b>{{ number_format($data->e101_a2 ??  0,2) }} %</b></td> --}}
+                                                        <td width="40%"><b>{{ number_format($data->F101A8 ??  0,2) }} %</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                                         </td>
-                                                        {{-- <td width="40%"><b>{{ number_format($data->e101_a3 ??  0,2) }} %</b></td> --}}
+                                                        <td width="40%"><b>{{ number_format($data->F101A9 ??  0,2) }} %</b></td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                             <br>
