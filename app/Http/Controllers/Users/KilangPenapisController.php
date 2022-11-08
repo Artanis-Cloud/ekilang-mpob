@@ -22,6 +22,7 @@ use App\Models\ProdCat;
 use App\Models\Produk;
 use App\Notifications\Pelesen\HantarEmelNotification;
 use App\Notifications\Pelesen\HantarEmelNotification2;
+use App\Notifications\Pelesen\HantarPenyataNotification;
 use DateTime;
 use Illuminate\Http\Request;
 use DB;
@@ -1915,6 +1916,11 @@ class KilangPenapisController extends Controller
         $pelesen->e_notel_pg = $request->e101_notel;
         $pelesen->save();
 
+        $daripada = $request->all();
+        $kepada = User::where('username', auth()->user()->username)->first();
+
+        $kepada->notify((new HantarPenyataNotification($kepada, $daripada)));
+
 
         return redirect()->route('penapis.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
@@ -2230,13 +2236,14 @@ class KilangPenapisController extends Controller
         if ($request->file_upload) {
             $this->store_send_email($request->all());
             $pelesen = $this->store_send_email($request->all());
-
-            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
+            $kepada = User::where('username', auth()->user()->username)->first();
+            // $daripada = User::where('username', auth()->user()->username)->first();
+            $kepada->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
         } else {
             $this->store_send_email2($request->all());
             $pelesen = $this->store_send_email2($request->all());
-
-            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+            $kepada = User::where('username', auth()->user()->username)->first();
+            $kepada->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
         }
 
 
