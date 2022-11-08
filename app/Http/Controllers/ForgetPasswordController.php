@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
+use stdClass;
 
 class ForgetPasswordController extends Controller
 {
@@ -25,6 +25,7 @@ class ForgetPasswordController extends Controller
 
         if ($kat == 'pelesen') {
             $pelesen = User::where('username', $request->lesen)->first();
+            $custom_pass = new stdClass();
             $custom_pass = Str::random(8);
 
             $pelesen = User::where('username', $request->lesen)->first();
