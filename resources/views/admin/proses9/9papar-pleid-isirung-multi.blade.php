@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
                             @foreach ($query as $nobatch_key => $data)
-                            {{ dd($data) }}
+                            {{-- {{ dd($data) }} --}}
 `
                                 <div class="pl-3">
 
@@ -274,7 +274,7 @@
                                         </table>
                                         <br>
 
-                                        {{-- @foreach ($bhg1[$nobatch_key] as $penyata1_key => $datai)
+                                        @foreach ($bhg1[$nobatch_key] as $penyata1_key => $datai)
 
                                         <p><b>
                                             <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT IMBANGAN </font>
@@ -555,7 +555,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        @endforeach --}}
+                                        @endforeach
 
 
                                         <br>
@@ -581,16 +581,16 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{-- {{ dd($bhg3[$nobatch_key]->isNotEmpty()) }}
+                                                {{-- {{ dd($bhg3[$nobatch_key]->isNotEmpty()) }} --}}
 
-                                                @if ($bhg3[$nobatch_key]) --}}
-                                                {{-- @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
+                                                @if ($bhg3[$nobatch_key])
+                                                @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 ?? '-' }}</td>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat2 ?? '-'}}</td>
                                                     <td style="text-align: center">{{  number_format($dataiii->F1022F ??  0,2) }}</td>
                                                 </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -598,15 +598,15 @@
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
-                                                {{-- @foreach ($total3[$nobatch_key] as $tot3_key => $tot3)
+                                                @foreach ($total3[$nobatch_key] as $tot3_key => $tot3)
 
                                                     <td style="text-align: center; vertical-align:middle">
 
                                                         <font size="2"><b>{{  number_format($tot3->total3 ??  0,2) }}</b></font>
                                                     </td>
-                                                @endforeach --}}
+                                                @endforeach
                                                 </tr>
-                                                {{-- @else
+                                                @else
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -619,7 +619,7 @@
                                                         <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
-                                                @endif --}}
+                                                @endif
                                             </tbody>
                                         </table><br>
 
@@ -646,15 +646,15 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{-- @if ($bhg4[$nobatch_key]) --}}
-                                                {{-- @foreach ($bhg4[$nobatch_key] as $penyata4_key => $dataiv)
+                                                @if ($bhg4[$nobatch_key])
+                                                @foreach ($bhg4[$nobatch_key] as $penyata4_key => $dataiv)
 
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat1 ?? '-'}}</td>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat2 ?? '-'}}</td>
                                                     <td style="text-align: center">{{  number_format($dataiv->F1022F ??  0,2) }}</td>
                                                 </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -662,15 +662,15 @@
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
-                                                    {{-- @foreach ($total4[$nobatch_key] as $tot4_key => $tot4)
+                                                    @foreach ($total4[$nobatch_key] as $tot4_key => $tot4)
 
                                                     <td style="text-align: center; vertical-align:middle">
 
                                                         <font size="2"><b>{{  number_format($tot4->total4 ??  0,2) }}</b></font>
                                                     </td>
-                                                    @endforeach --}}
+                                                    @endforeach
                                                 </tr>
-                                                {{-- @else
+                                                @else
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -683,7 +683,7 @@
                                                         <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
-                                                @endif --}}
+                                                @endif
                                             </tbody>
                                         </table><br>
 
@@ -706,16 +706,16 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{-- @if ($bhg5[$nobatch_key]) --}}
+                                                @if ($bhg5[$nobatch_key])
 
-                                                {{-- @foreach ($bhg5[$nobatch_key] as $penyata5_key => $datav)
+                                                @foreach ($bhg5[$nobatch_key] as $penyata5_key => $datav)
 
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $datav->cat1 ?? '-' }}</td>
                                                     <td style="text-align: center; vertical-align:middle">{{ $datav->cat2 ?? '-' }}</td>
                                                     <td style="text-align: center">{{  number_format($datav->F1022F ??  0,2) }}</td>
                                                 </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -723,15 +723,15 @@
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
-                                                    {{-- @foreach ($total5[$nobatch_key] as $tot5_key => $tot5)
+                                                    @foreach ($total5[$nobatch_key] as $tot5_key => $tot5)
 
                                                     <td style="text-align: center; vertical-align:middle">
 
                                                         <font size="2"><b>{{  number_format($tot5->total5 ??  0,2) }}</b></font>
                                                     </td>
-                                                    @endforeach --}}
+                                                    @endforeach
                                                 </tr>
-                                                {{-- @else
+                                                @else
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -744,7 +744,7 @@
                                                         <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
-                                                @endif --}}
+                                                @endif
                                             </tbody>
                                         </table><br>
 
@@ -899,9 +899,9 @@
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                             {{-- {{ dd($users) }} --}}
-                                            {{-- @foreach ($users[$nobatch_key] as $users_key => $data)
+                                            @foreach ($users[$nobatch_key] as $users_key => $data)
                                                 {{ $data->tkhsubmit ?? ''}}
-                                            @endforeach --}}
+                                            @endforeach
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
