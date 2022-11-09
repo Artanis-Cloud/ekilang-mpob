@@ -51,7 +51,7 @@
 
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
-                            {{-- {{ dd($query) }} --}}
+                            {{ dd($query) }}
                             @foreach ($query as $nobatch_key => $data)
 
                                 <div class="pl-3">
