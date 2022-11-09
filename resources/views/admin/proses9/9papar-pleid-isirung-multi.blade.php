@@ -523,7 +523,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        @endforeach
                                         <br>
 
                                         <p><b>
@@ -538,24 +537,26 @@
                                                     <td width="30%">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirung Sawit
                                                         Mentah (CPKO)&nbsp;
                                                     </td>
-                                                    {{-- <td width="40%"><b>: {{ number_format($data->e102_al1 ?? 0,2) }} % </b></td> --}}
+                                                    <td width="40%"><b>: {{ number_format($datai->F1021S1 ?? 0,2) }} % </b></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%">ii.&nbsp; Kadar Perolehan Dedak Isirung (PKC)&nbsp;
                                                     </td>
-                                                    {{-- <td width="40%"><b>: {{ number_format($data->e102_al2 ?? 0,2) }} %</b></td> --}}
+                                                    <td width="40%"><b>: {{ number_format($datai->F1021S2 ?? 0,2) }} %</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="30%">iii. Jumlah Jam Pengilangan Isirung (PK)</td>
-                                                    {{-- <td  width="40%"><b>: {{ number_format($data->e102_al3 ?? 0,2) }} </b></td> --}}
+                                                    <td  width="40%"><b>: {{ number_format($datai->F1021S3 ?? 0,2) }} </b></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="40%">iv. Kadar Penggunaan Kapasiti Sebulan
                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                    {{-- <td width="116"><b>: {{ number_format($data->e102_al4 ?? 0,2) }} % </b></td> --}}
+                                                    <td width="116"><b>: {{ number_format($datai->F1021S4 ?? 0,2) }} % </b></td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        @endforeach
+
 
                                         <br>
 
@@ -580,13 +581,13 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{-- @foreach ($iii as $dataiii)
+                                                @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->kodsl->catname }}</td>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->prodcat2->catname }}</td>
-                                                    <td style="text-align: center">{{  number_format($dataiii->e102_b6 ??  0,2) }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat2 }}</td>
+                                                    <td style="text-align: center">{{  number_format($dataiii->F1022F ??  0,2) }}</td>
                                                 </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -594,9 +595,13 @@
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
+                                                @foreach ($total3[$nobatch_key] as $tot3_key => $tot3)
+
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        {{-- <font size="2"><b>{{  number_format($totaliii ??  0,2) }}</b></font> --}}
+
+                                                        <font size="2"><b>{{  number_format($tot3->total3 ??  0,2) }}</b></font>
                                                     </td>
+                                                @endforeach
                                                 </tr>
                                             </tbody>
                                         </table><br>
