@@ -1365,7 +1365,7 @@ class Proses9Controller extends Controller
 
 
             }
-            dd($bulan);
+            dd($query);
             $layout = 'layouts.main';
 
             // dd($bhg5);
