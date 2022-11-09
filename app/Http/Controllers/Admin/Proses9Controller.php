@@ -1316,10 +1316,8 @@ class Proses9Controller extends Controller
                     FROM h102_init e, h_pelesen p
                     WHERE p.e_nl = e.e102_nl
                     AND e.e102_nobatch = '$e102_nobatch'
-                    AND e.e102_thn = '$tahun'
                     AND p.e_thn = '2022'
-                    AND p.e_bln = '10'
-                    AND e.e102_bln = '$bulan'");
+                    AND p.e_bln = '10'");
 
                 $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
                 from pl1021p3 e where e.F1021B = '$e102_nobatch'");
