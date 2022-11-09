@@ -1332,11 +1332,11 @@ class Proses9Controller extends Controller
                         F1021S1, F1021S2,
                         F1021S3, F1021S4,F1021K2
                 from pl1021p3
-                where F1021B = '102018SS0007'");
+                where F1021B = '$e102_nobatch'");
 
                 $bhg3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                 from pl1022p3 e, kod_sl p, prod_cat2 c
-                where e.F1022B = '$e102_nobatch' and e.F1022C = '51' and
+                where e.F1022B = '102018SS0007' and e.F1022C = '51' and
                 e.F1022D = p.catid and e.F1022E = c.catid");
 
                 $total3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total3 from pl1022p3 e, kod_sl p, prod_cat2 c
@@ -1368,7 +1368,7 @@ class Proses9Controller extends Controller
             // dd($users);
             $layout = 'layouts.main';
 
-            dd($bhg1);
+            dd($bhg3);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
