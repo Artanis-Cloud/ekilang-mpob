@@ -581,9 +581,9 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{ dd($bhg3[$nobatch_key]->isNotEmpty()) }}
+                                                {{-- {{ dd($bhg3[$nobatch_key]->isNotEmpty()) }}
 
-                                                @if ($bhg3[$nobatch_key])
+                                                @if ($bhg3[$nobatch_key]) --}}
                                                 @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 ?? '-' }}</td>
@@ -606,7 +606,7 @@
                                                     </td>
                                                 @endforeach
                                                 </tr>
-                                                @else
+                                                {{-- @else
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -619,7 +619,7 @@
                                                         <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
-                                                @endif
+                                                @endif --}}
                                             </tbody>
                                         </table><br>
 
@@ -646,7 +646,7 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                @if ($bhg4[$nobatch_key])
+                                                {{-- @if ($bhg4[$nobatch_key]) --}}
                                                 @foreach ($bhg4[$nobatch_key] as $penyata4_key => $dataiv)
 
                                                 <tr>
@@ -670,7 +670,7 @@
                                                     </td>
                                                     @endforeach
                                                 </tr>
-                                                @else
+                                                {{-- @else
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -683,7 +683,7 @@
                                                         <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
-                                                @endif
+                                                @endif --}}
                                             </tbody>
                                         </table><br>
 
@@ -706,7 +706,7 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                @if ($bhg5[$nobatch_key])
+                                                {{-- @if ($bhg5[$nobatch_key]) --}}
 
                                                 @foreach ($bhg5[$nobatch_key] as $penyata5_key => $datav)
 
@@ -731,7 +731,7 @@
                                                     </td>
                                                     @endforeach
                                                 </tr>
-                                                @else
+                                                {{-- @else
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -744,7 +744,7 @@
                                                         <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
-                                                @endif
+                                                @endif --}}
                                             </tbody>
                                         </table><br>
 
