@@ -433,7 +433,7 @@ class Proses9Controller extends Controller
     }
 
     public function papar_penyata(Request $request) {
-        dd($request->all());
+        // dd($request->all());
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
@@ -441,7 +441,7 @@ class Proses9Controller extends Controller
             return $this->process_admin_pleid_penapis_form($request->papar_ya, $request->tahun, $request->bulan);
         }
         elseif ($request->sumber == 'pleid' && $request->sektor == 'PL102') {
-            return $this->process_admin_pleid_isirung_form($request->papar_ya, $request->tahun, $request->bulan);
+            return $this->process_admin_pleid_isirung_form($request->papar_ya, $request->e_nl, $request->tahun, $request->bulan);
         }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL91') {
             return $this->process_admin_9penyataterdahulu_buah_form($request->papar_ya, $request->tahun, $request->bulan);
@@ -1284,7 +1284,7 @@ class Proses9Controller extends Controller
     }
 
 
-    public function process_admin_pleid_isirung_form($nobatch, $tahun, $bulan)
+    public function process_admin_pleid_isirung_form($nobatch, $nolesen, $tahun, $bulan)
     {
 
         if (!$nobatch) {
@@ -1312,14 +1312,10 @@ class Proses9Controller extends Controller
                 // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
                 $pelesens[$e102_nobatch] = (object)[];
 
-                $nolesen = H102Init::where('e102_nobatch', $e102_nobatch)->first();
-            dd($nolesen);
-
-
                 $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                     FROM h_pelesen p
-                    WHERE p.e_nl = '$nolesen->e102_nl'
+                    WHERE p.e_nl = '$nolesen'
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
 
@@ -1369,7 +1365,7 @@ class Proses9Controller extends Controller
             }
             $layout = 'layouts.main';
 
-            // dd($bhg5);
+            dd($query);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
