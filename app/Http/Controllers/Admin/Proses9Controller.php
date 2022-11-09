@@ -1319,6 +1319,8 @@ class Proses9Controller extends Controller
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
 
+                    dd($query);
+
                 $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
                 from pl1021p3 e where e.F1021B = '$e102_nobatch'");
 
@@ -1368,7 +1370,7 @@ class Proses9Controller extends Controller
             // dd($query);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
-                'returnArr', 'tahun', 'bulan', 
+                'returnArr', 'tahun', 'bulan',
                 'layout', 'users', 'nolesen',
                 'pelesens',
                 'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5', 'total5'
