@@ -1368,7 +1368,7 @@ class Proses9Controller extends Controller
             // dd($users);
             $layout = 'layouts.main';
 
-            dd($bhg5);
+            // dd($bhg5);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
