@@ -1321,7 +1321,18 @@ class Proses9Controller extends Controller
                     AND p.e_bln = '10'
                     AND e.e102_bln = '$bulan'");
 
-                $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit from pl1021p3 e, licensedb.license p where e.F1021B = '$e102_nobatch'");
+                $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
+                from pl1021p3 e, licensedb.license p
+                where e.F1021D = '$tahun' and e.F1021C = '$bulan' and
+                e.F1021A = p.F201A");
+
+                // $users = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit from pl1021p3 e where e.F1021B");
+
+                // $users = DB::connection('mysql4')->select("SELECT e.F1021A nolesen1, e.F1021A nolesen, p.F201T namapremis, e.F1021B nobatch,
+                //     DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
+                //     from pl1021p3 e, licensedb.license p
+                //     where e.F1021D = '$request->tahun' and e.F1021C = '$request->bulan' and
+                //     e.F1021A = p.F201A");
 
 
                 $bhg1[$e102_nobatch] = DB::connection('mysql4')->select("SELECT F1021G1,F1021G2,F1021G3,F1021H1,F1021H2,F1021H3,
@@ -1389,7 +1400,7 @@ class Proses9Controller extends Controller
 
 
             }
-            // dd($query);
+            dd($users);
             $layout = 'layouts.main';
 
             // dd($penyata);
