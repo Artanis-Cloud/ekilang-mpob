@@ -1392,7 +1392,7 @@ class Proses9Controller extends Controller
                 'returnArr',
                 'layout',
                 'pelesens',
-                'query', 'bhg1', 'bhg2', 'bhg3', 'bhg4', 'bhg5'
+                'query', 'bhg1', 'bhg2', 'bhg3', 'bhg4', 'bhg5',
 
             ));
     } elseif ($tahun > 2022) {
