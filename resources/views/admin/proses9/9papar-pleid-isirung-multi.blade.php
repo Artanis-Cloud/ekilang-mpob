@@ -132,7 +132,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data[0]->e_nl }}
+                                                        {{ $data[0]->e_nl  }}
                                                         </b></td>
 
                                                 </tr>
@@ -583,8 +583,8 @@
                                                 </tr>
                                                 @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 }}</td>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat2 }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 ?? '-' }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat2 ?? '-'}}</td>
                                                     <td style="text-align: center">{{  number_format($dataiii->F1022F ??  0,2) }}</td>
                                                 </tr>
                                                 @endforeach
@@ -632,8 +632,8 @@
                                                 @foreach ($bhg4[$nobatch_key] as $penyata4_key => $dataiv)
 
                                                 <tr>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat1 }}</td>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat2 }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat1 ?? '-'}}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat2 ?? '-'}}</td>
                                                     <td style="text-align: center">{{  number_format($dataiv->F1022F ??  0,2) }}</td>
                                                 </tr>
                                                 @endforeach
@@ -677,8 +677,8 @@
                                                 @foreach ($bhg5[$nobatch_key] as $penyata5_key => $datav)
 
                                                 <tr>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->cat1 }}</td>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->cat2 }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->cat1 ?? '-' }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->cat2 ?? '-' }}</td>
                                                     <td style="text-align: center">{{  number_format($datav->F1022F ??  0,2) }}</td>
                                                 </tr>
                                                 @endforeach
@@ -852,7 +852,7 @@
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
                                             {{-- {{ dd($users) }} --}}
                                             @foreach ($users[$nobatch_key] as $users_key => $data)
-                                                {{ $data->tkhsubmit }}
+                                                {{ $data->tkhsubmit ?? ''}}
                                             @endforeach
                                         </p>
 
