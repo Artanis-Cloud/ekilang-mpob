@@ -581,6 +581,7 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
+                                                @if ($bhg3)
                                                 @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 ?? '-' }}</td>
@@ -603,6 +604,20 @@
                                                     </td>
                                                 @endforeach
                                                 </tr>
+                                                @else
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                </tr>
+                                                @endif
                                             </tbody>
                                         </table><br>
 

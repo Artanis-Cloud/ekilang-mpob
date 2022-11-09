@@ -1336,7 +1336,7 @@ class Proses9Controller extends Controller
 
                 $bhg3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                 from pl1022p3 e, kod_sl p, prod_cat2 c
-                where e.F1022B = '102018SS0007' and e.F1022C = '51' and
+                where e.F1022B = '$e102_nobatch' and e.F1022C = '51' and
                 e.F1022D = p.catid and e.F1022E = c.catid");
 
                 $total3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total3 from pl1022p3 e, kod_sl p, prod_cat2 c
@@ -1346,7 +1346,7 @@ class Proses9Controller extends Controller
 
                 $bhg4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                     from pl1022p3 e, kod_sl p, prod_cat2 c
-                    where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
+                    where e.F1022B = '102018SS0007' and e.F1022C = '04' and
                         e.F1022D = p.catid and e.F1022E = c.catid");
 
                 $total4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total4 from pl1022p3 e, kod_sl p, prod_cat2 c
@@ -1368,7 +1368,7 @@ class Proses9Controller extends Controller
             // dd($users);
             $layout = 'layouts.main';
 
-            dd($bhg3);
+            dd($bhg4);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
