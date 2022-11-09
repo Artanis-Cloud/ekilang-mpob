@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
                             @foreach ($query as $nobatch_key => $data)
-                            {{ dd($data[0]->kodpgw) }}
+                            {{-- {{ dd($data[0]->kodpgw) }} --}}
 `
                                 <div class="pl-3">
 
@@ -103,7 +103,7 @@
                                                 </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
                                                 BULAN :
-                                                @if($bulan == "01") JANUARI
+                                                {{-- @if($bulan == "01") JANUARI
                                                     @elseif($bulan == "02") FEBRUARI
                                                     @elseif($bulan == "03") MAC
                                                     @elseif($bulan == "04") APRIL
@@ -116,7 +116,7 @@
                                                     @elseif($bulan == "11") NOVEMBER
                                                     @elseif($bulan == "12") DISEMBER
                                                     @endif
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }} --}}
                                             </b><br>
 
                                         </p>
