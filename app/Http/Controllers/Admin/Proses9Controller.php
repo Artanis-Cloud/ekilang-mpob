@@ -1342,12 +1342,16 @@ class Proses9Controller extends Controller
                 e.F1022D = p.catid and e.F1022E = c.catid");
 
 
-                $bhg4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname,c.catname, e.F1022F
+                $bhg4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                     from pl1022p3 e, kod_sl p, prod_cat2 c
                     where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
                         e.F1022D = p.catid and e.F1022E = c.catid");
 
-                $bhg5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname,c.catname, e.F1022F
+                $total4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total3 from pl1022p3 e, kod_sl p, prod_cat2 c
+                where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
+                e.F1022D = p.catid and e.F1022E = c.catid");
+
+                $bhg5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                 from pl1022p3 e, kod_sl p, prod_cat2 c
                 where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
                       e.F1022D = p.catid and e.F1022E = c.catid");
@@ -1387,7 +1391,7 @@ class Proses9Controller extends Controller
                 'returnArr', 'tahun', 'bulan',
                 'layout',
                 'pelesens',
-                'query', 'bhg1','total3', 'bhg3', 'bhg4', 'bhg5',
+                'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5',
 
             ));
     } elseif ($tahun > 2022) {
