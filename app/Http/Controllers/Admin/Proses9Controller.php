@@ -433,6 +433,7 @@ class Proses9Controller extends Controller
     }
 
     public function papar_penyata(Request $request) {
+        dd($request->all());
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
