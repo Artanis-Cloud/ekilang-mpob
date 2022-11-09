@@ -103,20 +103,20 @@
                                                 </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
                                                 BULAN :
-                                                @if($data[0]->e102_bln == "01") JANUARI
-                                                    @elseif($data[0]->e102_bln == "02") FEBRUARI
-                                                    @elseif($data[0]->e102_bln == "03") MAC
-                                                    @elseif($data[0]->e102_bln == "04") APRIL
-                                                    @elseif($data[0]->e102_bln == "05") MEI
-                                                    @elseif($data[0]->e102_bln == "06") JUN
-                                                    @elseif($data[0]->e102_bln == "07") JULAI
-                                                    @elseif($data[0]->e102_bln == "08") OGOS
-                                                    @elseif($data[0]->e102_bln == "09") SEPTEMBER
-                                                    @elseif($data[0]->e102_bln == "10") OKTOBER
-                                                    @elseif($data[0]->e102_bln == "11") NOVEMBER
-                                                    @elseif($data[0]->e102_bln == "12") DISEMBER
+                                                @if($bulan == "01") JANUARI
+                                                    @elseif($bulan == "02") FEBRUARI
+                                                    @elseif($bulan == "03") MAC
+                                                    @elseif($bulan == "04") APRIL
+                                                    @elseif($bulan == "05") MEI
+                                                    @elseif($bulan == "06") JUN
+                                                    @elseif($bulan == "07") JULAI
+                                                    @elseif($bulan == "08") OGOS
+                                                    @elseif($bulan == "09") SEPTEMBER
+                                                    @elseif($bulan == "10") OKTOBER
+                                                    @elseif($bulan == "11") NOVEMBER
+                                                    @elseif($bulan == "12") DISEMBER
                                                     @endif
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data[0]->e102_thn }}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                             </b><br>
 
                                         </p>

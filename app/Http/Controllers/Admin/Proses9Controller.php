@@ -1355,7 +1355,7 @@ class Proses9Controller extends Controller
 
                 $bhg5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                 from pl1022p3 e, kod_sl p, prod_cat2 c
-                where e.F1022B = '102018SS0007' and e.F1022C = '33' and
+                where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
                       e.F1022D = p.catid and e.F1022E = c.catid");
 
 
