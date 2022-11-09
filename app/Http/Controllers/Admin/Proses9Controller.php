@@ -1332,7 +1332,7 @@ class Proses9Controller extends Controller
                         F1021S1, F1021S2,
                         F1021S3, F1021S4,F1021K2
                 from pl1021p3
-                where F1021B = '$e102_nobatch'");
+                where F1021B = '102018SS0007'");
 
                 $bhg3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
                 from pl1022p3 e, kod_sl p, prod_cat2 c
@@ -1368,7 +1368,7 @@ class Proses9Controller extends Controller
             // dd($users);
             $layout = 'layouts.main';
 
-            // dd($penyata);
+            dd($bhg1);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
@@ -1399,7 +1399,7 @@ class Proses9Controller extends Controller
                     ];
 
                     foreach ($nobatch as $key => $e102_nobatch) {
-                       
+
                         $pelesens[$e102_nobatch] = (object)[];
 
 
