@@ -103,7 +103,7 @@
                                                 </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
                                                 BULAN :
-                                                {{-- @if($bulan == "01") JANUARI
+                                                @if($bulan == "01") JANUARI
                                                     @elseif($bulan == "02") FEBRUARI
                                                     @elseif($bulan == "03") MAC
                                                     @elseif($bulan == "04") APRIL
@@ -116,7 +116,7 @@
                                                     @elseif($bulan == "11") NOVEMBER
                                                     @elseif($bulan == "12") DISEMBER
                                                     @endif
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }} --}}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                             </b><br>
 
                                         </p>
