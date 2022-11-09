@@ -581,8 +581,9 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                @if ($bhg3[$nobatch_key])
                                                 {{ dd($bhg3[$nobatch_key]) }}
+
+                                                @if ($bhg3[$nobatch_key])
                                                 @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 ?? '-' }}</td>
