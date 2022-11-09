@@ -1319,7 +1319,7 @@ class Proses9Controller extends Controller
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
 
-                    dd($query);
+                    dd($nolesen);
 
                 $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
                 from pl1021p3 e where e.F1021B = '$e102_nobatch'");
