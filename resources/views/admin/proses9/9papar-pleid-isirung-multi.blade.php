@@ -629,13 +629,14 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{-- @foreach ($iv as $dataiv)
+                                                @foreach ($bhg4[$nobatch_key] as $penyata4_key => $dataiv)
+
                                                 <tr>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->kodsl->catname }}</td>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->prodcat2->catname }}</td>
-                                                    <td style="text-align: center">{{  number_format($dataiv->e102_b6 ??  0,2) }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat1 }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $dataiv->cat2 }}</td>
+                                                    <td style="text-align: center">{{  number_format($dataiv->F1022F ??  0,2) }}</td>
                                                 </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -643,9 +644,16 @@
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
+                                                    @foreach ($total4[$nobatch_key] as $tot4_key => $tot4)
+
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        {{-- <font size="2"><b>{{  number_format($totaliv ??  0,2) }}</b></font> --}}
+
+                                                        <font size="2"><b>{{  number_format($tot4->total4 ??  0,2) }}</b></font>
                                                     </td>
+                                                    @endforeach
+                                                    {{-- <td style="text-align: center; vertical-align:middle"> --}}
+                                                        {{-- <font size="2"><b>{{  number_format($totaliv ??  0,2) }}</b></font> --}}
+                                                    {{-- </td> --}}
                                                 </tr>
                                             </tbody>
                                         </table><br>
