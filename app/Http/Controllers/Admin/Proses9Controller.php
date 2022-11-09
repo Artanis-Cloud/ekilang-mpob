@@ -1383,6 +1383,7 @@ class Proses9Controller extends Controller
 
 
             }
+            dd($query);
             $layout = 'layouts.main';
 
             // dd($penyata);
@@ -1392,7 +1393,7 @@ class Proses9Controller extends Controller
                 'layout',
                 'pelesens',
                 'query', 'bhg1', 'bhg2', 'bhg3', 'bhg4', 'bhg5'
-                
+
             ));
     } elseif ($tahun > 2022) {
         $checks = H101Init::with('h_pelesen')->where('e101_nobatch', $nobatch)->where('e101_thn', $tahun)->where('e101_bln', $bulan)->get();
