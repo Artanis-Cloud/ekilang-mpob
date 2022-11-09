@@ -581,7 +581,7 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                @if ($bhg3)
+                                                @if ($bhg3[$nobatch_key])
                                                 @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">{{ $dataiii->cat1 ?? '-' }}</td>
@@ -644,6 +644,7 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
+                                                @if ($bhg4[$nobatch_key])
                                                 @foreach ($bhg4[$nobatch_key] as $penyata4_key => $dataiv)
 
                                                 <tr>
@@ -667,6 +668,20 @@
                                                     </td>
                                                     @endforeach
                                                 </tr>
+                                                @else
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                </tr>
+                                                @endif
                                             </tbody>
                                         </table><br>
 
@@ -689,6 +704,8 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
+                                                @if ($bhg5[$nobatch_key])
+
                                                 @foreach ($bhg5[$nobatch_key] as $penyata5_key => $datav)
 
                                                 <tr>
@@ -712,6 +729,20 @@
                                                     </td>
                                                     @endforeach
                                                 </tr>
+                                                @else
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                </tr>
+                                                @endif
                                             </tbody>
                                         </table><br>
 
