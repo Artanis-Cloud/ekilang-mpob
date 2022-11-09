@@ -581,7 +581,7 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{ dd($bhg3) }}
+                                                {{ dd($bhg3[$nobatch_key]->isNotEmpty()) }}
 
                                                 @if ($bhg3[$nobatch_key])
                                                 @foreach ($bhg3[$nobatch_key] as $penyata3_key => $dataiii)
