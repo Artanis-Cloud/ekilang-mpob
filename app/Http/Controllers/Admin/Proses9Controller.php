@@ -1312,11 +1312,14 @@ class Proses9Controller extends Controller
                 $pelesens[$e102_nobatch] = (object)[];
 
                 $nolesen = H102Init::where('e102_nobatch', $e102_nobatch)->first();
+            dd($nolesen);
+
 
                 $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                     FROM h_pelesen p
-                    WHERE p.e_thn = '2022'
+                    WHERE p.e_nl = '$nolesen->e102_nl'
+                    AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
 
                 $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
@@ -1363,7 +1366,6 @@ class Proses9Controller extends Controller
 
 
             }
-            dd($nolesen);
             $layout = 'layouts.main';
 
             // dd($bhg5);
