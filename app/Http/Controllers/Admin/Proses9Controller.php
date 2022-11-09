@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E102Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\H07Btranshipment;
@@ -1310,11 +1311,13 @@ class Proses9Controller extends Controller
                 // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
                 $pelesens[$e102_nobatch] = (object)[];
 
+                $nolesen = E102Init::where('e102_nobatch', $e102_nobatch)->first();
 
                 $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                     FROM h_pelesen p
-                    WHERE p.e_thn = '2022'
+                    WHERE p.e_nl = '$nolesen->e102_nl'
+                    AND p.e_thn = '2022'
                     AND p.e_bln = '10'");
 
                 $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
@@ -1368,7 +1371,7 @@ class Proses9Controller extends Controller
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
-                'layout', 'users',
+                'layout', 'users', 'nolesen',
                 'pelesens',
                 'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5', 'total5'
 
