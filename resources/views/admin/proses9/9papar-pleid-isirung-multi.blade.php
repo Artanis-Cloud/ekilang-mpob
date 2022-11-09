@@ -651,9 +651,6 @@
                                                         <font size="2"><b>{{  number_format($tot4->total4 ??  0,2) }}</b></font>
                                                     </td>
                                                     @endforeach
-                                                    {{-- <td style="text-align: center; vertical-align:middle"> --}}
-                                                        {{-- <font size="2"><b>{{  number_format($totaliv ??  0,2) }}</b></font> --}}
-                                                    {{-- </td> --}}
                                                 </tr>
                                             </tbody>
                                         </table><br>
@@ -677,13 +674,14 @@
                                                             <font size="2">Kuantiti</font>
                                                         </b></td>
                                                 </tr>
-                                                {{-- @foreach ($v as $datav)
+                                                @foreach ($bhg5[$nobatch_key] as $penyata5_key => $datav)
+
                                                 <tr>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->kodsl->catname }}</td>
-                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->prodcat2->catname }}</td>
-                                                    <td style="text-align: center">{{  number_format($datav->e102_b6 ??  0,2) }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->cat1 }}</td>
+                                                    <td style="text-align: center; vertical-align:middle">{{ $datav->cat2 }}</td>
+                                                    <td style="text-align: center">{{  number_format($datav->F1022F ??  0,2) }}</td>
                                                 </tr>
-                                                @endforeach --}}
+                                                @endforeach
                                                 <tr>
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -691,9 +689,13 @@
                                                     <td style="text-align: center; vertical-align:middle">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
+                                                    @foreach ($total5[$nobatch_key] as $tot5_key => $tot5)
+
                                                     <td style="text-align: center; vertical-align:middle">
-                                                        {{-- <font size="2"><b>{{ number_format( $totalv ??  0,2) }}</b></font> --}}
+
+                                                        <font size="2"><b>{{  number_format($tot5->total5 ??  0,2) }}</b></font>
                                                     </td>
+                                                    @endforeach
                                                 </tr>
                                             </tbody>
                                         </table><br>
@@ -848,7 +850,9 @@
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                            {{-- {{ $formatteddate }} --}}
+                                            @foreach ($users[$nobatch_key] as $users_key => $data)
+                                                {{ $data->tkhsubmit }}
+                                            @endforeach
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;

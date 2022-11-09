@@ -1321,6 +1321,7 @@ class Proses9Controller extends Controller
                     AND p.e_bln = '10'
                     AND e.e102_bln = '$bulan'");
 
+                $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$e102_nobatch'");
 
                 $bhg1[$e102_nobatch] = DB::connection('mysql4')->select("SELECT F1021G1,F1021G2,F1021G3,F1021H1,F1021H2,F1021H3,
                         F1021I1,F1021I2,F1021I3,F1021J1,F1021J2,F1021J3,
@@ -1347,7 +1348,7 @@ class Proses9Controller extends Controller
                     where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
                         e.F1022D = p.catid and e.F1022E = c.catid");
 
-                $total4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total3 from pl1022p3 e, kod_sl p, prod_cat2 c
+                $total4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total4 from pl1022p3 e, kod_sl p, prod_cat2 c
                 where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
                 e.F1022D = p.catid and e.F1022E = c.catid");
 
@@ -1355,6 +1356,11 @@ class Proses9Controller extends Controller
                 from pl1022p3 e, kod_sl p, prod_cat2 c
                 where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
                       e.F1022D = p.catid and e.F1022E = c.catid");
+
+
+                $total5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total5 from pl1022p3 e, kod_sl p, prod_cat2 c
+                where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
+                e.F1022D = p.catid and e.F1022E = c.catid");
 
 
                     // $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $penyata[$key]->e102_nobatch)->where('e102_b3', '51')->get();
@@ -1389,9 +1395,9 @@ class Proses9Controller extends Controller
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                 'returnArr', 'tahun', 'bulan',
-                'layout',
+                'layout', 'users',
                 'pelesens',
-                'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5',
+                'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5', 'total5'
 
             ));
     } elseif ($tahun > 2022) {
