@@ -1321,7 +1321,8 @@ class Proses9Controller extends Controller
                     AND p.e_bln = '10'
                     AND e.e102_bln = '$bulan'");
 
-                $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F101A2, '%d-%m-%Y') tkhsubmit from pl101ap3 e where e.F101A4 = '$e102_nobatch'");
+                $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit from pl1021p3 e, licensedb.license p where e.F1021B = '$e102_nobatch'");
+
 
                 $bhg1[$e102_nobatch] = DB::connection('mysql4')->select("SELECT F1021G1,F1021G2,F1021G3,F1021H1,F1021H2,F1021H3,
                         F1021I1,F1021I2,F1021I3,F1021J1,F1021J2,F1021J3,
