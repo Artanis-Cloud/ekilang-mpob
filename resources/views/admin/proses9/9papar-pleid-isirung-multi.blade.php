@@ -850,7 +850,7 @@
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                            {{ dd($users) }}
+                                            {{-- {{ dd($users) }} --}}
                                             @foreach ($users[$nobatch_key] as $users_key => $data)
                                                 {{ $data->tkhsubmit }}
                                             @endforeach
