@@ -1389,7 +1389,7 @@ class Proses9Controller extends Controller
             // dd($penyata);
             // $data = DB::table('pelesen')->get();
             return view('admin.proses9.9papar-terdahulu-isirung-multi', compact(
-                'returnArr',
+                'returnArr', 'tahun', 'bulan',
                 'layout',
                 'pelesens',
                 'query', 'bhg1', 'bhg2', 'bhg3', 'bhg4', 'bhg5',
