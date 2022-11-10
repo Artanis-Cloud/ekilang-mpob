@@ -2207,11 +2207,11 @@ class Proses9Controller extends Controller
                         return redirect()->back()->with('error', "Maklumat Pelesen {$e07_nl} Tidak Wujud");
                     }
 
-               
+
                 }
                 $layout = 'layouts.main';
 
-                // dd($query);                // $data = DB::table('pelesen')->get();
+                dd($users);                // $data = DB::table('pelesen')->get();
                 return view('admin.proses9.9papar-pleid-simpanan-multi', compact(
                     'returnArr', 'bulan', 'tahun',
                     'layout', 'nolesen',
