@@ -645,7 +645,8 @@
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
-                                                            <td>{{ $data->nolesen }}</td>
+                                                            <td><input name="e_nl" type="hidden"
+                                                                value="{{ $data->nolesen }}">{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
                                                             <td>{{ $data->tkhsubmit }}</td>
