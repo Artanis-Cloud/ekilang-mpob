@@ -1865,7 +1865,7 @@ class Proses9Controller extends Controller
         // dd($tahun);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-pleid-oleo-multi', compact(
-            'returnArr',
+            'returnArr', 'bulan', 'tahun',
             'layout',
             'pelesens',
             'query',
