@@ -2199,7 +2199,7 @@ class Proses9Controller extends Controller
                 // dd($penyata);
                 // $data = DB::table('pelesen')->get();
                 return view('admin.proses9.9papar-pleid-simpanan-multi', compact(
-                    'returnArr',
+                    'returnArr', 'bulan', 'tahun',
                     'layout', 'nolesen',
                     'pelesens',
                     'query', 'users',

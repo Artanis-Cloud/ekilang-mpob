@@ -50,7 +50,7 @@
 
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
-                            @foreach ($query as $nobatch_key => $data)
+                            @foreach ($query as $nolesen_key => $data)
 
 
                                 <div class="pl-3">
