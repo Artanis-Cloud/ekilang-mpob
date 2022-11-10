@@ -295,7 +295,7 @@
                                                         </b></td>
                                                 </tr>
                                                 @foreach ($bhga[$nolesen_key] as $penyataa_key => $dataa)
-                                                {{ dd($dataa) }}
+                                                {{-- {{ dd($dataa) }} --}}
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2.7">{{ $dataa->comm_desc ?? ''}}</font>
