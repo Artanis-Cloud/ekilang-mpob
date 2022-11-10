@@ -1929,7 +1929,7 @@ class Proses9Controller extends Controller
             //     ->with('error', 'Data Tidak Wujud!');
             // }
         }
-        // dd($query);
+        dd($bhg3);
 
 
         $layout = 'layouts.main';
