@@ -433,7 +433,7 @@ class Proses9Controller extends Controller
     }
 
     public function papar_penyata(Request $request) {
-        dd($request->all());
+        // dd($request->all());
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
@@ -1734,7 +1734,7 @@ class Proses9Controller extends Controller
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
-        dd($nolesen);
+        // dd($nolesen);
 
         if ($tahun <= 2022) {
 
@@ -1755,12 +1755,15 @@ class Proses9Controller extends Controller
             $pelesens[$e104_nobatch] = (object)[];
             // $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
-            $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+            $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-            FROM h_pelesen p
-            WHERE p.e_nl = '$nolesen'
+            FROM h104_init e, h_pelesen p
+            WHERE p.e_nl = e.e104_nl
+            AND e.e104_nobatch = '$e104_nobatch'
+            AND e.e104_thn = '$tahun'
             AND p.e_thn = '2022'
-            AND p.e_bln = '10'");
+            AND p.e_bln = '10'
+            AND e.e104_bln = '$bulan'");
 
             $bhg1a[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
             e.F104B10, e.F104B11, e.F104B12, e.F104B13
