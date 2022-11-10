@@ -2117,9 +2117,9 @@ class Proses9Controller extends Controller
         ));
     }
 
-    public function process_admin_pleid_simpanan_form($nobatch, $tahun, $bulan)
+    public function process_admin_pleid_simpanan_form($nolesen, $tahun, $bulan)
     {
-        if (!$nobatch) {
+        if (!$nolesen) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
@@ -2138,31 +2138,29 @@ class Proses9Controller extends Controller
                 ];
 
                 // dd($bulan);
-                foreach ($nobatch as $key => $e07_nobatch) {
+                foreach ($nolesen as $key => $e07_nl) {
                     $pelesens[$key] = (object)[];
 
-                    $users[$e07_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
-                    from mpb_insp3a e where e.INS_IF = '$e07_nobatch'");
+                    $users[$e07_nl] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
+                    from mpb_insp3a e where e.INS_IF = '$e07_nl'");
 
-                    $query[$e07_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e07_bln, e.e07_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e07_nobatch,
+                    $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, e.e07_bln, e.e07_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e07_nobatch,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                     FROM h07_init e, h_pelesen p
                     WHERE p.e_nl = e.e07_nl
-                    AND e.e07_nobatch = '$e07_nobatch'
+                    AND e.e07_nl = '$e07_nl'
                     AND e.e07_thn = '$tahun'
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'
                     AND e.e07_bln = '$bulan'");
-                    dd($query);
-
-                    $nolesen[$e07_nobatch] = $query[$e07_nobatch]->e_nl;
+                    // dd($query);
 
 
                     $bhga = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
                     e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
                     e.INS_KJ
                     from mpb_insp3b e, codedb.commodity_l p
-                    where e.INS_KA = '$nolesen' and
+                    where e.INS_KA = '$e07_nl' and
                         e.INS_KB = '$bulan' and
                         e.INS_KC = '$tahun' and
                         e.INS_KD = p.comm_code_l");
@@ -2171,7 +2169,7 @@ class Proses9Controller extends Controller
                     e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
                     e.INS_TI
                     from mpb_insp3c e, codedb.commodity_l p
-                    where e.INS_TA = '$nolesen' and
+                    where e.INS_TA = '$e07_nl' and
                           e.INS_TB = '$bulan' and
                           e.INS_TC = '$tahun' and
                           e.INS_TD = p.comm_code_l");
