@@ -156,7 +156,7 @@
 
 
                                         <p align="left"><b>
-                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT h_pelesen </font>
+                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                             </b></p>
 
                                         <table border="0" width="80%" cellpadding="0" cellspacing="0">
@@ -907,34 +907,7 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                 </tr>
-                                                {{-- @foreach ($iv as $dataiv)
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
-                                                    </td>
-                                                    <td align="left">
-                                                        <font size="2">{{ $dataiv->produk->prodid ?? ''}}</font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2">{{ $dataiv->e104_d5  ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ $formatteddat2 ?? '' }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataiv->e104_d7 ??  0,2) ?? '' }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{number_format ($dataiv->e104_d8 ??  0,2) ?? '' }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ $dataiv->e104_d9  ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
-                                                    </td>
-                                                </tr>
-                                                @endforeach --}}
+
                                             </tbody>
                                         </table><br>
                                         <p><b>
@@ -998,34 +971,7 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                 </tr>
-                                                {{-- @foreach ($iv as $dataiv)
-                                                <tr>
-                                                    <td align="left">
-                                                        <font size="2">{{  $dataiv->produk->proddesc ?? ''}}</font>
-                                                    </td>
-                                                    <td align="left">
-                                                        <font size="2">{{ $dataiv->produk->prodid ?? ''}}</font>
-                                                    </td>
-                                                    <td style="text-align: center; vertical-align:middle">
-                                                        <font size="2">{{ $dataiv->e104_d5  ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ $formatteddat2 ?? '' }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ number_format($dataiv->e104_d7 ??  0,2) ?? '' }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{number_format ($dataiv->e104_d8 ??  0,2) ?? '' }}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{ $dataiv->e104_d9  ?? ''}}</font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2">{{$dataiv->negara->namanegara ?? ''}}</font>
-                                                    </td>
-                                                </tr>
-                                                @endforeach --}}
+
                                             </tbody>
                                         </table><br>
 
