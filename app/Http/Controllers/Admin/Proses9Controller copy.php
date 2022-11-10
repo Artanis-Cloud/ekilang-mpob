@@ -1755,12 +1755,6 @@ class Proses9Controller extends Controller
             $pelesens[$e104_nobatch] = (object)[];
             // $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
-
-            $users[$e104_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F104A2, '%d-%m-%Y') tkhsubmit
-                    from pl104ap1 e where e.F104A4 = '$e104_nobatch'");
-
-
-
             $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
             FROM h104_init e, h_pelesen p
@@ -1873,7 +1867,7 @@ class Proses9Controller extends Controller
         // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-pleid-oleo-multi', compact(
             'returnArr', 'bulan', 'tahun',
-            'layout', 'users',
+            'layout',
             'pelesens',
             'query',
             'bhg1a', 'total1ab5',  'total1ab6', 'total1ab7', 'total1ab8',  'total1ab9',  'total1ab10', 'total1ab11', 'total1ab12', 'total1ab13',
