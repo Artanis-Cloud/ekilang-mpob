@@ -294,6 +294,39 @@
                                                             <font size="2">Stok Akhir</font>
                                                         </b></td>
                                                 </tr>
+                                                @foreach ($bhga[$nolesen_key] as $penyataa_key => $dataa)
+                                                {{-- {{ dd($penyata2) }} --}}
+                                                <tr>
+                                                    <td align="left">
+                                                        <font size="2.7">{{ $dataa->comm_desc }}</font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2.7">{{ $dataa->INS_KD }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->INS_KE ??  0,2) }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->INS_KF ??  0,2) }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->INS_KG ??  0,2) }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->INS_KH ??  0,2) }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->INS_KI ??  0,2) }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->beza ??  0,2) }}</font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2.7">{{ number_format($dataa->INS_KJ ??  0,2) }}</font>
+                                                    </td>
+
+                                                </tr>
+                                                @endforeach
                                                 {{-- @foreach ($a as $dataa)
                                                     <tr>
                                                         <td align="left">
