@@ -2153,10 +2153,10 @@ class Proses9Controller extends Controller
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'
                     AND e.e07_bln = '$bulan'");
+                    dd($query[$e07_nobatch]);
 
                     $nolesen[$e07_nobatch] = $query[$e07_nobatch]->e_nl;
 
-                    dd($nolesen);
 
                     $bhga = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
                     e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
