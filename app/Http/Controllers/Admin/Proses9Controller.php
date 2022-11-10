@@ -1846,6 +1846,17 @@ class Proses9Controller extends Controller
             where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l
             order by e.F104C3");
 
+            $total3c4[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C4) as total4 from pl104cp1 e, codedb.commodity_l p
+            where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+            $total3c5[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C5) as total5 from pl104cp1 e, codedb.commodity_l p
+            where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+            $total3c6[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C6) as total6 from pl104cp1 e, codedb.commodity_l p
+            where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+            $total3c7[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C7) as total7 from pl104cp1 e, codedb.commodity_l p
+            where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+            $total3c8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C8) as total8 from pl104cp1 e, codedb.commodity_l p
+            where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+
             // if($penyata[$key]->h_pelesen){
 
                 // $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->get();
@@ -1933,7 +1944,7 @@ class Proses9Controller extends Controller
             'bhg1a', 'total1ab5',  'total1ab6', 'total1ab7', 'total1ab8',  'total1ab9',  'total1ab10', 'total1ab11', 'total1ab12', 'total1ab13',
             'bhg1b', 'total1bb5',  'total1bb6', 'total1bb7', 'total1bb8',  'total1bb9',  'total1bb10', 'total1bb11', 'total1bb12', 'total1bb13',
             'bhg1c', 'total1cb5',  'total1cb6', 'total1cb7', 'total1cb8',  'total1cb9',  'total1cb10', 'total1cb11', 'total1cb12', 'total1cb13',
-            'bhg2',
+            'bhg2','total3c4','total3c5',  'total3c6', 'total3c7', 'total3c8',
             'bhg3'
 
         ));
