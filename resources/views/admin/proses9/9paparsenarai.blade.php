@@ -642,7 +642,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                            
+
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
                                                                     value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
@@ -700,7 +700,7 @@
                                                         <tr>
                                                             <td>
                                                                 <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
-                                                                    value="{{ $data->nobatch }}">&nbspYa
+                                                                    value="{{ $data->nolesen }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
