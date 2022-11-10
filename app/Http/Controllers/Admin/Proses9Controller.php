@@ -2207,26 +2207,7 @@ class Proses9Controller extends Controller
                         return redirect()->back()->with('error', "Maklumat Pelesen {$e07_nl} Tidak Wujud");
                     }
 
-                    // $penyata[$key] = H07Init::with('h_pelesen')->find($e07_nobatch);
-
-                    // if($penyata[$key]->h_pelesen){
-
-                    //     // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e07_nl)->first();
-                    //     $a = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->get();
-                    //     $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokawal');
-                    //     $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_terima');
-                    //     $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
-                    //     $total4 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
-                    //     $total5 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
-
-                    //     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
-                    //     $formatteddate = $myDateTime->format('d-m-Y');
-                    // }
-
-                    // else{
-                    //     return redirect()->back()
-                    //     ->with('error', 'Data Tidak Wujud!');
-                    // }
+               
                 }
                 $layout = 'layouts.main';
 
