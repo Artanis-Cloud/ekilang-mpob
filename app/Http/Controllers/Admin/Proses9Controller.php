@@ -2165,6 +2165,21 @@ class Proses9Controller extends Controller
                             e.INS_KC = '$tahun' and
                             e.INS_KD = p.comm_code_l");
 
+                        $totala5[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KE) as total5 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                        $totala6[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KF) as total6 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                        $totala7[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KG) as total7 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                        $totala8[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KH) as total8 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                        $totala9[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KI) as total9 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                        $totala10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.beza) as total10 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+                        $totala11[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_KJ) as total11 from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '$e07_nl' and e.INS_KB = '$bulan' and e.INS_KC = '$tahun' and e.INS_KD = p.comm_code_l ");
+
                         $bhgb[$e07_nl] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
                         e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
                         e.INS_TI
@@ -2206,7 +2221,7 @@ class Proses9Controller extends Controller
                     'layout', 'nolesen',
                     'pelesens',
                     'query', 'users',
-                    'bhga',
+                    'bhga', 'totala5', 'totala6', 'totala7', 'totala8', 'totala9', 'totala10', 'totala11',
                     'bhgb',
                 ));
     } elseif ($tahun > 2022) {}

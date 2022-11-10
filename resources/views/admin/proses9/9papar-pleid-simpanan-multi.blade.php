@@ -264,8 +264,8 @@
                                         </b> </p>
 
                                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
-                                            <tbody style="background-color: #d3d3d370">
-                                                <tr>
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Nama Produk</font>
                                                         </b></td>
@@ -365,6 +365,42 @@
                                                     <td align="center">
                                                         <font size="2"><b>-</b></font>
                                                     </td>
+                                                    @foreach ($totala5[$nolesen_key] as $total5_key => $total5)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total5->total5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totala6[$nolesen_key] as $total6_key => $total6)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total6->total6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totala7[$nolesen_key] as $total7_key => $total7)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total7->total7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totala8[$nolesen_key] as $total8_key => $total8)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total8->total8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totala9[$nolesen_key] as $total9_key => $total9)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total9->total9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totala10[$nolesen_key] as $total10_key => $total10)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total10->total10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+                                                        @foreach ($totala11[$nolesen_key] as $total11_key => $total11)
+                                                        <td align="right">
+                                                            <font size="2.7"><b>{{ number_format($total11->total11 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        @endforeach
+
                                                     {{-- <td align="right">
                                                         <font size="2"><b>{{ number_format($total ?? 0, 2) }}</b></font>
                                                     </td>
