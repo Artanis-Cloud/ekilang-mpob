@@ -1766,6 +1766,25 @@ class Proses9Controller extends Controller
             from pl104bp1 e, codedb.commodity_l p
             where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
 
+            $total1ab5[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B5) as total5 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab6[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B6) as total6 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab7[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B7) as total7 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B8) as total8 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab9[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B9) as total9 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab10[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B10) as total10 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab11[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B11) as total11 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab12[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B12) as total12 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+            $total1ab13[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B13) as total13 from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+
             $bhg1b[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
             e.F104B10, e.F104B11, e.F104B12, e.F104B13
             from pl104bp1 e, codedb.commodity_l p
@@ -1869,7 +1888,7 @@ class Proses9Controller extends Controller
             'layout',
             'pelesens',
             'query',
-            'bhg1a',
+            'bhg1a', 'total1ab5',  'total1ab6', 'total1ab7', 'total1ab8',  'total1ab9',  'total1ab10', 'total1ab11', 'total1ab12', 'total1ab13',
             'bhg1b',
             'bhg1c',
             'bhg2',
