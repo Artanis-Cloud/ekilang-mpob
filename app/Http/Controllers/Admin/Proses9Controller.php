@@ -1859,7 +1859,7 @@ class Proses9Controller extends Controller
 
 
         }
-        dd($total3c4);
+        // dd($total3c4);
 
 
         $layout = 'layouts.main';

@@ -709,6 +709,7 @@
                                                     <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
                                                     <td width="40%"><b>:{{ number_format($data->F104A8 ?? 0,2) }} %</b></td>
                                                 </tr>
+                                                @endforeach
 
                                             </tbody>
                                         </table><br>
