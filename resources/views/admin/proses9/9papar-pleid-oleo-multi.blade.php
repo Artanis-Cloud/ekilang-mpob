@@ -63,7 +63,7 @@
                                                 <tbody style=" width:10rem; margin-right: -10px">
                                                     <tr>
                                                         <td width="85%" height="19">
-                                                            <p align=""><b>{{ $data[0]->kodpgw }}{{ $data[0]->nosiri }}</b></p>
+                                                            <p align=""><b>{{ $data[0]->kodpgw ?? '' }}{{ $data[0]->nosiri ?? ''}}</b></p>
                                                         </td>
                                                         <td width="15%" height="19">
                                                             <p align="left"><b>MPOB(EL) CM 4</b></p>
@@ -130,7 +130,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data[0]->e_nl }}
+                                                        {{ $data[0]->e_nl  ?? '' }}
                                                         </b></td>
 
                                                 </tr>
@@ -142,7 +142,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19" style="text-transform:uppercase"><b>
-                                                        {{ $data[0]->e_np }}
+                                                        {{ $data[0]->e_np  ?? '' }}
                                                         </b></td>
 
                                                 </tr>
@@ -168,7 +168,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap1 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap1  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -176,7 +176,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap2 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap2  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -184,7 +184,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap3 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap3  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -192,7 +192,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as1 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as1 ?? ''  }}</b></td>
 
                                                 </tr>
 
@@ -200,7 +200,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as2 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as2  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -208,7 +208,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as3 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as3  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -216,7 +216,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data[0]->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $data[0]->e_notel  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -224,7 +224,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data[0]->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $data[0]->e_nofax  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -232,7 +232,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data[0]->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $data[0]->e_email  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -240,7 +240,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npg  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -248,7 +248,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpg  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -256,7 +256,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npgtg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npgtg  ?? '' }}</b></td>
 
                                                 </tr>
 
@@ -264,7 +264,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpgtg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpgtg  ?? '' }}</b></td>
 
                                                 </tr>
 
