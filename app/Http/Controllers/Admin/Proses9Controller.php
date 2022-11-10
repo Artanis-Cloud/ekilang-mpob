@@ -2204,7 +2204,7 @@ class Proses9Controller extends Controller
                     'pelesens',
                     'query', 'users',
                     'bhga',
-                    'bhg2',
+                    'bhgb',
                 ));
     } elseif ($tahun > 2022) {}
     }
