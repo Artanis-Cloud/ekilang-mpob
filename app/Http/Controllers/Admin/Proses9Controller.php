@@ -443,6 +443,9 @@ class Proses9Controller extends Controller
         elseif ($request->sumber == 'pleid' && $request->sektor == 'PL102') {
             return $this->process_admin_pleid_isirung_form($request->papar_ya, $request->e_nl, $request->tahun, $request->bulan);
         }
+        elseif ($request->sumber == 'pleid' && $request->sektor == 'PL104') {
+            return $this->process_admin_pleid_oleo_form($request->papar_ya, $request->e_nl, $request->tahun, $request->bulan);
+        }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL91') {
             return $this->process_admin_9penyataterdahulu_buah_form($request->papar_ya, $request->tahun, $request->bulan);
 
@@ -1398,19 +1401,19 @@ class Proses9Controller extends Controller
                     ];
 
                     foreach ($nobatch as $key => $e102_nobatch) {
-
+                        // $pelesens[$key] = (object)[];
+                        // $penyata[$key] = H102Init::with('h_pelesen')->find($e102_nobatch);
+                        // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
                         $pelesens[$e102_nobatch] = (object)[];
 
-
-                        $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e102_bln, e.e102_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e102_nobatch,
+                        $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                            FROM h102_init e, h_pelesen p
-                            WHERE p.e_nl = e.e102_nl
-                            AND e.e102_nobatch = '$e102_nobatch'
-                            AND e.e102_thn = '$tahun'
+                            FROM h_pelesen p
+                            WHERE p.e_nl = '$nolesen'
                             AND p.e_thn = '$tahun'
-                            AND p.e_bln = '$bulan'
-                            AND e.e102_bln = '$bulan'");
+                            AND p.e_bln = '$bulan'");
+
+                            // dd($nolesen);
 
                         $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
                         from pl1021p3 e where e.F1021B = '$e102_nobatch'");
@@ -1456,14 +1459,13 @@ class Proses9Controller extends Controller
 
 
                     }
-                    // dd($users);
                     $layout = 'layouts.main';
 
-                    // dd($penyata);
+                    // dd($query);
                     // $data = DB::table('pelesen')->get();
                     return view('admin.proses9.9papar-pleid-isirung-multi', compact(
                         'returnArr', 'tahun', 'bulan',
-                        'layout', 'users',
+                        'layout', 'users', 'nolesen',
                         'pelesens',
                         'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5', 'total5'
 
@@ -1584,8 +1586,8 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = H104Init::where('e104_thn', $tahun);
-        $bulan = H104Init::where('e104_bln', $bulan);
+        // $tahun = H104Init::where('e104_thn', $tahun);
+        // $bulan = H104Init::where('e104_bln', $bulan);
         // dd($bulan);
         foreach ($nobatch as $key => $e104_nobatch) {
             $pelesens[$key] = (object)[];
@@ -1724,6 +1726,255 @@ class Proses9Controller extends Controller
             // 'formatteddat2',
             // 'formatteddate',
         ));
+    }
+
+    public function process_admin_pleid_oleo_form($nobatch, $nolesen, $tahun, $bulan)
+    {
+        if (!$nobatch) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
+
+        if ($tahun <= 2022) {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.6penyatapaparcetakoleo'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Oleokimia"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu.oleokimia.process');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        // dd($bulan);
+        foreach ($nobatch as $key => $e104_nobatch) {
+            $pelesens[$e104_nobatch] = (object)[];
+            // $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
+            $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+            FROM h_pelesen p
+            WHERE p.e_nl = '$nolesen'
+            AND p.e_thn = '2022'
+            AND p.e_bln = '10'");
+
+            $bhg1a[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
+            e.F104B10, e.F104B11, e.F104B12, e.F104B13
+            from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+
+            $bhg1b[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
+            e.F104B10, e.F104B11, e.F104B12, e.F104B13
+            from pl104bp1 e, codedb.commodity_l p
+            where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l");
+
+            $bhg1c[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
+            e.F104B10, e.F104B11, e.F104B12, e.F104B13
+           from pl104bp1 e, codedb.commodity_l p
+           where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l");
+
+            $bhg2[$e104_nobatch] = DB::connection('mysql4')->select("SELECT F104A7, F104A8
+            from pl104ap1
+            where F104A4 = '$e104_nobatch'");
+
+            $bhg3[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104C3, e.F104C4, e.F104C5, e.F104C6, e.F104C7, e.F104C8
+            from pl104cp1 e, codedb.commodity_l p
+            where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l
+            order by e.F104C3");
+
+            // if($penyata[$key]->h_pelesen){
+
+                // $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->get();
+                // $totalia5 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b5');
+                // $totalia6 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b6');
+                // $totalia7 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b7');
+                // $totalia8 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b8');
+                // $totalia9 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b9');
+                // $totalia10 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b10');
+                // $totalia11 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b11');
+                // $totalia12 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b12');
+                // $totalia13 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '1')->sum('e104_b13');
+
+                // $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->get();
+                // $totalib5 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b5');
+                // $totalib6 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b6');
+                // $totalib7 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b7');
+                // $totalib8 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b8');
+                // $totalib9 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b9');
+                // $totalib10 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b10');
+                // $totalib11 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b11');
+                // $totalib12 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b12');
+                // $totalib13 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '2')->sum('e104_b13');
+
+                // $ic = H104B::with('h104init', 'produk')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->whereHas('produk', function ($query) {
+                //     return $query->where('prodcat', '=', '08');
+                // })->get();
+                // $totalic5 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b5');
+                // $totalic6 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b6');
+                // $totalic7 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b7');
+                // $totalic8 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b8');
+                // $totalic9 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b9');
+                // $totalic10 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b10');
+                // $totalic11 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b11');
+                // $totalic12 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b12');
+                // $totalic13 = DB::table("h104_b")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_b3', '3')->sum('e104_b13');
+
+                // $ii = H104Init::where('e104_nl', auth()->user()->username)->first();
+
+
+                // $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->get();
+                // $totaliii4 = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c4');
+                // $totaliii5 = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c5');
+                // $totaliii6 = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c6');
+                // $totaliii7 = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c7');
+                // $totaliii8 = DB::table("h104_c")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->sum('e104_c8');
+
+                // $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->get();
+
+                // if ($iv) {
+                //     $totaliv7 = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
+                //     $totaliv8 = DB::table("h104_d")->where('e104_nobatch', $penyata[$key]->e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
+
+                //     // dd($penyata->e014_nobatch = '062019CA0004');
+
+                //     // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv->e104_d6);
+                //     // $formatteddat2 = $myDateTime2->format('d-m-Y');
+                // } else {
+                //     $myDateTime2 = [];
+                //     $formatteddat2 = [];
+                // }
+
+                // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e104_sdate);
+                // $formatteddate = $myDateTime->format('d-m-Y');
+
+            // }
+
+            // else{
+            //     return redirect()->back()
+            //     ->with('error', 'Data Tidak Wujud!');
+            // }
+        }
+
+
+        $layout = 'layouts.main';
+
+        // dd($tahun);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-pleid-oleo-multi', compact(
+            'returnArr',
+            'layout',
+            'pelesens',
+            'query',
+            'bhg1a',
+            'bhg1b',
+            'bhg1c',
+            'bhg2',
+            'bhg3'
+
+        ));
+    } elseif ($tahun > 2022) {
+        $checks = H104Init::with('h_pelesen')->where('e104_nobatch', $nobatch)->where('e104_thn', $tahun)->where('e104_bln', $bulan)->get();
+
+        // dd($checks);
+    foreach ($checks as $check) {
+            # code...
+
+        if ($check->h_pelesen->e_thn == $tahun && $check->h_pelesen->e_bln == $bulan) {
+
+                $breadcrumbs    = [
+                    ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                    ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+                    ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+                ];
+
+                $kembali = route('admin.9penyataterdahulu.process');
+                $returnArr = [
+                    'breadcrumbs' => $breadcrumbs,
+                    'kembali'     => $kembali,
+                ];
+
+                foreach ($nobatch as $key => $e104_nobatch) {
+                    // $pelesens[$key] = (object)[];
+                    // $penyata[$key] = H102Init::with('h_pelesen')->find($e102_nobatch);
+                    // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
+                    $pelesens[$e102_nobatch] = (object)[];
+
+                    $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
+                        p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                        FROM h_pelesen p
+                        WHERE p.e_nl = '$nolesen'
+                        AND p.e_thn = '2022'
+                        AND p.e_bln = '10'");
+
+                        // dd($nolesen);
+
+                    $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
+                    from pl1021p3 e where e.F1021B = '$e102_nobatch'");
+
+                    $bhg1[$e102_nobatch] = DB::connection('mysql4')->select("SELECT F1021G1,F1021G2,F1021G3,F1021H1,F1021H2,F1021H3,
+                            F1021I1,F1021I2,F1021I3,F1021J1,F1021J2,F1021J3,
+                            F1021K,F1021L1,F1021L2,F1021M1,F1021M2,F1021M3,
+                            F1021N1,F1021N2,F1021N3,F1021O1,F1021O2,F1021O3,
+                            F1021Q1,F1021Q2,F1021Q3,F1021R1,F1021R2,F1021R3,
+                            F1021S1, F1021S2,
+                            F1021S3, F1021S4,F1021K2
+                    from pl1021p3
+                    where F1021B = '$e102_nobatch'");
+
+                    $bhg3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
+                    from pl1022p3 e, kod_sl p, prod_cat2 c
+                    where e.F1022B = '$e102_nobatch' and e.F1022C = '51' and
+                    e.F1022D = p.catid and e.F1022E = c.catid");
+
+                    $total3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total3 from pl1022p3 e, kod_sl p, prod_cat2 c
+                    where e.F1022B = '$e102_nobatch' and e.F1022C = '51' and
+                    e.F1022D = p.catid and e.F1022E = c.catid");
+
+
+                    $bhg4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
+                        from pl1022p3 e, kod_sl p, prod_cat2 c
+                        where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
+                            e.F1022D = p.catid and e.F1022E = c.catid");
+
+                    $total4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total4 from pl1022p3 e, kod_sl p, prod_cat2 c
+                    where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
+                    e.F1022D = p.catid and e.F1022E = c.catid");
+
+                    $bhg5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
+                    from pl1022p3 e, kod_sl p, prod_cat2 c
+                    where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
+                          e.F1022D = p.catid and e.F1022E = c.catid");
+
+
+                    $total5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total5 from pl1022p3 e, kod_sl p, prod_cat2 c
+                    where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
+                    e.F1022D = p.catid and e.F1022E = c.catid");
+
+
+                }
+                $layout = 'layouts.main';
+
+                // dd($query);
+                // $data = DB::table('pelesen')->get();
+                return view('admin.proses9.9papar-pleid-oleo-multi', compact(
+                    'returnArr', 'tahun', 'bulan',
+                    'layout', 'users', 'nolesen',
+                    'pelesens',
+                    'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5', 'total5'
+
+                ));
+        }
+            else {
+                return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+            }
+    }
+    } else {
+        return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila port data');
+
+    }
     }
 
     public function process_admin_9penyataterdahulu_simpanan_form($nobatch, $tahun, $bulan)
