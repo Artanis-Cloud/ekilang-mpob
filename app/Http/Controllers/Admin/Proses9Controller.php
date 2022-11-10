@@ -446,6 +446,9 @@ class Proses9Controller extends Controller
         elseif ($request->sumber == 'pleid' && $request->sektor == 'PL104') {
             return $this->process_admin_pleid_oleo_form($request->papar_ya, $request->e_nl, $request->tahun, $request->bulan);
         }
+        elseif ($request->sumber == 'pleid' && $request->sektor == 'PL111') {
+            return $this->process_admin_pleid_simpanan_form($request->papar_ya, $request->tahun, $request->bulan);
+        }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PL91') {
             return $this->process_admin_9penyataterdahulu_buah_form($request->papar_ya, $request->tahun, $request->bulan);
 
@@ -1905,73 +1908,135 @@ class Proses9Controller extends Controller
                 ];
 
                 foreach ($nobatch as $key => $e104_nobatch) {
-                    // $pelesens[$key] = (object)[];
-                    // $penyata[$key] = H102Init::with('h_pelesen')->find($e102_nobatch);
-                    // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e102_nl)->first();
-                    $pelesens[$e102_nobatch] = (object)[];
+                    $pelesens[$e104_nobatch] = (object)[];
+                    // $penyata[$key] = H104Init::with('h_pelesen')->find($e104_nobatch);
+                    // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
-                    $query[$e102_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
-                        p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                        FROM h_pelesen p
-                        WHERE p.e_nl = '$nolesen'
-                        AND p.e_thn = '2022'
-                        AND p.e_bln = '10'");
-
-                        // dd($nolesen);
-
-                    $users[$e102_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F1021F, '%d-%m-%Y') tkhsubmit
-                    from pl1021p3 e where e.F1021B = '$e102_nobatch'");
-
-                    $bhg1[$e102_nobatch] = DB::connection('mysql4')->select("SELECT F1021G1,F1021G2,F1021G3,F1021H1,F1021H2,F1021H3,
-                            F1021I1,F1021I2,F1021I3,F1021J1,F1021J2,F1021J3,
-                            F1021K,F1021L1,F1021L2,F1021M1,F1021M2,F1021M3,
-                            F1021N1,F1021N2,F1021N3,F1021O1,F1021O2,F1021O3,
-                            F1021Q1,F1021Q2,F1021Q3,F1021R1,F1021R2,F1021R3,
-                            F1021S1, F1021S2,
-                            F1021S3, F1021S4,F1021K2
-                    from pl1021p3
-                    where F1021B = '$e102_nobatch'");
-
-                    $bhg3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
-                    from pl1022p3 e, kod_sl p, prod_cat2 c
-                    where e.F1022B = '$e102_nobatch' and e.F1022C = '51' and
-                    e.F1022D = p.catid and e.F1022E = c.catid");
-
-                    $total3[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total3 from pl1022p3 e, kod_sl p, prod_cat2 c
-                    where e.F1022B = '$e102_nobatch' and e.F1022C = '51' and
-                    e.F1022D = p.catid and e.F1022E = c.catid");
+                    $users[$e104_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.F104A2, '%d-%m-%Y') tkhsubmit
+                            from pl104ap1 e where e.F104A4 = '$e104_nobatch'");
 
 
-                    $bhg4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
-                        from pl1022p3 e, kod_sl p, prod_cat2 c
-                        where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
-                            e.F1022D = p.catid and e.F1022E = c.catid");
 
-                    $total4[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total4 from pl1022p3 e, kod_sl p, prod_cat2 c
-                    where e.F1022B = '$e102_nobatch' and e.F1022C = '04' and
-                    e.F1022D = p.catid and e.F1022E = c.catid");
+                    $query[$e104_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e104_bln, e.e104_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e104_nobatch,
+                    p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                    FROM h104_init e, h_pelesen p
+                    WHERE p.e_nl = e.e104_nl
+                    AND e.e104_nobatch = '$e104_nobatch'
+                    AND e.e104_thn = '$tahun'
+                    AND p.e_thn = '$tahun'
+                    AND p.e_bln = '$bulan'
+                    AND e.e104_bln = '$bulan'");
 
-                    $bhg5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT p.catname as cat1,c.catname as cat2, e.F1022F
-                    from pl1022p3 e, kod_sl p, prod_cat2 c
-                    where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
-                          e.F1022D = p.catid and e.F1022E = c.catid");
+                    $bhg1a[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
+                    e.F104B10, e.F104B11, e.F104B12, e.F104B13
+                    from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
 
+                    $total1ab5[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B5) as total5 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab6[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B6) as total6 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab7[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B7) as total7 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B8) as total8 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab9[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B9) as total9 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab10[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B10) as total10 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab11[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B11) as total11 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab12[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B12) as total12 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
+                    $total1ab13[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B13) as total13 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '1' and e.F104B4 = p.comm_code_l ");
 
-                    $total5[$e102_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F1022F) as total5 from pl1022p3 e, kod_sl p, prod_cat2 c
-                    where e.F1022B = '$e102_nobatch' and e.F1022C = '33' and
-                    e.F1022D = p.catid and e.F1022E = c.catid");
+                    $bhg1b[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
+                    e.F104B10, e.F104B11, e.F104B12, e.F104B13
+                    from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l");
+
+                    $total1bb5[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B5) as total5 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb6[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B6) as total6 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb7[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B7) as total7 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B8) as total8 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb9[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B9) as total9 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb10[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B10) as total10 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb11[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B11) as total11 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb12[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B12) as total12 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+                    $total1bb13[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B13) as total13 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '2' and e.F104B4 = p.comm_code_l ");
+
+                    $bhg1c[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104B4, e.F104B5, e.F104B6, e.F104B7, e.F104B8, e.F104B9,
+                    e.F104B10, e.F104B11, e.F104B12, e.F104B13
+                   from pl104bp1 e, codedb.commodity_l p
+                   where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l");
+
+                    $total1cb5[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B5) as total5 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb6[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B6) as total6 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb7[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B7) as total7 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B8) as total8 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb9[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B9) as total9 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb10[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B10) as total10 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb11[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B11) as total11 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb12[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B12) as total12 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+                    $total1cb13[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104B13) as total13 from pl104bp1 e, codedb.commodity_l p
+                    where e.F104B2 = '$e104_nobatch' and e.F104B3 = '3' and e.F104B4 = p.comm_code_l ");
+
+                    $bhg2[$e104_nobatch] = DB::connection('mysql4')->select("SELECT F104A7, F104A8
+                    from pl104ap1
+                    where F104A4 = '$e104_nobatch'");
+
+                    $bhg3[$e104_nobatch] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.F104C3, e.F104C4, e.F104C5, e.F104C6, e.F104C7, e.F104C8
+                    from pl104cp1 e, codedb.commodity_l p
+                    where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l
+                    order by e.F104C3");
+
+                    $total3c4[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C4) as total4 from pl104cp1 e, codedb.commodity_l p
+                    where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+                    $total3c5[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C5) as total5 from pl104cp1 e, codedb.commodity_l p
+                    where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+                    $total3c6[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C6) as total6 from pl104cp1 e, codedb.commodity_l p
+                    where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+                    $total3c7[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C7) as total7 from pl104cp1 e, codedb.commodity_l p
+                    where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
+                    $total3c8[$e104_nobatch] = DB::connection('mysql4')->select("SELECT SUM(e.F104C8) as total8 from pl104cp1 e, codedb.commodity_l p
+                    where e.F104C2 = '$e104_nobatch' and e.F104C3 = p.comm_code_l ");
 
 
                 }
+
+
                 $layout = 'layouts.main';
 
-                // dd($query);
+                // dd($tahun);
                 // $data = DB::table('pelesen')->get();
                 return view('admin.proses9.9papar-pleid-oleo-multi', compact(
-                    'returnArr', 'tahun', 'bulan',
-                    'layout', 'users', 'nolesen',
+                    'returnArr', 'bulan', 'tahun',
+                    'layout', 'users',
                     'pelesens',
-                    'query', 'bhg1','total3', 'bhg3', 'bhg4', 'total4', 'bhg5', 'total5'
+                    'query',
+                    'bhg1a', 'total1ab5',  'total1ab6', 'total1ab7', 'total1ab8',  'total1ab9',  'total1ab10', 'total1ab11', 'total1ab12', 'total1ab13',
+                    'bhg1b', 'total1bb5',  'total1bb6', 'total1bb7', 'total1bb8',  'total1bb9',  'total1bb10', 'total1bb11', 'total1bb12', 'total1bb13',
+                    'bhg1c', 'total1cb5',  'total1cb6', 'total1cb7', 'total1cb8',  'total1cb9',  'total1cb10', 'total1cb11', 'total1cb12', 'total1cb13',
+                    'bhg2','total3c4','total3c5',  'total3c6', 'total3c7', 'total3c8',
+                    'bhg3'
 
                 ));
         }
@@ -2050,6 +2115,98 @@ class Proses9Controller extends Controller
             'total4',
             'total5'
         ));
+    }
+
+    public function process_admin_pleid_simpanan_form($nobatch, $tahun, $bulan)
+    {
+        if (!$nobatch) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
+        if ($tahun <= 2022) {
+
+                $breadcrumbs    = [
+                    ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                    ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+                    ['link' => route('admin.6penyatapaparcetaksimpanan'), 'name' => "Papar & Cetak Penyata Bulanan Pusat Simpanan"],
+                ];
+
+                $kembali = route('admin.9penyataterdahulusimpanan');
+                $returnArr = [
+                    'breadcrumbs' => $breadcrumbs,
+                    'kembali'     => $kembali,
+                ];
+
+                // dd($bulan);
+                foreach ($nobatch as $key => $e07_nobatch) {
+                    $pelesens[$key] = (object)[];
+
+                    $users[$e07_nobatch] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
+                    from mpb_insp3a e where e.INS_IF = '$e07_nobatch'");
+
+                    $query[$e07_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.e07_bln, e.e07_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e07_nobatch,
+                    p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                    FROM h07_init e, h_pelesen p
+                    WHERE p.e_nl = e.e07_nl
+                    AND e.e07_nobatch = '$e07_nobatch'
+                    AND e.e07_thn = '$tahun'
+                    AND p.e_thn = '2022'
+                    AND p.e_bln = '10'
+                    AND e.e07_bln = '$bulan'");
+
+                    $nolesen = $query[$e07_nobatch]->e_nl;
+
+                    $bhga = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
+                    e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
+                    e.INS_KJ
+                    from mpb_insp3b e, codedb.commodity_l p
+                    where e.INS_KA = '$nolesen' and
+                        e.INS_KB = '$bulan' and
+                        e.INS_KC = '$tahun' and
+                        e.INS_KD = p.comm_code_l");
+
+                    $bhgb = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
+                    e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
+                    e.INS_TI
+                    from mpb_insp3c e, codedb.commodity_l p
+                    where e.INS_TA = '$nolesen' and
+                          e.INS_TB = '$bulan' and
+                          e.INS_TC = '$tahun' and
+                          e.INS_TD = p.comm_code_l");
+                    // $penyata[$key] = H07Init::with('h_pelesen')->find($e07_nobatch);
+
+                    // if($penyata[$key]->h_pelesen){
+
+                    //     // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e07_nl)->first();
+                    //     $a = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->get();
+                    //     $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokawal');
+                    //     $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_terima');
+                    //     $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_edaran');
+                    //     $total4 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_pelarasan');
+                    //     $total5 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $penyata[$key]->e07_nobatch)->sum('e07bt_stokakhir');
+
+                    //     $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->e07_sdate);
+                    //     $formatteddate = $myDateTime->format('d-m-Y');
+                    // }
+
+                    // else{
+                    //     return redirect()->back()
+                    //     ->with('error', 'Data Tidak Wujud!');
+                    // }
+                }
+                $layout = 'layouts.main';
+
+                // dd($penyata);
+                // $data = DB::table('pelesen')->get();
+                return view('admin.proses9.9papar-pleid-simpanan-multi', compact(
+                    'returnArr',
+                    'layout', 'nolesen',
+                    'pelesens',
+                    'query', 'users',
+                    'bhga',
+                    'bhg2',
+                ));
+    } elseif ($tahun > 2022) {}
     }
 
     public function process_admin_9penyataterdahulu_bio_form($nobatch, $tahun, $bulan)
