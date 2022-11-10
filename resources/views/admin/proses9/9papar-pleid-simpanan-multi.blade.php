@@ -486,7 +486,9 @@
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                            {{-- {{ $formatteddate }} --}}
+                                            @foreach ($users[$nolesen_key] as $users_key => $data)
+                                                {{ $data->tkhsubmit }}
+                                                @endforeach
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
