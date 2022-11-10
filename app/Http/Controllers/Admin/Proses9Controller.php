@@ -2142,7 +2142,8 @@ class Proses9Controller extends Controller
                     $pelesens[$key] = (object)[];
 
                     $users[$e07_nl] = DB::connection('mysql4')->select("SELECT DATE_FORMAT(e.INS_ID, '%d-%m-%Y') tkhsubmit
-                    from mpb_insp3a e where e.INS_IF = '$e07_nl'");
+                    from mpb_insp3a e, licensedb.license p where e.INS_IF = '$e07_nl' AND  e.INS_IC = '$tahun' and e.INS_IB = '$bulan' and
+                    e.INS_IA = p.F201A");
 
                     $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, e.e07_bln, e.e07_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e07_nobatch,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
