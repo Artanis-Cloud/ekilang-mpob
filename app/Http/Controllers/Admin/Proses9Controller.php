@@ -2156,7 +2156,7 @@ class Proses9Controller extends Controller
                     // dd($query);
 
 
-                    $bhga = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
+                    $bhga[$e07_nl] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
                     e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
                     e.INS_KJ
                     from mpb_insp3b e, codedb.commodity_l p
@@ -2165,7 +2165,7 @@ class Proses9Controller extends Controller
                         e.INS_KC = '$tahun' and
                         e.INS_KD = p.comm_code_l");
 
-                    $bhgb = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
+                    $bhgb[$e07_nl] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
                     e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
                     e.INS_TI
                     from mpb_insp3c e, codedb.commodity_l p
