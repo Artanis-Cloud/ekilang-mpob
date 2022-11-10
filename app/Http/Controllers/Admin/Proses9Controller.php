@@ -2153,7 +2153,7 @@ class Proses9Controller extends Controller
                     AND p.e_thn = '2022'
                     AND p.e_bln = '10'
                     AND e.e07_bln = '$bulan'");
-                    dd($query[$e07_nobatch]);
+                    dd($query);
 
                     $nolesen[$e07_nobatch] = $query[$e07_nobatch]->e_nl;
 
