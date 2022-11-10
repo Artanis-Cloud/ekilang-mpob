@@ -2188,6 +2188,21 @@ class Proses9Controller extends Controller
                             e.INS_TB = '$bulan' and
                             e.INS_TC = '$tahun' and
                             e.INS_TD = p.comm_code_l");
+
+                        $totalb5[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TE) as total5 from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                        $totalb6[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TF) as total6 from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                        $totalb7[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TG) as total7 from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                        $totalb8[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TH) as total8 from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                        $totalb10[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TE - e.INS_TI) as total10 from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+                        $totalb11[$e07_nl] = DB::connection('mysql4')->select("SELECT SUM(e.INS_TI) as total11 from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
+
+
                     } else {
                         return redirect()->back()->with('error', "Maklumat Pelesen {$e07_nl} Tidak Wujud");
                     }
@@ -2222,7 +2237,7 @@ class Proses9Controller extends Controller
                     'pelesens',
                     'query', 'users',
                     'bhga', 'totala5', 'totala6', 'totala7', 'totala8', 'totala9', 'totala10', 'totala11',
-                    'bhgb',
+                    'bhgb', 'totalb5', 'totalb6', 'totalb7', 'totalb8', 'totalb10', 'totalb11',
                 ));
     } elseif ($tahun > 2022) {}
     }
