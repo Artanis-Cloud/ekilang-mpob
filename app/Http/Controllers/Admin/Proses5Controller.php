@@ -562,9 +562,7 @@ class Proses5Controller extends Controller
             $penyata[$key] = E104Init::find($e104_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata[$key]->e104_nl)->first();
 
-            $penyataia[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 01);
-            })->get();
+            $penyataia[$key] = E104B::with('e104init', 'produk')->where('e104_reg',  $penyata[$key]->e104_reg)->get();
 
             $total = DB::table("e104_b")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_b3', '1')->sum('e104_b5');
 
@@ -662,6 +660,8 @@ class Proses5Controller extends Controller
 
             $totaliv2 = DB::table("e104_d")->where('e104_reg',  $penyata[$key]->e104_reg)->where('e104_d3', '1')->sum('e104_d8');
         }
+
+        // dd($penyataia);
 
 
 
