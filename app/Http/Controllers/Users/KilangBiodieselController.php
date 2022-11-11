@@ -177,20 +177,44 @@ class KilangBiodieselController extends Controller
         $map->map_sdate = now();
         $map->save();
 
-        $kapasiti = Kapasiti::where('e_nl', $penyata->e_nl)->where('tahun', $tahun)->first();
-        $kapasiti->jan = $request->kap_proses;
-        $kapasiti->feb = $request->kap_proses;
-        $kapasiti->mac = $request->kap_proses;
-        $kapasiti->apr = $request->kap_proses;
-        $kapasiti->mei = $request->kap_proses;
-        $kapasiti->jun = $request->kap_proses;
-        $kapasiti->jul = $request->kap_proses;
-        $kapasiti->ogs = $request->kap_proses;
-        $kapasiti->sept = $request->kap_proses;
-        $kapasiti->okt = $request->kap_proses;
-        $kapasiti->nov = $request->kap_proses;
-        $kapasiti->dec = $request->kap_proses;
-        $kapasiti->save();
+        $check = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();
+        // dd(!$check);
+        if ($check) {
+            $kapasiti = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();
+            $kapasiti->jan = $request->kap_proses;
+            $kapasiti->feb = $request->kap_proses;
+            $kapasiti->mac = $request->kap_proses;
+            $kapasiti->apr = $request->kap_proses;
+            $kapasiti->mei = $request->kap_proses;
+            $kapasiti->jun = $request->kap_proses;
+            $kapasiti->jul = $request->kap_proses;
+            $kapasiti->ogs = $request->kap_proses;
+            $kapasiti->sept = $request->kap_proses;
+            $kapasiti->okt = $request->kap_proses;
+            $kapasiti->nov = $request->kap_proses;
+            $kapasiti->dec = $request->kap_proses;
+            $kapasiti->save();
+        } else {
+            return Kapasiti::create([
+                // 'id' => $count+ 1,
+                'e_nl' => auth()->user()->username,
+                'tahun' => date("Y"),
+                'jan' => $request->kap_proses,
+                'feb' => $request->kap_proses,
+                'mac' => $request->kap_proses,
+                'apr' => $request->kap_proses,
+                'mei' => $request->kap_proses,
+                'jun' => $request->kap_proses,
+                'jul' => $request->kap_proses,
+                'ogs' => $request->kap_proses,
+                'sept' => $request->kap_proses,
+                'okt' => $request->kap_proses,
+                'nov' => $request->kap_proses,
+                'dec' => $request->kap_proses,
+
+
+            ]);
+        }
 
 
 // dd($map);
