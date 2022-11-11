@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
+Route::get('/multilogin', [App\Http\Controllers\ChangeSectController::class, 'login_multi'])->name('multiLogin');
 Route::post('/multi-login', [App\Http\Controllers\Auth\LoginController::class, 'multiLogin'])->name('multiLogin.process');
 Route::post('/multi-login2', [App\Http\Controllers\ChangeSectController::class, 'multiLogin2'])->name('multiLogin2.process');
 

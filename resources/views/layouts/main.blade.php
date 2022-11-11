@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -535,6 +537,22 @@
                                         <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
                                             <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
                                         <div class="dropdown-divider"></div>
+                                    @endif
+                                    @php
+                                        $users = \App\Models\User::where('username', auth()->user()->username)->get();
+
+                                    @endphp
+                                    @if(count($users) > 1)
+                                    @php
+                                        foreach ($users as $key => $cat) {
+                                            $category[$key] = $cat->category;
+                                        }
+                                    @endphp
+                                    @if ($category[0] != $category[1])
+                                    <a class="dropdown-item" href="{{ route('multiLogin') }}">
+                                        <i class="ti-settings m-r-5 m-l-5"></i> Tukar Sektor </a>
+                                    <div class="dropdown-divider"></div>
+                                    @endif
                                     @endif
 
                                     <a class="dropdown-item" href="#" aria-expanded="false"
