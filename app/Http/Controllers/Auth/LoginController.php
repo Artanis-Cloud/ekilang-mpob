@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pengumuman;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -51,9 +53,6 @@ class LoginController extends Controller
         $category = auth()->user()->category;
 
 
-
-        // dd(auth()->user()->category);
-
         //log audit trail admin
         Auth::user()->log("LOGGED IN");
         switch ($category) {
@@ -84,5 +83,56 @@ class LoginController extends Controller
                 break;
         }
         // dd($category);
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if(!$request->multilogin){
+            $users = User::where('username', auth()->user()->username)->get();
+            if(count($users) > 1){
+                    foreach ($users as $key => $cat) {
+                        $category[$key] = $cat->category;
+                    }
+                    if ($category[0] != $category[1]) {
+                        $this->guard()->logout();
+                        return view('auth.login_multi', compact('users'));
+                    }
+
+
+
+            }
+        }
+    }
+
+    public function multiLogin(Request $request)
+    {
+        $user = User::where('username', $request->username)->where('category', $request->category)->first();
+        Auth::loginUsingId($user->id);
+
+
+        if($request->category == 'PL91') {
+            return redirect()->route('buah.dashboard');
+        }
+
+        if($request->category == 'PL101') {
+            return redirect()->route('penapis.dashboard');
+        }
+
+        if($request->category == 'PL102') {
+            return redirect()->route('isirung.dashboard');
+        }
+
+        if($request->category == 'PL104') {
+            return redirect()->route('oleo.dashboard');
+        }
+
+        if($request->category == 'PL111') {
+            return redirect()->route('pusatsimpan.dashboard');
+        }
+
+        if($request->category == 'PLBIO') {
+            return redirect()->route('bio.dashboard');
+        }
+
     }
 }

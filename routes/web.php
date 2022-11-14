@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'prevent-back-history'],function(){
 Auth::routes();
+Route::get('/multilogin', [App\Http\Controllers\ChangeSectController::class, 'login_multi'])->name('multiLogin');
+Route::post('/multi-login', [App\Http\Controllers\Auth\LoginController::class, 'multiLogin'])->name('multiLogin.process');
+Route::post('/multi-login2', [App\Http\Controllers\ChangeSectController::class, 'multiLogin2'])->name('multiLogin2.process');
 
 //forget password
 Route::get('/testingOER', [App\Http\Controllers\tryController::class, 'testing3'])->name('testing3');
@@ -29,6 +32,8 @@ Route::post('/terlupa-kata-laluan/submit', [App\Http\Controllers\ForgetPasswordC
 Route::post('/terlupa-kata-laluan/kemaskini-kata-laluan-baru', [App\Http\Controllers\ForgetPasswordController::class, 'customChangePassword'])->name('forget.password.update');
 
 Route::get('/password/resets/{token}/{email}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::get('/notifikasi/papar/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'redirect_notification'])->name('notification.show');
+
 //end of forget password
 
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('pelesen.login');
@@ -293,7 +298,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/senarai-pentadbir', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_senarai_pentadbir'])->name('admin.senarai.pentadbir');
         Route::post('admin/edit-pentadbir/{Id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_edit_pentadbir'])->name('admin.edit.pentadbir');
         Route::get('admin/delete-pentadbir/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_delete_pentadbir'])->name('admin.delete.pentadbir');
-        Route::get('/notifikasi/papar/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'redirect_notification'])->name('notification.show');
+        // Route::get('/notifikasi/papar/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'redirect_notification'])->name('notification.show');
 
 
         Route::get('admin/maklumat-penyata-bulanan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_maklumat_penyata_bulanan'])->name('admin.maklumat.penyata.bulanan');

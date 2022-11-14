@@ -120,7 +120,8 @@ class Proses4Controller extends Controller
     public function porting_pelesen()
     {
         //data from e91_init
-        $regpelesen = RegPelesen::with('pelesen')->where('e_status', '1')->get();
+        $regpelesen = RegPelesen::with('pelesen')->get();
+        // $regpelesen = RegPelesen::with('pelesen')->where('e_status', '1')->get();
         // dd($e91init);
 
         // $totalpl91 = 0;

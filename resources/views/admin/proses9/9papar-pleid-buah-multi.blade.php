@@ -62,7 +62,7 @@
 
                         @foreach ($query as $nobatch_key => $data)
 
-                        {{-- {{ dd($data) }} --}}
+                        {{-- {{ dd($data[]) }} --}}
 
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
@@ -102,36 +102,36 @@
 
                                                     BULAN :
                                                     {{-- {{ dd($data) }} --}}
-                                                    @if ($data->e91_bln == '01')
+                                                    @if ($data[0]->e91_bln == '01')
                                                         JANUARI
-                                                    @elseif($data->e91_bln == '02')
+                                                    @elseif($data[0]->e91_bln == '02')
                                                         FEBRUARI
-                                                    @elseif($data->e91_bln == '03')
+                                                    @elseif($data[0]->e91_bln == '03')
                                                         MAC
-                                                    @elseif($data->e91_bln == '04')
+                                                    @elseif($data[0]->e91_bln == '04')
                                                         APRIL
-                                                    @elseif($data->e91_bln == '05')
+                                                    @elseif($data[0]->e91_bln == '05')
                                                         MEI
-                                                    @elseif($data->e91_bln == '06')
+                                                    @elseif($data[0]->e91_bln == '06')
                                                         JUN
-                                                    @elseif($data->e91_bln == '07')
+                                                    @elseif($data[0]->e91_bln == '07')
                                                         JULAI
-                                                    @elseif($data->e91_bln == '08')
+                                                    @elseif($data[0]->e91_bln == '08')
                                                         OGOS
-                                                    @elseif($data->e91_bln == '09')
+                                                    @elseif($data[0]->e91_bln == '09')
                                                         SEPTEMBER
-                                                    @elseif($data->e91_bln == '10')
+                                                    @elseif($data[0]->e91_bln == '10')
                                                         OKTOBER
-                                                    @elseif($data->e91_bln == '11')
+                                                    @elseif($data[0]->e91_bln == '11')
                                                         NOVEMBER
-                                                    @elseif($data->e91_bln == '12')
+                                                    @elseif($data[0]->e91_bln == '12')
                                                         DISEMBER
                                                     @endif
 
                                                     {{-- @foreach ($tahuns as $data) --}}
 
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                    {{ $data->e91_thn }}
+                                                    {{ $data[0]->e91_thn }}
                                                 </b><br>
 
                                             </p>
@@ -149,7 +149,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                {{ $data->h_pelesen->e_nl }}
+                                                                {{ $data[0]->e_nl }}
                                                             </b></td>
 
                                                     </tr>
@@ -161,7 +161,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                {{ $data->h_pelesen->e_np }}
+                                                                {{ $data[0]->e_np }}
                                                             </b></td>
 
                                                     </tr>
@@ -187,7 +187,7 @@
 
                                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_ap1 }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_ap1 }}</b></td>
 
                                                     </tr>
 
@@ -195,7 +195,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_ap2 }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_ap2 }}</b></td>
 
                                                     </tr>
 
@@ -203,7 +203,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_ap3 }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_ap3 }}</b></td>
 
                                                     </tr>
 
@@ -211,7 +211,7 @@
 
                                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_as1 }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_as1 }}</b></td>
 
                                                     </tr>
 
@@ -219,7 +219,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_as2 }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_as2 }}</b></td>
 
                                                     </tr>
 
@@ -227,7 +227,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_as3 }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_as3 }}</b></td>
 
                                                     </tr>
 
@@ -235,7 +235,7 @@
 
                                                         <td width="35%">No Telefon</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_notel }}</b>
+                                                        <td width="65%"><b>{{ $data[0]->e_notel }}</b>
 
                                                         </td>
 
@@ -245,7 +245,7 @@
 
                                                         <td width="35%">No Faks </td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_nofax }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_nofax }}</b></td>
 
                                                     </tr>
 
@@ -253,7 +253,7 @@
 
                                                         <td width="35%">Alamat emel </td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_email }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_email }}</b></td>
 
                                                     </tr>
 
@@ -261,7 +261,7 @@
 
                                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_npg }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_npg }}</b></td>
 
                                                     </tr>
 
@@ -269,7 +269,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_jpg }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_jpg }}</b></td>
 
                                                     </tr>
 
@@ -277,7 +277,7 @@
 
                                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_npgtg }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_npgtg }}</b></td>
 
                                                     </tr>
 
@@ -285,7 +285,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $data->h_pelesen->e_jpgtg }}</b></td>
+                                                        <td width="65%"><b>{{ $data[0]->e_jpgtg }}</b></td>
 
                                                     </tr>
 

@@ -48,7 +48,7 @@ class KonfigurasiController extends Controller
 
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
-        // dd($request->all());
+        // dd(auth()->user());
 
         // $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
@@ -225,7 +225,14 @@ class KonfigurasiController extends Controller
 
         if ($notification) {
             $notification->markAsRead();
+
+            // dd($notification->data['route']);
+            if ($notification->data['route']){
             return redirect($notification->data['route']);
+
+            } else {
+                return redirect()->back();
+            }
         }
     }
 }

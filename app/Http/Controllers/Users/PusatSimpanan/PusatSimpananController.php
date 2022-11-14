@@ -17,6 +17,7 @@ use App\Models\RegPelesen;
 use App\Models\User;
 use App\Notifications\Pelesen\HantarEmelNotification;
 use App\Notifications\Pelesen\HantarEmelNotification2;
+use App\Notifications\Pelesen\HantarPenyataNotification;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -558,6 +559,11 @@ class PusatSimpananController extends Controller
         $pelesen->e_notel_pg = $request->e07_notel;
         $pelesen->save();
 
+        $daripada = $request->all();
+        $kepada = User::where('username', auth()->user()->username)->first();
+
+        $kepada->notify((new HantarPenyataNotification($kepada, $daripada)));
+
 
         return redirect()->route('pusatsimpan.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
@@ -642,14 +648,18 @@ class PusatSimpananController extends Controller
         if ($request->file_upload) {
             $this->store_send_email($request->all());
             $pelesen = $this->store_send_email($request->all());
+            $kepada = User::where('username', auth()->user()->username)->first();
+            // $daripada = User::where('username', auth()->user()->username)->first();
 
-            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
+            $kepada->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
+
         } else {
             $this->store_send_email2($request->all());
             $pelesen = $this->store_send_email2($request->all());
-
-            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
+            $kepada = User::where('username', auth()->user()->username)->first();
+            $kepada->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
         }
+
 
         if ($emel == 'pindaan') {
             return redirect()->back()->with('success', 'Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');

@@ -25,6 +25,7 @@ use App\Models\SyarikatPembeli;
 use App\Models\User;
 use App\Notifications\Pelesen\HantarEmelNotification;
 use App\Notifications\Pelesen\HantarEmelNotification2;
+use App\Notifications\Pelesen\HantarPenyataNotification;
 use Carbon\Carbon;
 use DateTime;
 use DB;
@@ -176,20 +177,44 @@ class KilangBiodieselController extends Controller
         $map->map_sdate = now();
         $map->save();
 
-        $kapasiti = Kapasiti::where('e_nl', $penyata->e_nl)->where('tahun', $tahun)->first();
-        $kapasiti->jan = $request->kap_proses;
-        $kapasiti->feb = $request->kap_proses;
-        $kapasiti->mac = $request->kap_proses;
-        $kapasiti->apr = $request->kap_proses;
-        $kapasiti->mei = $request->kap_proses;
-        $kapasiti->jun = $request->kap_proses;
-        $kapasiti->jul = $request->kap_proses;
-        $kapasiti->ogs = $request->kap_proses;
-        $kapasiti->sept = $request->kap_proses;
-        $kapasiti->okt = $request->kap_proses;
-        $kapasiti->nov = $request->kap_proses;
-        $kapasiti->dec = $request->kap_proses;
-        $kapasiti->save();
+        $check = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();
+        // dd(!$check);
+        if ($check) {
+            $kapasiti = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();
+            $kapasiti->jan = $request->kap_proses;
+            $kapasiti->feb = $request->kap_proses;
+            $kapasiti->mac = $request->kap_proses;
+            $kapasiti->apr = $request->kap_proses;
+            $kapasiti->mei = $request->kap_proses;
+            $kapasiti->jun = $request->kap_proses;
+            $kapasiti->jul = $request->kap_proses;
+            $kapasiti->ogs = $request->kap_proses;
+            $kapasiti->sept = $request->kap_proses;
+            $kapasiti->okt = $request->kap_proses;
+            $kapasiti->nov = $request->kap_proses;
+            $kapasiti->dec = $request->kap_proses;
+            $kapasiti->save();
+        } else {
+            return Kapasiti::create([
+                // 'id' => $count+ 1,
+                'e_nl' => auth()->user()->username,
+                'tahun' => date("Y"),
+                'jan' => $request->kap_proses,
+                'feb' => $request->kap_proses,
+                'mac' => $request->kap_proses,
+                'apr' => $request->kap_proses,
+                'mei' => $request->kap_proses,
+                'jun' => $request->kap_proses,
+                'jul' => $request->kap_proses,
+                'ogs' => $request->kap_proses,
+                'sept' => $request->kap_proses,
+                'okt' => $request->kap_proses,
+                'nov' => $request->kap_proses,
+                'dec' => $request->kap_proses,
+
+
+            ]);
+        }
 
 
 // dd($map);
@@ -1432,6 +1457,11 @@ class KilangBiodieselController extends Controller
         $pelesen->e_notel_pg = $request->ebio_notel;
         $pelesen->save();
 
+        $daripada = $request->all();
+        $kepada = User::where('username', auth()->user()->username)->first();
+
+        $kepada->notify((new HantarPenyataNotification($kepada, $daripada)));
+
 
         return redirect()->route('bio.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
@@ -1589,18 +1619,20 @@ class KilangBiodieselController extends Controller
        // $this->store_send_email($request->all());
 
        if ($request->file_upload) {
-            $this->store_send_email($request->all());
-            $pelesen = $this->store_send_email($request->all());
+        $this->store_send_email($request->all());
+        $pelesen = $this->store_send_email($request->all());
+        $kepada = User::where('username', auth()->user()->username)->first();
+        // $daripada = User::where('username', auth()->user()->username)->first();
+        $kepada->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
 
-            $pelesen->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message)));
+    } else {
+        $this->store_send_email2($request->all());
+        $pelesen = $this->store_send_email2($request->all());
+        $kepada = User::where('username', auth()->user()->username)->first();
+        $kepada->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
+    }
 
-        } else {
-            $this->store_send_email2($request->all());
-            $pelesen = $this->store_send_email2($request->all());
 
-            $pelesen->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message)));
-
-        }
         if ($emel == 'pindaan') {
             return redirect()->back()->with('success', 'Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
 
