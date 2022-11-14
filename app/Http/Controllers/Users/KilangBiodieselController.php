@@ -94,6 +94,8 @@ class KilangBiodieselController extends Controller
     {
 
         $tahun = date('Y');
+        $check = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();
+
         // dd($request->all());
         if (isset($request['alamat_sama'])) {
             $penyata = Pelesen::findOrFail($id);
@@ -177,7 +179,6 @@ class KilangBiodieselController extends Controller
         $map->map_sdate = now();
         $map->save();
 
-        $check = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();
         // dd(!$check);
         if ($check) {
             $kapasiti = Kapasiti::where('e_nl', auth()->user()->username)->where('tahun', $tahun)->first();

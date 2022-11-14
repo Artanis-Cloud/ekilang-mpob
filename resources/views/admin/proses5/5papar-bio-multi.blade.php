@@ -376,6 +376,7 @@
 
 
                                                             </tr>
+                                                            {{-- {{ dd() }} --}}
 
                                                         @endforeach
                                                     @else
@@ -394,7 +395,7 @@
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($dipremis ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis ?? 0,2) }}</b></td>
                                                         <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
 
                                                     </tr>
@@ -492,6 +493,8 @@
                                                                     $total_col_ebio_b9 += $dataib->ebio_b9 ?? 0  ;
                                                                     $total_col_ebio_b10 += $dataib->ebio_b10 ?? 0  ;
                                                                     $total_dipremis2 += $dipremis2 ?? 0  ;
+                                                                    $total_col_ebio_b11 += $dataib->ebio_b11 ?? 0  ;
+
                                                                 @endphp
                                                             </tr>
 
@@ -573,7 +576,7 @@
                                                         @foreach ($penyataic[$key] as $dataic)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $dataic->produk->prodname }}</font>
+                                                                <font size="2">{{ $dataic->produk->proddesc }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $dataic->ebio_b4 }}</font>
