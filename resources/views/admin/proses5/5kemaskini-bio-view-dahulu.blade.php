@@ -1,5 +1,14 @@
 @extends($layout)
+{{-- <style>
+    body {
+        counter-reset: section;
+    }
 
+    .count:before {
+        counter-increment: section;
+        content: counter(section);
+    }
+</style> --}}
 @section('content')
 
     <!-- ======= Hero Section ======= -->
@@ -400,6 +409,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_b5 += $penyataia2->ebio_b5 ?? 0  ;
+                                                                        $total_col_ebio_b6 += $penyataia2->ebio_b6 ?? 0  ;
+                                                                        $total_col_ebio_b7 += $penyataia2->ebio_b7 ?? 0  ;
+                                                                        $total_col_ebio_b8 += $penyataia2->ebio_b8 ?? 0  ;
+                                                                        $total_col_ebio_b9 += $penyataia2->ebio_b9 ?? 0  ;
+                                                                        $total_col_ebio_b10 += $penyataia2->ebio_b10 ?? 0  ;
+                                                                        $total_col_ebio_b11 += $penyataia2->ebio_b11 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
 
@@ -503,6 +521,19 @@
                                                                     $('#add').submit();
                                                                 }
                                                             </script>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
                                                         </tr>
                                                     @else
                                                         <tr>
@@ -610,13 +641,13 @@
                                                     </tr>
                                                     @if($penyataib && !$penyataib->isEmpty())
                                                         @php
-                                                            $total_col_ebio_b5 = 0;
-                                                            $total_col_ebio_b6 = 0;
-                                                            $total_col_ebio_b7 = 0;
-                                                            $total_col_ebio_b8 = 0;
-                                                            $total_col_ebio_b9 = 0;
-                                                            $total_col_ebio_b10 = 0;
-                                                            $total_col_ebio_b11 = 0;
+                                                            $total_col_ebio_b5_b = 0;
+                                                            $total_col_ebio_b6_b = 0;
+                                                            $total_col_ebio_b7_b = 0;
+                                                            $total_col_ebio_b8_b = 0;
+                                                            $total_col_ebio_b9_b = 0;
+                                                            $total_col_ebio_b10_b = 0;
+                                                            $total_col_ebio_b11_b = 0;
                                                         @endphp
                                                         @foreach ($penyataib as $penyataib2)
                                                             <form action="{{ route('admin.kemaskini.maklumat.bio.exe.b.dahulu',  [$penyataib2->ebio_b1] ) }}"  class="sub-form"
@@ -692,6 +723,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_b5_b += $penyataib2->ebio_b5 ?? 0  ;
+                                                                        $total_col_ebio_b6_b += $penyataib2->ebio_b6 ?? 0  ;
+                                                                        $total_col_ebio_b7_b += $penyataib2->ebio_b7 ?? 0  ;
+                                                                        $total_col_ebio_b8_b += $penyataib2->ebio_b8 ?? 0  ;
+                                                                        $total_col_ebio_b9_b += $penyataib2->ebio_b9 ?? 0  ;
+                                                                        $total_col_ebio_b10_b += $penyataib2->ebio_b10 ?? 0  ;
+                                                                        $total_col_ebio_b11_b += $penyataib2->ebio_b11 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
                                                             </form>
@@ -794,6 +834,19 @@
                                                                     $('#add2').submit();
                                                                 }
                                                             </script>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11_b ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
                                                         </tr>
                                                     @else
                                                         <tr>
@@ -982,6 +1035,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_b5 += $penyataic2->ebio_b5 ?? 0  ;
+                                                                        $total_col_ebio_b6 += $penyataic2->ebio_b6 ?? 0  ;
+                                                                        $total_col_ebio_b7 += $penyataic2->ebio_b7 ?? 0  ;
+                                                                        $total_col_ebio_b8 += $penyataic2->ebio_b8 ?? 0  ;
+                                                                        $total_col_ebio_b9 += $penyataic2->ebio_b9 ?? 0  ;
+                                                                        $total_col_ebio_b10 += $penyataic2->ebio_b10 ?? 0  ;
+                                                                        $total_col_ebio_b11 += $penyataic2->ebio_b11 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
                                                             </form>
@@ -1086,6 +1148,19 @@
                                                                 }
                                                             </script>
                                                         </tr>
+                                                        <tr>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
+                                                        </tr>
                                                         {{-- @endforeach --}}
                                                     {{-- @else
                                                         <tr>
@@ -1103,7 +1178,7 @@
                                                 </b> </p>
                                             <table border="0" width="50%" cellspacing="0" cellpadding="0">
                                                 <tbody>
-                                                    <form action="{{ route('admin.kemaskini.maklumat.bio.ii.dahulu',  [$penyataii->lesen] ) }}"  class="sub-form"
+                                                    <form action="{{ route('admin.kemaskini.maklumat.bio.ii.dahulu',  [$penyataii->id] ) }}"  class="sub-form"
                                                         method="post" id="formii" >
                                                         @csrf
                                                         <tr>
@@ -1158,177 +1233,201 @@
                                             <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
                                             </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered" style="padding: 0.2rem 0.3rem">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370">
-                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">NNama Produk Biodiesel</font>
-                                                            </b></td>
-                                                        {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Kod Produk</font>
-                                                            </b></td> --}}
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Awal Di Premis</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian/Terimaan</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Pengeluaran</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan/Edaran Tempatan</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Eksport</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Akhir Dilapor</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Kemaskini</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Tindakan</font>
-                                                            </b></td>
-                                                    </tr>
-                                                    @if($penyataiii && !$penyataiii->isEmpty())
-                                                        @php
-                                                            $total_col_ebio_c4 = 0;
-                                                            $total_col_ebio_c5 = 0;
-                                                            $total_col_ebio_c6 = 0;
-                                                            $total_col_ebio_c7 = 0;
-                                                            $total_col_ebio_c8 = 0;
-                                                            $total_col_ebio_c9 = 0;
-                                                            $total_col_ebio_c10 = 0;
-                                                        @endphp
-                                                        @foreach ($penyataiii as $penyataiii2)
-                                                            <form action="{{ route('admin.kemaskini.maklumat.bio.exe.iii.dahulu',  [$penyataiii2->ebio_c1] ) }}"  class="sub-form"
-                                                                method="post" id="form4" >
-                                                                @csrf
+                                            @if ($penyataiii && !$penyataiii->isEmpty())
 
-                                                                <tr>
-                                                                    <td align="left">
-                                                                        <select class="form-control" id="ebio_c3" name="ebio_c3"  onchange="ajax_produk(this);" >
-                                                                            <option selected value="">Sila Pilih Kumpulan Produk</option>
-                                                                            @foreach ($produkiii as $prods)
-                                                                                <option value="{{ $prods->prodid }}"  {{(old('ebio_c3', $penyataiii2->produk->prodid) == $prods->prodid ? 'selected' : '')}} >
-                                                                                    {{ $prods->proddesc }} - {{ $prods->prodid }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                        {{-- <font size="2">{{ $penyataia->produk->proddesc }}</font> --}}
-                                                                    </td>
-                                                                    {{-- <td align="center">
-                                                                        <font size="2">{{ $penyataia->ebio_b4 }}</font>
-                                                                    </td> --}}
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c4' style="text-align: right" id='ebio_c4'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c4 ??  0,2) }}">
-                                                                    </td>
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c5' style="text-align: right" id='ebio_c5'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c5 ??  0,2) }}">
-                                                                    </td>
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c6' style="text-align: right" id='ebio_c6'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c6 ??  0,2) }}">
-                                                                    </td>
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c7' style="text-align: right" id='ebio_cb7'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c7 ??  0,2) }}">
-                                                                    </td>
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c8' style="text-align: right" id='ebio_c8'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c8 ??  0,2) }}">
-                                                                    </td>
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c9' style="text-align: right" id='ebio_c9'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c9 ??  0,2) }}">
-                                                                    <td align="right">
-                                                                        <input type="text" name='ebio_c10' style="text-align: right" id='ebio_c10'
-                                                                        class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                        value="{{ number_format($penyataiii2->ebio_c10 ??  0,2) }}">
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="icon" style="text-align: center">
+                                                    <table border="1" width="100%" cellspacing="0" cellpadding="0" id="main"
+                                                        class="table table-bordered" style="padding: 0.2rem 0.3rem">
+                                                        <tbody>
+                                                            <tr style="background-color: #d3d3d370">
+                                                                <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Nama Produk Biodiesel</font>
+                                                                    </b></td>
+                                                                {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Kod Produk</font>
+                                                                    </b></td> --}}
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Stok Awal Di Premis</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Belian/Terimaan</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Pengeluaran</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Digunakan Untuk Proses Selanjutnya</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Jualan/Edaran Tempatan</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Eksport</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Stok Akhir Dilapor</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Kemaskini</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Tindakan</font>
+                                                                    </b></td>
+                                                            </tr>
 
-                                                                            <button type="submit" class="btn" style="background-color: rgba(196, 67, 67, 0)">
-                                                                                <i class="fa fa-edit" style="color: #2fb851;font-size:18px"></i>
-                                                                            </button>
+                                                            @php
+                                                                $total_col_ebio_c4 = 0;
+                                                                $total_col_ebio_c5 = 0;
+                                                                $total_col_ebio_c6 = 0;
+                                                                $total_col_ebio_c7 = 0;
+                                                                $total_col_ebio_c8 = 0;
+                                                                $total_col_ebio_c9 = 0;
+                                                                $total_col_ebio_c10 = 0;
+                                                            @endphp
 
-                                                                        </div>
+                                                            @foreach ($penyataiii as $penyataiii2)
+                                                                <form action="{{ route('admin.kemaskini.maklumat.bio.exe.iii.dahulu',  [$penyataiii2->ebio_c1] ) }}"  class="sub-form"
+                                                                    method="post" id="form4" >
+                                                                    @csrf
 
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="icon" style="text-align: center">
-                                                                            <a href="#" type="button" data-toggle="modal"
-                                                                                data-target="#next4{{ $penyataiii2->ebio_c1 }}">
-                                                                                <i class="fa fa-trash"
-                                                                                    style="color: #dc3545;font-size:18px"></i>
-                                                                            </a>
-                                                                        </div>
+                                                                    <tr>
+                                                                        <td align="left">
+                                                                            <select class="form-control" id="ebio_c3" name="ebio_c3"  onchange="ajax_produk(this);" >
+                                                                                <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                                @foreach ($produkiii as $prods)
+                                                                                    <option value="{{ $prods->prodid }}"  {{(old('ebio_c3', $penyataiii2->produk->prodid) == $prods->prodid ? 'selected' : '')}} >
+                                                                                        {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                                    </option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                            {{-- <font size="2">{{ $penyataia->produk->proddesc }}</font> --}}
+                                                                        </td>
+                                                                        {{-- <td align="center">
+                                                                            <font size="2">{{ $penyataia->ebio_b4 }}</font>
+                                                                        </td> --}}
+                                                                        <td align="right">
+                                                                            <input type="text" name='ebio_c4' style="text-align: right" id='ebio_c4'
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                            value="{{ number_format($penyataiii2->ebio_c4 ??  0,2) }}">
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <input type="text" name='ebio_c5' style="text-align: right" id='ebio_c5'
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                            value="{{ number_format($penyataiii2->ebio_c5 ??  0,2) }}">
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <input type="text" name='ebio_c6' style="text-align: right" id='ebio_c6'
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                            value="{{ number_format($penyataiii2->ebio_c6 ??  0,2) }}">
+                                                                        </td>
+                                                                        <td align="right">
+                                                                            <input type="text" name='ebio_c7' style="text-align: right" id='ebio_c7'
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                            value="{{ number_format($penyataiii2->ebio_c7 ??  0,2) }}">
+                                                                        </td>
+                                                                        @if ($penyataiii2->produk->prodid == 'AW')
+                                                                            <td class="text-right"> {{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp;
+                                                                                <a href="#"  data-toggle="modal"
+                                                                                data-target="#kemaskini{{ $penyataiii2->ebio_c1 }}">
+                                                                                    <i class="far fa-file-alt"
+                                                                                        style="color: blue; cursor: pointer;"></i></a>
+                                                                            </td>
+                                                                        @else
+                                                                            <td align="right">
+                                                                                <input type="text" name='ebio_c8' style="text-align: right" id='ebio_c8'
+                                                                                class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                                value="{{ number_format($penyataiii2->ebio_c8 ??  0,2) }}">
 
-                                                                    </td>
+                                                                            </td>
+                                                                        @endif
 
-                                                                </tr>
-                                                            </form>
-                                                            <script>
-                                                                submitForms = function(){
-                                                                    document.getElementById("form4").submit();
-                                                                    // document.getElementById("form2").submit();
-                                                                }
-                                                            </script>
+                                                                        <td align="right">
+                                                                            <input type="text" name='ebio_c9' style="text-align: right" id='ebio_c9'
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                            value="{{ number_format($penyataiii2->ebio_c9 ??  0,2) }}">
+                                                                        <td align="right">
+                                                                            <input type="text" name='ebio_c10' style="text-align: right" id='ebio_c10'
+                                                                            class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                            value="{{ number_format($penyataiii2->ebio_c10 ??  0,2) }}">
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="icon" style="text-align: center">
 
-                                                            <div class="modal fade" id="next4{{ $penyataiii2->ebio_c1 }}" tabindex="-1"
-                                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                                    role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                                PENGESAHAN</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>
-                                                                                Anda pasti mahu menghapus produk ini?
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                                data-dismiss="modal">
-                                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Tidak</span>
-                                                                            </button>
-                                                                            <a href="{{ route('admin.delete.bahagian.iii.dahulu', [$penyataiii2->ebio_c1]) }}"
-                                                                                type="button" class="btn btn-light-secondary"
-                                                                                style="color: #275047; background-color: #a1929238">
-                                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Ya</span>
-                                                                            </a>
+                                                                                <button type="submit" class="btn" style="background-color: rgba(196, 67, 67, 0)">
+                                                                                    <i class="fa fa-edit" style="color: #2fb851;font-size:18px"></i>
+                                                                                </button>
+
+                                                                            </div>
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="icon" style="text-align: center">
+                                                                                <a href="#" type="button" data-toggle="modal"
+                                                                                    data-target="#next4{{ $penyataiii2->ebio_c1 }}">
+                                                                                    <i class="fa fa-trash"
+                                                                                        style="color: #dc3545;font-size:18px"></i>
+                                                                                </a>
+                                                                            </div>
+
+                                                                        </td>
+                                                                        @php
+                                                                            $total_col_ebio_c4 += $penyataiii2->ebio_c4 ?? 0  ;
+                                                                            $total_col_ebio_c5 += $penyataiii2->ebio_c5 ?? 0  ;
+                                                                            $total_col_ebio_c6 += $penyataiii2->ebio_c6 ?? 0  ;
+                                                                            $total_col_ebio_c7 += $penyataiii2->ebio_c7 ?? 0  ;
+                                                                            $total_col_ebio_c8 += $penyataiii2->ebio_c8 ?? 0  ;
+                                                                            $total_col_ebio_c9 += $penyataiii2->ebio_c9 ?? 0  ;
+                                                                            $total_col_ebio_c10 += $penyataiii2->ebio_c10 ?? 0  ;
+                                                                        @endphp
+
+                                                                    </tr>
+                                                                </form>
+                                                                <script>
+                                                                    submitForms = function(){
+                                                                        document.getElementById("form4").submit();
+                                                                        // document.getElementById("form2").submit();
+                                                                    }
+                                                                </script>
+
+
+                                                                <div class="modal fade" id="next4{{ $penyataiii2->ebio_c1 }}" tabindex="-1"
+                                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                        role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                                    PENGESAHAN</h5>
+                                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <i data-feather="x"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <p>
+                                                                                    Anda pasti mahu menghapus produk ini?
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-primary ml-1"
+                                                                                    data-dismiss="modal">
+                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Tidak</span>
+                                                                                </button>
+                                                                                <a href="{{ route('admin.delete.bahagian.iii.dahulu', [$penyataiii2->ebio_c1]) }}"
+                                                                                    type="button" class="btn btn-light-secondary"
+                                                                                    style="color: #275047; background-color: #a1929238">
+                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Ya</span>
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        @endforeach
-                                                        <tr>
+                                                            @endforeach
                                                             <form action="{{ route('admin.add.bahagian.iii.dahulu', [$penyata->ebio_nobatch] ) }}" method="post" id="add5">
                                                                 @csrf
+                                                            <tr>
                                                                 <td align="left">
                                                                     <select class="form-control" id="ebio_c3" name="ebio_c3"  onchange="ajax_produk(this);" >
                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
@@ -1376,21 +1475,254 @@
                                                                     </div>
 
                                                                 </td>
+                                                                <script>
+                                                                    function submitFormAdd5(){
+                                                                        $('#add5').submit();
+                                                                    }
+                                                                </script>
+                                                            </tr>
                                                             </form>
-                                                            <script>
-                                                                function submitFormAdd5(){
-                                                                    $('#add5').submit();
-                                                                }
-                                                            </script>
-                                                        </tr>
-                                                    @else
-                                                        <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr>
-                                                    @endif
+                                                            <tr>
+                                                                <td align="center" >
+                                                                    <font size="2"><b>JUMLAH</b></font>
+                                                                </td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c4 ?? 0,2) }}</b></td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c5 ?? 0,2) }}</b></td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c6 ?? 0,2) }}</b></td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c7 ?? 0,2) }}</b></td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c8 ?? 0,2) }}</b></td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c9 ?? 0,2) }}</b></td>
+                                                                <td class="text-right"><b>{{  number_format($total_col_ebio_c10 ?? 0,2) }}</b></td>
+                                                                {{-- <td colspan="2">-</td> --}}
+                                                            </tr>
 
-                                                </tbody>
-                                            </table><br>
+                                                        </tbody>
+                                                    </table>
+                                                <br>
+                                            @else
+                                                <form action="{{ route('admin.add.bahagian.iii.dahulu', [$penyata->ebio_nobatch] ) }}" method="post" id="add5">
+                                                    @csrf
+                                                    <table border="1" width="100%" cellspacing="0" cellpadding="0" id="main"
+                                                        class="table table-bordered" style="padding: 0.2rem 0.3rem">
+                                                        <tbody>
+                                                            <tr style="background-color: #d3d3d370">
+                                                                <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Nama Produk Biodiesel</font>
+                                                                    </b></td>
+                                                                {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Kod Produk</font>
+                                                                    </b></td> --}}
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Stok Awal Di Premis</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Belian/Terimaan</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Pengeluaran</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Digunakan Untuk Proses Selanjutnya</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Jualan/Edaran Tempatan</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Eksport</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Stok Akhir Dilapor</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Kemaskini</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Tindakan</font>
+                                                                    </b></td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td align="left">
+                                                                    <select class="form-control select2" id="produk" name="ebio_c3"  onchange="showDetail()">
+                                                                        <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                        @foreach ($produkiii as $prods)
+                                                                            <option value="{{ $prods->prodid }}"  >
+                                                                                {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c4' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c5' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c6' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c7' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td id="data_hidden">
+                                                                    <input type="text" name='ebio_c8' id="ebio_c8" style="text-align: right"
+                                                                    class="form-control">
+                                                                    <div id="merah_container" style="display:none" class="blink_me">
+                                                                        <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
+                                                                            style="font-size:11px; color:red; font:rubik" type="button"
+                                                                            data-toggle="modal" data-target="#modal" &nbsp;> (Sila klik untuk
+                                                                            mengisi<br> maklumat
+                                                                            jualan) </i>
+
+                                                                    </div>
+
+                                                                <table id="cc3_4"></table>
+                                                                </td>
+
+                                                                <td>
+                                                                    <input type="text" name='ebio_c9' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c10' style="text-align: right"
+                                                                    class="form-control">
+                                                                </td>
+                                                                <td colspan="2">
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="javascript: submitFormAdd5();" >
+                                                                            <i class="fa fa-plus"
+                                                                                style="color: #237f46;font-size:18px"></i>
+                                                                        </a>
+                                                                    </div>
+
+                                                                </td>
+
+                                                                {{-- INPUT HIDDEN
+                                                                <input type="hidden" name="jumlah_row[]">
+                                                                INPUT HIDDEN2
+                                                                <input type="hidden" name="jumlah_row1[]"> --}}
+
+                                                                <script>
+                                                                    function submitFormAdd5(){
+                                                                        $('#add5').submit();
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+                                                <br>
+                                            @endif
+
+                                            <div class="col-md-6 col-12">
+
+                                                <!--Kemaskini Maklumat Modal -->
+                                                <div class="modal fade" id="kemaskini{{ $penyataiii2->ebio_c1 ?? '' }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable" role="document" style="max-width:70%">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                    Kemaskini Maklumat Produk</h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                {{-- <form action="{{ route('bio.edit.bahagian.iii.sykt', $penyata[0]->ebio_c1) }}" method="post" class="sub-form" id="myForm">
+                                                                    @csrf --}}
+
+                                                                    <div class="table-responsive col-10 ml-auto mr-auto">
+                                                                        <table class="table table-bordered" style="font-size: 13px" id="data_table">
+                                                                            <thead style="text-align: center">
+                                                                                <tr style="vertical-align: middle; background-color: #d3d3d34d">
+                                                                                    <th style="vertical-align: middle; ">Bil</th>
+                                                                                    <th style="vertical-align: middle; ">Nama Syarikat</th>
+                                                                                    <th style="vertical-align: middle;" colspan="2"> Jualan / Edaran</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @foreach ($senarai_syarikat as $data)
+                                                                                    <tr id="row{{ $data->ebio_cc1 }}">
+
+                                                                                        <td style="text-align: center" class="count"></td>
+                                                                                        <td><input type="text" id="ebio_cc3" class="form-control"
+                                                                                                style="text-align: center" placeholder="Nama Syarikat" name="ebio_cc3[]"
+                                                                                                value="{{ $data->syarikat->pembeli ?? 0 }}" readonly></td>
+                                                                                        {{-- <div class="modal-body">
+                                                                                                <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+                                                                                                    <tr>
+                                                                                                        <th>Nama Syarikat</th>
+                                                                                                        <th>Jumlah Jualan / Edaran</th>
+                                                                                                    </tr>
+                                                                                                    <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td> --}}
+                                                                                        <td><input type="text" id="ebio_cc4{{ $data->ebio_cc1 }}" class="form-control"
+                                                                                                style="text-align: center" placeholder=" Jualan / Edaran" onchange="validation_jumlah({{ $data->ebio_cc1 }}) ; autodecimal(this);FormatCurrency(this);"
+                                                                                                name="ebio_cc4[]" onkeypress="return isNumberKey(event)" onClick="this.select();"
+                                                                                                value="{{ number_format($data->ebio_cc4 ?? 0, 2) }}"></td>
+                                                                                        <td><input type="button" class="add btn btn-danger"
+                                                                                                style="display: block; margin: auto;"
+                                                                                                onclick="deleteRow({{ $data->ebio_cc1 }});" value="Hapus">
+                                                                                        </td>
+
+
+                                                                                    </tr>
+                                                                                @endforeach
+
+                                                                                <tr>
+                                                                                    {{-- @endforeach --}}
+                                                                                    <td></td>
+                                                                                    <td class="field"><select class="form-control select2 " id="new_syarikat_edit[]"
+                                                                                            name="new_syarikat[]">
+                                                                                            <option selected hidden disabled value="">Sila Pilih</option>
+                                                                                            @foreach ($syarikat as $data)
+                                                                                                <option value="{{ $data->id }}">
+                                                                                                    {{ $data->pembeli }}
+                                                                                                </option>
+                                                                                            @endforeach
+
+                                                                                        </select></td>
+                                                                                    <td class="field"><input type="text" id="new_jumlah_edit[]" class="form-control"
+                                                                                            style="text-align: center" name='new_jumlah[]' placeholder="Jualan/Edaran"
+                                                                                            onkeypress="return isNumberKey(event)"></td>
+                                                                                    <td class="actions"><input type="button" class="add btn btn-primary" style="display: block; margin: auto;"
+                                                                                            disabled="disabled" onclick="add_row2();" value="Tambah Maklumat">
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr style="background-color: #d3d3d34d; text-align: center">
+
+                                                                                    <td colspan="2"><b>JUMLAH</b></td>
+                                                                                    <td ><b><span id="total" name="total">
+                                                                                            </span>
+                                                                                            <input type="hidden" id="total_hidden" name="total_hidden">
+                                                                                        </b>
+                                                                                    </td>
+                                                                                    <td></td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+
+
+                                                                    <table id="cc3_4"></table>
+
+                                                                {{-- </form> --}}
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">
@@ -1429,8 +1761,97 @@
                                                         </b></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-center" colspan="8">Tiada Rekod</td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td style="text-align: center; vertical-align:middle">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
                                                     </tr>
+
+                                            </tbody>
+                                        </table><br>
+
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">
+                                                BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
+
+                                            </font>
+                                        </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
+                                                    <td width="15%" align="center"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Produk</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Nombor Borang Kastam 1</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Tarikh Import</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kuantiti
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">DNegara Sumber Import</font>
+                                                    </b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
 
                                             </tbody>
                                         </table><br>
@@ -1476,6 +1897,100 @@
 
         </div>
 
+        <!-- Syarikat Input Modal -->
+        <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Maklumat Jualan / Edaran</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive col-10 ml-auto mr-auto">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" style="font-size: 13px" id="data_table">
+                                    <thead style="text-align: center">
+                                        <tr style="vertical-align: middle">
+                                            <th style="vertical-align: middle;">Nama Syarikat</th>
+                                            <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
+                                            <th style="vertical-align: middle;">Tindakan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            {{-- <div class='field'> --}}
+
+                                            <td class="field"><select class="form-control select2 "
+                                                    style="width: 100px" id="new_syarikat[]"
+                                                    name="new_syarikat[]" onchange="showDetail()"
+                                                    oninput="removeDisabled()">
+                                                    <option selected hidden disabled value="">Sila Pilih
+                                                    </option>
+                                                    @foreach ($syarikat as $data)
+                                                        <option value="{{ $data->id }}">
+                                                            {{ $data->pembeli }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select></td>
+                                            {{-- </div> --}}
+                                            <td class="field"><input type="text" id="new_jumlah[]"
+                                                    class="form-control" style="text-align: center"
+                                                    onkeypress="return isNumberKey(event)" name='new_jumlah[]'>
+                                                {{-- <div class='actions'> --}}
+
+                                            <td style="size: 10ch" class="actions" align="center">
+                                                <i class="fa fa-plus-circle center" type="button" id="tambah_maklumat"
+                                                    onclick="add_row()" disabled="disabled" style="font-size:30px; color:green;">
+                                                    {{-- <input  class="btn btn-primary ml-1 actions"
+                                                    id="tambah_maklumat" onclick="add_row()" disabled="disabled"
+                                                    value="Tambah Maklumat"> --}}
+                                                </i>
+                                            </td>
+                                            {{-- </div> --}}
+                                        </tr>
+                                        <tr style="background-color: #d3d3d34d; text-align: center">
+
+                                            <td><b>JUMLAH</b></td>
+                                            <td><b><span id="total" name="total">
+                                                    </span>
+                                                    <input type="hidden" id="total_hidden" name="total_hidden">
+                                                </b>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        </form>
+
+                    </div>
+
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class=" bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" id="btnShow">Tambah</span>
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
 
@@ -1488,68 +2003,278 @@
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
-    <script type="text/javascript">
+
+
+
+
+    <script>
         $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseInt($(this).val());
+            $('.field input').keyup(function() {
+
+                var empty = false;
+                $('.field input').each(function() {
+                    if ($(this).val().length == 0) {
+                        empty = true;
                     }
                 });
-                $('#total').html(total);
+
+                if (empty) {
+                    $('.actions input').attr('disabled', 'disabled');
+                } else {
+                    $('.actions input').attr('disabled', false);
+                }
             });
         });
     </script>
 
 
-{{-- <script>
-    $('.sub-form').submit(function() {
+    <script type="text/javascript">
+        function showDetail() {
+            var produk = $('#produk').val();
+            // const total = $produk2;
 
-        var x = $('#ebio_b5').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b5').val(x);
+            if (produk == "AW") {
+                document.getElementById('merah_container').style.display = "block";
+                $('#ebio_c8').attr('readonly', 'readonly');
+                $('#ebio_c8').attr('value', ' 0.00');
 
-        var x = $('#ebio_b6').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b6').val(x);
+                // document.getElementById('isaw').style.display = "block";
+                // document.getElementById('notaw').style.display = "none";
+                // document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('merah_container').style.display = "none";
+                $('#ebio_c8').removeAttr('readonly');
+                $('#ebio_c8').removeAttr('value');
+                // document.getElementById('isaw').style.display = "none";
+                // document.getElementById('notaw').style.display = "block";
+                // document.getElementById('lain_container').style.display = "block";
 
-        var x = $('#ebio_b7').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b7').val(x);
+            }
+        }
+    </script>
+    <script>
+        function removeDisabled() {
 
-        var x = $('#ebio_b8').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b8').val(x);
+            var new_syarikat = document.getElementById("new_syarikat[]").value;
+            // var new_jumlah = document.getElementById("new_jumlah[]").value;
+            // console.log(new_syarikat);
+            var table_input = document.getElementById("data_table");
+            var table_input_len = (table_input.rows.length) - 1;
 
-        var x = $('#ebio_b9').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b9').val(x);
-
-        var x = $('#ebio_b10').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b10').val(x);
-
-        var x = $('#ebio_b11').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b11').val(x);
-
-        var x = $('#ebio_b12').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b12').val(x);
+            if (new_syarikat != "") {
+                $('#tambah_maklumat').attr('disabled', 'disabled');
+            } else {
+                $('#tambah_maklumat').attr('disabled', false);
+            }
+        }
+    </script>
 
 
-        return true;
+    <script type="text/javascript" src="{{ asset('js/table_scripts.js') }}"></script>
+    <script>
+        function add_row() {
+            var new_syarikat = document.getElementById("new_syarikat[]").value;
+            var new_jumlah = document.getElementById("new_jumlah[]").value;
 
-    });
-</script> --}}
+            var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]")
+                .selectedIndex].text;
+
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length) - 2;
+
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center' id='syarikat_row" +
+                table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
+                "text-align:center" + ">" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                "</td><td><input type='hidden' id='jumlah_row" + table_len +
+                "' name='jumlah_row_input[]' value=" + new_jumlah +
+                "> <input type='button' value='Hapus' style='display: block; margin: auto' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
+                ")'></td></tr>";
+
+            var table_input = document.getElementById("cc3_4");
+            var table_input_len = (table_input.rows.length);
+
+            // var row_input = table_input.insertRow(table_input_len).outerHTML =
+            //     "<tr id='row_input" + table_input_len + "'><td><input  id='jumlah_row_hidden" +
+            //     table_input_len +
+            //     "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+            //     "><input id='new_syarikat_hidden" + table_input_len +
+            //     "' name='new_syarikat_hidden[]' value=" + new_syarikat +
+            //     "></td></tr>";
+            document.getElementsByName("new_syarikat_hidden[]").value = new_syarikat;
+            document.getElementsByName("jumlah_row_hidden[]").value = new_jumlah;
+
+            var content = document.getElementById("data_hidden");
+
+            $('#data_hidden').append('<input type="text" name="new_syarikat_hidden[]"  id="new_syarikat_hidden" value="'+ new_syarikat +'" />');
+            $('#data_hidden').append('<input type="text" name="jumlah_row_hidden[]"  id="jumlah_row_hidden" value="'+ new_jumlah +'" />');
+
+            document.getElementById("new_syarikat[]").value = "";
+            document.getElementById("new_jumlah[]").value = "";
+
+            let total = 0;
+            console.log(table_input_len);
+
+            for(var i=0;i<document.getElementsByName("jumlah_row_input[]").length;i++){
+                var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
+                // console.log('hidden_value',hidden_value);
+                total += parseFloat(hidden_value);
+                // total2 = parseFloat(total).toFixed(2);
+
+            }
+
+            // for (let index = 0; index <= table_input_len; index++) {
+            //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+            //     total += parseInt(hidden_value);
+            // }
+            // new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
+            // var num2 = total.toFixed(2);
+            // var num1 = new Intl.NumberFormat().format(total);
+
+            // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
+            // console.log("total", total);
+                console.log(document.getElementById("ebio_c8").value);
+
+        }
+
+        function delete_row(no) {
+            document.getElementById("row" + no + "").remove();
+            // document.getElementById("row_input" + no + "").outerHTML = "";
+            document.getElementById("jumlah_row_hidden" + (no - 2)).remove();
+            document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
+
+            var x = document.getElementsByName('jumlah_row_hidden[]');
+
+            let total = 0;
+
+            for (let index = 0; index < x.length; index++) {
+                // let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+                let hidden_value = x[index].value;
+                console.log('hidden_value', hidden_value);
+                total += parseInt(hidden_value);
+            }
+            document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    </script>
+
+    {{-- <script>
+        $(function() {
+            let total = 0;
+            for (var i = 0; i < document.getElementsByName("ebio_cc4[]").length; i++) {
+                var hidden_value = document.getElementsByName("ebio_cc4[]")[i].value;
+                // console.log(hidden_value);
+                x = hidden_value.replace(/,/g, '');
+
+                // console.log('hidden_value',hidden_value);
+                total += parseFloat(x);
+            }
+            console.log("initial", total);
+            document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        });
+
+
+        function add_row2() {
+            // var seq = $seq;
+            // seq += 1
+            var new_syarikat = document.getElementById("new_syarikat_edit[]").value;
+            var new_jumlah = document.getElementById("new_jumlah_edit[]").value;
+            // x = new_jumlah.replace(/,/g, '');
+
+
+            var nama_syarikat = document.getElementById("new_syarikat_edit[]").options[document.getElementById("new_syarikat_edit[]")
+                .selectedIndex].text;
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length) - 2;
+            // console.log(parseFloat(new_jumlah).toFixed(2));
+
+            // var newnjumlah = new_jumlah.toFixed(2);
+
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len +
+                "'><td style='text-align:center' class='count'></td><td id='syarikat_row" +
+                table_len + "' style='text-align:center' >" + nama_syarikat + "</td><td id='jumlah_row" + table_len +
+                "' style='text-align:center'>" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                "</td><td><input type='hidden' id='jumlah_row" + table_len +
+                " name='ebio_cc4[]' value=" + new_jumlah +
+                "> <input type='button' value='Hapus' style='display: block; margin: auto' class='delete btn btn-danger' onclick='delete_row(" +
+                table_len + ")'></td></tr>";
+
+            var table_input = document.getElementById("cc3_4");
+            var table_input_len = (table_input.rows.length);
+            var row_input = table_input.insertRow(table_input_len).outerHTML =
+                "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='ebio_cc4_hidden" +
+                table_input_len +
+                "' name='ebio_cc4_hidden[]' value=" + new_jumlah +
+                "><input  type='hidden' id='new_syarikat_hidden" + table_input_len +
+                "' name='new_syarikat_hidden[]' value=" + new_syarikat +
+                "></td></tr>";
+
+            document.getElementById("new_syarikat[]").value = "";
+            document.getElementById("new_jumlah[]").value = "";
+
+            let total = 0;
+            //  console.log(total2);
+
+            for (var i = 0; i < document.getElementsByName("ebio_cc4[]").length; i++) {
+                var hidden_value = document.getElementsByName("ebio_cc4[]")[i].value;
+                // console.log('hidden_value',hidden_value);
+                x = hidden_value.replace(/,/g, '');
+
+                total += parseFloat(x);
+            }
+
+
+            let total2 = 0;
+            for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
+                var hidden_value = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
+                x = hidden_value.replace(/,/g, '');
+
+                // console.log('hidden_value',hidden_value);
+                total2 += parseFloat(x);
+            }
+            console.log("add row1", total);
+
+            var ftotal = total + total2;
+
+            console.log("add row full total", ftotal);
+            document.getElementById("total").innerHTML = (ftotal.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function delete_row(no) {
+            document.getElementById("row" + no + "").remove();
+            // document.getElementById("row_input" + no + "").outerHTML = "";
+
+            document.getElementById("ebio_cc4_hidden" + (no - 2)).remove();
+            document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
+
+            let total = 0;
+
+        for (var i = 0; i < document.getElementsByName("ebio_cc4[]").length; i++) {
+                var hidden_value = document.getElementsByName("ebio_cc4[]")[i].value;
+                // console.log('hidden_value',hidden_value);
+                x = hidden_value.replace(/,/g, '');
+
+                total += parseFloat(x);
+            }
+
+            let total2 = 0;
+        for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
+                var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
+                console.log('hidden_value',hidden_value2);
+                x = hidden_value2.replace(/,/g, '');
+
+                total2 += parseFloat(x);
+            }
+
+            var ftotal = total + total2;
+            console.log("validation", ftotal);
+
+        document.getElementById("total").innerHTML = (ftotal.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+
+
+        }
+    </script> --}}
 
 @endsection

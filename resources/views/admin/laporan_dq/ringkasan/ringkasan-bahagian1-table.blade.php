@@ -3799,8 +3799,8 @@
             }
         };
     </script>
-     <script>
-      function ExportToExcel()
+    <script>
+        function ExportToExcel()
         {
             var filename = "Laporan Ringkasan Bahagian 1"
             var tab_text = "<table border='2px'><tr bgcolor=''>";
@@ -3819,8 +3819,8 @@
             a.href = data_type + ', ' + encodeURIComponent(tab_text);
             a.download = filename + '.xls';
             a.click();
-                }
-        </script>
+        }
+    </script>
     <script>
         $(document).ready(function() {
             $('#example4').DataTable( {

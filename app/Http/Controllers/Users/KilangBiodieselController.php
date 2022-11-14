@@ -1042,7 +1042,6 @@ class KilangBiodieselController extends Controller
             // ->where('e102_b5', $request->e102_b5)
             ->first();
         // dd($penyata);
-        // dd($request->all());
         if ($penyata) {
             return redirect()->route('bio.bahagianiii')->with('error', 'Maklumat sudah tersedia');
         } else {

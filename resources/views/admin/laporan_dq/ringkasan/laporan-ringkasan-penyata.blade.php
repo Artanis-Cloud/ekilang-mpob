@@ -65,7 +65,7 @@
                     <div class="col-11 align-self-center" style="text-align: right">
                         <button class="dt-button buttons-excel buttons-html5"   style="background-color: white; color: #0a7569; "
                          onclick="tablesToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9'],
-                        ['Maklumat Syarikat','TARIKH TERIMA PENYATA BULANAN','STOK AWAL BULAN DI PREMIS','BELIAN DAN TERIMAAN','DIGUNAKAN UNTUK PROSES SELANJUTNYA','PENGELUARAN',
+                        ['Maklumat Syarikat','TARIKH TERIMA PENYATA BULANAN','STOK AWAL BULAN DI PREMIS','BELIAN DAN TERIMAAN','PENGELUARAN','DIGUNAKAN UNTUK PROSES SELANJUTNYA',
                         'JUALAN DAN EDARAN TEMPATAN','EKSPORT','STOK AKHIR BULAN DILAPOR'],
                          'Ringkasan Penyata.xls', 'Excel')"><i class="fa fa-file-excel" style="color: #0a7569"></i> Excel</button>
                         <button type="button" class="dt-button buttons-excel buttons-html5"
@@ -277,7 +277,7 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2.5"><b>DIGUNAKAN UNTUK PROSES SELANJUTNYA</b><br></font>
+                                        <font size="2.5"><b>PENGELUARAN</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
                                             <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl5">
@@ -344,7 +344,7 @@
                                         </div>
                                         <br>
                                         <p align="center">
-                                        <font size="2.5"><b>PENGELUARAN</b><br></font>
+                                        <font size="2.5"><b>DIGUNAKAN UNTUK PROSES SELANJUTNYA</b><br></font>
                                         </p>
                                         <div class="col-12 table-responsive ">
                                             <table class="table table-bordered table-responsive-lg text-center" style="font-size: 13px" id="tbl6">
