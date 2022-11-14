@@ -994,56 +994,109 @@
                                                     </font>
                                                 </b> </p>
                                             <table border="0" width="50%" cellspacing="0" cellpadding="0">
-                                                <tbody>
-                                                    <form action="{{ route('admin.kemaskini.maklumat.bio.ii',  [$penyataii->lesen ] ) }}"  class="sub-form"
-                                                        method="post" id="formii" >
-                                                        @csrf
-                                                        <tr>
-                                                            <td width="50%">Jumlah Hari Kilang Beroperasi Sebulan :</td>
-                                                            <td width="20%" align="left">
-                                                                <input type="text" name='hari_operasi' style="text-align: right" id='hari_operasi'
-                                                                class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                value=  "{{ $penyataii->hari_operasi ??  0 }}" >
-                                                            </td>
-                                                            <td width="20%">
-                                                                <b>&nbsp Hari</b>
-                                                            </td>
-                                                            {{-- <td width="100"><b>:{{ $penyataii->hari_operasi }}</b></td> --}}
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="50%">Kadar Penggunaan Kapasiti Sebulan :</td>
-                                                            <td width="20%" align="left">
-                                                                <input type="text" name='kapasiti' style="text-align: right" id='kapasiti'
-                                                                class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
-                                                                value=  "{{ number_format($penyataii->kapasiti ??  0,2) }}" >
-                                                            </td>
-                                                            <td width="20%">
-                                                                <b>&nbsp %</b>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="50%"><b>Kemaskini</b></td>
-                                                            <td width="20%" align="left">
-                                                            <div class="icon" style="text-align: center">
+                                                @if($penyataii)
+                                                    <tbody>
+                                                        <form action="{{ route('admin.kemaskini.maklumat.bio.ii',  [$penyataii->lesen ] ) }}"  class="sub-form"
+                                                            method="post" id="formii" >
+                                                            @csrf
+                                                            <tr>
+                                                                <td width="50%">Jumlah Hari Kilang Beroperasi Sebulan :</td>
+                                                                <td width="20%" align="left">
+                                                                    <input type="text" name='hari_operasi' style="text-align: right" id='hari_operasi'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                    value=  "{{ $penyataii->hari_operasi ??  0 }}" >
+                                                                </td>
+                                                                <td width="20%">
+                                                                    <b>&nbsp Hari</b>
+                                                                </td>
+                                                                {{-- <td width="100"><b>:{{ $penyataii->hari_operasi }}</b></td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="50%">Kadar Penggunaan Kapasiti Sebulan :</td>
+                                                                <td width="20%" align="left">
+                                                                    <input type="text" name='kapasiti' style="text-align: right" id='kapasiti'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                    value=  "{{ number_format($penyataii->kapasiti ??  0,2) }}" >
+                                                                </td>
+                                                                <td width="20%">
+                                                                    <b>&nbsp %</b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="50%"><b>Kemaskini</b></td>
+                                                                <td width="20%" align="left">
+                                                                <div class="icon" style="text-align: center">
 
-                                                                <button class="dt-button buttons-excel buttons-html5 mt-1" type="submit"
-                                                                    style="background-color: white; color: #0a7569; ">
-                                                                    <i class="fa fa-edit" style="color: #0a7569"></i> Kemaskini
-                                                                </button>
+                                                                    <button class="dt-button buttons-excel buttons-html5 mt-1" type="submit"
+                                                                        style="background-color: white; color: #0a7569; ">
+                                                                        <i class="fa fa-edit" style="color: #0a7569"></i> Kemaskini
+                                                                    </button>
 
-                                                            </div>
+                                                                </div>
 
-                                                            </td>
+                                                                </td>
 
-                                                        </tr>
-                                                    </form>
-                                                    <script>
-                                                        submitForms = function(){
-                                                            document.getElementById("formii").submit();
-                                                            // document.getElementById("form2").submit();
-                                                        }
-                                                    </script>
-                                                </tbody>
+                                                            </tr>
+                                                        </form>
+                                                        <script>
+                                                            submitForms = function(){
+                                                                document.getElementById("formii").submit();
+                                                                // document.getElementById("form2").submit();
+                                                            }
+                                                        </script>
+                                                    </tbody>
+                                                @else
+                                                    <tbody>
+                                                        <form action="{{ route('admin.add.maklumat.bio.ii',  [$penyata->ebio_nl ] ) }}"  class="sub-form"
+                                                            method="post" id="formAddii" >
+                                                            @csrf
+                                                            <tr>
+                                                                <td width="50%">Jumlah Hari Kilang Beroperasi Sebulan :</td>
+                                                                <td width="20%" align="left">
+                                                                    <input type="text" name='hari_operasi' style="text-align: right" id='hari_operasi'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                    value=  "{{ $penyataii->hari_operasi ??  0 }}" >
+                                                                </td>
+                                                                <td width="20%">
+                                                                    <b>&nbsp Hari</b>
+                                                                </td>
+                                                                {{-- <td width="100"><b>:{{ $penyataii->hari_operasi }}</b></td> --}}
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="50%">Kadar Penggunaan Kapasiti Sebulan :</td>
+                                                                <td width="20%" align="left">
+                                                                    <input type="text" name='kapasiti' style="text-align: right" id='kapasiti'
+                                                                    class="form-control" onkeypress="return isNumberKey(event)" oninput="FormatCurrency(this);"
+                                                                    value=  "{{ number_format($penyataii->kapasiti ??  0,2) }}" >
+                                                                </td>
+                                                                <td width="20%">
+                                                                    <b>&nbsp %</b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="50%"><b>Kemaskini</b></td>
+                                                                <td width="20%" align="left">
+                                                                <div class="icon" style="text-align: center">
+
+                                                                    <button class="dt-button buttons-excel buttons-html5 mt-1" type="submit"
+                                                                        style="background-color: white; color: #0a7569; ">
+                                                                        <i class="fa fa-edit" style="color: #0a7569"></i> Kemaskini
+                                                                    </button>
+
+                                                                </div>
+
+                                                                </td>
+
+                                                            </tr>
+                                                        </form>
+                                                        <script>
+                                                            submitForms = function(){
+                                                                document.getElementById("formAddii").submit();
+                                                                // document.getElementById("form2").submit();
+                                                            }
+                                                        </script>
+                                                    </tbody>
+                                                @endif
                                             </table><br>
 
 

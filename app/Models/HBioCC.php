@@ -16,7 +16,7 @@ class HBioCC extends Model
      * @var string
      *
      */
-    protected $table = 'h_bio_cc'; //penyata bulanan terkini - kilang oleokimia (initialize - proses 3)
+    protected $table = 'h_bio_cc';
     protected $primaryKey = 'ebio_cc1';
     public $timestamps = false;
 
@@ -33,9 +33,9 @@ class HBioCC extends Model
 
 
     public function hbioinit(){
-        return $this->hasOne(HBioInit::class,'ebio_nobatch', 'ebio_reg');
+        return $this->hasOne(HBioInit::class,'ebio_nobatch', 'ebio_nobatch');
     }
-    public function ebioc(){
+    public function hbioc(){
         return $this->hasOne(HBioC::class,'ebio_cc3', 'ebio_cc2');
     }
     public function syarikat(){
