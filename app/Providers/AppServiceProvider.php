@@ -63,14 +63,15 @@ class AppServiceProvider extends ServiceProvider
 
                 // $map_flg = User::where('username', auth()->user()->username)->first();
                 // dd($map_flg);
+                // dd(date('d-m'));
                 // $map_date_expired = date('Y-m-d', strtotime("+6 months", strtotime(auth()->user()->map_sdate)));
-                if (auth()->user()->map_flg == 1) {
-                    if (date('m') == '01' || date('m') == '07') {
-                        $user = User::find(auth()->user()->id);
-                        $user->map_flg = 0;
-                        $user->save();
-                    }
-                }
+                // if (auth()->user()->map_flg == 1) {
+                //     if (date('d-m') == '01-01' || date('m') == '01-07') {
+                //         $user = User::find(auth()->user()->id);
+                //         $user->map_flg = 0;
+                //         $user->save();
+                //     }
+                // }
 
                 if (\Request::is('*/maklumat-asas-pelesen')) {
                     $map_url = false;
