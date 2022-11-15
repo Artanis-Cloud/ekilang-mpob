@@ -107,7 +107,7 @@
                                                         </td>
                                                         <td>{{ $data->e_np ?? '-' }}</td>
                                                         <td>{{ $data->nama_negeri ?? '-' }}</td>
-                                                        <td>{{ $data->ebio_sdate ?? '-' }}</td>
+                                                        <td>{{ $data->date ?? '-' }}</td>
 
                                                         {{-- <td>-</td> --}}
                                                     </tr>

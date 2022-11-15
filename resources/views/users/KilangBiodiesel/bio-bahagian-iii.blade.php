@@ -997,6 +997,7 @@
                     var table = document.getElementById("data_table");
                     var table_len = (table.rows.length) - 2;
 
+
                     var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center' id='syarikat_row" +
                         table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
                         "text-align:center" + ">" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
@@ -1008,19 +1009,23 @@
                     var table_input = document.getElementById("cc3_4");
                     var table_input_len = (table_input.rows.length);
 
+
                     var row_input = table_input.insertRow(table_input_len).outerHTML =
-                        "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='jumlah_row_hidden" +
-                        table_input_len +
+                        "<tr id='row_input" + (table_input_len + 1) + "'><td><input type='hidden'  id='jumlah_row_hidden" +
+                        (table_input_len + 1) +
                         "' name='jumlah_row_hidden[]' value=" + new_jumlah +
-                        "><input type='hidden' id='new_syarikat_hidden" + table_input_len +
+                        "><input type='hidden' id='new_syarikat_hidden" + (table_input_len + 1) +
                         "' name='new_syarikat_hidden[]' value=" + new_syarikat +
                         "></td></tr>";
 
                     document.getElementById("new_syarikat[]").value = "";
                     document.getElementById("new_jumlah[]").value = "";
 
+                    console.log("tl",table_len);
+                    console.log("til",table_input_len);
+
                     let total = 0;
-                    console.log(table_input_len);
+                    // console.log(table_input_len);
 
                     for(var i=0;i<document.getElementsByName("jumlah_row_input[]").length;i++){
                         var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
@@ -1049,22 +1054,28 @@
 
                 function delete_row(no) {
                     document.getElementById("row" + no + "").remove();
+                    document.getElementById("row_input" + no + "").remove();
                     // document.getElementById("row_input" + no + "").outerHTML = "";
-                    document.getElementById("jumlah_row_hidden" + (no - 2)).remove();
-                    document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
+                    // document.getElementById("jumlah_row_hidden" + (no)).remove();
+                    // document.getElementById("new_syarikat_hidden" + (no)).remove();
 
                     var x = document.getElementsByName('jumlah_row_hidden[]');
-
+                    // console.log("tld",no);
+                    // console.log("tild", no);
                     let total = 0;
 
                     for (let index = 0; index < x.length; index++) {
-                        // let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
                         let hidden_value = x[index].value;
-                        console.log('hidden_value', hidden_value);
+                        // console.log('hidden_value', hidden_value);
                         total += parseInt(hidden_value);
+                        // console.log('total', total);
+
                     }
                     document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
                 }
+
             </script>
 
             <script>

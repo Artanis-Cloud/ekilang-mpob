@@ -1226,7 +1226,7 @@ class LaporanController extends Controller
         // LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
         // LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
         // WHERE e.ebio_sdate BETWEEN $sdate AND $edate");
-        $list_penyata = DB::select("SELECT e.ebio_sdate AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        $list_penyata = DB::select("SELECT date_format(e.ebio_sdate ,'%d-%m-%Y') AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
         FROM e_bio_inits e
         LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
         LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri

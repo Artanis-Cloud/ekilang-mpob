@@ -820,6 +820,7 @@ class KilangBiodieselController extends Controller
         if ($user) {
 
             $penyata = Hari::where('lesen', auth()->user()->username)->first();
+            // dd($penyata);
 
             return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun',));
         } else {
@@ -873,7 +874,7 @@ class KilangBiodieselController extends Controller
         $pelesen = User::where('username', auth()->user()->username)->first('username');
 
         // dd($request->all());
-        $penyata = Hari::findOrFail($id);
+        $penyata = Hari::where('lesen', auth()->user()->username)->first();
         $penyata->lesen = $pelesen->username;
         $penyata->hari_operasi = $request->hari_operasi;
         $penyata->kapasiti = $request->kapasiti;
