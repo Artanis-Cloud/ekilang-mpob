@@ -119,7 +119,7 @@
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Nama Produk</span>
+                                    <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-7 mt-3">
                                     <div id="border_produk">
