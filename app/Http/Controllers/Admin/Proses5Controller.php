@@ -864,26 +864,16 @@ class Proses5Controller extends Controller
             $penyata[$key] = EBioInit::with('pelesen')->find($ebio_reg);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->ebio_nl)->first();
 
-            $penyataia[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 01);
-            })->orderBy('ebio_b4')->get();
+            $penyataia[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
+            $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
 
-
-            $penyataib[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 02);
-            })->orderBy('ebio_b4')->get();
-
-            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', ['03', '06', '08']);
-            })->orderBy('ebio_b4')->get();
+            $penyataic[$key] = EBioB::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
 
             $penyataii[$key] = Hari::where('lesen',  $penyata[$key]->ebio_nl)->first();
             // dd($penyataiva);
 
-            $penyataiii[$key] = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
-            })->orderBy('ebio_c3')->get();
+            $penyataiii[$key] = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata[$key]->ebio_reg)->orderBy('ebio_c3')->get();
 
             // $wherestmt = "(";
             // $wherestmt = $wherestmt . "'" . $ebio_reg . "',";
