@@ -118,7 +118,7 @@
                                 </tr>
                                 <tr>
                                 <td width="33%">2. Nurul Syuhada Azrin Nasarudin </td>
-                                <td width="33%">03-78022912 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nurul.syuhada@mpob.gov.my</td>
+                                <td width="33%">03-78022912 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nurul.syuhada@mpob.gov.my</td>
                                 </tr>
 
                             </table>
