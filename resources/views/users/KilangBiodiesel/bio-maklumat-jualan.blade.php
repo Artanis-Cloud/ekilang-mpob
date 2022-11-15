@@ -218,7 +218,16 @@
                         </div>
 
 
-                        <table id="cc3_4"></table>
+                        <table id="cc3_4">
+                            {{-- @foreach ($senarai_syarikat as $key => $data)
+                                <tr id='row_input{{$key}}'>
+                                    <td>
+                                        <input type="text" id="new_syarikat_hidden{{ $key }}" name="new_syarikat_hidden[]" value="{{ $data->ebio_cc3 }}">
+                                        <input type="text" id="ebio_cc4_hidden{{ $key }}" name="ebio_cc4_hidden[]" value="{{ $data->ebio_cc3 }}">
+                                    </td>
+                                </tr>
+                            @endforeach --}}
+                        </table>
                         {{-- <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                                 <i class="bx bx-x d-block d-sm-none"></i>
@@ -306,19 +315,19 @@
                 total += parseFloat(x);
             }
 
-            let total2 = 0;
-        for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
-                var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
-                console.log('hidden_value',hidden_value2);
-                x = hidden_value2.replace(/,/g, '');
+        //     let total2 = 0;
+        // for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
+        //         var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
+        //         console.log('hidden_value',hidden_value2);
+        //         x = hidden_value2.replace(/,/g, '');
 
-                total2 += parseFloat(x);
-            }
+        //         total2 += parseFloat(x);
+        //     }
 
-            var ftotal = total + total2;
-            console.log("validation", ftotal);
+        //     var ftotal = total + total2;
+        //     console.log("validation", ftotal);
 
-        document.getElementById("total").innerHTML = (ftotal.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 
 
@@ -339,21 +348,21 @@
             }
             console.log("delete", total);
 
-            let total2 = 0;
-            for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
-                var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
-                console.log('hidden_value',hidden_value2);
-                x = hidden_value2.replace(/,/g, '');
+            // let total2 = 0;
+            // for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
+            //     var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
+            //     console.log('hidden_value',hidden_value2);
+            //     x = hidden_value2.replace(/,/g, '');
 
-                total2 += parseFloat(x);
-            }
+            //     total2 += parseFloat(x);
+            // }
 
-            var ftotal = total + total2;
-            console.log("validation", ftotal);
+            // var ftotal = total + total2;
+            // console.log("validation", ftotal);
 
-        document.getElementById("total").innerHTML = (ftotal.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        console.log("delete", ftotal);
+        // console.log("delete", ftotal);
 
 
             // document.getElementById("row_input" + no + "").outerHTML = "";
@@ -436,7 +445,7 @@
                 "'><td style='text-align:center' class='count'></td><td id='syarikat_row" +
                 table_len + "' style='text-align:center' >" + nama_syarikat + "</td><td id='jumlah_row" + table_len +
                 "' style='text-align:center'>" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-                "</td><td><input type='hidden' id='jumlah_row" + table_len +
+                "</td><td><input type='hidden' id='jumlah_row'" + table_len +
                 " name='ebio_cc4[]' value=" + new_jumlah +
                 "> <input type='button' value='Hapus' style='display: block; margin: auto' class='delete btn btn-danger' onclick='delete_row(" +
                 table_len + ")'></td></tr>";
@@ -444,15 +453,18 @@
             var table_input = document.getElementById("cc3_4");
             var table_input_len = (table_input.rows.length);
             var row_input = table_input.insertRow(table_input_len).outerHTML =
-                "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='ebio_cc4_hidden" +
+                "<tr id='row_input" +  table_len + "'><td><input type='hidden' id='ebio_cc4_hidden" +
                 table_input_len +
                 "' name='ebio_cc4_hidden[]' value=" + new_jumlah +
-                "><input  type='hidden' id='new_syarikat_hidden" + table_input_len +
+                "><input type='hidden' id='new_syarikat_hidden" + table_input_len +
                 "' name='new_syarikat_hidden[]' value=" + new_syarikat +
                 "></td></tr>";
 
             document.getElementById("new_syarikat[]").value = "";
             document.getElementById("new_jumlah[]").value = "";
+
+            // console.log("tl",table_len);
+            // console.log("til",(table_input_len + table_len));
 
             let total = 0;
             //  console.log(total2);
@@ -466,29 +478,31 @@
             }
 
 
-            let total2 = 0;
-            for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
-                var hidden_value = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
-                x = hidden_value.replace(/,/g, '');
 
-                // console.log('hidden_value',hidden_value);
-                total2 += parseFloat(x);
-            }
-            console.log("add row1", total);
 
-            var ftotal = total + total2;
+            // let total2 = 0;
+            // for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
+            //     var hidden_value = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
+            //     x = hidden_value.replace(/,/g, '');
 
-            console.log("add row full total", ftotal);
-            document.getElementById("total").innerHTML = (ftotal.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            //     total2 += parseFloat(x);
+            // }
+            // console.log("add row1", total);
+
+            // var ftotal = total + total2;
+
+            // console.log("add row full total", ftotal);
+            document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
         function delete_row(no) {
             document.getElementById("row" + no + "").remove();
-            // document.getElementById("row_input" + no + "").outerHTML = "";
+            document.getElementById("row_input" + (no)).remove();
 
-            document.getElementById("ebio_cc4_hidden" + (no - 2)).remove();
-            document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
-
+            // document.getElementById("ebio_cc4_hidden" + (no - 2)).remove();
+            // document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
+            // console.log("tild", no);
+            // console.log("tld",no);
             let total = 0;
 
         for (var i = 0; i < document.getElementsByName("ebio_cc4[]").length; i++) {
@@ -499,19 +513,19 @@
                 total += parseFloat(x);
             }
 
-            let total2 = 0;
-        for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
-                var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
-                console.log('hidden_value',hidden_value2);
-                x = hidden_value2.replace(/,/g, '');
+        //     let total2 = 0;
+        // for (var i = 0; i < document.getElementsByName("ebio_cc4_hidden[]").length; i++) {
+        //         var hidden_value2 = document.getElementsByName("ebio_cc4_hidden[]")[i].value;
+        //         console.log('hidden_value',hidden_value2);
+        //         x = hidden_value2.replace(/,/g, '');
 
-                total2 += parseFloat(x);
-            }
+        //         total2 += parseFloat(x);
+        //     }
 
-            var ftotal = total + total2;
-            console.log("validation", ftotal);
+        //     var ftotal = total + total2;
+        //     console.log("validation", ftotal);
 
-        document.getElementById("total").innerHTML = (ftotal.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 
 
