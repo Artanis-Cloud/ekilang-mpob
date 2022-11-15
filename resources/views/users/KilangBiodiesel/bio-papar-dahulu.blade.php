@@ -155,7 +155,7 @@
 
 
                                     <p align="left"><b>
-                                            <font style="font-size: 15px" color="#0c7c85">MAKLUMAT h_pelesen </font>
+                                            <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                         </b></p>
 
                                     <table border="0" width="80%" cellpadding="0" cellspacing="0">

@@ -1778,10 +1778,9 @@ class KilangBiodieselController extends Controller
 
             // dd($iii);
 
+            $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
 
-            $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', [ '03', '06', '08', '12' ]);
-            })->orderBy('ebio_c3')->get();
+            $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->orderBy('ebio_c3')->get();
             // dd($iii);
 
             $myDateTime2 = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
