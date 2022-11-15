@@ -52,9 +52,9 @@
                     </div>
                 </div>
 
-                <div class="card" style="margin-right:2%; margin-left:2%">
-                    <div class="card-body">
-                        <form method="get" action="" id="myfrm">
+                <div class="card" style="margin-right:2%; margin-left:2%" id="myfrm">
+                    <div class="card-body" >
+                        {{-- <form method="get" action="" id="myfrm"> --}}
 
                             @foreach ($penyata as $key => $data)
 
