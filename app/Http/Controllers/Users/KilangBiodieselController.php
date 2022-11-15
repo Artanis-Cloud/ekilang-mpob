@@ -1770,9 +1770,7 @@ class KilangBiodieselController extends Controller
 
             $ib = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
 
-            $ic = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', [ '06', '08' ]);
-            })->orderBy('ebio_b4')->get();
+            $ic = HbioB::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
 
             $ii = HHari::where('lesen', auth()->user()->username)->where('tahunbhg2', $users->ebio_thn)->where('bulanbhg2', $users->ebio_bln)->first();
 
@@ -1781,7 +1779,7 @@ class KilangBiodieselController extends Controller
             // $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
 
             $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->orderBy('ebio_c3')->get();
-            dd($iii);
+            // dd($iii);
 
             $myDateTime2 = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
             $formatteddat2 = $myDateTime2->format('d-m-Y');
