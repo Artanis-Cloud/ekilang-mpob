@@ -48,17 +48,19 @@
                 <div class="col-sm-12 col-lg-12">
 
 
-                        <div class="card">
-                            <div class="row">
-                                <div class="col align-self-center" style="padding: 20px;" >
-                                    <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                    <div class="card">
+                        <div class="row">
+                            <div class="col align-self-center" style="padding: 20px;">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i
+                                        class="fa fa-angle-left">&ensp;</i>Kembali</a>
 
-                                    <button class="btn btn-primary" onclick="exportTableToExcel('tblData')" style="float: right">Excel</button>
+                                <button class="btn btn-primary" onclick="exportTableToExcel('tblData')"
+                                    style="float: right">Excel</button>
 
-                                    <button type="button" class="btn btn-primary " onclick="myPrint('myfrm')" style="float: right; margin-right: 5px"
-                                                value="print">PDF</button>
-                                </div>
+                                <button type="button" class="btn btn-primary " onclick="myPrint('myfrm')"
+                                    style="float: right; margin-right: 5px" value="print">PDF</button>
                             </div>
+                        </div>
 
 
 
@@ -69,84 +71,1130 @@
                             </div>
                             <hr>
                             <div class="card-body">
-                                <div class="container center ">
-                                    <table id="tblData" >
+                                @if ($negeri2 == 'All')
+                                    <div class="container center ">
+                                        @if ($johor)
 
-                                        @foreach ($query as $data)
-                                            <tr style="margin-left:2%">
-                                                <td><b>{{ $loop->iteration }}.</b></td>
-                                                <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>Postal add </td>
-                                                <td>:</td>
-                                                <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>Factory add</td>
-                                                <td>:</td>
-                                                <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
-                                            </tr>
+                                            <div class="col-12 mt-1 mb-2"><b><u>JOHOR</u></b></div>
 
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td>&nbsp</td>
-                                                <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
-                                            </tr>
+                                            <table id="tblData">
 
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>Tel. No. </td>
-                                                <td>:</td>
-                                                <td>{{ $data->e_notel }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>Faks No.</td>
-                                                <td>:</td>
-                                                <td>{{ $data->e_nofax }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>&nbsp</td>
-                                                <td>E-mail add </td>
-                                                <td>:</td>
-                                                <td>{{ $data->e_email }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan=4>&nbsp</td>
-                                            </tr>
-                                        @endforeach
-                                        <br>
-                                    </table>
-                                </div>
+                                                @foreach ($johor as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($kedah)
+
+                                            <div class="col-12 mt-1 mb-2"><b><u>KEDAH</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($kedah as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($kelantan)
+                                            <div class="col-12 mt-1 mb-2"><b><u>KELANTAN</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($kelantan as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($melaka)
+                                            <div class="col-12 mt-1 mb-2"><b><u>MELAKA</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($melaka as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($n9)
+                                            <div class="col-12 mt-1 mb-2"><b><u>NEGERI SEMBILAN</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($n9 as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($pahang)
+                                            <div class="col-12 mt-1 mb-2"><b><u>PAHANG</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($pahang as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($perak)
+                                            <div class="col-12 mt-1 mb-2"><b><u>PERAK</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($perak as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @endif
+                                        @if ($perlis)
+                                            <div class="col-12 mt-1 mb-2"><b><u>PERLIS</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($perlis as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                            @endif
+                                        @if ($penang)
+                                            <div class="col-12 mt-1 mb-2"><b><u>PULAU PINANG</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($penang as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                            @endif
+                                        @if ($selangor)
+                                            <div class="col-12 mt-1 mb-2"><b><u>SELANGOR</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($selangor as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                            @endif
+                                        @if ($terengganu)
+                                            <div class="col-12 mt-1 mb-2"><b><u>TERENGGANU</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($terengganu as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                            @endif
+                                            @if ($wp)
+
+                                                <div class="col-12 mt-1 mb-2"><b><u>WILAYAH PERSEKUTUAN</u></b></div>
+
+                                                <table id="tblData">
+
+                                                    @foreach ($wp as $data)
+                                                        <tr style="margin-left:2%">
+                                                            <td><b>{{ $loop->iteration }}.</b></td>
+                                                            <td colspan=3 style="text-transform:uppercase">
+                                                                <b>{{ $data->e_np }}</b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>Postal add </td>
+                                                            <td>:</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>Factory add</td>
+                                                            <td>:</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td>&nbsp</td>
+                                                            <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>Tel. No. </td>
+                                                            <td>:</td>
+                                                            <td>{{ $data->e_notel }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>Faks No.</td>
+                                                            <td>:</td>
+                                                            <td>{{ $data->e_nofax }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp</td>
+                                                            <td>E-mail add </td>
+                                                            <td>:</td>
+                                                            <td>{{ $data->e_email }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan=4>&nbsp</td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <br>
+                                                </table>
+                                            @endif
+                                            @if ($sabah)
+                                            <div class="col-12 mt-1 mb-2"><b><u>SABAH</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($sabah as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                            @endif
+                                        @if ($sarawak)
+                                            <div class="col-12 mt-1 mb-2"><b><u>SARAWAK</u></b></div>
+
+                                            <table id="tblData">
+
+                                                @foreach ($sarawak as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                            @endif
+                                    </div>
+                                @else
+                                    <div class="container center ">
+
+                                        <table id="tblData">
+
+                                            @foreach ($query as $data)
+                                                <tr style="margin-left:2%">
+                                                    <td><b>{{ $loop->iteration }}.</b></td>
+                                                    <td colspan=3 style="text-transform:uppercase">
+                                                        <b>{{ $data->e_np }}</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>Postal add </td>
+                                                    <td>:</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>Factory add</td>
+                                                    <td>:</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td>&nbsp</td>
+                                                    <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>Tel. No. </td>
+                                                    <td>:</td>
+                                                    <td>{{ $data->e_notel }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>Faks No.</td>
+                                                    <td>:</td>
+                                                    <td>{{ $data->e_nofax }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp</td>
+                                                    <td>E-mail add </td>
+                                                    <td>:</td>
+                                                    <td>{{ $data->e_email }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan=4>&nbsp</td>
+                                                </tr>
+                                            @endforeach
+                                            <br>
+                                        </table>
+                                    </div>
+                                @endif
                             </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
 
 
@@ -189,11 +1237,11 @@
     </script>
     <script>
         function myPrint(myfrm) {
-        var restorepage = $('body').html();
-        var printcontent = $('#' + myfrm).clone();
-        $('body').empty().html(printcontent);
-        window.print();
-        $('body').html(restorepage);
+            var restorepage = $('body').html();
+            var printcontent = $('#' + myfrm).clone();
+            $('body').empty().html(printcontent);
+            window.print();
+            $('body').html(restorepage);
         }
     </script>
     {{-- <script>
