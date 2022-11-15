@@ -95,9 +95,10 @@ class MenuLainController extends Controller
         // dd( $negeri);
         // $statelist = DB::select("SELECT kod_negeri, nama_negeri
         // FROM negeri");
+        $negeri2 = $request->nama_negeri;
         if ($request->e_kat == 'PL91') {
             if ($request->nama_negeri == 'All') {
-                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                $johor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -105,9 +106,181 @@ class MenuLainController extends Controller
                 WHERE e.e_nl = r.e_nl
                 and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PL91'
+                and e.e_negeri= '01'
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
+
+                $kedah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '02'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kelantan = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '03'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $melaka = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '04'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $n9 = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '05'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $pahang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '06'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $perak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '07'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+
+                $perlis = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '08'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $penang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '09'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $selangor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '10'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $terengganu = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '11'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $wp = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '12'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sabah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '13'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sarawak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and e.e_negeri= '14'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
             } else {
                 $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
@@ -123,7 +296,7 @@ class MenuLainController extends Controller
             }
         } elseif ($request->e_kat == 'PL101') {
             if ($request->nama_negeri == 'All') {
-                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                $johor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -131,6 +304,177 @@ class MenuLainController extends Controller
                 WHERE e.e_nl = r.e_nl
                 and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PL101'
+                and e.e_negeri= '01'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kedah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '02'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kelantan = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '03'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $melaka = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '04'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $n9 = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '05'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $pahang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '06'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $perak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '07'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+
+                $perlis = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '08'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $penang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '09'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $selangor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '10'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $terengganu = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '11'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $wp = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '12'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sabah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '13'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sarawak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and e.e_negeri= '14'
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
@@ -149,7 +493,7 @@ class MenuLainController extends Controller
             }
         } elseif ($request->e_kat == 'PL102') {
             if ($request->nama_negeri == 'All') {
-                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                $johor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -157,9 +501,181 @@ class MenuLainController extends Controller
                 WHERE e.e_nl = r.e_nl
                 and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PL102'
+                and e.e_negeri= '01'
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
+
+                $kedah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '02'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kelantan = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '03'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $melaka = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '04'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $n9 = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '05'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $pahang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '06'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $perak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '07'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+
+                $perlis = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '08'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $penang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '09'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $selangor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '10'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $terengganu = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '11'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $wp = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '12'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sabah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '13'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sarawak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and e.e_negeri= '14'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
             } else {
                 $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
@@ -175,7 +691,7 @@ class MenuLainController extends Controller
             }
         } elseif ($request->e_kat == 'PL104') {
             if ($request->nama_negeri == 'All') {
-                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                $johor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -183,6 +699,177 @@ class MenuLainController extends Controller
                 WHERE e.e_nl = r.e_nl
                 and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PL104'
+                and e.e_negeri= '01'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kedah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '02'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kelantan = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '03'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $melaka = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '04'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $n9 = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '05'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $pahang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '06'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $perak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '07'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+
+                $perlis = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '08'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $penang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '09'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $selangor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '10'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $terengganu = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '11'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $wp = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '12'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sabah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '13'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sarawak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and e.e_negeri= '14'
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
@@ -201,7 +888,7 @@ class MenuLainController extends Controller
             }
         } elseif ($request->e_kat == 'PL111') {
             if ($request->nama_negeri == 'All') {
-                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                $johor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -209,6 +896,177 @@ class MenuLainController extends Controller
                 WHERE e.e_nl = r.e_nl
                 and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PL111'
+                and e.e_negeri= '01'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kedah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '02'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kelantan = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '03'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $melaka = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '04'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $n9 = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '05'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $pahang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '06'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $perak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '07'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+
+                $perlis = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '08'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $penang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '09'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $selangor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '10'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $terengganu = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '11'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $wp = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '12'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sabah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '13'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sarawak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and e.e_negeri= '14'
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
@@ -217,8 +1075,9 @@ class MenuLainController extends Controller
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
-                FROM pelesen e, reg_pelesen r
+                FROM pelesen e, reg_pelesen r, negeri n
                 WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PL111'
                 and e.e_negeri= $request->nama_negeri
                 and  r.e_status = '1'
@@ -228,7 +1087,7 @@ class MenuLainController extends Controller
         }
          elseif ($request->e_kat == 'PLBIO') {
             if ($request->nama_negeri == 'All') {
-                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                $johor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -236,6 +1095,177 @@ class MenuLainController extends Controller
                 WHERE e.e_nl = r.e_nl
                 and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PLBIO'
+                and e.e_negeri= '01'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kedah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '02'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $kelantan = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '03'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $melaka = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '04'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $n9 = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '05'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $pahang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '06'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $perak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '07'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+
+                $perlis = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '08'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $penang = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '09'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $selangor = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '10'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $terengganu = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '11'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $wp = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '12'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sabah = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '13'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+                $sarawak = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PLBIO'
+                and e.e_negeri= '14'
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
@@ -244,8 +1274,9 @@ class MenuLainController extends Controller
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
-                FROM pelesen e, reg_pelesen r
+                FROM pelesen e, reg_pelesen r, negeri n
                 WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
                 and r.e_kat = 'PLBIO'
                 and e.e_negeri= $request->nama_negeri
                 and  r.e_status = '1'
@@ -274,17 +1305,48 @@ class MenuLainController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        $array = [
-            'negeri' => $negeri,
-            'query' => $query,
+        if ($request->nama_negeri == 'All') {
+            $array = [
+                'negeri' => $negeri,
+                'negeri2' => $negeri2,
+                // 'query' => $query,
+                'johor' => $johor,
+                'kedah' => $kedah,
+                'kelantan' => $kelantan,
+                'melaka' => $melaka,
+                'n9' => $n9,
+                'pahang' => $pahang,
+                'perak' => $perak,
+                'perlis' => $perlis,
+                'penang' => $penang,
+                'selangor' => $selangor,
+                'terengganu' => $terengganu,
+                'wp' => $wp,
+                'sabah' => $sabah,
+                'sarawak' => $sarawak,
 
-            'breadcrumbs' => $breadcrumbs,
-            'kembali' => $kembali,
+                'breadcrumbs' => $breadcrumbs,
+                'kembali' => $kembali,
 
-            'returnArr' => $returnArr,
-            'layout' => $layout,
+                'returnArr' => $returnArr,
+                'layout' => $layout,
 
-        ];
+            ];
+        } else {
+            $array = [
+                'negeri' => $negeri,
+                'negeri2' => $negeri2,
+                'query' => $query,
+
+                'breadcrumbs' => $breadcrumbs,
+                'kembali' => $kembali,
+
+                'returnArr' => $returnArr,
+                'layout' => $layout,
+
+            ];
+        }
+
 
         return view('admin.menu-lain.direktori-papar', $array);
     }
