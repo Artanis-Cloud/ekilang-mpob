@@ -1780,7 +1780,7 @@ class KilangBiodieselController extends Controller
             // $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
 
             $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->orderBy('ebio_c3')->get();
-            // dd($iii);
+            dd($iii);
 
             $myDateTime2 = DateTime::createFromFormat('Y-m-d', $users->ebio_sdate);
             $formatteddat2 = $myDateTime2->format('d-m-Y');
