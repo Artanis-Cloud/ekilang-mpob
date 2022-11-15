@@ -400,6 +400,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_b5 += $penyataia2->ebio_b5 ?? 0  ;
+                                                                        $total_col_ebio_b6 += $penyataia2->ebio_b6 ?? 0  ;
+                                                                        $total_col_ebio_b7 += $penyataia2->ebio_b7 ?? 0  ;
+                                                                        $total_col_ebio_b8 += $penyataia2->ebio_b8 ?? 0  ;
+                                                                        $total_col_ebio_b9 += $penyataia2->ebio_b9 ?? 0  ;
+                                                                        $total_col_ebio_b10 += $penyataia2->ebio_b10 ?? 0  ;
+                                                                        $total_col_ebio_b11 += $penyataia2->ebio_b11 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
 
@@ -451,7 +460,7 @@
                                                             <form action="{{ route('admin.add.bahagian.ia', [$penyata->ebio_reg]  ) }}" method="post" id="add">
                                                                 @csrf
                                                                 <td align="left">
-                                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                    <select class="form-control select2" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
                                                                         @foreach ($produk as $prods)
                                                                             <option value="{{ $prods->prodid }}"  >
@@ -462,31 +471,31 @@
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b5' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b6' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b7' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b8' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b9' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b10' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b11' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td colspan="2">
                                                                     <div class="icon" style="text-align: center">
@@ -504,11 +513,19 @@
                                                                 }
                                                             </script>
                                                         </tr>
-                                                    {{-- @else
                                                         <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
                                                         </tr>
-                                                    @endif --}}
 
                                                 </tbody>
                                             </table><br>
@@ -556,13 +573,13 @@
                                                     </tr>
                                                     @if($penyataib && !$penyataib->isEmpty())
                                                         @php
-                                                            $total_col_ebio_b5 = 0;
-                                                            $total_col_ebio_b6 = 0;
-                                                            $total_col_ebio_b7 = 0;
-                                                            $total_col_ebio_b8 = 0;
-                                                            $total_col_ebio_b9 = 0;
-                                                            $total_col_ebio_b10 = 0;
-                                                            $total_col_ebio_b11 = 0;
+                                                            $total_col_ebio_b5_b = 0;
+                                                            $total_col_ebio_b6_b = 0;
+                                                            $total_col_ebio_b7_b = 0;
+                                                            $total_col_ebio_b8_b = 0;
+                                                            $total_col_ebio_b9_b = 0;
+                                                            $total_col_ebio_b10_b = 0;
+                                                            $total_col_ebio_b11_b = 0;
                                                         @endphp
                                                         @foreach ($penyataib as $penyataib2)
                                                             <form action="{{ route('admin.kemaskini.maklumat.bio.exe.b',  [$penyataib2->ebio_b1] ) }}"  class="sub-form"
@@ -638,6 +655,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_b5_b += $penyataib2->ebio_b5 ?? 0  ;
+                                                                        $total_col_ebio_b6_b += $penyataib2->ebio_b6 ?? 0  ;
+                                                                        $total_col_ebio_b7_b += $penyataib2->ebio_b7 ?? 0  ;
+                                                                        $total_col_ebio_b8_b += $penyataib2->ebio_b8 ?? 0  ;
+                                                                        $total_col_ebio_b9_b += $penyataib2->ebio_b9 ?? 0  ;
+                                                                        $total_col_ebio_b10_b += $penyataib2->ebio_b10 ?? 0  ;
+                                                                        $total_col_ebio_b11_b += $penyataib2->ebio_b11 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
                                                             </form>
@@ -688,7 +714,7 @@
                                                             <form action="{{ route('admin.add.bahagian.ib', [$penyata->ebio_reg] ) }}" method="post" id="add2">
                                                                 @csrf
                                                                 <td align="left">
-                                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                    <select class="form-control select2" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
                                                                         @foreach ($produk_b as $prods)
                                                                             <option value="{{ $prods->prodid }}"  >
@@ -699,31 +725,31 @@
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b5' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b6' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b7' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b8' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b9' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b10' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b11' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td colspan="2">
                                                                     <div class="icon" style="text-align: center">
@@ -740,6 +766,19 @@
                                                                     $('#add2').submit();
                                                                 }
                                                             </script>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10_b ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11_b ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
                                                         </tr>
                                                     @else
                                                         <tr>
@@ -874,6 +913,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_b5 += $penyataic2->ebio_b5 ?? 0  ;
+                                                                        $total_col_ebio_b6 += $penyataic2->ebio_b6 ?? 0  ;
+                                                                        $total_col_ebio_b7 += $penyataic2->ebio_b7 ?? 0  ;
+                                                                        $total_col_ebio_b8 += $penyataic2->ebio_b8 ?? 0  ;
+                                                                        $total_col_ebio_b9 += $penyataic2->ebio_b9 ?? 0  ;
+                                                                        $total_col_ebio_b10 += $penyataic2->ebio_b10 ?? 0  ;
+                                                                        $total_col_ebio_b11 += $penyataic2->ebio_b11 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
                                                             </form>
@@ -925,7 +973,7 @@
                                                             <form action="{{ route('admin.add.bahagian.ic', [$penyata->ebio_reg ?? 0] ) }}" method="post" id="add3">
                                                                 @csrf
                                                                 <td align="left">
-                                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
+                                                                    <select class="form-control select2" id="ebio_b4" name="ebio_b4"  onchange="ajax_produk(this);" >
                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
                                                                         @foreach ($produk_c as $prods)
                                                                             <option value="{{ $prods->prodid }}"  >
@@ -936,31 +984,31 @@
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b5' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)" >
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b6' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b7' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b8' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b9' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b10' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b11' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td colspan="2">
                                                                     <div class="icon" style="text-align: center">
@@ -977,6 +1025,19 @@
                                                                     $('#add3').submit();
                                                                 }
                                                             </script>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
                                                         </tr>
                                                         {{-- @endforeach --}}
                                                     {{-- @else
@@ -1103,45 +1164,46 @@
                                             <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
                                             </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered" style="padding: 0.2rem 0.3rem">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370">
-                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">NNama Produk Biodiesel</font>
-                                                            </b></td>
-                                                        {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Kod Produk</font>
-                                                            </b></td> --}}
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Awal Di Premis</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian/Terimaan</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Pengeluaran</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan/Edaran Tempatan</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Eksport</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Stok Akhir Dilapor</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Kemaskini</font>
-                                                            </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Tindakan</font>
-                                                            </b></td>
-                                                    </tr>
-                                                    @if($penyataiii && !$penyataiii->isEmpty())
+                                            @if($penyataiii && !$penyataiii->isEmpty())
+                                                <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                    class="table table-bordered" style="padding: 0.2rem 0.3rem">
+                                                    <tbody>
+                                                        <tr style="background-color: #d3d3d370">
+                                                            <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Nama Produk Biodiesel</font>
+                                                                </b></td>
+                                                            {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Kod Produk</font>
+                                                                </b></td> --}}
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Stok Awal Di Premis</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Belian/Terimaan</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Pengeluaran</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Digunakan Untuk Proses Selanjutnya</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Jualan/Edaran Tempatan</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Eksport</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Stok Akhir Dilapor</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Kemaskini</font>
+                                                                </b></td>
+                                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                    <font size="2">Tindakan</font>
+                                                                </b></td>
+                                                        </tr>
+
                                                         @php
                                                             $total_col_ebio_c4 = 0;
                                                             $total_col_ebio_c5 = 0;
@@ -1225,6 +1287,15 @@
                                                                         </div>
 
                                                                     </td>
+                                                                    @php
+                                                                        $total_col_ebio_c4 += $penyataiii2->ebio_c4 ?? 0  ;
+                                                                        $total_col_ebio_c5 += $penyataiii2->ebio_c5 ?? 0  ;
+                                                                        $total_col_ebio_c6 += $penyataiii2->ebio_c6 ?? 0  ;
+                                                                        $total_col_ebio_c7 += $penyataiii2->ebio_c7 ?? 0  ;
+                                                                        $total_col_ebio_c8 += $penyataiii2->ebio_c8 ?? 0  ;
+                                                                        $total_col_ebio_c9 += $penyataiii2->ebio_c9 ?? 0  ;
+                                                                        $total_col_ebio_c10 += $penyataiii2->ebio_c10 ?? 0  ;
+                                                                    @endphp
 
                                                                 </tr>
                                                             </form>
@@ -1271,11 +1342,11 @@
                                                                 </div>
                                                             </div>
                                                         @endforeach
+                                                        <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="subs5">
+                                                            @csrf
                                                         <tr>
-                                                            <form action="{{ route('admin.add.bahagian.iii', [$penyata->ebio_reg] ) }}" method="post" id="add5">
-                                                                @csrf
                                                                 <td align="left">
-                                                                    <select class="form-control" id="ebio_c3" name="ebio_c3"  onchange="ajax_produk(this);" >
+                                                                    <select class="form-control select2" id="ebio_c3" name="ebio_c3"  onchange="ajax_produk(this);" >
                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
                                                                         @foreach ($produkiii as $prods)
                                                                             <option value="{{ $prods->prodid }}"  >
@@ -1286,96 +1357,314 @@
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c4' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c5' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c6' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c7' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c8' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c9' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_c10' style="text-align: right"
-                                                                    class="form-control">
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td colspan="2">
                                                                     <div class="icon" style="text-align: center">
-                                                                        <a href="javascript: submitFormAdd5();" >
+                                                                        <a href="javascript: submitFormAddkini();" >
                                                                             <i class="fa fa-plus"
                                                                                 style="color: #237f46;font-size:18px"></i>
                                                                         </a>
                                                                     </div>
 
                                                                 </td>
-                                                            </form>
                                                             <script>
-                                                                function submitFormAdd5(){
-                                                                    $('#add5').submit();
+                                                                function submitFormAddkini(){
+                                                                    $('#subs5').submit();
                                                                 }
                                                             </script>
                                                         </tr>
-                                                    @else
+                                                        </form>
                                                         <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
+                                                            <td align="center" >
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c4 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_c10 ?? 0,2) }}</b></td>
+                                                            {{-- <td colspan="2">-</td> --}}
                                                         </tr>
-                                                    @endif
+                                                    </tbody>
+                                                </table>
+                                            @else
+                                                <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="add15">
+                                                    @csrf
+                                                    <table border="1" width="100%" cellspacing="0" cellpadding="0" id="main"
+                                                        class="table table-bordered" style="padding: 0.2rem 0.3rem">
+                                                        <tbody>
+                                                            <tr style="background-color: #d3d3d370">
+                                                                <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Nama Produk Biodiesel</font>
+                                                                    </b></td>
+                                                                {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Kod Produk</font>
+                                                                    </b></td> --}}
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Stoks Awal Di Premis</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Belian/Terimaan</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Pengeluaran</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Digunakan Untuk Proses Selanjutnya</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Jualan/Edaran Tempatan</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Eksport</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Stok Akhir Dilapor</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Kemaskini</font>
+                                                                    </b></td>
+                                                                <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                                        <font size="2">Tindakan</font>
+                                                                    </b></td>
+                                                            </tr>
 
-                                                </tbody>
-                                            </table><br>
+                                                            <tr>
+                                                                <td align="left">
+                                                                    <select class="form-control select2" id="produk" name="ebio_c3"  onchange="showDetail()">
+                                                                        <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                        @foreach ($produkiii as $prods)
+                                                                            <option value="{{ $prods->prodid }}"  >
+                                                                                {{ $prods->proddesc }} - {{ $prods->prodid }}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c4' style="text-align: right"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c5' style="text-align: right"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c6' style="text-align: right"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c7' style="text-align: right"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
+                                                                </td>
+                                                                <td id="data_hidden">
+                                                                    <input type="text" name='ebio_c8' id="ebio_c8" style="text-align: right" onchange="autodecimal(this); FormatCurrency(this)"
+                                                                    onkeypress="return isNumberKey(event)"
+                                                                    class="form-control">
+                                                                    <div id="merah_container" style="display:none" class="blink_me">
+                                                                        <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
+                                                                            style="font-size:11px; color:red; font:rubik" type="button"
+                                                                            data-toggle="modal" data-target="#modal" &nbsp;> (Sila klik untuk
+                                                                            mengisi<br> maklumat
+                                                                            jualan) </i>
+
+                                                                    </div>
+
+                                                                <table id="cc3_4"></table>
+                                                                </td>
+
+                                                                <td>
+                                                                    <input type="text" name='ebio_c9' style="text-align: right"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name='ebio_c10' style="text-align: right"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
+                                                                </td>
+                                                                <td colspan="2">
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="javascript: submitFormAdd15();" >
+                                                                            <i class="fa fa-plus"
+                                                                                style="color: #237f46;font-size:18px"></i>
+                                                                        </a>
+                                                                    </div>
+
+                                                                </td>
+
+                                                                {{-- INPUT HIDDEN
+                                                                <input type="hidden" name="jumlah_row[]">
+                                                                INPUT HIDDEN2
+                                                                <input type="hidden" name="jumlah_row1[]"> --}}
+
+                                                                <script>
+                                                                    function submitFormAdd15(){
+                                                                        $('#add15').submit();
+                                                                    }
+                                                                </script>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+                                                <br>
+                                            @endif
+
+
+
 
                                             <p><b>
-                                                    <font style="font-size: 15px" color="#0c7c85">
-                                                        BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+                                                <font style="font-size: 15px" color="#0c7c85">
+                                                    BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
-                                                    </font>
-                                                </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370">
-                                                        <td width="15%" align="center"><b>
-                                                                <font size="2">Nama Produk Sawit</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Kod Produk</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Nombor Borang Kastam 2</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Tarikh Eksport</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Kuantiti
-                                                                    (Tan Metrik)</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                            <font size="2">Nilai (RM)</font>
+                                                </font>
+                                            </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
+                                                    <td width="15%" align="center"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
                                                         </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                            <font size="2">Kod Negara</font>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Produk</font>
                                                         </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                            <font size="2">Destinasi Negara</font>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Nombor Borang Kastam 2</font>
                                                         </b></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center" colspan="8">Tiada Rekod</td>
-                                                    </tr>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Tarikh Eksport</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kuantiti
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Destinasi Negara</font>
+                                                    </b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table><br>
+
+                                        <p><b>
+                                            <font style="font-size: 15px" color="#0c7c85">
+                                                BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
+
+                                            </font>
+                                        </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr style="background-color: #d3d3d370">
+                                                    <td width="15%" align="center"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Produk</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Nombor Borang Kastam 1</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Tarikh Import</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kuantiti
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">DNegara Sumber Import</font>
+                                                    </b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td style="text-align: center; vertical-align:middle">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="right">
+                                                        <font size="2"><b>0.00</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                    <td align="center">
+                                                        <font size="2"><b>-</b></font>
+                                                    </td>
+                                                </tr>
 
                                             </tbody>
                                         </table><br>
@@ -1421,6 +1710,99 @@
 
         </div>
 
+
+        <!-- Syarikat Input Modal -->
+        <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Maklumat Jualan / Edaran</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive col-10 ml-auto mr-auto">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" style="font-size: 13px" id="data_table">
+                                    <thead style="text-align: center">
+                                        <tr style="vertical-align: middle">
+                                            <th style="vertical-align: middle;">Nama Syarikat</th>
+                                            <th style="vertical-align: middle;">Jumlah Jualan / Edaran</th>
+                                            <th style="vertical-align: middle;">Tindakan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            {{-- <div class='field'> --}}
+
+                                            <td class="field"><select class="form-control select2 "
+                                                    style="width: 100px" id="new_syarikat[]"
+                                                    name="new_syarikat[]" onchange="showDetail()"
+                                                    oninput="removeDisabled()">
+                                                    <option selected hidden disabled value="">Sila Pilih
+                                                    </option>
+                                                    @foreach ($syarikat as $data)
+                                                        <option value="{{ $data->id }}">
+                                                            {{ $data->pembeli }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select></td>
+                                            {{-- </div> --}}
+                                            <td class="field"><input type="text" id="new_jumlah[]"
+                                                    class="form-control" style="text-align: center"
+                                                    onkeypress="return isNumberKey(event)" name='new_jumlah[]'>
+                                                {{-- <div class='actions'> --}}
+
+                                            <td style="size: 10ch" class="actions" align="center">
+                                                <i class="fa fa-plus-circle center" type="button" id="tambah_maklumat"
+                                                    onclick="add_row()" disabled="disabled" style="font-size:30px; color:green;">
+                                                    {{-- <input  class="btn btn-primary ml-1 actions"
+                                                    id="tambah_maklumat" onclick="add_row()" disabled="disabled"
+                                                    value="Tambah Maklumat"> --}}
+                                                </i>
+                                            </td>
+                                            {{-- </div> --}}
+                                        </tr>
+                                        <tr style="background-color: #d3d3d34d; text-align: center">
+
+                                            <td><b>JUMLAH</b></td>
+                                            <td><b><span id="total" name="total">
+                                                    </span>
+                                                    <input type="hidden" id="total_hidden" name="total_hidden">
+                                                </b>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        </form>
+
+                    </div>
+
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class=" bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" id="btnShow">Tambah</span>
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
@@ -1448,53 +1830,136 @@
     </script>
 
 
-{{-- <script>
-    $('.sub-form').submit(function() {
 
-        var x = $('#ebio_b5').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b5').val(x);
+    <script type="text/javascript">
+        function showDetail() {
+            var produk = $('#produk').val();
+            // const total = $produk2;
 
-        var x = $('#ebio_b6').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b6').val(x);
+            if (produk == "AW") {
+                document.getElementById('merah_container').style.display = "block";
+                $('#ebio_c8').attr('readonly', 'readonly');
+                $('#ebio_c8').attr('value', ' 0.00');
 
-        var x = $('#ebio_b7').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b7').val(x);
+                // document.getElementById('isaw').style.display = "block";
+                // document.getElementById('notaw').style.display = "none";
+                // document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('merah_container').style.display = "none";
+                $('#ebio_c8').removeAttr('readonly');
+                $('#ebio_c8').removeAttr('value');
+                // document.getElementById('isaw').style.display = "none";
+                // document.getElementById('notaw').style.display = "block";
+                // document.getElementById('lain_container').style.display = "block";
 
-        var x = $('#ebio_b8').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b8').val(x);
+            }
+        }
+    </script>
+    <script>
+        function removeDisabled() {
 
-        var x = $('#ebio_b9').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b9').val(x);
+            var new_syarikat = document.getElementById("new_syarikat[]").value;
+            // var new_jumlah = document.getElementById("new_jumlah[]").value;
+            // console.log(new_syarikat);
+            var table_input = document.getElementById("data_table");
+            var table_input_len = (table_input.rows.length) - 1;
 
-        var x = $('#ebio_b10').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b10').val(x);
-
-        var x = $('#ebio_b11').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b11').val(x);
-
-        var x = $('#ebio_b12').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#ebio_b12').val(x);
+            if (new_syarikat != "") {
+                $('#tambah_maklumat').attr('disabled', 'disabled');
+            } else {
+                $('#tambah_maklumat').attr('disabled', false);
+            }
+        }
+    </script>
 
 
-        return true;
+    <script type="text/javascript" src="{{ asset('js/table_scripts.js') }}"></script>
+    <script>
+        function add_row() {
+            var new_syarikat = document.getElementById("new_syarikat[]").value;
+            var new_jumlah = document.getElementById("new_jumlah[]").value;
 
-    });
-</script> --}}
+            var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]")
+                .selectedIndex].text;
+
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length) - 2;
+
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center' id='syarikat_row" +
+                table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
+                "text-align:center" + ">" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                "</td><td><input type='hidden' id='jumlah_row" + table_len +
+                "' name='jumlah_row_input[]' value=" + new_jumlah +
+                "> <input type='button' value='Hapus' style='display: block; margin: auto' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
+                ")'></td></tr>";
+
+            var table_input = document.getElementById("cc3_4");
+            var table_input_len = (table_input.rows.length);
+
+            // var row_input = table_input.insertRow(table_input_len).outerHTML =
+            //     "<tr id='row_input" + table_input_len + "'><td><input  id='jumlah_row_hidden" +
+            //     table_input_len +
+            //     "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+            //     "><input id='new_syarikat_hidden" + table_input_len +
+            //     "' name='new_syarikat_hidden[]' value=" + new_syarikat +
+            //     "></td></tr>";
+            document.getElementsByName("new_syarikat_hidden[]").value = new_syarikat;
+            document.getElementsByName("jumlah_row_hidden[]").value = new_jumlah;
+
+            var content = document.getElementById("data_hidden");
+
+            $('#data_hidden').append('<input type="text" name="new_syarikat_hidden[]"  id="new_syarikat_hidden" value="'+ new_syarikat +'" />');
+            $('#data_hidden').append('<input type="text" name="jumlah_row_hidden[]"  id="jumlah_row_hidden" value="'+ new_jumlah +'" />');
+
+            document.getElementById("new_syarikat[]").value = "";
+            document.getElementById("new_jumlah[]").value = "";
+
+            let total = 0;
+            console.log(table_input_len);
+
+            for(var i=0;i<document.getElementsByName("jumlah_row_input[]").length;i++){
+                var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
+                // console.log('hidden_value',hidden_value);
+                total += parseFloat(hidden_value);
+                // total2 = parseFloat(total).toFixed(2);
+
+            }
+
+            // for (let index = 0; index <= table_input_len; index++) {
+            //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+            //     total += parseInt(hidden_value);
+            // }
+            // new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
+            // var num2 = total.toFixed(2);
+            // var num1 = new Intl.NumberFormat().format(total);
+
+            // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
+            document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
+            // console.log("total", total);
+                console.log(document.getElementById("ebio_c8").value);
+
+        }
+
+        function delete_row(no) {
+            document.getElementById("row" + no + "").remove();
+            // document.getElementById("row_input" + no + "").outerHTML = "";
+            document.getElementById("jumlah_row_hidden" + (no - 2)).remove();
+            document.getElementById("new_syarikat_hidden" + (no - 2)).remove();
+
+            var x = document.getElementsByName('jumlah_row_hidden[]');
+
+            let total = 0;
+
+            for (let index = 0; index < x.length; index++) {
+                // let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
+                let hidden_value = x[index].value;
+                console.log('hidden_value', hidden_value);
+                total += parseInt(hidden_value);
+            }
+            document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    </script>
 
 @endsection

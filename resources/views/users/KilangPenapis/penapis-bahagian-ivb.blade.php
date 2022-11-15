@@ -153,7 +153,9 @@
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Stok Awal Di Premis</span>
+                                    <span class="">Stok Awal Di Premis &nbsp;<i class="fa fa-exclamation-circle"
+                                        style="color: red; cursor: pointer;"
+                                        title="Termasuk di Pusat Simpanan dan/atau Gudang"></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c5' style="width:100%" id="e101_c5"
@@ -231,7 +233,9 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Stok Akhir Di Premis</span>
+                                    <span class="">Stok Akhir Di Premis &nbsp;<i class="fa fa-exclamation-circle"
+                                        style="color: red; cursor: pointer;"
+                                        title="Termasuk di Pusat Simpanan dan/atau Gudang"></i></span>
                                 </div>
                                 <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e101_c10' style="width:100%"
