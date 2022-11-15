@@ -329,13 +329,13 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-control" name="laporan" required  id="laporan_id" oninput=" valid_laporan()">
                                                         <option selected hidden disabled value="">Sila Pilih Jenis Data</option>
-                                                        <option value="ebio_c5">Stok Awal Di Premis</option>
-                                                        <option value="ebio_c6">Belian / Terimaan</option>
-                                                        <option value="ebio_c7">Pengeluaran</option>
-                                                        <option value="ebio_c8">Digunakan Untuk Proses Selanjutnya</option>
-                                                        <option value="ebio_c9">Jualan / Edaran Tempatan</option>
-                                                        <option value="ebio_c10">Eksport</option>
-                                                        <option value="ebio_c11">Stok Akhir Dilapor</option>
+                                                        <option value="ebio_c4">Stok Awal Di Premis</option>
+                                                        <option value="ebio_c5">Belian / Terimaan</option>
+                                                        <option value="ebio_c6">Pengeluaran</option>
+                                                        <option value="ebio_c7">Digunakan Untuk Proses Selanjutnya</option>
+                                                        <option value="ebio_c8">Jualan / Edaran Tempatan</option>
+                                                        <option value="ebio_c9">Eksport</option>
+                                                        <option value="ebio_c10">Stok Akhir Dilapor</option>
                                                     </select>
                                                     <p type="hidden" id="err_laporan" style="color: red; display:none">
                                                         <i>Sila buat pilihan di bahagian ini!</i>
