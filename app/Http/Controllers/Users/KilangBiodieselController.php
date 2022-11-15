@@ -1778,7 +1778,7 @@ class KilangBiodieselController extends Controller
 
             // dd($iii);
 
-            $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
+            // $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
 
             $iii = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $users->ebio_nobatch)->orderBy('ebio_c3')->get();
             // dd($iii);
