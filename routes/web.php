@@ -155,6 +155,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/5-delete-bio/formiii/{Id}',  [App\Http\Controllers\Admin\Proses5Controller::class, 'process_delete_bahagian_iii'])->name('admin.delete.bahagian.iii');
         Route::post('admin/5-kemaskini-maklumat-ii/{lesen}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_ii'])->name('admin.kemaskini.maklumat.bio.ii');
         Route::post('admin/5-add-maklumat-ii/{lesen}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_add_maklumat_ii'])->name('admin.add.maklumat.bio.ii');
+        Route::post('admin/edit-bahagian-iii-sykt/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_edit_bahagian_iii_sykt_kini'])->name('admin.edit.bahagian.iii.sykt');
 
         Route::post('admin/5-kemaskini-maklumat-exe-dahulu/{Id}', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_kemaskini_maklumat_exe_dahulu'])->name('admin.kemaskini.maklumat.bio.exe.a.dahulu');
         Route::post('admin/5-add-bio/form/dahulu/{ebio_reg}', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_add_bahagian_ia_dahulu'])->name('admin.add.bahagian.ia.dahulu');
