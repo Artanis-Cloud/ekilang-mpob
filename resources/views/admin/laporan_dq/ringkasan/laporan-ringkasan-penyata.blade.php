@@ -172,6 +172,7 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b5[$i] = 0;
+                                                            $total_col_bulan_c4[$i] = 0;
                                                         @endphp
                                                     @endfor
                                                     @foreach ($data_bulanan_ebio_b5 as $keyProduk => $data_ebio_b5)
@@ -196,13 +197,39 @@
                                                     @endphp --}}
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c4 as $keyProduk => $data_ebio_c4)
+
+
+                                                    <tr>
+                                                        <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                        {{-- {{ dd($proddesc) }} --}}
+                                                        @for ($i=1; $i<=12;$i++)
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c4[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                            @php
+                                                                $total_col_bulan_c4[$i] += $data_bulanan_ebio_c4[$keyProduk][$i] ?? 0 ;
+                                                            @endphp
+                                                        @endfor
+
+
+                                                    </tr>
+                                                    {{-- @php
+                                                        $total_b5+= $data_ebio_b5;
+                                                    @endphp --}}
+                                                    @endforeach
+
 
                                                 <tr style="background-color: #d3d3d34d" >
                                                     <th colspan="1"></th>
                                                     <th colspan="1">Jumlah</th>
                                                     @for ($i = 1; $i <= 12; $i++)
+                                                    {{-- @php
+                                                        $total_col_bulan_b5[$i] += $data_bulanan_ebio_b5[$keyProduk][$i] ?? 0 ;
+                                                        $total_col_bulan_c4[$i] += $data_bulanan_ebio_c4[$keyProduk][$i] ?? 0 ;
+                                                    @endphp --}}
 
-                                                    <td class="font-weight-bold text-center">{{ number_format( $total_col_bulan_b5[$i]?? 0,2) }}</td>
+                                                    <td class="font-weight-bold text-center">{{ number_format( $total_col_bulan_b5[$i] + $total_col_bulan_c4[$i] ?? 0,2) }}</td>
 
                                                     @endfor
                                                 </tr>
@@ -239,7 +266,9 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b6[$i] = 0;
+                                                            $total_col_bulan_c5[$i] = 0;
                                                             $total_all_bulan_b6 = 0;
+                                                            $total_all_bulan_c5 = 0;
                                                         @endphp
                                                     @endfor
 
@@ -259,14 +288,30 @@
                                                         </tr>
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c5 as $keyProduk => $data_ebio_c5)
+                                                        <tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+                                                                <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c5[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                                @php
+                                                                    $total_col_bulan_c5[$i] += $data_bulanan_ebio_c5[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
+
+                                                            @endfor
+                                                            <td class="font-weight-bold text-center">{{ number_format($totalc5[$keyProduk] ?? 0,2) }}</td>
+                                                        </tr>
+                                                    @endforeach
+
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="1"></th>
                                                         <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
-                                                            <td class="text-center">{{ number_format( $total_col_bulan_b6[$i] ?? 0,2) }}</td>
+                                                            <td class="text-center">{{ number_format( $total_col_bulan_b6[$i] + $total_col_bulan_c5[$i] ?? 0,2) }}</td>
                                                             @php
-                                                                $total_all_bulan_b6 += $total_col_bulan_b6[$i] ?? 0 ;
+                                                                $total_all_bulan_b6 += $total_col_bulan_b6[$i] + $total_col_bulan_c5[$i] ?? 0 ;
                                                             @endphp
 
                                                         @endfor
@@ -305,7 +350,9 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b7[$i] = 0;
+                                                            $total_col_bulan_c6[$i] = 0;
                                                             $total_all_bulan_b7 = 0;
+                                                            $total_all_bulan_c6 = 0;
                                                         @endphp
                                                     @endfor
 
@@ -326,14 +373,31 @@
                                                         </tr>
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c6 as $keyProduk => $data_ebio_c6)
+                                                        <tr>
+                                                            <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                            <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                            @for ($i=1; $i<=12;$i++)
+
+                                                                <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c6[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                                @php
+                                                                    $total_col_bulan_c6[$i] += $data_bulanan_ebio_c6[$keyProduk][$i] ?? 0 ;
+                                                                @endphp
+
+                                                            @endfor
+                                                            <td class="font-weight-bold text-center">{{number_format( $totalc6[$keyProduk] ?? 0,2) }}</td>
+                                                        </tr>
+                                                    @endforeach
+
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="1"></th>
                                                         <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
-                                                            <td class="text-center">{{number_format( $total_col_bulan_b7[$i] ?? 0,2) }}</td>
+                                                            <td class="text-center">{{number_format( $total_col_bulan_b7[$i] + $total_col_bulan_c6[$i] ?? 0,2) }}</td>
                                                             @php
-                                                                $total_all_bulan_b7 += $total_col_bulan_b7[$i] ?? 0 ;
+                                                                $total_all_bulan_b7 += $total_col_bulan_b7[$i] + $total_col_bulan_c6[$i] ?? 0 ;
                                                             @endphp
 
                                                         @endfor
@@ -371,6 +435,7 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b8[$i] = 0;
+                                                            $total_col_bulan_c7[$i] = 0;
                                                             $total_all_bulan_b8 = 0;
                                                         @endphp
                                                     @endfor
@@ -392,15 +457,32 @@
                                                     </tr>
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c7 as $keyProduk => $data_ebio_c7)
+
+
+                                                    <tr>
+                                                        <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                        @for ($i=1; $i<=12;$i++)
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c7[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                            @php
+                                                                $total_col_bulan_c7[$i] += $data_bulanan_ebio_c7[$keyProduk][$i] ?? 0 ;
+                                                            @endphp
+                                                        @endfor
+                                                        <td class="font-weight-bold text-center">{{number_format( $totalc7[$keyProduk] ?? 0,2) }}</td>
+                                                    </tr>
+                                                    @endforeach
+
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="1"></th>
                                                         <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
-                                                            <td class="text-center">{{number_format( $total_col_bulan_b8[$i] ?? 0,2) }}</td>
+                                                            <td class="text-center">{{number_format( $total_col_bulan_b8[$i] + $total_col_bulan_c7[$i] ?? 0,2) }}</td>
                                                             @php
-                                                                $total_all_bulan_b8 += $total_col_bulan_b8[$i] ?? 0 ;
+                                                                $total_all_bulan_b8 += $total_col_bulan_b8[$i] + $total_col_bulan_c7[$i] ?? 0 ;
                                                             @endphp
 
                                                         @endfor
@@ -439,6 +521,7 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b9[$i] = 0;
+                                                            $total_col_bulan_c8[$i] = 0;
                                                             $total_all_bulan_b9 = 0;
                                                         @endphp
                                                     @endfor
@@ -460,15 +543,32 @@
                                                     </tr>
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c8 as $keyProduk => $data_ebio_c8)
+
+
+                                                    <tr>
+                                                        <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                        @for ($i=1; $i<=12;$i++)
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c8[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                            @php
+                                                                $total_col_bulan_c8[$i] += $data_bulanan_ebio_c8[$keyProduk][$i] ?? 0 ;
+                                                            @endphp
+                                                        @endfor
+                                                        <td class="font-weight-bold text-center">{{ number_format( $totalc8[$keyProduk] ?? 0,2) }}</td>
+                                                    </tr>
+                                                    @endforeach
+
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="1"></th>
                                                         <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
-                                                        <td class="text-center">{{ number_format( $total_col_bulan_b9[$i] ?? 0,2) }}</td>
+                                                        <td class="text-center">{{ number_format( $total_col_bulan_b9[$i] +  $total_col_bulan_c8[$i] ?? 0,2) }}</td>
                                                             @php
-                                                                $total_all_bulan_b9 += $total_col_bulan_b9[$i] ?? 0 ;
+                                                                $total_all_bulan_b9 += $total_col_bulan_b9[$i] + $total_col_bulan_c8[$i] ?? 0 ;
                                                             @endphp
 
                                                         @endfor
@@ -507,6 +607,7 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b10[$i] = 0;
+                                                            $total_col_bulan_c9[$i] = 0;
                                                             $total_all_bulan_b10 = 0;
                                                         @endphp
                                                     @endfor
@@ -528,15 +629,32 @@
                                                     </tr>
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c9 as $keyProduk => $data_ebio_c9)
+
+
+                                                    <tr>
+                                                        <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                        @for ($i=1; $i<=12;$i++)
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c9[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                            @php
+                                                                $total_col_bulan_c9[$i] += $data_bulanan_ebio_c9[$keyProduk][$i] ?? 0 ;
+                                                            @endphp
+                                                        @endfor
+                                                        <td class="font-weight-bold text-center">{{ number_format( $totalc9[$keyProduk] ?? 0,2) }}</td>
+                                                    </tr>
+                                                    @endforeach
+
 
                                                     <tr class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="1"></th>
                                                         <th colspan="1">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
-                                                            <td class="text-center">{{ number_format($total_col_bulan_b10[$i] ?? 0,2) }}</td>
+                                                            <td class="text-center">{{ number_format($total_col_bulan_b10[$i] + $total_col_bulan_c9[$i] ?? 0,2) }}</td>
                                                             @php
-                                                                $total_all_bulan_b10 += $total_col_bulan_b10[$i] ?? 0 ;
+                                                                $total_all_bulan_b10 += $total_col_bulan_b10[$i] + $total_col_bulan_c9[$i] ?? 0 ;
                                                             @endphp
 
                                                         @endfor
@@ -574,6 +692,7 @@
                                                     @for ($i = 1; $i <= 13; $i++)
                                                         @php
                                                             $total_col_bulan_b11[$i] = 0;
+                                                            $total_col_bulan_c10[$i] = 0;
                                                         @endphp
                                                     @endfor
 
@@ -593,11 +712,27 @@
                                                     </tr>
                                                     @endforeach
 
+                                                    @foreach ($data_bulanan_ebio_c10 as $keyProduk => $data_ebio_c10)
+
+
+                                                    <tr>
+                                                        <td style="text-align: left"> {{ $keyProduk }}</td>
+                                                        <td style="text-align: left"> {{ $proddesc[$keyProduk] ?? 0 }}</td>
+                                                        @for ($i=1; $i<=12;$i++)
+                                                            <td class="text-center" style="width:auto">{{ number_format($data_bulanan_ebio_c10[$keyProduk][$i] ?? 0,2) }}</td>
+
+                                                            @php
+                                                                $total_col_bulan_c10[$i] += $data_bulanan_ebio_c10[$keyProduk][$i] ?? 0 ;
+                                                            @endphp
+                                                        @endfor
+                                                    </tr>
+                                                    @endforeach
+
                                                     <tr  class="font-weight-bold text-center" style="background-color: #d3d3d34d" >
                                                         <th colspan="2">Jumlah</th>
                                                         @for ($i = 1; $i <= 12; $i++)
 
-                                                            <td class="text-center">{{  number_format($total_col_bulan_b11[$i] ?? 0,2) }}</td>
+                                                            <td class="text-center">{{  number_format($total_col_bulan_b11[$i] + $total_col_bulan_c10[$i] ?? 0,2) }}</td>
 
                                                         @endfor
                                                     </tr>

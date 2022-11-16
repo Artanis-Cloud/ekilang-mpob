@@ -492,7 +492,7 @@
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b8' style="text-align: right"
-                                                                    class="form-control"> onkeypress="return isNumberKey(event)"
+                                                                    class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
                                                                     <input type="text" name='ebio_b9' style="text-align: right"

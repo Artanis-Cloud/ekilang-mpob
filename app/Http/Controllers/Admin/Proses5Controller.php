@@ -1077,7 +1077,7 @@ class Proses5Controller extends Controller
                 ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
             ];
 
-            $kembali = route('admin.9penyataterdahulu');
+            $kembali = route('admin.6penyatapaparcetakbio');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -1205,7 +1205,7 @@ class Proses5Controller extends Controller
                 ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
             ];
 
-            $kembali = route('admin.9penyataterdahulu');
+            $kembali = route('admin.6penyatapaparcetakbio');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -1245,7 +1245,7 @@ class Proses5Controller extends Controller
             ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
         ];
 
-        $kembali = route('admin.9penyataterdahulu');
+        $kembali = route('admin.6penyatapaparcetakbio');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -1694,8 +1694,55 @@ class Proses5Controller extends Controller
             $penyataiii_save->ebio_c10 =$c10;
         // dd($penyataia_save->ebio_b4);
 
+
+            $syarikat = EBioCC::where('ebio_reg', $penyataiii_save->ebio_reg)->get();
+            $count = EBioCC::max('ebio_cc1');
+
+            // dd($syarikat);
+            foreach ($syarikat as $key => $data) {
+                $data->delete();
+            }
+            dd($request->all());
+
+            $ebio_nobatch = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+            // dd($ebio_reg);
+            if($request->new_syarikat_hidden){
+                foreach ($request->new_syarikat_hidden as $key => $value) {
+                    $bio = EBioCC::create([
+                        'ebio_reg' => $penyataiii_save->ebio_reg,
+                        'ebio_cc2' => 'AW',
+                        'ebio_cc3' => $request->ebio_cc3[$key],
+                        'ebio_cc4' => $request->ebio_cc4[$key],
+                    ]);
+                }
+            }
+
+            if($request->ebio_cc3){
+                foreach ($request->ebio_cc3 as $key => $value) {
+                    $syarikat_id = SyarikatPembeli::where('pembeli', $value)->first();
+
+                    $ebio_cc4[$key] = str_replace(',', '', $request->ebio_cc4[$key]);
+
+                    $bio = EBioCC::create([
+                        'ebio_reg' => $penyataiii_save->ebio_reg,
+                        'ebio_cc2' => 'AW',
+                        'ebio_cc3' => $syarikat_id->id,
+                        'ebio_cc4' => $ebio_cc4[$key],
+                    ]);
+
+                }
+            }
+            $total_jualan = EBioCC::where('ebio_reg', $penyataiii_save->ebio_reg)->sum('ebio_cc4');
+
+            $penyata = EBioC::where('ebio_reg', $penyataiii_save->ebio_reg)->where('ebio_c3', 'AW')->first();
+
+            dd($penyataiii_save);
+            $penyata->ebio_c8 = $total_jualan;
+            $penyata->push();
+
+
             $penyataiii_save->save();
-        // }
+            // }
 
 
 
@@ -1792,6 +1839,64 @@ class Proses5Controller extends Controller
     }
 
 
+
+    public function admin_edit_bahagian_iii_sykt_kini(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyataiii = EBioC::findOrFail($id);
+        // dd($penyata);
+        $syarikat = EBioCC::where('ebio_reg', $penyataiii->ebio_reg)->get();
+        $count = EBioCC::max('ebio_cc1');
+        // dd($total_jualan);
+
+        // dd($syarikat);
+        foreach ($syarikat as $key => $data) {
+            $data->delete();
+        }
+        // dd($syarikat);
+
+        $ebio_nobatch = EBioInit::where('ebio_nl', $penyataiii->ebio_nl)->first('ebio_reg');
+        // dd($ebio_reg);
+        if($request->new_syarikat_hidden){
+            foreach ($request->new_syarikat_hidden as $key => $value) {
+                $bio = EBioCC::create([
+                    'ebio_reg' => $penyataiii->ebio_reg,
+                    'ebio_cc2' => 'AW',
+                    'ebio_cc3' => $request->new_syarikat_hidden[$key],
+                    'ebio_cc4' => $request->ebio_cc4_hidden[$key],
+                ]);
+            }
+        }
+
+        if($request->ebio_cc3){
+            foreach ($request->ebio_cc3 as $key => $value) {
+                $syarikat_id = SyarikatPembeli::where('pembeli', $value)->first();
+
+                $ebio_cc4[$key] = str_replace(',', '', $request->ebio_cc4[$key]);
+
+                $bio = EBioCC::create([
+                    'ebio_reg' => $penyataiii->ebio_reg,
+                    'ebio_cc2' => 'AW',
+                    'ebio_cc3' => $syarikat_id->id,
+                    'ebio_cc4' => $ebio_cc4[$key],
+                ]);
+
+            }
+            // dd($request->ebio_cc3);
+            // dd($ebio_cc4);
+
+        }
+        $total_jualan = EBioCC::where('ebio_reg', $penyataiii->ebio_reg)->sum('ebio_cc4');
+
+        $penyataiii = EBioC::where('ebio_reg', $penyataiii->ebio_reg)->where('ebio_c3', 'AW')->first();
+        $penyataiii->ebio_c8 = $total_jualan;
+        $penyataiii->push();
+
+
+        // return redirect()->route('bio.bahagianiii');
+        return redirect()->back()
+        ->with('success', 'Maklumat Telah DiKemaskini');
+    }
 
 
 
@@ -2329,7 +2434,7 @@ class Proses5Controller extends Controller
                 ]);
 
             }
-            dd($request->ebio_cc3);
+            // dd($request->ebio_cc3);
             // dd($ebio_cc4);
 
         }
