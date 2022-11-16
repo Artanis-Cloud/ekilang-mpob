@@ -319,7 +319,7 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:20px 0px">
+                        {{-- <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <label for="fname" class="control-label col-form-label required">
                                     Kapasiti Pemprosesan / Tahun</label>
@@ -334,7 +334,7 @@
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="row justify-content-center" style="margin:20px 0px">

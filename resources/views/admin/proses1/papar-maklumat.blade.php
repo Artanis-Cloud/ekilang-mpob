@@ -632,6 +632,8 @@
                             </div>
 
                             @endif
+                            @if ($reg_pelesen->e_kat != 'PL111')
+
                             <div class="row mb-2">
                                 <label for="fname"
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
@@ -646,6 +648,7 @@
                                             <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
+                            @endif
 
                             <div class="col-12">
                             @if ($reg_pelesen->e_kat == 'PL91')
