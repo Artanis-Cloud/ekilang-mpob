@@ -660,14 +660,14 @@
 
 
                                             <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
+                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK BIODIESEL DAN GLYCERINE</font>
                                             </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered" style="padding: 0.2rem 0.3rem">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
                                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Produk Biodiesel</font>
+                                                                <font size="2">Produk Biodiesel dan Glycerine</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -778,7 +778,7 @@
 
                                             <p><b>
                                                     <font style="font-size: 15px" color="#0c7c85">
-                                                        BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT
+                                                        BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
                                                     </font>
                                                 </b></p>
