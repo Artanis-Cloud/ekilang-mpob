@@ -401,7 +401,7 @@
                                                         <td align="right">
                                                             <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                    </tr>d>
+                                                    </tr>
                                                     </tr>
                                                 </tbody>
                                             </table><br>
