@@ -254,7 +254,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td colspan="10" style="text-align: center">Tiada Rekod</td>
+                                {{-- <td colspan="10" style="text-align: center">Tiada Rekod</td> --}}
 
 
 
