@@ -306,7 +306,7 @@
                                                                     <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
-                                                                    <font size="2">Belian/Terima</font><b></b>
+                                                                    <font size="2">Belian/Terimaan</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Import</font><b></b>
@@ -430,7 +430,7 @@
                                                                     <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
-                                                                    <font size="2">Belian/Terima</font><b></b>
+                                                                    <font size="2">Belian/Terimaan</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Import</font><b></b>
@@ -553,7 +553,7 @@
                                                                     <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
-                                                                    <font size="2">Belian/Terima</font><b></b>
+                                                                    <font size="2">Belian/Terimaan</font><b></b>
                                                                 </b></td>
                                                             <td width="8%" align="center"><b>
                                                                     <font size="2">Import</font><b></b>
