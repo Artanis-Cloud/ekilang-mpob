@@ -129,7 +129,7 @@
                                                                 <div class="btn">
                                                                     <a
                                                                         target='_blank' href="{{ asset('storage/'.$data->file_upload) }}" >
-                                                                        <i class="fa fa-paperclip" id="change" onclick="func()"
+                                                                        <i class="fa fa-paperclip" 
                                                                             style="color: #228c1c; font-size:18px; padding: 0rem 0rem;">
                                                                         </i>
                                                                     </a>
@@ -163,7 +163,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         function func()
         {
             document.getElementById("change").style.color="red";
@@ -185,5 +185,5 @@
             prt.setAttribute("href", altdoc);
             printWindow();
         }
-    </script>
+    </script> --}}
 @endsection

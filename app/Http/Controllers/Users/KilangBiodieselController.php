@@ -1237,8 +1237,8 @@ class KilangBiodieselController extends Controller
 
         $penyata = EBioC::where('ebio_reg', $penyata->ebio_reg)->where('ebio_c3', 'AW')->first();
         $penyata->ebio_c8 = $total_jualan;
+        // dd($bio);
         $penyata->push();
-        // dd($penyata);
 
         // return redirect()->route('bio.bahagianiii');
         return redirect()->route('bio.bahagianiii');
