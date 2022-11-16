@@ -70,7 +70,7 @@
                                         disabled>
 
                                             <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }} value="PL91">KILANG BUAH</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }} value="PL101">KKILANG PENAPIS</option>
+                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }} value="PL101">KILANG PENAPIS</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }} value="PL102">KILANG ISIRUNG</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL104') ? 'selected' : '' }} value="PL104">KILANG OLEOKIMIA</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL111') ? 'selected' : '' }} value="PL111">PUSAT SIMPANAN</option>
@@ -632,6 +632,8 @@
                             </div>
 
                             @endif
+                            @if ($reg_pelesen->e_kat != 'PL111')
+
                             <div class="row mb-2">
                                 <label for="fname"
                                     class="text-left col-sm-3 control-label col-form-label required align-items-center">
@@ -646,6 +648,7 @@
                                             <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
+                            @endif
 
                             <div class="col-12">
                             @if ($reg_pelesen->e_kat == 'PL91')

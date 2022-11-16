@@ -319,7 +319,7 @@
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:20px 0px">
+                        {{-- <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <label for="fname" class="control-label col-form-label required">
                                     Kapasiti Pemprosesan / Tahun</label>
@@ -330,11 +330,11 @@
                                     placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                     onchange="validation_jumlah(); FormatCurrency(this)"
                                     oninput="this.setCustomValidity(''); valid_proses(); invokeFunc18()"
-                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses?? 0,2) }}" required>
+                                    onkeypress="return point(event)" value="{{ number_format($pelesen->kap_proses?? 0,2) }}" required>
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="row justify-content-center" style="margin:20px 0px">
