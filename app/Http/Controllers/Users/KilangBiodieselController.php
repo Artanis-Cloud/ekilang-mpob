@@ -1050,11 +1050,11 @@ class KilangBiodieselController extends Controller
             // dd($request->all());
             // $this->validation_bahagian_iii($request->all())->validate();
             if ($request->ebio_c3 == 'AW') {
-                if ($request->ebio_c8 == 0) {
-                    return redirect()->back()->with('error', 'Sila isi butiran maklumat jualan/edaran');
-                } else{
+                if ($request->ebio_c8 <> 0) {
                     $this->store_bahagian_iii($request->all());
                     $this->store_bahagian_iii2($request->all());
+                } else {
+                    $this->store_bahagian_iii($request->all());
                 }
 
             } else {
