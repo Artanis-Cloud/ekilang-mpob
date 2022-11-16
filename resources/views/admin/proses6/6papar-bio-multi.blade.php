@@ -616,26 +616,38 @@
                                                         </tr>
 
                                                     @endforeach
+
+                                                    <tr>
+                                                        <td align="center" colspan="2">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b5 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b6 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b7 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b8 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b9 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b10 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebioc_b11 ?? 0,2) }}</b></td>
+
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
-                                                @endif
 
                                                 <tr>
                                                     <td align="center" colspan="2">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b5 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b6 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b7 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b8 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b9 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b10 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebioc_b11 ?? 0,2) }}</b></td>
+                                                    <td class="text-right"><b>-</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
+                                                    <td class="text-right"><b>0.00</b></td>
 
                                                 </tr>
+                                                @endif
                                                 </tbody>
                                             </table><br>
 
