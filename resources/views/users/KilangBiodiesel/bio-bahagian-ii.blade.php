@@ -185,7 +185,7 @@
                     </div>
 
                     <div class="form-group col-10 ml-auto mr-auto" style="margin-top:4%; margin-bottom: 15%">
-                            <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
+                            <a href="{{ route('bio.bahagianic') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
 
                             <button type="button" class="btn btn-primary " id="checkBtn" onclick="check()"

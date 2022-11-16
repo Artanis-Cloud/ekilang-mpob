@@ -323,13 +323,13 @@
                                                             <font size="2"><b>{{ number_format($total2 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>-</b></font>
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($total3 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>-</b></font>
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($total4 ??  0,2) }}</b></font>
