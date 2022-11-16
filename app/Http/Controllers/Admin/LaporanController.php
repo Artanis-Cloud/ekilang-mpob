@@ -368,7 +368,7 @@ class LaporanController extends Controller
             $date= DB::table('h_bio_inits')->where('ebio_nobatch', $list_result->ebio_nobatch)->get();
             for ($i=1; $i <= 12; $i++) {
 
-                if($i == $list_result->ebio_bln)
+                if($i == $new_bulan)
                 foreach ($date as $hbiob) {
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $hbiob->ebio_sdate);
                     $formatteddate = $myDateTime->format('d-m-Y');
