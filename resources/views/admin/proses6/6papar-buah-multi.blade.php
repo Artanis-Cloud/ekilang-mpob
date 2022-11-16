@@ -1,10 +1,24 @@
 @extends($layout)
 
-    {{-- <style>
-        #myfrm {
-            border: 1px solid rgb(3, 3, 3);
-        }
-    </style> --}}
+    {{-- <style> --}}
+
+  {{-- /* color: red; */
+  /* @media print {
+    tr.vendorListHeading {
+        background-color: #1a4567 !important;
+        print-color-adjust: exact;
+    }
+}
+
+@media print {
+    .vendorListHeading th {
+        color: white !important;
+    }
+}
+        #myfrm { */
+            /* border: 1px solid rgb(3, 3, 3);
+        } */
+    /* </style> */ --}}
 @section('content')
 
     <!-- ======= Hero Section ======= -->
@@ -47,6 +61,12 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div id="draw">
+                    <button id="click">Click me</button>
+                  </div>
+
+                  <hr />
+                  <button onclick="window.print();">Print</button> --}}
 
                 <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
                     <div class="col-1 align-self-center">
@@ -65,7 +85,7 @@
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <div class="card-body">
-                        <form method="get" action="" id="myfrm">
+                        <form method="get" action="" id="myfrm" >
 
                             @foreach ($penyata as $data)
                                 {{-- @foreach (array_merge($pelesens, $data) as $data) --}}
@@ -73,7 +93,7 @@
 
                                     {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <body>
+                                    <body >
                                         {{-- <p align="left">
                                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
@@ -414,7 +434,7 @@
                                                                     {{ number_format($data->e91_ac1 ?? 0, 2) }}</font>
                                                             </p>
                                                         </td>
-                                                        <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                        <td width="135"  style="background-color:#C0C0C0; align:center ">&nbsp;</td>
                                                         <td width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
                                                         <td width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
                                                     </tr>
@@ -1206,6 +1226,24 @@
             return false;
         }
     </script>
+    {{-- <script>
+        $('#draw').on('click', 'p', function () {
+        if($(this).hasClass("highlited")) {
+            $(this).removeClass("highlited");
+        } else {
+            $(this).addClass("highlited");
+        }
+        });
+
+        $('#click').click(function () {
+        var html = "";
+        html += '<p>I want to be red...</p>';
+        html += '<p>Me too...</p>';
+        html += '<p>Ok... Me too...</p>';
+
+        $('#draw').html(html);
+        });
+        </script> --}}
 
 
     </body>

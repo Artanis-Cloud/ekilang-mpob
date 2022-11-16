@@ -108,6 +108,8 @@ class InitializeUpdate extends Command
             $this->initialize_proses_pl104($edate);
             $this->initialize_proses_pl111($edate);
             $this->initialize_proses_plbio($edate);
+
+            Auth::user()->log("INITIALIZE PENYATA BULANAN");
         }
 
     }

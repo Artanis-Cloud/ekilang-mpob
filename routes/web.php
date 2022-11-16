@@ -352,6 +352,9 @@ Route::middleware('auth')->group(function () {
         Route::post('admin/edit-stok-akhir/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_stok_akhir'])->name('admin.edit.stok.akhir');
         Route::get('admin/delete-stok-akhir/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_delete_stok_akhir'])->name('admin.delete.stok.akhir');
         Route::get('admin/tambah-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir'])->name('admin.tambah.stok.akhir');
+        Route::get('admin/port-stok-akhir', [App\Http\Controllers\Admin\PortingBiodieselController::class, 'admin_port_stok_akhir'])->name('admin.port.stok.akhir');
+        Route::get('admin/port-stok-akhir-process/{id}', [App\Http\Controllers\Admin\PortingBiodieselController::class, 'admin_port_stok_akhir_process'])->name('admin.port.stok.akhir.process');
+        Route::get('admin/porting-stokakhir', [App\Http\Controllers\Admin\PortingBiodieselController::class, 'porting_stokakhir'])->name('porting.stokakhir');
         Route::post('admin/tambah-stok-akhir-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses'])->name('admin.tambah.stok.akhir.proses');
         Route::post('admin/tambah-stok-akhir-proses2', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses2'])->name('admin.tambah.stok.akhir.proses2');
         Route::get('admin/validasi-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir'])->name('admin.validasi.stok.akhir');

@@ -292,7 +292,7 @@
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
                                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Nama Produk Minyak Sawit</font>
+                                                                <font size="2"> Produk Minyak Sawit</font>
                                                             </b></td>
                                                         {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -606,7 +606,7 @@
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
                                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Nama Produk Isirung Sawit</font>
+                                                                <font size="2"> Produk Minyak Isirung Sawit</font>
                                                             </b></td>
                                                         {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -911,14 +911,14 @@
                                             </table><br>
 
                                             <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
+                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK-MINYAK LAIN</font>
                                             </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
                                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Nama Produk Lain-Lain Minyak</font>
+                                                                <font size="2"> Produk Minyak-Minyak Lain</font>
                                                             </b></td>
                                                         {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -1231,7 +1231,7 @@
 
 
                                             <p><b>
-                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
+                                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK BIODIESEL DAN GLYCERINE</font>
                                             </b></p>
                                             @if ($penyataiii && !$penyataiii->isEmpty())
 
@@ -1240,7 +1240,7 @@
                                                     <tbody>
                                                         <tr style="background-color: #d3d3d370">
                                                             <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                    <font size="2">Nama Produk Biodiesel</font>
+                                                                    <font size="2"> Produk Biodiesel dan Glycerine</font>
                                                                 </b></td>
                                                             {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                     <font size="2">Kod Produk</font>
@@ -1511,7 +1511,7 @@
                                                         <tbody>
                                                             <tr style="background-color: #d3d3d370">
                                                                 <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                                                        <font size="2">Nama Produk Biodiesel</font>
+                                                                        <font size="2"> Produk Biodiesel dan Glycerine</font>
                                                                     </b></td>
                                                                 {{-- <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                         <font size="2">Kod Produk</font>
