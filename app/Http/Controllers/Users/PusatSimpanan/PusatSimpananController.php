@@ -115,7 +115,7 @@ class PusatSimpananController extends Controller
             // 'e_year' => ['required', 'string'],
             'e_group' => ['required', 'string'],
             // 'e_poma' => ['required', 'string'],
-            'kap_proses' => ['required', 'string'],
+            // 'kap_proses' => ['required', 'string'],
 
         ]);
     }
@@ -155,7 +155,7 @@ class PusatSimpananController extends Controller
             // 'e_poma' => $data['e_poma'],
             // 'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
-            'kap_proses' => $data['kap_proses'],
+            // 'kap_proses' => $data['kap_proses'],
             'tahun' => date("Y"),
             'bulan' => date("m"),
 
@@ -187,7 +187,7 @@ class PusatSimpananController extends Controller
                 $penyata->e_syktinduk = $request->e_syktinduk;
                 $penyata->e_group = $request->e_group;
                 $penyata->e_email_pengurus = $request->e_email_pengurus;
-                $penyata->kap_proses = $request->kap_proses;
+                // $penyata->kap_proses = $request->kap_proses;
                 $penyata->kap_tangki = $request->kap_tangki;
                 $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
                 $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
@@ -225,7 +225,7 @@ class PusatSimpananController extends Controller
                 $penyata->e_syktinduk = $request->e_syktinduk;
                 $penyata->e_group = $request->e_group;
                 $penyata->e_email_pengurus = $request->e_email_pengurus;
-                $penyata->kap_proses = $request->kap_proses;
+                // $penyata->kap_proses = $request->kap_proses;
                 $penyata->kap_tangki = $request->kap_tangki;
                 $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
                 $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
