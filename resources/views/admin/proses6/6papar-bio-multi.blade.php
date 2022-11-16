@@ -377,22 +377,23 @@
 
                                                             </tr>
 
-                                                                <tr>
-                                                                    <td align="center" colspan="2">
-                                                                        <font size="2"><b>JUMLAH</b></font>
-                                                                    </td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_dipremis ?? 0,2) }}</b></td>
-                                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-
-                                                                </tr>
-
                                                         @endforeach
+
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_dipremis ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+
+                                                        </tr>
+
                                                     @else
                                                         <tr>
                                                             <td align="center" colspan="2">
@@ -507,30 +508,26 @@
                                                                 @endphp
                                                             </tr>
 
-                                                            <tr>
-                                                                <td align="center" colspan="2">
-                                                                    <font size="2"><b>JUMLAH</b></font>
-                                                                </td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b5 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b6 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b7 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b8 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b9 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b10 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
-                                                                <td class="text-right"><b>{{  number_format($total_col_ebiob_b11 ?? 0,2) }}</b></td>
-                                                                {{-- {{ dd($total_dipremis2) }} --}}
-
-
-                                                            </tr>
 
                                                         @endforeach
-                                                    @else
-                                                        {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
-                                                    @endif
 
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebiob_b11 ?? 0,2) }}</b></td>
+                                                            {{-- {{ dd($total_dipremis2) }} --}}
+
+
+                                                        </tr>
+                                                    @else
                                                     <tr>
                                                         <td align="center" colspan="2">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -545,8 +542,10 @@
                                                         <td class="text-right"><b>0.00</b></td>
                                                         {{-- {{ dd($total_dipremis2) }} --}}
 
-
                                                     </tr>
+
+                                                    @endif
+
                                                 </tbody>
                                             </table><br>
 
@@ -792,6 +791,10 @@
                                                             @endphp
                                                         </tr>
 
+
+                                                        @endforeach
+
+
                                                         <tr>
                                                             <td align="center" colspan="2">
                                                                 <font size="2"><b>JUMLAH</b></font>
@@ -806,23 +809,21 @@
                                                             <td class="text-right"><b>{{  number_format($total_col_ebio_c10 ?? 0,2) }}</b></td>
 
                                                         </tr>
-
-                                                        @endforeach
                                                     @else
-                                                    <tr>
-                                                        <td align="center" colspan="2">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
-                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
 
-                                                    </tr>
+                                                        </tr>
                                                     @endif
                                                 </tbody>
                                             </table><br>
