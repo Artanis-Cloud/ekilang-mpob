@@ -982,7 +982,7 @@
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->pelesen->e_notel }}
+                                            {{ $data->ebio_notel }}
                                         </p>
 
 
