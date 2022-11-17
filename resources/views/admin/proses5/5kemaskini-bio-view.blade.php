@@ -1909,7 +1909,7 @@
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $penyata->pelesen->e_notel ?? '-' }}
+                                            {{ $penyata->ebio_notel ?? '-' }}
                                         </p>
 
 
