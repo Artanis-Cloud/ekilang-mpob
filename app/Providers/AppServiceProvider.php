@@ -42,24 +42,25 @@ class AppServiceProvider extends ServiceProvider
 
             if (auth()->user()) {
                 if (auth()->user()->category == 'PL91') {
-                    $layoutpenyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', '2')->first();
+                    $layoutpenyata = E91Init::where('e91_nl', auth()->user()->username)->where('e91_flg', ['2','3'])->orWhere('e91_flg', '3')->first();
                     $not_admin = true;
                 } elseif (auth()->user()->category == 'PL101') {
-                    $layoutpenyata = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '2')->first();
+                    $layoutpenyata = E101Init::where('e101_nl', auth()->user()->username)->where('e101_flg', '2')->orWhere('e101_flg', '3')->first();
                     $not_admin = true;
                 } elseif (auth()->user()->category == 'PL102') {
-                    $layoutpenyata = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '2')->first();
+                    $layoutpenyata = E102Init::where('e102_nl', auth()->user()->username)->where('e102_flg', '2')->orWhere('e102_flg', '3')->first();
                     $not_admin = true;
                 } elseif (auth()->user()->category == 'PL104') {
-                    $layoutpenyata = E104Init::where('e104_nl', auth()->user()->username)->where('e104_flg', '2')->first();
+                    $layoutpenyata = E104Init::where('e104_nl', auth()->user()->username)->where('e104_flg', '2')->orWhere('e104_flg', '3')->first();
                     $not_admin = true;
                 } elseif (auth()->user()->category == 'PL111') {
-                    $layoutpenyata = E07Init::where('e07_nl', auth()->user()->username)->where('e07_flg', '2')->first();
+                    $layoutpenyata = E07Init::where('e07_nl', auth()->user()->username)->where('e07_flg', '2')->orWhere('e07_flg', '3')->first();
                     $not_admin = true;
                 } elseif (auth()->user()->category == 'PLBIO') {
-                    $layoutpenyata = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '2')->first();
+                    $layoutpenyata = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '2')->orWhere('ebio_flg', '3')->first();
                     $not_admin = true;
                 }
+                // dd($layoutpenyata);
 
                 // $map_flg = User::where('username', auth()->user()->username)->first();
                 // dd($map_flg);
