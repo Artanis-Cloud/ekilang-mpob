@@ -1212,6 +1212,8 @@ class Proses4Controller extends Controller
                         {
                             $idno = $idmaxbiob + 1;
                             // dd($idno);
+                        } else {
+                            $idno = 1;
                         }
 
                         $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
@@ -1241,6 +1243,8 @@ class Proses4Controller extends Controller
                         {
                             $idno = $idmaxbioc + 1;
                             // dd($idno);
+                        } else {
+                            $idno = 1;
                         }
 
                         $inserthbioc = DB::insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
@@ -1264,6 +1268,8 @@ class Proses4Controller extends Controller
                         {
                             $idno = $idmaxbiod + 1;
                             // dd($idno);
+                        } else {
+                            $idno = 1;
                         }
 
                         $inserthbiocc = DB::insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
@@ -1288,6 +1294,8 @@ class Proses4Controller extends Controller
                         {
                             $idno = $idmaxhari + 1;
                             // dd($idno);
+                        } else {
+                            $idno = 1;
                         }
 
                         $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
