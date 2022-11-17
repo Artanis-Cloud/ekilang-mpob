@@ -1450,6 +1450,7 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_npg = $request->ebio_npg;
         $penyata->ebio_jpg = $request->ebio_jpg;
         $penyata->ebio_notel = $request->ebio_notel;
+        $penyata->ebio_flagcetak = 'N';
         $penyata->save();
 
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
