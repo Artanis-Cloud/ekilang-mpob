@@ -366,9 +366,9 @@
                                                                 </tr>
                                                             @endforeach
                                                         @else
-                                                            <tr>
+                                                            {{-- <tr>
                                                                 <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                            </tr>
+                                                            </tr> --}}
                                                         @endif
 
                                                         <tr>
@@ -490,9 +490,9 @@
                                                                 </tr>
                                                             @endforeach
                                                         @else
-                                                            <tr>
+                                                            {{-- <tr>
                                                                 <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                            </tr>
+                                                            </tr> --}}
                                                         @endif
 
                                                         <tr>
@@ -613,9 +613,9 @@
                                                             </tr>
                                                             @endforeach
                                                         @else
-                                                            <tr>
+                                                            {{-- <tr>
                                                                 <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                            </tr>
+                                                            </tr> --}}
                                                         @endif
                                                         <tr>
                                                             <td align="center">
