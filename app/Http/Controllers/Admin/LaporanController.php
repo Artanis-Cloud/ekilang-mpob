@@ -245,13 +245,13 @@ class LaporanController extends Controller
             // order by b.ebio_b4");
 
             // dd($hbiob_b);
-            $new_bulan = $no_batch->ebio_bln - 1;
+            // $new_bulan = $no_batch->ebio_bln - 1;
 
             for ($i=1; $i <= 12; $i++) {
-            if($new_bulan == 0){
-                $new_bulan = 12;
-            }
-            if($i == $new_bulan)
+            // if($new_bulan == 0){
+            //     $new_bulan = 12;
+            // }
+            if($i ==  $no_batch->ebio_bln)
 
                 foreach ($hbiob as  $data3) {
 
@@ -269,7 +269,7 @@ class LaporanController extends Controller
             }
 
             for ($i2=1; $i2 <= 12; $i2++) {
-            if($i2 == $new_bulan)
+            if($i2 ==  $no_batch->ebio_bln)
 
                 foreach ($hbiob_b as  $data4) {
 
@@ -368,7 +368,7 @@ class LaporanController extends Controller
             $date= DB::table('h_bio_inits')->where('ebio_nobatch', $list_result->ebio_nobatch)->get();
             for ($i=1; $i <= 12; $i++) {
 
-                if($i == $new_bulan)
+                if($i ==  $no_batch->ebio_bln)
                 foreach ($date as $hbiob) {
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $hbiob->ebio_sdate);
                     $formatteddate = $myDateTime->format('d-m-Y');
@@ -793,13 +793,13 @@ class LaporanController extends Controller
             $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->e_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
             foreach ($hbiob_s as  $hbiob) {
-                $new_bulan = $hbiob->bulanbhg2 - 1;
-                if($new_bulan == 0){
-                    $new_bulan = 12;
-                }
+                // $new_bulan = $hbiob->bulanbhg2 - 1;
+                // if($new_bulan == 0){
+                //     $new_bulan = 12;
+                // }
 
             for ($i=1; $i <= 12; $i++) {
-                if($i == $new_bulan){
+                if($i ==  $hbiob->bulanbhg2){
                         $data_hari_operasi[$list_result->lesen][$i] = $hbiob->hari_operasi ?? 0;
                         $data_kapasiti[$list_result->lesen][$i] = $hbiob->kapasiti ?? 0;
                     }
@@ -998,11 +998,11 @@ class LaporanController extends Controller
                     }
 
                     for ($i=1; $i <= 12; $i++) {
-                        $new_bulan = $no_batch->ebio_bln - 1;
-                        if($new_bulan == 0){
-                            $new_bulan = 12;
-                        }
-                        if($i == $new_bulan){
+                        // $new_bulan = $no_batch->ebio_bln - 1;
+                        // if($new_bulan == 0){
+                        //     $new_bulan = 12;
+                        // }
+                        if($i == $no_batch->ebio_bln){
                             foreach ($hbiob_s as  $hbiob) {
                                 $ebio_c4_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c4 ?? 0;
                                 $ebio_c5_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c5 ?? 0;
