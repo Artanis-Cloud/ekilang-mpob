@@ -1187,7 +1187,7 @@ class Proses4Controller extends Controller
 
                     foreach ($ebiob as $rowebio_b)
                     {
-                        dd($rowebio_b);
+                        // dd($rowebio_b);
                         $b3 = $rowebio_b->ebio_b3 ;
                         $b4 = $rowebio_b->ebio_b4 ;
                         $b5 = (float) $rowebio_b->ebio_b5 ;
@@ -1275,6 +1275,7 @@ class Proses4Controller extends Controller
 
                     foreach ($hari as $haris)
                     {
+                        dd($haris);
                         $tahun = $haris->tahunbhg2 ;
                         $bulan = $haris->bulanbhg2 ;
                         $hari_operasi = $haris->hari_operasi ;
