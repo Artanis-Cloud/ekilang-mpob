@@ -535,7 +535,6 @@ class LaporanController extends Controller
             ->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start . '%')->groupBy('ebio_nl')->get();
 
         }
-        // dd($result);
         if ($request->bulan == 'between') {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
@@ -554,6 +553,7 @@ class LaporanController extends Controller
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
             ->where('ebio_thn',$tahun)->where('prodid', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         }
+        // dd($result);
 
         // dd($request->kod_produk);
 
@@ -626,7 +626,7 @@ class LaporanController extends Controller
                     }
                 }
             }
-            // dd($ebio_b5_bhg1);
+            // dd($result);
 
             $layout = 'layouts.main';
             $equal_month = intval($equal_month);
@@ -995,6 +995,9 @@ class LaporanController extends Controller
                     {
                         $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
                         ->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->get();
+
+                        // $hbiob_s = HBioC::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
+
                     }
 
                     for ($i=1; $i <= 12; $i++) {
@@ -1024,7 +1027,7 @@ class LaporanController extends Controller
 
             $start_month = intval($start_month);
             $end_month = intval($end_month);
-    //  dd($end_month ) ;
+    //  dd($hbiob_s) ;
             $array = [
                 'produk' => $produk,
                 'users2' => $users2,
@@ -1043,6 +1046,7 @@ class LaporanController extends Controller
                 'start_month' => $start_month,
                 'end_month' => $end_month,
                 'equal_month' => $equal_month,
+                'ebio_c4_bhg3' => $ebio_c4_bhg3,
                 'ebio_c5_bhg3' => $ebio_c5_bhg3,
                 'ebio_c6_bhg3' => $ebio_c6_bhg3,
                 'ebio_c7_bhg3' => $ebio_c7_bhg3,
