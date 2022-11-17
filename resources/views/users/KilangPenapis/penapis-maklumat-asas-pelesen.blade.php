@@ -325,7 +325,7 @@
                                     onkeyup="FormatCurrency(this)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     placeholder="KAPASITI PEMPROSESAN/TAHUN" name="kap_proses"
                                     onchange="validation_jumlah()" oninput="this.setCustomValidity(''); valid_proses(); invokeFunc18()"
-                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses ?? 0,2) }}" required>
+                                    onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses ?? 0) }}" required>
                                     <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
                                 </div>

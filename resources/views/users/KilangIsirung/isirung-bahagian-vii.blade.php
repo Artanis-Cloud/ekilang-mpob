@@ -246,10 +246,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td colspan="9" style="text-align: center">Tiada Rekod</td>
-
-
-
 
                                 <tr>
 
