@@ -1270,7 +1270,7 @@ class Proses4Controller extends Controller
                         '$cc3','$cc4')");
                     }
 
-                    $hari = Hari::where('lesen', $nolesen)->first();
+                    $hari = Hari::where('lesen', $nolesen)->get();
                     // dd($hari);
 
                     foreach ($hari as $haris)
