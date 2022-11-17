@@ -397,7 +397,7 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')"
                                     onkeypress="return isNumberKey(event)" onClick="this.select();"
                                     oninput="invokeFunc18();validate_two_decimal(this);setCustomValidity(''); valid_proses()"
-                                    value=" {{ number_format($pelesen->kap_proses ?? 0,2) }}" required>
+                                    value=" {{ number_format($pelesen->kap_proses ?? 0) }}" required>
                                 <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi
                                         butiran di bahagian ini!</i></p>
 
