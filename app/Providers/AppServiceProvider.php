@@ -57,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
                     $layoutpenyata = E07Init::where('e07_nl', auth()->user()->username)->where('e07_flg', '2')->orWhere('e07_flg', '3')->first();
                     $not_admin = true;
                 } elseif (auth()->user()->category == 'PLBIO') {
-                    $layoutpenyata = EBioInit::where('ebio_nl', auth()->user()->username)->where('ebio_flg', '2')->orWhere('ebio_flg', '3')->first();
+                    $layoutpenyata = EBioInit::where([['ebio_nl', auth()->user()->username], ['ebio_flg', '2']])->orWhere([['ebio_nl', auth()->user()->username], ['ebio_flg', '3']])->first();
                     $not_admin = true;
                 }
                 // dd($layoutpenyata);
