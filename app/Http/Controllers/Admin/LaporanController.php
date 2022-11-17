@@ -798,12 +798,12 @@ class LaporanController extends Controller
                 //     $new_bulan = 12;
                 // }
 
-            for ($i=1; $i <= 12; $i++) {
-                if($i ==  $hbiob->bulanbhg2){
-                        $data_hari_operasi[$list_result->lesen][$i] = $hbiob->hari_operasi ?? 0;
-                        $data_kapasiti[$list_result->lesen][$i] = $hbiob->kapasiti ?? 0;
+                for ($i=1; $i <= 12; $i++) {
+                    if($i ==  $hbiob->bulanbhg2){
+                            $data_hari_operasi[$list_result->lesen][$i] = $hbiob->hari_operasi ?? 0;
+                            $data_kapasiti[$list_result->lesen][$i] = $hbiob->kapasiti ?? 0;
+                        }
                     }
-                }
             }
 
         }

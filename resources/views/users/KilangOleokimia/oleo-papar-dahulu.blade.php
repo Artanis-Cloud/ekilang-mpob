@@ -514,7 +514,7 @@
                             </table><br>
 
                             <p><b>
-                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK SAWIT LAIN</font>
+                                <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp;PRODUK MINYAK SAWIT LAIN</font>
                             </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
