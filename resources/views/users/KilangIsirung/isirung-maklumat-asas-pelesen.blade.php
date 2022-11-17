@@ -399,7 +399,7 @@
                                 <div class="col-md-7">
                                     <input type="text" id="kap_proses" class="form-control"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); validate_two_decimal(this);  invokeFunc19(); valid_proses(); FormatCurrency(this)"
-                                        onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses ?? 0,2) }}">
+                                        onkeypress="return isNumberKey(event)" value="{{ number_format($pelesen->kap_proses ?? 0) }}">
                                         <p type="hidden" id="err_proses" style="color: red; display:none"><i>Sila isi butiran di
                                             bahagian ini!</i></p>
                                     @error('kap_proses')
@@ -448,7 +448,7 @@
                                         style="width:20%" id="kap_tangki_cpko"
                                         oninput="this.setCustomValidity(''); validate_two_decimal(this); valid_cpko(); FormatCurrency(this)"
                                         title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)"  value="{{ number_format($pelesen->kap_tangki_cpko ?? 0,2)}}" required>
+                                        onkeypress="return isNumberKey(event)"  value="{{ number_format($pelesen->kap_tangki_cpko ?? 0)}}" required>
                                         <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
                                             butiran di
                                             bahagian ini!</i></p>
