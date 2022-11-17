@@ -265,8 +265,8 @@
                                                         <td>{{ $data->pelesen->e_np ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
-                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                        <td style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
+                                                        <td style="text-align: center">{{ $data->nosiri ?? '-' }}</td>
                                                         @if ($data->e_status == 1)
                                                             <td style="text-align: center"><span hidden>1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
@@ -435,9 +435,7 @@
                         },
 
                         filename: 'Senarai Pelesen Pusat Simpanan',
-                        messageTop: function(doc) {
-                            return $('#tarikh').text()
-                        },
+
                     },
 
                 ],
