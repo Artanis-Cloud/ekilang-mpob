@@ -1137,6 +1137,7 @@ class Proses4Controller extends Controller
         $totalplbio = 0;
 
         foreach ($ebioinit as $key => $selects) {
+            // dd($selects);
 
             $regno = $selects->ebio_reg ;
             $nolesen = $selects->ebio_nl ;
@@ -1151,9 +1152,11 @@ class Proses4Controller extends Controller
 
 
             $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
+            // dd($regpelesenbio);
 
             foreach ($regpelesenbio as $row)
           {
+            // dd($row);
             $kodpgw = $row->kodpgw;
             $nosiri = $row->nosiri;
 
@@ -1179,21 +1182,23 @@ class Proses4Controller extends Controller
 
 
                     $ebiob = EBioB::where('ebio_reg', $regno)->get();
+                    // dd($rowebio_b);
                     // $jum91b = 0;
 
                     foreach ($ebiob as $rowebio_b)
                     {
-                        $b3 = $rowebio_b ->ebio_b3 ;
-                        $b4 = $rowebio_b ->ebio_b4 ;
-                        $b5 = (float) $rowebio_b ->ebio_b5 ;
-                        $b6 = (float) $rowebio_b ->ebio_b6 ;
-                        $b7 = (float) $rowebio_b ->ebio_b7 ;
-                        $b8 = (float) $rowebio_b ->ebio_b8 ;
-                        $b9 = (float) $rowebio_b ->ebio_b9 ;
-                        $b10 = (float) $rowebio_b ->ebio_b10 ;
-                        $b11 = (float) $rowebio_b ->ebio_b11 ;
+                        // dd($rowebio_b);
+                        $b3 = $rowebio_b->ebio_b3 ;
+                        $b4 = $rowebio_b->ebio_b4 ;
+                        $b5 = (float) $rowebio_b->ebio_b5 ;
+                        $b6 = (float) $rowebio_b->ebio_b6 ;
+                        $b7 = (float) $rowebio_b->ebio_b7 ;
+                        $b8 = (float) $rowebio_b->ebio_b8 ;
+                        $b9 = (float) $rowebio_b->ebio_b9 ;
+                        $b10 = (float) $rowebio_b->ebio_b10 ;
+                        $b11 = (float) $rowebio_b->ebio_b11 ;
                         // $b12 = (float) $rowebio_b ->ebio_b12 ;
-                        $b13 = (float) $rowebio_b ->ebio_b13 ;
+                        $b13 = (float) $rowebio_b->ebio_b13 ;
 
                         // insert into mysqli history e91b
                         //calculate total row
@@ -1270,6 +1275,7 @@ class Proses4Controller extends Controller
 
                     foreach ($hari as $haris)
                     {
+                        dd($haris);
                         $tahun = $haris->tahunbhg2 ;
                         $bulan = $haris->bulanbhg2 ;
                         $hari_operasi = $haris->hari_operasi ;
