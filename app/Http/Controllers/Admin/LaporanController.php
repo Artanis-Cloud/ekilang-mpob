@@ -553,6 +553,19 @@ class LaporanController extends Controller
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
             ->where('ebio_thn',$tahun)->where('prodid', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         }
+
+        if ($request->bulan == 'equal' && $request->e_nl) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
+            ->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+
+        }
+        if ($request->bulan == 'equal' && $request->e_nl) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_b_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_b_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')
+            ->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+
+        }
         // dd($result);
 
         // dd($request->kod_produk);
@@ -775,6 +788,11 @@ class LaporanController extends Controller
             $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
                 ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')
                 ->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('e_negeri')->get();
+        }
+        if ($request->bulan == 'equal' && $request->e_nl) {
+            $result = DB::table('h_hari')->leftJoin('pelesen', 'h_hari.lesen', '=', 'pelesen.e_nl')->where('tahunbhg2',$tahun)
+            ->where('bulanbhg2', 'LIKE', '%' . $request->start . '%')->where('lesen', 'LIKE', '%' . $request->e_nl . '%')->groupBy('lesen')->get();
+
         }
         // dd( $result);
         // if( $result){
