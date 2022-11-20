@@ -117,6 +117,25 @@ class Proses4Controller extends Controller
         return redirect()->back()->with('success', 'Penyata telah dipindahkan ke PLEID');
     }
 
+
+    public function admin_portbio()
+    {
+        // dd($request->e_tahun);
+        $this->porting_pelesen();
+        $this->admin_portbio2();
+        // $this->porting_pl91($request->all());
+        // $this->porting_pl101($request->all());
+        // $this->porting_pl102($request->all());
+        // $this->porting_pl104($request->all());
+        // $this->porting_pl111($request->all());
+
+        //log audit trail admin
+        Auth::user()->log(" PORT PENYATA KE PENYATA ARKIB" );
+
+
+        return redirect()->back()->with('success', 'Penyata telah dipindahkan ke penyata arkib');
+    }
+
     public function porting_pelesen()
     {
         //data from e91_init
@@ -1128,7 +1147,7 @@ class Proses4Controller extends Controller
                 }
 
     }
-    public function admin_portbio()
+    public function admin_portbio2()
     {
         //data from ebio_init
         $ebioinit = EBioInit::where('ebio_flg', '2')->get();
@@ -1306,10 +1325,7 @@ class Proses4Controller extends Controller
                 }
 
                 //log audit trail admin
-        Auth::user()->log(" PORT PENYATA KE PENYATA ARKIB" );
 
-
-        return redirect()->back()->with('success', 'Penyata telah dipindahkan ke penyata arkib');
 
     }
 }

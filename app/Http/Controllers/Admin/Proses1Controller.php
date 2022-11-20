@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\BuahExport;
+use App\Notifications\Admin\DaftarPelesenNotification;
 
 class Proses1Controller extends Controller
 {
@@ -78,8 +79,10 @@ class Proses1Controller extends Controller
         }
         $custom_pass = $this->store_daftar_pelesen2($request->all());
         $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
+        $kepada = User::where('username', auth()->user()->username)->first();
 
-        $pelesen->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
+        $kepada->notify((new DaftarPelesenNotification($kepada, $pelesen)));
+        $pelesen->notify((new HantarPendaftaranPelesenNotification($custom_pass, $pelesen)));
         // $pelesen->notify((new Kernel()));
 
         //log audit trail admin

@@ -50,7 +50,8 @@
 
                     <div class="card-body">
                         <form method="get" action="" id="myfrm">
-                            @foreach ($penyata as $key =>   $data)
+                            @foreach ($penyata as $nobatch => $data)
+                                {{-- {{ dd($data[0]) }} --}}
 
                                 <div class="pl-3">
 
@@ -101,20 +102,20 @@
                                                 </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
                                                 BULAN :
-                                                @if($data->ebio_bln == "01") JANUARI
-                                                    @elseif($data->ebio_bln == "02") FEBRUARI
-                                                    @elseif($data->ebio_bln == "03") MAC
-                                                    @elseif($data->ebio_bln == "04") APRIL
-                                                    @elseif($data->ebio_bln == "05") MEI
-                                                    @elseif($data->ebio_bln == "06") JUN
-                                                    @elseif($data->ebio_bln == "07") JULAI
-                                                    @elseif($data->ebio_bln == "08") OGOS
-                                                    @elseif($data->ebio_bln == "09") SEPTEMBER
-                                                    @elseif($data->ebio_bln == "10") OKTOBER
-                                                    @elseif($data->ebio_bln == "11") NOVEMBER
-                                                    @elseif($data->ebio_bln == "12") DISEMBER
+                                                @if($data[0]->ebio_bln == "01") JANUARI
+                                                    @elseif($data[0]->ebio_bln == "02") FEBRUARI
+                                                    @elseif($data[0]->ebio_bln == "03") MAC
+                                                    @elseif($data[0]->ebio_bln == "04") APRIL
+                                                    @elseif($data[0]->ebio_bln == "05") MEI
+                                                    @elseif($data[0]->ebio_bln == "06") JUN
+                                                    @elseif($data[0]->ebio_bln == "07") JULAI
+                                                    @elseif($data[0]->ebio_bln == "08") OGOS
+                                                    @elseif($data[0]->ebio_bln == "09") SEPTEMBER
+                                                    @elseif($data[0]->ebio_bln == "10") OKTOBER
+                                                    @elseif($data[0]->ebio_bln == "11") NOVEMBER
+                                                    @elseif($data[0]->ebio_bln == "12") DISEMBER
                                                     @endif
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data->ebio_thn }}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $data[0]->ebio_thn }}
                                             </b><br>
 
                                         </p>
@@ -130,7 +131,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                        {{ $data->h_pelesen->e_nl }}
+                                                        {{ $data[0]->e_nl }}
                                                         </b></td>
 
                                                 </tr>
@@ -142,7 +143,7 @@
                                                     </td>
 
                                                     <td width="88%" height="19" style="text-transform:uppercase"><b>
-                                                        {{ $data->h_pelesen->e_np }}
+                                                        {{ $data[0]->e_np }}
                                                         </b></td>
 
                                                 </tr>
@@ -156,7 +157,7 @@
 
 
                                         <p align="left"><b>
-                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT h_pelesen </font>
+                                                <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                             </b></p>
 
                                         <table border="0" width="80%" cellpadding="0" cellspacing="0">
@@ -168,7 +169,7 @@
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_ap1 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap1 }}</b></td>
 
                                                 </tr>
 
@@ -176,7 +177,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_ap2 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap2 }}</b></td>
 
                                                 </tr>
 
@@ -184,7 +185,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_ap3 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_ap3 }}</b></td>
 
                                                 </tr>
 
@@ -192,7 +193,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_as1 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as1 }}</b></td>
 
                                                 </tr>
 
@@ -200,7 +201,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_as2 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as2 }}</b></td>
 
                                                 </tr>
 
@@ -208,7 +209,7 @@
 
                                                     <td width="35%">&nbsp;</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_as3 }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_as3 }}</b></td>
 
                                                 </tr>
 
@@ -216,7 +217,7 @@
 
                                                     <td width="35%">No Telefon</td>
 
-                                                    <td width="65%"><b>{{ $data->h_pelesen->e_notel }}</b></td>
+                                                    <td width="65%"><b>{{ $data[0]->e_notel }}</b></td>
 
                                                 </tr>
 
@@ -224,7 +225,7 @@
 
                                                     <td width="35%">No Faks </td>
 
-                                                    <td width="65%"><b>{{ $data->h_pelesen->e_nofax }}</b></td>
+                                                    <td width="65%"><b>{{ $data[0]->e_nofax }}</b></td>
 
                                                 </tr>
 
@@ -232,7 +233,7 @@
 
                                                     <td width="35%">Alamat emel </td>
 
-                                                    <td width="65%"><b>{{ $data->h_pelesen->e_email }}</b></td>
+                                                    <td width="65%"><b>{{ $data[0]->e_email }}</b></td>
 
                                                 </tr>
 
@@ -240,7 +241,7 @@
 
                                                     <td width="35%">Nama Pegawai Melapor</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_npg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npg }}</b></td>
 
                                                 </tr>
 
@@ -248,7 +249,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_jpg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpg }}</b></td>
 
                                                 </tr>
 
@@ -256,7 +257,7 @@
 
                                                     <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_npgtg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_npgtg }}</b></td>
 
                                                 </tr>
 
@@ -264,7 +265,7 @@
 
                                                     <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data->h_pelesen->e_jpgtg }}</b></td>
+                                                    <td width="65%" style="text-transform:uppercase"><b>{{ $data[0]->e_jpgtg }}</b></td>
 
                                                 </tr>
 
@@ -319,7 +320,7 @@
                                                     $total_col_ebio_b10 = 0;
                                                     $total_col_ebio_b11 = 0;
                                                 @endphp
-                                                @foreach ($ia[$key] as $dataia)
+                                                @foreach ($ia[$nobatch] as $dataia)
                                                 {{-- {{ dd($dataia) }} --}}
 
                                                     <tr>
@@ -425,8 +426,8 @@
                                                     $total_col_ebio_b11 = 0;
                                                 @endphp
 
-                                                @foreach ($ib[$key] as $dataib)
-                                                {{-- {{ dd($dataib[$key]->produk->proddesc) }} --}}
+                                                @foreach ($ib[$nobatch] as $dataib)
+                                                {{-- {{ dd($dataib[$nobatch]->produk->proddesc) }} --}}
 
                                                     <tr>
                                                         <td align="left">
@@ -531,7 +532,7 @@
                                                     $total_col_ebio_b10 = 0;
                                                     $total_col_ebio_b11 = 0;
                                                 @endphp
-                                                @foreach ($ic[$key] as $dataic)
+                                                @foreach ($ic[$nobatch] as $dataic)
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2">{{ $dataic->produk->proddesc ?? '' }}</font>
@@ -601,11 +602,11 @@
 
                                                 <tr>
                                                     <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                    <td width="40%"><b>:{{ $ii[$key]->hari_operasi ?? 00}} Hari</b></td>
+                                                    <td width="40%"><b>:{{ $ii[$nobatch]->hari_operasi ?? 00}} Hari</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                    <td width="40%"><b>:{{ $ii[$key]->kapasiti ?? 00 }} %</b></td>
+                                                    <td width="40%"><b>:{{ $ii[$nobatch]->kapasiti ?? 00 }} %</b></td>
                                                 </tr>
                                             </tbody>
                                         </table><br>
@@ -657,7 +658,7 @@
                                                     $total_col_ebio_c10 = 0;
                                                 @endphp
 
-                                                @foreach ($iii[$key] as $dataiii)
+                                                @foreach ($iii[$nobatch] as $dataiii)
                                                 <tr>
                                                     <td align="left">
                                                         <font size="2">{{ $dataiii->produk->proddesc }}</font>
@@ -861,18 +862,18 @@
                                             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                            {{ $formatteddate }}
+                                            {{ $data[0]->sdate }}
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_npg }}</span>
+                                            <span  style="text-transform:uppercase">{{ $data[0]->e_npg }}</span>
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_jpg }}</span>
+                                            <span  style="text-transform:uppercase">{{ $data[0]->e_jpg }}</span>
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data->h_pelesen->e_notel }}
+                                            {{ $data[0]->e_notel }}
                                         </p>
 
 
