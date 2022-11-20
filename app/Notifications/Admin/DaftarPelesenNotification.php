@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class DaftarPentadbirNotification extends Notification
+class DaftarPelesenNotification extends Notification
 {
     use Queueable;
 
@@ -31,7 +31,7 @@ class DaftarPentadbirNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['database'];
     }
 
     /**
@@ -43,28 +43,42 @@ class DaftarPentadbirNotification extends Notification
     public function toMail($notifiable)
     {
 
-        $daripada = $this->daripada;
-        $kepada = $this->kepada;
-
-        // if ($kepada['email'] != '-') {
-                return (new DaftarPentadbirMail($daripada, $kepada, $notifiable->created_at))->to($kepada['email']);
-        // }else{
-        //     return redirect()->route('admin.senarai.pentadbir')
-        //     ->with('error', 'Maklumat telah dikemaskini');
-        // }
-
-
 
     }
 
     public function toDatabase($notifiable)
     {
+    // dd($notifiable);
+    // dd($this->daripada);
+        if ($this->daripada->category == 'PL91') {
+            $route = route('admin.senaraipelesenbuah');
 
-        $route = route('admin.senarai.pentadbir');
+        }
+        elseif ($this->daripada->category == 'PL101'){
+            $route = route('admin.senaraipelesenpenapis');
+
+        }
+        elseif ($this->daripada->category == 'PL102'){
+            $route = route('admin.senaraipelesenisirung');
+
+        }
+        elseif ($this->daripada->category == 'PL104'){
+            $route = route('admin.senaraipelesenoleokimia');
+
+        }
+        elseif ($this->daripada->category == 'PL111'){
+            $route = route('admin.senaraipelesensimpanan');
+
+        }
+        elseif ($this->daripada->category == 'PLBIO'){
+            $route = route('admin.senaraipelesenbio');
+
+        }
+
         return [
             'kepada' => $this->kepada,
             'daripada' => $this->daripada,
-            'tajuk' => 'Terdapat Pengguna Baharu Sudah Berdaftar',
+            'tajuk' => 'Terdapat Pelesen Baharu Sudah Berdaftar',
             'created_at' => $notifiable->created_at,
             'route' => $route
         ];

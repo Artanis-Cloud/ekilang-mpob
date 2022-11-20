@@ -470,7 +470,7 @@ class Proses9Controller extends Controller
 
         }
         elseif ($request->sumber == 'ekilang' && $request->sektor == 'PLBIO') {
-            return $this->process_admin_9penyataterdahulu_bio_form($request->papar_ya, $request->tahun, $request->bulan2);
+            return $this->process_admin_9penyataterdahulu_bio_form($request->papar_ya, $request->tahun, $request->bulan);
 
         }
     }
@@ -2228,12 +2228,14 @@ class Proses9Controller extends Controller
     {
 
         // $this->admin_9penyataterdahulu_process($tahun1);
-        // dd($nobatch);
+        // dd($bulan);
 
         if (!$nobatch) {
             return redirect()->back()
                 ->with('error', 'Sila Pilih Pelesen');
         }
+
+        if ($tahun <= 2022 && $bulan <= 10) {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2248,16 +2250,113 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = HBioInit::where('ebio_thn', $tahun);
-        $bulan = HBioInit::where('ebio_bln', $bulan);
+        // $tahun = HBioInit::where('ebio_thn', $tahun);
+        // $bulan = HBioInit::where('ebio_bln', $bulan);
+        // dd($bulan);
+        foreach ($nobatch as $key => $ebio_nobatch) {
+            // dd($ebio_nobatch);
+            $pelesens[$ebio_nobatch] = (object)[];
+            // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
+            // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
+
+            $penyata[$ebio_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
+                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                            FROM h_bio_inits e, h_pelesen p
+                            WHERE p.e_nl = e.ebio_nl
+                            AND e.ebio_nobatch = '$ebio_nobatch'
+                            AND e.ebio_thn = '$tahun'
+                            AND p.e_thn = '2022'
+                            AND p.e_bln = '10'
+                            AND e.ebio_bln = '$bulan'");
+
+            // dd($penyata[$ebio_nobatch][0]);
+            // if($penyata[$key]->h_pelesen){
+
+                $ia[$ebio_nobatch] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
+
+
+                $ib[$ebio_nobatch] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
+
+
+                $ic[$ebio_nobatch] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
+
+
+
+                $ii[$ebio_nobatch] = HHari::where('lesen',  $penyata[$ebio_nobatch][0]->e_nl)->where('tahunbhg2', $penyata[$ebio_nobatch][0]->ebio_thn)->where('bulanbhg2', $penyata[$ebio_nobatch][0]->ebio_bln)->first();
+
+
+                $iii[$ebio_nobatch]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->get();
+
+
+                // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$ebio_nobatch][$key]->ebio_sdate);
+                // $formatteddate = $myDateTime->format('d-m-Y');
+
+            // }
+
+            // else{
+                // return redirect()->back()
+                // ->with('error', 'Data Tidak Wujud!');
+            // }
+
+        }
+        // dd($penyata);
+
+
+        $layout = 'layouts.main';
+
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-terdahulu-bio-multi', compact(
+            'returnArr',
+            'layout',
+            // 'formatteddate',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'ia',
+            'ib',
+            'ic',
+            'ii',
+            'iii',
+
+        ));
+
+
+    } elseif ($tahun > 2022 || ($tahun == 2022 && $bulan >= 10)) {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu.bio.process');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        // $tahun = HBioInit::where('ebio_thn', $tahun);
+        // $bulan = HBioInit::where('ebio_bln', $bulan);
         // dd($bulan);
         foreach ($nobatch as $key => $ebio_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
+            // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
+            $penyata[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
+                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+                            FROM h_bio_inits e, h_pelesen p
+                            WHERE p.e_nl = e.ebio_nl
+                            AND e.ebio_nobatch = '$ebio_nobatch'
+                            AND e.ebio_thn = '$tahun'
+                            AND p.e_thn = '$tahun'
+                            AND p.e_bln = '$bulan'
+                            AND e.ebio_bln = '$bulan'");
+
             // dd( $penyata[$key]->h_pelesen);
-            if($penyata[$key]->h_pelesen){
+            // if($penyata[$key]->h_pelesen){
 
                 $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
@@ -2275,15 +2374,15 @@ class Proses9Controller extends Controller
                 $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key]->ebio_nobatch)->get();
 
 
-                $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
-                $formatteddate = $myDateTime->format('d-m-Y');
+                // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
+                // $formatteddate = $myDateTime->format('d-m-Y');
 
-            }
+            // }
 
-            else{
+            // else{
                 return redirect()->back()
                 ->with('error', 'Data Tidak Wujud!');
-            }
+            // }
 
         }
         // dd($ib);
@@ -2295,7 +2394,7 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-terdahulu-bio-multi', compact(
             'returnArr',
             'layout',
-            'formatteddate',
+            // 'formatteddate',
             'tahun',
             'bulan',
             'pelesens',
@@ -2307,7 +2406,6 @@ class Proses9Controller extends Controller
             'iii',
 
         ));
-
-
     }
+}
 }

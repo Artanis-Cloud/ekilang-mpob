@@ -17,9 +17,10 @@ class HantarPendaftaranPelesenNotification extends Notification
      *
      * @return void
      */
-    public function __construct($password)
+    public function __construct($password, $kepada)
     {
         $this->password = $password;
+        $this->kepada = $kepada;
     }
 
     /**
@@ -30,7 +31,7 @@ class HantarPendaftaranPelesenNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -42,6 +43,43 @@ class HantarPendaftaranPelesenNotification extends Notification
     public function toMail($notifiable)
     {
         return (new HantarPendaftaranPelesenMail($notifiable, $this->password))->to($notifiable->email);
+    }
+    public function toDatabase($notifiable)
+    {
+    // dd($notifiable);
+    // dd($this->kepada);
+        if ($this->kepada->category == 'PL91') {
+            $route = route('admin.senaraipelesenbuah');
+
+        }
+        elseif ($this->kepada->category == 'PL101'){
+            $route = route('admin.senaraipelesenpenapis');
+
+        }
+        elseif ($this->kepada->category == 'PL102'){
+            $route = route('admin.senaraipelesenisirung');
+
+        }
+        elseif ($this->kepada->category == 'PL104'){
+            $route = route('admin.senaraipelesenoleokimia');
+
+        }
+        elseif ($this->kepada->category == 'PL111'){
+            $route = route('admin.senaraipelesensimpanan');
+
+        }
+        elseif ($this->kepada->category == 'PLBIO'){
+            $route = route('admin.senaraipelesenbio');
+
+        }
+
+        return [
+            'kepada' => $this->kepada,
+            'daripada' => $this->kepada,
+            'tajuk' => 'Terdapat Pelesen Baharu Sudah Berdaftar',
+            'created_at' => $notifiable->created_at,
+            'route' => $route
+        ];
     }
 
     /**
