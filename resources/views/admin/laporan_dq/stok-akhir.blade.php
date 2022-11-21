@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Stok Akhir
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-1%; margin-bottom:1%">Stok Akhir
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir</h5> --}}
                         </div>
@@ -160,8 +160,7 @@
                                                             </td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
-                                                                    <a href="#" type="button" data-toggle="modal"
-                                                                        data-target="#exampleModalCenter2">
+                                                                    <a href="{{ route('admin.port.stok.akhir.process', $data->id) }}" type="button">
                                                                         <i class="fas fa-arrow-circle-up"
                                                                             style="color: #31bc6d;font-size:18px"></i>
 
