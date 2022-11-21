@@ -1419,7 +1419,9 @@ class LaporanController extends Controller
         // $date= date("m");
 
         // $reg_pelesen = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
-        $kapasiti = Kapasiti::with('pelesen')->get();
+        $kapasiti = Kapasiti::with('pelesen', 'user')->whereHas('user', function ($query) {
+            return $query->where('category', '=', 'PLBIO');
+        })->get();
         // $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
         // dd($kapasiti);
 
@@ -1652,100 +1654,128 @@ class LaporanController extends Controller
 
 
             $kapasiti_johor = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '01'");
             // dd($kapasiti_kedah);
 
             $kapasiti_kedah = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '02'");
             // dd($kapasiti_kedah);
 
             $kapasiti_kelantan = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '03'");
             // dd($kapasiti_kedah);
 
             $kapasiti_melaka = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '04'");
             // dd($kapasiti_kedah);
 
             $kapasiti_n9 = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '05'");
             // dd($kapasiti_kedah);
 
             $kapasiti_pahang = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '06'");
             // dd($kapasiti_kedah);
 
             $kapasiti_perak = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '07'");
             // dd($kapasiti_perak);
 
             $kapasiti_perlis = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '08'");
             // dd($kapasiti_kedah);
 
             $kapasiti_penang = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '09'");
             // dd($kapasiti_kedah);
 
             $kapasiti_selangor = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '10'");
             // dd($kapasiti_kedah);
 
             $kapasiti_terengganu = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '11'");
             // dd($kapasiti_kedah);
 
             $kapasiti_wp = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '12'");
             // dd($kapasiti_kedah);
 
             $kapasiti_sabah = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '13'");
             // dd($kapasiti_kedah);
 
             $kapasiti_sarawak = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
-        FROM kapasiti k, pelesen p
+        FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
         AND k.e_nl = p.e_nl
+        AND p.e_nl = u.username
+        AND u.category = 'PLBIO'
         AND p.e_negeri = '14'");
             // dd($kapasiti_kedah);
 
@@ -1876,17 +1906,17 @@ class LaporanController extends Controller
             ];
             return view('admin.laporan_dq.laporan-operasi', $array);
         } elseif ($laporan == 'pengeluaran') {
-
+            // dd($request->tahun);
 
             if ($request->tahun) {
-                $tahun_sql = "ebio_thn = $request->tahun";
+                $tahun_sql = "innit.ebio_thn = '$request->tahun' ";
             } else {
                 $tahun_sql = "";
             }
             if ($request->bulan == 'equal') {
-                $bulan_sql = "AND ebio_bln = $request->start";
+                $bulan_sql = "AND innit.ebio_bln = $request->start";
             } elseif ($request->bulan == 'between') {
-                $bulan_sql = "AND ebio_bln BETWEEN $request->start_month AND $request->end_month";
+                $bulan_sql = "AND innit.ebio_bln BETWEEN $request->start_month AND $request->end_month";
             } else {
                 $bulan_sql = "";
             }
@@ -1902,8 +1932,8 @@ class LaporanController extends Controller
             LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
-            WHERE $tahun_sql.$bulan_sql
-            AND  h.ebio_c3 = 'AW';");
+            WHERE $tahun_sql" . "$bulan_sql
+            AND  h.ebio_c3 = 'AW'");
 
             // dd($pengeluaran);
 

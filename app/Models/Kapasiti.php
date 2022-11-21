@@ -42,4 +42,10 @@ class Kapasiti extends Model
 
         return $this->hasOne (Pelesen::class, 'e_nl', 'e_nl');
     }
+
+    public function user()
+    {
+
+        return $this->hasOne (User::class, 'username', 'e_nl');
+    }
 }
