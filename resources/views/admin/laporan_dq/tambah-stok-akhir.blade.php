@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Stok Akhir
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-1%; margin-bottom:1%">Stok Akhir
                             </h3>
                             <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Tambah Stok Akhir</h5>
                         </div>
