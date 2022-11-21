@@ -140,8 +140,7 @@
 
                                                                 </td>
                                                                 <td> <div class="icon" style="text-align: center">
-                                                                    <a href="#" type="button" data-toggle="modal"
-                                                                        data-target="#exampleModalCenter2">
+                                                                    <a href="{{ route('admin.port.minyak.sawit.process', $data->id) }}" type="button" >
                                                                         <i class="fas fa-arrow-circle-up" style="color: #31bc6d;font-size:18px"></i>
 
                                                                     </a>

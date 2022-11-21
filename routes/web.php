@@ -373,6 +373,8 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/tambah-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses'])->name('admin.tambah.proses');
+        Route::get('admin/port-minyak-sawit-process/{id}', [App\Http\Controllers\Admin\PortingBiodieselController::class, 'admin_port_minyak_sawit_process'])->name('admin.port.minyak.sawit.process');
+        Route::get('admin/porting-minyaksawit', [App\Http\Controllers\Admin\PortingBiodieselController::class, 'porting_minyaksawit'])->name('porting.minyaksawit');
         Route::post('admin/tambah-proses-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses_proses'])->name('admin.tambah.proses.proses');
 
 
