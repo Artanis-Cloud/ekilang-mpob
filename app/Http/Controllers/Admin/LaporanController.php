@@ -995,7 +995,7 @@ class LaporanController extends Controller
         if(!$result->isEmpty()){
 
             foreach ($result as $key=> $list_result) {
-                $no_batches = DB::table('h_bio_inits')->where('ebio_nl',$list_result->ebio_nl)->where('ebio_thn',$tahun)->get();
+                $no_batches = DB::table('h_bio_inits')->where('ebio_nobatch',$list_result->ebio_nobatch)->where('ebio_thn',$tahun)->get();
                 $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->kod_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
                 foreach ($no_batches as $no_batch) {

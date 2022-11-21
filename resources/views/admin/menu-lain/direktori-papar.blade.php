@@ -54,8 +54,17 @@
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i
                                         class="fa fa-angle-left">&ensp;</i>Kembali</a>
 
-                                <button class="btn btn-primary" onclick="exportTableToExcel('tblData')"
+                                @if ($negeri2 == 'All')
+
+                                <button class="btn btn-primary"  style="float: right"
+                                    onclick="tablesToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9','tbl10','a','s','d','f'],
+                                    ['JOHOR','KEDAH','KELANTAN','MELAKA','NEGERISEMBILAN','PAHANG',
+                                    'PERAK','PERLIS','PULAUPINANG','SELANGOR','TERENGGANU','WILAYAHPERSEKUTUAN','SABAH','SARAWAK'],
+                                    'Direktori.xls', 'Excel')"><i class="fa fa-file-excel" style="color: #0a7569"></i> Excel</button>
+                                @else
+                                    <button class="btn btn-primary" onclick="exportTableToExcel('tblData')"
                                     style="float: right">Excel</button>
+                                @endif
 
                                 <button type="button" class="btn btn-primary " onclick="myPrint('myfrm')"
                                     style="float: right; margin-right: 5px" value="print">PDF</button>
@@ -77,7 +86,7 @@
 
                                             <div class="col-12 mt-1 mb-2"><b><u>JOHOR</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl1">
 
                                                 @foreach ($johor as $data)
                                                     <tr style="margin-left:2%">
@@ -147,12 +156,14 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl1"></table>
                                         @endif
                                         @if ($kedah)
 
                                             <div class="col-12 mt-1 mb-2"><b><u>KEDAH</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl2">
 
                                                 @foreach ($kedah as $data)
                                                     <tr style="margin-left:2%">
@@ -222,11 +233,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl2"></table>
                                         @endif
                                         @if ($kelantan)
                                             <div class="col-12 mt-1 mb-2"><b><u>KELANTAN</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl3">
 
                                                 @foreach ($kelantan as $data)
                                                     <tr style="margin-left:2%">
@@ -296,11 +309,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl3"></table>
                                         @endif
                                         @if ($melaka)
                                             <div class="col-12 mt-1 mb-2"><b><u>MELAKA</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl4">
 
                                                 @foreach ($melaka as $data)
                                                     <tr style="margin-left:2%">
@@ -370,11 +385,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl4"></table>
                                         @endif
                                         @if ($n9)
                                             <div class="col-12 mt-1 mb-2"><b><u>NEGERI SEMBILAN</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl5">
 
                                                 @foreach ($n9 as $data)
                                                     <tr style="margin-left:2%">
@@ -444,11 +461,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl5"></table>
                                         @endif
                                         @if ($pahang)
                                             <div class="col-12 mt-1 mb-2"><b><u>PAHANG</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl6">
 
                                                 @foreach ($pahang as $data)
                                                     <tr style="margin-left:2%">
@@ -518,11 +537,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl6"></table>
                                         @endif
                                         @if ($perak)
                                             <div class="col-12 mt-1 mb-2"><b><u>PERAK</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl7">
 
                                                 @foreach ($perak as $data)
                                                     <tr style="margin-left:2%">
@@ -592,11 +613,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
+                                        @else
+                                            <table id="tbl7"></table>
                                         @endif
                                         @if ($perlis)
                                             <div class="col-12 mt-1 mb-2"><b><u>PERLIS</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl8">
 
                                                 @foreach ($perlis as $data)
                                                     <tr style="margin-left:2%">
@@ -666,11 +689,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
-                                            @endif
+                                        @else
+                                            <table id="tbl8"></table>
+                                        @endif
                                         @if ($penang)
                                             <div class="col-12 mt-1 mb-2"><b><u>PULAU PINANG</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl9">
 
                                                 @foreach ($penang as $data)
                                                     <tr style="margin-left:2%">
@@ -740,11 +765,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
-                                            @endif
+                                        @else
+                                            <table id="tbl9"></table>
+                                        @endif
                                         @if ($selangor)
                                             <div class="col-12 mt-1 mb-2"><b><u>SELANGOR</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="tbl10">
 
                                                 @foreach ($selangor as $data)
                                                     <tr style="margin-left:2%">
@@ -814,11 +841,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
-                                            @endif
+                                        @else
+                                            <table id="tbl10"></table>
+                                        @endif
                                         @if ($terengganu)
                                             <div class="col-12 mt-1 mb-2"><b><u>TERENGGANU</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="a">
 
                                                 @foreach ($terengganu as $data)
                                                     <tr style="margin-left:2%">
@@ -888,86 +917,90 @@
                                                 @endforeach
                                                 <br>
                                             </table>
-                                            @endif
-                                            @if ($wp)
+                                        @else
+                                            <table id="a"></table>
+                                        @endif
+                                        @if ($wp)
 
-                                                <div class="col-12 mt-1 mb-2"><b><u>WILAYAH PERSEKUTUAN</u></b></div>
+                                            <div class="col-12 mt-1 mb-2"><b><u>WILAYAH PERSEKUTUAN</u></b></div>
 
-                                                <table id="tblData">
+                                            <table id="s">
 
-                                                    @foreach ($wp as $data)
-                                                        <tr style="margin-left:2%">
-                                                            <td><b>{{ $loop->iteration }}.</b></td>
-                                                            <td colspan=3 style="text-transform:uppercase">
-                                                                <b>{{ $data->e_np }}</b></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>Postal add </td>
-                                                            <td>:</td>
-                                                            <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>Factory add</td>
-                                                            <td>:</td>
-                                                            <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
-                                                        </tr>
+                                                @foreach ($wp as $data)
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Postal add </td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as1 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_as3 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Factory add</td>
+                                                        <td>:</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap1 }}</td>
+                                                    </tr>
 
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td>&nbsp</td>
-                                                            <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
-                                                        </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap2 }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td>&nbsp</td>
+                                                        <td style="text-transform:uppercase">{{ $data->e_ap3 }}</td>
+                                                    </tr>
 
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>Tel. No. </td>
-                                                            <td>:</td>
-                                                            <td>{{ $data->e_notel }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>Faks No.</td>
-                                                            <td>:</td>
-                                                            <td>{{ $data->e_nofax }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>&nbsp</td>
-                                                            <td>E-mail add </td>
-                                                            <td>:</td>
-                                                            <td>{{ $data->e_email }}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td colspan=4>&nbsp</td>
-                                                        </tr>
-                                                    @endforeach
-                                                    <br>
-                                                </table>
-                                            @endif
-                                            @if ($sabah)
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Tel. No. </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_notel }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>Faks No.</td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_nofax }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp</td>
+                                                        <td>E-mail add </td>
+                                                        <td>:</td>
+                                                        <td>{{ $data->e_email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan=4>&nbsp</td>
+                                                    </tr>
+                                                @endforeach
+                                                <br>
+                                            </table>
+                                        @else
+                                            <table id="s"></table>
+                                        @endif
+                                        @if ($sabah)
                                             <div class="col-12 mt-1 mb-2"><b><u>SABAH</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="d">
 
                                                 @foreach ($sabah as $data)
                                                     <tr style="margin-left:2%">
@@ -1037,11 +1070,13 @@
                                                 @endforeach
                                                 <br>
                                             </table>
-                                            @endif
+                                        @else
+                                            <table id="d"></table>
+                                        @endif
                                         @if ($sarawak)
                                             <div class="col-12 mt-1 mb-2"><b><u>SARAWAK</u></b></div>
 
-                                            <table id="tblData">
+                                            <table id="f">
 
                                                 @foreach ($sarawak as $data)
                                                     <tr style="margin-left:2%">
@@ -1111,7 +1146,9 @@
                                                 @endforeach
                                                 <br>
                                             </table>
-                                            @endif
+                                        @else
+                                            <table id="f"></table>
+                                        @endif
                                     </div>
                                 @else
                                     <div class="container center ">
@@ -1254,4 +1291,69 @@
             newwin.close();
         }
     </script> --}}
+
+
+<script>
+    var tablesToExcel = (function() {
+      var uri = 'data:application/vnd.ms-excel;base64,'
+      , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
+        + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
+        + '<Styles>'
+        + '<Style ss:ID="Currency"><NumberFormat ss:Format="Currency"></NumberFormat></Style>'
+        + '<Style ss:ID="Date"><NumberFormat ss:Format="Medium Date"></NumberFormat></Style>'
+        + '</Styles>'
+        + '{worksheets}</Workbook>'
+      , tmplWorksheetXML = '<Worksheet ss:Name="{nameWS}"><Table>{rows}</Table></Worksheet>'
+      , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
+      , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+      , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+      return function(tables, wsnames, wbname, appname) {
+        var ctx = "";
+        var workbookXML = "";
+        var worksheetsXML = "";
+        var rowsXML = "";
+
+        for (var i = 0; i < tables.length; i++) {
+          if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
+          for (var j = 0; j < tables[i].rows.length; j++) {
+            rowsXML += '<Row>'
+            for (var k = 0; k < tables[i].rows[j].cells.length; k++) {
+              var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
+              var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
+              var dataValue = tables[i].rows[j].cells[k].getAttribute("data-value");
+              dataValue = (dataValue)?dataValue:tables[i].rows[j].cells[k].innerHTML;
+              var dataFormula = tables[i].rows[j].cells[k].getAttribute("data-formula");
+              dataFormula = (dataFormula)?dataFormula:(appname=='Calc' && dataType=='DateTime')?dataValue:null;
+              ctx = {  attributeStyleID: (dataStyle=='Currency' || dataStyle=='Date')?' ss:StyleID="'+dataStyle+'"':''
+                     , nameType: (dataType=='Number' || dataType=='DateTime' || dataType=='Boolean' || dataType=='Error')?dataType:'String'
+                     , data: (dataFormula)?'':dataValue
+                     , attributeFormula: (dataFormula)?' ss:Formula="'+dataFormula+'"':''
+                    };
+              rowsXML += format(tmplCellXML, ctx);
+            }
+            rowsXML += '</Row>'
+          }
+          ctx = {rows: rowsXML, nameWS: wsnames[i] || 'Sheet' + i};
+          worksheetsXML += format(tmplWorksheetXML, ctx);
+          rowsXML = "";
+        }
+
+        ctx = {created: (new Date()).getTime(), worksheets: worksheetsXML};
+        workbookXML = format(tmplWorkbookXML, ctx);
+
+  console.log(workbookXML);
+
+        var link = document.createElement("A");
+        link.href = uri + base64(workbookXML);
+        link.download = wbname || 'Workbook.xls';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    })();
+  </script>
+
+
+
 @endsection
