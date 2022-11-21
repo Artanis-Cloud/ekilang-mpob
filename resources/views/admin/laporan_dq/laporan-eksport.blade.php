@@ -106,7 +106,7 @@
                                                 </th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Dis
                                                 </th>
-                                            @else
+                                            @elseif ($bulan == 'between')
                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                     @php
                                                         $total_bulan[$i] = 0;
@@ -161,6 +161,50 @@
                                                         </th>
                                                     @endif
                                                 @endfor
+                                            @else
+                                            @if ($bulan2 == '01')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">Jan
+                                                    </th>
+                                                @elseif($bulan2 == '02')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">Feb
+                                                    </th>
+                                                @elseif($bulan2 == '03')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">Mac
+                                                    </th>
+                                                @elseif($bulan2 == '04')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">Apr
+                                                    </th>
+                                                @elseif($bulan2 == '05')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Mei
+                                                    </th>
+                                                @elseif($bulan2 == '06')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Jun
+                                                    </th>
+                                                @elseif($bulan2 == '07')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Jul
+                                                    </th>
+                                                @elseif($bulan2 == '08')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Ogos</th>
+                                                @elseif($bulan2 == '09')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Sept</th>
+                                                @elseif($bulan2 == '10')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Okt
+                                                    </th>
+                                                @elseif($bulan2 == '11')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Nov
+                                                    </th>
+                                                @elseif($bulan2 == '12')
+                                                    <th scope="col" style="vertical-align: middle; text-align:center">
+                                                        Dis
+                                                    </th>
+                                                @endif
                                             @endif
                                             <th scope="col" style="vertical-align: middle; text-align:center">
                                                 <b>Jumlah</b>
@@ -292,7 +336,7 @@
 
                                                     </tr>
                                                 @endforeach
-                                            @else
+                                            @elseif ($bulan == 'between')
                                             {{-- {{ dd($eksport) }} --}}
                                                 @foreach ($eksport as $key => $data)
                                                 @php
@@ -323,6 +367,95 @@
 
                                                     </tr>
                                                 @endforeach
+                                                @else
+                                                @foreach ($eksport as $data)
+                                                @php
+                                                    $total_bulan = 0;
+                                                    $jumlah = 0;
+                                                @endphp
+                                                <tr class="text-right">
+                                                    <td scope="row" class="text-left">{{ $loop->iteration }}</td>
+                                                    <td scope="row" class="text-left">{{ $data->e_np }}</td>
+
+                                                    @if ($data->ebio_bln == '01' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '02' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td
+                                                            style="text-align: right">{{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '03' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '04' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '05' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '06' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '07' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '08' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '09' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '10' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '11' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @elseif ($data->ebio_bln == '12' && $data->ebio_c9 != 0)
+                                                        @php
+                                                            $total_bulan += $data->ebio_c9;
+                                                        @endphp
+                                                        <td style="text-align: right">
+                                                            {{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                    @else
+                                                        <td>0.00</td>
+                                                    @endif
+                                                    <td><b>{{ number_format($total_bulan ?? 0, 2) }}</b></td>
+
+                                                </tr>
+                                            @endforeach
                                             @endif
                                         @endif
                                     </tbody>

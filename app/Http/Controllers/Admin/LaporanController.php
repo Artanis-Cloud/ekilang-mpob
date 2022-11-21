@@ -1841,6 +1841,7 @@ class LaporanController extends Controller
 
             $tahun2 = $request->tahun;
             $bulan = $request->bulan;
+            $bulan2 = $request->start;
             $start_month = $request->start_month;
             $end_month = $request->end_month;
 
@@ -1891,6 +1892,7 @@ class LaporanController extends Controller
                 'tahun_sql' => $tahun_sql,
                 'tahun2' => $tahun2,
                 'bulan' => $bulan,
+                'bulan2' => $bulan2,
                 'start_month' => $start_month,
                 'end_month' => $end_month,
 
@@ -1927,7 +1929,7 @@ class LaporanController extends Controller
             $end_month = $request->end_month;
 
 
-            $pengeluaran =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6,  k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            $pengeluaran =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
             FROM h_bio_c_s h
             LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
@@ -1977,7 +1979,7 @@ class LaporanController extends Controller
 
 
             if ($request->tahun) {
-                $tahun_sql = "e.ebio_thn = $request->tahun";
+                $tahun_sql = "e.ebio_thn = '$request->tahun' ";
             } else {
                 $tahun_sql = "";
             }
@@ -1990,6 +1992,8 @@ class LaporanController extends Controller
             }
             $bulan = $request->bulan;
             // dd($bulan);
+            $bulan2 = $request->start;
+
             $tahun2 = $request->tahun;
             $start_month = $request->start_month;
             $end_month = $request->end_month;
@@ -2016,7 +2020,7 @@ class LaporanController extends Controller
             LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             LEFT JOIN h_bio_inits e ON h.ebio_nobatch = e.ebio_nobatch
-            WHERE $tahun_sql.$bulan_sql
+            WHERE $tahun_sql" . "$bulan_sql
             AND h.ebio_c3 = 'AW'
             GROUP BY p.e_nl ;");
 
@@ -2044,6 +2048,7 @@ class LaporanController extends Controller
                 'start_month' => $start_month,
                 'end_month' => $end_month,
                 'bulan' => $bulan,
+                'bulan2' => $bulan2,
 
                 'eksport' => $eksport,
 
