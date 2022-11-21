@@ -169,6 +169,7 @@
                                     </thead>
                                     <tbody>
                                         @if ($eksport)
+                                        {{-- {{ dd($bulan == null) }} --}}
                                             @if ($bulan == null)
                                                 @foreach ($eksport as $data)
                                                     @php
@@ -292,6 +293,7 @@
                                                     </tr>
                                                 @endforeach
                                             @else
+                                            {{-- {{ dd($eksport) }} --}}
                                                 @foreach ($eksport as $key => $data)
                                                 @php
                                                 $total_bulan[$i] = 0;
