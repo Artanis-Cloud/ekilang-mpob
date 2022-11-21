@@ -798,6 +798,84 @@
 @endsection
 
 @section('scripts')
+{{-- <script>
+
+    $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#pengeluaran tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+    });
+
+    // DataTable
+        var table = $('#pengeluaran').DataTable({
+
+            initComplete: function () {
+
+                // Apply the search
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+            },
+            dom: 'Bfrtip',
+
+            buttons: [
+
+                'pageLength',
+
+                {
+
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
+                    },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Laporan Pengeluaran Produk Biodiesel',
+
+
+
+                },
+
+            ],
+            "language": {
+                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                "zeroRecords": "Maaf, tiada rekod.",
+                "info": "",
+                "infoEmpty": "Tidak ada rekod yang tersedia",
+                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                "search": "Carian",
+                "previous": "Sebelum",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+
+        });
+
+    });
+
+</script> --}}
 <script>
 
     $(document).ready(function () {
