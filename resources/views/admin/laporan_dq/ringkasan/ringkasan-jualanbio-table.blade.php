@@ -197,6 +197,91 @@
 
 
                                                 </select>
+                                                <p type="hidden" id="err_tahun" style="color: red; display:none"><i>Sila buat
+                                                    pilihan di
+                                                    bahagian ini!</i></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Bulan</label>
+                                                <select class="form-control" name="bulan"  id="bulan" onchange="showTable()">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option value="equal">Equal</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+
+                                            </div>
+                                            <div id="equal_container" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-md-12 ">
+                                                        <div class="form-group">
+                                                            <label>&nbsp;</label>
+                                                            <select class="form-control" name="start" >
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="between_container" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Dari</label>
+                                                            <select class="form-control" name="start_month">
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Ke</label>
+                                                            <select class="form-control" name="end_month">
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="lain_container" style="display:none">
                                             </div>
                                             <div class="form-group">
                                                 <label>Negeri</label>
@@ -292,57 +377,338 @@
                                                 <tr style="background-color: #d3d3d34d">
 
                                                     <th style="vertical-align: middle; text-align:center"
-                                                        >No Lesen</th>
+                                                        rowspan="2">No Lesen</th>
                                                     <th style="vertical-align: middle; text-align:center"
-                                                       >Nama Pemegang Lesen</th>
+                                                        rowspan="2" >Nama Pemegang Lesen</th>
                                                     <th style="vertical-align: middle; text-align:center"
-                                                        >Negeri</th>
+                                                        rowspan="2" >Negeri</th>
                                                     <th style="vertical-align: middle; text-align:center"
-                                                        >Daerah</th>
+                                                        rowspan="2"  >Daerah</th>
                                                     <th style="vertical-align: middle; text-align:center"
-                                                        >Pembeli</th>
+                                                        rowspan="2">Pembeli</th>
                                                     <th style="vertical-align: middle; text-align:center"
-                                                        >Kuantiti</th>
+                                                        colspan="13"  >Kuantiti</th>
+                                                </tr>
+                                                <tr style="background-color: #d3d3d34d">
+                                                    @if ($bulan == null)
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jan
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Feb
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mac
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Apr
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Mei
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jun
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Jul
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Ogos
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Sept
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Okt
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Nov
+                                                        </th>
+                                                        <th scope="col" style="vertical-align: middle; text-align:center; width:30px">Dis
+                                                        </th>
+
+                                                        <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                        >Jumlah</th>
+
+                                                    @elseif ($bulan == 'equal')
+                                                        {{-- @for ($i = $equal_month;) --}}
+                                                            @if ($equal_month == '01')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Jan
+                                                                </th>
+                                                            @elseif($equal_month == '02')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Feb
+                                                                </th>
+                                                            @elseif($equal_month == '03')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Mac
+                                                                </th>
+                                                            @elseif($equal_month == '04')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Apr
+                                                                </th>
+                                                            @elseif($equal_month == '05')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Mei
+                                                                </th>
+                                                            @elseif($equal_month == '06')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Jun
+                                                                </th>
+                                                            @elseif($equal_month == '07')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Jul
+                                                                </th>
+                                                            @elseif($equal_month == '08')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Ogos
+                                                                </th>
+                                                            @elseif($equal_month == '09')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Sept
+                                                                </th>
+                                                            @elseif($equal_month == '10')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Okt
+                                                                </th>
+                                                            @elseif($equal_month == '11')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Nov
+                                                                </th>
+                                                            @elseif($equal_month == '12')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Dis
+                                                                </th>
+                                                            @endif
+                                                        {{-- @endfor --}}
+                                                    @else
+                                                        @for ($i = $start_month; $i <= $end_month; $i++)
+                                                            @php
+                                                                $total_bulan5[$i] = 0;
+
+                                                            @endphp
+                                                            @if ($i == '01')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Jan
+                                                                </th>
+                                                            @elseif($i == '02')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Feb
+                                                                </th>
+                                                            @elseif($i == '03')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Mac
+                                                                </th>
+                                                            @elseif($i == '04')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Apr
+                                                                </th>
+                                                            @elseif($i == '05')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Mei
+                                                                </th>
+                                                            @elseif($i == '06')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Jun
+                                                                </th>
+                                                            @elseif($i == '07')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Jul
+                                                                </th>
+                                                            @elseif($i == '08')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Ogos
+                                                                </th>
+                                                            @elseif($i == '09')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Sept
+                                                                </th>
+                                                            @elseif($i == '10')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Okt
+                                                                </th>
+                                                            @elseif($i == '11')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Nov
+                                                                </th>
+                                                            @elseif($i == '12')
+                                                                <th scope="col"
+                                                                    style="vertical-align: middle; text-align:center">Dis
+                                                                </th>
+                                                            @endif
+                                                        @endfor
+
+                                                        <th scope="col" rowspan="1" style="vertical-align: middle; text-align:center; "
+                                                            >Jumlah</th>
+
+
+                                                    @endif
                                                 </tr>
 
                                             </thead>
                                             <tbody>
+
                                                 @if ($result)
-                                                @php
-                                                    $total_bulan_kuantiti = 0;
-                                                @endphp
-                                                @foreach ($result as $key => $data)
-                                                    <tr>
-                                                        @foreach ($jualan_bio[$data->e_nl] as $kodProduk => $test)
+
+                                                    @if ($bulan == null)
+                                                        @for ($i = 1; $i <= 13; $i++)
+                                                            @php
+                                                                $total_col_bulan_c4[$i] = 0;
+                                                            @endphp
+                                                        @endfor
+                                                        @foreach ($result as  $key => $data)
                                                             <tr>
-                                                                <td>{{ $data->e_nl }}</td>
-                                                                <td class="text-left">{{ $data->e_np }}</td>
-                                                                <td>{{ $data->nama_negeri ?? '-'}}</td>
-                                                                <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
-                                                                <td style="text-align: left; mso-number-format:'#,##0.00'">
-                                                                   {{ $syk_bio[$data->e_nl][$kodProduk]}}
-                                                                    {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}
-                                                                </td>
+                                                                @foreach ($jualan_bio[$data->e_nl] as $kodProduk => $test)
+                                                                    <tr>
+                                                                        <td class="text-centter">{{ $data->e_nl }}</td>
+                                                                        <td class="text-left">{{ $data->e_np }}</td>
+                                                                        <td>{{ $data->nama_negeri ?? '-'}}</td>
+
+                                                                        <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
+
+                                                                        <td style="text-align: left; mso-number-format:'#,##0.00'">
+                                                                        {{ $syk_bio[$data->e_nl][$kodProduk]}}
+                                                                            {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}
+                                                                        </td>
+
+                                                                        @php
+                                                                            $jumlah_c4 = 0;
+                                                                            $total_all_bulan_c4 = 0;
+                                                                        @endphp
+                                                                        @for ($i=1; $i<=12;$i++)
 
 
-                                                                <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
-                                                                    <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk] ?? 0,2) }}</b>
+                                                                            <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
+                                                                                <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk][$i]  ?? 0,2) }}</b>
+                                                                            </td>
+                                                                            @php
+                                                                                $jumlah_c4 += $jualan_bio[$data->e_nl][$kodProduk][$i]  ?? 0;
+                                                                                $total_col_bulan_c4[$i] += $jualan_bio[$data->e_nl][$kodProduk][$i] ?? 0;
+
+                                                                            @endphp
+                                                                        @endfor
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <b>{{ number_format($jumlah_c4 ?? 0,2) }}</b>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                @endforeach
+
+                                                            </tr>
+
+                                                        @endforeach
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            <th class="text-right" colspan="5"><b>Jumlah</b></th>
+
+                                                            @for ($i = 1; $i <= 12; $i++)
+
+                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                    <b>{{ number_format($total_col_bulan_c4[$i] ?? 0,2) }}</b>
                                                                 </td>
                                                                 @php
-                                                                    $total_bulan_kuantiti += $jualan_bio[$data->e_nl][$kodProduk] ?? 0;
+                                                                    $total_all_bulan_c4 += $total_col_bulan_c4[$i] ?? 0 ;
                                                                 @endphp
-                                                            </tr>
+                                                            @endfor
+                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                <b>{{ number_format( $total_all_bulan_c4 ?? 0,2) }}</b>
+                                                            </td>
+
+                                                        </tr>
+                                                    @elseif ($bulan == 'equal')
+                                                        @php
+                                                            $total_bulan_kuantiti = 0;
+                                                        @endphp
+                                                        @foreach ($result as $key => $data)
+                                                        <tr>
+                                                            @foreach ($jualan_bio[$data->e_nl] as $kodProduk => $test)
+                                                                <tr>
+                                                                    <td class="text-left">{{ $data->e_nl }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
+                                                                    <td>{{ $data->nama_negeri ?? '-'}}</td>
+                                                                    <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
+                                                                    <td style="text-align: left; mso-number-format:'#,##0.00'">
+                                                                       {{ $syk_bio[$data->e_nl][$kodProduk]}}
+                                                                        {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}
+                                                                    </td>
+
+
+                                                                    <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
+                                                                        <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</b>
+                                                                    </td>
+                                                                    @php
+                                                                          $total_bulan_kuantiti += $jualan_bio[$data->e_nl][$kodProduk][$equal_month] ?? 0;
+                                                                    @endphp
+                                                                </tr>
+                                                            @endforeach
+                                                        </tr>
                                                         @endforeach
-                                                    </tr>
 
-                                                @endforeach
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            <th class="text-right" colspan="5"><b>Jumlah</b>
+                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                <b>{{ number_format($total_bulan_kuantiti ?? 0,2) }}</b>
+                                                            </td>
 
-                                                <tr style="background-color: #d3d3d34d">
-                                                    <th class="text-right" colspan="5"><b>Jumlah</b></th>
-                                                    <td style="text-align: right; padding-right:20px; mso-number-format:'#,##0.00'">
-                                                        <b>{{ number_format($total_bulan_kuantiti ?? 0,2) }}</b></td>
+                                                        </tr>
+                                                    @else
 
-                                                </tr>
+                                                        @for ($i = $start_month; $i <= $end_month; $i++)
+                                                            @php
+                                                                $jumlah_bulan5[$i] = 0;
+                                                            @endphp
+                                                        @endfor
+
+                                                        @foreach ($result as $key => $data)
+                                                        <tr>
+                                                            @foreach ($jualan_bio[$data->e_nl] as $kodProduk => $test)
+                                                                <tr>
+
+                                                                    <td class="text-left">{{ $data->e_nl }}</td>
+                                                                    <td class="text-left">{{ $data->e_np }}</td>
+                                                                    <td>{{ $data->nama_negeri ?? '-'}}</td>
+                                                                    <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
+                                                                    <td style="text-align: left; mso-number-format:'#,##0.00'">
+                                                                       {{ $syk_bio[$data->e_nl][$kodProduk]}}
+                                                                        {{-- {{ dd($new_syk[$data->e_nl][$kodProduk]->pembeli) }} --}}
+                                                                    </td>
+
+                                                                    @php
+                                                                        $jumlah5 = 0;
+                                                                        $total_between_bulan = 0;
+                                                                    @endphp
+                                                                        @for ($i = $start_month; $i <= $end_month; $i++)
+                                                                            {{-- @if ($data->ebio_bln == $i && $data->ebio_c4 != 0) --}}
+
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <b>{{ number_format($jualan_bio[$data->e_nl][$kodProduk][$i] ?? 0,2) }}</b>
+                                                                            </td>
+
+                                                                            {{--@endif --}}
+                                                                                @php
+                                                                                    $jumlah5 +=$jualan_bio[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                    $jumlah_bulan5[$i] += $jualan_bio[$data->e_nl][$kodProduk][$i] ?? 0;
+                                                                                @endphp
+
+
+                                                                        @endfor
+                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <b>{{ number_format($jumlah5 ?? 0,2) }}</b>
+                                                                    </td>
+
+                                                                </tr>
+                                                            @endforeach
+                                                        </tr>
+                                                        @endforeach
+
+                                                        <tr style="background-color: #d3d3d34d">
+                                                            <th class="text-right" colspan="5"><b>Jumlah</b></th>
+
+                                                            @for ($i = $start_month; $i <= $end_month; $i++)
+
+                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                    <b>{{ number_format($jumlah_bulan5[$i] ?? 0,2) }}</b>
+                                                                </td>
+                                                                @php
+                                                                    $total_between_bulan += $jumlah_bulan5[$i] ?? 0 ;
+                                                                @endphp
+                                                            @endfor
+                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                <b>{{ number_format( $total_between_bulan ?? 0,2) }}</b>
+                                                            </td>
+
+                                                        </tr>
+
+                                                    @endif
                                                 @endif
                                             </tbody><br>
 
@@ -624,6 +990,9 @@
                 }, 1000);
         })
     </script>
+
+
+
 
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>

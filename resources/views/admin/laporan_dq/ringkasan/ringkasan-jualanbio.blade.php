@@ -176,6 +176,88 @@
                                                     bahagian ini!</i></p>
                                             </div>
                                             <div class="form-group">
+                                                <label>Bulan</label>
+                                                <select class="form-control" name="bulan"  id="bulan" onchange="showTable()">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option value="equal">Equal</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+
+                                            </div>
+                                            <div id="equal_container" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-md-12 ">
+                                                        <div class="form-group">
+                                                            <label>&nbsp;</label>
+                                                            <select class="form-control" name="start" >
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="between_container" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Dari</label>
+                                                            <select class="form-control" name="start_month">
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Ke</label>
+                                                            <select class="form-control" name="end_month">
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="lain_container" style="display:none">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Negeri</label>
                                                 <select class="form-control" id="negeri_id" name="e_negeri"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
@@ -484,57 +566,84 @@
                 }
 
             }
-        </script>
-            <script>
-                function check() {
-                    // (B1) INIT
-                    var error = "",
-                        field = "";
+    </script>
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
 
-                    // kap proses
-                    field = document.getElementById("tahun_id");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                        $('#tahun_id').css('border-color', 'red');
-                        document.getElementById('err_tahun').style.display = "block";
+            // kap proses
+            field = document.getElementById("tahun_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+                $('#tahun_id').css('border-color', 'red');
+                document.getElementById('err_tahun').style.display = "block";
 
-                    }
+            }
 
 
-                        if (error == "") {
-                            $('#myModal').modal('show');
-                            return true;
-                        } else {
-                            toastr.error(
-                                'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
-                                'Ralat!', {
-                                    "progressBar": true
-                                })
-                            return false;
+                if (error == "") {
+                    $('#myModal').modal('show');
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+
+            }
+
+    </script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
                         }
-
-
-                    }
-
-            </script>
-            <script>
-                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                (function() {
-                    'use strict';
-                    window.addEventListener('load', function() {
-                        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                        var forms = document.getElementsByClassName('needs-validation');
-                        // Loop over them and prevent submission
-                        var validation = Array.prototype.filter.call(forms, function(form) {
-                            form.addEventListener('submit', function(event) {
-                                if (form.checkValidity() === false) {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                }
-                                // form.classList.add('was-validated');
-                            }, false);
-                        });
+                        // form.classList.add('was-validated');
                     }, false);
-                })();
-                </script>
+                });
+            }, false);
+        })();
+        </script>
+
+    <script type="text/javascript">
+        function showTable() {
+            var bulan = $('#bulan').val();
+            // console.log(oer);
+
+            if (bulan == "equal") {
+                document.getElementById('equal_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('equal_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
+
+            }
+
+            if (bulan == "between") {
+                document.getElementById('between_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+
+            } else {
+                document.getElementById('between_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
+
+            }
+        }
+
+    </script>
 @endsection
