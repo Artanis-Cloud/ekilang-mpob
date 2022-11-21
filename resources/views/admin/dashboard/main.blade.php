@@ -307,7 +307,7 @@
                         </button>
                         </div><br>
                         <div class="table-responsive">
-                            
+
                             <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                                 <thead style="text-align: center">
                                     <tr>
