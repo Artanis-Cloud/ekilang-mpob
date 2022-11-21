@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\HebahanProses;
 use App\Models\HebahanStokAkhir;
 use App\Models\RegPelesen;
 use App\Models\SyarikatPembeli;
@@ -232,6 +233,76 @@ class PortingBiodieselController extends Controller
 
 
         return redirect()->back()->with('success', 'Maklumat Stok Akhir telah berjaya diport');
+
+
+    }
+
+
+    public function admin_port_minyak_sawit_process($id)
+    {
+        $minyaksawit = HebahanProses::find($id);
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Minyak Sawit Diproses"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Porting Minyak Sawit Diproses"],
+
+        ];
+
+        $kembali = route('admin.minyak.sawit.diproses');
+
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+        return view('admin.laporan_dq.porting-minyak-sawit', compact(
+            'returnArr',
+            'layout',
+            'minyaksawit',
+
+
+        ));
+    }
+
+
+    public function porting_minyaksawit(Request $request)
+    {
+
+        $bulan = $request->bulan;
+        $tahun = $request->tahun;
+        $cpo_msia = $request->cpo_msia;
+        $ppo_msia = $request->ppo_msia;
+        $cpko_msia = $request->cpko_msia;
+        $ppko_msia = $request->ppko_msia;
+
+        $query = DB::select("SELECT * from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
+
+        $qdel1 = DB::connection('mysql4')->delete("DELETE from hebahan_proses where bulan=$bulan and tahun = $tahun");
+
+        $qins = DB::connection('mysql4')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
+        values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
+
+        // $qdelsemuaproduk =  DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir_detail where bulan=$bulan and tahun = $tahun");
+
+        // $qdel2 =  DB::connection('mysql4')->delete("DELETE from penyata_biodiesel where bulan=$bulan and tahun = $tahun");
+
+        $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
+
+        $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
+        values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
+
+        $qdel2 = DB::delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
+
+        $qinsss1 = DB::insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
+        values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
+
+
+       
+        return redirect()->back()->with('success', 'Maklumat Minyak Sawit Diproses telah berjaya diport');
 
 
     }
