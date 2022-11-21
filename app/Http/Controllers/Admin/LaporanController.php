@@ -1834,7 +1834,7 @@ class LaporanController extends Controller
 
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.laporan.tahunan');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -1923,11 +1923,11 @@ class LaporanController extends Controller
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
-                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Kilang Biodiesel Beroperasi"],
 
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.laporan.tahunan');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -1990,11 +1990,11 @@ class LaporanController extends Controller
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
-                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Pengeluaran Produk Biodiesel"],
 
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.laporan.tahunan');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,
@@ -2077,11 +2077,11 @@ class LaporanController extends Controller
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
-                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Eksport Produk Biodiesel"],
 
             ];
 
-            $kembali = route('admin.dashboard');
+            $kembali = route('admin.laporan.tahunan');
 
             $returnArr = [
                 'breadcrumbs' => $breadcrumbs,

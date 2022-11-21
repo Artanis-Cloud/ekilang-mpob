@@ -47,8 +47,13 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">L E M B A G A &nbsp; M I N Y
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-1%; margin-bottom:1%">L E M B A G A &nbsp; M I N Y
                                 A K &nbsp; S A W I T &nbsp; M A L A Y S I A (MPOB)
                             </h3>
                             <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Penyata Bulanan</h4>
@@ -74,7 +79,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered table-responsive-lg" id="kapasiti">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1502,34 +1507,84 @@
 @endsection
 
 @section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-                "columnDefs": [{
-                    'targets': [0, 7, 8],
-                    /* column index */
-                    'orderable': false,
-                    /* true or false */
-                }]
+<script>
 
-            });
+    $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#kapasiti tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+    });
+
+    // DataTable
+        var table = $('#kapasiti').DataTable({
+
+            initComplete: function () {
+
+                // Apply the search
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+            },
+            dom: 'Bfrtip',
+
+            buttons: [
+
+                'pageLength',
+
+                {
+
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
+                    },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Laporan Kapasiti Tahunan,
+
+
+
+                },
+
+            ],
+            "language": {
+                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                "zeroRecords": "Maaf, tiada rekod.",
+                "info": "",
+                "infoEmpty": "Tidak ada rekod yang tersedia",
+                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                "search": "Carian",
+                "previous": "Sebelum",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+
         });
-    </script>
+
+    });
+
+</script>
     {{-- <script>
         $(function() {
               $("select").each(function (index, element) {
