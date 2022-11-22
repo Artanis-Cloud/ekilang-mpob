@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Daerah;
+use App\Models\EBioInit;
+use App\Models\HBioInit;
 use App\Models\HebahanStokAkhir;
 use App\Models\Negeri;
 use App\Models\Pelesen;
@@ -117,6 +119,32 @@ class DataMigrationController extends Controller
                 $user->status = $kilang[0]->e_status ?? '-';
                 $user->save();
             }
+
+        }
+    }
+
+    public function add_ebio_notel_to_hbioinits()
+    {
+        // $login_mill = RegPelesen::get(); // login
+
+        $ebioinits = EBioInit::where('ebio_flg', '3')->get();
+        // dd($ebioinits);
+
+
+        foreach ($ebioinits as $ebioinit) {
+            $ebionotel = DB::select("SELECT ebio_notel FROM e_bio_inits where ebio_nl = '$ebioinit->ebio_nl'");
+            // DB::connection('mysql2')->select("SELECT * FROM  kilang where e_nl = $loginmill->lesen");
+
+            // dd($kilang[0]);
+
+            // $password = Hash::make($loginmill->password);
+            // dd($ebionotel);
+            $hbioinits = HBioInit::where('ebio_nl', $ebioinit->ebio_nl)->first();
+
+
+                $hbioinits->ebio_notel = $ebionotel[0]->ebio_notel ?? NULL;
+                $hbioinits->save();
+
 
         }
     }

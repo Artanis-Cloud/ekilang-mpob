@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
     Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
     Route::get('/migrate/data/loginmill', [App\Http\Controllers\DataMigrationController::class, 'transfer_loginmill_to_users'])->name('transfer_loginmill_to_users');
+    Route::get('/migrate/data/ebionotel', [App\Http\Controllers\DataMigrationController::class, 'add_ebio_notel_to_hbioinits'])->name('add_ebio_notel_to_hbioinits');
     Route::get('/migrate/data/kilang', [App\Http\Controllers\DataMigrationController::class, 'transfer_kilang_to_pelesen'])->name('transfer_kilang_to_pelesen');
     Route::get('/migrate/data/profilebulanan', [App\Http\Controllers\DataMigrationController::class, 'transfer_profilebulanans_to_pelesen'])->name('transfer_profilebulanans_to_pelesen');
     Route::get('/migrate/data/reguser', [App\Http\Controllers\DataMigrationController::class, 'transfer_reguser_to_users'])->name('transfer_reguser_to_users');
