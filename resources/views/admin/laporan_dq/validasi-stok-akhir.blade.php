@@ -57,7 +57,7 @@
                             @csrf
                             <div class="card-body">
 
-                                <div class="container center">
+                                <div class="container center col-12">
 
                                     <div class="row ml-auto" style="margin-top:-1%">
                                         <label for="fname"
