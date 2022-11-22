@@ -491,6 +491,7 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
+        // dd($request->all());
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // dd($users2);
         $negeri = Negeri::distinct('prodcat')->orderBy('kod_negeri')->get();
