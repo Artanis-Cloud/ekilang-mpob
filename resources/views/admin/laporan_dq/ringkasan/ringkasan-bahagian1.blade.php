@@ -185,7 +185,7 @@
                                                         <div class="col-md-12 ">
                                                             <div class="form-group">
                                                                 <label>Pada</label>
-                                                                <select class="form-control" name="bulan" >
+                                                                <select class="form-control" name="start" >
                                                                     <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                                     <option value="01">Januari</option>
                                                                     <option value="02">Februari</option>
