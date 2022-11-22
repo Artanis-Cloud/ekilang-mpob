@@ -633,6 +633,7 @@ class LaporanController extends Controller
                             and p.prodcat = $data->prodcat
                             and h.ebio_b4 = p.prodid;");
 
+
                         // $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
                         // ->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->get();
 
@@ -662,8 +663,12 @@ class LaporanController extends Controller
                                 $ebio_b9_bhg1[$list_result->ebio_nl][$hbiob->ebio_b4][$i] = $hbiob->ebio_b9 ?? 0;
                                 $ebio_b10_bhg1[$list_result->ebio_nl][$hbiob->ebio_b4][$i] = $hbiob->ebio_b10 ?? 0;
                                 $ebio_b11_bhg1[$list_result->ebio_nl][$hbiob->ebio_b4][$i] = $hbiob->ebio_b11 ?? 0;
-                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->produk->proddesc ?? '';
+                                if($request->kumpproduk != null ){
+                                    $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->proddesc ?? '';
 
+                                }else{
+                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->produk->proddesc ?? '';
+                                }
                             }
                         }
                     }
@@ -1115,8 +1120,12 @@ class LaporanController extends Controller
                                 $ebio_c8_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c8 ?? 0;
                                 $ebio_c9_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c9 ?? 0;
                                 $ebio_c10_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c10 ?? 0;
-                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_c3] = $hbiob->produk->proddesc ;
+                                if($request->kumpproduk != null ){
+                                    $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->proddesc ?? '';
 
+                                }else{
+                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_c3] = $hbiob->produk->proddesc ;
+                                }
                             }
                         }
                     }
