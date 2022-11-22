@@ -421,7 +421,7 @@
                                                     name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>
                                             </p> --}}
 
-                                            <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ $date }} </b></p>
+                                            <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ date('d-m-Y', strtotime($user->e07_sdate)) }} </b></p>
                                             <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $user->e07_npg }}</b>
                                             </p>
                                             <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b> {{ $user->e07_jpg }}</b></p>

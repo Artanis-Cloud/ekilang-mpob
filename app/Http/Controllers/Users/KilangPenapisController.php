@@ -1693,7 +1693,7 @@ class KilangPenapisController extends Controller
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
-        $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->first();
 
 
         $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
@@ -1843,6 +1843,7 @@ class KilangPenapisController extends Controller
             'date',
             'user',
             'pelesen',
+            'pelesen2',
             'penyatai',
             'penyataii',
             'penyataiii',

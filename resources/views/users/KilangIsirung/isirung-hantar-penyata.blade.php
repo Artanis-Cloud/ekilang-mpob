@@ -945,7 +945,7 @@
                                                 <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $penyatai->e102_sdate }}" readonly>
                                             </p> --}}
-                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ $date }} </b></p>
+                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ date('d-m-Y', strtotime($penyatai->e102_sdate)) }} </b></p>
                         <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyatai->e102_npg }}</b>
                         </p>
                         <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b> {{ $penyatai->e102_jpg }}</b></p>

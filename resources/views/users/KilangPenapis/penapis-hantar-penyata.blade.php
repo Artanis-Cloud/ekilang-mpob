@@ -1021,7 +1021,7 @@
                         <form action="{{ route('penapis.update.papar.penyata', [$penyataiii->e101_reg]) }}"
                             method="post"  novalidate>
                             @csrf
-                            <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{$date }} </b></p>
+                            <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ date('d-m-Y', strtotime($pelesen2->e101_sdate)) }} </b></p>
                             <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyataiii->e101_npg  }}</span></b>
                             </p>
                             <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyataiii->e101_jpg }}</span></b></p>
