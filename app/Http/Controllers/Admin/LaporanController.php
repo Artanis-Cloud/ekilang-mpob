@@ -1224,12 +1224,18 @@ class LaporanController extends Controller
                 $no_batches = DB::table('h_bio_inits')->where('ebio_nobatch',$list_result->ebio_nobatch)->where('ebio_thn',$tahun)->get();
                 $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->kod_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
-
+    // dd($no_batches);
                 foreach ($no_batches as $no_batch) {
 
-                    $hbiob_s= DB::table('h_bio_cc')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
+                    if ($request->pembeli) {
+                        $hbiob_s= DB::table('h_bio_cc')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_cc3', $request->pembeli )->get();
+                    }else{
+                        $hbiob_s= DB::table('h_bio_cc')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
+
+                    }
                     // $hbiob_s = HBioCC::with('syarikat')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
-    //    dd($hbiob_s);
+                            // dd($hbiob_s);
+
 
                     foreach ($hbiob_s as  $hbiob) {
 
@@ -1248,12 +1254,8 @@ class LaporanController extends Controller
                         //         $new_syk[$list_result->ebio_nl][$hbiob->ebio_cc4]  = $new_test->pembeli ?? 0;
 
                         //     }
-                        //     // dd($test);
 
                         // }
-
-
-
 
 
                     for ($i=1; $i <= 12; $i++) {
