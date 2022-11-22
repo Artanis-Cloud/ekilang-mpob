@@ -640,7 +640,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td sstyle="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td sstyle="text-align: center; mso-number-format:'#,##0.00'" width= "100">
                                                                                     {{ number_format($ebio_c4_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -724,7 +724,7 @@
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'" width= "100">
                                                                             {{ number_format($ebio_c4_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                         </td>
                                                                         @php
@@ -803,7 +803,7 @@
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_c4 != 0) --}}
 
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'"  width= "100">
                                                                                     {{ number_format($ebio_c4_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -1093,7 +1093,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -1179,7 +1179,7 @@
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                             {{ number_format($ebio_c5_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                         </td>
                                                                         @php
@@ -1258,7 +1258,7 @@
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_c5 != 0) --}}
 
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c5_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -1548,7 +1548,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -1632,7 +1632,7 @@
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                             {{ number_format($ebio_c6_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                         </td>
                                                                         @php
@@ -1711,7 +1711,7 @@
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_c6 != 0) --}}
 
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c6_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -2004,7 +2004,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -2090,7 +2090,7 @@
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                             {{ number_format($ebio_c7_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                         </td>
                                                                         @php
@@ -2169,7 +2169,7 @@
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_c7 != 0) --}}
 
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c7_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -2459,7 +2459,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -2545,7 +2545,7 @@
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                             {{ number_format($ebio_c8_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                         </td>
                                                                         @php
@@ -2624,7 +2624,7 @@
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_c8 != 0) --}}
 
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c8_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -2914,7 +2914,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -2997,7 +2997,7 @@
                                                                             <td>-</td>
                                                                         @endif
                                                                         <td>{{ $data_daerah[$key]->nama_daerah ?? '-' }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
+                                                                        <td style="text-align: center; mso-number-format:'\@'" width = "100"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
                                                                         <td style="text-align: center"> {{ number_format($ebio_c9_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}</td>
@@ -3077,7 +3077,7 @@
                                                                             @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                 {{-- @if ($data->ebio_bln == $i && $data->ebio_c9 != 0) --}}
 
-                                                                                <td sstyle="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td sstyle="text-align: center; mso-number-format:'#,##0.00'"  width = "100">
                                                                                     {{ number_format($ebio_c9_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -3367,7 +3367,7 @@
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                             @for ($i=1; $i<=12;$i++)
-                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                     {{ number_format($ebio_c10_bhg3[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                 </td>
 
@@ -3453,7 +3453,7 @@
                                                                         <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                         <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                        <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                             {{ number_format($ebio_c10_bhg3[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                         </td>
                                                                         @php
@@ -3833,7 +3833,7 @@
     function ExportToExcel()
         {
             var filename = "Ringkasan Bahagian 3"
-            var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+            var tab_text = "<table border='2px'><tr bgcolor=''>";
             var textRange;
             var j = 0;
             tab = document.getElementById('example4');
