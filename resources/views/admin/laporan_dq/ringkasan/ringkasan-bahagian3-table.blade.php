@@ -593,6 +593,7 @@
                                                             @endfor
                                                             @foreach ($result as  $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c4_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -655,6 +656,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
