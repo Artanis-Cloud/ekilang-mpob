@@ -1423,7 +1423,7 @@
                                                                                 <td align="left">
                                                                                     <select class="form-control select2" id="produk24" name="ebio_c3" >
                                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
-                                                                                        @foreach ($produkiii as $prods)
+                                                                                        @foreach ($produkiii_1 as $prods)
                                                                                             <option value="{{ $prods->prodid }}"  >
                                                                                                 {{ $prods->proddesc }} - {{ $prods->prodid }}
                                                                                             </option>
