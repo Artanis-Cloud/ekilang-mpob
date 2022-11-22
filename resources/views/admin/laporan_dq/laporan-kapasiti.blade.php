@@ -1486,7 +1486,7 @@
 
                     </div>
                     <div class="col-12 mb-4 mt-4" style="margin-left:47%">
-                        <a href="{{ route('admin.stok.akhir') }}" type="button" class="btn btn-primary">Kembali</a>
+                        <a href="{{ route('admin.laporan.tahunan') }}" type="button" class="btn btn-primary">Kembali</a>
                     </div>
 
 
