@@ -866,10 +866,10 @@
                                         </p>
 
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">{{ $data[0]->e_npg }}</span>
+                                            <span  style="text-transform:uppercase">{{ $data[0]->ebio_npg }}</span>
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            <span  style="text-transform:uppercase">{{ $data[0]->e_jpg }}</span>
+                                            <span  style="text-transform:uppercase">{{ $data[0]->ebio_jpg }}</span>
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
