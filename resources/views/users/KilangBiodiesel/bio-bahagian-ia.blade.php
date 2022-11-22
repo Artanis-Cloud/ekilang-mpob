@@ -299,7 +299,7 @@
                                 <table class="table table-bordered mb-0" style="font-size: 13px">
                                     <thead style="text-align: center">
                                         <tr>
-                                            <th style="vertical-align: middle">Nama Produk</th>
+                                            <th style="vertical-align: middle">Produk Minyak Sawit</th>
                                             <th style="vertical-align: middle">Kod Produk</th>
                                             <th style="vertical-align: middle">Stok Awal Di Premis</th>
                                             <th style="vertical-align: middle">Belian / Terimaan</th>

@@ -233,7 +233,7 @@
                         <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                             <thead style="text-align: center">
                                 <tr>
-                                    <th>Nama Produk</th>
+                                    <th>Nama Produk Sawit</th>
                                     <th>Kod Produk</th>
                                     <th>Nombor Borang Kastam 1</th>
                                     <th>Tarikh Import (dd-mm-yyyy)</th>
