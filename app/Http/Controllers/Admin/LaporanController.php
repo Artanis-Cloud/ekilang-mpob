@@ -986,7 +986,13 @@ class LaporanController extends Controller
         if ($request->bulan == 'equal' && $request->e_nl) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)
-            ->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->groupBy('ebio_nl')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->get();
+            ->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+
+        }
+        if ($request->bulan == 'between' && $request->e_nl) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)
+            ->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
 
         }
             // dd( $result);
