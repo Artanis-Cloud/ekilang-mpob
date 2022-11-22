@@ -1037,6 +1037,7 @@ class Proses5Controller extends Controller
         $produk_b = Produk::whereIn('prodcat', ['02' ])->orderBy('prodname')->get();
         $produk_c = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
         $produkiii = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('prodname')->get();
+        $produkiii_1 = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->where('prodid', '!=', 'AW')->orderBy('prodname')->get();
         $produkiii_2 = Produk::where('prodid', 'AW')->orderBy('prodname')->get();
         $syarikat = SyarikatPembeli::get();
 
@@ -1106,6 +1107,7 @@ class Proses5Controller extends Controller
             'produk_b',
             'produk_c',
             'produkiii',
+            'produkiii_1',
             'produkiii_2',
             'senarai_syarikat',
             'syarikat',
@@ -1807,14 +1809,15 @@ class Proses5Controller extends Controller
 
     public function admin_view_bahagian_iii_sykt_kini($id)
     {
+            $penyata = EBioC::find($id);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.kemaskini.maklumat.bio', $id), 'name' => "Bahagian 3"],
+            ['link' => route('admin.kemaskini.maklumat.bio', $penyata->ebio_reg), 'name' => "Bahagian 3"],
             ['link' => route('bio.bahagianiii'), 'name' => "Maklumat Jualan/Edaran"],
         ];
 
-        $kembali = route('admin.kemaskini.maklumat.bio', $id);
+        $kembali = route('admin.kemaskini.maklumat.bio',  $penyata->ebio_reg);
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -1827,7 +1830,6 @@ class Proses5Controller extends Controller
         $tahun = date("Y");
 
 
-            $penyata = EBioC::find($id);
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
 
             $senarai_syarikat = EBioCC::with('ebioinit','syarikat')->where('ebio_reg', $penyata->ebio_reg)->get();
