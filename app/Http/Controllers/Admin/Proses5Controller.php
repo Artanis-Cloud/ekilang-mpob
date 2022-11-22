@@ -1043,7 +1043,7 @@ class Proses5Controller extends Controller
 
 
         $penyata = EBioInit::with('pelesen')->where('ebio_reg', $ebio_reg)->first();
-            //  dd($ebio_reg);
+            //  dd($penyata);
         $senarai_syarikat = EBioCC::with('ebioinit','syarikat')->where('ebio_reg', $penyata->ebio_reg)->get();
 
 
@@ -1809,12 +1809,12 @@ class Proses5Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianiii'), 'name' => "Bahagian 3"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kemaskini.maklumat.bio', $id), 'name' => "Bahagian 3"],
             ['link' => route('bio.bahagianiii'), 'name' => "Maklumat Jualan/Edaran"],
         ];
 
-        $kembali = route('bio.bahagianiii');
+        $kembali = route('admin.kemaskini.maklumat.bio', $id);
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
