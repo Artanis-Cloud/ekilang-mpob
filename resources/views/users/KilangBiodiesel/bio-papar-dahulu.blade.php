@@ -808,7 +808,7 @@
                                     </p>
                                     <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                        <span  style="text-transform:uppercase">{{ $pelesen->e_notel ?? '' }}</span>
+                                        <span  style="text-transform:uppercase">{{ $users->ebio_notel ?? '' }}</span>
                                     </p>
 
 
