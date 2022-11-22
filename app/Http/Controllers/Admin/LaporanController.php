@@ -1006,12 +1006,12 @@ class LaporanController extends Controller
         }
         if ($request->kod_produk) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
-            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)->where('prodname', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)->where('prodid', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         }
         if ($request->e_nl && $request->kod_produk) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')
-            ->where('prodname', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
+            ->where('prodid', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
         }
         if ($request->bulan == 'equal' && $request->e_nl) {
             $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
@@ -1025,20 +1025,57 @@ class LaporanController extends Controller
             ->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
 
         }
-            // dd( $result);
+        // dd($request->all());
+        if ($request->bulan == 'equal' && $request->kod_produk) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)
+            ->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->where('prodid', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
 
+        }
+            // dd( $result);
+        if ($request->bulan == 'between' && $request->kod_produk) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)
+            ->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('prodid', 'LIKE', '%' . $request->kod_produk . '%')->groupBy('ebio_nl')->get();
+
+        }
+        if ($request->bulan == 'equal' && $request->kumpproduk) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)
+            ->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->where('prodcat', 'LIKE', '%' . $request->kumpproduk . '%')->groupBy('ebio_nl')->get();
+
+        }
+        if ($request->bulan == 'between' && $request->kumpproduk) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->leftJoin('h_bio_c_s', 'h_bio_inits.ebio_nobatch', '=', 'h_bio_c_s.ebio_nobatch')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->where('ebio_thn',$tahun)
+            ->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('prodcat', 'LIKE', '%' . $request->kumpproduk . '%')->groupBy('ebio_nl')->get();
+
+        }
+        // dd($result);
 
         if(!$result->isEmpty()){
 
             foreach ($result as $key=> $list_result) {
+
+
                 $no_batches = DB::table('h_bio_inits')->where('ebio_nobatch',$list_result->ebio_nobatch)->where('ebio_thn',$tahun)->get();
                 $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->kod_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
                 foreach ($no_batches as $no_batch) {
+
+        // dd($no_batch);
+
                     if($request->kod_produk != null ){
 
-                        $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_c3',$request->kod_produk)->get();
+                        // $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_c3',$request->kod_produk)->get();
+                        $hbiob_s = HBioC::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_c3',$request->kod_produk)->get();
+
                     }
+                    // elseif($request->bulan == 'equal' && $request->kod_produk != null ){
+
+                    //     $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_c3',$request->kod_produk)->get();
+
+                    // }
                     elseif($request->kumpproduk != null ){
                         $produk = Produk::where('prodcat',$request->kumpproduk)->get();
 
@@ -1054,12 +1091,15 @@ class LaporanController extends Controller
 
                     else
                     {
-                        $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
-                        ->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->get();
+                        // $hbiob_s= DB::table('h_bio_c_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
+                        // ->leftJoin('produk', 'h_bio_c_s.ebio_c3', '=', 'produk.prodid')->get();
 
-                        // $hbiob_s = HBioC::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
+                        $hbiob_s = HBioC::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
 
                     }
+
+                    // dd($no_batch);
+                    // dd($request->all());
 
                     for ($i=1; $i <= 12; $i++) {
                         // $new_bulan = $no_batch->ebio_bln - 1;
@@ -1075,7 +1115,7 @@ class LaporanController extends Controller
                                 $ebio_c8_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c8 ?? 0;
                                 $ebio_c9_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c9 ?? 0;
                                 $ebio_c10_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c10 ?? 0;
-                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_c3] = $hbiob->proddesc;
+                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_c3] = $hbiob->produk->proddesc ;
 
                             }
                         }

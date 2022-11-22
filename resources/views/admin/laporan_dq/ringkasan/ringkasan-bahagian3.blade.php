@@ -448,9 +448,8 @@
                     respond.forEach(function() { //penting
 
                         console.log(respond[x]);
-                        $("#kod_produk").append('<option value="' + respond[x].prodname + '">' +
-                            respond[x]
-                            .proddesc + '</option>');
+                        $("#kod_produk").append('<option value="' + respond[x].prodid + '">'
+                        + respond[x].prodid + " - " + respond[x].proddesc+ '</option>');
                         x++;
                     });
                 },
@@ -483,9 +482,8 @@
                     respond.forEach(function() { //penting
 
                         console.log(respond[x]);
-                        $("#kod_produk2").append('<option value="' + respond[x].prodname + '">' +
-                            respond[x]
-                            .proddesc + '</option>');
+                        $("#kod_produk2").append('<option value="' + respond[x].prodid + '">'
+                        + respond[x].prodid + " - " + respond[x].proddesc+ '</option>');
                         x++;
                     });
                 },
