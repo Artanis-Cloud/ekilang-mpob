@@ -1219,10 +1219,10 @@
                                                 <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK BIODIESEL DAN GLYCERINE</font>
                                             </b></p>
                                             @if($penyataiii && !$penyataiii->isEmpty())
-                                                @foreach ($penyataiii as $penyataiii2)
+                                                {{-- @foreach ($penyataiii as $penyataiii2)
                                                     <form action="{{ route('admin.kemaskini.maklumat.bio.exe.iii',  [$penyataiii2->ebio_c1] ) }}"  class="sub-form"
                                                         method="post" id="form4" >
-                                                        @csrf
+                                                        @csrf --}}
                                                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                             class="table table-bordered" style="padding: 0.2rem 0.3rem">
                                                             <tbody>
@@ -1504,11 +1504,14 @@
                                                             </tbody>
                                                         </table>
                                                     </form>
-                                                    <div class="" id="aw">
-                                                        <a onclick="showAW()"
-                                                        style="font-size:11px; color:blue; font:rubik; font-family:'Rubik', 'sans-serif';"
-                                                        &nbsp;> (Sila Klik Disini untuk mengisi bagi Produk: PALM DIESEL / BIODIESEL / METHYL ESTER - AW) </a>
-                                                    </div>
+                                                    @if ($penyataiii2->produk->prodid = 'AW')
+
+                                                        <div class="" id="aw">
+                                                            <a onclick="showAW()"
+                                                            style="font-size:11px; color:blue; font:rubik; font-family:'Rubik', 'sans-serif';"
+                                                            &nbsp;> (Sila Klik Disini untuk mengisi bagi Produk: PALM DIESEL / BIODIESEL / METHYL ESTER - AW) </a>
+                                                        </div>
+                                                    @endif
 
                                                     <div id="aw_container" style="display: none">
 
@@ -1557,9 +1560,9 @@
                                                                         <td align="left">
                                                                             <select class="form-control select2" id="produk2" name="ebio_c3"  onchange="showDetail2()">
                                                                                 <option selected value="">Sila Pilih Kumpulan Produk</option>
-                                                                                @foreach ($produkiii as $prods)
+                                                                                @foreach ($produkiii_2 as $prods)
                                                                                     <option value="{{ $prods->prodid }}"  >
-                                                                                        {{ $prods->proddesc }} - {{ $prods->prodid = 'AW' }}
+                                                                                        {{ $prods->proddesc }} - {{ $prods->prodid }}
                                                                                     </option>
                                                                                 @endforeach
                                                                             </select>
@@ -1636,7 +1639,7 @@
                                                             // document.getElementById("form2").submit();
                                                         }
                                                     </script>
-                                                @endforeach
+                                                {{-- @endforeach --}}
 
                                             @else
                                                 <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="add15">
