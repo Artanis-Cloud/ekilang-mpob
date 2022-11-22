@@ -415,7 +415,7 @@
                                                 </div>
 
 
-                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%">
+                                                <table id="example4" class="table table-hover table-bordered" style="font-size:13px; margin-top:10%;  mso-width-source:auto;" >
                                                     <thead>
                                                         <tr style="background-color: #d3d3d34d">
 
@@ -431,7 +431,7 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; "
                                                                 colspan="13">Kuantiti (Tan Metrik) </th>
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
@@ -594,6 +594,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key => $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b5_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -643,7 +644,7 @@
                                                                                 {{-- @endforeach --}}
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00';" width = "100">
                                                                                         {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -659,7 +660,7 @@
 
                                                                             </tr>
                                                                         @endforeach
-
+                                                                        @endif
                                                                     </tr>
 
                                                                 @endforeach
@@ -687,6 +688,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b5_bhg1[$data->e_nl] as $kodProduk => $ebio_b5_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -729,7 +731,7 @@
                                                                             </td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td  style="text-align: center; width:500px; mso-number-format:'#,##0.00'">
+                                                                            <td  style="text-align: center; width:500px; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
 
@@ -738,6 +740,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -759,6 +762,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b5_bhg1[$data->e_nl] as $kodProduk => $ebio_b5_bhg1_data)
                                                                         <tr>
 
@@ -810,7 +814,7 @@
 
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b5_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
                                                                                     {{-- {{ dd($start_month) }} --}}
@@ -829,6 +833,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -1054,6 +1059,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key =>  $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b6_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -1099,7 +1105,7 @@
                                                                                 <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'"  width = "100">
                                                                                         {{ number_format($ebio_b6_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -1115,6 +1121,7 @@
 
                                                                             </tr>
                                                                         @endforeach
+                                                                        @endif
 
                                                                     </tr>
 
@@ -1143,6 +1150,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b6_bhg1[$data->e_nl] as $kodProduk => $ebio_b6_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -1183,7 +1191,7 @@
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b6_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
                                                                             @php
@@ -1191,6 +1199,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -1211,6 +1220,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b6_bhg1[$data->e_nl] as $kodProduk => $ebio_b6_bhg1_data)
                                                                         <tr>
 
@@ -1260,7 +1270,7 @@
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b6 != 0) --}}
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b6_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -1278,6 +1288,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -1503,6 +1514,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key => $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b7_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -1549,7 +1561,7 @@
 
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b7_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -1565,6 +1577,7 @@
 
                                                                             </tr>
                                                                         @endforeach
+                                                                        @endif
 
                                                                     </tr>
 
@@ -1591,6 +1604,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b7_bhg1[$data->e_nl] as $kodProduk => $ebio_b7_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -1631,7 +1645,7 @@
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b7_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
                                                                             @php
@@ -1639,6 +1653,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -1658,6 +1673,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b7_bhg1[$data->e_nl] as $kodProduk => $ebio_b7_bhg1_data)
                                                                         <tr>
 
@@ -1707,7 +1723,7 @@
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b7 != 0) --}}
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b7_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -1725,6 +1741,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -1952,6 +1969,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key => $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b8_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -1997,7 +2015,7 @@
                                                                                 <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b8_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -2013,6 +2031,7 @@
 
                                                                             </tr>
                                                                         @endforeach
+                                                                        @endif
 
                                                                     </tr>
 
@@ -2041,6 +2060,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b8_bhg1[$data->e_nl] as $kodProduk => $ebio_b8_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -2081,7 +2101,7 @@
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b8_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
                                                                             @php
@@ -2089,6 +2109,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -2109,6 +2130,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b8_bhg1[$data->e_nl] as $kodProduk => $ebio_b8_bhg1_data)
                                                                         <tr>
 
@@ -2158,7 +2180,7 @@
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b8 != 0) --}}
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b8_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -2176,6 +2198,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -2402,6 +2425,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key => $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b9_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -2448,7 +2472,7 @@
 
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b9_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -2464,6 +2488,7 @@
 
                                                                             </tr>
                                                                         @endforeach
+                                                                        @endif
 
                                                                     </tr>
 
@@ -2492,6 +2517,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b9_bhg1[$data->e_nl] as $kodProduk => $ebio_b9_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -2532,7 +2558,7 @@
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b9_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
                                                                             @php
@@ -2540,6 +2566,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -2560,6 +2587,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b9_bhg1[$data->e_nl] as $kodProduk => $ebio_b9_bhg1_data)
                                                                         <tr>
 
@@ -2608,7 +2636,7 @@
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b9 != 0) --}}
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b9_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -2626,6 +2654,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -2851,6 +2880,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key => $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b10_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -2896,7 +2926,7 @@
                                                                                 <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b10_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -2912,6 +2942,7 @@
 
                                                                             </tr>
                                                                         @endforeach
+                                                                        @endif
 
                                                                     </tr>
 
@@ -2940,6 +2971,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b10_bhg1[$data->e_nl] as $kodProduk => $ebio_b10_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -2980,7 +3012,7 @@
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b10_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
                                                                             @php
@@ -2988,6 +3020,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -3008,6 +3041,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b10_bhg1[$data->e_nl] as $kodProduk => $ebio_b10_bhg1_data)
                                                                         <tr>
 
@@ -3057,7 +3091,7 @@
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b10 != 0) --}}
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b10_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -3075,6 +3109,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -3300,6 +3335,7 @@
                                                                 @endfor
                                                                 @foreach ($result as $key => $data)
                                                                     <tr>
+                                                                        @if($data->ebio_nobatch)
                                                                         @foreach ($ebio_b11_bhg1[$data->e_nl] as $kodProduk => $test)
                                                                             <tr>
                                                                                 <td class="text-centter">{{ $data->e_nl }}</td>
@@ -3345,7 +3381,7 @@
                                                                                 <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
 
                                                                                 @for ($i=1; $i<=12;$i++)
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b11_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -3361,6 +3397,7 @@
 
                                                                             </tr>
                                                                         @endforeach
+                                                                        @endif
 
                                                                     </tr>
 
@@ -3389,6 +3426,7 @@
                                                                 @endphp
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b11_bhg1[$data->e_nl] as $kodProduk => $ebio_b11_bhg1_data)
                                                                         <tr>
                                                                             <td class="text-left">{{ $data->e_nl }}</td>
@@ -3429,7 +3467,7 @@
                                                                             <td style="text-align: center; mso-number-format:'\@'"> {{ $kodProduk }}</td>
 
                                                                             <td> {{ $proddesc[$data->e_nl][$kodProduk] }}</td>
-                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                            <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                 {{ number_format($ebio_b11_bhg1[$data->e_nl][$kodProduk][$equal_month] ?? 0,2) }}
                                                                             </td>
                                                                             @php
@@ -3437,6 +3475,7 @@
                                                                             @endphp
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
@@ -3457,6 +3496,7 @@
 
                                                                 @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_b11_bhg1[$data->e_nl] as $kodProduk => $ebio_b11_bhg1_data)
                                                                         <tr>
 
@@ -3506,7 +3546,7 @@
                                                                                 @for ($i = $start_month; $i <= $end_month; $i++)
                                                                                     {{-- @if ($data->ebio_bln == $i && $data->ebio_b11 != 0) --}}
 
-                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'">
+                                                                                    <td style="text-align: center; mso-number-format:'#,##0.00'" width = "100">
                                                                                         {{ number_format($ebio_b11_bhg1[$data->e_nl][$kodProduk][$i] ?? 0,2) }}
                                                                                     </td>
 
@@ -3524,6 +3564,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
                                                                 </tr>
                                                                 @endforeach
 
