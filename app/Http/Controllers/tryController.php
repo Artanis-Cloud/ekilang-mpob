@@ -43,8 +43,8 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $password = Hash::make('12345');
-        dd($password);
+        $qins = DB::connection('mysql4')->insert("SELECT * from hebahan_proses");
+        dd($qins);
 
 
 
