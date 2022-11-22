@@ -817,7 +817,7 @@
                                 </b></p>
                         </div>
 
-                        <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b>{{ $date }} </b></p>
+                        <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b>{{ date('d-m-Y', strtotime($user->ebio_sdate)) }} </b></p>
                         <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b> <span  style="text-transform:uppercase">{{ $user->ebio_npg ?? '' }}</span></b>
                         </p>
                         <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b><span  style="text-transform:uppercase">{{ $user->ebio_jpg ?? '' }} </span></b></p>
