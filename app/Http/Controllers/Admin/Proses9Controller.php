@@ -2259,7 +2259,7 @@ class Proses9Controller extends Controller
             // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
-            $penyata[$ebio_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
+            $penyata[$ebio_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, e.ebio_notel, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                             FROM h_bio_inits e, h_pelesen p
                             WHERE p.e_nl = e.ebio_nl
@@ -2345,7 +2345,7 @@ class Proses9Controller extends Controller
             // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
-            $penyata[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
+            $penyata[$key] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, e.ebio_notel, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
                             p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
                             FROM h_bio_inits e, h_pelesen p
                             WHERE p.e_nl = e.ebio_nl

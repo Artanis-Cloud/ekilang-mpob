@@ -873,7 +873,7 @@
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            {{ $data[0]->e_notel }}
+                                            {{ $data[0]->ebio_notel }}
                                         </p>
 
 

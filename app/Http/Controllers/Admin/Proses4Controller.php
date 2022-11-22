@@ -1168,6 +1168,7 @@ class Proses4Controller extends Controller
             $a6 = (float) $selects->ebio_a6 ;
             $npg = $selects->ebio_npg ;
             $jpg = $selects->ebio_jpg ;
+            $notel = $selects->ebio_notel ;
 
 
             $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
@@ -1196,7 +1197,7 @@ class Proses4Controller extends Controller
 
                 //insert data to hbio_init
                 $inserthbio = DB::insert("INSERT into h_bio_inits values ('$nobatch','$nolesen',
-                '$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg')");
+                '$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
 
 
 
