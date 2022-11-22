@@ -683,6 +683,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c4_bhg3[$data->e_nl] as $kodProduk => $ebio_c4_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -731,6 +732,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -751,6 +753,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c4_bhg3[$data->e_nl] as $kodProduk => $ebio_c4_bhg3_data)
                                                                     <tr>
 
@@ -818,6 +821,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -1041,6 +1045,7 @@
                                                             @endfor
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c5_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -1104,6 +1109,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
@@ -1132,6 +1138,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c5_bhg3[$data->e_nl] as $kodProduk => $ebio_c5_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -1180,6 +1187,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -1200,6 +1208,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c5_bhg3[$data->e_nl] as $kodProduk => $ebio_c5_bhg3_data)
                                                                     <tr>
 
@@ -1267,6 +1276,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -1492,6 +1502,7 @@
                                                             @endfor
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -1553,6 +1564,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
@@ -1579,6 +1591,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $ebio_c6_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -1627,6 +1640,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -1647,6 +1661,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c6_bhg3[$data->e_nl] as $kodProduk => $ebio_c6_bhg3_data)
                                                                     <tr>
 
@@ -1714,6 +1729,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -1942,6 +1958,7 @@
                                                             @endfor
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c7_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -2003,6 +2020,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
@@ -2031,6 +2049,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c7_bhg3[$data->e_nl] as $kodProduk => $ebio_c7_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -2079,6 +2098,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -2099,6 +2119,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c7_bhg3[$data->e_nl] as $kodProduk => $ebio_c7_bhg3_data)
                                                                     <tr>
 
@@ -2166,6 +2187,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -2391,6 +2413,7 @@
                                                             @endfor
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c8_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -2452,6 +2475,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
@@ -2480,6 +2504,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c8_bhg3[$data->e_nl] as $kodProduk => $ebio_c8_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -2528,6 +2553,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -2548,6 +2574,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c8_bhg3[$data->e_nl] as $kodProduk => $ebio_c8_bhg3_data)
                                                                     <tr>
 
@@ -2615,6 +2642,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -2840,6 +2868,7 @@
                                                             @endfor
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c9_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -2901,6 +2930,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
@@ -2929,6 +2959,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c9_bhg3[$data->e_nl] as $kodProduk => $ebio_c9_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -2975,6 +3006,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -2995,6 +3027,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c9_bhg3[$data->e_nl] as $kodProduk => $ebio_c9_bhg3_data)
                                                                     <tr>
 
@@ -3062,6 +3095,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -3287,6 +3321,7 @@
                                                             @endfor
                                                             @foreach ($result as $key => $data)
                                                                 <tr>
+                                                                    @if($data->ebio_nobatch)
                                                                     @foreach ($ebio_c10_bhg3[$data->e_nl] as $kodProduk => $test)
                                                                         <tr>
                                                                             <td class="text-centter">{{ $data->e_nl }}</td>
@@ -3348,6 +3383,7 @@
 
                                                                         </tr>
                                                                     @endforeach
+                                                                    @endif
 
                                                                 </tr>
 
@@ -3376,6 +3412,7 @@
                                                             @endphp
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c10_bhg3[$data->e_nl] as $kodProduk => $ebio_c10_bhg3_data)
                                                                     <tr>
                                                                         <td class="text-left">{{ $data->e_nl }}</td>
@@ -3424,6 +3461,7 @@
                                                                         @endphp
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
@@ -3444,6 +3482,7 @@
 
                                                             @foreach ($result as $key => $data)
                                                             <tr>
+                                                                @if($data->ebio_nobatch)
                                                                 @foreach ($ebio_c10_bhg3[$data->e_nl] as $kodProduk => $ebio_c10_bhg3_data)
                                                                     <tr>
 
@@ -3511,6 +3550,7 @@
 
                                                                     </tr>
                                                                 @endforeach
+                                                                @endif
                                                             </tr>
                                                             @endforeach
 
