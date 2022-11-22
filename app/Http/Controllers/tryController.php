@@ -43,7 +43,7 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $qins = DB::connection('mysql4')->insert("SELECT * from hebahan_proses");
+        $qins = DB::connection('mysql4')->select("SELECT * from hebahan_proses");
         dd($qins);
 
 
@@ -76,62 +76,6 @@ class tryController extends Controller
         // $thn4 = $thn1 - 3;
 
 
-            // $nolesen = '000002704000';
-
-            //get data oer year3full
-            //check daerahless
-            $ebioinit = EBioInit::where('ebio_flg', '2')->get();
-            // dd($ebioinit);
-
-            $totalplbio = 0;
-
-            foreach ($ebioinit as $key => $selects) {
-
-                $regno = $selects->ebio_reg ;
-                $nolesen = $selects->ebio_nl ;
-                $tahun = $selects->ebio_thn ;
-                $bulan = $selects->ebio_bln ;
-                $tarikh = $selects->ebio_sdate ;
-                $tarikh1 = $selects->ebio_ddate ;
-                $a5 = (float) $selects->ebio_a5 ;
-                $a6 = (float) $selects->ebio_a6 ;
-                $npg = $selects->ebio_npg ;
-                $jpg = $selects->ebio_jpg ;
-
-
-                $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
-                foreach ($regpelesenbio as $row)
-                {
-                    $kodpgw = $row->kodpgw;
-                    $nosiri = $row->nosiri;
-
-                    $nobatch = "$bulan$tahun$kodpgw$nosiri";
-                    // dd($nobatch);
-
-                }
-
-                $hari = Hari::where('lesen', $nolesen)->get();
-
-                foreach ($hari as $haris)
-                {
-                    $tahun = $haris->tahunbhg2 ;
-                    $bulan = $haris->bulanbhg2 ;
-                    $hari_operasi = $haris->hari_operasi ;
-                    $kapasiti = $haris->kapasiti ;
-
-                    $idmaxhari = HHari::max('id');
-                    // dd($idmax);
-
-                    if ($idmaxhari)
-                    {
-                        $idno = $idmaxhari + 1;
-                        // dd($idno);
-                    }
-
-                    $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
-                    '$bulan','$hari_operasi','$kapasiti',null,null)");
-                    // dd($inserthhari);
-                }
                 // $ebiocc = EBioCC::where('ebio_reg', $regno)->get();
 
                 // foreach ($ebiocc as $ebioccs)
@@ -154,7 +98,7 @@ class tryController extends Controller
                 // // dd($inserthbiocc);
 
                 // }
-            }
+
 
             // return $dtlqry;
 
