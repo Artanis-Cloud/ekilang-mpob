@@ -70,7 +70,7 @@
                             <div class="pl-3">
                                 <div class=" text-center">
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Kilang Penapis - MPOB(EL) MF 4 <br> </h3>
-                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Belum Dihantar Sehingga Tarikh</h5>
+                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Bulanan Kilang Penapis Belum Dihantar Sehingga Tarikh</h5>
 
                                     <div id="title">
                                         <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Penapis Belum Dihantar Sehingga Tarikh</div>
