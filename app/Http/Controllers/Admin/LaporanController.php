@@ -3075,7 +3075,6 @@ class LaporanController extends Controller
         AND h.ebio_nobatch = b.ebio_nobatch
         AND k.prodid = b.ebio_b4
         AND p.e_negeri = n.kod_negeri
-        AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '$produk'
         GROUP by p.e_nl");
         // dd($ppo_sem);
@@ -3096,7 +3095,6 @@ class LaporanController extends Controller
         AND h.ebio_nobatch = b.ebio_nobatch
         AND k.prodid = b.ebio_b4
         AND p.e_negeri = n.kod_negeri
-        AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '$produk'
         GROUP by p.e_nl");
 
@@ -3112,7 +3110,6 @@ class LaporanController extends Controller
         AND h.ebio_nobatch = b.ebio_nobatch
         AND k.prodid = b.ebio_b4
         AND p.e_negeri = n.kod_negeri
-        AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '$produk'
         GROUP by p.e_nl");
 
