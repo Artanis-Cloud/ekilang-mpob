@@ -71,33 +71,25 @@
 
                         </div>
                             <div class="pl-3">
-                                {{-- <div class="row" > --}}
 
-                                    {{-- <h3 id="yr" style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
-                                    <h5 style="color: rgb(39, 80, 71);">Senarai Penyata untuk Paparan dan Cetakan</h5>
 
+                                <div class=" text-center">
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Biodiesel - MPOB(EL)  <br> </h3>
+                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</h5>
 
                                     <div id="title">
                                         <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</div>
                                         <p id="tarikh"><span id="datetime"></span></p>
-                                    </div> --}}
+                                    </div>
 
-                                {{-- </div> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; text-align:center">Penyata Bulanan Biodiesel - MPOB(EL) <br> </h3>
-                                <h5 style="color: rgb(39, 80, 71); text-align:center ">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</h5>
-                                <div id="title">
-                                    <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</div>
-                                    <h6 style="text-align:center" id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
-
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                            1)).slice(-2)) + "/" + (dt.getFullYear());
+                                    </script>
+                                    {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
 
-                                <script>
-                                    var dt = new Date();
-                                    document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
-
-                                    var dt = new Date();
-                                    document.getElementById("Tahun").innerHTML = (dt.getFullYear());
-                                </script>
                                 <hr>
 
 

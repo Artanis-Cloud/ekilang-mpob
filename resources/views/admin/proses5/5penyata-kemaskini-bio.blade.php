@@ -79,8 +79,8 @@
                                     <div class="col-md-12 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
 
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Kemaskini Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4</h3>
-                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Kemaskini Penyata Bulanan Kilang Biodiesel - MPOB(EL) </h3>
+                                        {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
                                             Dihantar Sehingga Tarikh
                                             <p><span id="datetime"></span></p>
                                             <script>
@@ -88,7 +88,7 @@
                                                 document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
                                                     1)).slice(-2)) + "/" + (dt.getFullYear());
                                             </script>
-                                        </h5>
+                                        </h5> --}}
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
 
