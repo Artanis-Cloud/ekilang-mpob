@@ -117,7 +117,7 @@
                                             @else
                                             @foreach ($users as $data)
                                                     <tr class="text-left">
-                                                        <td class="count"></td>
+                                                        <td class="count "><a class="noScreenPelesen">{{ $loop->iteration }}</a></td>
                                                         <td>
                                                         <a href="{{ route('admin.kemaskini.maklumat.dahulu.bio', $data->ebio_nobatch) }}"><u>
                                                             {{ $data->e_nl ?? '-' }}</u></a></td>
