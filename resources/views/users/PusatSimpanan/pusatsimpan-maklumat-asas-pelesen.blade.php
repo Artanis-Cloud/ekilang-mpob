@@ -700,13 +700,14 @@
                     var bil_tangki_ppo = $("#bil_tangki_ppo").val();
                     var bil_tangki_cpko = $("#bil_tangki_cpko").val();
                     var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+                    var bil_tangki_ppko = $("#bil_tangki_oleo").val();
                     var bil_tangki_others = $("#bil_tangki_others").val();
 
                     var jumlah = $("#jumlah").val();
                     var jumlah_input = 0;
 
                     jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
-                        parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
+                        parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko))  + parseFloat(Number(bil_tangki_oleo)) + parseFloat(Number(
                             bil_tangki_others));
 
                     document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -726,6 +727,9 @@
                     var kap_tangki_ppko = document.getElementById('kap_tangki_ppko');
                     var kppko = kap_tangki_ppko.value.replace(/,/g, '');
 
+                    var kap_tangki_oleo = document.getElementById('kap_tangki_oleo');
+                    var koleo = kap_tangki_oleo.value.replace(/,/g, '');
+
                     var kap_tangki_others = document.getElementById('kap_tangki_others');
                     var kothers = kap_tangki_others.value.replace(/,/g, '');
 
@@ -733,7 +737,7 @@
                     var jumlah_input = 0;
 
                     jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
-                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(
+                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(koleo)) + parseFloat(Number(
                             kothers));
 
                     document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
