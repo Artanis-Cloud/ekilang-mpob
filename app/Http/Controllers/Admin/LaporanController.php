@@ -1531,7 +1531,7 @@ class LaporanController extends Controller
 
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.pl.lewat');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -2464,6 +2464,19 @@ class LaporanController extends Controller
             $ppo_srwk = $srwkppo[0]->ppo_srwk;
             $cpko_srwk = $srwkcpko[0]->cpko_srwk;
             $ppko_srwk = $srwkppko[0]->ppko_srwk;
+
+            $cposm = number_format($cpo_sm, 2);
+            $pposm = number_format($ppo_sm, 2);
+            $cpkosm = number_format($cpko_sm, 2);
+            $ppkosm = number_format($ppko_sm, 2);
+            $cposbh = number_format($cpo_sbh, 2);
+            $pposbh = number_format($ppo_sbh, 2);
+            $cpkosbh = number_format($cpko_sbh, 2);
+            $ppkosbh = number_format($ppko_sbh, 2);
+            $cposrwk = number_format($cpo_srwk, 2);
+            $pposrwk = number_format($ppo_srwk, 2);
+            $cpkosrwk = number_format($cpko_srwk, 2);
+            $ppkosrwk = number_format($ppko_srwk, 2);
             // dd($ppko_srwk);
         // } elseif ($tahun > 2013 and $bulan < 4) {
             //formula baru
@@ -2519,6 +2532,19 @@ class LaporanController extends Controller
             'queryppo' => $queryppo,
             'querycpko' => $querycpko,
             'queryppko' => $queryppko,
+
+            'cposm' => $cposm,
+            'pposm' => $pposm,
+            'cpkosm' => $cpkosm,
+            'ppkosm' => $ppkosm,
+            'cposbh' => $cposbh,
+            'pposbh' => $pposbh,
+            'cpkosbh' => $cpkosbh,
+            'ppkosbh' => $ppkosbh,
+            'cposrwk' => $cposrwk,
+            'pposrwk' => $pposrwk,
+            'cpkosrwk' => $cpkosrwk,
+            'ppkosrwk' => $ppkosrwk,
 
             'cpo_sm' => $cpo_sm,
             'ppo_sm' => $ppo_sm,
@@ -3078,10 +3104,6 @@ class LaporanController extends Controller
         AND b.ebio_b4 = '$produk'
         GROUP by p.e_nl");
         // dd($ppo_sem);
-
-
-
-
 
         //   dd($ppo_sem);
 

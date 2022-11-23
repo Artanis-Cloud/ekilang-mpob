@@ -61,7 +61,7 @@
                         <hr>
 
                         <div class="card-body">
-                            <form action="{{ route('admin.tambah.stok.akhir.proses2') }}" method="post">
+                            <form action="{{ route('admin.tambah.stok.akhir.proses2') }}" method="post" class="sub-form">
                                 @csrf
                             <div class="container center">
                                 {{-- @if ($errors->any())
@@ -531,20 +531,20 @@
                 success: function(response) {
                     console.log(JSON.stringify(response));
                     // $('#cpo_sm').val(response.success.cpo_sm ?? 0);
-                    $('#cpo_sm').val(response.success.cpo_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#ppo_sm').val(response.success.ppo_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#cpko_sm').val(response.success.cpko_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#ppko_sm').val(response.success.ppko_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#cpo_sbh').val(response.success.cpo_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#ppo_sbh').val(response.success.ppo_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#cpko_sbh').val(response.success.cpko_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#ppko_sbh').val(response.success.ppko_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#cpo_srwk').val(response.success.cpo_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#ppo_srwk').val(response.success.ppo_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#cpko_srwk').val(response.success.cpko_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    $('#ppko_srwk').val(response.success.ppko_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#cpo_sm').val(response.success.cposm ?? 0 );
+                    $('#ppo_sm').val(response.success.pposm ?? 0 );
+                    $('#cpko_sm').val(response.success.cpkosm ?? 0 );
+                    $('#ppko_sm').val(response.success.ppkosm ?? 0);
+                    $('#cpo_sbh').val(response.success.cposbh ?? 0 );
+                    $('#ppo_sbh').val(response.success.pposbh ?? 0 );
+                    $('#cpko_sbh').val(response.success.cpkosbh ?? 0 );
+                    $('#ppko_sbh').val(response.success.ppkosbh ?? 0 );
+                    $('#cpo_srwk').val(response.success.cposrwk ?? 0 );
+                    $('#ppo_srwk').val(response.success.pposrwk ?? 0 );
+                    $('#cpko_srwk').val(response.success.cpkosrwk ?? 0 );
+                    $('#ppko_srwk').val(response.success.ppkosrwk ?? 0 );
                 },
-                // (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                // (total.toFixed(2)) );
                 error: function(response) {
                     alert(JSON.stringify(response));
                 },
@@ -574,4 +574,79 @@
             // $('#ppko_sm').val(response.success.ppko_sm);
         }
     </script>
+
+<script>
+    $('.sub-form').submit(function() {
+
+        //add form
+        var x = $('#cpo_sm_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpo_sm_1').val(x);
+
+        var x = $('#ppo_sm_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppo_sm_1').val(x);
+
+        var x = $('#cpko_sm_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpko_sm_1').val(x);
+
+
+        var x = $('#ppko_sm_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppko_sm_1').val(x);
+
+        var x = $('#cpo_sbh_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpo_sbh_1').val(x);
+
+        var x = $('#ppo_sbh_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppo_sbh_1').val(x);
+
+        var x = $('#cpko_sbh_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpko_sbh_1').val(x);
+
+
+        var x = $('#ppko_sbh_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppko_sbh_1').val(x);
+
+        var x = $('#cpo_srwk_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpo_srwk_1').val(x);
+
+        var x = $('#ppo_srwk_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppo_srwk_1').val(x);
+
+        var x = $('#cpko_srwk_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpko_srwk_1').val(x);
+
+
+        var x = $('#ppko_srwk_1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppko_srwk_1').val(x);
+
+
+
+
+        return true;
+
+    });
+</script>
 @endsection
