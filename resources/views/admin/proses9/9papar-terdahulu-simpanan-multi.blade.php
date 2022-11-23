@@ -325,7 +325,7 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-                                                <tr>
+                                                <tr style="background-color: white">
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
