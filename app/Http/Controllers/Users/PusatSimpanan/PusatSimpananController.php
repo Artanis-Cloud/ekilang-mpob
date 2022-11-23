@@ -99,7 +99,7 @@ class PusatSimpananController extends Controller
             // 'e_as2' => ['required', 'string'],
             // 'e_as3' => ['required', 'string'],
             'e_notel' => ['required', 'string'],
-            'e_nofax' => ['required', 'string'],
+            // 'e_nofax' => ['required', 'string'],
             'e_email' => ['required', 'string'],
             'e_npg' => ['required', 'string'],
             'e_jpg' => ['required', 'string'],
