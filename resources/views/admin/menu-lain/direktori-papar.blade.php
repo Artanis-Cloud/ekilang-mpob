@@ -84,15 +84,17 @@
                                     <div class="container center ">
                                         @if ($johor)
 
-                                            <div class="col-12 mt-1 mb-2"><b><u>JOHOR</u></b></div>
+                                            <div class="col-12 mt-1 mb-2"><b><u>JOHORs</u></b></div>
 
                                             <table id="tbl1">
 
                                                 @foreach ($johor as $data)
-                                                    <tr style="margin-left:2%">
+                                                    <tr>
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
+                                                        <td style="text-transform:uppercase; text-align:center">
                                                             <b>{{ $data->e_np }}</b></td>
+                                                            {{-- <td>&nbsp</td>
+                                                            <td>&nbsp</td> --}}
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
