@@ -50,7 +50,7 @@
                 <a href="{{ route('admin.6penyatapaparcetakbio') }}"
                 style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
-                    Terkini</a>
+                    Telah Dihantar</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
                 <a href="{{ route('admin.5penyatabelumhantarbio') }}"
                     style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"

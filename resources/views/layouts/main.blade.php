@@ -2381,7 +2381,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'ekilang',
+                        filename: 'Penyata Bulanan Telah Dihantar',
 
 
 
@@ -2413,7 +2413,7 @@
                         });
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Bulanan Telah Dihantar',
 
                     },
                 ],
