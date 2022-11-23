@@ -55,8 +55,8 @@
 
                     </div>
                     <div class="pl-3">
-                        <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%; text-align:center">Kemaskini Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4 <br> </h3>
-                        <h5 class="text-center" style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Bulanan Kilang Biodiesel Belum
+                        <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%; text-align:center">Kemaskini Penyata Bulanan Kilang Biodiesel - MPOB(EL)<br> </h3>
+                        {{-- <h5 class="text-center" style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Bulanan Kilang Biodiesel Belum
                             Dihantar Sehingga Tarikh
                             <p><span id="datetime"></span></p>
                             <script>
@@ -64,7 +64,7 @@
                                 document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
                                     1)).slice(-2)) + "/" + (dt.getFullYear());
                             </script>
-                        </h5>
+                        </h5> --}}
                         <hr>
 
 
