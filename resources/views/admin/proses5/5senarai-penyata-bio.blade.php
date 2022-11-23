@@ -55,19 +55,18 @@
 
                     </div>
                     <div class="pl-3">
-                        <div class="row">
-
-                            <div class="col-md-12 text-center">
-
-                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Penyata
-                                </h3>
-                                <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Biodiesel</b></h4>
-                                {{-- <p>Maklumat Kilang</p> --}}
-                            </div>
-
-                        </div>
+                        <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%; text-align:center">Kemaskini Penyata Bulanan Kilang Biodiesel - MPOB(EL) KS 4 <br> </h3>
+                        <h5 class="text-center" style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Bulanan Kilang Biodiesel Belum
+                            Dihantar Sehingga Tarikh
+                            <p><span id="datetime"></span></p>
+                            <script>
+                                var dt = new Date();
+                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                    1)).slice(-2)) + "/" + (dt.getFullYear());
+                            </script>
+                        </h5>
                         <hr>
+
 
                         <section class="section">
                             <div class="card">
@@ -194,10 +193,26 @@
                 'pageLength',
                 {
 
+
                     extend: 'excel',
                     text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
-                    className: "fred"
-                }
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
+                    },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Kemaskini Penyata Bulanan Kilang Biodiesel',
+
+                    },
             ],
             "language": {
                             "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",

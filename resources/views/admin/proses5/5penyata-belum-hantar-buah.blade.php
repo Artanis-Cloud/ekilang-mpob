@@ -75,7 +75,7 @@
                                 <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Bulanan Kilang Buah Belum Dihantar Sehingga Tarikh</h5>
 
                                 <div id="title">
-                                    <div class="noScreenPelesen">Senarai Penyata Belum Dihantar Sehingga Tarikh</div>
+                                    <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Buah Belum Dihantar Sehingga Tarikh</div>
                                     <p id="tarikh"><span id="datetime"></span></p>
                                 </div>
 
