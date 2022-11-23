@@ -218,7 +218,7 @@
                                                             role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                             aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-scrollable"
-                                                                role="document">
+                                                                role="document" id="kemaskini">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title"
@@ -235,6 +235,8 @@
                                                                             method="post">
                                                                             @csrf
                                                                             <div class="modal-body">
+                                                                                <div class=" col-3 mt-2 mb-2" style="background-color:lightgrey; text-align:center; float:right"><b>BDST01</b></div>
+                                                                                <br>
                                                                                 <label class="required">Tahun</label>
                                                                                 <div class="form-group">
                                                                                     <input type="text" name='tahun'
@@ -505,6 +507,16 @@
 
                                                                     </div>
                                                                     <div class="modal-footer">
+                                                                        <div class="noPrint container-fluid">
+                                                                            {{-- <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" hidden
+                                                                                style="background-color:white; color: #f90a0a; " >
+                                                                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                                            </button> --}}
+                                                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel()"
+                                                                                style="background-color: white; color: #0a7569; ">
+                                                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                                            </button>
+                                                                        </div>
                                                                         <button type="button"
                                                                             class="btn btn-light-secondary"
                                                                             data-dismiss="modal">
@@ -549,7 +561,27 @@
 
     </div>
 @endsection
+<script>
+    function ExportToExcel()
+        {
+            var filename = "Ringkasan Bahagian 3"
+            var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+            var textRange;
+            var j = 0;
+            tab = document.getElementById('kemaskini');
 
+            for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            }
+
+            tab_text = tab_text + "</table>";
+            var a = document.createElement('a');
+            var data_type = 'data:application/vnd.ms-excel';
+            a.href = data_type + ', ' + encodeURIComponent(tab_text);
+            a.download = filename + '.xls';
+            a.click();
+                }
+    </script>
 {{-- @section('scripts')
     <script>
         $(document).ready(function() {

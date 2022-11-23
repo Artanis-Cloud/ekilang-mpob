@@ -2600,6 +2600,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri not in ('13','14')
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 = '01'
@@ -2628,6 +2629,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri = '13'
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 = '01'
@@ -2656,6 +2658,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri = '14'
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 = '01'
@@ -2682,6 +2685,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri not in ('13','14')
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 <> '01'
@@ -2711,6 +2715,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri = '13'
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 <> '01'
@@ -2737,6 +2742,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri = '14'
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 <> '01'
@@ -2765,6 +2771,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri not in ('13','14')
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '2'
             AND b.ebio_b4 = '04'
@@ -2792,6 +2799,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri = '13'
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '2'
             AND b.ebio_b4 = '04'
@@ -2818,6 +2826,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri = '14'
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '2'
             AND b.ebio_b4 = '04'
@@ -2845,6 +2854,7 @@ class LaporanController extends Controller
             AND h.ebio_bln = '$bulan'
             AND p.e_negeri not in ('13','14')
             AND h.ebio_nl = p.e_nl
+            AND h.ebio_nobatch = b.ebio_nobatch
             AND p.e_negeri = n.kod_negeri
             AND b.ebio_b3 = '2'
             AND b.ebio_b4 <> '04'
@@ -2872,6 +2882,7 @@ class LaporanController extends Controller
         AND h.ebio_bln = '$bulan'
         AND p.e_negeri = '13'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '2'
         AND b.ebio_b4 <> '04'
@@ -2899,6 +2910,7 @@ class LaporanController extends Controller
         AND h.ebio_bln = '$bulan'
         AND p.e_negeri = '14'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '2'
         AND b.ebio_b4 <> '04'
