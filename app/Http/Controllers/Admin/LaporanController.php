@@ -2329,6 +2329,7 @@ class LaporanController extends Controller
                     AND p.e_negeri not in ('13','14')");
 
 
+
         //cpko
 
         $querycpko = DB::select("SELECT sum(b.ebio_b11) as cpko_sm
