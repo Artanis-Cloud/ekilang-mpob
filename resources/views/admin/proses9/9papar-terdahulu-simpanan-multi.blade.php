@@ -440,7 +440,7 @@
                                         </p>
 
                                     </body>
-                                </div><br><hr><h1 style="page-break-after:always"></h1>
+                                </div><br><hr class="noScreenPelesen"><h1 style="page-break-after:always"></h1>
                             @endforeach
                         </form>
                     </div>
