@@ -3047,8 +3047,8 @@ class LaporanController extends Controller
 
         $lsprod = DB::select("SELECT * FROM produk
         where prodcat in ('01','02')
-        and sub_group_rspo is NULL
-        and sub_group_mspo is NULL");
+        and sub_group_rspo = ''
+        and sub_group_mspo = '' ");
         // Produk::where('prodcat', ['01','02'])->get();
 
         // dd($lsprod);
