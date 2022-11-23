@@ -686,7 +686,7 @@
                         </table><br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp; EKSPORT
-                                    PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT</font>
+                                    PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT</font>
                             </b></p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
