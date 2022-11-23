@@ -197,6 +197,15 @@
     {
         .noScreen{
             display:none;}
+
+    }
+
+
+    @media print
+    {
+        @page {size: auto !important}
+        .noPrint{display:none;}
+        .noScreen{}
     }
 
     body {
