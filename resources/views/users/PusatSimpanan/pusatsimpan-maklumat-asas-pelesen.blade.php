@@ -714,18 +714,27 @@
             </script>
             <script>
                 function validation_jumlah2() {
-                    var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-                    var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-                    var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-                    var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-                    var kap_tangki_others = $("#kap_tangki_others").val();
+                    var kap_tangki_cpo = document.getElementById('kap_tangki_cpo');
+                    var kcpo = kap_tangki_cpo.value.replace(/,/g, '');
+
+                    var kap_tangki_ppo = document.getElementById('kap_tangki_ppo');
+                    var kppo = kap_tangki_ppo.value.replace(/,/g, '');
+
+                    var kap_tangki_cpko = document.getElementById('kap_tangki_cpko');
+                    var kcpko = kap_tangki_cpko.value.replace(/,/g, '');
+
+                    var kap_tangki_ppko = document.getElementById('kap_tangki_ppko');
+                    var kppko = kap_tangki_ppko.value.replace(/,/g, '');
+
+                    var kap_tangki_others = document.getElementById('kap_tangki_others');
+                    var kothers = kap_tangki_others.value.replace(/,/g, '');
 
                     var jumlah = $("#jumlah2").val();
                     var jumlah_input = 0;
 
-                    jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                        parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                            kap_tangki_others));
+                    jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
+                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(
+                            kothers));
 
                     document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
@@ -913,10 +922,10 @@
 <script>
     $('.sub-form').submit(function() {
 
-        var x = $('#kap_proses').val();
-        x = x.replace(/,/g, '');
-        x = parseFloat(x, 10);
-        $('#kap_proses').val(x);
+        // var x = $('#kap_proses').val();
+        // x = x.replace(/,/g, '');
+        // x = parseFloat(x, 10);
+        // $('#kap_proses').val(x);
 
         var x = $('#bil_tangki_cpo').val();
         x = x.replace(/,/g, '');
@@ -1376,7 +1385,7 @@
             }
         </script>
 
-            <script>
+            {{-- <script>
                 function valid_proses() {
 
                     if ($('#kap_proses').val() == '') {
@@ -1391,7 +1400,7 @@
                     }
 
                 }
-            </script>
+            </script> --}}
 
 
 
@@ -1403,12 +1412,12 @@
                         field = "";
 
                     // alamat premis 1500403125000
-                    field = document.getElementById("kap_proses");
-                    if (!field.checkValidity()) {
-                        error += "Name must be 2-4 characters\r\n";
-                        $('#kap_proses').css('border-color', 'red');
-                        document.getElementById('err_proses').style.display = "block";
-                    }
+                    // field = document.getElementById("kap_proses");
+                    // if (!field.checkValidity()) {
+                    //     error += "Name must be 2-4 characters\r\n";
+                    //     $('#kap_proses').css('border-color', 'red');
+                    //     document.getElementById('err_proses').style.display = "block";
+                    // }
 
                     // alamat premis 1
                     field = document.getElementById("e_ap1");
@@ -2276,11 +2285,11 @@
             </script>
             <script>
 
-                $("#kap_proses").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                // $("#kap_proses").keypress(function(event) {
+                // if ( event.which == 45 ) {
+                //     event.preventDefault();
+                // }
+                // });
 
                 $("#bil_tangki_cpo").keypress(function(event) {
                 if ( event.which == 45 ) {
