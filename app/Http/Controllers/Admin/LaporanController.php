@@ -1121,7 +1121,7 @@ class LaporanController extends Controller
                                 $ebio_c9_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c9 ?? 0;
                                 $ebio_c10_bhg3[$list_result->ebio_nl][$hbiob->ebio_c3][$i] = $hbiob->ebio_c10 ?? 0;
                                 if($request->kumpproduk != null ){
-                                    $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->proddesc ?? '';
+                                    $proddesc[$list_result->ebio_nl][$hbiob->ebio_c3] = $hbiob->proddesc ?? '';
 
                                 }else{
                                 $proddesc[$list_result->ebio_nl][$hbiob->ebio_c3] = $hbiob->produk->proddesc ;

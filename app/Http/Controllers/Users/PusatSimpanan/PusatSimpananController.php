@@ -95,9 +95,9 @@ class PusatSimpananController extends Controller
             'e_ap1' => ['required', 'string'],
             'e_ap2' => ['required', 'string'],
             'e_ap3' => ['required', 'string'],
-            // 'e_as1' => ['required', 'string'],
-            // 'e_as2' => ['required', 'string'],
-            // 'e_as3' => ['required', 'string'],
+            'e_as1' => ['required', 'string'],
+            'e_as2' => ['required', 'string'],
+            'e_as3' => ['required', 'string'],
             'e_notel' => ['required', 'string'],
             'e_nofax' => ['required', 'string'],
             'e_email' => ['required', 'string'],
@@ -133,9 +133,9 @@ class PusatSimpananController extends Controller
             'e_ap1' => $data['e_ap1'],
             'e_ap2' => $data['e_ap2'],
             'e_ap3' => $data['e_ap3'],
-            // 'e_as1' => $data['e_as1'],
-            // 'e_as2' => $data['e_as2'],
-            // 'e_as3' => $data['e_as3'],
+            'e_as1' => $data['e_as1'],
+            'e_as2' => $data['e_as2'],
+            'e_as3' => $data['e_as3'],
             'e_notel' => $data['e_notel'],
             'e_nofax' => $data['e_nofax'],
             'e_email' => $data['e_email'],
@@ -165,7 +165,7 @@ class PusatSimpananController extends Controller
     public function update_pelesen(Request $request)
     {
 
-            # code...// dd($request->all());
+            // # code...// dd($request->all());
             if(isset($request['alamat_sama'])){
 
                 $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
@@ -207,6 +207,7 @@ class PusatSimpananController extends Controller
             else{
 
                 $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+
                 $penyata->e_ap1 = $request->e_ap1;
                 $penyata->e_ap2 = $request->e_ap2;
                 $penyata->e_ap3 = $request->e_ap3;
