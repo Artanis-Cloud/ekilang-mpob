@@ -2464,6 +2464,7 @@ class LaporanController extends Controller
             $ppo_srwk = $srwkppo[0]->ppo_srwk;
             $cpko_srwk = $srwkcpko[0]->cpko_srwk;
             $ppko_srwk = $srwkppko[0]->ppko_srwk;
+            // dd($ppko_srwk);
         // } elseif ($tahun > 2013 and $bulan < 4) {
             //formula baru
         //     $cpo_sm = $querycpo3[0]->cpo_sm_3;
