@@ -57,6 +57,10 @@
                 <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post"  class="sub-form"
                     onsubmit="return check()" novalidate>
                     @csrf
+
+                       {{-- @if ($errors->any())
+                                            {{ implode('', $errors->all('<div>:message</div>')) }}
+                                            @endif --}}
                     <div class="container center mt-5">
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
