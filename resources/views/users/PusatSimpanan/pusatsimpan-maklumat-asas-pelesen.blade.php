@@ -58,9 +58,7 @@
                     onsubmit="return check()" novalidate>
                     @csrf
 
-                       @if ($errors->any())
-                                            {{ implode('', $errors->all('<div>:message</div>')) }}
-                                            @endif
+                            
                     <div class="container center mt-5">
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
@@ -72,20 +70,20 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc(); valid_ap(); this.value = this.value.toUpperCase()">
-                                <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
+                                    <p type="hidden" id="err_ap" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
-                                <input type="text" id="e_ap2" class="form-control" maxlength=60 style="text-transform:uppercase"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                <input type="text" id="e_ap2" class="form-control" maxlength=60
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc2(); this.value = this.value.toUpperCase()">
-                                <input type="text" id="e_ap3" class="form-control" maxlength=60 style="text-transform:uppercase"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                <input type="text" id="e_ap3" class="form-control" maxlength=60
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc3(); this.value = this.value.toUpperCase()">
                             </div>
                         </div>
 
-                        <div class="row justify-content-center" style="margin:0px">
+                        <div class="row justify-content-center" style="margin-left:10px">
                             <div class="col-sm-3 " style="margin: 0px">
                                 <label for="fname" class="control-label col-form-label"></i></label>
                             </div>
@@ -107,14 +105,14 @@
                                     oninvalid="setCustomValidity('Sila isi butiran ini')" required style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc4(); valid_as(); this.value = this.value.toUpperCase()">
-                                <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
+                                    <p type="hidden" id="err_as" style="color: red; display:none"><i>Sila isi butiran di
                                         bahagian ini!</i></p>
-                                <input type="text" id="e_as2" class="form-control" maxlength=60 style="text-transform:uppercase"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                <input type="text" id="e_as2" class="form-control" maxlength=60
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc5(); this.value = this.value.toUpperCase()">
-                                <input type="text" id="e_as3" class="form-control" maxlength=60 style="text-transform:uppercase"
-                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                <input type="text" id="e_as3" class="form-control" maxlength=60
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" style="text-transform:uppercase"
                                     placeholder="Alamat Surat Menyurat 3" name="e_as3" value="{{ $pelesen->e_as3 }}"
                                     oninput="this.setCustomValidity(''); invokeFunc6(); this.value = this.value.toUpperCase()">
                             </div>
@@ -704,7 +702,7 @@
                     var bil_tangki_ppo = $("#bil_tangki_ppo").val();
                     var bil_tangki_cpko = $("#bil_tangki_cpko").val();
                     var bil_tangki_ppko = $("#bil_tangki_ppko").val();
-                    var bil_tangki_ppko = $("#bil_tangki_oleo").val();
+                    var bil_tangki_oleo = $("#bil_tangki_oleo").val();
                     var bil_tangki_others = $("#bil_tangki_others").val();
 
                     var jumlah = $("#jumlah").val();
@@ -1660,7 +1658,7 @@
                 }
             </script>
 
-            {{-- <script>
+            <script>
                 $('#submit').click(function() {
                     var
                         $checkbox = $('#address'),
@@ -1693,7 +1691,7 @@
                 //         //     $("#deliveryadd").show();
                 //         // }
                 //     }
-            </script> --}}
+            </script>
             <script>
                 function alamat() {
 

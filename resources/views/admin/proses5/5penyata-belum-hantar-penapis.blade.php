@@ -48,7 +48,7 @@
                 <a href="{{ route('admin.6penyatapaparcetakpenapis') }}"
                     style="color:black; border-radius:unset; font-size:14px;" class="btn btn-work tablinks"
                     onclick="openInit(event, 'All')">Penyata Bulanan
-                    Terkini</a>
+                    Telah Dihantar</a>
                 <a style="color:black;; border-radius:unset; font-size:14px; margin-left:-1%; background-color:rgb(255, 255, 255)"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')" id="defaultOpen">Penyata Bulanan
                     Belum Hantar</a>
