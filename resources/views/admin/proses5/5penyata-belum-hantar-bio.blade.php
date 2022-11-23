@@ -84,9 +84,9 @@
 
                                 {{-- </div> --}}
                                 <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; text-align:center">Penyata Bulanan Biodiesel - MPOB(EL) <br> </h3>
-                                <h5 style="color: rgb(39, 80, 71); text-align:center ">Senarai Penyata untuk Paparan dan Cetakan</h5>
+                                <h5 style="color: rgb(39, 80, 71); text-align:center ">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</h5>
                                 <div id="title">
-                                    <div class="noScreenPelesen">Penyata Bulanan Biodiesel - MPOB(EL)</div>
+                                    <div class="noScreenPelesen">Senarai Penyata Bulanan Kilang Biodiesel Belum Dihantar Sehingga Tarikh</div>
                                     <h6 style="text-align:center" id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 </div>
@@ -374,7 +374,8 @@
         dom: 'Bfrtip',
 
 
-            buttons: [
+            buttons:
+            [
 
                 'pageLength',
                 {
@@ -400,50 +401,51 @@
 
                 },
                 {
-                        extend: 'pdfHtml5',
-                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                    extend: 'pdfHtml5',
+                    text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
 
-                        className: "prodpdf",
+                    className: "prodpdf",
 
-                        exportOptions: {
-                            columns: [1,2,3,4]
-                        },
-
-                        title: function(doc) {
-                                return $('#title').text()
-                                },
-                        customize: function (doc) {
-                            let table = doc.content[1].table.body;
-                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
-                            {
-                                var test = table[i][0];
-                            }
-
-                        },
-                        customize: function(doc) {
-                        doc.content[1].table.body[0].forEach(function(h) {
-                            h.fillColor = '#0a7569';
-                        });
-                        },
-
-                        filename: 'Penyata Belum Hantar Kilang Biodiesel',
+                    exportOptions: {
+                        columns: [1,2,3,4]
                     },
-            ],
-            "language": {
-                            "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                            "zeroRecords": "Maaf, tiada rekod.",
-                            "info": "",
-                            "infoEmpty": "Tidak ada rekod yang tersedia",
-                            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                            "search": "Carian",
-                            "previous": "Sebelum",
-                            "paginate": {
-                                "first": "Pertama",
-                                "last": "Terakhir",
-                                "next": "Seterusnya",
-                                "previous": "Sebelumnya"
+
+                    title: function(doc) {
+                            return $('#title').text()
                             },
-                        },
+                    customize: function (doc) {
+                        let table = doc.content[1].table.body;
+                        for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                        {
+                            var test = table[i][0];
+                        }
+
+                    },
+                    customize: function(doc) {
+                    doc.content[1].table.body[0].forEach(function(h) {
+                        h.fillColor = '#0a7569';
+                    });
+                    },
+
+                    filename: 'Penyata Belum Hantar Kilang Biodiesel',
+                },
+            ],
+            "language":
+            {
+                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                "zeroRecords": "Maaf, tiada rekod.",
+                "info": "",
+                "infoEmpty": "Tidak ada rekod yang tersedia",
+                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                "search": "Carian",
+                "previous": "Sebelum",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+            },
         });
     });
 </script>
