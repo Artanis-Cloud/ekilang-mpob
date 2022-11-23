@@ -530,19 +530,21 @@
                 },
                 success: function(response) {
                     console.log(JSON.stringify(response));
-                    $('#cpo_sm').val(response.success.cpo_sm ?? 0);
-                    $('#ppo_sm').val(response.success.ppo_sm ?? 0);
-                    $('#cpko_sm').val(response.success.cpko_sm ?? 0);
-                    $('#ppko_sm').val(response.success.ppko_sm ?? 0);
-                    $('#cpo_sbh').val(response.success.cpo_sbh ?? 0);
-                    $('#ppo_sbh').val(response.success.ppo_sbh ?? 0);
-                    $('#cpko_sbh').val(response.success.cpko_sbh ?? 0);
-                    $('#ppko_sbh').val(response.success.ppko_sbh ?? 0);
-                    $('#cpo_srwk').val(response.success.cpo_srwk ?? 0);
-                    $('#ppo_srwk').val(response.success.ppo_srwk ?? 0);
-                    $('#cpko_srwk').val(response.success.cpko_srwk ?? 0);
-                    $('#ppko_srwk').val(response.success.ppko_srwk ?? 0);
+                    // $('#cpo_sm').val(response.success.cpo_sm ?? 0);
+                    $('#cpo_sm').val(response.success.cpo_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#ppo_sm').val(response.success.ppo_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#cpko_sm').val(response.success.cpko_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#ppko_sm').val(response.success.ppko_sm.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#cpo_sbh').val(response.success.cpo_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#ppo_sbh').val(response.success.ppo_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#cpko_sbh').val(response.success.cpko_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#ppko_sbh').val(response.success.ppko_sbh.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#cpo_srwk').val(response.success.cpo_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#ppo_srwk').val(response.success.ppo_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#cpko_srwk').val(response.success.cpko_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    $('#ppko_srwk').val(response.success.ppko_srwk.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 },
+                // (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 error: function(response) {
                     alert(JSON.stringify(response));
                 },
