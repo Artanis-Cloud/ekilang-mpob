@@ -221,9 +221,10 @@
                                                                 role="document" id="kemaskini">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title"
+                                                                        <h4 class="modal-title"
                                                                             id="exampleModalScrollableTitle">
-                                                                            Kemaskini Maklumat Produk</h5>
+                                                                            <b>Hebahan 10hb - Stok Akhir</b><br>Kemaskini Maklumat Produk </h4> <br>
+                                                                        <h5></h5>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">
                                                                             <i data-feather="x"></i>
@@ -235,7 +236,7 @@
                                                                             method="post">
                                                                             @csrf
                                                                             <div class="modal-body">
-                                                                                <div class=" col-3 mt-2 mb-2" style="background-color:lightgrey; text-align:center; float:right"><b>BDST01</b></div>
+                                                                                <div class=" col-3 mb-2" style="background-color:lightgrey; text-align:center; float:right"><b>BDST01</b></div>
                                                                                 <br>
                                                                                 <label class="required">Tahun</label>
                                                                                 <div class="form-group">
@@ -348,7 +349,7 @@
                                                                                             name='cpo_sm'
                                                                                             class="form-control"
                                                                                             id="cpo_sm"
-                                                                                            value="{{ old('cpo_sm') ?? $data->cpo_sm }}">
+                                                                                            value="{{ old('cpo_sm') ?? number_format($data->cpo_sm, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -360,7 +361,7 @@
                                                                                             name='ppo_sm'
                                                                                             class="form-control"
                                                                                             id="ppo_sm"
-                                                                                            value="{{ old('ppo_sm') ?? $data->ppo_sm }}">
+                                                                                            value="{{ old('ppo_sm') ?? number_format($data->ppo_sm, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -374,7 +375,7 @@
                                                                                             name='cpko_sm'
                                                                                             class="form-control"
                                                                                             id="cpko_sm"
-                                                                                            value="{{ old('cpko_sm') ?? $data->cpko_sm }}">
+                                                                                            value="{{ old('cpko_sm') ?? number_format($data->cpko_sm, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -386,7 +387,7 @@
                                                                                             name='ppko_sm'
                                                                                             class="form-control"
                                                                                             id="ppko_sm"
-                                                                                            value="{{ old('ppko_sm') ?? $data->ppko_sm }}">
+                                                                                            value="{{ old('ppko_sm') ?? number_format($data->ppko_sm, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -404,7 +405,7 @@
                                                                                             name='cpo_sbh'
                                                                                             class="form-control"
                                                                                             id="cpo_sbh"
-                                                                                            value="{{ old('cpo_sbh') ?? $data->cpo_sbh }}">
+                                                                                            value="{{ old('cpo_sbh') ?? number_format($data->cpo_sbh, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -416,7 +417,7 @@
                                                                                             name='ppo_sbh'
                                                                                             class="form-control"
                                                                                             id="ppo_sbh"
-                                                                                            value="{{ old('ppo_sbh') ?? $data->ppo_sbh }}">
+                                                                                            value="{{ old('ppo_sbh') ?? number_format($data->ppo_sbh, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -430,7 +431,7 @@
                                                                                             name='cpko_sbh'
                                                                                             class="form-control"
                                                                                             id="cpko_sbh"
-                                                                                            value="{{ old('cpko_sbh') ?? $data->cpko_sbh }}">
+                                                                                            value="{{ old('cpko_sbh') ?? number_format($data->cpko_sbh, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -442,7 +443,7 @@
                                                                                             name='ppko_sbh'
                                                                                             class="form-control"
                                                                                             id="ppko_sbh"
-                                                                                            value="{{ old('ppko_sbh') ?? $data->ppko_sbh }}">
+                                                                                            value="{{ old('ppko_sbh') ?? number_format($data->ppko_sbh, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -460,7 +461,7 @@
                                                                                             name='cpo_srwk'
                                                                                             class="form-control"
                                                                                             id="cpo_srwk"
-                                                                                            value="{{ old('cpo_srwk') ?? $data->cpo_srwk }}">
+                                                                                            value="{{ old('cpo_srwk') ?? number_format($data->cpo_srwk, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -472,7 +473,7 @@
                                                                                             name='ppo_srwk'
                                                                                             class="form-control"
                                                                                             id="ppo_srwk"
-                                                                                            value="{{ old('ppo_srwk') ?? $data->ppo_srwk }}">
+                                                                                            value="{{ old('ppo_srwk') ?? number_format($data->ppo_srwk, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -486,7 +487,7 @@
                                                                                             name='cpko_srwk'
                                                                                             class="form-control"
                                                                                             id="cpko_srwk"
-                                                                                            value="{{ old('cpko_srwk') ?? $data->cpko_srwk }}">
+                                                                                            value="{{ old('cpko_srwk') ?? number_format($data->cpko_srwk, 2) }}">
                                                                                     </div>
 
                                                                                 </div>
@@ -498,7 +499,7 @@
                                                                                             name='ppko_srwk'
                                                                                             class="form-control"
                                                                                             id="ppko_srwk"
-                                                                                            value="{{ old('ppko_srwk') ?? $data->ppko_srwk }}">
+                                                                                            value="{{ old('ppko_srwk') ?? number_format($data->ppko_srwk, 2) }}">
                                                                                     </div>
 
                                                                                 </div>

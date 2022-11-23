@@ -2242,22 +2242,47 @@ class LaporanController extends Controller
 
         // $produk = Produk::where('prodname', $request->e101_b4)->first();/
 
+        $cposm = $request->cpo_sm;
+        $pposm = $request->ppo_sm;
+        $cpkosm = $request->cpko_sm;
+        $ppkosm = $request->ppko_sm;
+        $cposbh = $request->cpo_sbh;
+        $pposbh = $request->ppo_sbh;
+        $cpkosbh = $request->cpko_sbh;
+        $ppkosbh = $request->ppko_sbh;
+        $cposrwk = $request->cpo_srwk;
+        $pposrwk = $request->ppo_srwk;
+        $cpkosrwk = $request->cpko_srwk;
+        $ppkosrwk = $request->ppko_srwk;
+
+        $cposm1 = str_replace(',', '', $cposm);
+        $pposm1 = str_replace(',', '', $pposm);
+        $cpkosm1 = str_replace(',', '', $cpkosm);
+        $ppkosm1 = str_replace(',', '', $ppkosm);
+        $cposbh1 = str_replace(',', '', $cposbh);
+        $pposbh1 = str_replace(',', '', $pposbh);
+        $cpkosbh1 = str_replace(',', '', $cpkosbh);
+        $ppkosbh1 = str_replace(',', '', $ppkosbh);
+        $cposrwk1 = str_replace(',', '', $cposrwk);
+        $pposrwk1 = str_replace(',', '', $pposrwk);
+        $cpkosrwk1 = str_replace(',', '', $cpkosrwk);
+        $ppkosrwk1 = str_replace(',', '', $ppkosrwk);
         // dd($request->all());
         $hebahan = HebahanStokAkhir::findOrFail($id);
         // $hebahan->tahun = $request->tahun;
         // $hebahan->bulan = $request->bulan;
-        $hebahan->cpo_sm = $request->cpo_sm;
-        $hebahan->ppo_sm = $request->ppo_sm;
-        $hebahan->cpko_sm = $request->cpko_sm;
-        $hebahan->ppko_sm = $request->ppko_sm;
-        $hebahan->cpo_sbh = $request->cpo_sbh;
-        $hebahan->ppo_sbh = $request->ppo_sbh;
-        $hebahan->cpko_sbh = $request->cpko_sbh;
-        $hebahan->ppko_sbh = $request->ppko_sbh;
-        $hebahan->cpo_srwk = $request->cpo_srwk;
-        $hebahan->ppo_srwk = $request->ppo_srwk;
-        $hebahan->cpko_srwk = $request->cpko_srwk;
-        $hebahan->ppko_srwk = $request->ppko_srwk;
+        $hebahan->cpo_sm = $cposm1;
+        $hebahan->ppo_sm = $pposm1;
+        $hebahan->cpko_sm = $cpkosm1;
+        $hebahan->ppko_sm = $ppkosm1;
+        $hebahan->cpo_sbh = $cposbh1;
+        $hebahan->ppo_sbh = $pposbh1;
+        $hebahan->cpko_sbh = $cpkosbh1;
+        $hebahan->ppko_sbh = $ppkosbh1;
+        $hebahan->cpo_srwk = $cposrwk1;
+        $hebahan->ppo_srwk = $pposrwk1;
+        $hebahan->cpko_srwk = $cpkosrwk1;
+        $hebahan->ppko_srwk = $ppkosrwk1;
         $hebahan->save();
 
 
