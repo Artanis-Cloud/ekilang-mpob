@@ -1766,7 +1766,7 @@
 
                                             <p><b>
                                                 <font style="font-size: 15px" color="#0c7c85">
-                                                    BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+                                                    BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT
 
                                                 </font>
                                             </b></p>
