@@ -247,8 +247,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td colspan="9" style="text-align: center">Tiada Rekod</td>
-
 
 
 
@@ -258,8 +256,8 @@
                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                     <td style="text-align: center"><b>-</b></td>
                                     <td style="text-align: center"><b>-</b></td>
-                                    <td style="text-align: center"><b>-</b></td>
-                                    <td style="text-align: center"><b>-</b></td>
+                                    <td style="text-align: center"><b>0.00</b></td>
+                                    <td style="text-align: center"><b>0.00</b></td>
                                     <td style="text-align: center"><b>-</b></td>
 
 

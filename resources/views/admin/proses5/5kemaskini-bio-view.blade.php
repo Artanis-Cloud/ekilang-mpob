@@ -571,7 +571,7 @@
                                                                 <font size="2">Tindakan</font>
                                                             </b></td>
                                                     </tr>
-                                                    @if($penyataib && !$penyataib->isEmpty())
+                                                    {{-- @if($penyataib && !$penyataib->isEmpty()) --}}
                                                         @php
                                                             $total_col_ebio_b5_b = 0;
                                                             $total_col_ebio_b6_b = 0;
@@ -780,7 +780,7 @@
                                                             <td class="text-right"><b>{{  number_format($total_col_ebio_b11_b ?? 0,2) }}</b></td>
                                                             {{-- <td colspan="2">-</td> --}}
                                                         </tr>
-                                                    @else
+                                                    {{-- @else
                                                     <tr>
                                                         <form action="{{ route('admin.add.bahagian.ib', [$penyata->ebio_reg] ) }}" method="post" id="add2">
                                                             @csrf
@@ -838,7 +838,7 @@
                                                             }
                                                         </script>
                                                     </tr>
-                                                    @endif
+                                                    @endif --}}
                                                 </tbody>
                                             </table><br>
 
