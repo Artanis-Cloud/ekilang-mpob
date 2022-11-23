@@ -379,26 +379,38 @@
                                                             {{-- {{ dd() }} --}}
 
                                                         @endforeach
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_dipremis ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+
+                                                        </tr>
                                                     @else
-                                                        {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            {{-- {{ dd($total_dipremis2) }} --}}
+
+                                                        </tr>
                                                     @endif
 
-                                                    <tr>
-                                                        <td align="center" colspan="2">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_dipremis ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
@@ -499,28 +511,40 @@
                                                             </tr>
 
                                                         @endforeach
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
+                                                            <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+                                                            {{-- {{ dd($total_dipremis2) }} --}}
+
+
+                                                        </tr>
+
                                                     @else
-                                                        {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
+                                                        <tr>
+                                                            <td align="center" colspan="2">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            <td class="text-right"><b>0.00</b></td>
+                                                            {{-- {{ dd($total_dipremis2) }} --}}
+
+                                                        </tr>
                                                     @endif
-
-                                                    <tr>
-                                                        <td align="center" colspan="2">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_dipremis2 ?? 0,2) }}</b></td>
-                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-                                                        {{-- {{ dd($total_dipremis2) }} --}}
-
-
-                                                    </tr>
                                                 </tbody>
                                             </table>
 
@@ -618,26 +642,38 @@
                                                         </tr>
 
                                                     @endforeach
+                                                    <tr>
+                                                        <td align="center" colspan="2">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
+                                                        <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
+
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
+                                                    <tr>
+                                                        <td align="center" colspan="2">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        <td class="text-right"><b>0.00</b></td>
+                                                        {{-- {{ dd($total_dipremis2) }} --}}
+
+                                                    </tr>
                                                 @endif
 
-                                                <tr>
-                                                    <td align="center" colspan="2">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b5 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b6 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b7 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b8 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b9 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b10 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_dipremis3 ?? 0,2) }}</b></td>
-                                                    <td class="text-right"><b>{{  number_format($total_col_ebio_b11 ?? 0,2) }}</b></td>
-
-                                                </tr>
                                                 </tbody>
                                             </table>
 
@@ -713,10 +749,10 @@
                                                         @foreach ($penyataiii[$key] as $dataiii)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $dataiii->produk->proddesc }}</font>
+                                                                <font size="2">{{ $dataiii->produk->proddesc ?? '-' }}</font>
                                                             </td>
                                                             <td align="center">
-                                                                <font size="2">{{ $dataiii->ebio_c3 }}</font>
+                                                                <font size="2">{{ $dataiii->ebio_c3 ?? '-' }}</font>
                                                             </td>
                                                             <td align="right">
                                                                 <font size="2">{{ number_format($dataiii->ebio_c4 ??  0,2) }}</font>
