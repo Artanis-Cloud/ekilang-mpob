@@ -64,10 +64,16 @@
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
                                         </label>
                                         <div class="col-md-4">
-                                            <select class="form-control" name="tahun"  required
-                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="setCustomValidity('')">
-                                                <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                            <select class="form-control" name="tahun" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                @if (!$tahun)
+                                                    <option selected hidden disabled value="">Sila Pilih Tahun
+                                                    </option>
+                                                @else
+                                                    <option selected disabled value="{{ $tahun }}">
+                                                        {{ $tahun }}</option>
+                                                @endif
                                                 @for ($i = 2011; $i <= date('Y'); $i++)
                                                     <option value="{{ $i }}">{{ $i }}</option>
                                                 @endfor
@@ -113,10 +119,38 @@
                                         </label>
                                         <div class="col-md-4">
                                             <select class="form-control" name="bulan" required
-                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                            oninput="setCustomValidity('')">
-                                            <option selected hidden disabled value="">Sila Pilih Bulan</option>
-
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                @if (!$bulan)
+                                                    <option selected hidden disabled value="">Sila Pilih Bulan
+                                                    </option>
+                                                @else
+                                                    @if ($bulan == '01')
+                                                        <option value="01">JANUARI</option>
+                                                    @elseif ($bulan == '02')
+                                                        <option value="02">FEBRUARI</option>
+                                                    @elseif ($bulan == '03')
+                                                        <option value="03">MAC</option>
+                                                    @elseif ($bulan == '04')
+                                                        <option value="04">APRIL</option>
+                                                    @elseif ($bulan == '05')
+                                                        <option value="05">MEI</option>
+                                                    @elseif ($bulan == '06')
+                                                        <option value="06">JUN</option>
+                                                    @elseif ($bulan == '07')
+                                                        <option value="07">JULAI</option>
+                                                    @elseif ($bulan == '08')
+                                                        <option value="08">OGOS</option>
+                                                    @elseif ($bulan == '09')
+                                                        <option value="09">SEPTEMBER</option>
+                                                    @elseif ($bulan == '10')
+                                                        <option value="10">OKTOBER</option>
+                                                    @elseif ($bulan == '11')
+                                                        <option value="11">NOVEMBER</option>
+                                                    @elseif ($bulan == '12')
+                                                        <option value="12">DISEMBER</option>
+                                                    @endif
+                                                @endif
                                                 <option value="01">JANUARI</option>
                                                 <option value="02">FEBRUARI</option>
                                                 <option value="03">MAC</option>
@@ -129,6 +163,7 @@
                                                 <option value="10">OKTOBER</option>
                                                 <option value="11">NOVEMBER</option>
                                                 <option value="12">DISEMBER</option>
+
 
 
                                             </select>
@@ -157,7 +192,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -183,7 +219,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cposem = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_cposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -218,7 +254,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -244,7 +281,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cposbh = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_cposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -278,7 +315,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -304,7 +342,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cposrwk = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_cposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -340,7 +378,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -366,7 +405,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_pposem = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_pposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -401,7 +440,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -427,7 +467,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_pposbh = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_pposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -462,7 +502,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -488,7 +529,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_pposrwk = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_pposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -525,7 +566,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -551,7 +593,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cpkosem = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) -  ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_cpkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -586,7 +628,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -612,7 +655,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cpkosbh = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_cpkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -647,7 +690,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -673,7 +717,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cpkosrwk = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_cpkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -710,7 +754,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -736,7 +781,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_ppkosem = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_ppkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -771,7 +816,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -797,7 +843,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_ppkosbh = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_ppkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>
@@ -832,7 +878,8 @@
                                             <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
                                             <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
                                             <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses Selanjutnya</th>
+                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                Selanjutnya</th>
                                             <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
                                             <th scope="col" style="vertical-align: middle">Eksport</th>
                                             <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
@@ -858,7 +905,7 @@
                                                         <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
                                                         <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_ppkosrwk = ($data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 ) - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                        <td>{{ number_format($dipremis_ppkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                         </td>
                                                         <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
                                                     </tr>

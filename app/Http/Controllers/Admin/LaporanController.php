@@ -2589,6 +2589,7 @@ class LaporanController extends Controller
 
     public function admin_validasi_stok_akhir_proses(Request $request)
     {
+        // dd($request->all());
         $tahun = $request->tahun;
         $bulan = $request->bulan;
 
@@ -3043,13 +3044,16 @@ class LaporanController extends Controller
         $tahun = $request->tahun;
         $bulan = $request->bulan;
         $produk = $request->produk;
-        // dd($produk);
 
-        if (($produk == 'GK') ||  ($produk == '29') ||  ($produk == '27') || ($produk == '35'))
+        $lsprod = Produk::where('prodcat', ['01','02'])->get();
+
+        // dd($lsprod);
+
+        // if (($produk == 'GK') ||  ($produk == '29') ||  ($produk == '27') || ($produk == '35'))
             // $sqlstmt1 = "`produk`.`kumpulan_produk` = '1' AND";
-            $sqlstmt1 = "k.prodcat = '01' ";
-        else
-            $sqlstmt1 = "k.prodcat = '02' ";
+        //     $sqlstmt1 = "k.prodcat = '01' ";
+        // else
+        //     $sqlstmt1 = "k.prodcat = '02' ";
 
         // if ($produk == 'OTHERS')
         //     $sqlstmt2 = "b.ebio_b4 NOT IN ('GK','29','27','35') ";
@@ -3064,13 +3068,15 @@ class LaporanController extends Controller
         AND h.ebio_bln = '$bulan'
         AND p.e_negeri not in ('13','14')
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND k.prodid = b.ebio_b4
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '$produk'
-        AND  $sqlstmt1
         GROUP by p.e_nl");
         // dd($ppo_sem);
+
+
 
 
 
@@ -3083,11 +3089,11 @@ class LaporanController extends Controller
         AND h.ebio_bln = '$bulan'
         AND p.e_negeri = '13'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND k.prodid = b.ebio_b4
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '$produk'
-        AND  $sqlstmt1
         GROUP by p.e_nl");
 
 
@@ -3099,11 +3105,11 @@ class LaporanController extends Controller
         AND h.ebio_bln = '$bulan'
         AND p.e_negeri = '14'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND k.prodid = b.ebio_b4
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '$produk'
-        AND  $sqlstmt1
         GROUP by p.e_nl");
 
 
@@ -3125,6 +3131,7 @@ class LaporanController extends Controller
             'tahun' => $tahun,
             'bulan' => $bulan,
             'produk' => $produk,
+            'lsprod' => $lsprod,
 
             'ppo_sem' => $ppo_sem,
             'ppo_sabah' => $ppo_sabah,
