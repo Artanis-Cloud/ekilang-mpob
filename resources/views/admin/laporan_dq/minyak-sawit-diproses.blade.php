@@ -189,7 +189,7 @@
                                                                                             <fieldset class="form-group">
                                                                                                 <select class="form-control" id="tahun"
                                                                                                     name="tahun">
-                                                                                                    <option selected value="{{ $data->tahun }}">
+                                                                                                    <option selected value="{{ $data->tahun }}">{{ $data->tahun }}</option>
                                                                                                         @for ($i = 2003; $i <= date('Y'); $i++)
                                                                                                         <option >{{ $i }}</option>
                                                                                                     @endfor
@@ -229,28 +229,28 @@
                                                                                             <input type="text" name='cpo_msia'
                                                                                                 onkeypress="return isNumberKey(event)"
                                                                                                 class="form-control" id='cpo_msia' oninput="validate_two_decimal(this)"
-                                                                                                value="{{ old('cpo_msia') ?? $data->cpo_msia }}">
+                                                                                                value="{{ old('cpo_msia') ?? number_format($data->cpo_msia , 2) }}">
                                                                                         </div>
                                                                                         <label class="required">PPO MSIA</label>
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='ppo_msia'
                                                                                                 onkeypress="return isNumberKey(event)"
                                                                                                 class="form-control" id='ppo_msia' oninput="validate_two_decimal(this)"
-                                                                                                value="{{ old('ppo_msia') ?? $data->ppo_msia }}">
+                                                                                                value="{{ old('ppo_msia') ?? number_format($data->ppo_msia , 2) }}">
                                                                                         </div>
                                                                                         <label class="required">CPKO MSIA</label>
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='cpko_msia'
                                                                                                 onkeypress="return isNumberKey(event)"
                                                                                                 class="form-control" id='cpko_msia' oninput="validate_two_decimal(this)"
-                                                                                                value="{{ old('cpko_msia') ?? $data->cpko_msia }}">
+                                                                                                value="{{ old('cpko_msia') ?? number_format($data->cpko_msia , 2) }}">
                                                                                         </div>
                                                                                         <label class="required">PPKO MSIA</label>
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='ppko_msia'
                                                                                                 onkeypress="return isNumberKey(event)"
                                                                                                 class="form-control" id='ppko_msia' oninput="validate_two_decimal(this)"
-                                                                                                value="{{ old('ppko_msia') ?? $data->ppko_msia }}">
+                                                                                                value="{{ old('ppko_msia') ?? number_format($data->ppko_msia , 2) }}">
                                                                                         </div>
                                                                                     </div>
 

@@ -3206,6 +3206,7 @@ class LaporanController extends Controller
         $bulan = Bulan::get();
 
         $hebahan = HebahanProses::orderBy('tahun')->orderBy('bulan')->get();
+        // dd($hebahan);
         // DB::connection('mysql2')->select("SELECT * FROM hebahan_proses
         // order by tahun, bulan");
 
@@ -3228,13 +3229,25 @@ class LaporanController extends Controller
     public function admin_edit_minyak_sawit_diproses(Request $request, $id)
     {
         // $hebahan = DB::connection('mysql2')->select("SELECT $id FROM hebahan_proses");
+
+        $cpo1 = $request->cpo_msia;
+        $ppo1 = $request->ppo_msia;
+        $cpko1 = $request->cpko_msia;
+        $ppko1 = $request->ppko_msia;
+
+        $cpo = str_replace(',', '', $cpo1);
+        $ppo = str_replace(',', '', $ppo1);
+        $cpko = str_replace(',', '', $cpko1);
+        $ppko = str_replace(',', '', $ppko1);
+
+
         $hebahan = HebahanProses::findOrFail($id);
         $hebahan->tahun = $request->tahun;
         $hebahan->bulan = $request->bulan;
-        $hebahan->cpo_msia = $request->cpo_msia;
-        $hebahan->ppo_msia = $request->ppo_msia;
-        $hebahan->cpko_msia = $request->cpko_msia;
-        $hebahan->ppko_msia = $request->ppko_msia;
+        $hebahan->cpo_msia = $cpo;
+        $hebahan->ppo_msia = $ppo;
+        $hebahan->cpko_msia = $cpko;
+        $hebahan->ppko_msia = $ppko;
 
         $hebahan->save();
 
@@ -3245,7 +3258,11 @@ class LaporanController extends Controller
 
     public function admin_delete_minyak_sawit_diproses($id)
     {
-        DB::select("delete from hebahan_proses where id = '$id'");
+        $hebahan = HebahanProses::findOrFail($id);
+        // dd($penyata);
+
+        $hebahan->delete();
+        // DB::delete("delete from hebahan_proses where id = '$id'");
 
         return redirect()->route('admin.minyak.sawit.diproses')
             ->with('success', 'Maklumat Dihapuskan');
@@ -3255,6 +3272,7 @@ class LaporanController extends Controller
     public function admin_tambah_proses()
     {
         $data = HebahanProses::get();
+        // dd($data);
         // DB::connection('mysql2')->select("SELECT* FROM hebahan_proses");
 
         $breadcrumbs    = [
@@ -3263,7 +3281,7 @@ class LaporanController extends Controller
             ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Tambah Maklumat"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.minyak.sawit.diproses');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -3332,10 +3350,15 @@ class LaporanController extends Controller
 
 
 
-        $cpo_msia = $querycpo1[0]->cpo_msia_1;
-        $ppo_msia = $queryppo1[0]->ppo_msia_1;
-        $cpko_msia = $querycpko1[0]->cpko_msia_1;
-        $ppko_msia = $queryppko1[0]->ppko_msia_1;
+        $cpo_msia1 = $querycpo1[0]->cpo_msia_1;
+        $ppo_msia1 = $queryppo1[0]->ppo_msia_1;
+        $cpko_msia1 = $querycpko1[0]->cpko_msia_1;
+        $ppko_msia1 = $queryppko1[0]->ppko_msia_1;
+
+        $cpo_msia = number_format($cpo_msia1, 2);
+        $ppo_msia = number_format($ppo_msia1, 2);
+        $cpko_msia = number_format($cpko_msia1, 2);
+        $ppko_msia = number_format($ppko_msia1, 2);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -3343,7 +3366,7 @@ class LaporanController extends Controller
             ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Minyak Sawit Diproses"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.minyak.sawit.diproses');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -3413,7 +3436,7 @@ class LaporanController extends Controller
                 'ppko_msia' => $request->ppko_msia
             ]);
 
-            return redirect()->back()->with('success', 'Maklumat stok akhir sudah ditambah');
+            return redirect()->route('admin.minyak.sawit.diproses')->with('success', 'Maklumat stok akhir sudah ditambah');
         }
     }
 
@@ -3437,23 +3460,27 @@ class LaporanController extends Controller
         $layout = 'layouts.admin';
 
         //--> cpo
-        $querycpo1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, b.ebio_b8
+        $querycpo1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, sum(b.ebio_b8) as ebio_b8
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
         AND b.ebio_b4 = '01'
         GROUP by p.e_nl, p.e_np");
 
 
+
+
         //--> ppo
-        $queryppo1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, b.ebio_b8
+        $queryppo1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, sum(b.ebio_b8) as ebio_b8
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '1'
         AND b.ebio_b4 <> '01'
@@ -3461,11 +3488,12 @@ class LaporanController extends Controller
 
 
         //--> cpko
-        $querycpko1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, b.ebio_b8
+        $querycpko1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, sum(b.ebio_b8) as ebio_b8
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '2'
         AND b.ebio_b4 = '04'
@@ -3473,11 +3501,12 @@ class LaporanController extends Controller
 
 
         //--> ppko
-        $queryppko1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, b.ebio_b8
+        $queryppko1 = DB::select("SELECT p.e_nl as lesen, p.e_np as kilang, n.nama_negeri as negeri, sum(b.ebio_b8) as ebio_b8
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
         AND h.ebio_nl = p.e_nl
+        AND h.ebio_nobatch = b.ebio_nobatch
         AND p.e_negeri = n.kod_negeri
         AND b.ebio_b3 = '2'
         AND b.ebio_b4 <> '04'

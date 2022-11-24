@@ -47,15 +47,20 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Minyak Sawit Diproses
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-1%; margin-bottom:1%">Minyak Sawit Diproses
                             </h3>
                             <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Tambah Proses</h5>
                         </div>
                         <hr>
 
                         <div class="card-body">
-                            <form action="{{ route('admin.add.minyak.sawit.diproses') }}" method="post">
+                            <form action="{{ route('admin.add.minyak.sawit.diproses') }}" method="post" class="sub-form">
                                 @csrf
                                 <div class="container center">
 
@@ -149,10 +154,10 @@
 
 
                                 </div>
-                                <div class="col-12 mb-4 mt-4" style="margin-left:41%">
+                                <div class="col-12 mb-4 mt-4 " style="display: flex; justify-content:center; align-items:center" >
                                     {{-- <div class="text-left"> --}}
-                                    <a href="{{ route('admin.minyak.sawit.diproses') }}" type="button"
-                                        class="btn btn-primary">Kembali</a>
+                                    {{-- <a href="{{ route('admin.minyak.sawit.diproses') }}" type="button"
+                                        class="btn btn-primary">Kembali</a> --}}
                                     {{-- </div> --}}
                                     {{-- <div class="text-right ml-auto"> --}}
 
@@ -382,4 +387,38 @@
             // $('#ppko_sm').val(response.success.ppko_sm);
         }
     </script>
+
+<script>
+    $('.sub-form').submit(function() {
+
+        //add form
+        var x = $('#cpo1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpo1').val(x);
+
+        var x = $('#ppo1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppo1').val(x);
+
+        var x = $('#cpko1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#cpko1').val(x);
+
+
+        var x = $('#ppko1').val();
+        x = x.replace(/,/g, '');
+        x = parseFloat(x, 10);
+        $('#ppko1').val(x);
+
+
+
+
+
+        return true;
+
+    });
+</script>
 @endsection
