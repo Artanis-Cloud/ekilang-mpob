@@ -77,9 +77,9 @@
                             <div class=" text-center">
 
                                 <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Biodiesel - MPOB(EL) <br> </h3>
-                                <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
+                                <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Yang Telah Dihantar Untuk Paparan dan Cetakan</h5>
                                 <div id="title">
-                                    <div class="noScreenPelesen">Penyata Bulanan Biodiesel - MPOB(EL)</div>
+                                    <div class="noScreenPelesen">Senarai Penyata Bulanan Biodiesel - MPOB(EL) Yang Telah Dihantar Untuk Paparan dan Cetakan</div>
                                     <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 </div>
@@ -350,7 +350,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulan Telah Dihantar',
+                        filename: 'Senarai Penyata Yang Telah Dihantar Untuk Paparan dan Cetakan',
 
 
 
@@ -382,7 +382,7 @@
                         });
                         },
 
-                        filename: 'Penyata Bulan Telah Dihantar',
+                        filename: 'Senarai Penyata Yang Telah Dihantar Untuk Paparan dan Cetakan',
 
                     },
                 ],

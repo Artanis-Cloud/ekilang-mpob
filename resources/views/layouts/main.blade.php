@@ -2390,7 +2390,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'Penyata Bulanan Telah Dihantar',
+                        filename: 'Senarai Penyata Yang Telah Dihantar Untuk Paparan dan Cetakan',
 
 
 
@@ -2422,7 +2422,7 @@
                         });
                         },
 
-                        filename: 'Penyata Bulanan Telah Dihantar',
+                        filename: 'Senarai Penyata Yang Telah Dihantar Untuk Paparan dan Cetakan',
 
                     },
                 ],

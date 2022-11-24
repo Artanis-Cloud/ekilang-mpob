@@ -72,10 +72,10 @@
                         <div class="pl-3">
 
                             <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%"><br> </h3>
-                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata untuk Paparan dan Cetakan</h5>
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Penapis - MPOB(EL) RF 4<br> </h3>
+                                    <h5 style="color: rgb(39, 80, 71); ">Senarai Penyata Yang Telah Dihantar Untuk Paparan dan Cetakan</h5>
                                 <div id="title">
-                                    <div class="noScreenPelesen">Penyata Bulanan Penapis - MPOB(EL) RF 4</div>
+                                    <div class="noScreenPelesen">Senarai Penyata Bulanan Penapis - MPOB(EL) RF 4 Yang Telah Dihantar Untuk Paparan dan Cetakan</div>
                                     <h6 id="tarikh">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h6>
 
                                 </div>
