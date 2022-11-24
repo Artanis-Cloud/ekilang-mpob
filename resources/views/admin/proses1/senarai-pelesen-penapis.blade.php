@@ -280,16 +280,16 @@
                                                     <td style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
                                                     <td style="text-align: center">{{ $data->nosiri ?? '-' }}</td>
                                                     @if ($data->e_status == 1)
-                                                        <td style="text-align: center"><span hidden style="display:none">1</span>Aktif</td>
+                                                        <td style="text-align: center"><span style="display:none">1</span>Aktif</td>
                                                     @elseif ($data->e_status == 2)
-                                                        <td style="text-align: center"><span hidden style="display:none">2</span>Tidak Aktif</td>
+                                                        <td style="text-align: center"><span style="display:none">2</span>Tidak Aktif</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
                                                     @if ($data->e_stock == 1)
-                                                        <td style="text-align: center"><span hidden style="display:none">1</span>Aktif</td>
+                                                        <td style="text-align: center"><span style="display:none">1</span>Aktif</td>
                                                     @elseif ($data->e_stock == 2)
-                                                        <td style="text-align: center"><span hidden style="display:none">2</span>Tidak Aktif</td>
+                                                        <td style="text-align: center"><span style="display:none">2</span>Tidak Aktif</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
@@ -433,6 +433,46 @@
                     title: function(doc) {
                         return $('#title').text()
                     },
+
+
+                    exportOptions: {
+                            format: {
+                            body: function ( data, row, column, node ) {
+                                if(column === 7){
+                                    if(data == '<span style="display:none">1</span>Aktif'){
+                                        return 'Aktif';
+                                    }else if(data == '<span style="display:none">2</span>Tidak Aktif'){
+                                        return 'Tidak Aktif';
+                                    }else{
+                                        return '-';
+                                    }
+                                }
+                                else if(column === 8){
+                                    console.log(data);
+                                    if(data == '<span style="display:none">1</span>Aktif'){
+                                        return 'Aktif';
+                                    }else if(data == '<span style="display:none">2</span>Tidak Aktif'){
+                                        return 'Tidak Aktif';
+                                    }else{
+                                        return '-';
+                                    }
+                                }
+                                else if(column === 1){
+                                    // var value = document.getElementById('papar').id;
+                                    data = data.replace(/<.*?>/g, "");
+                                    return $.trim(data);
+                                }
+                                else if(column === 34){
+                                    // var value = document.getElementById('papar').id;
+                                    data = data.replace(/<.*?>/g, "");
+                                    return $.trim(data);
+                                }
+                                else{
+                                    return data;
+                                }
+                            }
+                        }
+                        },
 
                     customize: function(xlsx) {
                     var sheet = xlsx.xl.worksheets['sheet1.xml'];

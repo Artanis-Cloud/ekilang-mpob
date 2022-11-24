@@ -405,7 +405,44 @@
                         title: function(doc) {
                             return $('#title').text()
                         },
-
+                        exportOptions: {
+                            format: {
+                            body: function ( data, row, column, node ) {
+                                if(column === 7){
+                                    if(data == '<span hidden="">1</span>Aktif'){
+                                        return 'Aktif';
+                                    }else if(data == '<span hidden="">2</span>Tidak Aktif'){
+                                        return 'Tidak Aktif';
+                                    }else{
+                                        return '-';
+                                    }
+                                }
+                                else if(column === 8){
+                                    console.log(data);
+                                    if(data == '<span hidden="">1</span>Aktif'){
+                                        return 'Aktif';
+                                    }else if(data == '<span hidden="">2</span>Tidak Aktif'){
+                                        return 'Tidak Aktif';
+                                    }else{
+                                        return '-';
+                                    }
+                                }
+                                else if(column === 1){
+                                    // var value = document.getElementById('papar').id;
+                                    data = data.replace(/<.*?>/g, "");
+                                    return $.trim(data);
+                                }
+                                else if(column === 34){
+                                    // var value = document.getElementById('papar').id;
+                                    data = data.replace(/<.*?>/g, "");
+                                    return $.trim(data);
+                                }
+                                else{
+                                    return data;
+                                }
+                            }
+                        }
+                        },
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
