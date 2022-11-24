@@ -98,10 +98,10 @@
                                     <div class="container center col-12">
 
                                         <div class="row ml-auto" style="margin-top:-1%">
-                                            <div class="row mt-2 ml-auto noPrint">
+                                            <div class="row mt-2 ml-auto mr-auto noPrint col-12">
 
                                                 <label for="fname"
-                                                    class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
+                                                    class="text-right col-sm-4 control-label col-form-label  align-items-center" style="margin-left: 4px">Tahun
                                                 </label>
                                                 <div class="col-md-4">
                                                     <select class="form-control" name="tahun" required
@@ -154,7 +154,7 @@
                                                 </div>
                                             </div>
                                             <div class="row mt-2 ml-auto">
-                                                <div class="row mt-2 ml-auto noPrint">
+                                                <div class="row mt-2 ml-auto mr-auto noPrint col-12">
 
                                                     <label
                                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
@@ -259,7 +259,7 @@
 
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div class="col-12 mb-4 mt-4 noPrint" style="margin-left:47%">
 
                                                     <button type="submit" class="btn btn-primary" data-toggle="modal"
@@ -313,11 +313,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_cposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpo_sm ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_cposem;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->cpo_sm;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -376,11 +376,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_cposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpo_sbh ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_cposbh;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->cpo_sbh;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -438,11 +438,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_cposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpo_srwk ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_cposrwk;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->cpo_srwk;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -503,11 +503,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_pposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppo_sm ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_pposem;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->ppo_sm;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -566,11 +566,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_pposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppo_sbh ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_pposbh;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->ppo_sbh;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -629,11 +629,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_pposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppo_srwk ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_pposrwk;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->ppo_srwk;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -696,11 +696,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_cpkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpko_sm ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_cpkosem;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->cpko_sm;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -760,11 +760,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_cpkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpko_sbh ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_cpkosbh;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->cpko_sbh;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -824,11 +824,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_cpkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpko_srwk ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_cpkosrwk;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->cpko_srwk;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -891,11 +891,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_ppkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppko_sm ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_ppkosem;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->ppko_sm;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -955,11 +955,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_ppkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppko_sbh ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_ppkosbh;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->ppko_sbh;
                                                         @endphp
                                                     @endforeach
                                                 @endif
@@ -1019,11 +1019,11 @@
                                                             <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
                                                             <td>{{ number_format($dipremis_ppkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
                                                             </td>
-                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppko_srwk ?? 0, 2) }}</td>
                                                         </tr>
                                                         @php
                                                             $total_dipremis += $dipremis_ppkosrwk;
-                                                            $total_stok_akhir += $data->ebio_b11;
+                                                            $total_stok_akhir += $data->ppko_srwk;
                                                         @endphp
                                                     @endforeach
                                                 @endif
