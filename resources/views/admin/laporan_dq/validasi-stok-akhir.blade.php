@@ -4,10 +4,11 @@
 
     <style>
         @media print {
-    print-area *{ /* can be whatever CSS selector you need */
-        transform: scale(100%)
-    }
-}
+            print-area * {
+                /* can be whatever CSS selector you need */
+                transform: scale(100%)
+            }
+        }
     </style>
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -57,34 +58,37 @@
                     <div class="card">
                         <form method="get" action="" id="myfrm">
                             <div class=" text-center">
-                                <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%"><a class="noScreen">Hebahan 10hb -</a> Stok Akhir
+                                <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%"><a
+                                        class="noScreen">Hebahan 10hb -</a> Stok Akhir
                                 </h3>
-                                <h5 class="noScreen" style="color: rgb(39, 80, 71); margin-bottom:1%">@if ($bulan == '01')
-                                    <a value="01">JANUARI</a>
-                                @elseif ($bulan == '02')
-                                    <a value="02">FEBRUARI</a>
-                                @elseif ($bulan == '03')
-                                    <a value="03">MAC</a>
-                                @elseif ($bulan == '04')
-                                    <a value="04">APRIL</a>
-                                @elseif ($bulan == '05')
-                                    <a value="05">MEI</a>
-                                @elseif ($bulan == '06')
-                                    <a value="06">JUN</a>
-                                @elseif ($bulan == '07')
-                                    <a value="07">JULAI</a>
-                                @elseif ($bulan == '08')
-                                    <a value="08">OGOS</a>
-                                @elseif ($bulan == '09')
-                                    <a value="09">SEPTEMBER</a>
-                                @elseif ($bulan == '10')
-                                    <a value="10">OKTOBER</a>
-                                @elseif ($bulan == '11')
-                                    <a value="11">NOVEMBER</a>
-                                @elseif ($bulan == '12')
-                                    <a value="12">DISEMBER</a>
-                                @endif
-                                {{ $tahun }}</h5>
+                                <h5 class="noScreen" style="color: rgb(39, 80, 71); margin-bottom:1%">
+                                    @if ($bulan == '01')
+                                        <a value="01">JANUARI</a>
+                                    @elseif ($bulan == '02')
+                                        <a value="02">FEBRUARI</a>
+                                    @elseif ($bulan == '03')
+                                        <a value="03">MAC</a>
+                                    @elseif ($bulan == '04')
+                                        <a value="04">APRIL</a>
+                                    @elseif ($bulan == '05')
+                                        <a value="05">MEI</a>
+                                    @elseif ($bulan == '06')
+                                        <a value="06">JUN</a>
+                                    @elseif ($bulan == '07')
+                                        <a value="07">JULAI</a>
+                                    @elseif ($bulan == '08')
+                                        <a value="08">OGOS</a>
+                                    @elseif ($bulan == '09')
+                                        <a value="09">SEPTEMBER</a>
+                                    @elseif ($bulan == '10')
+                                        <a value="10">OKTOBER</a>
+                                    @elseif ($bulan == '11')
+                                        <a value="11">NOVEMBER</a>
+                                    @elseif ($bulan == '12')
+                                        <a value="12">DISEMBER</a>
+                                    @endif
+                                    {{ $tahun }}
+                                </h5>
                             </div>
                             <hr>
                             <form action="{{ route('admin.validasi.stok.akhir.proses') }}" method="get">
@@ -93,128 +97,181 @@
 
                                     <div class="container center col-12">
 
-                                        <div class="row ml-auto noPrint" style="margin-top:-1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
-                                            </label>
-                                            <div class="col-md-4">
-                                                <select class="form-control" name="tahun" required width="100"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')">
-                                                    @if (!$tahun)
-                                                        <option selected hidden disabled value="">Sila Pilih Tahun
-                                                        </option>
-                                                    @else
-                                                        <option selected disabled value="{{ $tahun }}">
-                                                            {{ $tahun }}</option>
-                                                    @endif
-                                                    @for ($i = 2011; $i <= date('Y'); $i++)
-                                                        <option value="{{ $i }}">{{ $i }}</option>
-                                                    @endfor
-                                                    {{-- <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
-                                                    </option>
-                                                    <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
-                                                    </option>
-                                                    <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
-                                                    </option>
-                                                    <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
-                                                    </option>
-                                                    <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
-                                                    </option>
-                                                    <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
-                                                    </option>
-                                                    <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
-                                                    </option>
-                                                    <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
-                                                    </option>
-                                                    <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
-                                                    </option>
-                                                    <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
-                                                    </option>
-                                                    <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
-                                                    </option>
-                                                    <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
-                                                    </option>
-                                                    <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
-                                                    </option>
-                                                    <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
-                                                    </option> --}}
-                                                    {{-- @endif --}}
+                                        <div class="row ml-auto" style="margin-top:-1%">
+                                            <div class="row mt-2 ml-auto noPrint">
 
-
-
-                                                </select>
-
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2 ml-auto noPrint">
-                                            <label
-                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
-                                            </label>
-                                            <div class="col-md-4">
-                                                <select class="form-control" name="bulan" required width="100"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')">
-                                                    @if (!$bulan)
-                                                        <option selected hidden disabled value="">Sila Pilih Bulan
-                                                        </option>
-                                                    @else
-                                                        @if ($bulan == '01')
-                                                            <option value="01">JANUARI</option>
-                                                        @elseif ($bulan == '02')
-                                                            <option value="02">FEBRUARI</option>
-                                                        @elseif ($bulan == '03')
-                                                            <option value="03">MAC</option>
-                                                        @elseif ($bulan == '04')
-                                                            <option value="04">APRIL</option>
-                                                        @elseif ($bulan == '05')
-                                                            <option value="05">MEI</option>
-                                                        @elseif ($bulan == '06')
-                                                            <option value="06">JUN</option>
-                                                        @elseif ($bulan == '07')
-                                                            <option value="07">JULAI</option>
-                                                        @elseif ($bulan == '08')
-                                                            <option value="08">OGOS</option>
-                                                        @elseif ($bulan == '09')
-                                                            <option value="09">SEPTEMBER</option>
-                                                        @elseif ($bulan == '10')
-                                                            <option value="10">OKTOBER</option>
-                                                        @elseif ($bulan == '11')
-                                                            <option value="11">NOVEMBER</option>
-                                                        @elseif ($bulan == '12')
-                                                            <option value="12">DISEMBER</option>
+                                                <label for="fname"
+                                                    class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" name="tahun" required
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')">
+                                                        @if (!$tahun)
+                                                            <option selected hidden disabled value="">Sila Pilih Tahun
+                                                            </option>
+                                                        @else
+                                                            <option {{ $tahun == $tahun ? 'selected' : '' }}
+                                                                value="{{ $tahun }}">{{ $tahun }}</option>
                                                         @endif
-                                                    @endif
-                                                    <option value="01">JANUARI</option>
-                                                    <option value="02">FEBRUARI</option>
-                                                    <option value="03">MAC</option>
-                                                    <option value="04">APRIL</option>
-                                                    <option value="05">MEI</option>
-                                                    <option value="06">JUN</option>
-                                                    <option value="07">JULAI</option>
-                                                    <option value="08">OGOS</option>
-                                                    <option value="09">SEPTEMBER</option>
-                                                    <option value="10">OKTOBER</option>
-                                                    <option value="11">NOVEMBER</option>
-                                                    <option value="12">DISEMBER</option>
+                                                        @for ($i = 2011; $i <= date('Y'); $i++)
+                                                            <option value="{{ $i }}">{{ $i }}</option>
+                                                        @endfor
+                                                        {{-- <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
+                                                </option>
+                                                <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
+                                                </option>
+                                                <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
+                                                </option>
+                                                <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
+                                                </option>
+                                                <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
+                                                </option>
+                                                <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
+                                                </option>
+                                                <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
+                                                </option>
+                                                <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
+                                                </option>
+                                                <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
+                                                </option>
+                                                <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
+                                                </option>
+                                                <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
+                                                </option>
+                                                <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
+                                                </option>
+                                                <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
+                                                </option>
+                                                <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
+                                                </option> --}}
+                                                        {{-- @endif --}}
 
 
 
-                                                </select>
+                                                    </select>
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12 mb-4 mt-4 noPrint" style="margin-left:47%">
+                                            <div class="row mt-2 ml-auto">
+                                                <div class="row mt-2 ml-auto noPrint">
 
-                                            <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#next">Query</button>
-                                            {{-- </div> --}}
-                                        </div>
+                                                    <label
+                                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <select class="form-control" name="bulan" required
+                                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                            oninput="setCustomValidity('')">
+                                                            @if (!$bulan)
+                                                                <option selected hidden disabled value="">Sila Pilih
+                                                                    Bulan
+                                                                </option>
+                                                            @else
+                                                                @if ($bulan == '01')
+                                                                    <option {{ $bulan == '01' ? 'selected' : '' }}
+                                                                        value="01">
+                                                                        JANUARI</option>
+                                                                @elseif ($bulan == '02')
+                                                                    <option {{ $bulan == '02' ? 'selected' : '' }}
+                                                                        value="02">
+                                                                        FEBRUARI</option>
+
+                                                                    {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
+                                                                @elseif ($bulan == '03')
+                                                                    <option {{ $bulan == '03' ? 'selected' : '' }}
+                                                                        value="03">MAC
+                                                                    </option>
+
+                                                                    {{-- <option selected hidden disabled value="03">MAC</option> --}}
+                                                                @elseif ($bulan == '04')
+                                                                    <option {{ $bulan == '04' ? 'selected' : '' }}
+                                                                        value="01">APRIL
+                                                                    </option>
+
+                                                                    {{-- <option selected hidden disabled value="04">APRIL</option> --}}
+                                                                @elseif ($bulan == '05')
+                                                                    <option {{ $bulan == '05' ? 'selected' : '' }}
+                                                                        value="05">MEI
+                                                                    </option>
+
+                                                                    {{-- <option selected hidden disabled value="05">MEI</option> --}}
+                                                                @elseif ($bulan == '06')
+                                                                    <option {{ $bulan == '06' ? 'selected' : '' }}
+                                                                        value="06">JUN
+                                                                    </option>
+
+                                                                    {{-- <option selected hidden disabled value="06">JUN</option> --}}
+                                                                @elseif ($bulan == '07')
+                                                                    <option {{ $bulan == '07' ? 'selected' : '' }}
+                                                                        value="07">JULAI
+                                                                    </option>
+
+                                                                    {{-- <option selected hidden disabled value="07">JULAI</option> --}}
+                                                                @elseif ($bulan == '08')
+                                                                    <option {{ $bulan == '08' ? 'selected' : '' }}
+                                                                        value="08">OGOS
+                                                                    </option>
+
+                                                                    {{-- <option selected hidden disabled value="08">OGOS</option> --}}
+                                                                @elseif ($bulan == '09')
+                                                                    <option {{ $bulan == '09' ? 'selected' : '' }}
+                                                                        value="09">
+                                                                        SEPTEMBER</option>
+
+                                                                    {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
+                                                                @elseif ($bulan == '10')
+                                                                    <option {{ $bulan == '10' ? 'selected' : '' }}
+                                                                        value="10">
+                                                                        OKTOBER</option>
+
+                                                                    {{-- <option selected hidden disabled value="10">OKTOBER</option> --}}
+                                                                @elseif ($bulan == '11')
+                                                                    <option {{ $bulan == '11' ? 'selected' : '' }}
+                                                                        value="11">
+                                                                        NOVEMBER</option>
+
+                                                                    {{-- <option selected hidden disabled value="11">NOVEMBER</option> --}}
+                                                                @elseif ($bulan == '12')
+                                                                    <option {{ $bulan == '12' ? 'selected' : '' }}
+                                                                        value="12">
+                                                                        DISEMBER</option>
+
+                                                                    {{-- <option selected hidden disabled value="12">DISEMBER</option> --}}
+                                                                @endif
+                                                            @endif
+                                                            <option value="01">JANUARI</option>
+                                                            <option value="02">FEBRUARI</option>
+                                                            <option value="03">MAC</option>
+                                                            <option value="04">APRIL</option>
+                                                            <option value="05">MEI</option>
+                                                            <option value="06">JUN</option>
+                                                            <option value="07">JULAI</option>
+                                                            <option value="08">OGOS</option>
+                                                            <option value="09">SEPTEMBER</option>
+                                                            <option value="10">OKTOBER</option>
+                                                            <option value="11">NOVEMBER</option>
+                                                            <option value="12">DISEMBER</option>
+
+
+
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="col-12 mb-4 mt-4 noPrint" style="margin-left:47%">
+
+                                                    <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#next">Query</button>
+                                                    {{-- </div> --}}
+                                                </div>
                             </form>
                             <hr class="noPrint">
                             <br>
                             <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div>
-                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
                                     <table class="table table-bordered table-responsive-lg">
@@ -228,7 +285,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -290,7 +348,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -351,7 +410,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -400,7 +460,8 @@
                             <hr>
                             <br>
                             <div class="col-12 mt-1 mb-2"><b><u>PPO</u></b></div>
-                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
                                     <table class="table table-bordered table-responsive-lg">
@@ -414,7 +475,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -476,7 +538,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -538,7 +601,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -588,7 +652,8 @@
                             <hr>
                             <br>
                             <div class="col-12 mt-1 mb-2"><b><u>CPKO</u></b></div>
-                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
                                     <table class="table table-bordered table-responsive-lg">
@@ -602,7 +667,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -618,7 +684,8 @@
                                                 @if (is_array($cpko_sem) || is_object($cpko_sem))
                                                     @foreach ($cpko_sem as $data)
                                                         <tr class="text-right">
-                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td class="text-left">{{ $data->negeri }}</td>
                                                             <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
@@ -664,7 +731,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -680,7 +748,8 @@
                                                 @if (is_array($cpko_sabah) || is_object($cpko_sabah))
                                                     @foreach ($cpko_sabah as $data)
                                                         <tr class="text-right">
-                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td class="text-left">{{ $data->negeri }}</td>
                                                             <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
@@ -726,7 +795,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -742,7 +812,8 @@
                                                 @if (is_array($cpko_srwk) || is_object($cpko_srwk))
                                                     @foreach ($cpko_srwk as $data)
                                                         <tr class="text-right">
-                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td class="text-left">{{ $data->negeri }}</td>
                                                             <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
@@ -776,7 +847,8 @@
                             <hr>
                             <br>
                             <div class="col-12 mt-1 mb-2"><b><u>PPKO</u></b></div>
-                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
                                     <table class="table table-bordered table-responsive-lg">
@@ -790,7 +862,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -806,7 +879,8 @@
                                                 @if (is_array($ppko_sem) || is_object($ppko_sem))
                                                     @foreach ($ppko_sem as $data)
                                                         <tr class="text-right">
-                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td class="text-left">{{ $data->negeri }}</td>
                                                             <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
@@ -852,7 +926,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -868,7 +943,8 @@
                                                 @if (is_array($ppko_sabah) || is_object($ppko_sabah))
                                                     @foreach ($ppko_sabah as $data)
                                                         <tr class="text-right">
-                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td class="text-left">{{ $data->negeri }}</td>
                                                             <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
@@ -914,7 +990,8 @@
                                                 <th scope="col" style="vertical-align: middle">Pengeluaran</th>
                                                 <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
                                                     Selanjutnya</th>
-                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
                                                 <th scope="col" style="vertical-align: middle">Eksport</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
                                                 <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
@@ -930,7 +1007,8 @@
                                                 @if (is_array($ppko_srwk) || is_object($ppko_srwk))
                                                     @foreach ($ppko_srwk as $data)
                                                         <tr class="text-right">
-                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
                                                             <td class="text-left">{{ $data->e_np }}</td>
                                                             <td class="text-left">{{ $data->negeri }}</td>
                                                             <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
@@ -969,7 +1047,7 @@
 
 
                         <button type="button" class="btn btn-primary noPrint" style="margin: 1%"
-                        onclick="myPrint('myfrm')" value="print">Cetak</button>
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
                         <a href="{{ route('admin.stok.akhir') }}" type="button" class="btn btn-primary">Kembali</a>
                     </div>
 
