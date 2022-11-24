@@ -185,7 +185,7 @@
                                     <tr>
                                         {{-- @endforeach --}}
                                         <td></td>
-                                        <td class="field"><select class="form-control select2 " id="new_syarikat[]"
+                                        <td class="field"><select class="form-control " id="new_syarikat[]"
                                                 name="new_syarikat[]">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
                                                 @foreach ($syarikat as $data)
