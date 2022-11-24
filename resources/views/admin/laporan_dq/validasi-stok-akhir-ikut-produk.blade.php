@@ -74,7 +74,7 @@
                                                 @else
                                                     <option {{ $tahun ==  $tahun ? 'selected' : '' }} value="{{ $tahun }}">{{ $tahun }}</option>
 
-                                                    <option selected hidden disabled value="{{ $tahun }}">
+                                                    {{-- <option selected hidden disabled value="{{ $tahun }}"> --}}
                                                         {{ $tahun }}</option>
                                                     @endif
                                                     @for ($i = 2011; $i <= date('Y'); $i++)
@@ -104,6 +104,7 @@
                                                     @if ($bulan == '01')
                                                         <option {{ $bulan == '01' ? 'selected' : '' }} value="01">
                                                             JANUARI</option>
+                                                            
                                                     @elseif ($bulan == '02')
                                                         <option {{ $bulan == '02' ? 'selected' : '' }} value="02">
                                                             FEBRUARI</option>
