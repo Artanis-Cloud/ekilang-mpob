@@ -197,6 +197,15 @@
     {
         .noScreen{
             display:none;}
+
+    }
+
+
+    @media print
+    {
+        @page {size: auto !important}
+        .noPrint{display:none;}
+        .noScreen{}
     }
 
     body {
@@ -2381,7 +2390,7 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
 
-                        filename: 'ekilang',
+                        filename: 'Penyata Bulanan Telah Dihantar',
 
 
 
@@ -2413,7 +2422,7 @@
                         });
                         },
 
-                        filename: 'Penyata Bulan',
+                        filename: 'Penyata Bulanan Telah Dihantar',
 
                     },
                 ],

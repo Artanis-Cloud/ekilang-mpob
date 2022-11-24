@@ -1,6 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
+
+    <style>
+        @media print {
+            print-area * {
+                /* can be whatever CSS selector you need */
+                transform: scale(100%)
+            }
+        }
+    </style>
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
@@ -47,37 +56,68 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
-                        <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Validasi Stok Akhir
-                            </h3>
-                            {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Validasi Stok Akhir</h5> --}}
-                        </div>
-                        <hr>
-                        <form action="{{ route('admin.validasi.stok.akhir.proses') }}" method="get">
-                            @csrf
-                            <div class="card-body">
+                        <form method="get" action="" id="myfrm">
+                            <div class=" text-center">
+                                <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%"><a
+                                        class="noScreen">Hebahan 10hb -</a> Stok Akhir
+                                </h3>
+                                <h5 class="noScreen" style="color: rgb(39, 80, 71); margin-bottom:1%">
+                                    @if ($bulan == '01')
+                                        <a value="01">JANUARI</a>
+                                    @elseif ($bulan == '02')
+                                        <a value="02">FEBRUARI</a>
+                                    @elseif ($bulan == '03')
+                                        <a value="03">MAC</a>
+                                    @elseif ($bulan == '04')
+                                        <a value="04">APRIL</a>
+                                    @elseif ($bulan == '05')
+                                        <a value="05">MEI</a>
+                                    @elseif ($bulan == '06')
+                                        <a value="06">JUN</a>
+                                    @elseif ($bulan == '07')
+                                        <a value="07">JULAI</a>
+                                    @elseif ($bulan == '08')
+                                        <a value="08">OGOS</a>
+                                    @elseif ($bulan == '09')
+                                        <a value="09">SEPTEMBER</a>
+                                    @elseif ($bulan == '10')
+                                        <a value="10">OKTOBER</a>
+                                    @elseif ($bulan == '11')
+                                        <a value="11">NOVEMBER</a>
+                                    @elseif ($bulan == '12')
+                                        <a value="12">DISEMBER</a>
+                                    @endif
+                                    {{ $tahun }}
+                                </h5>
+                            </div>
+                            <hr>
+                            <form action="{{ route('admin.validasi.stok.akhir.proses') }}" method="get">
+                                @csrf
+                                <div class="card-body">
 
-                                <div class="container center col-12">
+                                    <div class="container center col-12">
 
-                                    <div class="row ml-auto" style="margin-top:-1%">
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
-                                        </label>
-                                        <div class="col-md-4">
-                                            <select class="form-control" name="tahun" required
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
-                                                @if (!$tahun)
-                                                    <option selected hidden disabled value="">Sila Pilih Tahun
-                                                    </option>
-                                                @else
-                                                <option {{ $tahun ==  $tahun ? 'selected' : '' }} value="{{ $tahun }}">{{ $tahun }}</option>
+                                        <div class="row ml-auto" style="margin-top:-1%">
+                                            <div class="row mt-2 ml-auto noPrint">
 
-                                                @endif
-                                                @for ($i = 2011; $i <= date('Y'); $i++)
-                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
-                                                {{-- <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
+                                                <label for="fname"
+                                                    class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" name="tahun" required
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')">
+                                                        @if (!$tahun)
+                                                            <option selected hidden disabled value="">Sila Pilih Tahun
+                                                            </option>
+                                                        @else
+                                                            <option {{ $tahun == $tahun ? 'selected' : '' }}
+                                                                value="{{ $tahun }}">{{ $tahun }}</option>
+                                                        @endif
+                                                        @for ($i = 2011; $i <= date('Y'); $i++)
+                                                            <option value="{{ $i }}">{{ $i }}</option>
+                                                        @endfor
+                                                        {{-- <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                 </option>
                                                 <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
                                                 </option>
@@ -105,866 +145,909 @@
                                                 </option>
                                                 <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
                                                 </option> --}}
-                                                {{-- @endif --}}
+                                                        {{-- @endif --}}
 
 
 
-                                            </select>
+                                                    </select>
 
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2 ml-auto">
-                                        <label
-                                            class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
-                                        </label>
-                                        <div class="col-md-4">
-                                            <select class="form-control" name="bulan" required
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
-                                                @if (!$bulan)
-                                                    <option selected hidden disabled value="">Sila Pilih Bulan
-                                                    </option>
-                                                @else
-                                                @if ($bulan == '01')
-                                                <option {{ $bulan == '01' ? 'selected' : '' }} value="01">
-                                                    JANUARI</option>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 ml-auto">
+                                                <div class="row mt-2 ml-auto noPrint">
 
-                                            @elseif ($bulan == '02')
-                                                <option {{ $bulan == '02' ? 'selected' : '' }} value="02">
-                                                    FEBRUARI</option>
+                                                    <label
+                                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <select class="form-control" name="bulan" required
+                                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                            oninput="setCustomValidity('')">
+                                                            @if (!$bulan)
+                                                                <option selected hidden disabled value="">Sila Pilih
+                                                                    Bulan
+                                                                </option>
+                                                            @else
+                                                                @if ($bulan == '01')
+                                                                    <option {{ $bulan == '01' ? 'selected' : '' }}
+                                                                        value="01">
+                                                                        JANUARI</option>
+                                                                @elseif ($bulan == '02')
+                                                                    <option {{ $bulan == '02' ? 'selected' : '' }}
+                                                                        value="02">
+                                                                        FEBRUARI</option>
 
-                                                {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
-                                            @elseif ($bulan == '03')
-                                                <option {{ $bulan == '03' ? 'selected' : '' }} value="03">MAC
-                                                </option>
+                                                                    {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
+                                                                @elseif ($bulan == '03')
+                                                                    <option {{ $bulan == '03' ? 'selected' : '' }}
+                                                                        value="03">MAC
+                                                                    </option>
 
-                                                {{-- <option selected hidden disabled value="03">MAC</option> --}}
-                                            @elseif ($bulan == '04')
-                                                <option {{ $bulan == '04' ? 'selected' : '' }} value="01">APRIL
-                                                </option>
+                                                                    {{-- <option selected hidden disabled value="03">MAC</option> --}}
+                                                                @elseif ($bulan == '04')
+                                                                    <option {{ $bulan == '04' ? 'selected' : '' }}
+                                                                        value="01">APRIL
+                                                                    </option>
 
-                                                {{-- <option selected hidden disabled value="04">APRIL</option> --}}
-                                            @elseif ($bulan == '05')
-                                                <option {{ $bulan == '05' ? 'selected' : '' }} value="05">MEI
-                                                </option>
+                                                                    {{-- <option selected hidden disabled value="04">APRIL</option> --}}
+                                                                @elseif ($bulan == '05')
+                                                                    <option {{ $bulan == '05' ? 'selected' : '' }}
+                                                                        value="05">MEI
+                                                                    </option>
 
-                                                {{-- <option selected hidden disabled value="05">MEI</option> --}}
-                                            @elseif ($bulan == '06')
-                                                <option {{ $bulan == '06' ? 'selected' : '' }} value="06">JUN
-                                                </option>
+                                                                    {{-- <option selected hidden disabled value="05">MEI</option> --}}
+                                                                @elseif ($bulan == '06')
+                                                                    <option {{ $bulan == '06' ? 'selected' : '' }}
+                                                                        value="06">JUN
+                                                                    </option>
 
-                                                {{-- <option selected hidden disabled value="06">JUN</option> --}}
-                                            @elseif ($bulan == '07')
-                                                <option {{ $bulan == '07' ? 'selected' : '' }} value="07">JULAI
-                                                </option>
+                                                                    {{-- <option selected hidden disabled value="06">JUN</option> --}}
+                                                                @elseif ($bulan == '07')
+                                                                    <option {{ $bulan == '07' ? 'selected' : '' }}
+                                                                        value="07">JULAI
+                                                                    </option>
 
-                                                {{-- <option selected hidden disabled value="07">JULAI</option> --}}
-                                            @elseif ($bulan == '08')
-                                                <option {{ $bulan == '08' ? 'selected' : '' }} value="08">OGOS
-                                                </option>
+                                                                    {{-- <option selected hidden disabled value="07">JULAI</option> --}}
+                                                                @elseif ($bulan == '08')
+                                                                    <option {{ $bulan == '08' ? 'selected' : '' }}
+                                                                        value="08">OGOS
+                                                                    </option>
 
-                                                {{-- <option selected hidden disabled value="08">OGOS</option> --}}
-                                            @elseif ($bulan == '09')
-                                                <option {{ $bulan == '09' ? 'selected' : '' }} value="09">
-                                                    SEPTEMBER</option>
+                                                                    {{-- <option selected hidden disabled value="08">OGOS</option> --}}
+                                                                @elseif ($bulan == '09')
+                                                                    <option {{ $bulan == '09' ? 'selected' : '' }}
+                                                                        value="09">
+                                                                        SEPTEMBER</option>
 
-                                                {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
-                                            @elseif ($bulan == '10')
-                                                <option {{ $bulan == '10' ? 'selected' : '' }} value="10">
-                                                    OKTOBER</option>
+                                                                    {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
+                                                                @elseif ($bulan == '10')
+                                                                    <option {{ $bulan == '10' ? 'selected' : '' }}
+                                                                        value="10">
+                                                                        OKTOBER</option>
 
-                                                {{-- <option selected hidden disabled value="10">OKTOBER</option> --}}
-                                            @elseif ($bulan == '11')
-                                                <option {{ $bulan == '11' ? 'selected' : '' }} value="11">
-                                                    NOVEMBER</option>
+                                                                    {{-- <option selected hidden disabled value="10">OKTOBER</option> --}}
+                                                                @elseif ($bulan == '11')
+                                                                    <option {{ $bulan == '11' ? 'selected' : '' }}
+                                                                        value="11">
+                                                                        NOVEMBER</option>
 
-                                                {{-- <option selected hidden disabled value="11">NOVEMBER</option> --}}
-                                            @elseif ($bulan == '12')
-                                                <option {{ $bulan == '12' ? 'selected' : '' }} value="12">
-                                                    DISEMBER</option>
+                                                                    {{-- <option selected hidden disabled value="11">NOVEMBER</option> --}}
+                                                                @elseif ($bulan == '12')
+                                                                    <option {{ $bulan == '12' ? 'selected' : '' }}
+                                                                        value="12">
+                                                                        DISEMBER</option>
 
-                                                {{-- <option selected hidden disabled value="12">DISEMBER</option> --}}
-                                            @endif
+                                                                    {{-- <option selected hidden disabled value="12">DISEMBER</option> --}}
+                                                                @endif
+                                                            @endif
+                                                            <option value="01">JANUARI</option>
+                                                            <option value="02">FEBRUARI</option>
+                                                            <option value="03">MAC</option>
+                                                            <option value="04">APRIL</option>
+                                                            <option value="05">MEI</option>
+                                                            <option value="06">JUN</option>
+                                                            <option value="07">JULAI</option>
+                                                            <option value="08">OGOS</option>
+                                                            <option value="09">SEPTEMBER</option>
+                                                            <option value="10">OKTOBER</option>
+                                                            <option value="11">NOVEMBER</option>
+                                                            <option value="12">DISEMBER</option>
+
+
+
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="col-12 mb-4 mt-4 noPrint" style="margin-left:47%">
+
+                                                    <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                                        data-target="#next">Query</button>
+                                                    {{-- </div> --}}
+                                                </div>
+                            </form>
+                            <hr class="noPrint">
+                            <br>
+                            <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_cposem = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($cpo_sem)
+                                                @if (is_array($cpo_sem) || is_object($cpo_sem))
+                                                    @foreach ($cpo_sem as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_cposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_cposem;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
                                                 @endif
-                                                <option value="01">JANUARI</option>
-                                                <option value="02">FEBRUARI</option>
-                                                <option value="03">MAC</option>
-                                                <option value="04">APRIL</option>
-                                                <option value="05">MEI</option>
-                                                <option value="06">JUN</option>
-                                                <option value="07">JULAI</option>
-                                                <option value="08">OGOS</option>
-                                                <option value="09">SEPTEMBER</option>
-                                                <option value="10">OKTOBER</option>
-                                                <option value="11">NOVEMBER</option>
-                                                <option value="12">DISEMBER</option>
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
 
+                                    </table>
+                                </div>
 
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_cposbh = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($cpo_sabah)
+                                                @if (is_array($cpo_sabah) || is_object($cpo_sabah))
+                                                    @foreach ($cpo_sabah as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_cposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_cposbh;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                            </select>
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_cposrwk = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($cpo_srwk)
+                                                @if (is_array($cpo_srwk) || is_object($cpo_srwk))
+                                                    @foreach ($cpo_srwk as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_cposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_cposrwk;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mb-4 mt-4" style="margin-left:47%">
+                            </div>
+                            <hr>
+                            <br>
+                            <div class="col-12 mt-1 mb-2"><b><u>PPO</u></b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_pposem = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($ppo_sem)
+                                                @if (is_array($ppo_sem) || is_object($ppo_sem))
+                                                    @foreach ($ppo_sem as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_pposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_pposem;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
 
-                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#next">Query</button>
-                                        {{-- </div> --}}
-                                    </div>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_pposbh = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($ppo_sabah)
+                                                @if (is_array($ppo_sabah) || is_object($ppo_sabah))
+                                                    @foreach ($ppo_sabah as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_pposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_pposbh;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_pposrwk = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($ppo_srwk)
+                                                @if (is_array($ppo_srwk) || is_object($ppo_srwk))
+                                                    @foreach ($ppo_srwk as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}</td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_pposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_pposrwk;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <br>
+                            <div class="col-12 mt-1 mb-2"><b><u>CPKO</u></b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_cpkosem = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($cpko_sem)
+                                                @if (is_array($cpko_sem) || is_object($cpko_sem))
+                                                    @foreach ($cpko_sem as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_cpkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_cpkosem;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_cpkosbh = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($cpko_sabah)
+                                                @if (is_array($cpko_sabah) || is_object($cpko_sabah))
+                                                    @foreach ($cpko_sabah as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_cpkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_cpkosbh;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_cpkosrwk = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($cpko_srwk)
+                                                @if (is_array($cpko_srwk) || is_object($cpko_srwk))
+                                                    @foreach ($cpko_srwk as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_cpkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_cpkosrwk;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <hr>
+                            <br>
+                            <div class="col-12 mt-1 mb-2"><b><u>PPKO</u></b></div>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_ppkosem = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($ppko_sem)
+                                                @if (is_array($ppko_sem) || is_object($ppko_sem))
+                                                    @foreach ($ppko_sem as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_ppkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_ppkosem;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_ppkosbh = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($ppko_sabah)
+                                                @if (is_array($ppko_sabah) || is_object($ppko_sabah))
+                                                    @foreach ($ppko_sabah as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_ppkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_ppkosbh;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
+                            <div class="row">
+                                <div class="col-12 table-responsive m-t-20">
+                                    <table class="table table-bordered table-responsive-lg">
+                                        <thead>
+                                            <tr style="background-color: #d3d3d34d">
+                                                <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                <th scope="col" style="vertical-align: middle">Kilang</th>
+                                                <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
+                                                <th scope="col" style="vertical-align: middle">Pengeluaran</th>
+                                                <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
+                                                    Selanjutnya</th>
+                                                <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan
+                                                </th>
+                                                <th scope="col" style="vertical-align: middle">Eksport</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
+                                                <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $dipremis_ppkosrwk = 0;
+                                                $total_dipremis = 0;
+                                                $total_stok_akhir = 0;
+                                            @endphp
+                                            @if ($ppko_srwk)
+                                                @if (is_array($ppko_srwk) || is_object($ppko_srwk))
+                                                    @foreach ($ppko_srwk as $data)
+                                                        <tr class="text-right">
+                                                            <td scope="row" class="text-left">{{ $data->e_nl }}
+                                                            </td>
+                                                            <td class="text-left">{{ $data->e_np }}</td>
+                                                            <td class="text-left">{{ $data->negeri }}</td>
+                                                            <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($dipremis_ppkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
+                                                            </td>
+                                                            <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                        </tr>
+                                                        @php
+                                                            $total_dipremis += $dipremis_ppkosrwk;
+                                                            $total_stok_akhir += $data->ebio_b11;
+                                                        @endphp
+                                                    @endforeach
+                                                @endif
+                                            @endif
+                                            <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                <th colspan="9">Jumlah</th>
+                                                <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
+                                                <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+                            </div>
                         </form>
-                        <hr>
-                        <br>
-                        <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_cposem = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($cpo_sem)
-                                            @if (is_array($cpo_sem) || is_object($cpo_sem))
-                                                @foreach ($cpo_sem as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_cposem;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_cposbh = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($cpo_sabah)
-                                            @if (is_array($cpo_sabah) || is_object($cpo_sabah))
-                                                @foreach ($cpo_sabah as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_cposbh;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_cposrwk = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($cpo_srwk)
-                                            @if (is_array($cpo_srwk) || is_object($cpo_srwk))
-                                                @foreach ($cpo_srwk as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_cposrwk;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <hr>
-                        <br>
-                        <div class="col-12 mt-1 mb-2"><b><u>PPO</u></b></div>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_pposem = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($ppo_sem)
-                                            @if (is_array($ppo_sem) || is_object($ppo_sem))
-                                                @foreach ($ppo_sem as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_pposem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_pposem;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_pposbh = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($ppo_sabah)
-                                            @if (is_array($ppo_sabah) || is_object($ppo_sabah))
-                                                @foreach ($ppo_sabah as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_pposbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_pposbh;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_pposrwk = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($ppo_srwk)
-                                            @if (is_array($ppo_srwk) || is_object($ppo_srwk))
-                                                @foreach ($ppo_srwk as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_pposrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_pposrwk;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <hr>
-                        <br>
-                        <div class="col-12 mt-1 mb-2"><b><u>CPKO</u></b></div>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_cpkosem = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($cpko_sem)
-                                            @if (is_array($cpko_sem) || is_object($cpko_sem))
-                                                @foreach ($cpko_sem as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cpkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_cpkosem;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_cpkosbh = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($cpko_sabah)
-                                            @if (is_array($cpko_sabah) || is_object($cpko_sabah))
-                                                @foreach ($cpko_sabah as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cpkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_cpkosbh;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_cpkosrwk = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($cpko_srwk)
-                                            @if (is_array($cpko_srwk) || is_object($cpko_srwk))
-                                                @foreach ($cpko_srwk as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_cpkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_cpkosrwk;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <hr>
-                        <br>
-                        <div class="col-12 mt-1 mb-2"><b><u>PPKO</u></b></div>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_ppkosem = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($ppko_sem)
-                                            @if (is_array($ppko_sem) || is_object($ppko_sem))
-                                                @foreach ($ppko_sem as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_ppkosem = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_ppkosem;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_ppkosbh = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($ppko_sabah)
-                                            @if (is_array($ppko_sabah) || is_object($ppko_sabah))
-                                                @foreach ($ppko_sabah as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_ppkosbh = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_ppkosbh;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
-                        <br>
-                        <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
-                        <div class="row">
-                            <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
-                                    <thead>
-                                        <tr style="background-color: #d3d3d34d">
-                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle">Kilang</th>
-                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                            <th scope="col" style="vertical-align: middle">Stok Awal Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Belian/Terimaan</th>
-                                            <th scope="col" style="vertical-align: middle">Pengeluaran</th>
-                                            <th scope="col" style="vertical-align: middle">Digunakan Untuk Proses
-                                                Selanjutnya</th>
-                                            <th scope="col" style="vertical-align: middle">Jualan/Edaran Tempatan</th>
-                                            <th scope="col" style="vertical-align: middle">Eksport</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dipremis</th>
-                                            <th scope="col" style="vertical-align: middle">Stok akhir Dilapor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $dipremis_ppkosrwk = 0;
-                                            $total_dipremis = 0;
-                                            $total_stok_akhir = 0;
-                                        @endphp
-                                        @if ($ppko_srwk)
-                                            @if (is_array($ppko_srwk) || is_object($ppko_srwk))
-                                                @foreach ($ppko_srwk as $data)
-                                                    <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $data->e_nl }}</td>
-                                                        <td class="text-left">{{ $data->e_np }}</td>
-                                                        <td class="text-left">{{ $data->negeri }}</td>
-                                                        <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
-                                                        <td>{{ number_format($dipremis_ppkosrwk = $data->ebio_b5 + $data->ebio_b6 + $data->ebio_b7 - ($data->ebio_b8 + $data->ebio_b9 + $data->ebio_b10) ?? 0, 2) }}
-                                                        </td>
-                                                        <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
-                                                    </tr>
-                                                    @php
-                                                        $total_dipremis += $dipremis_ppkosrwk;
-                                                        $total_stok_akhir += $data->ebio_b11;
-                                                    @endphp
-                                                @endforeach
-                                            @endif
-                                        @endif
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="9">Jumlah</th>
-                                            <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-
-                        </div>
 
                     </div>
-                    <div class="col-12 mb-4 mt-4" style="margin-left:47%">
+
+                    <div class="col-12 mb-4 mt-4 noPrint" style="margin-left:40%">
+
+
+                        <button type="button" class="btn btn-primary noPrint" style="margin: 1%"
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
                         <a href="{{ route('admin.stok.akhir') }}" type="button" class="btn btn-primary">Kembali</a>
                     </div>
 
@@ -1024,4 +1107,17 @@
                });
         })
        </script> --}}
+    <script>
+        function myPrint(myfrm) {
+
+            var headstr = "<html><head><title></title></head><body>";
+            var footstr = "</body></html>";
+            var newstr = document.all.item(myfrm).innerHTML;
+            var oldstr = document.body.innerHTML;
+            document.body.innerHTML = headstr + newstr + footstr;
+            window.print();
+            document.body.innerHTML = oldstr;
+            return false;
+        }
+    </script>
 @endsection

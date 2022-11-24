@@ -48,7 +48,7 @@
                 Terkini</button> --}}
                 <a style="color:black; border-radius:unset; font-size:14px; background-color:rgb(255, 255, 255)"
                     class="btn btn-work tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
-                    Terkini</a>
+                    Telah Dihantar</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
                 <a href="{{ route('admin.5penyatabelumhantarbuah') }}"
                     style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
