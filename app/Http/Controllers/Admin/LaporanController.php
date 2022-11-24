@@ -2732,7 +2732,7 @@ class LaporanController extends Controller
         }
 
         //ppo semenanjung malaysia
-        $ppo_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppo_sm
+        $ppo_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, sum(b.ebio_b5) as ebio_b5, sum(b.ebio_b6) as ebio_b6, sum(b.ebio_b7) as ebio_b7, sum(b.ebio_b8) as ebio_b8, sum(b.ebio_b9) as ebio_b9, sum(b.ebio_b10) as ebio_b10, sum(b.ebio_b11) as ppo_sm
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
