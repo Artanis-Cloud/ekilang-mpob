@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:1%; margin-bottom:1%">Kapasiti Kilang Biodiesel
+                            <h3 id="title" style="color: rgb(39, 80, 71); margin-top:1%; margin-bottom:1%">Kapasiti Kilang Biodiesel
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                         </div>
@@ -3699,10 +3699,10 @@
                         $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                         },
                         exportOptions: {
-                            columns: [1,2,3,4,5,6]
+                            columns: [1,2,3,4]
                         },
 
-                        filename: 'Kapasiti',
+                        filename: 'Kapasiti Kilang Biodiesel',
 
 
 
@@ -3713,28 +3713,28 @@
                         pageSize: 'TABLOID',
                         className: "prodpdf",
 
-                        exportOptions: {
-                            columns: [1,2,3,4,5,6]
-                        },
-                        title: function(doc) {
-                                return $('#title').text()
-                                },
-                        customize: function (doc) {
-                            let table = doc.content[1].table.body;
-                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
-                            {
-                                var test = table[i][0];
-                            }
+                           exportOptions: {
+                                columns: [1,2,3,4]
+                            },
+                            title: function(doc) {
+                                    return $('#title').text()
+                                    },
+                            customize: function (doc) {
+                                let table = doc.content[1].table.body;
+                                for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                                {
+                                    var test = table[i][0];
+                                }
 
-                        },
-                        customize: function(doc) {
-                        doc.content[1].table.body[0].forEach(function(h) {
-                            h.fillColor = '#0a7569';
+                            },
+                            customize: function(doc) {
+                            doc.content[1].table.body[0].forEach(function(h) {
+                                h.fillColor = '#0a7569';
 
-                        });
-                        },
+                            });
+                            },
 
-                        filename: 'Kapasiti',
+                        filename: 'Kapasiti Kilang Biodiesel',
 
                     },
                 ],

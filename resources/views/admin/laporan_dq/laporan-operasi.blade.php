@@ -46,9 +46,9 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" id="printableArea">
                         <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
-                            <div class="col-1 align-self-center">
+                            <div class="col-1 align-self-center noPrint">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
@@ -72,6 +72,16 @@
 
                         </form> --}}
                         <hr>
+                        <div class="noPrint" style="margin-left:4%">
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="printDiv('printableArea')"
+                                style="background-color:white; color: #f90a0a; " >
+                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                            </button>
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('operasi')"
+                                style="background-color: white; color: #0a7569; ">
+                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                            </button>
+                        </div>
                         <br>
                         {{-- <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div> --}}
 
@@ -885,14 +895,39 @@
     });
 
 </script>
-    {{-- <script>
-        $(function() {
-              $("select").each(function (index, element) {
-                       const val = $(this).data('value');
-                       if(val !== '') {
-                           $(this).val(val);
-                       }
-               });
-        })
-       </script> --}}
+<script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
+
+<script>
+    function ExportToExcel()
+    {
+        var filename = "Laporan Ringkasan Bahagian 1"
+        var tab_text = "<table border='2px'><tr bgcolor=''>";
+        var textRange;
+        var j = 0;
+        tab = document.getElementById('operasi');
+
+        for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            console.log(tab.rows[j].innerHTML);
+        }
+
+        tab_text = tab_text + "</table>";
+        var a = document.createElement('a');
+        var data_type = 'data:application/vnd.ms-excel';
+        a.href = data_type + ', ' + encodeURIComponent(tab_text);
+        a.download = filename + '.xls';
+        a.click();
+    }
+</script>
 @endsection
