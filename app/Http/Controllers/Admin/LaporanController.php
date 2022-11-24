@@ -2354,7 +2354,6 @@ class LaporanController extends Controller
                     AND p.e_negeri not in ('13','14')");
 
 
-
         //cpko
 
         $querycpko = DB::select("SELECT sum(b.ebio_b11) as cpko_sm
@@ -2403,6 +2402,8 @@ class LaporanController extends Controller
                     AND b.ebio_b3 = '1'
                     AND b.ebio_b4 <> '01'
                     AND p.e_negeri ='13'");
+
+
         //cpko
 
         $sbhcpko = DB::select("SELECT sum(b.ebio_b11) as cpko_sbh
@@ -2731,7 +2732,7 @@ class LaporanController extends Controller
         }
 
         //ppo semenanjung malaysia
-        $ppo_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $ppo_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppo_sm
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2742,6 +2743,7 @@ class LaporanController extends Controller
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 <> '01'
             GROUP by p.e_nl");
+
 
 
         $totala_pposem = 0;
@@ -2761,7 +2763,7 @@ class LaporanController extends Controller
 
 
         //ppo sabah
-        $ppo_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $ppo_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppo_sbh
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2772,6 +2774,7 @@ class LaporanController extends Controller
             AND b.ebio_b3 = '1'
             AND b.ebio_b4 <> '01'
             GROUP by p.e_nl");
+
 
 
         $totala_pposbh = 0;
@@ -2788,7 +2791,7 @@ class LaporanController extends Controller
         }
 
         //ppo sarawak
-        $ppo_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $ppo_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppo_srwk
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2817,7 +2820,7 @@ class LaporanController extends Controller
 
 
         //cpko semenanjung malaysia
-        $cpko_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $cpko_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as cpko_sm
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2845,7 +2848,7 @@ class LaporanController extends Controller
 
 
         //cpko sabah
-        $cpko_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $cpko_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as cpko_sbh
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2872,7 +2875,7 @@ class LaporanController extends Controller
         }
 
         //cpko sarawak
-        $cpko_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $cpko_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as cpko_srwk
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2900,7 +2903,7 @@ class LaporanController extends Controller
 
 
         //ppko semenanjung malaysia
-        $ppko_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $ppko_sem = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppko_sm
             FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
             WHERE h.ebio_thn = '$tahun'
             AND h.ebio_bln = '$bulan'
@@ -2928,7 +2931,7 @@ class LaporanController extends Controller
 
 
         //ppko sabah
-        $ppko_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $ppko_sabah = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppko_sbh
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
@@ -2956,7 +2959,7 @@ class LaporanController extends Controller
 
 
         //ppko sarawak
-        $ppko_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
+        $ppko_srwk = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, sum(b.ebio_b11) as ppko_srwk
         FROM pelesen p, negeri n, h_bio_inits h, h_bio_b_s b
         WHERE h.ebio_thn = '$tahun'
         AND h.ebio_bln = '$bulan'
