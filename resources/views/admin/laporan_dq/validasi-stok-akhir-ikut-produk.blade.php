@@ -72,6 +72,8 @@
                                                     <option selected hidden disabled value="">Sila Pilih Tahun
                                                     </option>
                                                 @else
+                                                    <option {{ $tahun ==  $tahun ? 'selected' : '' }} value="{{ $tahun }}">{{ $tahun }}</option>
+
                                                     <option selected hidden disabled value="{{ $tahun }}">
                                                         {{ $tahun }}</option>
                                                     @endif
@@ -100,29 +102,63 @@
                                                     </option>
                                                 @else
                                                     @if ($bulan == '01')
-                                                        <option selected hidden disabled value="01">JANUARI</option>
+                                                        <option {{ $bulan == '01' ? 'selected' : '' }} value="01">
+                                                            JANUARI</option>
                                                     @elseif ($bulan == '02')
-                                                        <option selected hidden disabled value="02">FEBRUARI</option>
+                                                        <option {{ $bulan == '02' ? 'selected' : '' }} value="02">
+                                                            FEBRUARI</option>
+
+                                                        {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
                                                     @elseif ($bulan == '03')
-                                                        <option selected hidden disabled value="03">MAC</option>
+                                                        <option {{ $bulan == '03' ? 'selected' : '' }} value="03">MAC
+                                                        </option>
+
+                                                        {{-- <option selected hidden disabled value="03">MAC</option> --}}
                                                     @elseif ($bulan == '04')
-                                                        <option selected hidden disabled value="04">APRIL</option>
+                                                        <option {{ $bulan == '04' ? 'selected' : '' }} value="01">APRIL
+                                                        </option>
+
+                                                        {{-- <option selected hidden disabled value="04">APRIL</option> --}}
                                                     @elseif ($bulan == '05')
-                                                        <option selected hidden disabled value="05">MEI</option>
+                                                        <option {{ $bulan == '05' ? 'selected' : '' }} value="05">MEI
+                                                        </option>
+
+                                                        {{-- <option selected hidden disabled value="05">MEI</option> --}}
                                                     @elseif ($bulan == '06')
-                                                        <option selected hidden disabled value="06">JUN</option>
+                                                        <option {{ $bulan == '06' ? 'selected' : '' }} value="06">JUN
+                                                        </option>
+
+                                                        {{-- <option selected hidden disabled value="06">JUN</option> --}}
                                                     @elseif ($bulan == '07')
-                                                        <option selected hidden disabled value="07">JULAI</option>
+                                                        <option {{ $bulan == '07' ? 'selected' : '' }} value="07">JULAI
+                                                        </option>
+
+                                                        {{-- <option selected hidden disabled value="07">JULAI</option> --}}
                                                     @elseif ($bulan == '08')
-                                                        <option selected hidden disabled value="08">OGOS</option>
+                                                        <option {{ $bulan == '08' ? 'selected' : '' }} value="08">OGOS
+                                                        </option>
+
+                                                        {{-- <option selected hidden disabled value="08">OGOS</option> --}}
                                                     @elseif ($bulan == '09')
-                                                        <option selected hidden disabled value="09">SEPTEMBER</option>
+                                                        <option {{ $bulan == '09' ? 'selected' : '' }} value="09">
+                                                            SEPTEMBER</option>
+
+                                                        {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
                                                     @elseif ($bulan == '10')
-                                                        <option selected hidden disabled value="10">OKTOBER</option>
+                                                        <option {{ $bulan == '10' ? 'selected' : '' }} value="10">
+                                                            OKTOBER</option>
+
+                                                        {{-- <option selected hidden disabled value="10">OKTOBER</option> --}}
                                                     @elseif ($bulan == '11')
-                                                        <option selected hidden disabled value="11">NOVEMBER</option>
+                                                        <option {{ $bulan == '11' ? 'selected' : '' }} value="11">
+                                                            NOVEMBER</option>
+
+                                                        {{-- <option selected hidden disabled value="11">NOVEMBER</option> --}}
                                                     @elseif ($bulan == '12')
-                                                        <option selected hidden disabled value="12">DISEMBER</option>
+                                                        <option {{ $bulan == '12' ? 'selected' : '' }} value="12">
+                                                            DISEMBER</option>
+
+                                                        {{-- <option selected hidden disabled value="12">DISEMBER</option> --}}
                                                     @endif
                                                 @endif
 
