@@ -350,7 +350,7 @@
                                 <table class="table table-bordered" style="font-size: 13px">
                                     <thead style="text-align: center">
                                         <tr style="vertical-align: middle">
-                                            <th style="vertical-align: middle">Nama Produk Biodiesel</th>
+                                            <th style="vertical-align: middle">Produk Biodiesel dan Glycerine</th>
                                             <th style="vertical-align: middle">Kod Produk</th>
                                             <th style="vertical-align: middle">Stok Awal Di Premis</th>
                                             <th style="vertical-align: middle">Belian / Terimaan</th>
@@ -695,12 +695,13 @@
                                             <tbody>
                                                 <tr>
                                                     {{-- <div class='field'> --}}
-
-                                                    <td class="field"><select class="form-control select2 "
-                                                            style="width: 100px" id="new_syarikat[]"
+                                                    <td class="field">
+                                                        <div id="sykt1">
+                                                        <select class="form-control "
+                                                            style="width: 100%" id="new_syarikat"
                                                             name="new_syarikat[]" onchange="showDetail()"
                                                             oninput="removeDisabled()">
-                                                            <option selected hidden disabled value="">Sila Pilih
+                                                            <option id="def" selected='selected' value="0">Sila Pilih
                                                             </option>
                                                             @foreach ($syarikat as $data)
                                                                 <option value="{{ $data->id }}">
@@ -708,7 +709,9 @@
                                                                 </option>
                                                             @endforeach
 
-                                                        </select></td>
+                                                        </select>
+                                                        </div>
+                                                    </td>
                                                     {{-- </div> --}}
                                                     <td class="field"><input type="text" id="new_jumlah[]"
                                                             class="form-control" style="text-align: center"
@@ -717,7 +720,7 @@
 
                                                     <td style="size: 10ch" class="actions" align="center">
                                                         <i class="fa fa-plus-circle center" type="button" id="tambah_maklumat"
-                                                            onclick="add_row()" disabled="disabled" style="font-size:30px; color:green;">
+                                                            onclick="add_row()"  disabled="disabled" style="font-size:30px; color:green;">
                                                             {{-- <input  class="btn btn-primary ml-1 actions"
                                                             id="tambah_maklumat" onclick="add_row()" disabled="disabled"
                                                             value="Tambah Maklumat"> --}}
@@ -725,6 +728,7 @@
                                                     </td>
                                                     {{-- </div> --}}
                                                 </tr>
+
                                                 <tr style="background-color: #d3d3d34d; text-align: center">
 
                                                     <td><b>JUMLAH</b></td>
@@ -988,10 +992,10 @@
 
             <script>
                 function add_row() {
-                    var new_syarikat = document.getElementById("new_syarikat[]").value;
+                    var new_syarikat = document.getElementById("new_syarikat").value;
                     var new_jumlah = document.getElementById("new_jumlah[]").value;
 
-                    var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]")
+                    var nama_syarikat = document.getElementById("new_syarikat").options[document.getElementById("new_syarikat")
                         .selectedIndex].text;
 
                     var table = document.getElementById("data_table");
@@ -1014,12 +1018,18 @@
                         "<tr id='row_input" + (table_input_len + 1) + "'><td><input type='hidden'  id='jumlah_row_hidden" +
                         (table_input_len + 1) +
                         "' name='jumlah_row_hidden[]' value=" + new_jumlah +
-                        "><input type='hidden' id='new_syarikat_hidden" + (table_input_len + 1) +
+                        "><input  type='hidden' id='new_syarikat_hidden" + (table_input_len + 1) +
                         "' name='new_syarikat_hidden[]' value=" + new_syarikat +
                         "></td></tr>";
 
-                    document.getElementById("new_syarikat[]").value = "";
+
+
+
+                    document.getElementById("new_syarikat").value = "0";
+                    // document.getElementById("new_syarikat[]").selectedIndex = "-1";
                     document.getElementById("new_jumlah[]").value = "";
+
+
 
                     console.log("tl",table_len);
                     console.log("til",table_input_len);
@@ -1049,7 +1059,6 @@
                     // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
                     // console.log("total", total);
 
-
                 }
 
                 function delete_row(no) {
@@ -1077,45 +1086,19 @@
                 }
 
             </script>
+            {{-- <script>
+                    function onChange() {
 
-            <script>
-                function add_row1(key) {
-                    console.log("new_syarikat" + key + "[]");
-                    var new_syarikat1 = document.getElementById("new_syarikat" + key + "[]").value;
-                    var new_jumlah1 = document.getElementById("new_jumlah" + key + "[]").value;
-
-                    var table1 = document.getElementById("data_table" + key);
-                    var table_len1 = (table1.rows.length) - 1;
-                    var row1 = table1.insertRow(table_len1).outerHTML = "<tr id='row" + key + table_len1 +
-                        "'><td id='syarikat_row" + key +
-                        table_len1 + "'>" + new_syarikat1 + "</td><td id='jumlah_row" + key + table_len1 + "'>" + new_jumlah1 +
-                        "</td><td><input type='hidden' id='jumlah_row" + key + table_len1 +
-                        "' name='jumlah_row_hidden" + key + "[]' value=" + new_jumlah1 +
-                        "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row1(" + table_len1 +
-                        ")'></td></tr>";
-
-                    var table_input1 = document.getElementById("cc3_4");
-                    var table_input_len1 = (table_input1.rows.length);
-                    var row_input1 = table_input1.insertRow(table_input_len1).outerHTML =
-                        "<tr id='row_input" + key + table_input_len1 + "'><td><input type='hidden' id='jumlah_row_hidden" + key +
-                        table_input_len1 +
-                        "' name='jumlah_row_hidden" + key + "[]' value=" + new_jumlah1 +
-                        "><input type='hidden' id='new_syarikat_hidden" + key + table_input_len1 +
-                        "' name='new_syarikat_hidden" + key + "[]' value=" + new_syarikat1 +
-                        "></td></tr>";
-
-                    document.getElementById("new_syarikat" + key + "[]").value = "";
-                    document.getElementById("new_jumlah" + key + "[]").value = "";
-                }
-
-                function delete_row1(no) {
-                    document.getElementById("row" + key + "").outerHTML = "";
-                    // document.getElementById("row_input" + no + "").outerHTML = "";lain_container
-
-                    document.getElementById("jumlah_row_hidden1" + (no - 1)).value = "";
-                    document.getElementById("new_syarikat_hidden1" + (no - 1)).value = "";
-                }
-            </script>
+                    var e = document.getElementById("new_syarikat[]");
+                    var value = e.value;
+                    var text = e.options[e.selectedIndex].text;
+                    // console.log(e);
+                    // // console.log(value, text);
+                    e.text = text;
+                    }
+                    // e.onchange = onChange;
+                    // onChange();
+                </script> --}}
             <script type="text/javascript">
                 function showDetail() {
                     var produk = $('#produk').val();
@@ -1220,7 +1203,7 @@
 
                 function removeDisabled() {
 
-                    var new_syarikat = document.getElementById("new_syarikat[]").value;
+                    var new_syarikat = document.getElementById("new_syarikat").value;
                     // var new_jumlah = document.getElementById("new_jumlah[]").value;
                     // console.log(new_syarikat);
                     var table_input = document.getElementById("data_table");
