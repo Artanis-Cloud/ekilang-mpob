@@ -267,14 +267,27 @@
                                                     {{-- </div> --}}
                                                 </div>
                             </form>
-                            <hr class="noPrint">
+                            <hr>
+                            <div class=" col-12 noPrint" >
+                                <button class="dt-button buttons-excel buttons-html5"   onclick="myPrint('myfrm')"
+                                    style="background-color:white; color: #f90a0a; ">
+                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                </button>
+                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9','tbl10','tbl11','tbl12'],
+                                ['CPO SEMENANJUNG MALAYSIA','CPO SABAH','CPO SARAWAK','PPO SEMENANJUNG MALAYSIA','PPO SABAH','PPO SARAWAK',
+                                'CPKO SEMENANJUNG MALAYSIA','CPKO SABAH','CPKO SARAWAK','PPKO SEMENANJUNG MALAYSIA','PPKO SABAH','PPKO SARAWAK'],
+                                'Hebahan 10hb Stok Akhir.xls', 'Excel')"
+                                    style="background-color: white; color: #0a7569; ">
+                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                </button>
+                            </div>
                             <br>
                             <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div>
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b>
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl1">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -337,7 +350,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl2">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -399,7 +412,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl3">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -464,7 +477,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl4">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -527,7 +540,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl5">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -590,7 +603,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl6">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -656,7 +669,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl7">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -720,7 +733,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl8">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -784,7 +797,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl9">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -851,7 +864,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl10">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -915,7 +928,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl11">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -979,7 +992,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg">
+                                    <table class="table table-bordered table-responsive-lg" id="tbl12">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -1097,16 +1110,82 @@
             });
         });
     </script>
-    {{-- <script>
-        $(function() {
-              $("select").each(function (index, element) {
-                       const val = $(this).data('value');
-                       if(val !== '') {
-                           $(this).val(val);
-                       }
-               });
-        })
-       </script> --}}
+
+
+    <script>
+        function printDiv(printableArea) {
+            var printContents = document.getElementById(printableArea).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+
+
+    <script>
+    var ExportToExcel = (function() {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+        , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
+            + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
+            + '<Styles>'
+            + '<Style ss:ID="Currency"><NumberFormat ss:Format="Currency"></NumberFormat></Style>'
+            + '<Style ss:ID="Date"><NumberFormat ss:Format="Medium Date"></NumberFormat></Style>'
+            + '</Styles>'
+            + '{worksheets}</Workbook>'
+        , tmplWorksheetXML = '<Worksheet ss:Name="{nameWS}"><Table>{rows}</Table></Worksheet>'
+        , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
+        , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+        return function(tables, wsnames, wbname, appname) {
+            var ctx = "";
+            var workbookXML = "";
+            var worksheetsXML = "";
+            var rowsXML = "";
+
+            for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
+            for (var j = 0; j < tables[i].rows.length; j++) {
+                rowsXML += '<Row>'
+                for (var k = 0; k < tables[i].rows[j].cells.length; k++) {
+                var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
+                var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
+                var dataValue = tables[i].rows[j].cells[k].getAttribute("data-value");
+                dataValue = (dataValue)?dataValue:tables[i].rows[j].cells[k].innerHTML;
+                var dataFormula = tables[i].rows[j].cells[k].getAttribute("data-formula");
+                dataFormula = (dataFormula)?dataFormula:(appname=='Calc' && dataType=='DateTime')?dataValue:null;
+                ctx = {  attributeStyleID: (dataStyle=='Currency' || dataStyle=='Date')?' ss:StyleID="'+dataStyle+'"':''
+                        , nameType: (dataType=='Number' || dataType=='DateTime' || dataType=='Boolean' || dataType=='Error')?dataType:'String'
+                        , data: (dataFormula)?'':dataValue
+                        , attributeFormula: (dataFormula)?' ss:Formula="'+dataFormula+'"':''
+                        };
+                rowsXML += format(tmplCellXML, ctx);
+                }
+                rowsXML += '</Row>'
+            }
+            ctx = {rows: rowsXML, nameWS: wsnames[i] || 'Sheet' + i};
+            worksheetsXML += format(tmplWorksheetXML, ctx);
+            rowsXML = "";
+            }
+
+            ctx = {created: (new Date()).getTime(), worksheets: worksheetsXML};
+            workbookXML = format(tmplWorkbookXML, ctx);
+
+    console.log(workbookXML);
+
+            var link = document.createElement("A");
+            link.href = uri + base64(workbookXML);
+            link.download = wbname || 'Workbook.xls';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        })();
+    </script>
     <script>
         function myPrint(myfrm) {
 

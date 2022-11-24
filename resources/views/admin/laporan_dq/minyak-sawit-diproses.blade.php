@@ -49,8 +49,8 @@
                     <div class="card"><br>
                         <div class=" text-center">
                             {{-- <h2 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Hebahan 10hb - Biodiesel diproses</h2> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-top:1%; margin-bottom:1%">
-                                Minyak Sawit Diproses
+                            <h3 id="title" style="color: rgb(39, 80, 71); margin-top:1%; margin-bottom:1%">
+                                <a class="noScreen">Hebahan 10hb -</a>Minyak Sawit Diproses
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir</h5> --}}
                         </div>
@@ -67,7 +67,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="table-responsive">
-                                                <table id="zero_config" class="table table-bordered">
+                                                <table id="valproses" class="table table-bordered">
                                                     <thead>
                                                         <tr>
                                                             <th>Bil.</th>
@@ -82,6 +82,21 @@
                                                             <th>Port</th>
                                                         </tr>
                                                     </thead>
+                                                    <tfoot>
+                                                        <tr style="background-color: #e9ecefbd">
+
+                                                            <th>Bil.</th>
+                                                            <th>Tahun</th>
+                                                            <th>Bulan</th>
+                                                            <th>CPO MSIA</th>
+                                                            <th>PPO MSIA</th>
+                                                            <th>CPKO MSIA</th>
+                                                            <th>PPKO MSIA</th>
+                                                            <th>Kemaskini</th>
+                                                            <th>Padam</th>
+                                                            <th>Port</th>
+                                                        </tr>
+                                                    </tfoot>
 
                                                     <tbody>
 
@@ -324,8 +339,94 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
+
+ $(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#valproses tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+        });
+
+        // DataTable
+            var table = $('#valproses').DataTable({
+
+                initComplete: function () {
+
+                    // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                },
+                dom: 'Bfrtip',
+
+                buttons: [
+
+                    'pageLength',
+
+                    {
+
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred",
+
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6]
+                        },
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'Hebahan 10hb - Minyak Sawit Diproses',
+
+
+
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
+
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6]
+                        },
+                        title: function(doc) {
+                                return $('#title').text()
+                                },
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+                        filename: 'Hebahan 10hb - Minyak Sawit Diproses',
+
+                    },
+                ],
                 "language": {
                     "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
@@ -341,14 +442,10 @@
                         "previous": "Sebelumnya"
                     },
                 },
-                "columnDefs": [{
-                    'targets': [0, 7, 8],
-                    /* column index */
-                    'orderable': false,
-                    /* true or false */
-                }]
 
             });
+
         });
+
     </script>
 @endsection

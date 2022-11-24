@@ -46,9 +46,11 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" id="printableArea">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Validasi Stok Akhir Ikut
+
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%"><a
+                                class="noScreen">Hebahan 10hb -</a>Validasi Stok Akhir Ikut
                                 Produk
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Validasi Stok Akhir</h5> --}}
@@ -58,14 +60,14 @@
                             @csrf
                             <div class="card-body">
 
-                                <div class="container center col-12">
+                                <div class="container center col-12 noPrint">
 
                                     <div class="row ml-auto" style="margin-top:-1%">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
                                         </label>
                                         <div class="col-md-4">
-                                            <select class="form-control" name="tahun" required
+                                            <select class="form-control" name="tahun"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 <@if (!$tahun)
@@ -93,7 +95,7 @@
                                         {{-- {{ dd($bulan) }} --}}
 
                                         <div class="col-md-4">
-                                            <select class="form-control" name="bulan" required
+                                            <select class="form-control" name="bulan"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
 
@@ -104,7 +106,7 @@
                                                     @if ($bulan == '01')
                                                         <option {{ $bulan == '01' ? 'selected' : '' }} value="01">
                                                             JANUARI</option>
-                                                            
+
                                                     @elseif ($bulan == '02')
                                                         <option {{ $bulan == '02' ? 'selected' : '' }} value="02">
                                                             FEBRUARI</option>
@@ -186,7 +188,7 @@
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Produk
                                         </label>
                                         <div class="col-md-4">
-                                            <select class="form-control select2" name="produk" required
+                                            <select class="form-control select2" name="produk"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 @if (!$produk)
@@ -217,16 +219,32 @@
                                     </div>
                                     <div class="col-12 mb-4 mt-4" style="margin-left:47%">
 
-                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#next">Query</button>
+                                        <button type="submit" class="btn btn-primary"
+                                           >Query</button>
                                         {{-- </div> --}}
                                     </div>
+                                {{-- </div> --}}
+                            </div>
                         </form>
                         <hr>
+
+                        <div class=" col-12 noPrint" >
+                            <button class="dt-button buttons-excel buttons-html5"   onclick="printDiv('printableArea')"
+                                style="background-color:white; color: #f90a0a; ">
+                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                            </button>
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel(['tbl1','tbl2','tbl3'],
+                            ['CPO SEMENANJUNG MALAYSIA','CPO SABAH','CPO SARAWAK'],
+                            'Hebahan 10hb Stok Akhir.xls', 'Excel')"
+                                style="background-color: white; color: #0a7569; ">
+                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                            </button>
+                        </div>
+                        <br>
                         <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
                         <div class="row">
                             <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered table-responsive-lg" id="tbl1">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -290,7 +308,7 @@
                         <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                         <div class="row">
                             <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered table-responsive-lg" id="tbl2">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -399,7 +417,7 @@
                         <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                         <div class="row">
                             <div class="col-12 table-responsive m-t-20">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered table-responsive-lg" id="tbl3">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -561,4 +579,82 @@
             });
         });
     </script>
+
+
+
+    <script>
+        function printDiv(printableArea) {
+            var printContents = document.getElementById(printableArea).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+
+
+    <script>
+    var ExportToExcel = (function() {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+        , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
+            + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
+            + '<Styles>'
+            + '<Style ss:ID="Currency"><NumberFormat ss:Format="Currency"></NumberFormat></Style>'
+            + '<Style ss:ID="Date"><NumberFormat ss:Format="Medium Date"></NumberFormat></Style>'
+            + '</Styles>'
+            + '{worksheets}</Workbook>'
+        , tmplWorksheetXML = '<Worksheet ss:Name="{nameWS}"><Table>{rows}</Table></Worksheet>'
+        , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
+        , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+        return function(tables, wsnames, wbname, appname) {
+            var ctx = "";
+            var workbookXML = "";
+            var worksheetsXML = "";
+            var rowsXML = "";
+
+            for (var i = 0; i < tables.length; i++) {
+            if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
+            for (var j = 0; j < tables[i].rows.length; j++) {
+                rowsXML += '<Row>'
+                for (var k = 0; k < tables[i].rows[j].cells.length; k++) {
+                var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
+                var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
+                var dataValue = tables[i].rows[j].cells[k].getAttribute("data-value");
+                dataValue = (dataValue)?dataValue:tables[i].rows[j].cells[k].innerHTML;
+                var dataFormula = tables[i].rows[j].cells[k].getAttribute("data-formula");
+                dataFormula = (dataFormula)?dataFormula:(appname=='Calc' && dataType=='DateTime')?dataValue:null;
+                ctx = {  attributeStyleID: (dataStyle=='Currency' || dataStyle=='Date')?' ss:StyleID="'+dataStyle+'"':''
+                        , nameType: (dataType=='Number' || dataType=='DateTime' || dataType=='Boolean' || dataType=='Error')?dataType:'String'
+                        , data: (dataFormula)?'':dataValue
+                        , attributeFormula: (dataFormula)?' ss:Formula="'+dataFormula+'"':''
+                        };
+                rowsXML += format(tmplCellXML, ctx);
+                }
+                rowsXML += '</Row>'
+            }
+            ctx = {rows: rowsXML, nameWS: wsnames[i] || 'Sheet' + i};
+            worksheetsXML += format(tmplWorksheetXML, ctx);
+            rowsXML = "";
+            }
+
+            ctx = {created: (new Date()).getTime(), worksheets: worksheetsXML};
+            workbookXML = format(tmplWorkbookXML, ctx);
+
+    console.log(workbookXML);
+
+            var link = document.createElement("A");
+            link.href = uri + base64(workbookXML);
+            link.download = wbname || 'Workbook.xls';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        })();
+    </script>
+
 @endsection
