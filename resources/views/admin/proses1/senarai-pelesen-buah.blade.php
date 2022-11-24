@@ -263,26 +263,26 @@
                                                         <td class="count"></td>
 
                                                         <td>
-                                                            <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
+                                                            <a href="{{ route('admin.papar.maklumat', $data->e_id) }}" ><u>
                                                                     {{ $data->e_nl ?? '-' }}</u></a>
                                                         </td>
                                                         <td>{{ $data->pelesen->e_np ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
 
                                                         <td >{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td  style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
+                                                        <td style="text-align: center">{{ $data->kodpgw ?? '-' }}</td>
                                                         <td style="text-align: center">{{ $data->nosiri ?? '-' }}</td>
                                                         @if ($data->e_status == 1)
-                                                            <td style="text-align: center" hi><span id="mySpan" hidden>1</span>Aktif</td>
+                                                            <td class="hidden" style="text-align: center"><span style="display: none">1</span>Aktif</td>
                                                         @elseif ($data->e_status == 2)
-                                                            <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
+                                                            <td class="hidden" style="text-align: center"><span style="display: none">2</span>Tidak Aktif</td>
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
                                                         @if ($data->e_stock == 1)
-                                                            <td style="text-align: center"><span hidden >1</span>Aktif</td>
+                                                            <td class="hidden" style="text-align: center"><span style="display: none">1</span>Aktif</td>
                                                         @elseif ($data->e_stock == 2)
-                                                            <td style="text-align: center"><span hidden>2</span>Tidak Aktif</td>
+                                                            <td class="hidden" style="text-align: center"><span style="display: none">2</span>Tidak Aktif</td>
                                                         @else
                                                             <td style="text-align: center">-</td>
                                                         @endif
@@ -488,7 +488,44 @@
                         title: function(doc) {
                             return $('#title').text()
                         },
-
+                        exportOptions: {
+                            format: {
+                            body: function ( data, row, column, node ) {
+                                if(column === 7){
+                                    if(data == '<span style="display: none">1</span>Aktif'){
+                                        return 'Aktif';
+                                    }else if(data == '<span style="display: none">2</span>Tidak Aktif'){
+                                        return 'Tidak Aktif';
+                                    }else{
+                                        return '-';
+                                    }
+                                }
+                                else if(column === 8){
+                                    // console.log(data);
+                                    if(data == '<span style="display: none">1</span>Aktif'){
+                                        return 'Aktif';
+                                    }else if(data == '<span style="display: none">2</span>Tidak Aktif'){
+                                        return 'Tidak Aktif';
+                                    }else{
+                                        return '-';
+                                    }
+                                }
+                                else if(column === 1){
+                                    // var value = document.getElementById('papar').id;
+                                    data = data.replace(/<.*?>/g, "");
+                                    return $.trim(data);
+                                }
+                                else if(column === 34){
+                                    // var value = document.getElementById('papar').id;
+                                    data = data.replace(/<.*?>/g, "");
+                                    return $.trim(data);
+                                }
+                                else{
+                                    return data;
+                                }
+                            }
+                        }
+                        },
                         customize: function(xlsx) {
                         var sheet = xlsx.xl.worksheets['sheet1.xml'];
                         var style = xlsx.xl['styles.xml'];
