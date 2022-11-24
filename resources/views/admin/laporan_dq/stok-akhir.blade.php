@@ -58,6 +58,11 @@
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir</h5> --}}
                         </div>
+                        <div class=" text-center noScreen" id="title">
+                            <h3 style="color: rgb(39, 80, 71); margin-top:-1%; margin-bottom:1%">Hebahan 10hb - Stok Akhir
+                            </h3>
+                            {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir</h5> --}}
+                        </div>
                         <hr>
 
                         <div class="text-left col-md-7 mx-3">
@@ -71,7 +76,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="table-responsive">
-                                            <table id="zero_config" class="table table-bordered">
+                                            <table id="tstokakhir" class="table table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th>Bil.</th>
@@ -94,6 +99,29 @@
                                                         <th>Port</th>
                                                     </tr>
                                                 </thead>
+                                                <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
+
+                                                        <th>Bil.</th>
+                                                        <th>Tahun</th>
+                                                        <th>Bulan</th>
+                                                        <th>CPO SM</th>
+                                                        <th>PPO SM</th>
+                                                        <th>CPKO SM</th>
+                                                        <th>PPKO SM</th>
+                                                        <th>CPO SBH</th>
+                                                        <th>PPO SBH</th>
+                                                        <th>CPKO SBH</th>
+                                                        <th>PPKO SBH</th>
+                                                        <th>CPO SRWK</th>
+                                                        <th>PPO SRWK</th>
+                                                        <th>CPKO SRWK</th>
+                                                        <th>PPKO SRWK</th>
+                                                        <th>Kemaskini</th>
+                                                        <th>Padam</th>
+                                                        <th>Port</th>
+                                                    </tr>
+                                                </tfoot>
                                                 <tbody>
                                                     @foreach ($stok_akhir as $key => $data)
                                                         <tr>
@@ -535,10 +563,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    @endforeach
                                                 </tbody>
 
                                             </table>
-                                            @endforeach
 
                                         </div>
                                     </div>
@@ -561,32 +589,123 @@
 
 
     </div>
-@endsection
-<script>
-    function ExportToExcel()
-        {
-            var filename = "Ringkasan Bahagian 3"
-            var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
-            var textRange;
-            var j = 0;
-            tab = document.getElementById('kemaskini');
 
-            for (j = 0; j < tab.rows.length; j++) {
-            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
-            }
 
-            tab_text = tab_text + "</table>";
-            var a = document.createElement('a');
-            var data_type = 'data:application/vnd.ms-excel';
-            a.href = data_type + ', ' + encodeURIComponent(tab_text);
-            a.download = filename + '.xls';
-            a.click();
-                }
-    </script>
-{{-- @section('scripts')
+
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
+        function ExportToExcel()
+            {
+                var filename = "Ringkasan Bahagian 3"
+                var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+                var textRange;
+                var j = 0;
+                tab = document.getElementById('kemaskini');
+
+                for (j = 0; j < tab.rows.length; j++) {
+                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                }
+
+                tab_text = tab_text + "</table>";
+                var a = document.createElement('a');
+                var data_type = 'data:application/vnd.ms-excel';
+                a.href = data_type + ', ' + encodeURIComponent(tab_text);
+                a.download = filename + '.xls';
+                a.click();
+                    }
+        </script>
+
+
+    <script>
+
+
+$(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#tstokakhir tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+        });
+
+        // DataTable
+            var table = $('#tstokakhir').DataTable({
+
+                initComplete: function () {
+
+                    // Apply the search
+                    this.api()
+                        .columns()
+                        .every(function () {
+                            var that = this;
+                            $('input', this.footer()).on('keyup change clear', function () {
+                                if (that.search() !== this.value) {
+                                    that.search(this.value).draw();
+                                }
+                            });
+                        });
+                },
+                dom: 'Bfrtip',
+
+                buttons: [
+
+                    'pageLength',
+
+                    {
+
+                        extend: 'excel',
+                        text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                        className: "fred",
+
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+                        },
+                        
+                        title: function(doc) {
+                            return $('#title').text()
+                        },
+
+                        customize: function(xlsx) {
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        var style = xlsx.xl['styles.xml'];
+                        $( 'row c', sheet ).attr( 's', '25' );
+                        $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                        $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                        },
+
+                        filename: 'Hebahan 10hb - Stok Akhir',
+
+
+
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                        pageSize: 'TABLOID',
+                        className: "prodpdf",
+
+                        exportOptions: {
+                            columns: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+                        },
+                        title: function(doc) {
+                                return $('#title').text()
+                                },
+                        customize: function (doc) {
+                            let table = doc.content[1].table.body;
+                            for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                            {
+                                var test = table[i][0];
+                            }
+
+                        },
+                        customize: function(doc) {
+                        doc.content[1].table.body[0].forEach(function(h) {
+                            h.fillColor = '#0a7569';
+
+                        });
+                        },
+
+                        filename: 'Hebahan 10hb - Stok Akhir',
+
+                    },
+                ],
                 "language": {
                     "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
@@ -602,14 +721,13 @@
                         "previous": "Sebelumnya"
                     },
                 },
-                "columnDefs": [{
-                    'targets': [0, 7, 8],
-                    /* column index */
-                    'orderable': false,
-                    /* true or false */
-                }]
 
             });
+
         });
+
+
     </script>
-@endsection --}}
+
+@endsection
+

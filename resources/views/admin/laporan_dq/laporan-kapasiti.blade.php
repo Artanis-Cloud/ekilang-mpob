@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Hebahan 10hb
+                    <h4 class="page-title">Laporan Biodiesel
                     </h4>
                 </div>
                 <div class="col-7 align-self-center">
@@ -46,9 +46,9 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" id="printableArea">
                         <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
-                            <div class="col-1 align-self-center">
+                            <div class="col-1 align-self-center noPrint">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
@@ -72,19 +72,33 @@
 
                         </form> --}}
                         <hr>
+                        <div class="noPrint" style="margin-left:4%">
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="printDiv('printableArea')"
+                                style="background-color:white; color: #f90a0a; " >
+                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                            </button>
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel(['tbl1','tbl2','tbl3','tbl4','tbl5','tbl6','tbl7','tbl8','tbl9','tbl10','tbl11','tbl12','tbl13','tbl14'],
+                            ['JOHOR','KEDAH','KELANTAN','MELAKA','NEGERISEMBILAN','PAHANG',
+                            'PERAK','PERLIS','PULAUPINANG','SELANGOR','TERENGGANU','WILAYAHPERSEKUTUAN','SABAH','SARAWAK'],
+                            'Laporan Kapasiti.xls', 'Excel')"
+                                style="background-color: white; color: #0a7569; ">
+                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                            </button>
+                        </div>
                         <br>
+
                         {{-- <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div> --}}
 
                         <!--JOHOR -->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg" id="kapasiti">
+                                <table class="table table-bordered" id="tbl1">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
-                                            <th scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
-                                            <th scope="col" style="vertical-align: middle; text-align:center">Nama Pemegang Lesen</th>
+                                            <th  class="font-weight-bold text-center" scope="col" style="vertical-align: middle; text-align:center">No. Lesen</th>
+                                            <th scope="col" style="vertical-align: middle; text-align:center; font-weight:500">Nama Pemegang Lesen</th>
                                             <th scope="col" style="vertical-align: middle; text-align:center">Jan</th>
                                             <th scope="col" style="vertical-align: middle; text-align:center">Feb</th>
                                             <th scope="col" style="vertical-align: middle; text-align:center">Mac</th>
@@ -153,7 +167,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -179,7 +195,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KEDAH</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl2">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -253,7 +269,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -279,7 +297,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KELANTAN</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl3">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -353,7 +371,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -379,7 +399,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>MELAKA</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl4">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -453,7 +473,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -479,7 +501,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>NEGERI SEMBILAN</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl5">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -553,7 +575,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -579,7 +603,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PAHANG</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl6">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -653,7 +677,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -679,7 +705,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERAK</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl7">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -753,7 +779,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -779,7 +807,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERLIS</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl8">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -853,7 +881,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -880,7 +910,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PULAU PINANG</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl9">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -954,7 +984,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -981,7 +1013,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SELANGOR</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl10">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1055,7 +1087,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -1082,7 +1116,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>TERENGGANU</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl11">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1156,7 +1190,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -1183,7 +1219,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>WILAYAH PERSEKUTUAN</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl12">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1257,7 +1293,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -1284,7 +1322,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SABAH</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl13">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1358,7 +1396,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -1385,7 +1425,7 @@
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SARAWAK</b></div>
                         <div class="row">
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg">
+                                <table class="table table-bordered" id="tbl14">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center">Bil.</th>
@@ -1459,7 +1499,9 @@
                                         @endif
 
                                         <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="3">Jumlah</th>
+                                            <th >Jumlah</th>
+                                            <th>-</th>
+                                            <th >-</th>
                                             <td>{{ number_format($total_jan ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_feb ?? 0, 2) }}</td>
                                             <td>{{ number_format($total_mac ?? 0, 2) }}</td>
@@ -1507,92 +1549,98 @@
 @endsection
 
 @section('scripts')
+
+
 <script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
 
-    $(document).ready(function () {
-    // Setup - add a text input to each footer cell
-    $('#kapasiti tfoot th').each(function () {
-        var title = $(this).text();
-        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
-    });
+        document.body.innerHTML = printContents;
 
-    // DataTable
-        var table = $('#kapasiti').DataTable({
+        window.print();
 
-            initComplete: function () {
-
-                // Apply the search
-                this.api()
-                    .columns()
-                    .every(function () {
-                        var that = this;
-                        $('input', this.footer()).on('keyup change clear', function () {
-                            if (that.search() !== this.value) {
-                                that.search(this.value).draw();
-                            }
-                        });
-                    });
-            },
-            dom: 'Bfrtip',
-
-            buttons: [
-
-                'pageLength',
-
-                {
-
-                    extend: 'excel',
-                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
-                    className: "fred",
-
-                    title: function(doc) {
-                        return $('#title').text()
-                    },
-
-                    customize: function(xlsx) {
-                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                    var style = xlsx.xl['styles.xml'];
-                    $( 'row c', sheet ).attr( 's', '25' );
-                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
-                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
-                    },
-
-                    filename: 'Laporan Kapasiti Tahunan,
-
-
-
-                },
-
-            ],
-            "language": {
-                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                "zeroRecords": "Maaf, tiada rekod.",
-                "info": "",
-                "infoEmpty": "Tidak ada rekod yang tersedia",
-                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                "search": "Carian",
-                "previous": "Sebelum",
-                "paginate": {
-                    "first": "Pertama",
-                    "last": "Terakhir",
-                    "next": "Seterusnya",
-                    "previous": "Sebelumnya"
-                },
-            },
-
-        });
-
-    });
-
+        document.body.innerHTML = originalContents;
+    }
 </script>
-    {{-- <script>
-        $(function() {
-              $("select").each(function (index, element) {
-                       const val = $(this).data('value');
-                       if(val !== '') {
-                           $(this).val(val);
-                       }
-               });
-        })
-       </script> --}}
+
+
+<script>
+  var ExportToExcel = (function() {
+      var uri = 'data:application/vnd.ms-excel;base64,'
+      , tmplWorkbookXML = '<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'
+        + '<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Author>Axel Richter</Author><Created>{created}</Created></DocumentProperties>'
+        + '<Styles>'
+        + '<Style ss:ID="Currency"><NumberFormat ss:Format="Currency"></NumberFormat></Style>'
+        + '<Style ss:ID="Date"><NumberFormat ss:Format="Medium Date"></NumberFormat></Style>'
+        + '</Styles>'
+        + '{worksheets}</Workbook>'
+      , tmplWorksheetXML = '<Worksheet ss:Name="{nameWS}"><Table>{rows}</Table></Worksheet>'
+      , tmplCellXML = '<Cell{attributeStyleID}{attributeFormula}><Data ss:Type="{nameType}">{data}</Data></Cell>'
+      , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+      , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+      return function(tables, wsnames, wbname, appname) {
+        var ctx = "";
+        var workbookXML = "";
+        var worksheetsXML = "";
+        var rowsXML = "";
+
+        for (var i = 0; i < tables.length; i++) {
+          if (!tables[i].nodeType) tables[i] = document.getElementById(tables[i]);
+          for (var j = 0; j < tables[i].rows.length; j++) {
+            rowsXML += '<Row>'
+            for (var k = 0; k < tables[i].rows[j].cells.length; k++) {
+              var dataType = tables[i].rows[j].cells[k].getAttribute("data-type");
+              var dataStyle = tables[i].rows[j].cells[k].getAttribute("data-style");
+              var dataValue = tables[i].rows[j].cells[k].getAttribute("data-value");
+              dataValue = (dataValue)?dataValue:tables[i].rows[j].cells[k].innerHTML;
+              var dataFormula = tables[i].rows[j].cells[k].getAttribute("data-formula");
+              dataFormula = (dataFormula)?dataFormula:(appname=='Calc' && dataType=='DateTime')?dataValue:null;
+              ctx = {  attributeStyleID: (dataStyle=='Currency' || dataStyle=='Date')?' ss:StyleID="'+dataStyle+'"':''
+                     , nameType: (dataType=='Number' || dataType=='DateTime' || dataType=='Boolean' || dataType=='Error')?dataType:'String'
+                     , data: (dataFormula)?'':dataValue
+                     , attributeFormula: (dataFormula)?' ss:Formula="'+dataFormula+'"':''
+                    };
+              rowsXML += format(tmplCellXML, ctx);
+            }
+            rowsXML += '</Row>'
+          }
+          ctx = {rows: rowsXML, nameWS: wsnames[i] || 'Sheet' + i};
+          worksheetsXML += format(tmplWorksheetXML, ctx);
+          rowsXML = "";
+        }
+
+        ctx = {created: (new Date()).getTime(), worksheets: worksheetsXML};
+        workbookXML = format(tmplWorkbookXML, ctx);
+
+  console.log(workbookXML);
+
+        var link = document.createElement("A");
+        link.href = uri + base64(workbookXML);
+        link.download = wbname || 'Workbook.xls';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    })();
+</script>
+
+<script>
+    $('#downloadPDF').click(function () {
+        domtoimage.toPng(document.getElementById('content2'))
+    .then(function (blob) {
+        var pdf = new jsPDF('l', 'pt', [$('#content2').width(), $('#content2').height()]);
+
+        pdf.addImage(blob, 'PNG', 0, 0, $('#content2').width(), $('#content2').height());
+        pdf.save("Purata Bilangan Anak Benih, Anak Pokok Dan Pokok Jaras Kecil Sehektar Bagi Keseluruhan Strata Hutan Paya Laut.pdf");
+
+        that.options.api.optionsChanged();
+    });
+});
+</script>{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js%22%3E</script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha256-c9vxcXyAG4paArQG3xk6DjyW/9aHxai2ef9RpMWO44A=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js%22%3E</script>
+
+
 @endsection

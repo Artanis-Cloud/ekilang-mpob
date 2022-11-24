@@ -59,7 +59,7 @@
 
                         <div class=" text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Senarai Penyata Bulan Terdahulu
+                            <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Senarai Penyata Bulan Terdahulu
                             </h3>
                             {{-- <p>Maklumat Kilang</p> --}}
                             <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan: &nbsp;<b>
@@ -873,11 +873,9 @@
                             $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                             },
 
-                            filename: 'Penyata Bulan',
+                            filename: 'Paparan Senarai Penyata Bulan Terdahulu',
 
-                            messageTop: function(doc) {
-                                return $('#tarikh').text()
-                            },
+
 
                         },
                         {
@@ -886,11 +884,11 @@
                             pageSize: 'TABLOID',
                             className: "prodpdf",
 
-                            exportOptions: {
-                                columns: [1,2,3,4,5,6,7]
-                            },
+                            // exportOptions: {
+                            //     columns: [1,2,3,4,5,6,7]
+                            // },
                             title: function(doc) {
-                                    return $('#title').text() + $ ('#tarikh').text()
+                                    return $('#title').text()
                                     },
                             customize: function (doc) {
                                 let table = doc.content[1].table.body;
@@ -907,7 +905,7 @@
                             });
                             },
 
-                            filename: 'Penyata Bulan',
+                            filename: 'Paparan Senarai Penyata Bulan Terdahulu',
 
                         },
                     ],

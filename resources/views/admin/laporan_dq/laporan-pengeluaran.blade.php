@@ -46,9 +46,9 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card" >
+                    <div class="card" id="printableArea" >
                         <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
-                            <div class="col-1 align-self-center">
+                            <div class="col-1 align-self-center noPrint">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
@@ -72,6 +72,16 @@
 
                         </form> --}}
                         <hr>
+                        <div class="noPrint" style="margin-left:4%">
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="printDiv('printableArea')"
+                                style="background-color:white; color: #f90a0a; " >
+                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                            </button>
+                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
+                                style="background-color: white; color: #0a7569; ">
+                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                            </button>
+                        </div>
                         <br>
                         {{-- <div class="col-12 mt-1 mb-2"><b><u>CPO</u></b></div> --}}
 
@@ -79,19 +89,10 @@
                         {{-- <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div> --}}
                         <div class="row">
                             {{-- <div class="container"> --}}
-                            <div class="noPrint container-fluid">
-                                {{-- <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" hidden
-                                    style="background-color:white; color: #f90a0a; " >
-                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                </button> --}}
-                                <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('example4')"
-                                    style="background-color: white; color: #0a7569; ">
-                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
-                                </button>
-                            </div>
+
                             {{-- </div> --}}
                             <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
-                                <table class="table table-bordered table-responsive-lg" id="pengeluaran">
+                                <table class="table table-bordered" id="pengeluaran">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
                                             <th scope="col" style="vertical-align: middle; text-align:center"
@@ -786,7 +787,7 @@
 
 
 
-                    <div class="col-12 mb-4 mt-4" style="margin-left:47%">
+                    <div class="col-12 mb-4 mt-4 noPrint" style="margin-left:47%">
                         <a href="{{ route('admin.laporan.tahunan') }}" type="button"
                             class="btn btn-primary">Kembali</a>
                     </div>
@@ -813,8 +814,8 @@
 <script>
     function ExportToExcel()
         {
-            var filename = "Ringkasan Bahagian 3"
-            var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+            var filename = "Maklumat Pengeluaran Produk Biodiesel"
+            var tab_text = "<table border='2px'><tr bgcolor=' '>";
             var textRange;
             var j = 0;
             tab = document.getElementById('pengeluaran');
@@ -831,6 +832,18 @@
             a.click();
                 }
     </script>
+<script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
 {{-- <script> --}}
 {{--
 //     $(document).ready(function () {
