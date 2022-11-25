@@ -106,7 +106,7 @@ class PortingBiodieselController extends Controller
 
         $query = DB::select("SELECT * from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
-        $qdel1 = DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir where bulan=$bulan and tahun = $tahun");
+        $qdel1 = DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
         $qins = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
         values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
