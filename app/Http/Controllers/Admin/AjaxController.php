@@ -83,7 +83,7 @@ class AjaxController extends Controller
         group by e.e102_sdate
         order by  e.e102_sdate");
 
- dd( $PL102);
+
         $data = (object)[
             'PL101' => [
                 'nama_kilang' => 'Kilang Penapis',
