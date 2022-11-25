@@ -43,7 +43,7 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $qins = DB::connection('mysql4')->select("SELECT * from hebahan_stok_akhir");
+        $qins = DB::connection('mysql4')->select("SELECT * from hebahan_stok_akhir where bulan='10' and tahun = '2022'");
         dd($qins);
 
 
