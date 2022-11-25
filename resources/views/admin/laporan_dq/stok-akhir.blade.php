@@ -246,12 +246,12 @@
                                                             role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                             aria-hidden="true">
                                                             <div class="modal-dialog modal-dialog-scrollable"
-                                                                role="document" id="kemaskini">
+                                                                role="document"  id="myfrm">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h4 class="modal-title"
                                                                             id="exampleModalScrollableTitle">
-                                                                            <b>Hebahan 10hb - Stok Akhir</b><br>Kemaskini Maklumat Produk </h4> <br>
+                                                                            <b>Hebahan 10hb - Stok Akhir</b><br>Kemaskini Maklumat Produk </h4>
                                                                         <h5></h5>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">
@@ -361,7 +361,7 @@
                                                                                 </div>
 
                                                                             </div>
-                                                                            <div class="mb-4"></div>
+                                                                            {{-- <div class="mb-4"></div> --}}
 
                                                                             <hr>
                                                                             <div class="col-12 mt-2 mb-2"
@@ -541,9 +541,9 @@
                                                                                 style="background-color:white; color: #f90a0a; " >
                                                                                 <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
                                                                             </button> --}}
-                                                                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel()"
+                                                                            <button type="button" class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
                                                                                 style="background-color: white; color: #0a7569; ">
-                                                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                                                                                <i class="fa fa-file-excel" style="color: #0a7569"></i> PDF
                                                                             </button>
                                                                         </div>
                                                                         <button type="button"
@@ -590,30 +590,52 @@
 
     </div>
 
-
+    ApisPunya — Yesterday at 11:22 AM
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js%22%3E</script> --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha256-c9vxcXyAG4paArQG3xk6DjyW/9aHxai2ef9RpMWO44A=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js%22%3E"></script>
 
     <script>
         function ExportToExcel()
-            {
-                var filename = "Ringkasan Bahagian 3"
-                var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
-                var textRange;
-                var j = 0;
-                tab = document.getElementById('kemaskini');
+        {
+            var filename = "Ringkasan Bahagian 3"
+            var tab_text = "<table border='2px'><tr bgcolor='#BCECCF '>";
+            var textRange;
+            var j = 0;
+            tab = document.getElementById('kemaskini');
 
-                for (j = 0; j < tab.rows.length; j++) {
-                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            for (j = 0; j < tab.rows.length; j++) {
+            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+            }
+
+            tab_text = tab_text + "</table>";
+            var a = document.createElement('a');
+            var data_type = 'data:application/vnd.ms-excel';
+            a.href = data_type + ', ' + encodeURIComponent(tab_text);
+            a.download = filename + '.xls';
+            a.click();
                 }
+    </script>
 
-                tab_text = tab_text + "</table>";
-                var a = document.createElement('a');
-                var data_type = 'data:application/vnd.ms-excel';
-                a.href = data_type + ', ' + encodeURIComponent(tab_text);
-                a.download = filename + '.xls';
-                a.click();
-                    }
-        </script>
+    <script>
+        $('#downloadPDF').click(function () {
+            var link = document.createElement('kemaskini');
+link.href = url;
+link.download = 'file.pdf';
+link.dispatchEvent(new MouseEvent('click'));
+    });
+    </script>
 
+
+<script>
+    function myPrint(myfrm) {
+    var restorepage = $('body').html();
+    var printcontent = $('#' + myfrm).clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
+    }
+</script>
 
     <script>
 
@@ -657,7 +679,7 @@ $(document).ready(function () {
                         exportOptions: {
                             columns: [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
                         },
-                        
+
                         title: function(doc) {
                             return $('#title').text()
                         },
