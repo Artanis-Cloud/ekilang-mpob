@@ -71,27 +71,43 @@ class PortingBiodieselController extends Controller
     public function porting_stokakhir(Request $request)
     {
 
+
+
         $bulan = $request->bulan;
         $tahun = $request->tahun;
-        $cpo_sm = $request->cpo_sm;
-        $ppo_sm = $request->ppo_sm;
-        $cpko_sm = $request->cpko_sm;
-        $ppko_sm = $request->ppko_sm;
-        $cpo_sbh = $request->cpo_sbh;
-        $ppo_sbh = $request->ppo_sbh;
-        $cpko_sbh = $request->cpko_sbh;
-        $ppko_sbh = $request->ppko_sbh;
-        $cpo_srwk = $request->cpo_srwk;
-        $ppo_srwk = $request->ppo_srwk;
-        $cpko_srwk = $request->cpko_srwk;
-        $ppko_srwk = $request->ppko_srwk;
+        $cpo_msia1 = $request->cpo_msia;
+        $ppo_msia1 = $request->ppo_msia;
+        $cpko_msia1 = $request->cpko_msia;
+        $ppko_msia1 = $request->ppko_msia;
+        $cpo_sbh1 = $request->cpo_sbh;
+        $ppo_sbh1 = $request->ppo_sbh;
+        $cpko_sbh1 = $request->cpko_sbh;
+        $ppko_sbh1 = $request->ppko_sbh;
+        $cpo_srwk1 = $request->cpo_srwk;
+        $ppo_srwk1 = $request->ppo_srwk;
+        $cpko_srwk1 = $request->cpko_srwk;
+        $ppko_srwk1 = $request->ppko_srwk;
+
+
+        $cpo_msia = str_replace(',', '', $cpo_msia1);
+        $ppo_msia = str_replace(',', '', $ppo_msia1);
+        $cpko_msia = str_replace(',', '', $cpko_msia1);
+        $ppko_msia = str_replace(',', '', $ppko_msia1);
+        $cpo_sbh = str_replace(',', '', $cpo_sbh1);
+        $ppo_sbh = str_replace(',', '', $ppo_sbh1);
+        $cpko_sbh = str_replace(',', '', $cpko_sbh1);
+        $ppko_sbh = str_replace(',', '', $ppko_sbh1);
+        $cpo_srwk = str_replace(',', '', $cpo_srwk1);
+        $ppo_srwk = str_replace(',', '', $ppo_srwk1);
+        $cpko_srwk = str_replace(',', '', $cpko_srwk1);
+        $ppko_srwk = str_replace(',', '', $ppko_srwk1);
 
         $query = DB::select("SELECT * from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
         $qdel1 = DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir where bulan=$bulan and tahun = $tahun");
 
-        $qins = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_sm,ppo_sm,cpko_sm,ppko_sm,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
-        values ($tahun,$bulan,$cpo_sm,$ppo_sm,$cpko_sm,$ppko_sm,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
+        $qins = DB::connection('mysql4')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
+        values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
 
         $qdelsemuaproduk =  DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir_detail where bulan=$bulan and tahun = $tahun");
 
@@ -99,13 +115,13 @@ class PortingBiodieselController extends Controller
 
         $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
-        $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_sm,ppo_sm,cpko_sm,ppko_sm,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
-        values ('$tahun','$bulan',$cpo_sm,$ppo_sm,$cpko_sm,$ppko_sm,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
+        $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
+        values ('$tahun','$bulan',$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
 
         $qdel2 = DB::delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
-        $qinsss1 = DB::insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_sm,ppo_sm,cpko_sm,ppko_sm,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
-        values ('$tahun','$bulan',$cpo_sm,$ppo_sm,$cpko_sm,$ppko_sm,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
+        $qinsss1 = DB::insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
+        values ('$tahun','$bulan',$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
 
 
         $querycpo = DB::select("SELECT p.e_nl, p.e_np, n.nama_negeri as negeri, b.ebio_b5, b.ebio_b6, b.ebio_b7, b.ebio_b8, b.ebio_b9, b.ebio_b10, b.ebio_b11
@@ -274,10 +290,15 @@ class PortingBiodieselController extends Controller
 
         $bulan = $request->bulan;
         $tahun = $request->tahun;
-        $cpo_msia = $request->cpo_msia;
-        $ppo_msia = $request->ppo_msia;
-        $cpko_msia = $request->cpko_msia;
-        $ppko_msia = $request->ppko_msia;
+        $cpo_msia1 = $request->cpo_msia;
+        $ppo_msia1 = $request->ppo_msia;
+        $cpko_msia1 = $request->cpko_msia;
+        $ppko_msia1 = $request->ppko_msia;
+
+        $cpo_msia = str_replace(',', '', $cpo_msia1);
+        $ppo_msia = str_replace(',', '', $ppo_msia1);
+        $cpko_msia = str_replace(',', '', $cpko_msia1);
+        $ppko_msia = str_replace(',', '', $ppko_msia1);
 
         $query = DB::select("SELECT * from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
 
@@ -301,7 +322,7 @@ class PortingBiodieselController extends Controller
         values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
 
 
-       
+
         return redirect()->back()->with('success', 'Maklumat Minyak Sawit Diproses telah berjaya diport');
 
 
