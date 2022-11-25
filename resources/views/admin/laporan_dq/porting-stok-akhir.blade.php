@@ -63,7 +63,7 @@
                         <hr>
 
                         <div class="card-body">
-                            <form action="{{ route('porting.stokakhir') }}" method="post" class="sub-form">
+                            <form action="{{ route('porting.stokakhir') }}" method="get" class="sub-form">
                                 @csrf
                                 <div class="container center">
                                     {{-- @if ($errors->any())
