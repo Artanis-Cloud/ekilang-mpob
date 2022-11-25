@@ -547,7 +547,7 @@
                                             <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
                                         <div class="dropdown-divider"></div>
                                     @endif
-                                    @php
+                                    {{-- @php
                                         $users = \App\Models\User::where('username', auth()->user()->username)->get();
 
                                     @endphp
@@ -562,7 +562,7 @@
                                         <i class="ti-settings m-r-5 m-l-5"></i> Tukar Sektor </a>
                                     <div class="dropdown-divider"></div>
                                     @endif
-                                    @endif
+                                    @endif --}}
 
                                     <a class="dropdown-item" href="#" aria-expanded="false"
                                         onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
