@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -89,13 +90,23 @@ class LoginController extends Controller
     {
         if(!$request->multilogin){
             $users = User::where('username', auth()->user()->username)->get();
+
             if(count($users) > 1){
+
                     foreach ($users as $key => $cat) {
                         $category[$key] = $cat->category;
+                        // $password[$key] = $cat->password;
                     }
+
+                    // $check = Hash::check($password[0], $password[1]);
+                    // dd($check);
+
                     if ($category[0] != $category[1]) {
-                        $this->guard()->logout();
-                        return view('auth.login_multi', compact('users'));
+                        // if ($check == true) {
+                            $this->guard()->logout();
+                            return view('auth.login_multi', compact('users'));
+                        // }
+
                     }
 
 

@@ -85,10 +85,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12">
-                                <canvas class="ct-chart-line" id="myChart"
+                            {{-- <div class="col-lg-12 col-md-12"> --}}
+                                <canvas id="barChart1"
                                     style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas>
-                            </div>
+                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>
@@ -446,9 +446,8 @@
             return color;
         }
     </script>
-
     <script>
-        Chart.register(ChartDataLabels);
+        // Chart.register(ChartDataLabels);
 
         var Labels = new Array();
         var Count = new Array();
@@ -468,15 +467,15 @@
             // console.log(Labels);
 
         });
-        Labels.push('Kilang Buah');
-        Labels.push('Kilang Penapis');
-        Labels.push('Kilang Isirung');
-        Labels.push('Kilang Oleokimia');
-        Labels.push('Pusat Simpanan');
-        Labels.push('Kilang Biodiesel');
+        // Labels.push('Kilang Buah');
+        // Labels.push('Kilang Penapis');
+        // Labels.push('Kilang Isirung');
+        // Labels.push('Kilang Oleokimia');
+        // Labels.push('Pusat Simpanan');
+        // Labels.push('Kilang Biodiesel');
         // console.log(Labels);
-        const ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
+        const barChartCTX = document.getElementById('barChart1');
+        var barChart = new Chart(barChartCTX, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
@@ -484,11 +483,10 @@
                 labels: ['Kilang Buah', 'Kilang Penapis', 'Kilang Isirung', 'Kilang Oleokimia', 'Pusat Simpanan',
                     'Kilang Biodiesel'
                 ],
-                labels: Labels,
+                // labels: Labels,
                 datasets: [{
-                    // label: '# of Votes',
-                    // data: Count,
-                    data: [{{ $PL91_total }}, {{ $PL101_total }}, {{ $PL102_total }},
+                    data: [
+                        {{ $PL91_total }}, {{ $PL101_total }}, {{ $PL102_total }},
                         {{ $PL104_total }}, {{ $PL111_total }}, {{ $PLBIO_total }}
                     ],
                     backgroundColor: [
@@ -541,27 +539,26 @@
                     }
                 },
                 onClick: (e, activeEls) => {
-                    let datasetIndex = activeEls[0].datasetIndex;
+                    // let datasetIndex = activeEls[0].datasetIndex;
                     let dataIndex = activeEls[0].index;
-                    let datasetLabel = e.chart.data.datasets[datasetIndex].label;
-                    let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
-                    let label = e.chart.data.labels[dataIndex];
-                    // console.log(label);
-                    if (label == 'Kilang Buah') {
+                    // let datasetLabel = e.chart.data.datasets[datasetIndex].label;
+                    // let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+                    let labelKilang = e.chart.data.labels[dataIndex];
+                    // console.log(value);
+                    if (labelKilang == 'Kilang Buah') {
                         $('#PL91').modal('show');
-                    } else if (label == 'Kilang Penapis') {
+                    } else if (labelKilang == 'Kilang Penapis') {
                         $('#PL101').modal('show');
-                    } else if (label == 'Kilang Isirung') {
+                    } else if (labelKilang == 'Kilang Isirung') {
                         $('#PL102').modal('show');
-                    } else if (label == 'Kilang Oleokimia') {
+                    } else if (labelKilang == 'Kilang Oleokimia') {
                         $('#PL104').modal('show');
-                    } else if (label == 'Pusat Simpanan') {
+                    } else if (labelKilang == 'Pusat Simpanan') {
                         $('#PL111').modal('show');
-                    } else if (label == 'Kilang Biodiesel') {
+                    } else if (labelKilang == 'Kilang Biodiesel') {
                         $('#PLBIO').modal('show');
                     }
                 },
-                // now I want to retrieve the label/data using the index, how to?
             }
         });
     </script>
