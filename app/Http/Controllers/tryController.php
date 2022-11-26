@@ -160,14 +160,14 @@ class tryController extends Controller
 
         // $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
         // $password = Hash::make('12345678');
-        $bhga = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
-                        e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
-                        e.INS_KJ
-                        from mpb_insp3b e, codedb.commodity_l p
-                        where e.INS_KB = '2021' and
-                            e.INS_KC = '10' and
-                            e.INS_KD = p.comm_code_l");
-        dd($bhga);
+        $bhgb = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
+                        e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
+                        e.INS_TI
+                        from mpb_insp3c e, codedb.commodity_l p
+                        where e.INS_TB = '04' and
+                            e.INS_TC = '2022' and
+                            e.INS_TD = p.comm_code_l");
+        dd($bhgb);
 
 
 
