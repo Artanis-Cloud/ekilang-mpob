@@ -433,7 +433,7 @@ class Proses9Controller extends Controller
     }
 
     public function papar_penyata(Request $request) {
-        dd($request->all());
+        // dd($request->all());
         if ($request->sumber == 'pleid' && $request->sektor == 'PL91') {
             return $this->process_admin_pleid_buah_form($request->papar_ya, $request->tahun, $request->bulan);
         }
@@ -2145,15 +2145,12 @@ class Proses9Controller extends Controller
                     from mpb_insp3a e, licensedb.license p where e.INS_IA = '$e07_nl' AND  e.INS_IC = '$tahun' and e.INS_IB = '$bulan' and
                     e.INS_IA = p.F201A");
 
-                    $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, e.e07_bln, e.e07_thn, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.e07_nobatch,
+                    $query[$e07_nl] = DB::select("SELECT p.kodpgw, p.nosiri, p.e_nl, p.e_np, p.e_ap1, p.e_ap2,
                     p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
-                    FROM h07_init e, h_pelesen p
-                    WHERE p.e_nl = e.e07_nl
-                    AND e.e07_nl = '$e07_nl'
-                    AND e.e07_thn = '$tahun'
+                    FROM  h_pelesen p
+                    WHERE p.e_nl = '$e07_nl'
                     AND p.e_thn = '2022'
-                    AND p.e_bln = '10'
-                    AND e.e07_bln = '$bulan'");
+                    AND p.e_bln = '10'");
                     // dd($query);
 
                     // if ($query[$e07_nl]) {
