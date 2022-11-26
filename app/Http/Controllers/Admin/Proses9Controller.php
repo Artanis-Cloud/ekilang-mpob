@@ -2156,7 +2156,7 @@ class Proses9Controller extends Controller
                     AND e.e07_bln = '$bulan'");
                     // dd($query);
 
-                    if ($query[$e07_nl]) {
+                    // if ($query[$e07_nl]) {
                         $bhga[$e07_nl] = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
                         e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
                         e.INS_KJ
@@ -2204,9 +2204,9 @@ class Proses9Controller extends Controller
                         where e.INS_TA = '$e07_nl' and e.INS_TB = '$bulan' and e.INS_TC = '$tahun' and e.INS_TD = p.comm_code_l");
 
 
-                    } else {
-                        return redirect()->back()->with('error', "Maklumat Pelesen {$e07_nl} Tidak Wujud");
-                    }
+                    // } else {
+                    //     return redirect()->back()->with('error', "Maklumat Pelesen {$e07_nl} Tidak Wujud");
+                    // }
 
 
                 }
