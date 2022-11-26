@@ -164,8 +164,8 @@ class tryController extends Controller
                         e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
                         e.INS_KJ
                         from mpb_insp3b e, codedb.commodity_l p
-                        where e.INS_KB = '2022' and
-                            e.INS_KC = '04' and
+                        where e.INS_KB = '2021' and
+                            e.INS_KC = '10' and
                             e.INS_KD = p.comm_code_l");
         dd($bhga);
 
