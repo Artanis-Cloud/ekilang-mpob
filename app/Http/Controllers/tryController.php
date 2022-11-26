@@ -159,8 +159,16 @@ class tryController extends Controller
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
         // $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
-        $password = Hash::make('12345678');
-        dd($password);
+        // $password = Hash::make('12345678');
+        $bhga = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_KD, e.INS_KE,e.INS_KF,
+                        e.INS_KG, e.INS_KH, e.INS_KI, (e.INS_KE - e.INS_KJ) beza,
+                        e.INS_KJ
+                        from mpb_insp3b e, codedb.commodity_l p
+                        where e.INS_KA = '500472407000' and
+                            e.INS_KB = '2022' and
+                            e.INS_KC = '04' and
+                            e.INS_KD = p.comm_code_l");
+        dd($bhga);
 
 
 
