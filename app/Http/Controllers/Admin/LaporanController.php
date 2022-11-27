@@ -728,30 +728,7 @@ class LaporanController extends Controller
                 foreach ($no_batches as $no_batch) {
 
 
-                    if($request->kod_produk != null ){
-
-                        // $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_b4',$request->kod_produk)->get();
-
-                        $hbiob_s = HBioB::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_b4',$request->kod_produk)->get();
-                    }
-
-                    // elseif($request->e_negeri && $request->kumpproduk != null ){
-                    //     $produk = Produk::where('prodcat',$request->kumpproduk)->get();
-
-                    //     foreach( $produk as $data){
-
-                    //         $hbiob_s= DB::select("SELECT *
-                    //         from  h_bio_b_s h, produk p, h_bio_inits s, negeri n
-                    //         where h.ebio_nobatch = $no_batch->ebio_nobatch
-                    //         and p.prodcat = $data->prodcat
-                    //         and n.kod_negeri =$request->e_negeri
-                    //         and h.ebio_b4 = p.prodid;");
-
-
-
-                    //     }
-                    // }
-                    elseif($request->kumpproduk != null ){
+                    if($request->kumpproduk != null ){
                         $produk = Produk::where('prodcat',$request->kumpproduk)->get();
 
                         foreach( $produk as $data){
@@ -762,22 +739,30 @@ class LaporanController extends Controller
                             and p.prodcat = $data->prodcat
                             and h.ebio_b4 = p.prodid;");
 
-
-                        // $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
-                        // ->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->get();
-
-                        // dd($hbiob_s);
-
-
                         }
                     }
 
+                    elseif($request->kod_produk != null ){
+
+                        $hbiob_s= DB::select("SELECT *
+                        from  h_bio_b_s h, produk p, h_bio_inits s
+                        where h.ebio_nobatch = $no_batch->ebio_nobatch
+                        and p.prodid =  $request->kod_produk
+                        and h.ebio_b4 = $request->kod_produk;");
+
+                        // $hbiob_s = HBioB::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->where('ebio_b4',$request->kod_produk)->get();
+                    }
+
+
                     else
                     {
-                        // $hbiob_s= DB::table('h_bio_b_s')->where('ebio_nobatch', $no_batch->ebio_nobatch)
-                        // ->leftJoin('produk', 'h_bio_b_s.ebio_b4', '=', 'produk.prodid')->get();
 
-                        $hbiob_s = HBioB::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
+                        $hbiob_s = DB::select("SELECT *
+                        from h_bio_b_s h, produk p, h_bio_inits s
+                        where h.ebio_nobatch = $no_batch->ebio_nobatch
+                        ");
+
+                        // $hbiob_s = HBioB::with('produk')->where('ebio_nobatch', $no_batch->ebio_nobatch)->get();
                     }
 
                         // dd($hbiob_s);
@@ -795,15 +780,21 @@ class LaporanController extends Controller
                                 if($request->kumpproduk != null ){
                                     $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->proddesc ?? '';
 
-                                }else{
-                                $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->produk->proddesc ?? '';
+                                }
+
+                                // elseif([$request->kumpproduk != null]  && [$request->kod_produk != null]  ){
+                                //     $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->proddesc ?? '';
+                                // }
+
+                                else{
+                                    $proddesc[$list_result->ebio_nl][$hbiob->ebio_b4] = $hbiob->proddesc ?? '';
                                 }
                             }
                         }
                     }
                 }
             }
-            // dd($ebio_b5_bhg1);
+            // dd($proddesc);
                         // dd($ebio_b5_bhg1);
 
 
