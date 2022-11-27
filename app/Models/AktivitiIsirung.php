@@ -17,6 +17,8 @@ class AktivitiIsirung extends Model
      *
      */
     protected $table = 'aktiviti_isirong'; //aktiviti isirung
+    public $timestamps = false;
+
 
     protected $fillable = [
         'Activities',

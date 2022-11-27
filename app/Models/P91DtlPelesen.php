@@ -18,6 +18,7 @@ class P91DtlPelesen extends Model
      *
      */
     protected $table = 'p91_dtl_pelesen';
+    public $timestamps = false;
 
     protected $fillable = [
 

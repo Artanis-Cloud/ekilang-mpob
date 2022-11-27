@@ -18,6 +18,8 @@ class Ekilangsubmenu extends Model
      */
     protected $table = 'ekilangsubmenu'; //table submenu (akses by)
 
+    public $timestamps = false;
+
     protected $fillable = [
         'submenu_id',
         'menu_id',

@@ -17,6 +17,8 @@ class JenisProduk extends Model
      *
      */
     protected $table = 'jenis_produk';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'kod_produk',

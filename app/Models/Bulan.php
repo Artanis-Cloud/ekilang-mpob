@@ -17,6 +17,8 @@ class Bulan extends Model
      *
      */
     protected $table = 'bulan'; //bulan
+    public $timestamps = false;
+
 
     protected $fillable = [
         'bulan',

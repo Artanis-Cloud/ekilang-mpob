@@ -18,6 +18,7 @@ class Oerdaerah extends Model
      *
      */
     protected $table = 'oerdaerah'; //table stat admin, stat homepage
+    public $timestamps = false;
 
     protected $fillable = [
         'oerdaerah_id',

@@ -17,6 +17,7 @@ class P102ActivitiesMaincompany extends Model
      *
      */
     protected $table = 'p102_activities_maincompany';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

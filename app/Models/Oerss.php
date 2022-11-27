@@ -17,6 +17,7 @@ class Oerss extends Model
      *
      */
     protected $table = 'oerss';
+    public $timestamps = false;
 
     protected $fillable = [
         'oerss_id',

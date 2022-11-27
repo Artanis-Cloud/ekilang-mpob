@@ -17,6 +17,7 @@ class Oerpelesen extends Model
      *
      */
     protected $table = 'oerpelesen';
+    public $timestamps = false;
 
     protected $fillable = [
         'oerind_id',

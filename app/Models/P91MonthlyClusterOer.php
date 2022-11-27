@@ -17,6 +17,7 @@ class P91MonthlyClusterOer extends Model
      *
      */
     protected $table = 'p91_monthly_cluster_oer';
+    public $timestamps = false;
 
     protected $fillable = [
 

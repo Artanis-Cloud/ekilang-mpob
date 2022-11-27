@@ -17,6 +17,8 @@ class P101SumberPelesen extends Model
      *
      */
     protected $table = 'p101_sumber_pelesen';
+    public $timestamps = false;
+    
 
     protected $fillable = [
         'tahun',

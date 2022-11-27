@@ -17,6 +17,7 @@ class P91DtlDistrict extends Model
      *
      */
     protected $table = 'p91_dtl_district';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

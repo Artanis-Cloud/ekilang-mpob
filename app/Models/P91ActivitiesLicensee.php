@@ -17,6 +17,7 @@ class P91ActivitiesLicensee extends Model
      *
      */
     protected $table = 'p91_activities_licensee';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

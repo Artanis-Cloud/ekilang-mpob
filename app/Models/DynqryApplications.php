@@ -17,6 +17,8 @@ class DynqryApplications extends Model
      *
      */
     protected $table = 'dynqry_applications';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'name',

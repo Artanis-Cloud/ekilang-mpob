@@ -17,6 +17,7 @@ class P91DtlMonth extends Model
      *
      */
     protected $table = 'p91_dtl_month';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

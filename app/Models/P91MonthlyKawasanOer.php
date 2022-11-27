@@ -16,6 +16,7 @@ class P91MonthlyKawasanOer extends Model
      *
      */
     protected $table = 'p91_monthly_kawasan_oer';
+    public $timestamps = false;
 
     protected $fillable = [
     'tahun',

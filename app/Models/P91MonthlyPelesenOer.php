@@ -17,6 +17,7 @@ class P91MonthlyPelesenOer extends Model
      *
      */
     protected $table = 'p91_monthly_pelesen_oer';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

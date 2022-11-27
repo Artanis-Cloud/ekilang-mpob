@@ -18,6 +18,8 @@ class Negara extends Model
      *
      */
     protected $table = 'negara';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'kodnegara',

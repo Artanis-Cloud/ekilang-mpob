@@ -17,6 +17,7 @@ class P102ActivitiesState extends Model
      *
      */
     protected $table = 'p102_activities_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

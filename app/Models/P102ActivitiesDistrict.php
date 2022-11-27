@@ -17,6 +17,7 @@ class P102ActivitiesDistrict extends Model
      *
      */
     protected $table = 'p102_activities_district';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

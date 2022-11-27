@@ -17,6 +17,7 @@ class P101MonthlyDistrictUtilrate extends Model
      *
      */
     protected $table = 'p101_monthly_district_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',
@@ -29,6 +30,6 @@ class P101MonthlyDistrictUtilrate extends Model
         'rate_cpocpko',
         'rate_cpo',
         'rate_cpko',
-       
+
     ];
 }

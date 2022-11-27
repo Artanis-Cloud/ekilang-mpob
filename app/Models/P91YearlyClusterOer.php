@@ -17,6 +17,7 @@ class P91YearlyClusterOer extends Model
      *
      */
     protected $table = 'p91_yearly_cluster_oer';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

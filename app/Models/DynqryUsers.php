@@ -17,6 +17,7 @@ class DynqryUsers extends Model
      *
      */
     protected $table = 'dynqry_users';
+    public $timestamps = false;
 
     protected $fillable = [
         'login',

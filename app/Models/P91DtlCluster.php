@@ -17,6 +17,7 @@ class P91DtlCluster extends Model
      *
      */
     protected $table = 'p91_dtl_cluster';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

@@ -17,6 +17,7 @@ class P101Master extends Model
      *
      */
     protected $table = 'p101_master';
+    public $timestamps = false;
 
     protected $fillable = [
         'noid',

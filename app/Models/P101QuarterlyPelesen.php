@@ -17,6 +17,7 @@ class P101QuarterlyPelesen extends Model
      *
      */
     protected $table = 'p101_quarterly_pelesen';
+    public $timestamps = false;
 
     protected $fillable = [
         'p101_qtrid',

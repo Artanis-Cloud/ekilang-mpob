@@ -17,6 +17,7 @@ class DynqryUserApplications extends Model
      *
      */
     protected $table = 'dynqry_user_applications';
+    public $timestamps = false;
 
     protected $fillable = [
         'fk_user_login',

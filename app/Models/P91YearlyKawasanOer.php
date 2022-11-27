@@ -16,6 +16,7 @@ class P91YearlyKawasanOer extends Model
      *
      */
     protected $table = 'p91_yearly_kawasan_oer';
+    public $timestamps = false;
 
     protected $fillable = [
 

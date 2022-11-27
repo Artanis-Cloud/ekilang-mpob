@@ -17,6 +17,8 @@ class P102 extends Model
      *
      */
     protected $table = 'p102';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'noid',

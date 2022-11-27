@@ -17,6 +17,7 @@ class P91MonthlyStateOer extends Model
      *
      */
     protected $table = 'p91_monthly_state_oer';
+    public $timestamps = false;
 
     protected $fillable = [
 

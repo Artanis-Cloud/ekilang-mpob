@@ -17,7 +17,9 @@ class H91b extends Model
      * @var string
      *
      */
-    protected $table = 'h91b'; //penyata arkib (history) - Kilang buah
+    protected $table = 'h91b'; //penyata arkib (history)
+    public $timestamps = false;
+    
 
     protected $fillable = [
         'e91_b1',

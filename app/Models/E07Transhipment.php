@@ -17,6 +17,8 @@ class E07Transhipment extends Model
      *
      */
     protected $table = 'e07_transhipment'; //penyata bulanan terkini - pusat simpanan
+    public $timestamps = false;
+
 
     protected $fillable = [
         'e07t_id',

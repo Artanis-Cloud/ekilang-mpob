@@ -17,6 +17,8 @@ class KodSl extends Model
      *
      */
     protected $table = 'kod_sl';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'catid',

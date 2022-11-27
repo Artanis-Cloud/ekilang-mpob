@@ -17,6 +17,7 @@ class Oernegeri extends Model
      *
      */
     protected $table = 'oernegeri';
+    public $timestamps = false;
 
     protected $fillable = [
 

@@ -17,6 +17,7 @@ class P101QuarterlyDistrictUtilrate extends Model
      *
      */
     protected $table = 'p101_quarterly_district_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

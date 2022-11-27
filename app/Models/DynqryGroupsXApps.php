@@ -17,6 +17,8 @@ class DynqryGroupsXApps extends Model
      *
      */
     protected $table = 'dynqry_groups_x_apps';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'cod_group',

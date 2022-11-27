@@ -17,6 +17,9 @@ class KategoriPelesen extends Model
      *
      */
     protected $table = 'kategori_pelesen';
+    public $timestamps = false;
+
+
 
     protected $fillable = [
         'kat_pelesen',

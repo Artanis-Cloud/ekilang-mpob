@@ -17,6 +17,7 @@ class P102ActivitiesRegion extends Model
      *
      */
     protected $table = 'p102_activities_region';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',
