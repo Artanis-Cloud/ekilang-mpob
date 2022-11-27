@@ -287,7 +287,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl1">
+                                    <table class="table table-bordered " id="tbl1">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -336,7 +336,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -350,7 +358,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl2">
+                                    <table class="table table-bordered " id="tbl2">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -399,7 +407,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -412,7 +428,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl3">
+                                    <table class="table table-bordered " id="tbl3">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -461,7 +477,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -477,7 +501,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl4">
+                                    <table class="table table-bordered " id="tbl4">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -526,7 +550,16 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
+
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -540,7 +573,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl5">
+                                    <table class="table table-bordered " id="tbl5">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -589,7 +622,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -603,7 +644,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl6">
+                                    <table class="table table-bordered " id="tbl6">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -652,7 +693,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -669,7 +718,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl7">
+                                    <table class="table table-bordered " id="tbl7">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -719,7 +768,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -733,7 +790,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl8">
+                                    <table class="table table-bordered " id="tbl8">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -783,7 +840,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -797,7 +862,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl9">
+                                    <table class="table table-bordered " id="tbl9">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -847,7 +912,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -864,7 +937,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl10">
+                                    <table class="table table-bordered " id="tbl10">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -914,7 +987,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -928,7 +1009,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sabah</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl11">
+                                    <table class="table table-bordered " id="tbl11">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -978,7 +1059,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>
@@ -992,7 +1081,7 @@
                             <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Sarawak</b></div>
                             <div class="row">
                                 <div class="col-12 table-responsive m-t-20">
-                                    <table class="table table-bordered table-responsive-lg" id="tbl12">
+                                    <table class="table table-bordered " id="tbl12">
                                         <thead>
                                             <tr style="background-color: #d3d3d34d">
                                                 <th scope="col" style="vertical-align: middle">No. Lesen</th>
@@ -1042,7 +1131,15 @@
                                                 @endif
                                             @endif
                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                <th colspan="9">Jumlah</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Jumlah</th>
                                                 <td>{{ number_format($total_dipremis ?? 0, 2) }}</td>
                                                 <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
                                             </tr>

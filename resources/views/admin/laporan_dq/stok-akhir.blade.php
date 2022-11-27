@@ -245,10 +245,10 @@
                                                         <div class="modal fade" id="edit{{ $key }}" tabindex="-1"
                                                             role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                             aria-hidden="true">
-                                                            <div id="myfrm">
+                                                            <div>
                                                                 <div class="modal-dialog modal-dialog-scrollable"
                                                                     role="document" >
-                                                                    <div class="modal-content">
+                                                                    <div class="modal-content" id="myfrm">
                                                                         <div class="modal-header">
                                                                             <h4 class="modal-title"
                                                                                 id="exampleModalScrollableTitle">
@@ -266,7 +266,7 @@
                                                                                 @csrf
                                                                                 <div class="modal-body">
                                                                                     <div class=" col-3 mb-2" style="background-color:lightgrey; text-align:center; float:right"><b>BDST01</b></div>
-                                                                                    <br>
+                                                                                    <br class="noPrint">
                                                                                     <label class="required">Tahun</label>
                                                                                     <div class="form-group">
                                                                                         <input type="text" name='tahun'
@@ -274,18 +274,18 @@
                                                                                             id="cpo_sm"
                                                                                             value="{{ old('tahun') ?? $data->tahun }}"
                                                                                             readonly>
-                                                                                        {{-- <fieldset class="form-group">
-                                                                                <select class="form-control" id="tahun" name="tahun1" required
-                                                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                                                oninput="setCustomValidity('')">
-                                                                                    <option selected hidden disabled value="">Sila Pilih
-                                                                                        Tahun</option>
-                                                                                    @for ($i = 2011; $i <= date('Y'); $i++)
-                                                                                        <option value="{{ $i }}">{{ $i }}</option>
-                                                                                    @endfor
+                                                                                                    {{-- <fieldset class="form-group">
+                                                                                            <select class="form-control" id="tahun" name="tahun1" required
+                                                                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                                                            oninput="setCustomValidity('')">
+                                                                                                <option selected hidden disabled value="">Sila Pilih
+                                                                                                    Tahun</option>
+                                                                                                @for ($i = 2011; $i <= date('Y'); $i++)
+                                                                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                                                                @endfor
 
-                                                                                </select>
-                                                                            </fieldset> --}}
+                                                                                            </select>
+                                                                                        </fieldset> --}}
 
                                                                                     </div>
                                                                                     <label class="required">Bulan </label>
@@ -338,26 +338,26 @@
                                                                                         </select>
                                                                                         </fieldset>
 
-                                                                                        {{-- <fieldset class="form-group">
-                                                                                <select class="form-control" id="bulan" name="bulan1" required
-                                                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                                                oninput="setCustomValidity('')">
-                                                                                    <option selected hidden disabled value="">Sila Pilih
-                                                                                        Bulan</option>
-                                                                                    <option value="01">Januari</option>
-                                                                                    <option value="02">Februari</option>
-                                                                                    <option value="03">Mac</option>
-                                                                                    <option value="04">April</option>
-                                                                                    <option value="05">Mei</option>
-                                                                                    <option value="06">Jun</option>
-                                                                                    <option value="07">Julai</option>
-                                                                                    <option value="08">Ogos</option>
-                                                                                    <option value="09">September</option>
-                                                                                    <option value="10">Oktober</option>
-                                                                                    <option value="11">November</option>
-                                                                                    <option value="12">Disember</option>
-                                                                                </select>
-                                                                            </fieldset> --}}
+                                                                                                {{-- <fieldset class="form-group">
+                                                                                        <select class="form-control" id="bulan" name="bulan1" required
+                                                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                                                        oninput="setCustomValidity('')">
+                                                                                            <option selected hidden disabled value="">Sila Pilih
+                                                                                                Bulan</option>
+                                                                                            <option value="01">Januari</option>
+                                                                                            <option value="02">Februari</option>
+                                                                                            <option value="03">Mac</option>
+                                                                                            <option value="04">April</option>
+                                                                                            <option value="05">Mei</option>
+                                                                                            <option value="06">Jun</option>
+                                                                                            <option value="07">Julai</option>
+                                                                                            <option value="08">Ogos</option>
+                                                                                            <option value="09">September</option>
+                                                                                            <option value="10">Oktober</option>
+                                                                                            <option value="11">November</option>
+                                                                                            <option value="12">Disember</option>
+                                                                                        </select>
+                                                                                        </fieldset> --}}
 
                                                                                     </div>
 
@@ -369,7 +369,7 @@
                                                                                     style="background-color:lightgrey">
                                                                                     <b>SEMENANJUNG MALAYSIA</b>
                                                                                 </div>
-                                                                                <br>
+                                                                                <br class="noPrint">
                                                                                 <div class="row">
                                                                                     <div class="col-md-6">
                                                                                         <label>CPO: </label>
@@ -425,7 +425,7 @@
                                                                                     style="background-color:lightgrey">
                                                                                     <b>SABAH</b>
                                                                                 </div>
-                                                                                <br>
+                                                                                <br class="noPrint">
                                                                                 <div class="row">
                                                                                     <div class="col-md-6">
                                                                                         <label>CPO: </label>
@@ -481,7 +481,7 @@
                                                                                     style="background-color:lightgrey">
                                                                                     <b>SARAWAK</b>
                                                                                 </div>
-                                                                                <br>
+                                                                                <br class="noPrint">
                                                                                 <div class="row">
                                                                                     <div class="col-md-6">
                                                                                         <label>CPO: </label>
@@ -535,32 +535,33 @@
 
                                                                                 </div>
 
+                                                                                <div class="modal-footer noPrint ">
+                                                                                    <div class="container-fluid">
+                                                                                        {{-- <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" hidden
+                                                                                            style="background-color:white; color: #f90a0a; " >
+                                                                                            <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                                                        </button> --}}
+                                                                                        <button type="button" class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
+                                                                                            style="background-color: white; color: #0a7569; ">
+                                                                                            <i class="fa fa-file-excel" style="color: #0a7569"></i> PDF
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <button type="button"
+                                                                                        class="btn btn-light-secondary"
+                                                                                        data-dismiss="modal">
+                                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                                    </button>
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-primary ml-1">
+                                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                        <span
+                                                                                            class="d-none d-sm-block">Kemaskini</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </form>
                                                                         </div>
-                                                                        <div class="modal-footer">
-                                                                            <div class="noPrint container-fluid">
-                                                                                {{-- <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" hidden
-                                                                                    style="background-color:white; color: #f90a0a; " >
-                                                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                                                </button> --}}
-                                                                                <button type="button" class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
-                                                                                    style="background-color: white; color: #0a7569; ">
-                                                                                    <i class="fa fa-file-excel" style="color: #0a7569"></i> PDF
-                                                                                </button>
-                                                                            </div>
-                                                                            <button type="button"
-                                                                                class="btn btn-light-secondary"
-                                                                                data-dismiss="modal">
-                                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Batal</span>
-                                                                            </button>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary ml-1">
-                                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                <span
-                                                                                    class="d-none d-sm-block">Kemaskini</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        </form>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -631,11 +632,11 @@ link.dispatchEvent(new MouseEvent('click'));
 
     <script>
         function myPrint(myfrm) {
-        var restorepage = $('body').html();
-        var printcontent = $('#' + myfrm).clone();
-        $('body').empty().html(printcontent);
-        window.print();
-        $('body').html(restorepage);
+            var printContents = document.getElementById(myfrm).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
         }
 
         // function myPrint(myfrm)  {
@@ -696,15 +697,15 @@ link.dispatchEvent(new MouseEvent('click'));
                                 },
 
                                 customize: function(xlsx){
-                                // see built in styles here: https://datatables.net/reference/button/excelHtml5
-                                // take a look at "buttons.html5.js", search for "xl/styles.xml"
-                                //styleSheet.childNodes[0].childNodes[0] ==> number formats  <numFmts count="6"> </numFmts>
-                                //styleSheet.childNodes[0].childNodes[1] ==> fonts           <fonts count="5" x14ac:knownFonts="1"> </fonts>
-                                //styleSheet.childNodes[0].childNodes[2] ==> fills           <fills count="6"> </fills>
-                                //styleSheet.childNodes[0].childNodes[3] ==> borders         <borders count="2"> </borders>
-                                //styleSheet.childNodes[0].childNodes[4] ==> cell style xfs  <cellStyleXfs count="1"> </cellStyleXfs>
-                                //styleSheet.childNodes[0].childNodes[5] ==> cell xfs        <cellXfs count="67"> </cellXfs>
-                                //on the last line we have the 67 currently built in styles (0 - 66), see link above
+                                    // see built in styles here: https://datatables.net/reference/button/excelHtml5
+                                    // take a look at "buttons.html5.js", search for "xl/styles.xml"
+                                    //styleSheet.childNodes[0].childNodes[0] ==> number formats  <numFmts count="6"> </numFmts>
+                                    //styleSheet.childNodes[0].childNodes[1] ==> fonts           <fonts count="5" x14ac:knownFonts="1"> </fonts>
+                                    //styleSheet.childNodes[0].childNodes[2] ==> fills           <fills count="6"> </fills>
+                                    //styleSheet.childNodes[0].childNodes[3] ==> borders         <borders count="2"> </borders>
+                                    //styleSheet.childNodes[0].childNodes[4] ==> cell style xfs  <cellStyleXfs count="1"> </cellStyleXfs>
+                                    //styleSheet.childNodes[0].childNodes[5] ==> cell xfs        <cellXfs count="67"> </cellXfs>
+                                    //on the last line we have the 67 currently built in styles (0 - 66), see link above
 
                                             var sSh = xlsx.xl['styles.xml'];
                                             var lastXfIndex = $('cellXfs xf', sSh).length - 1;
@@ -727,7 +728,7 @@ link.dispatchEvent(new MouseEvent('click'));
                                             $('row c[r^="D"]', sheet).attr( 's', fourDecPlaces );
                                             $('row c[r^="E"]', sheet).attr( 's', fourDecPlaces );
                                             $('row c[r^="F"]', sheet).attr( 's', fourDecPlaces );
-                                //                $('row c[r^="G"]', sheet).attr( 's', '60' );  //% 1 dec. place
+
                                             $('row c[r^="G"]', sheet).attr( 's', fourDecPlaces );  //% 4 decimal places, as added above
                                             $('row c[r^="H"]', sheet).attr( 's', fourDecPlaces );
                                             $('row c[r^="I"]', sheet).attr( 's', fourDecPlaces );
@@ -736,10 +737,10 @@ link.dispatchEvent(new MouseEvent('click'));
                                             $('row c[r^="L"]', sheet).attr( 's', fourDecPlaces );
                                             $('row c[r^="M"]', sheet).attr( 's', fourDecPlaces );
                                             $('row c[r^="N"]', sheet).attr( 's', fourDecPlaces );
-                                //                $('row c', sheet).attr( 's', '25' ); //for all rows
+
                                             $('row:eq(0) c', sheet).attr( 's', greyBoldCentered );  //grey background bold and centered, as added above
                                             $('row:eq(1) c', sheet).attr( 's', greyBoldCentered );  //grey background bold
-                                        },
+                                },
 
                                 filename: 'Hebahan 10hb - Stok Akhir',
 
