@@ -241,7 +241,9 @@
                                                             $total_besar += $total;
                                                             @endphp --}}
                                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                                <th colspan="3">Jumlah</th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th>Jumlah</th>
                                                                 <td>{{ number_format($total ?? 0,2) }}</td>
                                                             </tr>
                                                         {{-- @endif
@@ -286,7 +288,9 @@
                                                             $total_besar += $total;
                                                             @endphp --}}
                                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                                <th colspan="3">Jumlah</th>
+                                                                <th></th>
+                                                                <th></th>
+                                                                <th>Jumlah</th>
                                                                 <td>{{ number_format($total ?? 0,2) }}</td>
                                                             </tr>
                                                         {{-- @endif
@@ -328,7 +332,9 @@
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                                    <th colspan="3">Jumlah</th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th>Jumlah</th>
                                                                     <td>{{ number_format($total ?? 0,2) }}</td>
                                                                 </tr>
                                                             {{-- @endif
@@ -371,7 +377,9 @@
                                                                 @endforeach
 
                                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                                                    <th colspan="3">Jumlah</th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                    <th>Jumlah</th>
                                                                     <td>{{ number_format($total ?? 0,2) }}</td>
                                                                 </tr>
                                                             {{-- @endif
