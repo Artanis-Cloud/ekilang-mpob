@@ -18,6 +18,7 @@ class Oermsia extends Model
      *
      */
     protected $table = 'oermsia';
+    public $timestamps = false;
 
     protected $fillable = [
         'oermsia_id',

@@ -17,6 +17,8 @@ class Daerah extends Model
      *
      */
     protected $table = 'daerah';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'kod_negeri',

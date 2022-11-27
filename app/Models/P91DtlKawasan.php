@@ -18,6 +18,7 @@ class P91DtlKawasan extends Model
      *
      */
     protected $table = 'p91_dtl_kawasan';
+    public $timestamps = false;
 
     protected $fillable = [
 

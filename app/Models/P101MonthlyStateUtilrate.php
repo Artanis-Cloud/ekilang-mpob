@@ -18,6 +18,7 @@ class P101MonthlyStateUtilrate extends Model
      *
      */
     protected $table = 'p101_monthly_state_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

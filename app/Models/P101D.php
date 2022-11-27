@@ -17,6 +17,7 @@ class P101D extends Model
      *
      */
     protected $table = 'p101_d';
+    public $timestamps = false;
 
     protected $fillable = [
         'id_p101d',

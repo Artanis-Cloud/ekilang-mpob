@@ -17,6 +17,7 @@ class P101SumberState extends Model
      *
      */
     protected $table = 'p101_sumber_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

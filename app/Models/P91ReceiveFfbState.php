@@ -16,6 +16,7 @@ class P91ReceiveFfbState extends Model
      *
      */
     protected $table = 'p91_receive_ffb_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

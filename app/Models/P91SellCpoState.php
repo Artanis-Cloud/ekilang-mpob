@@ -19,6 +19,7 @@ class P91SellCpoState extends Model
      *
      */
     protected $table = 'p91_sell_cpo_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

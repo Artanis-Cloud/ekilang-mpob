@@ -17,6 +17,7 @@ class P101QuarterlyGroupUtilrate extends Model
      *
      */
     protected $table = 'p101_quarterly_group_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

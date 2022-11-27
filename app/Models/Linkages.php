@@ -17,6 +17,8 @@ class Linkages extends Model
      *
      */
     protected $table = 'linkages';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'web_add',

@@ -18,6 +18,7 @@ class Oersemsia extends Model
      *
      */
     protected $table = 'oersemsia';
+    public $timestamps = false;
 
     protected $fillable = [
 

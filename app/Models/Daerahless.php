@@ -17,6 +17,8 @@ class Daerahless extends Model
      *
      */
     protected $table = 'daerahless';
+    public $timestamps = false;
+    
 
     protected $fillable = [
         'negeri',

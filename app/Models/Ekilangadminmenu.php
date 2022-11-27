@@ -17,6 +17,8 @@ class Ekilangadminmenu extends Model
      *
      */
     protected $table = 'ekilangadminmenu'; //table menu (akses by admin)
+    public $timestamps = false;
+
 
     protected $fillable = [
         'admenu_id',

@@ -18,6 +18,8 @@ class H07Transhipment extends Model
      *
      */
     protected $table = 'h07_transhipment';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'e07t_id',

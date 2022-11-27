@@ -18,6 +18,7 @@ class P101QuarterlySyktindukUtilrate extends Model
      *
      */
     protected $table = 'p101_quarterly_syktinduk_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

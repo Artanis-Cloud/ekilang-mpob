@@ -17,6 +17,8 @@ class Ng extends Model
      *
      */
     protected $table = 'ng';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'kodnegara',

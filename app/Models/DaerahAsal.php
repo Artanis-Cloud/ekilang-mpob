@@ -17,6 +17,8 @@ class DaerahAsal extends Model
      *
      */
     protected $table = 'daerah_asal';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'kod_negeri',

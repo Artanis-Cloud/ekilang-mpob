@@ -18,6 +18,7 @@ class H101E extends Model
      *
      */
     protected $table = 'h101_e'; //penyata arkib (history) - kilang penapis
+    public $timestamps = false;
 
     protected $fillable = [
         'e101_e1',

@@ -17,6 +17,8 @@ class EmelContent extends Model
      *
      */
     protected $table = 'emel_content'; //content emel
+    public $timestamps = false;
+
 
     protected $fillable = [
         'Id',

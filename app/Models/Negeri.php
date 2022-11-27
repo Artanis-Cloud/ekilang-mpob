@@ -17,6 +17,8 @@ class Negeri extends Model
      *
      */
     protected $table = 'negeri';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'kod_negeri',

@@ -17,6 +17,7 @@ class P91YearlyStateOer extends Model
      *
      */
     protected $table = 'p91_yearly_state_oer';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

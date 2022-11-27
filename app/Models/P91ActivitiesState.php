@@ -17,6 +17,7 @@ class P91ActivitiesState extends Model
      *
      */
     protected $table = 'p91_activities_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

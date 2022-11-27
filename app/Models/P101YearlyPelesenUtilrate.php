@@ -18,6 +18,7 @@ class P101YearlyPelesenUtilrate extends Model
      *
      */
     protected $table = 'p101_yearly_pelesen_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

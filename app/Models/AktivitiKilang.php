@@ -17,6 +17,8 @@ class AktivitiKilang extends Model
      *
      */
     protected $table = 'aktiviti_kilang'; //aktiviti kilang
+    public $timestamps = false;
+
 
     protected $fillable = [
         'Activities',

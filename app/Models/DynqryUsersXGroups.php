@@ -17,6 +17,7 @@ class DynqryUsersXGroups extends Model
      *
      */
     protected $table = 'dynqry_users_x_groups';
+    public $timestamps = false;
 
     protected $fillable = [
         'login',

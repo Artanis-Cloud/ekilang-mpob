@@ -18,6 +18,7 @@ class P101YearlyGroupUtilrate extends Model
      *
      */
     protected $table = 'p101_yearly_group_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

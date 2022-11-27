@@ -17,6 +17,7 @@ class P101QuarterlyState extends Model
      *
      */
     protected $table = 'p101_quarterly_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'p101_qtrid',

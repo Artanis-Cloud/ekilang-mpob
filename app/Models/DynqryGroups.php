@@ -17,6 +17,8 @@ class DynqryGroups extends Model
      *
      */
     protected $table = 'dynqry_groups';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'code',

@@ -17,6 +17,8 @@ class KilangTidakRespons extends Model
      *
      */
     protected $table = 'kilang_tidak_respons';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'No_Lesen',

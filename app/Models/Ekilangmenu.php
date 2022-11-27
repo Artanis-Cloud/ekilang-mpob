@@ -17,6 +17,8 @@ class Ekilangmenu extends Model
      *
      */
     protected $table = 'ekilangmenu'; //table menu (akses by pelesen)
+    public $timestamps = false;
+
 
     protected $fillable = [
         'menu_id',

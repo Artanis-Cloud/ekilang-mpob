@@ -17,6 +17,7 @@ class P91DtlState extends Model
      *
      */
     protected $table = 'p91_dtl_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

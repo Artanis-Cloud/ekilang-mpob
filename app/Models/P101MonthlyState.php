@@ -17,6 +17,7 @@ class P101MonthlyState extends Model
      *
      */
     protected $table = 'p101_monthly_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'id_mth',

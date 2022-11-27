@@ -17,6 +17,7 @@ class P91YearlyDistrictOer extends Model
      *
      */
     protected $table = 'p91_yearly_district_oer';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

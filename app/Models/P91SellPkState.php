@@ -16,7 +16,8 @@ class P91SellPkState extends Model
      * @var string
      *
      */
-    protected $table = 'aktiviti_isirong';
+    protected $table = 'p91_sell_pk_state';
+    public $timestamps = false;
 
     protected $fillable = [
 
