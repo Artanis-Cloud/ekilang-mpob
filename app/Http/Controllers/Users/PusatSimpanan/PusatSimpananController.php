@@ -95,7 +95,7 @@ class PusatSimpananController extends Controller
             'e_ap1' => ['required', 'string'],
             // 'e_ap2' => ['required', 'string'],
             // 'e_ap3' => ['required', 'string'],
-            'e_as1' => ['required', 'string'],
+            // 'e_as1' => ['required', 'string'],
             // 'e_as2' => ['required', 'string'],
             // 'e_as3' => ['required', 'string'],
             'e_notel' => ['required', 'string'],

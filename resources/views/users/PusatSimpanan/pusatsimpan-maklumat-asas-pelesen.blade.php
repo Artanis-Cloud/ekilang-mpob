@@ -58,7 +58,7 @@
                     onsubmit="return check()" novalidate>
                     @csrf
 
-                            
+
                     <div class="container center mt-5">
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
@@ -1670,7 +1670,7 @@
                         e_as3 = $('#e_as3').val(),
 
                         // Billing address is always sent, no matter the checkbox state
-                        billing(e_ap1, e_ap2, e_ap3);
+                        // billing(e_ap1, e_ap2, e_ap3);
 
                     // Shipping address depends on checkbox state
                     if ($("#el").is(':checked') {
@@ -1736,6 +1736,7 @@
                     var e_ap3 = document.getElementById("e_ap3"),
                         e_as3 = document.getElementById("e_as3");
                     e_as3.value = e_ap3.value.toUpperCase();
+                    // console.log(checked);
 
 
                 }
@@ -2040,25 +2041,7 @@
                     return evt.which;
                 }
             </script>
-            <script>
-                function invokeFunc17() {
-                    addEventListener('keydown', function(evt) {
-                        var whichKey = checkKey(evt);
-                        if (whichKey == 13) {
-                            console.log('successful');
-                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
-                            document.getElementById('kap_proses').focus();
-                            document.getElementById('kap_proses').select();
-                        }
 
-                    });
-                }
-
-                function checkKey(evt) {
-                    ////console.log(evt.which);
-                    return evt.which;
-                }
-            </script>
             <script>
                 function invokeFunc18() {
                     addEventListener('keydown', function(evt) {
