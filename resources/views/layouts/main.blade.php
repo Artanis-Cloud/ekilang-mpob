@@ -105,15 +105,21 @@
             border: 1px solid #5d6161 !important;
         }
 
+        .table-bordered td.block {
+            background: #C0C0C0 !important;
+
+        }
+        .table-bordered td.headerColor {
+            background: #d3d3d370 !important;
+
+        }
+
         .table-bordered thead th,
         .table-bordered thead td {
             border-bottom-width: 2px;
         }
 
-        /* .redd{
-            background-color: #095950 !important;
-            color-adjust: exact;
-        } */
+
 
 
     }
