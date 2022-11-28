@@ -62,7 +62,7 @@
                         <hr>
 
                         <div class="card-body">
-                            <form action="{{ route('porting.minyaksawit') }}" method="post" class="sub-form">
+                            <form action="{{ route('porting.minyaksawit') }}" method="get" class="sub-form">
                                 @csrf
                                 {{ dd($minyaksawits) }}
 
