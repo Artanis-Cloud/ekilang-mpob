@@ -66,6 +66,7 @@
                             <form action="{{ route('porting.stokakhir') }}" method="get" class="sub-form">
                                 @csrf
                                 @foreach ($stokakhirs as $stokakhir)
+                                {{ dd($stokakhir) }}
 
                                 <div class="container center">
                                     {{-- @if ($errors->any())
