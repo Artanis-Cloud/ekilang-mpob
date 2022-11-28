@@ -41,14 +41,15 @@ class PortingBiodieselController extends Controller
     public function admin_port_stok_akhir_process($id)
     {
         // $stokakhir = HebahanStokAkhir::find($id);
-        $stokakhirs = DB::select("SELECT tahun from hebahan_stok_akhir where id = $id");
+        $stokakhirs = DB::select("SELECT * from hebahan_stok_akhir where id = $id");
 
         // for
         // $tahun = $stokakhir['tahun'];
-        foreach ($stokakhirs as $stk) {
-            $tahun = $stk->tahun;
-        }
-        // dd($tahun);
+        // foreach ($stokakhirs as $stk) {
+        //     $tahun = $stk->tahun;
+        //     $bulan = $stk->bulan;
+        // }
+        // dd($stokakhirs[0]->tahun);
         // dd($stokakhir->tahun);
 
         $breadcrumbs    = [
@@ -72,7 +73,7 @@ class PortingBiodieselController extends Controller
             'returnArr',
             'layout',
             'stokakhirs',
-            'tahun',
+            // 'tahun',
 
 
         ));

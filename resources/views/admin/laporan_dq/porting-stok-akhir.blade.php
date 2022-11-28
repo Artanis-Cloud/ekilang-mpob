@@ -69,7 +69,7 @@
                                     {{-- @if ($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
                                         @endif --}}
-                                    {{-- {{ dd($stokakhir->tahun) }} --}}
+                                    {{-- {{ dd($stokakhirs[0]->tahun) }} --}}
                                     <div class="row ml-auto" style="margin-top:-1%">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
@@ -78,8 +78,8 @@
                                             <select class="form-control" name="tahun" id="tahun1" required
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
-                                                <option selected value="{{ $tahun }}">{{ $tahun }}</option>
-                                                {{-- <option selected hidden disabled value="{{ $stokakhir->tahun }}">{{ $stokakhir->tahun }}
+                                                <option selected value="{{ $stokakhirs[0]->tahun }}">{{ $stokakhirs[0]->tahun }}</option>
+                                                {{-- <option selected hidden disabled value="{{ $stokakhirs[0]->tahun }}">{{ $stokakhirs[0]->tahun }}
                                                 </option> --}}
 
                                                 {{-- @for ($i = 2011; $i <= date('Y'); $i++)
@@ -98,72 +98,72 @@
                                         <div class="col-md-4">
 
                                             <select class="form-control" name="bulan" id="bulan1" >
-                                                @if ($stokakhir->bulan == '01')
-                                                    <option {{ $stokakhir->bulan == '01' ? 'selected' : '' }}
+                                                @if ($stokakhirs[0]->bulan == '01')
+                                                    <option {{ $stokakhirs[0]->bulan == '01' ? 'selected' : '' }}
                                                         value="01">
                                                         JANUARI</option>
-                                                @elseif ($stokakhir->bulan == '02')
-                                                    <option {{ $stokakhir->bulan == '02' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '02')
+                                                    <option {{ $stokakhirs[0]->bulan == '02' ? 'selected' : '' }}
                                                         value="02">
                                                         FEBRUARI</option>
 
                                                     {{-- <option selected hidden disabled value="02">FEBRUARI</option> --}}
-                                                @elseif ($stokakhir->bulan == '03')
-                                                    <option {{ $stokakhir->bulan == '03' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '03')
+                                                    <option {{ $stokakhirs[0]->bulan == '03' ? 'selected' : '' }}
                                                         value="03">MAC
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="03">MAC</option> --}}
-                                                @elseif ($stokakhir->bulan == '04')
-                                                    <option {{ $stokakhir->bulan == '04' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '04')
+                                                    <option {{ $stokakhirs[0]->bulan == '04' ? 'selected' : '' }}
                                                         value="01">APRIL
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="04">APRIL</option> --}}
-                                                @elseif ($stokakhir->bulan == '05')
-                                                    <option {{ $stokakhir->bulan == '05' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '05')
+                                                    <option {{ $stokakhirs[0]->bulan == '05' ? 'selected' : '' }}
                                                         value="05">MEI
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="05">MEI</option> --}}
-                                                @elseif ($stokakhir->bulan == '06')
-                                                    <option {{ $stokakhir->bulan == '06' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '06')
+                                                    <option {{ $stokakhirs[0]->bulan == '06' ? 'selected' : '' }}
                                                         value="06">JUN
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="06">JUN</option> --}}
-                                                @elseif ($stokakhir->bulan == '07')
-                                                    <option {{ $stokakhir->bulan == '07' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '07')
+                                                    <option {{ $stokakhirs[0]->bulan == '07' ? 'selected' : '' }}
                                                         value="07">JULAI
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="07">JULAI</option> --}}
-                                                @elseif ($stokakhir->bulan == '08')
-                                                    <option {{ $stokakhir->bulan == '08' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '08')
+                                                    <option {{ $stokakhirs[0]->bulan == '08' ? 'selected' : '' }}
                                                         value="08">OGOS
                                                     </option>
 
                                                     {{-- <option selected hidden disabled value="08">OGOS</option> --}}
-                                                @elseif ($stokakhir->bulan == '09')
-                                                    <option {{ $stokakhir->bulan == '09' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '09')
+                                                    <option {{ $stokakhirs[0]->bulan == '09' ? 'selected' : '' }}
                                                         value="09">
                                                         SEPTEMBER</option>
 
                                                     {{-- <option selected hidden disabled value="09">SEPTEMBER</option> --}}
-                                                @elseif ($stokakhir->bulan == '10')
-                                                    <option {{ $stokakhir->bulan == '10' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '10')
+                                                    <option {{ $stokakhirs[0]->bulan == '10' ? 'selected' : '' }}
                                                         value="10">
                                                         OKTOBER</option>
 
                                                     {{-- <option selected hidden disabled value="10">OKTOBER</option> --}}
-                                                @elseif ($stokakhir->bulan == '11')
-                                                    <option {{ $stokakhir->bulan == '11' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '11')
+                                                    <option {{ $stokakhirs[0]->bulan == '11' ? 'selected' : '' }}
                                                         value="11">
                                                         NOVEMBER</option>
 
                                                     {{-- <option selected hidden disabled value="11">NOVEMBER</option> --}}
-                                                @elseif ($stokakhir->bulan == '12')
-                                                    <option {{ $stokakhir->bulan == '12' ? 'selected' : '' }}
+                                                @elseif ($stokakhirs[0]->bulan == '12')
+                                                    <option {{ $stokakhirs[0]->bulan == '12' ? 'selected' : '' }}
                                                         value="12">
                                                         DISEMBER</option>
 
@@ -189,7 +189,7 @@
                                         <div class="col-md-5 ml-auto">
                                             <label class="control-label">CPO</label>
                                             <input type="text" id="cpo_sm" name="cpo_sm"
-                                                value="{{ number_format($stokakhir->cpo_sm ?? 0, 2) }}"
+                                                value="{{ number_format($stokakhirs[0]->cpo_sm ?? 0, 2) }}"
                                                 class="form-control form-control-danger" placeholder="0.00">
                                         </div>
                                         <!--/span-->
@@ -197,7 +197,7 @@
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPO</label>
                                                 <input type="text" id="ppo_sm" name="ppo_sm"
-                                                    value="{{ number_format($stokakhir->ppo_sm ?? 0, 2) }}"
+                                                    value="{{ number_format($stokakhirs[0]->ppo_sm ?? 0, 2) }}"
                                                     class="form-control form-control-danger" placeholder="0.00"
                                                     value="">
                                             </div>
@@ -211,7 +211,7 @@
                                                 <label class="control-label">CPKO</label>
                                                 <input type="text" id="cpko_sm" name="cpko_sm" class="form-control"
                                                     placeholder="0.00"
-                                                    value="{{ number_format($stokakhir->cpko_sm ?? 0, 2) }}">
+                                                    value="{{ number_format($stokakhirs[0]->cpko_sm ?? 0, 2) }}">
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -219,7 +219,7 @@
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPKO</label>
                                                 <input type="text" id="ppko_sm" name="ppko_sm"
-                                                    value="{{ number_format($stokakhir->ppko_sm ?? 0, 2) }}"
+                                                    value="{{ number_format($stokakhirs[0]->ppko_sm ?? 0, 2) }}"
                                                     class="form-control form-control-danger" placeholder="0.00">
                                             </div>
                                         </div>
@@ -231,7 +231,7 @@
                                         <div class="col-md-5 ml-auto">
                                             <label class="control-label">CPO</label>
                                             <input type="text" id="cpo_sbh" name="cpo_sbh"
-                                                value="{{ number_format($stokakhir->cpo_sbh ?? 0, 2) }}"
+                                                value="{{ number_format($stokakhirs[0]->cpo_sbh ?? 0, 2) }}"
                                                 class="form-control form-control-danger" placeholder="0.00">
                                         </div>
                                         <!--/span-->
@@ -239,7 +239,7 @@
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPO</label>
                                                 <input type="text" id="ppo_sbh" name="ppo_sbh"
-                                                    value="{{ number_format($stokakhir->ppo_sbh ?? 0, 2) }}"
+                                                    value="{{ number_format($stokakhirs[0]->ppo_sbh ?? 0, 2) }}"
                                                     class="form-control form-control-danger" placeholder="0.00"
                                                     value="">
                                             </div>
@@ -253,7 +253,7 @@
                                                 <label class="control-label">CPKO</label>
                                                 <input type="text" id="cpko_sbh" name="cpko_sbh"
                                                     class="form-control" placeholder="0.00"
-                                                    value="{{ number_format($stokakhir->cpko_sbh ?? 0, 2) }}">
+                                                    value="{{ number_format($stokakhirs[0]->cpko_sbh ?? 0, 2) }}">
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -261,7 +261,7 @@
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPKO</label>
                                                 <input type="text" id="ppko_sbh" name="ppko_sbh"
-                                                    value="{{ number_format($stokakhir->ppko_sbh ?? 0, 2) }}"
+                                                    value="{{ number_format($stokakhirs[0]->ppko_sbh ?? 0, 2) }}"
                                                     class="form-control form-control-danger" placeholder="0.00">
                                             </div>
                                         </div>
@@ -273,7 +273,7 @@
                                         <div class="col-md-5 ml-auto">
                                             <label class="control-label">CPO</label>
                                             <input type="text" id="cpo_srwk"
-                                                value="{{ number_format($stokakhir->cpo_srwk ?? 0, 2) }}"
+                                                value="{{ number_format($stokakhirs[0]->cpo_srwk ?? 0, 2) }}"
                                                 class="form-control form-control-danger" placeholder="0.00"
                                                 name="cpo_srwk">
                                         </div>
@@ -282,7 +282,7 @@
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPO</label>
                                                 <input type="text" id="ppo_srwk"
-                                                    value="{{ number_format($stokakhir->ppo_srwk ?? 0, 2) }}"
+                                                    value="{{ number_format($stokakhirs[0]->ppo_srwk ?? 0, 2) }}"
                                                     class="form-control form-control-danger" placeholder="0.00"
                                                     value="" name="ppo_srwk">
                                             </div>
@@ -296,7 +296,7 @@
                                                 <label class="control-label">CPKO</label>
                                                 <input type="text" id="cpko_srwk" class="form-control"
                                                     placeholder="0.00" name="cpko_srwk"
-                                                    value="{{ number_format($stokakhir->cpko_srwk ?? 0, 2) }}">
+                                                    value="{{ number_format($stokakhirs[0]->cpko_srwk ?? 0, 2) }}">
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -304,7 +304,7 @@
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPKO</label>
                                                 <input type="text" id="ppko_srwk" name="ppko_srwk"
-                                                    value="{{ number_format($stokakhir->ppko_srwk ?? 0, 2) }}"
+                                                    value="{{ number_format($stokakhirs[0]->ppko_srwk ?? 0, 2) }}"
                                                     class="form-control form-control-danger" placeholder="0.00">
                                             </div>
                                         </div>
