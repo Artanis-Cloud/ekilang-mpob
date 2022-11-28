@@ -274,27 +274,27 @@
                                 class="table table-bordered">
                             <tbody>
                                     <tr style="background-color: #d3d3d370">
-                                        <td width="220" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="220" style="text-align: center; vertical-align:middle">
                                             <b>
                                                     <font size="2.7">Butiran</font>
                                                 </b>
                                         </td>
-                                        <td width="120" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="120" style="text-align: center; vertical-align:middle">
                                             <b>
                                                     <font size="2.7">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
                                                 </b>
                                         </td>
-                                        <td width="135" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="135" style="text-align: center; vertical-align:middle">
                                             <b>
                                                     <font size="2.7">Minyak Sawit Mentah <br>(CPO) Kod 01</font>
                                                 </b>
                                         </td>
-                                        <td width="110" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="110" style="text-align: center; vertical-align:middle">
                                             <b>
                                                     <font size="2.7">Isirung <br>(PK) Kod 51</font>
                                                 </b>
                                         </td>
-                                        <td width="120" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="120" style="text-align: center; vertical-align:middle">
                                             <b>
                                                     <font size="2.7">Minyak Keladak <br>(Sludge Oil) Kod 49</font>
                                                 </b>
@@ -359,15 +359,15 @@
                                                 <font size="2.7">{{ number_format($penyata->e91_ac1 ?? 0,2) }}</font>
                                             </p>
                                         </td>
-                                        <td width="135" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">&nbsp;</td>
-                                        <td width="110" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">&nbsp;</td>
-                                        <td width="120" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">&nbsp;</td>
+                                        <td class="block" width="135" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">&nbsp;</td>
+                                        <td class="block" width="110" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">&nbsp;</td>
+                                        <td class="block" width="120" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td width="220">
                                             <font size="2.7">D. Pengeluaran</font>
                                         </td>
-                                        <td width="120" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">
+                                        <td class="block" width="120" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">
                                             <p align="left">&nbsp;</p>
                                         </td>
                                         <td width="135">
@@ -415,22 +415,22 @@
                                         <td width="220">
                                             <font size="2.7">F. Eksport&nbsp;Terus Dari Premis</font>
                                         </td>
-                                        <td width="120" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">
+                                        <td class="block" width="120" bgcolor="#C0C0C0" style="text-align: right; vertical-align:middle">
                                             <p align="left">&nbsp;</p>
                                         </td>
-                                        <td width="135" bgcolor="#C0C0C0">
+                                        <td class="block" width="135" bgcolor="#C0C0C0">
                                             <p style="text-align: right; vertical-align:middle">
                                                 <font size="2.7"></font>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </p>
                                         </td>
-                                        <td width="110" bgcolor="#C0C0C0">
+                                        <td class="block" width="110" bgcolor="#C0C0C0">
                                             <p style="text-align: right; vertical-align:middle">
                                                 <font size="2.7" </font>
                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </p>
                                         </td>
-                                        <td width="120" bgcolor="#C0C0C0">
+                                        <td class="block" width="120" bgcolor="#C0C0C0">
                                             <p style="text-align: right; vertical-align:middle">
                                                 <font size="2.7"></font>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -524,18 +524,18 @@
 
                                 <tbody style="border: 1px solid black;">
                                     <tr style="border: 1px solid black;background-color: #d3d3d370">
-                                        <td style="text-align: center; vertical-align:middle" width="209"><b>
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="209"><b>
                                                 <font size="2.7">Sebab-Sebab OER Meningkat</font>
                                             </b></td>
-                                        <td style="text-align: center; vertical-align:middle" width="92">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="92">
                                             <font size="2.7"><b>Tanda (<font face="Times New Roman">&#10004;
                                                     </font>)</b>
                                             </font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle" width="201"><b>
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="201"><b>
                                                 <font size="2.7">Sebab-Sebab OER Menurun</font>
                                             </b></td>
-                                        <td style="text-align: center; vertical-align:middle" width="93">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="93">
                                             <font size="2.7"><b>Tanda (<font face="Times New Roman">&#10004;
                                                     </font>)</b>
                                             </font>
@@ -747,10 +747,10 @@
                                 class="table table-bordered ">
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
-                                        <td style="text-align: center; vertical-align:middle" width="168">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="168">
                                             <font size="2.7"><b>Sumber Bekalan</b></font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle" width="158">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="158">
                                             <font size="2.7"><b>Kuantiti (Tan Metrik)</b></font>
                                         </td>
                                     </tr>
@@ -828,10 +828,10 @@
                                 class="table table-bordered">
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
-                                        <td style="text-align: center; vertical-align:middle" width="168">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="168">
                                             <font size="2.7"><b>Pembeli/Penerima</b></font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle" width="158">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="158">
                                             <font size="2.7"><b>Kuantiti (Tan Metrik)</b></font>
                                         </td>
                                     </tr>
@@ -926,10 +926,10 @@
                                 class="table table-bordered">
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
-                                        <td style="text-align: center; vertical-align:middle" width="168">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="168">
                                             <font size="2.7"><b>Pembeli/Penerima</b></font>
                                         </td>
-                                        <td style="text-align: center; vertical-align:middle" width="158">
+                                        <td class="headerColor" style="text-align: center; vertical-align:middle" width="158">
                                             <font size="2.7"><b>Kuantiti (Tan Metrik)</b></font>
                                         </td>
                                     </tr>
@@ -977,28 +977,28 @@
                                 class="table table-bordered">
                                 <tbody>
                                     <tr style="background-color: #d3d3d370">
-                                        <td width="14%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="14%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Produk</b></font>
                                         </td>
-                                        <td width="7%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="7%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Kod Produk</b></font>
                                         </td>
-                                        <td width="15%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Nombor Borang Kastam 2</b></font>
                                         </td>
-                                        <td width="12%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="12%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Tarikh Eksport</b></font>
                                         </td>
-                                        <td width="10%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Kuantiti<br> (Tan Metrik)</b></font>
                                         </td>
-                                        <td width="11%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="11%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Nilai (RM)</b></font>
                                         </td>
-                                        <td width="6%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="6%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Kod Negara</b></font>
                                         </td>
-                                        <td width="15%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Destinasi Negara</b></font>
                                         </td>
                                     </tr>
