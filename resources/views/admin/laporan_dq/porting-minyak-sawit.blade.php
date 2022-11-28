@@ -65,6 +65,7 @@
                             <form action="{{ route('porting.minyaksawit') }}" method="post" class="sub-form">
                                 @csrf
                                 @foreach ($minyaksawits as $minyaksawit)
+                                {{ dd($minyaksawit) }}
 
                                 <div class="container center">
 
