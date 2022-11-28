@@ -282,7 +282,9 @@ class PortingBiodieselController extends Controller
 
     public function admin_port_minyak_sawit_process($id)
     {
-        $minyaksawit = HebahanProses::find($id);
+        // $minyaksawit = HebahanProses::find($id);
+        $minyaksawits = DB::select("SELECT * from hebahan_proses where id = $id");
+
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -304,7 +306,7 @@ class PortingBiodieselController extends Controller
         return view('admin.laporan_dq.porting-minyak-sawit', compact(
             'returnArr',
             'layout',
-            'minyaksawit',
+            'minyaksawits',
 
 
         ));
@@ -337,10 +339,10 @@ class PortingBiodieselController extends Controller
 
         // $qdel2 =  DB::connection('mysql4')->delete("DELETE from penyata_biodiesel where bulan=$bulan and tahun = $tahun");
 
-        $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
+        // $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
 
-        $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
-        values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
+        // $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
+        // values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
 
         $qdel2 = DB::delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
 
@@ -349,7 +351,7 @@ class PortingBiodieselController extends Controller
 
 
 
-        return redirect()->back()->with('success', 'Maklumat Minyak Sawit Diproses telah berjaya diport');
+        return redirect()->route('admin.minyak.sawit.diproses')->with('success', 'Maklumat Minyak Sawit Diproses telah berjaya diport');
 
 
     }

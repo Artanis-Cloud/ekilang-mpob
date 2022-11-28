@@ -64,6 +64,8 @@
                         <div class="card-body">
                             <form action="{{ route('porting.minyaksawit') }}" method="post" class="sub-form">
                                 @csrf
+                                @foreach ($minyaksawits as $minyaksawit)
+
                                 <div class="container center">
 
                                     <div class="row ml-auto" style="margin-top:-1%">
@@ -72,8 +74,7 @@
                                         </label>
                                         <div class="col-md-4">
                                             <select class="form-control" name="tahun" id="tahun1">
-                                                <option {{ $minyaksawit->tahun == $minyaksawit->tahun ? 'selected' : '' }}
-                                                    value="{{ $minyaksawit->tahun }}">{{ $minyaksawit->tahun }}</option>
+                                                <option value="{{ $minyaksawit->tahun }}">{{ $minyaksawit->tahun }}</option>
                                                 {{-- @for ($i = 2011; $i <= date('Y'); $i++)
                                                     <option value="{{ $i }}">{{ $i }}</option>
                                                 @endfor --}}
@@ -210,7 +211,7 @@
                                         <!--/span-->
                                     </div>
                                     <br>
-
+@endforeach
 
 
 
