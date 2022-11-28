@@ -71,7 +71,7 @@ class PortingBiodieselController extends Controller
         return view('admin.laporan_dq.porting-stok-akhir', compact(
             'returnArr',
             'layout',
-            'stokakhir',
+            'stokakhirs',
             'tahun',
 
 
