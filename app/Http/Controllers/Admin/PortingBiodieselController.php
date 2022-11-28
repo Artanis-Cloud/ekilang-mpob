@@ -41,6 +41,8 @@ class PortingBiodieselController extends Controller
     public function admin_port_stok_akhir_process($id)
     {
         $stokakhir = HebahanStokAkhir::find($id);
+        $tahun = $stokakhir->tahun;
+        // dd($stokakhir->tahun);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -63,6 +65,7 @@ class PortingBiodieselController extends Controller
             'returnArr',
             'layout',
             'stokakhir',
+            'tahun',
 
 
         ));

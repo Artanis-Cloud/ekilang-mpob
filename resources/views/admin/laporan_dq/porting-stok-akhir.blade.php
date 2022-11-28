@@ -78,7 +78,7 @@
                                             <select class="form-control" name="tahun" id="tahun1" required
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
-                                                <option selected value="{{ $stokakhir->tahun }}">{{ $stokakhir->tahun }}</option>
+                                                <option selected value="{{ $tahun }}">{{ $tahun }}</option>
                                                 {{-- <option selected hidden disabled value="{{ $stokakhir->tahun }}">{{ $stokakhir->tahun }}
                                                 </option> --}}
 
