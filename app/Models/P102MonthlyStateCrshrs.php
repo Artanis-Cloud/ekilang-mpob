@@ -17,6 +17,7 @@ class P102MonthlyStateCrshrs extends Model
      *
      */
     protected $table = 'p102_monthly_state_crshrs';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

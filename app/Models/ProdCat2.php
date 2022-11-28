@@ -10,6 +10,7 @@ class ProdCat2 extends Model
     use HasFactory;
 
     protected $table = 'prod_cat2';
+    public $timestamps = false;
 
     protected $fillable = [
         'catid',

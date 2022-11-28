@@ -160,14 +160,26 @@ class tryController extends Controller
 
         // $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
         // $password = Hash::make('12345678');
-        $bhgb = DB::connection('mysql4')->select("SELECT p.comm_desc, e.INS_TD, e.INS_TE, e.INS_TF,
-                        e.INS_TG, e.INS_TH, (e.INS_TE - e.INS_TI) beza,
-                        e.INS_TI
-                        from mpb_insp3c e, codedb.commodity_l p
-                        where e.INS_TB = '04' and
-                            e.INS_TC = '2022' and
-                            e.INS_TD = p.comm_code_l");
-        dd($bhgb);
+        $selects = DB::connection('mysql2')->select("SELECT e101_e6 FROM h101_e where e101_e1='78697'");
+        // dd($selects[0]);
+
+        $e6 = strtotime($selects[0]->e101_e6);
+        // dd($e6);
+
+        // foreach ($selects as $key => $select) {
+
+        //     if ($select->e101_e6 == '0000-00-00' || $select->e101_e6 == '2020-00-03' || $select->e101_e6 == '2020-00-01'  || $select->e101_e6 == '2020-00-00'|| $select->e101_e6 == '2020-00-08'|| $select->e101_e6 == '2000-04-00'|| $select->e101_e6 == '2020-00-12') {
+        //         $data = NULL;
+        //     } elseif($select->e101_e6 == '2020-00-07' || $select->e101_e6 == '2000-00-22' || $select->e101_e6 == '2000-07-00' || $select->e101_e6 == '2020-00-06' || $select->e101_e6 == '2000-08-00' || $select->e101_e6 == '2020-00-09' || $select->e101_e6 == '2009-00-05') {
+        //         $data = NULL;
+        //     } elseif( date('d', strtotime($select->e101_e6)) == '00' || date('m', strtotime($select->e101_e6)) == '00' || date('Y', strtotime($select->e101_e6)) == '0000'){
+        //         $data = NULL;
+        //     }
+        //      else {
+        //         $data = $select->e101_e6;
+        //     }
+        // }
+        dd(date('m', $e6));
 
 
 

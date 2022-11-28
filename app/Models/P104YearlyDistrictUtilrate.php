@@ -9,6 +9,7 @@ class P104YearlyDistrictUtilrate extends Model
 {
     use HasFactory;
     protected $table = 'p104_yearly_district_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

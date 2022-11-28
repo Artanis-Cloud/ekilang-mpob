@@ -9,6 +9,7 @@ class Pbcatedt extends Model
 {
     use HasFactory;
     protected $table = 'pbcatedt';
+    public $timestamps = false;
 
     protected $fillable = [
         'pbe_name',

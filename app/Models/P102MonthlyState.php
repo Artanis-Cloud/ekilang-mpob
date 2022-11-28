@@ -17,6 +17,7 @@ class P102MonthlyState extends Model
      *
      */
     protected $table = 'p102_monthly_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

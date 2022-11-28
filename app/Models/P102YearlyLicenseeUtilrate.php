@@ -17,6 +17,7 @@ class P102YearlyLicenseeUtilrate extends Model
      *
      */
     protected $table = 'p102_yearly_licensee_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

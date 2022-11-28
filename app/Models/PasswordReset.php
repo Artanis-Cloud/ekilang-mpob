@@ -11,6 +11,8 @@ class PasswordReset extends Model
     use HasFactory;
     use Notifiable;
 
+    protected $table = 'p102_2';
+
     public $timestamps = false;
 
     protected $fillable = [

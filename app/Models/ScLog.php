@@ -10,6 +10,7 @@ class ScLog extends Model
     use HasFactory;
 
     protected $table = 'sc_log';
+    public $timestamps = false;
 
     protected $fillable = [
         'id',

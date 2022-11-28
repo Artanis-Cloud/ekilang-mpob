@@ -17,6 +17,7 @@ class P102MonthlyLicensee extends Model
      *
      */
     protected $table = 'p102_monthly_licensee';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

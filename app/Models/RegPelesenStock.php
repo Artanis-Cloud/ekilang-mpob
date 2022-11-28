@@ -10,6 +10,7 @@ class RegPelesenStock extends Model
     use HasFactory;
 
     protected $table = 'reg_pelesen_stock';
+    public $timestamps = false;
 
     protected $fillable = [
         'e_id',

@@ -17,11 +17,12 @@ class P102MonthlyStateUtilrate extends Model
      *
      */
     protected $table = 'p102_monthly_state_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',
         'bulan',
-        'kawasan',
+        'negeri',
         'pk_proc',
         'cpko_prod',
         'pkc_prod',

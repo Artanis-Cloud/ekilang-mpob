@@ -10,6 +10,7 @@ class Region extends Model
     use HasFactory;
 
     protected $table = 'region';
+    public $timestamps = false;
 
     protected $fillable = [
         'kod_region',

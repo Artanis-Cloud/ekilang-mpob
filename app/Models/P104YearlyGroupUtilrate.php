@@ -9,6 +9,7 @@ class P104YearlyGroupUtilrate extends Model
 {
     use HasFactory;
     protected $table = 'p104_yearly_group_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

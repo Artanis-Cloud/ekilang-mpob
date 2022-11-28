@@ -9,6 +9,7 @@ class P104MonthlyState extends Model
 {
     use HasFactory;
     protected $table = 'p104_monthly_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'id_mth',

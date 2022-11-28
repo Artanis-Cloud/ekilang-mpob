@@ -28,7 +28,7 @@ class P91SellCpoState extends Model
         'bilpelesen',
         'sstock',
         'rec',
-        'proc',
+        'prod',
         'sell',
         'export',
         'estock',

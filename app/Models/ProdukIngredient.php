@@ -9,6 +9,7 @@ class ProdukIngredient extends Model
 {
     use HasFactory;
     protected $table = 'produk_ingredient';
+    public $timestamps = false;
 
     protected $fillable = [
         'ProductIngredient',

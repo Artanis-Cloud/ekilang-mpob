@@ -10,6 +10,7 @@ class UserBatch extends Model
     use HasFactory;
 
     protected $table = 'user_batch';
+    public $timestamps = false;
 
     protected $fillable = [
         'userid',

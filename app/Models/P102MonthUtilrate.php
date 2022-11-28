@@ -16,7 +16,8 @@ class P102MonthUtilrate extends Model
      * @var string
      *
      */
-    protected $table = 'p102_monthly_utilrate';
+    protected $table = 'p102_month_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

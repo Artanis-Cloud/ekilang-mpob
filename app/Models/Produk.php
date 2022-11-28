@@ -9,6 +9,7 @@ class Produk extends Model
 {
     use HasFactory;
     protected $table = 'produk';
+    public $timestamps = false;
 
     protected $fillable = [
         'prodid',
@@ -19,5 +20,7 @@ class Produk extends Model
         'prodtariff2',
         'prodtariff3',
         'sub_group',
+        'sub_group_rspo',
+        'sub_group_mspo',
     ];
 }

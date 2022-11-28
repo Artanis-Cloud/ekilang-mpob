@@ -17,6 +17,7 @@ class P102MonthlyDistrictUtilrate extends Model
      *
      */
     protected $table = 'p102_monthly_district_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

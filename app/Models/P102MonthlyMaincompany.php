@@ -17,6 +17,7 @@ class P102MonthlyMaincompany extends Model
      *
      */
     protected $table = 'p102_monthly_maincompany';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

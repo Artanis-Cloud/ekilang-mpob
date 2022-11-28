@@ -1677,6 +1677,7 @@
                                 </ul>
                             </li>
 
+                            @if (json_decode(auth()->user()->sub_cat))
 
                             @foreach (json_decode(auth()->user()->sub_cat) as $cat)
                             {{-- @if (auth()->user()->role == 'Supervisor' || auth()->user()->role == 'Admin' || auth()->user()->role == 'Manager') --}}
@@ -1916,6 +1917,49 @@
                         @break
                         @endif
                         @endforeach
+                        @else
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                href="javascript:void(0)" aria-expanded="false">
+                                <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
+                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib <br> (Biodiesel)</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
+                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> e-Kilang ke PLEID </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
+                                        <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
+                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Stat Admin/Homepage </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
+                                        <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Dynamic Query </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif
+
 
 
                         <li class="sidebar-item">

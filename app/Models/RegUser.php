@@ -16,6 +16,6 @@ class RegUser extends Model
         'e_userid',
         'e_kat',
         'e_pwd',
-        'e_privn',
+        'e_priv',
     ];
 }
