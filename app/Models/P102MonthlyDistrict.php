@@ -17,6 +17,7 @@ class P102MonthlyDistrict extends Model
      *
      */
     protected $table = 'p102_monthly_district';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

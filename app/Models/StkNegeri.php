@@ -10,6 +10,7 @@ class StkNegeri extends Model
     use HasFactory;
 
     protected $table = 'stknegeri';
+    public $timestamps = false;
 
     protected $fillable = [
         'stknegeri_id',

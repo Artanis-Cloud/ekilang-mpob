@@ -17,6 +17,7 @@ class P102QuarterlyMaincompany extends Model
      *
      */
     protected $table = 'p102_quarterly_maincompany';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

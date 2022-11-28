@@ -33,7 +33,7 @@ class P101Master extends Model
         'refutilrate',
         'statusaktif',
         'refutilratecpo',
-        'refutilrateckpo',
+        'refutilratecpko',
         'ppo_proc',
         'ppko_proc',
         'refutilrateppo',

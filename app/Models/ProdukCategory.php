@@ -9,6 +9,7 @@ class ProdukCategory extends Model
 {
     use HasFactory;
     protected $table = 'produk_category';
+    public $timestamps = false;
 
     protected $fillable = [
         'prodcat',

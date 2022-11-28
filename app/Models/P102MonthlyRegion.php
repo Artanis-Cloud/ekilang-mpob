@@ -17,6 +17,7 @@ class P102MonthlyRegion extends Model
      *
      */
     protected $table = 'p102_monthly_region';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

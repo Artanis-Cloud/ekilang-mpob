@@ -17,6 +17,7 @@ class P102YearlyStatePurchase extends Model
      *
      */
     protected $table = 'p102_yearly_state_purchase';
+    public $timestamps = false;
 
     protected $fillable = [
         'nolesen',

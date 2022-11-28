@@ -9,6 +9,7 @@ class P104Master extends Model
 {
     use HasFactory;
     protected $table = 'p104_master';
+    public $timestamps = false;
 
     protected $fillable = [
         'noid',

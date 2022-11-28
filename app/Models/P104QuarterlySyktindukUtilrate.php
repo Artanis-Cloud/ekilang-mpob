@@ -9,6 +9,7 @@ class P104QuarterlySyktindukUtilrate extends Model
 {
     use HasFactory;
     protected $table = 'p104_quarterly_syktinduk_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

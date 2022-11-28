@@ -9,6 +9,7 @@ class Pl91Individual extends Model
 {
     use HasFactory;
     protected $table = 'pl91_individual';
+    public $timestamps = false;
 
     protected $fillable = [
         'ind_id',

@@ -52,7 +52,7 @@ class P102 extends Model
         'pk_stkakhir_premis',
         'cpko_stkakhir_premis',
         'pkc_stkakhir_premis',
-        'pk_stkahir_ps',
+        'pk_stkakhir_ps',
         'cpko_stkakhir_ps',
         'pkc_stkakhir_ps',
         'cpko_oer',

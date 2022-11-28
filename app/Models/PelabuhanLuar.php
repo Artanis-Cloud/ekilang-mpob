@@ -9,6 +9,7 @@ class PelabuhanLuar extends Model
 {
     use HasFactory;
     protected $table = 'pelabuhan_luar';
+    public $timestamps = false;
 
     protected $fillable = [
         'kod_pelabuhan',

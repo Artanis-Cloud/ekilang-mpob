@@ -9,6 +9,7 @@ class P104QuarterlyPelesenUtilrate extends Model
 {
     use HasFactory;
     protected $table = 'p104_quarterly_pelesen_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

@@ -9,6 +9,7 @@ class Pbcatcol extends Model
 {
     use HasFactory;
     protected $table = 'pbcatcol';
+    public $timestamps = false;
 
     protected $fillable = [
         'pbc_tnam',

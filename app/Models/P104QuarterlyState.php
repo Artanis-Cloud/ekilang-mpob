@@ -9,6 +9,7 @@ class P104QuarterlyState extends Model
 {
     use HasFactory;
     protected $table = 'p104_quarterly_state';
+    public $timestamps = false;
 
     protected $fillable = [
         'p101_qtrid',

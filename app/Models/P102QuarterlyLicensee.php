@@ -17,6 +17,7 @@ class P102QuarterlyLicensee extends Model
      *
      */
     protected $table = 'p102_quarterly_licensee';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

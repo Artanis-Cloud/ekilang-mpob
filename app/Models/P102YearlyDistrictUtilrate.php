@@ -17,6 +17,7 @@ class P102YearlyDistrictUtilrate extends Model
      *
      */
     protected $table = 'p102_yearly_district_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

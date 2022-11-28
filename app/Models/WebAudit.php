@@ -10,6 +10,7 @@ class WebAudit extends Model
     use HasFactory;
 
     protected $table = 'web_audit';
+    public $timestamps = false;
 
     protected $fillable = [
         'year_access',

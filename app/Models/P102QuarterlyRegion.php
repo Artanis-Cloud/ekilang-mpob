@@ -18,6 +18,7 @@ class P102QuarterlyRegion extends Model
      *
      */
     protected $table = 'p102_quarterly_region';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

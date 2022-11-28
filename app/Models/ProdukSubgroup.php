@@ -9,6 +9,7 @@ class ProdukSubgroup extends Model
 {
     use HasFactory;
     protected $table = 'produk_subgroup';
+    public $timestamps = false;
 
     protected $fillable = [
         'kod_subgroup',

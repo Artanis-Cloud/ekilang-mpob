@@ -9,6 +9,7 @@ class Pr extends Model
 {
     use HasFactory;
     protected $table = 'pr';
+    public $timestamps = false;
 
     protected $fillable = [
         'prodid',

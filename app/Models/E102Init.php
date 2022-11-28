@@ -40,7 +40,6 @@ class E102Init extends Model
         'e102_ad2',
         'e102_ad3',
         'e102_ae1',
-        'e102_af1',
         'e102_af2',
         'e102_af3',
         'e102_ag1',

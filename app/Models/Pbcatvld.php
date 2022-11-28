@@ -9,6 +9,7 @@ class Pbcatvld extends Model
 {
     use HasFactory;
     protected $table = 'pbcatvld';
+    public $timestamps = false;
 
     protected $fillable = [
         'pbv_name',

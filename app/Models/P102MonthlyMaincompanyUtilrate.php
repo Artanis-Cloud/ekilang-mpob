@@ -17,6 +17,7 @@ class P102MonthlyMaincompanyUtilrate extends Model
      *
      */
     protected $table = 'p102_monthly_maincompany_utilrate';
+    public $timestamps = false;
 
     protected $fillable = [
         'tahun',

@@ -9,6 +9,7 @@ class Pbcattbl extends Model
 {
     use HasFactory;
     protected $table = 'pbcattbl';
+    public $timestamps = false;
 
     protected $fillable = [
         'pbt_tnam',

@@ -10,6 +10,7 @@ class StatUser extends Model
     use HasFactory;
 
     protected $table = 'stat_user';
+    public $timestamps = false;
 
     protected $fillable = [
         'userid',

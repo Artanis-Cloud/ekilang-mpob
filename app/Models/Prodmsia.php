@@ -9,6 +9,7 @@ class Prodmsia extends Model
 {
     use HasFactory;
     protected $table = 'prodmsia';
+    public $timestamps = false;
 
     protected $fillable = [
         'prodmsia_id',
