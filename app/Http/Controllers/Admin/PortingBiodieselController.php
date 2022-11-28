@@ -274,7 +274,7 @@ class PortingBiodieselController extends Controller
         //             kilang.jenis <> 'dummy' ";
 
 
-        return redirect()->back()->with('success', 'Maklumat Stok Akhir telah berjaya diport');
+        return redirect()->route('admin.stok.akhir')->with('success', 'Maklumat Stok Akhir telah berjaya diport');
 
 
     }
