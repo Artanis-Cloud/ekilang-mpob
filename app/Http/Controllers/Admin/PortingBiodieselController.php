@@ -284,7 +284,7 @@ class PortingBiodieselController extends Controller
     {
         // $minyaksawit = HebahanProses::find($id);
         $minyaksawits = DB::select("SELECT * from hebahan_proses where id = $id");
-        // dd($minyaksawits);
+        dd($minyaksawits);
 
 
         $breadcrumbs    = [
