@@ -69,6 +69,7 @@
                                     {{-- @if ($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
                                         @endif --}}
+                                    {{-- {{ dd($stokakhir->tahun) }} --}}
                                     <div class="row ml-auto" style="margin-top:-1%">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
@@ -77,8 +78,7 @@
                                             <select class="form-control" name="tahun" id="tahun1" required
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
-                                                <option {{ $stokakhir->tahun == $stokakhir->tahun ? 'selected' : '' }}
-                                                    value="{{ $stokakhir->tahun }}">{{ $stokakhir->tahun }}</option>
+                                                <option selected value="{{ $stokakhir->tahun }}">{{ $stokakhir->tahun }}</option>
                                                 {{-- <option selected hidden disabled value="{{ $stokakhir->tahun }}">{{ $stokakhir->tahun }}
                                                 </option> --}}
 
@@ -97,7 +97,7 @@
                                         </label>
                                         <div class="col-md-4">
 
-                                            <select class="form-control" name="bulan" id="bulan1">
+                                            <select class="form-control" name="bulan" id="bulan1" >
                                                 @if ($stokakhir->bulan == '01')
                                                     <option {{ $stokakhir->bulan == '01' ? 'selected' : '' }}
                                                         value="01">
