@@ -71,7 +71,7 @@ class PortingBiodieselController extends Controller
     public function porting_stokakhir(Request $request)
     {
 
-        // dd($request->all());
+        dd($request->all());
 
 
 
