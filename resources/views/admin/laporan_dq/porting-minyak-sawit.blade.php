@@ -64,7 +64,7 @@
                         <div class="card-body">
                             <form action="{{ route('porting.minyaksawit') }}" method="get" class="sub-form">
                                 @csrf
-                                {{ dd($minyaksawits) }}
+                                {{-- {{ dd($minyaksawits) }} --}}
 
                                 @foreach ($minyaksawits as $minyaksawit)
 

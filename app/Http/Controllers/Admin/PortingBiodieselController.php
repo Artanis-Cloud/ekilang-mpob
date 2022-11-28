@@ -282,10 +282,10 @@ class PortingBiodieselController extends Controller
 
     public function admin_port_minyak_sawit_process($id)
     {
-        dd($id);
+        // dd($id);
         // $minyaksawit = HebahanProses::find($id);
         $minyaksawits = DB::select("SELECT * from hebahan_proses where id = $id");
-        dd($minyaksawits);
+        // dd($minyaksawits);
 
 
         $breadcrumbs    = [

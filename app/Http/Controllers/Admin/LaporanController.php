@@ -3403,7 +3403,7 @@ class LaporanController extends Controller
         $bulan = Bulan::get();
 
         $hebahan = HebahanProses::orderBy('tahun')->orderBy('bulan')->get();
-        dd($hebahan);
+        // dd($hebahan);
         // DB::connection('mysql2')->select("SELECT * FROM hebahan_proses
         // order by tahun, bulan");
 
