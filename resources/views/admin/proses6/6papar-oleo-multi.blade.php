@@ -917,7 +917,7 @@
                                         </body>
                                     </div>
 
-                                <br><hr class="noScreen"><h1 style="page-break-after:always"></h1>
+                                <br><hr class="noPrint"><h1 style="page-break-after:always"></h1>
 
                             @endforeach
                         </form>

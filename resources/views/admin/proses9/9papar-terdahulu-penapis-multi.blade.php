@@ -291,41 +291,41 @@
                                                 bordercolorlight="#FFFFFF" bordercolordark="#000000">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="13%" align="center"><b>
+                                                        <td class="headerColor" width="13%" align="center"><b>
                                                                 <font size="2.7">Produk Minyak Sawit</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Kod Produk</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Awal Di Premis</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Awal Di Pusat Simpanan</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Belian / Terima</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Import</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Pengeluaran</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Digunakan Untuk Proses Selanjutnya</font>
                                                                 <b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Jualan / Edaran Tempatan</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Eksport</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Akhir Di Premis</font><b></b>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                     </tr>
@@ -421,40 +421,40 @@
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="13%" align="center"><b>
+                                                        <td class="headerColor" width="13%" align="center"><b>
                                                                 <font size="2.7">Produk Minyak Sawit</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Kod Produk</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Awal Di Premis</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Awal Di Pusat Simpanan</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Belian / Terimaan</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Import</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Pengeluaran</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Jualan / Edaran Tempatan</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Eksport</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Akhir Di Premis</font>
                                                             </b></td>
-                                                        <td width="8%" align="center"><b>
+                                                        <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2.7">Stok Akhir Di Pusat Simpanan</font>
                                                             </b></td>
                                                     </tr>
@@ -578,28 +578,28 @@
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="13%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Produk Minyak Sawit</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kod Produk</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Stok Awal</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Belian/Terimaan</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Pengeluaran</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Jualan/Edaran Tempatan</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Eksport</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
@@ -671,28 +671,28 @@
                                                 class="table table-bordered" style="padding: 0.2rem 0.3rem">
                                                 <tbody>
                                                     <tr style="padding: 0.2rem 0.3rem; background-color: #d3d3d370">
-                                                        <td width="13%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="13%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Produk Minyak Sawit</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kod Produk</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Stok Awal</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Belian/Terimaan</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Pengeluaran</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Jualan / Edaran Tempatan</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Eksport</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
@@ -764,19 +764,19 @@
                                                 class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Belian/Terimaan Dari</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">CPO</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">PPO</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">CPKO</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">PPKO</font>
                                                             </b></td>
                                                     </tr>
@@ -827,19 +827,19 @@
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Belian/Terimaan Dari</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">CPO</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">PPO</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">CPKO</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">PPKO</font>
                                                             </b></td>
                                                     </tr>
@@ -890,28 +890,28 @@
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="14%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="14%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Produk Minyak Sawit</font>
                                                             </b></td>
-                                                        <td width="7%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="7%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kod Produk</font>
                                                             </b></td>
-                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Nombor Borang Kastam 2</font>
                                                             </b></td>
-                                                        <td width="12%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="12%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Tarikh Eksport</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kuantiti<br> (Tan Metrik)</font><b></b>
                                                             </b></td>
-                                                        <td width="11%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="11%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Nilai (RM)</font>
                                                             </b></td>
-                                                        <td width="6%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="6%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kod Negara</font>
                                                             </b></td>
-                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
@@ -952,28 +952,28 @@
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
-                                                        <td width="14%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="14%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Produk Minyak Sawit</font>
                                                             </b></td>
-                                                        <td width="7%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="7%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kod Produk</font>
                                                             </b></td>
-                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Nombor Borang Kastam 1</font>
                                                             </b></td>
-                                                        <td width="12%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="12%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Tarikh Eksport</font>
                                                             </b></td>
-                                                        <td width="10%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kuantiti<br> (Tan Metrik)</font><b></b>
                                                             </b></td>
-                                                        <td width="11%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="11%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Nilai (RM)</font>
                                                             </b></td>
-                                                        <td width="6%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="6%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Kod Negara</font>
                                                             </b></td>
-                                                        <td width="15%" style="text-align: center; vertical-align:middle"><b>
+                                                        <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2.7">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
@@ -1030,7 +1030,7 @@
                                 </div>
                             </div>
 
-                            <br><hr class="noScreenPelesen"><h1 style="page-break-after:always"></h1>
+                            <br><hr class="noPrint"><h1 style="page-break-after:always"></h1>
 
                         @endforeach
                     </form>
