@@ -19,8 +19,12 @@ class DaftarPentadbirNotification extends Notification
      */
     public function __construct($kepada, $daripada)
     {
+
+        // dd($daripada);
         $this->kepada = $kepada;
         $this->daripada = $daripada;
+
+
     }
 
     /**

@@ -55,6 +55,7 @@ class KonfigurasiController extends Controller
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
         $custom_pass = $this->store_daftar_pentadbir($request->all());
+        // dd($daripada);
 
         // dd($daripada);
         //notification kalau admin, manager dan supervisor daftar admin.
@@ -138,7 +139,7 @@ class KonfigurasiController extends Controller
     {
 
 
-
+        $pass = 'admin123';
         $password = Hash::make('admin123');
         return User::create([
             'name' => $data['name'],
