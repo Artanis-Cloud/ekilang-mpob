@@ -6,7 +6,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
         <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-        </head>
+    </head>
     <!-- ============================================================== -->
     <div class="page-wrapper">
 
@@ -60,52 +60,52 @@
                         </div>
                         <hr>
 
-                            <div class="text-left col-md-7 mx-3">
+                        <div class="text-left col-md-7 mx-3">
 
 
-                                <a href="{{ route('admin.tambah.proses') }}" class="btn btn-primary"
-                                    style="float: left"> Tambah Proses</a>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 mr-auto ml-auto">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table id="valproses" class="table table-bordered">
-                                                    <thead>
+                            <a href="{{ route('admin.tambah.proses') }}" class="btn btn-primary"
+                                style="float: left"> Tambah Proses</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mr-auto ml-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="valproses" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Bil.</th>
+                                                        <th>Tahun</th>
+                                                        <th>Bulan</th>
+                                                        <th>CPO MSIA</th>
+                                                        <th>PPO MSIA</th>
+                                                        <th>CPKO MSIA</th>
+                                                        <th>PPKO MSIA</th>
+                                                        <th>Kemaskini</th>
+                                                        <th>Padam</th>
+                                                        <th>Port</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
+
+                                                        <th>Bil.</th>
+                                                        <th>Tahun</th>
+                                                        <th>Bulan</th>
+                                                        <th>CPO MSIA</th>
+                                                        <th>PPO MSIA</th>
+                                                        <th>CPKO MSIA</th>
+                                                        <th>PPKO MSIA</th>
+                                                        <th>Kemaskini</th>
+                                                        <th>Padam</th>
+                                                        <th>Port</th>
+                                                    </tr>
+                                                </tfoot>
+
+                                                <tbody>
+
+                                                    @foreach ($hebahan as $data)
                                                         <tr>
-                                                            <th>Bil.</th>
-                                                            <th>Tahun</th>
-                                                            <th>Bulan</th>
-                                                            <th>CPO MSIA</th>
-                                                            <th>PPO MSIA</th>
-                                                            <th>CPKO MSIA</th>
-                                                            <th>PPKO MSIA</th>
-                                                            <th>Kemaskini</th>
-                                                            <th>Padam</th>
-                                                            <th>Port</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr style="background-color: #e9ecefbd">
-
-                                                            <th>Bil.</th>
-                                                            <th>Tahun</th>
-                                                            <th>Bulan</th>
-                                                            <th>CPO MSIA</th>
-                                                            <th>PPO MSIA</th>
-                                                            <th>CPKO MSIA</th>
-                                                            <th>PPKO MSIA</th>
-                                                            <th>Kemaskini</th>
-                                                            <th>Padam</th>
-                                                            <th>Port</th>
-                                                        </tr>
-                                                    </tfoot>
-
-                                                    <tbody>
-
-                                                        @foreach ($hebahan as $data)
-                                                            <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $data->tahun }}</td>
                                                                 @if ($data->bulan == 1)
@@ -133,207 +133,209 @@
                                                             @elseif ($data->bulan == 12)
                                                                 <td>Disember</td>
                                                             @endif
-                                                                <td style="text-align: right">{{ number_format($data->cpo_msia ?? 0,2)  }}</td>
-                                                                <td style="text-align: right">{{  number_format($data->ppo_msia ?? 0,2)  }}</td>
-                                                                <td style="text-align: right">{{  number_format($data->cpko_msia ?? 0,2)  }}</td>
-                                                                <td style="text-align: right">{{  number_format($data->ppko_msia ?? 0,2)  }}</td>
-                                                                <td>
-                                                                    <div class="icon" style="text-align: center">
-                                                                        <a href="#" type="button" data-toggle="modal"
-                                                                            data-target="#modal{{ $data->id }}">
-                                                                            <i class="fas fa-edit fa-lg" style="color: #ffc107">
-                                                                            </i>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="icon" style="text-align: center">
-                                                                        <a href="#" type="button" data-toggle="modal"
-                                                                        data-target="#next2{{ $data->id }}">
-                                                                            <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
-
-                                                                        </a>
-
-
-                                                                    </div>
-
-                                                                </td>
-                                                                <td> <div class="icon" style="text-align: center">
-                                                                    <a href="{{ route('admin.port.minyak.sawit.process', $data->id) }}" type="button" >
-                                                                        <i class="fas fa-arrow-circle-up" style="color: #31bc6d;font-size:18px"></i>
+                                                            <td style="text-align: right">{{ number_format($data->cpo_msia ?? 0,2)  }}</td>
+                                                            <td style="text-align: right">{{  number_format($data->ppo_msia ?? 0,2)  }}</td>
+                                                            <td style="text-align: right">{{  number_format($data->cpko_msia ?? 0,2)  }}</td>
+                                                            <td style="text-align: right">{{  number_format($data->ppko_msia ?? 0,2)  }}</td>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#" type="button" data-toggle="modal"
+                                                                        data-target="#modal{{ $data->id }}">
+                                                                        <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                                        </i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#" type="button" data-toggle="modal"
+                                                                    data-target="#next2{{ $data->id }}">
+                                                                        <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
 
                                                                     </a>
 
 
-                                                                </div></td>
-                                                            </tr>
-                                                            <div class="col-md-6 col-12">
+                                                                </div>
 
-                                                                <!--scrolling content Modal -->
-                                                                <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
-                                                                    role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                                    <div id="myfrm">
-                                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                                            <div class="modal-content" id="tb_Logbook">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                                                        Kemaskini Biodiesel diproses </h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal"
-                                                                                        aria-label="Close">
-                                                                                        <i data-feather="x"></i>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <form
-                                                                                        action="{{ route('admin.edit.minyak.sawit.diproses', [$data->id]) }}"
-                                                                                        method="post">
-                                                                                        @csrf
-                                                                                        <div class="modal-body">
-                                                                                            <label class="required">Tahun</label>
-                                                                                            <div class="form-group">
-                                                                                                <fieldset class="form-group">
-                                                                                                    <select class="form-control" id="tahun"
-                                                                                                        name="tahun">
-                                                                                                        <option selected value="{{ $data->tahun }}">{{ $data->tahun }}</option>
-                                                                                                            @for ($i = 2003; $i <= date('Y'); $i++)
-                                                                                                            <option >{{ $i }}</option>
-                                                                                                        @endfor
+                                                            </td>
+                                                            <td> <div class="icon" style="text-align: center">
+                                                                <a href="{{ route('admin.port.minyak.sawit.process', $data->id) }}" type="button" >
+                                                                    <i class="fas fa-arrow-circle-up" style="color: #31bc6d;font-size:18px"></i>
 
-                                                                                                    </select>
-                                                                                                </fieldset>
-                                                                                                {{-- <input type="text" name='e101_d3'
-                                                                                                                            class="form-control"
-                                                                                                                            value="{{ $data->kodsl[0]->catname }}"
-                                                                                                                            readonly> --}}
-
-                                                                                            </div>
-                                                                                            <label class="required">Bulan </label>
-                                                                                            <div class="form-group">
-                                                                                                <fieldset class="form-group">
-                                                                                                    <select class="form-control" id="bulan"
-                                                                                                        name="bulan">
-                                                                                                            <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                                                            <option {{ ($data->bulan == '01') ? 'selected' : '' }} value="01">Januari</option>
-                                                                                                            <option {{ ($data->bulan == '02') ? 'selected' : '' }}  value="02">Februari</option>
-                                                                                                            <option {{ ($data->bulan == '03') ? 'selected' : '' }}  value="03">Mac</option>
-                                                                                                            <option {{ ($data->bulan == '04') ? 'selected' : '' }}  value="04">April</option>
-                                                                                                            <option {{ ($data->bulan == '05') ? 'selected' : '' }}  value="05">Mei</option>
-                                                                                                            <option {{ ($data->bulan == '06') ? 'selected' : '' }}  value="06">Jun</option>
-                                                                                                            <option {{ ($data->bulan == '07') ? 'selected' : '' }}  value="07">Julai</option>
-                                                                                                            <option {{ ($data->bulan == '08') ? 'selected' : '' }}  value="08">Ogos</option>
-                                                                                                            <option {{ ($data->bulan == '09') ? 'selected' : '' }}  value="09">September</option>
-                                                                                                            <option {{ ($data->bulan == '10') ? 'selected' : '' }}  value="10">Oktober</option>
-                                                                                                            <option {{ ($data->bulan == '11') ? 'selected' : '' }}  value="11">November</option>
-                                                                                                            <option {{ ($data->bulan == '12') ? 'selected' : '' }}  value="12">Disember</option>
-                                                                                                    </select>
-                                                                                                </fieldset>
-
-                                                                                            </div>
-                                                                                            <label class="required">CPO MSIA</label>
-                                                                                            <div class="form-group">
-                                                                                                <input type="text" name='cpo_msia'
-                                                                                                    onkeypress="return isNumberKey(event)"
-                                                                                                    class="form-control" id='cpo_msia' oninput="validate_two_decimal(this)"
-                                                                                                    value="{{ old('cpo_msia') ?? number_format($data->cpo_msia , 2) }}">
-                                                                                            </div>
-                                                                                            <label class="required">PPO MSIA</label>
-                                                                                            <div class="form-group">
-                                                                                                <input type="text" name='ppo_msia'
-                                                                                                    onkeypress="return isNumberKey(event)"
-                                                                                                    class="form-control" id='ppo_msia' oninput="validate_two_decimal(this)"
-                                                                                                    value="{{ old('ppo_msia') ?? number_format($data->ppo_msia , 2) }}">
-                                                                                            </div>
-                                                                                            <label class="required">CPKO MSIA</label>
-                                                                                            <div class="form-group">
-                                                                                                <input type="text" name='cpko_msia'
-                                                                                                    onkeypress="return isNumberKey(event)"
-                                                                                                    class="form-control" id='cpko_msia' oninput="validate_two_decimal(this)"
-                                                                                                    value="{{ old('cpko_msia') ?? number_format($data->cpko_msia , 2) }}">
-                                                                                            </div>
-                                                                                            <label class="required">PPKO MSIA</label>
-                                                                                            <div class="form-group">
-                                                                                                <input type="text" name='ppko_msia'
-                                                                                                    onkeypress="return isNumberKey(event)"
-                                                                                                    class="form-control" id='ppko_msia' oninput="validate_two_decimal(this)"
-                                                                                                    value="{{ old('ppko_msia') ?? number_format($data->ppko_msia , 2) }}">
-                                                                                            </div>
-                                                                                        </div>
+                                                                </a>
 
 
-                                                                                </div>
+                                                            </div></td>
+                                                        </tr>
 
-                                                                                <div class="modal-footer noPrint" style="justify-content: normal">
-                                                                                    <div class="" style="margin-right: auto">
-                                                                                    <div class="dt-button buttons-excel buttons-html5"    onclick=" myPrint('myfrm')"
-                                                                                        style="background-color:white; color: #f90a0a; float: left; ">
-                                                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                                                    </div>
+                                                        <div class="modal fade" id="next2{{ $data->id }}" tabindex="-1"
+                                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                            PENGESAHAN</h5>
+                                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                            aria-label="Close">
+                                                                            <i data-feather="x"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p>
+                                                                            Anda pasti mahu menghapus maklumat ini?
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                            data-dismiss="modal">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Tidak</span>
+                                                                        </button>
+                                                                        <a href="{{ route('admin.delete.minyak.sawit.diproses', [$data->id]) }}"
+                                                                            type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
 
-                                                                                    </div>
-                                                                                    <button type="button" class="btn btn-light-secondary"
-                                                                                        data-dismiss="modal">
-                                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                        <span class="d-none d-sm-block">Batal</span>
-                                                                                    </button>
-                                                                                    <button type="submit" class="btn btn-primary ml-1">
-                                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                        <span class="d-none d-sm-block">Kemaskini</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                </form>
+                                                                            <i class="bx bx-x d-block d-sm-none" ></i>
+                                                                            <span class="d-none d-sm-block" >Ya</span>
+                                                                        </a>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+
+                                                    @foreach ($hebahan as $data)
+
+                                                        <div class="col-md-6 col-12">
+
+                                                            <!--scrolling content Modal -->
+                                                            <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
+                                                                role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                                <div id="myfrm">
+                                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                        <div class="modal-content" id="tb_Logbook">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                                    Kemaskini Biodiesel diproses </h5>
+                                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <i data-feather="x"></i>
+                                                                                </button>
                                                                             </div>
+                                                                            <div class="modal-body">
+                                                                                <form
+                                                                                    action="{{ route('admin.edit.minyak.sawit.diproses', [$data->id]) }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    <div class="modal-body">
+                                                                                        <label class="required">Tahun</label>
+                                                                                        <div class="form-group">
+                                                                                            <fieldset class="form-group">
+                                                                                                <select class="form-control" id="tahun"
+                                                                                                    name="tahun">
+                                                                                                    <option selected value="{{ $data->tahun }}">{{ $data->tahun }}</option>
+                                                                                                        @for ($i = 2003; $i <= date('Y'); $i++)
+                                                                                                        <option >{{ $i }}</option>
+                                                                                                    @endfor
+
+                                                                                                </select>
+                                                                                            </fieldset>
+                                                                                            {{-- <input type="text" name='e101_d3'
+                                                                                                                        class="form-control"
+                                                                                                                        value="{{ $data->kodsl[0]->catname }}"
+                                                                                                                        readonly> --}}
+
+                                                                                        </div>
+                                                                                        <label class="required">Bulan </label>
+                                                                                        <div class="form-group">
+                                                                                            <fieldset class="form-group">
+                                                                                                <select class="form-control" id="bulan"
+                                                                                                    name="bulan">
+                                                                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                                                        <option {{ ($data->bulan == '01') ? 'selected' : '' }} value="01">Januari</option>
+                                                                                                        <option {{ ($data->bulan == '02') ? 'selected' : '' }}  value="02">Februari</option>
+                                                                                                        <option {{ ($data->bulan == '03') ? 'selected' : '' }}  value="03">Mac</option>
+                                                                                                        <option {{ ($data->bulan == '04') ? 'selected' : '' }}  value="04">April</option>
+                                                                                                        <option {{ ($data->bulan == '05') ? 'selected' : '' }}  value="05">Mei</option>
+                                                                                                        <option {{ ($data->bulan == '06') ? 'selected' : '' }}  value="06">Jun</option>
+                                                                                                        <option {{ ($data->bulan == '07') ? 'selected' : '' }}  value="07">Julai</option>
+                                                                                                        <option {{ ($data->bulan == '08') ? 'selected' : '' }}  value="08">Ogos</option>
+                                                                                                        <option {{ ($data->bulan == '09') ? 'selected' : '' }}  value="09">September</option>
+                                                                                                        <option {{ ($data->bulan == '10') ? 'selected' : '' }}  value="10">Oktober</option>
+                                                                                                        <option {{ ($data->bulan == '11') ? 'selected' : '' }}  value="11">November</option>
+                                                                                                        <option {{ ($data->bulan == '12') ? 'selected' : '' }}  value="12">Disember</option>
+                                                                                                </select>
+                                                                                            </fieldset>
+
+                                                                                        </div>
+                                                                                        <label class="required">CPO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='cpo_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='cpo_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('cpo_msia') ?? number_format($data->cpo_msia , 2) }}">
+                                                                                        </div>
+                                                                                        <label class="required">PPO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='ppo_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='ppo_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('ppo_msia') ?? number_format($data->ppo_msia , 2) }}">
+                                                                                        </div>
+                                                                                        <label class="required">CPKO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='cpko_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='cpko_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('cpko_msia') ?? number_format($data->cpko_msia , 2) }}">
+                                                                                        </div>
+                                                                                        <label class="required">PPKO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='ppko_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='ppko_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('ppko_msia') ?? number_format($data->ppko_msia , 2) }}">
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                            </div>
+
+                                                                            <div class="modal-footer noPrint" style="justify-content: normal">
+                                                                                <div class="" style="margin-right: auto">
+                                                                                <div class="dt-button buttons-excel buttons-html5"    onclick=" myPrint('myfrm')"
+                                                                                    style="background-color:white; color: #f90a0a; float: left; ">
+                                                                                    <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                                                </div>
+
+                                                                                </div>
+                                                                                <button type="button" class="btn btn-light-secondary"
+                                                                                    data-dismiss="modal">
+                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Batal</span>
+                                                                                </button>
+                                                                                <button type="submit" class="btn btn-primary ml-1">
+                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            </form>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
                                                             </div>
 
-                                                            <div class="modal fade" id="next2{{ $data->id }}" tabindex="-1"
-                                                                role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                                    role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                                PENGESAHAN</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>
-                                                                                Anda pasti mahu menghapus maklumat ini?
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                                data-dismiss="modal">
-                                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Tidak</span>
-                                                                            </button>
-                                                                            <a href="{{ route('admin.delete.minyak.sawit.diproses', [$data->id]) }}"
-                                                                                type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+                                                        </div>
 
-                                                                                <i class="bx bx-x d-block d-sm-none" ></i>
-                                                                                <span class="d-none d-sm-block" >Ya</span>
-                                                                            </a>
-                                                                        </div>
+                                                    @endforeach
+                                                </tbody>
 
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
-                                                    </tbody>
-
-                                                </table>
-                                            </div>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
 
 
@@ -346,19 +348,27 @@
 
 
 
-
-    </div>
 @endsection
 
 @section('scripts')
 
 <script>
     function myPrint(myfrm) {
-        var printContents = document.getElementById(myfrm).innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
+        var hashid = "#"+ myfrm;
+            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var attributes = "";
+            var attrs = document.getElementById(myfrm).attributes;
+              $.each(attrs,function(i,elem){
+                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+              })
+            var divToPrint= $(hashid).html() ;
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+           setTimeout(function(){newWin.close();},10);
     }
 
     // function myPrint(myfrm)  {
