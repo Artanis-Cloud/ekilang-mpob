@@ -5,7 +5,7 @@
     @media print
     {
         @page {size: auto !important}
-        .noPrint{display:none;}
+        .noPrint{display:block;}
         .noScreen{}
     }
 </style>
@@ -410,9 +410,9 @@
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                         </button> --}}
                         <div class="noPrint">
-                            <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <button type="submit" class="btn btn-primary ml-1 noPrint" data-dismiss="modal">
                                 <i class="bx bx-check d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Tutup</span>
+                                <span class="d-none d-sm-block noPrint">Tutup</span>
                             </button>
 
                         </div>
@@ -974,7 +974,6 @@
             document.body.innerHTML = printContents;
 
             window.print();
-
             document.body.innerHTML = originalContents;
         }
     </script>

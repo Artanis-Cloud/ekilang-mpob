@@ -1160,6 +1160,7 @@ class Proses5Controller extends Controller
         $produk = Produk::whereIn('prodcat', ['01' ])->orderBy('prodname')->get();
         $produk_b = Produk::whereIn('prodcat', ['02' ])->orderBy('prodname')->get();
         $produk_c = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
+        $produkiii_2 = Produk::where('prodid', 'AW')->orderBy('prodname')->get();
         $produkiii = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('prodname')->get();
         $syarikat = SyarikatPembeli::get();
 
@@ -1237,6 +1238,7 @@ class Proses5Controller extends Controller
             'produk_b',
             'produk_c',
             'produkiii',
+            'produkiii_2',
             'senarai_syarikat',
             'syarikat',
             // 'penyata33',
