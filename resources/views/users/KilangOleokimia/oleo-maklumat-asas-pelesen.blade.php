@@ -542,7 +542,7 @@
 
             <div class="row justify-content-center form-group" style="margin-top: 2%; ">
                 <button type="button" class="btn btn-primary" onclick="check(); autozero()"
-                    id="checkBtn">Simpan</button>
+                    >Simpan</button>
             </div>
 
             <div class="modal fade" id="next" tabindex="-1" role="dialog"

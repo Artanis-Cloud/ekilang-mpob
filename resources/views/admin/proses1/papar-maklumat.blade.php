@@ -646,6 +646,20 @@
                                             <i>Sila isi butiran di bahagian ini!</i></p>
                                 </div>
                             </div>
+                            @else
+                            <div class="row mb-2 noScreen">
+                                <label for="fname"
+                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                    Kapasiti Pemprosesan / Tahun</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="kap_proses" class="form-control" required maxlength="10"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" style="text-transform:uppercase"
+
+                                        value="0" >
+
+                                </div>
+                            </div>
+
                             @endif
 
                             <div class="col-12">
