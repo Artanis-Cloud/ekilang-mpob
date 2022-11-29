@@ -723,7 +723,7 @@ class LaporanController extends Controller
                 $no_batches = DB::table('h_bio_inits')->where('ebio_nobatch',$list_result->ebio_nobatch)->where('ebio_thn',$tahun)->get();
                 $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->kod_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
-        //  dd( $no_batches);
+                 //  dd( $no_batches);
 
                 foreach ($no_batches as $no_batch) {
 
@@ -794,6 +794,8 @@ class LaporanController extends Controller
                     }
                 }
             }
+
+
             // dd($proddesc);
                         // dd($ebio_b5_bhg1);
 
@@ -1499,6 +1501,43 @@ class LaporanController extends Controller
            $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
             ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
             ->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+
+        }
+
+        if ($request->bulan == 'between' && $request->e_nl) {
+           $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->groupBy('ebio_nl')->get();
+
+        }
+
+        if ($request->bulan == 'equal' && $request->e_negeri) {
+           $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
+
+        }
+
+        if ($request->bulan == 'between' && $request->e_negeri) {
+           $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')->groupBy('ebio_nl')->get();
+
+        }
+
+        if ($request->bulan == 'equal' && $request->e_daerah) {
+           $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->where('ebio_bln', 'LIKE', '%' . $request->start. '%' )->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')
+            ->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('ebio_nl')->get();
+
+        }
+
+        if ($request->bulan == 'between' && $request->e_daerah) {
+           $result = DB::table('h_bio_cc')->leftJoin('h_bio_inits', 'h_bio_cc.ebio_nobatch', '=', 'h_bio_inits.ebio_nobatch')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->leftJoin('syarikat_pembeli', 'h_bio_cc.ebio_cc3', '=', 'syarikat_pembeli.id')
+            ->where('ebio_thn',$tahun)->whereBetween('ebio_bln', [$start_month. '%', $end_month.'%'] )->where('kod_negeri', 'LIKE', '%' . $request->e_negeri . '%')
+            ->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->groupBy('ebio_nl')->get();
 
         }
 

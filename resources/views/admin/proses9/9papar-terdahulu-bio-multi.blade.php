@@ -40,10 +40,20 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
                     <div class="col-1 align-self-center">
-                        <a href="javascript:history.back()"  class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
+
+                    <div class="col-11 align-self-center" style="text-align: right">
+                        <button type="button" class="btn btn-primary " style="margin: 1%"
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
+                    {{-- <div class="col-2 align-self-center">
+                        <button type="button" class="btn btn-primary "
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div> --}}
                 </div>
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
