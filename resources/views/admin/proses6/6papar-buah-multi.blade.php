@@ -110,28 +110,40 @@
                                                 <p align="right"><b>MPOB(EL) PX 4-M</b></p>
                                             </div>
                                         </div><br> --}}
-                                        <div align="">
+                                        {{-- <div align="">
                                             <table border="0" width="100%">
                                                 <tbody style=" width:10rem; margin-right: -10px">
                                                     <tr>
                                                         <td width="88%" >
                                                             <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
                                                         </td>
-                                                        <td width="12%" >
+                                                        <td width="12%"  height="10">
                                                             <p align="left"><b>MPOB(EL) MF 4</b></p>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="80%" >
+                                                        <td width="80%"  >
                                                             <p align=""><b></b></p>
                                                         </td>
-                                                        <td width="20%" >
-                                                            <p align="left" style="margin-top: -15px"><b>MPOB(EL) PX 4-M </b></p>
+                                                        <td width="20%"  height="19">
+                                                            <p align="left" ><b>MPOB(EL) PX 4-M </b></p>
                                                         </td>
                                                     </tr>
 
                                                 </tbody>
                                             </table>
+                                        </div><br> --}}
+
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+
+                                            </div>
+                                            <div class="col-2" style="padding-left:3%">
+                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                <p align="left" style="margin-top:-8%"><b>MPOB(EL) PX 4-M </b></p>
+
+                                            </div>
                                         </div><br>
 
                                         <p align="center">
@@ -1217,14 +1229,21 @@
     <script>
         function myPrint(myfrm) {
 
-            var headstr = "<html><head><title></title></head><body>";
-            var footstr = "</body></html>";
-            var newstr = document.all.item(myfrm).innerHTML;
-            var oldstr = document.body.innerHTML;
-            document.body.innerHTML = headstr + newstr + footstr;
-            window.print();
-            document.body.innerHTML = oldstr;
-            return false;
+            var hashid = "#"+ myfrm;
+            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var attributes = "";
+            var attrs = document.getElementById(myfrm).attributes;
+              $.each(attrs,function(i,elem){
+                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+              })
+            var divToPrint= $(hashid).html() ;
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+           setTimeout(function(){newWin.close();},10);
         }
     </script>
     {{-- <script>

@@ -275,13 +275,12 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content" id="printableArea" >
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Semua Sektor</h4>
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Semua Sektor - Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h4>
                         <div class="noPrint">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
                         </div>
                     </div>
-                    <p class="text-center" style="margin-top:1%">Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></p>
 
 
                     <script>
@@ -291,7 +290,7 @@
                         var dt = new Date();
                         document.getElementById("Tahun").innerHTML = (dt.getFullYear());
                     </script>
-                    <div class="modal-body">
+                    <div class="modal-body" >
 
                         <div class="noPrint">
 
@@ -310,8 +309,51 @@
 
                             <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
                                 <thead style="text-align: center">
-                                    <tr>
-                                        <th>Tarikh</th>
+                                    <tr class="noScreen noPrint">
+                                        <td colspan="12">
+                                            Jadual Penerimaan PL Bagi Semua Sektor -
+                                            Bulan:
+                                                @if (now()->month == 2)
+                                                    <b>JANUARI</b> &nbsp;
+                                                @elseif (now()->month == 3)
+                                                    <b>FEBRUARI</b> &nbsp;
+                                                @elseif (now()->month == 4)
+                                                    <b>MAC</b> &nbsp;
+                                                @elseif (now()->month == 5)
+                                                    <b>APRIL</b> &nbsp;
+                                                @elseif (now()->month == 6)
+                                                    <b>MEI</b> &nbsp;
+                                                @elseif (now()->month == 7)
+                                                    <b>JUN</b> &nbsp;
+                                                @elseif (now()->month == 8)
+                                                    <b>JULAI</b> &nbsp;
+                                                @elseif (now()->month == 9)
+                                                    <b>OGOS</b> &nbsp;
+                                                @elseif (now()->month == 10)
+                                                    <b>SEPTEMBER</b> &nbsp;
+                                                @elseif (now()->month == 11)
+                                                    <b>OKTOBER</b> &nbsp;
+                                                @elseif (now()->month == 12)
+                                                    <b>NOVEMBER</b> &nbsp;
+                                                @elseif (now()->month == 1)
+                                                    <b>DECEMBER</b> &nbsp;
+                                                @endif
+
+                                                Tahun:
+                                                <b>{{ now()->year }}</b>
+
+                                        </td>
+
+                                        <script>
+                                            var dt = new Date();
+                                            document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+
+                                            var dt = new Date();
+                                            document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+                                        </script>
+                                    </tr>
+                                    <tr style="background-color:  #d3d3d370">
+                                        <td class="headerColor">Tarikh</td>
                                         @for ($i = 1; $i <= $days; $i++)
                                             {{-- @php --}}
                                                 {{-- // $total_bulan[$i] = 0;
@@ -319,12 +361,12 @@
                                                 // $total_kapasiti_bio = 0;
                                             // @endphp --}}
                                             {{-- @if ($i == '1') --}}
-                                                <th scope="col"
+                                                <td class="headerColor" scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $i }}hb
-                                                </th>
+                                                </td>
 
                                         @endfor
-                                        <th>Jumlah</th>
+                                        <td class="headerColor">Jumlah</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -968,17 +1010,21 @@
 
     <script>
         function printDiv(printableArea) {
-            var divToPrint=document.getElementById('printableArea');
-
-var newWin=window.open('','Print-Window');
-
-newWin.document.open();
-
-newWin.document.write('<html><body onload="window.print()">'+printableArea.innerHTML+'</body></html>');
-
-newWin.document.close();
-
-setTimeout(function(){newWin.close();},10);
+            var hashid = "#"+ printableArea;
+            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var attributes = "";
+            var attrs = document.getElementById(printableArea).attributes;
+              $.each(attrs,function(i,elem){
+                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+              })
+            var divToPrint= $(hashid).html() ;
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+           setTimeout(function(){newWin.close();},10);
         }
     </script>
 

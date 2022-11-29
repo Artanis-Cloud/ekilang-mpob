@@ -65,7 +65,7 @@
                                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                        <div align="">
+                                        {{-- <div align="">
                                             <table border="0" width="100%">
                                                 <tbody style="float: right; width:10rem; margin-right: -10px">
                                                     <tr>
@@ -95,6 +95,19 @@
 
                                                 </tbody>
                                             </table>
+                                        </div><br> --}}
+
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p align=""><b>{{ $data->pelesen->kodpgw }}{{ $data->pelesen->nosiri }}</b></p>
+
+                                            </div>
+                                            <div class="col-2" style="padding-left:1%">
+                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                <p align="left" style="margin-top:-8%"><b>MPOB(EL) PX 4-CM </b></p>
+                                                <p align="left" style="margin-top:-8%"><b>MPOB(EL) PM 4-CM </b></p>
+
+                                            </div>
                                         </div><br>
 
                                         <p align="center">
@@ -1036,11 +1049,21 @@
     </script>
   <script>
     function myPrint(myfrm) {
-    var restorepage = $('body').html();
-    var printcontent = $('#' + myfrm).clone();
-    $('body').empty().html(printcontent);
-    window.print();
-    $('body').html(restorepage);
+        var hashid = "#"+ myfrm;
+            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var attributes = "";
+            var attrs = document.getElementById(myfrm).attributes;
+              $.each(attrs,function(i,elem){
+                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+              })
+            var divToPrint= $(hashid).html() ;
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+           setTimeout(function(){newWin.close();},10);
     }
 </script>
 {{-- <script>
