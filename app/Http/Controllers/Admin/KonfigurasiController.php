@@ -54,7 +54,7 @@ class KonfigurasiController extends Controller
         // $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
-        $custom_pass = $this->store_daftar_pentadbir($request->all());
+        // $custom_pass = $this->store_daftar_pentadbir($request->all());
         // dd($daripada);
 
         // dd($daripada);
@@ -107,13 +107,13 @@ class KonfigurasiController extends Controller
 
         foreach ($kepadas as $kepada) {
             if ($kepada->email != '-') {
-                $kepada->notify((new DaftarPentadbirNotification($kepada, $daripada)));
+                $kepada->notify((new DaftarPentadbirNotification($daripada, $daripada)));
             } else {
                 return redirect()->route('admin.senarai.pentadbir')
                     ->with('success', 'Maklumat Pentadbir telah dikemaskini');
             }
         }
-        $kepada2->notify((new DaftarPentadbirNotification($custom_pass, $daripada)));
+        $kepada2->notify((new DaftarPentadbirNotification($kepada2, $daripada)));
 
 
         //log audit trail admin
