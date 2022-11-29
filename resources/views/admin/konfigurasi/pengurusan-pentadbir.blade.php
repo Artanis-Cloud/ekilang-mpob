@@ -98,7 +98,7 @@
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                             Username</label>
                                         <div class="col-md-6">
-                                            <input type="text" id="username" class="form-control" placeholder="Username"
+                                            <input type="text" id="username" class="form-control" placeholder="Username" maxlength="8"
                                                 name="username" value="{{ old('username') }}">
                                             @error('username')
                                                 <div class="alert alert-danger">
