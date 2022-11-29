@@ -15,47 +15,65 @@ use stdClass;
 
 class ForgetPasswordController extends Controller
 {
-    public function forgetPassword(){
+    public function forgetPassword()
+    {
         return view('auth.passwords.email');
     }
 
-    public function forgetPasswordSubmit(Request $request){
+    public function forgetPasswordSubmit(Request $request)
+    {
         // dd($request->all());
         $kat = $request->kat;
 
         if ($kat == 'pelesen') {
-            $custom_pass = Str::random(8);
+        $emel = User::where('username', $request->lesen)->first();
+        } else {
+        $emel = User::where('username', $request->admin)->first();
+        }
+        // dd($emel);
 
-            $pelesen = User::where('username', $request->lesen)->first();
-            // $pelesen->password = new stdClass();
-            $pelesen->password = Hash::make($custom_pass);
-            $pelesen->save();
+
+        if ($emel->email == NULL || $emel->email == '' || $emel->email == '-') {
+            return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
 
         } else {
-            $custom_pass = Str::random(8);
+            if ($kat == 'pelesen') {
+                $custom_pass = Str::random(8);
+
+                $pelesen = User::where('username', $request->lesen)->first();
+                // $pelesen->password = new stdClass();
+                $pelesen->password = Hash::make($custom_pass);
+                $pelesen->save();
+            } else {
+                $custom_pass = Str::random(8);
 
 
-            $pelesen = User::where('username', $request->admin)->first();
-            $pelesen->password = Hash::make($custom_pass);
-            $pelesen->save();
+                $pelesen = User::where('username', $request->admin)->first();
+                $pelesen->password = Hash::make($custom_pass);
+                $pelesen->save();
+            }
+            if (!$pelesen) {
+                return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
+            }
 
+            // $password_reset = PasswordReset::create([
+            //     'email' => $user->email,
+            //     'token' => $request->_token,
+            // ]);
+
+            // Mail::send(new ResetPasswordMail($user, $custom_pass));
+            // $user->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
+
+
+
+                $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
+
+
+
+
+            return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
         }
-        if (!$pelesen) {
-            return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
-        }
 
-        // $password_reset = PasswordReset::create([
-        //     'email' => $user->email,
-        //     'token' => $request->_token,
-        // ]);
-
-        // Mail::send(new ResetPasswordMail($user, $custom_pass));
-        // $user->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
-
-        $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
-
-
-        return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
     }
 
     public function customChangePassword(Request $request)

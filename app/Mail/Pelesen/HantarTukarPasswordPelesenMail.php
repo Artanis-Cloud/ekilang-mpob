@@ -81,8 +81,15 @@ class HantarTukarPasswordPelesenMail extends Mailable
         //     $route = route('admin.tukarpassword');
         // }
 
-        return $this->to($this->pelesen->email, $this->pelesen->name)
+        // if ($this->pelesen->email == NULL || $this->pelesen->email == '' || $this->pelesen->email='-') {
+        //     return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
+
+        // } else {
+            return $this->to($this->pelesen->email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
         ->subject('Tukar Kata Laluan '. $this->pelesen->username)
         ->view('email.pelesen.newpass', compact('pelesen', 'password', 'route'));    }
-}
+        }
+
+
+

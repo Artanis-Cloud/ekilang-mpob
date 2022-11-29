@@ -106,7 +106,7 @@
 
                                                         @foreach ($hebahan as $data)
                                                             <tr>
-                                                                <td>{{ $loop->iteration }} - {{ $data->id }}</td>
+                                                                <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $data->tahun }}</td>
                                                                 @if ($data->bulan == 1)
                                                                 <td>Januari</td>
