@@ -308,8 +308,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pejabat / Kilang" name="e_notel"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_notel }}" required
-                                        onkeypress="return isNumberKey(event)">
+                                        value="{{ $pelesen->e_notel }}" required>
                                     @error('e_notel')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -378,8 +377,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel_pg" class="form-control"
                                         placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
-                                        name="e_notel_pg" required maxlength="40"
-                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}"
+                                        name="e_notel_pg" required maxlength="40"  value="{{ $pelesen->e_notel_pg }}"
                                         oninput="valid_notel_pg()">
 
                                         <p type="hidden" id="err_notel_pg" style="color: red; display:none">
