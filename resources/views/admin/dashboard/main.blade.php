@@ -301,7 +301,7 @@
                             <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
                             </button>
 
-                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" value='Print'
                             style="background-color:white; color: #f90a0a; " >
                             <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
                         </button>
@@ -968,13 +968,17 @@
 
     <script>
         function printDiv(printableArea) {
-            var printContents = document.getElementById(printableArea).innerHTML;
-            var originalContents = document.body.innerHTML;
+            var divToPrint=document.getElementById('printableArea');
 
-            document.body.innerHTML = printContents;
+var newWin=window.open('','Print-Window');
 
-            window.print();
-            document.body.innerHTML = originalContents;
+newWin.document.open();
+
+newWin.document.write('<html><body onload="window.print()">'+printableArea.innerHTML+'</body></html>');
+
+newWin.document.close();
+
+setTimeout(function(){newWin.close();},10);
         }
     </script>
 
