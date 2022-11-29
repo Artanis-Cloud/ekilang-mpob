@@ -968,17 +968,21 @@
 
     <script>
         function printDiv(printableArea) {
-            var divToPrint=document.getElementById('printableArea');
-
-var newWin=window.open('','Print-Window');
-
-newWin.document.open();
-
-newWin.document.write('<html><body onload="window.print()">'+printableArea.innerHTML+'</body></html>');
-
-newWin.document.close();
-
-setTimeout(function(){newWin.close();},10);
+            var hashid = "#"+ printableArea;
+            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var attributes = "";
+            var attrs = document.getElementById(printableArea).attributes;
+              $.each(attrs,function(i,elem){
+                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+              })
+            var divToPrint= $(hashid).html() ;
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+           setTimeout(function(){newWin.close();},10);
         }
     </script>
 
