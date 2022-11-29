@@ -31,7 +31,7 @@ class HantarPendaftaranPelesenNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail'];
     }
 
     /**
@@ -48,38 +48,38 @@ class HantarPendaftaranPelesenNotification extends Notification
     {
     // dd($notifiable);
     // dd($this->kepada);
-        if ($this->kepada->category == 'PL91') {
-            $route = route('admin.senaraipelesenbuah');
+        // if ($this->kepada->category == 'PL91') {
+        //     $route = route('admin.senaraipelesenbuah');
 
-        }
-        elseif ($this->kepada->category == 'PL101'){
-            $route = route('admin.senaraipelesenpenapis');
+        // }
+        // elseif ($this->kepada->category == 'PL101'){
+        //     $route = route('admin.senaraipelesenpenapis');
 
-        }
-        elseif ($this->kepada->category == 'PL102'){
-            $route = route('admin.senaraipelesenisirung');
+        // }
+        // elseif ($this->kepada->category == 'PL102'){
+        //     $route = route('admin.senaraipelesenisirung');
 
-        }
-        elseif ($this->kepada->category == 'PL104'){
-            $route = route('admin.senaraipelesenoleokimia');
+        // }
+        // elseif ($this->kepada->category == 'PL104'){
+        //     $route = route('admin.senaraipelesenoleokimia');
 
-        }
-        elseif ($this->kepada->category == 'PL111'){
-            $route = route('admin.senaraipelesensimpanan');
+        // }
+        // elseif ($this->kepada->category == 'PL111'){
+        //     $route = route('admin.senaraipelesensimpanan');
 
-        }
-        elseif ($this->kepada->category == 'PLBIO'){
-            $route = route('admin.senaraipelesenbio');
+        // }
+        // elseif ($this->kepada->category == 'PLBIO'){
+        //     $route = route('admin.senaraipelesenbio');
 
-        }
+        // }
 
-        return [
-            'kepada' => $this->kepada,
-            'daripada' => $this->kepada,
-            'tajuk' => 'Terdapat Pelesen Baharu Sudah Berdaftar',
-            'created_at' => $notifiable->created_at,
-            'route' => $route
-        ];
+        // return [
+        //     'kepada' => $this->kepada,
+        //     'daripada' => $this->kepada,
+        //     'tajuk' => 'Terdapat Pelesen Baharu Sudah Berdaftar',
+        //     'created_at' => $notifiable->created_at,
+        //     'route' => $route
+        // ];
     }
 
     /**
