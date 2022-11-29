@@ -36,6 +36,7 @@ class DataMigrationController extends Controller
     }
     public function transfer_pelesen_to_users()
     {
+        // $users = DB::delete("DELETE FROM users");
         $reg_pelesens = RegPelesen::get();
 
         foreach ($reg_pelesens as $reg_pelesen) {
@@ -54,6 +55,8 @@ class DataMigrationController extends Controller
                 'status' =>  $reg_pelesen->e_status ?? '-',
                 'stock' =>  $reg_pelesen->e_stock ?? '-',
                 'directory' =>  $reg_pelesen->directory ?? '-',
+                'map_flg' =>  0,
+                'map_sdate' =>  NULL,
             ]);
         }
     }

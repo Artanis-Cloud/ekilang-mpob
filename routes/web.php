@@ -26,7 +26,8 @@ Route::get('/testingcodedb', [App\Http\Controllers\tryController::class, 'test_c
 Route::get('/password', [App\Http\Controllers\tryController::class, 'change_pass'])->name('change');
 Route::get('/testArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('tryArx');
 Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
-
+Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
+Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
 Route::post('/terlupa-kata-laluan/submit', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPasswordSubmit'])->name('forget-password.submit');
 
 Route::post('/terlupa-kata-laluan/kemaskini-kata-laluan-baru', [App\Http\Controllers\ForgetPasswordController::class, 'customChangePassword'])->name('forget.password.update');
@@ -46,8 +47,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/session/timeout',[App\Http\Controllers\Admin\TetapanAkaunController::class, 'sessionTimeout'])->name('session.timeout');
     //Data Migration
     Route::get('/full-data-migration', [App\Http\Controllers\LiveDataMigrationController::class, 'data_migration'])->name('data.migration');
-    Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
-    Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
+    // Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
+    // Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
     Route::get('/migrate/data/loginmill', [App\Http\Controllers\DataMigrationController::class, 'transfer_loginmill_to_users'])->name('transfer_loginmill_to_users');
     Route::get('/migrate/data/ebionotel', [App\Http\Controllers\DataMigrationController::class, 'add_ebio_notel_to_hbioinits'])->name('add_ebio_notel_to_hbioinits');
     Route::get('/migrate/data/kilang', [App\Http\Controllers\DataMigrationController::class, 'transfer_kilang_to_pelesen'])->name('transfer_kilang_to_pelesen');
