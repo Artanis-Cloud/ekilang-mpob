@@ -12,6 +12,7 @@ use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\RegUser;
 use App\Notifications\Admin\DaftarPentadbirNotification;
+use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -53,6 +54,8 @@ class KonfigurasiController extends Controller
         // $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
+        $custom_pass = $this->store_daftar_pentadbir($request->all());
+
         // dd($daripada);
         //notification kalau admin, manager dan supervisor daftar admin.
         //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
@@ -85,9 +88,21 @@ class KonfigurasiController extends Controller
                 $kepadas = [];
             } //tambah untuk auth()->user()->role lain jugak
 
-        } else {
+        } elseif ($request->role == 'Superadmin'){
+            if (auth()->user()->role == 'Superadmin') {
+                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            } else {
+                $kepadas = [];
+            }
+        }
+        else {
             return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
         }
+        // dd($kepadas);
+
+
+        $kepada2 = User::where('username', auth()->user()->username)->first();
+
 
         foreach ($kepadas as $kepada) {
             if ($kepada->email != '-') {
@@ -97,6 +112,8 @@ class KonfigurasiController extends Controller
                     ->with('success', 'Maklumat Pentadbir telah dikemaskini');
             }
         }
+        $kepada2->notify((new DaftarPentadbirNotification($custom_pass, $daripada)));
+
 
         //log audit trail admin
         Auth::user()->log(" ADD ADMIN {$daripada->username}" );

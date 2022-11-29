@@ -159,12 +159,12 @@ class tryController extends Controller
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
         // $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
-        // $password = Hash::make('12345678');
-        $selects = DB::connection('mysql2')->select("SELECT e101_e6 FROM h101_e where e101_e1='78697'");
+        $password = Hash::make('admin123');
+        // $selects = DB::connection('mysql2')->select("SELECT e101_e6 FROM h101_e where e101_e1='78697'");
         // dd($selects[0]);
 
-        $e6 = strtotime($selects[0]->e101_e6);
-        // dd($e6);
+        // $e6 = strtotime($selects[0]->e101_e6);
+        dd($password);
 
         // foreach ($selects as $key => $select) {
 
@@ -179,7 +179,7 @@ class tryController extends Controller
         //         $data = $select->e101_e6;
         //     }
         // }
-        dd(date('m', $e6));
+        // dd(date('m', $e6));
 
 
 
