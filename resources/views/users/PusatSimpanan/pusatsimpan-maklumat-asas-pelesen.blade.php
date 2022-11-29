@@ -364,7 +364,8 @@
                                                 onkeypress="return point(event)"
                                                 oninput="this.setCustomValidity(''); invokeFunc19(); ableInput(); valid_cpo(); FormatCurrency(this)"
                                                 value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
-                                                onchange="validation_jumlah()" required>
+                                                oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
+                                                onchange="validation_jumlah()" min="1"  required>
                                             @error('kap_tangki')
                                                 <div class="alert alert-danger">
                                                     <strong>Sila isi butiran ini</strong>
@@ -554,7 +555,7 @@
 
 
             <div class="row justify-content-center form-group" style="margin-top: 2%; ">
-                <button type="button" class="btn btn-primary" id="checkBtn"
+                <button type="button" class="btn btn-primary" 
                     onclick="check(); autozero()">Simpan</button>
             </div>
 
