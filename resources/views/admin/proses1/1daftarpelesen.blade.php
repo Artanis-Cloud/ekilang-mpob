@@ -318,6 +318,7 @@
                                             <p type="hidden" id="err_nl" style="color: red; display:none"><i>Sila isi
                                                     butiran di
                                                     bahagian ini!</i></p>
+                                            <p type="hidden" id="err_nl2" style="color: red; display:none"><i>No Lesen tidak cukup 12 digit!</i></p>
                                             @error('e_nl')
                                                 <div class="col-12 alert alert-danger">
                                                     <strong>No. lesen sudah wujud!</strong>
@@ -1144,14 +1145,23 @@
     <script>
         function valid_nl() {
 
+            var str = document.getElementById('e_nl');
+                        // console.log(str.value.length);
+
             if ($('#e_nl').val() == '') {
                 $('#e_nl').css('border-color', 'red');
                 document.getElementById('err_nl').style.display = "block";
+                document.getElementById('err_nl2').style.display = "none";
 
 
-            } else {
+            } else if (str.value.length < 12 ) {
+                $('#e_nl').css('border-color', 'red');
+                document.getElementById('err_nl2').style.display = "block";
+                document.getElementById('err_nl').style.display = "none";
+            }else {
                 $('#e_nl').css('border-color', '');
                 document.getElementById('err_nl').style.display = "none";
+                document.getElementById('err_nl2').style.display = "none";
 
             }
 
@@ -1539,20 +1549,29 @@
                 }
             }
             // kap proses
+
             field = document.getElementById("e_nl");
             if (!field.checkValidity()) {
                 error += "Name must be 2-4 characters\r\n";
                 $('#e_nl').css('border-color', 'red');
                 document.getElementById('err_nl').style.display = "block";
-            }
+                document.getElementById('err_nl2').style.display = "none";
 
-            // kap proses
-            field = document.getElementById("e_np");
-            if (!field.checkValidity()) {
+            } else if (field.value.length < 12) {
+                console.log(field.value.length);
                 error += "Name must be 2-4 characters\r\n";
-                $('#e_np').css('border-color', 'red');
-                document.getElementById('err_np').style.display = "block";
+                $('#e_nl').css('border-color', 'red');
+                document.getElementById('err_nl2').style.display = "block";
+                document.getElementById('err_nl').style.display = "none";
+
             }
+            else {
+                $('#e_nl').css('border-color', '');
+                document.getElementById('err_nl').style.display = "none";
+                document.getElementById('err_nl2').style.display = "none";
+
+            }
+           
 
             // kap proses
             // field = document.getElementById("kap_proses");
