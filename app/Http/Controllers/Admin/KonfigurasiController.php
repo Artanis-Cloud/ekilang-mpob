@@ -113,7 +113,7 @@ class KonfigurasiController extends Controller
                     ->with('success', 'Maklumat Pentadbir telah dikemaskini');
             }
         }
-        $kepada2->notify((new DaftarPentadbirNotification($kepada2, $daripada)));
+        $kepada2->notify((new DaftarPentadbirNotification($daripada, $daripada)));
 
 
         //log audit trail admin
