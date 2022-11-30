@@ -46,10 +46,13 @@
 
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" style="margin-right:2%; margin-left:2%">
+                    <div class="card-body">
+
                         <div class="row">
                             <div class="col-1 align-self-center">
-                                <a href="javascript:history.back()" class="btn" style="color:rgb(64, 69, 68); padding: 20px"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                    style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
                         <div class=" text-center">

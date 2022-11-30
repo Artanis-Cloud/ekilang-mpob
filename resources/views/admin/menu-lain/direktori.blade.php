@@ -53,7 +53,7 @@
                         </div>
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71);">Direktori</h3>
-                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Senarai Pelesen</h4>
+                            <h4 style="color: rgb(39, 80, 71); margin-top:1%">Senarai Pelesen</h4>
 
                         </div>
                         <hr>

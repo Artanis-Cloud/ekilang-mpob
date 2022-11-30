@@ -317,7 +317,7 @@
                                                             </div>
                                                         </div>
                                                     @elseif (auth()->user()->role == 'Manager')
-                                                        @if ($data->role != 'Superadmin')
+                                                        @if ($data->role == 'Supervisor' || $data->role == 'Admin' || $data->role == '')
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title"
@@ -505,7 +505,7 @@
                                                             </div>
                                                         @endif
                                                     @elseif (auth()->user()->role == 'Supervisor')
-                                                        @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin')
+                                                        @if ($data->role == '' || $data->role == 'Admin')
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title"
