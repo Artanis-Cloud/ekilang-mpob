@@ -51,11 +51,16 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
+
+        $status = auth()->user()->status;
+        if ($status == '1') {
+            # code...
+
         $category = auth()->user()->category;
 
 
         //log audit trail admin
-        Auth::user()->log("LOGGED IN");
+        $users = Auth::user()->log("LOGGED IN");
         switch ($category) {
             case 'PL91':
                 return '/buah/dashboard';
@@ -83,6 +88,13 @@ class LoginController extends Controller
                 return '/admin/dashboard';
                 break;
         }
+    } else {
+        // $users = User::where('username', auth()->user()->username)->get();
+        $this->guard()->logout();
+        // return view('auth.login_multi', compact('users'))->with('error', 'Maklumat Stok Akhir telah berjaya diport');
+
+
+    }
         // dd($category);
     }
 
@@ -149,6 +161,7 @@ class LoginController extends Controller
                 }
 
                 $check = Hash::check($password[0], $password[1]);
+                dd($check);
 
                 if ($category[0] != $category[1]) {
                     if (!$check) {
@@ -189,6 +202,8 @@ class LoginController extends Controller
                             }
                         }
                     } else {
+                    // dd('test');
+
                         $this->guard()->logout();
                         return view('auth.login_multi', compact('users'));
                     }
@@ -198,7 +213,6 @@ class LoginController extends Controller
                     //     return view('auth.login_multi', compact('users'));
                     // }
 
-                    // dd('test');
 
             }
         }
