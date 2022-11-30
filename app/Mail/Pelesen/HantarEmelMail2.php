@@ -2,6 +2,7 @@
 
 namespace App\Mail\Pelesen;
 
+use App\Models\Ekmessage;
 use App\Models\RegPelesen;
 use DateTime;
 use DateTimeZone;
@@ -19,7 +20,7 @@ class HantarEmelMail2 extends Mailable
      *
      * @return void
      */
-    public function __construct($pelesen, $emel, $tajuk, $mesej)
+    public function __construct($pelesen, $emel, $tajuk, $mesej, $daripada)
     {
         // dd($pelesen);
         // $this->name = auth()->users->name;
@@ -28,6 +29,7 @@ class HantarEmelMail2 extends Mailable
         $this->emel = $emel;
         $this->tajuk = $tajuk;
         $this->mesej = $mesej;
+        $this->daripada = $daripada;
     }
 
     /**
@@ -37,17 +39,24 @@ class HantarEmelMail2 extends Mailable
      */
     public function build()
     {
-        $pelesen = $this->pelesen;
-        // dd($pelesen);
+        $daripada= $this->daripada;
+        $pelesen= $this->pelesen;
+
 
         // $time = $pelesen->Date;
         $dt = date("d-m-Y H:i:s");
         $jenis = $this->emel;
         $tajuk = $this->tajuk;
         $mesej = $this->mesej;
+        // $file = $this->file;
         $penyata1 = date('m') - 1;
         $penyata2 = date('Y');
         // dd($dt);
+
+        // $pelesen2 = Ekmessage::where('Date', $dt)->where('FromLicense', $pelesen->username)->first();
+        // dd($daripada);
+
+
 
 
 
@@ -55,5 +64,5 @@ class HantarEmelMail2 extends Mailable
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
         ->subject('Penghantaran Emel Berjaya - '. $this->pelesen->username)
         // ->attach('storage/'.$pelesen->file_upload)
-        ->view('email.pelesen.emel2', compact('pelesen', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis'));    }
+        ->view('email.pelesen.emel2', compact('pelesen', 'dt','tajuk','mesej', 'penyata1', 'penyata2','jenis', 'daripada'));    }
 }

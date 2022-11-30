@@ -104,7 +104,7 @@
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
                                                         LAMPIRAN:</td>
                                                     <td style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        <a target='_blank' href="{{ asset('storage/'.$pelesen->file_upload) }}">Klik Disini</a></td>
+                                                        <a target='_blank' href="{{ asset('storage/'.$daripada->file_upload) }}">Klik Disini</a></td>
                                                 {{-- <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td> --}}
 
                                                 </tr>

@@ -26,9 +26,10 @@ class HantarEmelNotification2 extends Notification
         $this->emel = $emel;
         $this->kepada = $kepada;
         $this->daripada = $daripada;
-        // dd($this->emel);
+        // dd($daripada);
         $this->tajuk = $tajuk;
         $this->mesej = $mesej;
+        // $this->file = $file;
     }
 
     /**
@@ -51,7 +52,7 @@ class HantarEmelNotification2 extends Notification
     public function toMail($notifiable)
     {
         // dd($notifiable);
-        return (new HantarEmelMail2($notifiable, $this->emel, $this->tajuk, $this->mesej))->to($notifiable->email);
+        return (new HantarEmelMail2($notifiable, $this->emel, $this->tajuk, $this->mesej, $this->daripada))->to($notifiable->email);
     }
     public function toDatabase($notifiable)
     {

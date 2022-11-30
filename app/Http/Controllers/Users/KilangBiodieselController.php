@@ -1621,14 +1621,14 @@ class KilangBiodieselController extends Controller
        // $this->store_send_email($request->all());
 
        if ($request->file_upload) {
-        $this->store_send_email($request->all());
+        // $this->store_send_email($request->all());
         $pelesen = $this->store_send_email($request->all());
         $kepada = User::where('username', auth()->user()->username)->first();
         // $daripada = User::where('username', auth()->user()->username)->first();
         $kepada->notify((new HantarEmelNotification2($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
 
     } else {
-        $this->store_send_email2($request->all());
+        // $this->store_send_email2($request->all());
         $pelesen = $this->store_send_email2($request->all());
         $kepada = User::where('username', auth()->user()->username)->first();
         $kepada->notify((new HantarEmelNotification($request->TypeOfEmail, $request->Subject, $request->Message, $kepada, $pelesen)));
