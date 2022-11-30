@@ -84,7 +84,7 @@
                                     <div class="container center ">
                                         @if ($johor)
 
-                                            <div class="col-12 mt-1 mb-2"><b><u>JOHORs</u></b></div>
+                                            <div class="col-12 mt-1 mb-2"><b><u>JOHOR</u></b></div>
 
                                             <table id="tbl1">
 

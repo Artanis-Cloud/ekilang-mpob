@@ -522,7 +522,7 @@ class Proses1Controller extends Controller
         }
 
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.papar.maklumat', $reg_pelesen->e_id);
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
