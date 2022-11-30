@@ -75,7 +75,7 @@ class Proses5Controller extends Controller
 
                     $breadcrumbs    = [
                         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                        ['link' => route('admin.5penyatabelumhantarbuah'), 'name' => "Penyata Bulanan Kilang Buah"],
+                        ['link' => route('admin.5penyatabelumhantarbuah'), 'name' => "Penyata Bulanan Belun Hantar "],
                     ];
 
                     $kembali = route('admin.dashboard');
@@ -102,7 +102,7 @@ class Proses5Controller extends Controller
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.5penyatabelumhantarbuah'), 'name' => "Penyata Bulanan Kilang Buah"],
+                ['link' => route('admin.5penyatabelumhantarbuah'), 'name' => "Penyata Bulanan Belun Hantar "],
             ];
 
             $kembali = route('admin.dashboard');
@@ -126,7 +126,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-buah-multi'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5papar-belum-buah-multi'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.5penyatabelumhantarbuah');
@@ -172,7 +172,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantarpenapis'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5penyatabelumhantarpenapis'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.dashboard');
@@ -195,7 +195,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-penapis-multi'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5papar-belum-penapis-multi'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.5penyatabelumhantarpenapis');
@@ -429,7 +429,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantarisirung'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5penyatabelumhantarisirung'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.dashboard');
@@ -452,7 +452,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-isirung-multi'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5papar-belum-isirung-multi'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.5penyatabelumhantarisirung');
@@ -526,7 +526,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantaroleo'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5penyatabelumhantaroleo'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.dashboard');
@@ -549,7 +549,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-oleo-multi'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5papar-belum-oleo-multi'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
 
@@ -738,7 +738,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantarsimpanan'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5penyatabelumhantarsimpanan'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.dashboard');
@@ -761,7 +761,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-simpanan-multi'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5papar-belum-simpanan-multi'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.5penyatabelumhantarsimpanan');
@@ -824,7 +824,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.dashboard');
@@ -848,7 +848,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Senarai Penyata Bulanan Belum Dihantar   "],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Belun Hantar "],
         ];
 
         $kembali = route('admin.5penyatabelumhantarbio');
@@ -915,7 +915,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -952,7 +952,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
             ['link' => route('admin.5penyatakemaskini.process'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
@@ -1076,7 +1076,7 @@ class Proses5Controller extends Controller
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+                ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
             ];
 
             $kembali = route('admin.6penyatapaparcetakbio');
@@ -1117,7 +1117,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.5penyatakemaskinibio');
@@ -1207,7 +1207,7 @@ class Proses5Controller extends Controller
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+                ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
             ];
 
             $kembali = route('admin.6penyatapaparcetakbio');
@@ -1248,7 +1248,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.5penyatakemaskinibio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1286,7 +1286,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1342,7 +1342,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel   "],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel   "],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1376,7 +1376,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1406,7 +1406,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1559,7 +1559,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1661,7 +1661,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1936,7 +1936,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -1992,7 +1992,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -2026,7 +2026,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -2179,7 +2179,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
@@ -2281,7 +2281,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Penyata Bulanan Kilang Biodiesel"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Kemaskini Penyata Bulanan Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.6penyatapaparcetakbio');
