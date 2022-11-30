@@ -194,7 +194,7 @@
 
                                                     <td width="35%">Alamat Surat Menyurat</td>
 
-                                                    <td width="65%"><b>{{ $penyata->e_as1 ?? '-' }}</b></td>
+                                                    <td width="65%"><b>{{ $penyata->pelesen->e_as1 ?? '-' }}</b></td>
 
                                                 </tr>
 
