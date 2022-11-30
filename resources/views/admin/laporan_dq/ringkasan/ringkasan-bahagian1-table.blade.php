@@ -431,8 +431,15 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
+                                                            @if ($bulan == null)
+
                                                             <th scope="col" style="vertical-align: middle; text-align:center; "
                                                                 colspan="13">Kuantiti (Tan Metrik) </th>
+                                                            @else
+
+                                                            <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                colspan="1">Kuantiti (Tan Metrik) </th>
+                                                            @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
