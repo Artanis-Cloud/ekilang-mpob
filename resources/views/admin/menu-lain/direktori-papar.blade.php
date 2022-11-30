@@ -96,6 +96,7 @@
                                                             {{-- <td>&nbsp</td>
                                                             <td>&nbsp</td> --}}
                                                     {{-- </tr>  --}}
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -172,6 +173,7 @@
                                             <table id="tbl2">
 
                                                 @foreach ($kedah as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -247,6 +249,7 @@
                                             <table id="tbl3">
 
                                                 @foreach ($kelantan as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -322,6 +325,7 @@
                                             <table id="tbl4">
 
                                                 @foreach ($melaka as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -397,6 +401,7 @@
                                             <table id="tbl5">
 
                                                 @foreach ($n9 as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -472,6 +477,7 @@
                                             <table id="tbl6">
 
                                                 @foreach ($pahang as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -547,6 +553,7 @@
                                             <table id="tbl7">
 
                                                 @foreach ($perak as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -622,6 +629,7 @@
                                             <table id="tbl8">
 
                                                 @foreach ($perlis as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -697,6 +705,7 @@
                                             <table id="tbl9">
 
                                                 @foreach ($penang as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -772,6 +781,7 @@
                                             <table id="tbl10">
 
                                                 @foreach ($selangor as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -847,6 +857,7 @@
                                             <table id="a">
 
                                                 @foreach ($terengganu as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -923,6 +934,7 @@
                                             <table id="s">
 
                                                 @foreach ($wp as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -998,6 +1010,7 @@
                                             <table id="d">
 
                                                 @foreach ($sabah as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -1073,6 +1086,7 @@
                                             <table id="f">
 
                                                 @foreach ($sarawak as $data)
+                                                    <td class="noScreen noPrint">Senarai Direktori</td>
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -1149,6 +1163,7 @@
                                         <table id="tblData">
 
                                             @foreach ($query as $data)
+                                                <td class="noScreen noPrint">Senarai Direktori</td>
                                                 <tr style="margin-left:2%">
                                                     <td><b>{{ $loop->iteration }}.</b></td>
                                                     <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
@@ -1266,11 +1281,21 @@
     </script>
     <script>
         function myPrint(myfrm) {
-            var restorepage = $('body').html();
-            var printcontent = $('#' + myfrm).clone();
-            $('body').empty().html(printcontent);
-            window.print();
-            $('body').html(restorepage);
+            var hashid = "#"+ myfrm;
+            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var attributes = "";
+            var attrs = document.getElementById(myfrm).attributes;
+              $.each(attrs,function(i,elem){
+                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+              })
+            var divToPrint= $(hashid).html() ;
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+           setTimeout(function(){newWin.close();},10);
         }
     </script>
     {{-- <script>
