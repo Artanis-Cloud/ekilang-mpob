@@ -89,12 +89,17 @@
                                             <table id="tbl1">
 
                                                 @foreach ($johor as $data)
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td><b>{{ $loop->iteration }}.</b></td>
                                                         <td style="text-transform:uppercase; text-align:center">
                                                             <b>{{ $data->e_np }}</b></td>
                                                             {{-- <td>&nbsp</td>
                                                             <td>&nbsp</td> --}}
+                                                    {{-- </tr>  --}}
+                                                    <tr style="margin-left:2%">
+                                                        <td><b>{{ $loop->iteration }}.</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase">
+                                                            <b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
