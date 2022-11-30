@@ -237,12 +237,12 @@ class DashboardAdminController extends Controller
 
 
         //total pelesen yang sudah hantar penyata setiap sektor
-        $total91 = E91Init::where('e91_flg', ['2','3'])->count();
-        $total101 = E101Init::where('e101_flg',['2','3'])->count();
-        $total102 = E102Init::where('e102_flg', ['2','3'])->count();
-        $total104 = E104Init::where('e104_flg', ['2','3'])->count();
-        $total111 = E07Init::where('e07_flg', ['2','3'])->count();
-        $totalBIO = EBioInit::where('ebio_flg', ['2','3'])->count();
+        $total91 = E91Init::where('e91_flg', '!=' , '1')->count();
+        $total101 = E101Init::where('e101_flg', '!=' ,'1')->count();
+        $total102 = E102Init::where('e102_flg', '!=' , '1')->count();
+        $total104 = E104Init::where('e104_flg', '!=' , '1')->count();
+        $total111 = E07Init::where('e07_flg', '!=' , '1')->count();
+        $totalBIO = EBioInit::where('ebio_flg', '!=' , '1')->count();
 
         $total_overall = ($total91 + $total101 + $total102 + $total104 + $total111 + $totalBIO);
         // dd($total_overall);
