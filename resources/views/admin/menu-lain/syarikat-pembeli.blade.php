@@ -57,7 +57,7 @@
                             <div class="pl-3">
 
                                 <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Pembeli</h3>
+                                    <h3 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pembeli</h3>
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
 
                                     {{-- <p>Maklumat Kilang</p> --}}
@@ -286,6 +286,9 @@
                     text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
                     className: "fred",
 
+                    exportOptions: {
+                        columns: [0,1]
+                    },
                     title: function(doc) {
                         return $('#title').text()
                     },
@@ -298,7 +301,7 @@
                     $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                     },
 
-                    filename: 'Penyata Bulan',
+                    filename: 'Senarai Pembeli',
 
 
 
@@ -310,10 +313,10 @@
                     className: "prodpdf",
 
                     exportOptions: {
-                        columns: [1,2,3,4,5,6,7]
+                        columns: [0,1]
                     },
                     title: function(doc) {
-                            return $('#title').text() + $ ('#tarikh').text()
+                            return $('#title').text()
                             },
                     customize: function (doc) {
                         let table = doc.content[1].table.body;
@@ -324,13 +327,15 @@
 
                     },
                     customize: function(doc) {
+                    doc.content[1].margin = [ 250, 0, 100, 0 ] //left, top, right, bottom
+
                     doc.content[1].table.body[0].forEach(function(h) {
                         h.fillColor = '#0a7569';
 
                     });
                     },
 
-                    filename: 'Penyata Bulan',
+                    filename: 'Senarai Pembeli',
 
                 },
             ],

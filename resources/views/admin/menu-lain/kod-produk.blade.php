@@ -78,7 +78,7 @@
                                         <p align="center"><b>
                                             <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB) </font><br>
 
-                                            <font size="4">Senarai Kod dan Nama Produk Sawit</font></b>
+                                            <font id="title" size="4">Senarai Kod dan Nama Produk Sawit</font></b>
 
                                         </p>
 
@@ -216,7 +216,7 @@
                     $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
                     },
 
-                    filename: 'Penyata Bulan',
+                    filename: 'Senarai Kod dan Nama Produk Sawit',
 
 
 
@@ -228,10 +228,10 @@
                     className: "prodpdf",
 
                     exportOptions: {
-                        columns: [1,2,3,4,5,6,7]
+                        columns: [0,1,2,3]
                     },
                     title: function(doc) {
-                            return $('#title').text() + $ ('#tarikh').text()
+                            return $('#title').text()
                             },
                     customize: function (doc) {
                         let table = doc.content[1].table.body;
@@ -242,13 +242,15 @@
 
                     },
                     customize: function(doc) {
+
+                        doc.content[1].margin = [ 170, 0, 100, 0 ] //left, top, right, bottom
                     doc.content[1].table.body[0].forEach(function(h) {
                         h.fillColor = '#0a7569';
 
                     });
                     },
 
-                    filename: 'Penyata Bulan',
+                    filename: 'Senarai Kod dan Nama Produk Sawit',
 
                 },
             ],

@@ -431,14 +431,25 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            @if ($bulan == null)
+                                                            @if ($bulan == 'equal')
 
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; "
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                    colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                            @elseif ($bulan == 'between')
+                                                                @php
+                                                                    $i = $end_month - $start_month + 2;
+                                                                @endphp
+                                                                {{-- @for ($i = ) --}}
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                {{-- @endfor --}}
+
                                                             @else
 
-                                                            <th scope="col" style="vertical-align: middle; text-align:center; "
-                                                                colspan="1">Kuantiti (Tan Metrik) </th>
+                                                                <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                    colspan="13">Kuantiti (Tan Metrik) </th>
+
                                                             @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
@@ -906,8 +917,26 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                @if ($bulan == 'equal')
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                                @elseif ($bulan == 'between')
+                                                                    @php
+                                                                        $i = $end_month - $start_month + 2;
+                                                                    @endphp
+                                                                    {{-- @for ($i = ) --}}
+                                                                        <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                            colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                    {{-- @endfor --}}
+
+                                                                @else
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="13">Kuantiti (Tan Metrik) </th>
+
+                                                                @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -1361,8 +1390,26 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                @if ($bulan == 'equal')
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                                @elseif ($bulan == 'between')
+                                                                    @php
+                                                                        $i = $end_month - $start_month + 2;
+                                                                    @endphp
+                                                                    {{-- @for ($i = ) --}}
+                                                                        <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                            colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                    {{-- @endfor --}}
+
+                                                                @else
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="13">Kuantiti (Tan Metrik) </th>
+
+                                                                @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -1816,8 +1863,26 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                @if ($bulan == 'equal')
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                                @elseif ($bulan == 'between')
+                                                                    @php
+                                                                        $i = $end_month - $start_month + 2;
+                                                                    @endphp
+                                                                    {{-- @for ($i = ) --}}
+                                                                        <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                            colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                    {{-- @endfor --}}
+
+                                                                @else
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="13">Kuantiti (Tan Metrik) </th>
+
+                                                                @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -2272,8 +2337,26 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                @if ($bulan == 'equal')
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                                @elseif ($bulan == 'between')
+                                                                    @php
+                                                                        $i = $end_month - $start_month + 2;
+                                                                    @endphp
+                                                                    {{-- @for ($i = ) --}}
+                                                                        <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                            colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                    {{-- @endfor --}}
+
+                                                                @else
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="13">Kuantiti (Tan Metrik) </th>
+
+                                                                @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -2727,8 +2810,26 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                @if ($bulan == 'equal')
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                                @elseif ($bulan == 'between')
+                                                                    @php
+                                                                        $i = $end_month - $start_month + 2;
+                                                                    @endphp
+                                                                    {{-- @for ($i = ) --}}
+                                                                        <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                            colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                    {{-- @endfor --}}
+
+                                                                @else
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="13">Kuantiti (Tan Metrik) </th>
+
+                                                                @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
@@ -3182,8 +3283,26 @@
                                                                 rowspan="2">Kod Produk</th>
                                                             <th scope="col" style="vertical-align: middle; text-align:center; width:40%"
                                                                 rowspan="2">Nama Produk</th>
-                                                            <th scope="col" style="vertical-align: middle; text-align:center;"
-                                                                colspan="13">Kuantiti (Tan Metrik) </th>
+                                                                @if ($bulan == 'equal')
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="1">Kuantiti (Tan Metrik) </th>
+
+                                                                @elseif ($bulan == 'between')
+                                                                    @php
+                                                                        $i = $end_month - $start_month + 2;
+                                                                    @endphp
+                                                                    {{-- @for ($i = ) --}}
+                                                                        <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                            colspan={{ $i }}>Kuantiti (Tan Metrik) </th>
+                                                                    {{-- @endfor --}}
+
+                                                                @else
+
+                                                                    <th scope="col" style="vertical-align: middle; text-align:center; "
+                                                                        colspan="13">Kuantiti (Tan Metrik) </th>
+
+                                                                @endif
                                                         </tr>
                                                         <tr style="background-color: #d3d3d34d">
                                                             @if ($bulan == null)
