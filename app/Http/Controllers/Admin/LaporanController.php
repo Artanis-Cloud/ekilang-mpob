@@ -723,7 +723,7 @@ class LaporanController extends Controller
                 $no_batches = DB::table('h_bio_inits')->where('ebio_nl',$list_result->ebio_nl)->where('ebio_thn',$tahun)->get();
                 $data_daerah[$key] = Daerah::where('kod_negeri',$list_result->kod_negeri)->where('kod_daerah',$list_result->e_daerah)->first();
 
-                 //  dd( $no_batches);
+                //   dd( $no_batches);
 
                 foreach ($no_batches as $no_batch) {
 
@@ -796,7 +796,7 @@ class LaporanController extends Controller
             }
 
 
-            // dd($proddesc);
+            // dd($no_batches);
                         // dd($ebio_b5_bhg1);
 
 
