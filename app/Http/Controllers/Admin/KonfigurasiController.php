@@ -30,11 +30,11 @@ class KonfigurasiController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senarai.pentadbir'), 'name' => "Senarai Pentadbir"],
+            ['link' => route('admin.pengurusan.pentadbir'), 'name' => "Senarai Pentadbir"],
             ['link' => route('admin.pengurusan.pentadbir'), 'name' => "Daftar Akaun Pentadbir"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.senarai.pentadbir');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -50,8 +50,13 @@ class KonfigurasiController extends Controller
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
         // dd(auth()->user());
+        $check_users = User::where('username', $request->username)->first();
+        $check_regusers = RegUser::where('e_userid', $request->username)->first();
 
-        // $this->validation_daftar_pentadbir($request->all())->validate();
+
+        if (!$check_users->username || !$check_regusers) {
+
+        $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
         // $custom_pass = $this->store_daftar_pentadbir($request->all());
@@ -120,6 +125,12 @@ class KonfigurasiController extends Controller
         Auth::user()->log(" ADD ADMIN {$daripada->username}" );
 
         return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
+
+    }
+    else {
+        return redirect()->back()
+                ->with('error', 'Username sudah wujud! ');
+    }
     }
 
     protected function validation_daftar_pentadbir(array $data)
@@ -127,7 +138,7 @@ class KonfigurasiController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
-            'username' => ['required', 'string', 'unique:reg_user'],
+            'username' => ['required', 'string'],
             'role' => ['required', 'string'],
             'sub_cat[]' => ['required', 'string'],
             'status' => ['required', 'string'],
