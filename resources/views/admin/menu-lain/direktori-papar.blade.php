@@ -98,8 +98,7 @@
                                                     {{-- </tr>  --}}
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -175,8 +174,7 @@
                                                 @foreach ($kedah as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -251,8 +249,7 @@
                                                 @foreach ($kelantan as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -327,8 +324,7 @@
                                                 @foreach ($melaka as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -403,8 +399,7 @@
                                                 @foreach ($n9 as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -479,8 +474,7 @@
                                                 @foreach ($pahang as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -555,8 +549,7 @@
                                                 @foreach ($perak as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -631,8 +624,7 @@
                                                 @foreach ($perlis as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -707,8 +699,7 @@
                                                 @foreach ($penang as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -783,8 +774,7 @@
                                                 @foreach ($selangor as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -859,8 +849,7 @@
                                                 @foreach ($terengganu as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -936,8 +925,7 @@
                                                 @foreach ($wp as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -1012,8 +1000,7 @@
                                                 @foreach ($sabah as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -1088,8 +1075,7 @@
                                                 @foreach ($sarawak as $data)
                                                     <tr style="margin-left:2%">
                                                         <td><b>{{ $loop->iteration }}.</b></td>
-                                                        <td colspan=3 style="text-transform:uppercase">
-                                                            <b>{{ $data->e_np }}</b></td>
+                                                        <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp</td>
@@ -1165,8 +1151,7 @@
                                             @foreach ($query as $data)
                                                 <tr style="margin-left:2%">
                                                     <td><b>{{ $loop->iteration }}.</b></td>
-                                                    <td colspan=3 style="text-transform:uppercase">
-                                                        <b>{{ $data->e_np }}</b></td>
+                                                    <td colspan=3 style="text-transform:uppercase"><b>{{ $data->e_np }}</b></td>
                                                 </tr>
                                                 <tr>
                                                     <td>&nbsp</td>
