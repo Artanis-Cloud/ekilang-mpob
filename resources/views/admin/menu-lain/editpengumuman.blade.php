@@ -123,7 +123,7 @@
                                             <div class="col-md-6">
 
                                                 <div id="editor" oninput="add_message()">
-                                                    {{ old('Message') ?? $pengumuman->Message }}
+                                                    {!! old('Message') ?? $pengumuman->Message !!}
                                                 </div>
 
                                             </div>
