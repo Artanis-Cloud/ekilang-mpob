@@ -60,7 +60,7 @@
                                 {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                 <h3 style="color: rgb(39, 80, 71); ">Pengurusan Pentadbir
                                 </h3>
-                                <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pentadbir
+                                <h4 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pentadbir
                                 </h4>
                                 {{-- <p>Maklumat Kilang</p> --}}
                             </div>
@@ -72,7 +72,7 @@
                                 </div>
 
                                 <div class="table-responsive" >
-                                    <table id="example" class="table table-bordered" style="width: 100%;  ">
+                                    <table id="exampleTadbir" class="table table-bordered" style="width: 100%;  ">
                                         <thead>
                                             <tr class="text-center" style="background-color: #e9ecefbd">
                                                 {{-- <th>Bil.</th> --}}
@@ -791,25 +791,111 @@
 @endsection
 
 @section('scripts')
-    {{-- <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
+<script>
+
+    $(document).ready(function () {
+    // Setup - add a text input to each footer cell
+    $('#exampleTadbir tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" class="form-control" placeholder=" ' + title + '" />');
+    });
+
+    // DataTable
+        var table = $('#exampleTadbir').DataTable({
+
+            initComplete: function () {
+
+                // Apply the search
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var that = this;
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that.search(this.value).draw();
+                            }
+                        });
+                    });
+            },
+            dom: 'Bfrtip',
+
+            buttons: [
+
+                'pageLength',
+
+                {
+
+                    extend: 'excel',
+                    text: '<a class="bi bi-file-earmark-excel-fill" aria-hidden="true"  > Excel</a>',
+                    className: "fred",
+
+                    title: function(doc) {
+                        return $('#title').text()
                     },
+
+                    customize: function(xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                    var style = xlsx.xl['styles.xml'];
+                    $( 'row c', sheet ).attr( 's', '25' );
+                    $('xf', style).find("alignment[horizontal='center']").attr("wrapText", "1");
+                    $('row', sheet).first().attr('ht', '40').attr('customHeight', "1");
+                    },
+
+                    filename: 'Senarai Pentadbir',
+
+
+
                 },
-            });
+                {
+                    extend: 'pdfHtml5',
+                    text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                    pageSize: 'TABLOID',
+                    className: "prodpdf",
+
+                    exportOptions: {
+                        columns: [0,1,2,3,4,5]
+                    },
+                    title: function(doc) {
+                            return $('#title').text()
+                            },
+                    customize: function (doc) {
+                        let table = doc.content[1].table.body;
+                        for (i = 1; i < table.length; i++) // skip table header row (i = 0)
+                        {
+                            var test = table[i][0];
+                        }
+
+                    },
+                    customize: function(doc) {
+                    doc.content[1].table.body[0].forEach(function(h) {
+                        h.fillColor = '#0a7569';
+
+                    });
+                    },
+
+                    filename: 'Senarai Pentadbir',
+
+                },
+            ],
+            "language": {
+                "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                "zeroRecords": "Maaf, tiada rekod.",
+                "info": "",
+                "infoEmpty": "Tidak ada rekod yang tersedia",
+                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                "search": "Carian",
+                "previous": "Sebelum",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+
         });
-    </script> --}}
+
+    });
+
+</script>
 @endsection
