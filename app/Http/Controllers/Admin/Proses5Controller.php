@@ -2446,7 +2446,7 @@ class Proses5Controller extends Controller
             $penyata = HBioC::find($id);
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
 
-            $senarai_syarikat = HBioCC::with('ebioinit','syarikat')->where('ebio_nobatch', $penyata->ebio_nobatch)->get();
+            $senarai_syarikat = HBioCC::with('hbioinit','syarikat')->where('ebio_nobatch', $penyata->ebio_nobatch)->get();
             // dd($senarai_syarikat);
             // dd($senarai_syarikat);
 
@@ -2455,7 +2455,7 @@ class Proses5Controller extends Controller
             $seq = HBioCC::where('ebio_nobatch', $id)->count();
             // dd($seq);
 
-            return view('admin.proses5.5kemaskini-jualan-kini', compact(
+            return view('admin.proses5.5kemaskini-jualan-dahulu', compact(
                 'returnArr',
                 'senarai_syarikat',
                 'syarikat',
