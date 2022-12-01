@@ -92,7 +92,7 @@
                         <!--JOHOR -->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>JOHOR</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl1">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -194,7 +194,7 @@
                         <!--KEDAH-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KEDAH</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl2">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -296,7 +296,7 @@
                         <!--KELANTAN-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>KELANTAN</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl3">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -398,7 +398,7 @@
                         <!--MELAKA-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>MELAKA</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl4">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -500,7 +500,7 @@
                         <!--N9-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>NEGERI SEMBILAN</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl5">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -602,7 +602,7 @@
                         <!--PAHANG-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PAHANG</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl6">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -704,7 +704,7 @@
                         <!--PERAK-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERAK</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl7">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -806,7 +806,7 @@
                         <!--PERLIS-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PERLIS</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl8">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -909,7 +909,7 @@
                         <!--PENANG-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>PULAU PINANG</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl9">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -1012,7 +1012,7 @@
                         <!--SELANGOR-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SELANGOR</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl10">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -1115,7 +1115,7 @@
                         <!--TERENGGANU-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>TERENGGANU</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl11">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -1218,7 +1218,7 @@
                         <!--wp-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>WILAYAH PERSEKUTUAN</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl12">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -1321,7 +1321,7 @@
                         <!--SABAH-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SABAH</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl13">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">
@@ -1424,7 +1424,7 @@
                         <!--SARAWAK-->
                         <div class="col-11 mt-2 mb-2 ml-auto mr-auto" style="background-color:lightgrey"><b>SARAWAK</b></div>
                         <div class="row">
-                            <div class="col-11 table-responsive m-t-20 ml-auto mr-auto">
+                            <div class="col-11 table m-t-20 ml-auto mr-auto">
                                 <table class="table table-bordered" id="tbl14">
                                     <thead>
                                         <tr style="background-color: #d3d3d34d">

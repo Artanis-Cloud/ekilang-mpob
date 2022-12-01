@@ -2279,7 +2279,7 @@ class Proses9Controller extends Controller
 
 
 
-                $ii[$ebio_nobatch] = HHari::where('lesen',  $penyata[$ebio_nobatch][$key]->e_nl)->where('tahunbhg2', $penyata[$ebio_nobatch][$key]->ebio_thn)->where('bulanbhg2', $penyata[$ebio_nobatch][$key]->ebio_bln)->first();
+                $ii[$ebio_nobatch] = HHari::where('lesen',  $penyata[$ebio_nobatch][0]->e_nl)->where('tahunbhg2', $penyata[$ebio_nobatch][0]->ebio_thn)->where('bulanbhg2', $penyata[$ebio_nobatch][0]->ebio_bln)->first();
 
 
                 $iii[$ebio_nobatch]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->get();
