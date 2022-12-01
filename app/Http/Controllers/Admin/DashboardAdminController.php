@@ -250,6 +250,7 @@ class DashboardAdminController extends Controller
         $total111 = E07Init::where('e07_flg', '!=' , '1')->where('e07_sdate', '<=' , $enddate )->count();
         $totalBIO = EBioInit::where('ebio_flg', '!=' , '1')->where('ebio_sdate', '<=' , $enddate )->count();
 
+
         $total_overall = ($total91 + $total101 + $total102 + $total104 + $total111 + $totalBIO);
         // dd($total_overall);
 
