@@ -12,6 +12,7 @@ use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\RegUser;
 use App\Notifications\Admin\DaftarPentadbirNotification;
+use App\Notifications\Admin\DaftarPentadbirNotification2;
 use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -49,7 +50,8 @@ class KonfigurasiController extends Controller
 
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
-        // dd(auth()->user());
+        // dd($request->all());
+
 
         if ($request->role) {
 
@@ -115,12 +117,12 @@ class KonfigurasiController extends Controller
 
 
         foreach ($kepadas as $kepada) {
-            if ($kepada->email != '-') {
-                $kepada->notify((new DaftarPentadbirNotification($daripada, $daripada)));
-            } else {
-                return redirect()->route('admin.senarai.pentadbir')
-                    ->with('success', 'Maklumat Pentadbir telah dikemaskini');
-            }
+            // if ($kepada->email != '-') {
+                $kepada->notify((new DaftarPentadbirNotification2($daripada, $daripada)));
+            // } else {
+            //     return redirect()->back()
+            //         ->with('error', 'Alamat Emel Tidak Sah');
+            // }
         }
         $kepada2->notify((new DaftarPentadbirNotification($daripada, $daripada)));
 
