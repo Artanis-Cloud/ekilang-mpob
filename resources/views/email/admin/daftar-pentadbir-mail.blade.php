@@ -88,7 +88,7 @@
                                                         Kategori:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        {{ $user->category }}</td>
+                                                        {{ $user->role }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
