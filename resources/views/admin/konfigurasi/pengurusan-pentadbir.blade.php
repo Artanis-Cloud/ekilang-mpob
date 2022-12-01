@@ -206,7 +206,7 @@
                                             Kategori</label>
                                         <div class="col-md-6">
 
-                                            <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]" id="subkat" required>
+                                            <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]" id="subkat" >
                                                 <option value="PL91">Kilang Buah</option>
                                                 <option value="PL101">Kilang Penapis</option>
                                                 <option value="PL102">Kilang Isirung</option>
