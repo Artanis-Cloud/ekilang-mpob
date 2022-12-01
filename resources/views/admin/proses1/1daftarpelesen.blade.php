@@ -734,7 +734,7 @@
                                                 <fieldset class="form-group" style="margin-bottom: 20px;">
                                                     <select class="form-control" name="e_poma" id="e_poma" style="text-transform:uppercase"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                        oninput="setCustomValidity(''); invokeFunc26(); valid_poma()">
+                                                        oninput="setCustomValidity(''); valid_poma()">
                                                         <option selected hidden value="">Sila Pilih</option>
                                                         <option value="poma">YA</option>
                                                         <option value="NULL">TIDAK</option>
@@ -1571,7 +1571,7 @@
                 document.getElementById('err_nl2').style.display = "none";
 
             }
-           
+
 
             // kap proses
             // field = document.getElementById("kap_proses");
