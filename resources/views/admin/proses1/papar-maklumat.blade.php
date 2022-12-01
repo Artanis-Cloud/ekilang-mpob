@@ -40,147 +40,531 @@
             </div>
         </div>
         <div class="container-fluid">
-        <div class="card">
-            <div class="row" style="padding: 10px">
-                <div class="col-1 align-self-center">
-                    <a href="javascript:history.back()"  class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
-                </div>
-            </div>
-            <!-- row -->
-            <div class="card-body">
-                <div class="pl-3">
-
-                    <div class=" text-center">
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
-                        <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan
-                            </i>
-                        </h5>
+            <div class="card">
+                <div class="row" style="padding: 10px">
+                    <div class="col-1 align-self-center">
+                        <a href="javascript:history.back()" class="btn" style=" color:rgb(64, 69, 68)"><i
+                                class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
-                    <hr>
-                    <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id] ) }}" method="post"  onsubmit="return check()" novalidate class="sub-form">
-                        @csrf
-                        <div class="container center" style="margin-left: 14%">
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label  align-items-center">
-                                    Jenis Kilang </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" name="e_kat" id="e_kat"  style="text-transform:uppercase"
-                                        disabled>
+                </div>
+                <!-- row -->
+                <div class="card-body">
+                    <div class="pl-3">
 
-                                            <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }} value="PL91">KILANG BUAH</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }} value="PL101">KILANG PENAPIS</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }} value="PL102">KILANG ISIRUNG</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL104') ? 'selected' : '' }} value="PL104">KILANG OLEOKIMIA</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PL111') ? 'selected' : '' }} value="PL111">PUSAT SIMPANAN</option>
-                                            <option {{ ($reg_pelesen->e_kat == 'PLBIO') ? 'selected' : '' }} value="PLBIO">KILANG BIODIESEL</option>
-                                        </select>
-                                    </fieldset>
+                        <div class=" text-center">
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
+                            <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan
+                                </i>
+                            </h5>
+                        </div>
+                        <hr>
+                        <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post"
+                            onsubmit="return check()" novalidate class="sub-form">
+                            @csrf
+                            <div class="container center" style="margin-left: 14%">
+                                <div class="row">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Jenis Kilang </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" name="e_kat" id="e_kat"
+                                                style="text-transform:uppercase" disabled>
 
+                                                <option {{ $reg_pelesen->e_kat == 'PL91' ? 'selected' : '' }}
+                                                    value="PL91">KILANG BUAH</option>
+                                                <option {{ $reg_pelesen->e_kat == 'PL101' ? 'selected' : '' }}
+                                                    value="PL101">KILANG PENAPIS</option>
+                                                <option {{ $reg_pelesen->e_kat == 'PL102' ? 'selected' : '' }}
+                                                    value="PL102">KILANG ISIRUNG</option>
+                                                <option {{ $reg_pelesen->e_kat == 'PL104' ? 'selected' : '' }}
+                                                    value="PL104">KILANG OLEOKIMIA</option>
+                                                <option {{ $reg_pelesen->e_kat == 'PL111' ? 'selected' : '' }}
+                                                    value="PL111">PUSAT SIMPANAN</option>
+                                                <option {{ $reg_pelesen->e_kat == 'PLBIO' ? 'selected' : '' }}
+                                                    value="PLBIO">KILANG BIODIESEL</option>
+                                            </select>
+                                        </fieldset>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Status e-Kilang </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" name="e_status" id="e_status"  style="text-transform:uppercase"  required>
+                                <div class="row" style="margin-top: -7px">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Status e-Kilang </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" name="e_status" id="e_status"
+                                                style="text-transform:uppercase" required>
 
-                                            <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">AKTIF</option>
-                                            <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">TIDAK AKTIF</option>
-                                        </select>
-                                    </fieldset>
+                                                <option {{ $reg_pelesen->e_status == '1' ? 'selected' : '' }}
+                                                    value="1">AKTIF</option>
+                                                <option {{ $reg_pelesen->e_status == '2' ? 'selected' : '' }}
+                                                    value="2">TIDAK AKTIF</option>
+                                            </select>
+                                        </fieldset>
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row"  style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Status e-Mingguan </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" name="e_stock" id="e_stock"  style="text-transform:uppercase" required>
-                                            <option {{ ($reg_pelesen->e_stock == '1') ? 'selected' : '' }} value="1">AKTIF</option>
-                                            <option {{ ($reg_pelesen->e_stock == '2') ? 'selected' : '' }} value="2">TIDAK AKTIF</option>
-                                        </select>
-                                    </fieldset>
+                                <div class="row" style="margin-top: -7px">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Status e-Mingguan </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" name="e_stock" id="e_stock"
+                                                style="text-transform:uppercase" required>
+                                                <option {{ $reg_pelesen->e_stock == '1' ? 'selected' : '' }}
+                                                    value="1">AKTIF</option>
+                                                <option {{ $reg_pelesen->e_stock == '2' ? 'selected' : '' }}
+                                                    value="2">TIDAK AKTIF</option>
+                                            </select>
+                                        </fieldset>
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Status Direktori </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" name="directory" id="directory"  style="text-transform:uppercase" required>
-                                            <option {{ ($reg_pelesen->directory == 'Y') ? 'selected' : '' }} value="Y">YA</option>
-                                            <option {{ ($reg_pelesen->directory == 'N') ? 'selected' : '' }} value="N">TIDAK</option>
-                                        </select>
-                                    </fieldset>
+                                <div class="row" style="margin-top: -7px">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Status Direktori </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" name="directory" id="directory"
+                                                style="text-transform:uppercase" required>
+                                                <option {{ $reg_pelesen->directory == 'Y' ? 'selected' : '' }}
+                                                    value="Y">YA</option>
+                                                <option {{ $reg_pelesen->directory == 'N' ? 'selected' : '' }}
+                                                    value="N">TIDAK</option>
+                                            </select>
+                                        </fieldset>
 
+                                    </div>
                                 </div>
-                            </div>
-                            @if ($reg_pelesen->e_kat != 'PLBIO')
+                                @if ($reg_pelesen->e_kat != 'PLBIO')
+                                    <div class="row" style="margin-top: -7px">
+                                        <label for="fname"
+                                            class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                            Kod Negeri </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" name="kodpgw" id="kodpgw"
+                                                    style="text-transform:uppercase" required>
+                                                    @if ($reg_pelesen->e_kat == 'PL101')
+                                                        <option
+                                                            {{ ($pelesen->kodpgw == 'FA' or $pelesen->kodpgw == 'DD') ? 'selected' : '' }}
+                                                            value="FA">FA</option>
+                                                        <option
+                                                            {{ ($pelesen->kodpgw == 'FB' or $pelesen->kodpgw == 'DD') ? 'selected' : '' }}
+                                                            value="FB">FB</option>
+                                                        <option
+                                                            {{ ($pelesen->kodpgw == 'FC' or $pelesen->kodpgw == 'DD') ? 'selected' : '' }}
+                                                            value="FC">FC</option>
+                                                        <option
+                                                            {{ ($pelesen->kodpgw == 'FD' or $pelesen->kodpgw == 'DD') ? 'selected' : '' }}
+                                                            value="FD">FD</option>
+                                                        <option {{ $pelesen->kodpgw == 'FJ' ? 'selected' : '' }}
+                                                            value="FJ">FJ</option>
+                                                        <option {{ $pelesen->kodpgw == 'FP' ? 'selected' : '' }}
+                                                            value="FP">FP</option>
+                                                        <option {{ $pelesen->kodpgw == 'FQ' ? 'selected' : '' }}
+                                                            value="FQ">FQ</option>
+                                                        <option {{ $pelesen->kodpgw == 'FS' ? 'selected' : '' }}
+                                                            value="FS">FS</option>
+                                                    @elseif ($reg_pelesen->e_kat == 'PL104')
+                                                        <option {{ $pelesen->kodpgw == 'CA' ? 'selected' : '' }}
+                                                            value="CA">CA</option>
+                                                        <option {{ $pelesen->kodpgw == 'CC' ? 'selected' : '' }}
+                                                            value="CC">CC</option>
+                                                        <option {{ $pelesen->kodpgw == 'CJ' ? 'selected' : '' }}
+                                                            value="CJ">CJ</option>
+                                                        <option {{ $pelesen->kodpgw == 'CP' ? 'selected' : '' }}
+                                                            value="CP">CP</option>
+                                                        <option {{ $pelesen->kodpgw == 'CS' ? 'selected' : '' }}
+                                                            value="CS">CS</option>
+                                                    @elseif ($reg_pelesen->e_kat == 'PL111')
+                                                        <option {{ $pelesen->kodpgw == 'BB' ? 'selected' : '' }}
+                                                            value="BB">BB</option>
+                                                        <option {{ $pelesen->kodpgw == 'BC' ? 'selected' : '' }}
+                                                            value="BC">BC</option>
+                                                        <option {{ $pelesen->kodpgw == 'BJ' ? 'selected' : '' }}
+                                                            value="BJ">BJ</option>
+                                                        <option {{ $pelesen->kodpgw == 'BP' ? 'selected' : '' }}
+                                                            value="BP">BP</option>
+                                                        <option {{ $pelesen->kodpgw == 'BQ' ? 'selected' : '' }}
+                                                            value="BQ">BQ</option>
+                                                        <option {{ $pelesen->kodpgw == 'BS' ? 'selected' : '' }}
+                                                            value="BS">BS</option>
+                                                    @elseif ($reg_pelesen->e_kat == 'PL102')
+                                                        <option {{ $pelesen->kodpgw == 'JJ' ? 'selected' : '' }}
+                                                            value="JJ">JJ</option>
+                                                        <option {{ $pelesen->kodpgw == 'NS' ? 'selected' : '' }}
+                                                            value="NS">NS</option>
+                                                        <option {{ $pelesen->kodpgw == 'PH' ? 'selected' : '' }}
+                                                            value="PH">PH</option>
+                                                        <option {{ $pelesen->kodpgw == 'PK' ? 'selected' : '' }}
+                                                            value="PK">PK</option>
+                                                        <option {{ $pelesen->kodpgw == 'PP' ? 'selected' : '' }}
+                                                            value="PP">BQ</option>
+                                                        <option {{ $pelesen->kodpgw == 'SA' ? 'selected' : '' }}
+                                                            value="SA">SA</option>
+                                                        <option {{ $pelesen->kodpgw == 'SS' ? 'selected' : '' }}
+                                                            value="SS">SS</option>
+                                                        <option {{ $pelesen->kodpgw == 'SW' ? 'selected' : '' }}
+                                                            value="SW">SW</option>
+                                                        <option {{ $pelesen->kodpgw == 'WP' ? 'selected' : '' }}
+                                                            value="WP">WP</option>
+                                                    @else
+                                                        <option {{ $pelesen->kodpgw == 'JJ' ? 'selected' : '' }}
+                                                            value="JJ">JJ</option>
+                                                        <option {{ $pelesen->kodpgw == 'KB' ? 'selected' : '' }}
+                                                            value="KB">KB</option>
+                                                        <option {{ $pelesen->kodpgw == 'KK' ? 'selected' : '' }}
+                                                            value="KK">KK</option>
+                                                        <option {{ $pelesen->kodpgw == 'MM' ? 'selected' : '' }}
+                                                            value="MM">MM</option>
+                                                        <option {{ $pelesen->kodpgw == 'NS' ? 'selected' : '' }}
+                                                            value="NS">NS</option>
+                                                        <option {{ $pelesen->kodpgw == 'PH' ? 'selected' : '' }}
+                                                            value="PH">PH</option>
+                                                        <option {{ $pelesen->kodpgw == 'PK' ? 'selected' : '' }}
+                                                            value="PK">PK</option>
+                                                        <option {{ $pelesen->kodpgw == 'PP' ? 'selected' : '' }}
+                                                            value="PP">PP</option>
+                                                        <option {{ $pelesen->kodpgw == 'SA' ? 'selected' : '' }}
+                                                            value="SA">SA</option>
+                                                        <option {{ $pelesen->kodpgw == 'SS' ? 'selected' : '' }}
+                                                            value="SS">SS</option>
+                                                        <option {{ $pelesen->kodpgw == 'WP' ? 'selected' : '' }}
+                                                            value="WP">WP</option>
+                                                    @endif
+
+                                                </select>
+                                            </fieldset>
+
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top: -7px">
+                                        <label for="fname"
+                                            class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                            Nombor Siri </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <input type="text" id="nosiri" class="form-control" required
+                                                    style="text-transform:uppercase" placeholder="Nombor Siri"
+                                                    name="nosiri" maxlength="4" minlength="4"
+                                                    value="{{ $pelesen->nosiri ?? '' }}" oninput="valid_siri()"
+                                                    onkeypress="return isNumberKey(event)">
+                                                <p type="hidden" id="err_nosiri" style="color: red; display:none">
+                                                    <i>Sila isi butiran di bahagian ini!</i>
+                                                </p>
+                                            </fieldset>
+
+
+                                        </div>
+                                    </div>
+                                @endif
 
                                 <div class="row" style="margin-top: -7px">
                                     <label for="fname"
                                         class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                        Kod Negeri </label>
+                                        Nombor Lesen </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="kodpgw" id="kodpgw"  style="text-transform:uppercase" required>
-                                                @if ($reg_pelesen->e_kat == 'PL101')
-                                                    <option {{ ($pelesen->kodpgw == 'FA' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FA">FA</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FB' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FB">FB</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FC' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FC">FC</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FD' or $pelesen->kodpgw == 'DD' ) ? 'selected' : '' }} value="FD">FD</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FJ') ? 'selected' : '' }} value="FJ">FJ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FP') ? 'selected' : '' }} value="FP">FP</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FQ') ? 'selected' : '' }} value="FQ">FQ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'FS') ? 'selected' : '' }} value="FS">FS</option>
+                                            <input type="text" id="e_nl" readonly class="form-control" required
+                                                minlength="12" maxlength="12" style="text-transform:uppercase"
+                                                placeholder="Nombor Lesen" name="e_nl"
+                                                value="{{ $pelesen->e_nl ?? '-' }}">
 
-                                                @elseif ($reg_pelesen->e_kat == 'PL104')
-                                                    <option {{ ($pelesen->kodpgw == 'CA') ? 'selected' : '' }} value="CA">CA</option>
-                                                    <option {{ ($pelesen->kodpgw == 'CC') ? 'selected' : '' }} value="CC">CC</option>
-                                                    <option {{ ($pelesen->kodpgw == 'CJ') ? 'selected' : '' }} value="CJ">CJ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'CP') ? 'selected' : '' }} value="CP">CP</option>
-                                                    <option {{ ($pelesen->kodpgw == 'CS') ? 'selected' : '' }} value="CS">CS</option>
+                                        </fieldset>
 
-                                                @elseif ($reg_pelesen->e_kat == 'PL111')
-                                                    <option {{ ($pelesen->kodpgw == 'BB') ? 'selected' : '' }} value="BB">BB</option>
-                                                    <option {{ ($pelesen->kodpgw == 'BC') ? 'selected' : '' }} value="BC">BC</option>
-                                                    <option {{ ($pelesen->kodpgw == 'BJ') ? 'selected' : '' }} value="BJ">BJ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'BP') ? 'selected' : '' }} value="BP">BP</option>
-                                                    <option {{ ($pelesen->kodpgw == 'BQ') ? 'selected' : '' }} value="BQ">BQ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'BS') ? 'selected' : '' }} value="BS">BS</option>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: -7px">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Nama Premis </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <input type="text" id="e_np" class="form-control" required
+                                                maxlength="60" style="text-transform:uppercase"
+                                                oninput=" this.value = this.value.toUpperCase(); valid_np()"
+                                                placeholder="Nama Premis" name="e_np"
+                                                value="{{ $pelesen->e_np ?? '-' }}">
+                                            <p type="hidden" id="err_np" style="color: red; display:none">
+                                                <i>Sila isi butiran di bahagian ini!</i>
+                                            </p>
+                                        </fieldset>
 
-                                                @elseif ($reg_pelesen->e_kat == 'PL102')
-                                                    <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
-                                                    <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
-                                                    <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
-                                                    <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">BQ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
-                                                    <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
-                                                    <option {{ ($pelesen->kodpgw == 'SW') ? 'selected' : '' }} value="SW">SW</option>
-                                                    <option {{ ($pelesen->kodpgw == 'WP') ? 'selected' : '' }} value="WP">WP</option>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:2.5%; ">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label required col-form-label align-items-center">
+                                        Alamat Premis Berlesen</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_ap1" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase(); valid_ap()"
+                                            placeholder="Alamat Premis Berlesen 1" name="e_ap1"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_ap1 }}" required>
+                                        <p type="hidden" id="err_ap" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                        @error('e_ap1')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6" style="margin-left: 25%; ">
+                                        <input type="text" id="e_ap2" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Alamat Premis Berlesen 2" name="e_ap2"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_ap2 }}">
+                                        @error('e_ap2')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6" style="margin-left: 25%;">
+                                        <input type="text" id="e_ap3" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Alamat Premis Berlesen 3" name="e_ap3"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_ap3 }}">
+                                        @error('e_ap3')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
 
+                                <div class="row" style="margin-bottom:2.5%">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Alamat Surat Menyurat</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_as1" class="form-control" required
+                                            maxlength="60" oninput=" this.value = this.value.toUpperCase(); valid_as()"
+                                            placeholder="Alamat Surat Menyurat 1" name="e_as1"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_as1 }}">
+                                        <p type="hidden" id="err_as" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                        @error('e_as1')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6" style="margin-left: 25%">
+                                        <input type="text" id="e_as2" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Alamat Surat Menyurat 2" name="e_as2"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_as2 }}">
+                                        @error('e_as2')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-md-6" style="margin-left: 25%">
+                                        <input type="text" id="e_as3" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_as3 }}">
+                                        @error('e_as3')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        No. Telefon (Pejabat / Kilang)</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_notel" class="form-control" maxlength="40"
+                                            oninput="valid_notel()" placeholder="No. Telefon Pejabat / Kilang"
+                                            name="e_notel" style="text-transform:uppercase"
+                                            value="{{ $pelesen->e_notel }}" required>
+                                        <p type="hidden" id="err_notel" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                        @error('e_notel')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label align-items-center">
+                                        No. Faks</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_nofax" class="form-control" maxlength="40"
+                                            placeholder="No. Faks" name="e_nofax" style="text-transform:uppercase"
+                                            value="{{ $pelesen->e_nofax }}">
+                                        @error('e_nofax')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Alamat Emel Kilang</label>
+                                    <div class="col-md-6">
+                                        <input type="email" id="e_email" class="form-control"
+                                            placeholder="ALAMAT EMEL KILANG" name="e_email" required maxlength="40"
+                                            value="{{ $pelesen->e_email }}" oninput="valid_email(); ValidateEmail()">
+
+                                        <p type="hidden" id="err_email" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                        <p type="hidden" id="err_email2" style="color: red; display:none"><i>Sila
+                                                masukkan
+                                                alamat emel yang betul!</i></p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Nama Pegawai Melapor</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_npg" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Nama Pegawai Melapor" name="e_npg"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_npg }}"
+                                            oninput="valid_npg()">
+
+                                        <p type="hidden" id="err_npg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Jawatan Pegawai Melapor</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_jpg" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Jawatan Pegawai Melapor" name="e_jpg"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_jpg }}"
+                                            oninput="valid_jpg()">
+
+                                        <p type="hidden" id="err_jpg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        No. Telefon Pegawai Melapor</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_notel_pg" class="form-control"
+                                            placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
+                                            name="e_notel_pg" maxlength="40" value="{{ $pelesen->e_notel_pg }}"
+                                            oninput="valid_notel_pg()">
+
+                                        <p type="hidden" id="err_notel_pg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Alamat Emel Pegawai Melapor</label>
+                                    <div class="col-md-6">
+                                        <input type="email" id="e_email_pg" class="form-control"
+                                            placeholder="ALAMAT EMEL PEGAWAI MELAPOR" maxlength="40" name="e_email_pg"
+                                            value="{{ $pelesen->e_email_pg }}" oninput="valid_email_pg()">
+
+                                        <p type="hidden" id="err_email_pg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Nama Pegawai Bertanggungjawab</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_npgtg" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_npgtg }}"
+                                            oninput="valid_npgtg()">
+
+                                        <p type="hidden" id="err_npgtg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                    {{-- </div> --}}
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Jawatan Pegawai
+                                        Bertanggungjawab</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
+                                            oninput=" this.value = this.value.toUpperCase()"
+                                            placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_jpgtg }}"
+                                            oninput="valid_jpgtg()">
+
+                                        <p type="hidden" id="err_jpgtg" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        Alamat Emel Pengurus</label>
+                                    <div class="col-md-6">
+                                        <input type="email" id="e_email_pengurus" class="form-control" maxlength="40"
+                                            placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
+                                            value="{{ $pelesen->e_email_pengurus }}" oninput="valid_email_pengurus()">
+
+                                        <p type="hidden" id="err_email_pengurus" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Negeri </label>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="negeri_id" name='e_negeri' required
+                                                style="text-transform:uppercase"
+                                                onchange="ajax_daerah(this);ajax_kawasan(this)">
+                                                @if ($pelesen->negeri)
+                                                    @foreach ($negeri as $data)
+                                                        <option value="{{ $data->kod_negeri }}"
+                                                            {{ $pelesen->negeri->kod_negeri == $data->kod_negeri ? 'selected' : '' }}>
+                                                            {{ $data->nama_negeri }}
+                                                        </option>
+                                                    @endforeach
                                                 @else
-                                                    <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
-                                                    <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
-                                                    <option {{ ($pelesen->kodpgw == 'KK') ? 'selected' : '' }} value="KK">KK</option>
-                                                    <option {{ ($pelesen->kodpgw == 'MM') ? 'selected' : '' }} value="MM">MM</option>
-                                                    <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
-                                                    <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
-                                                    <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
-                                                    <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
-                                                    <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
-                                                    <option {{ ($pelesen->kodpgw == 'SS') ? 'selected' : '' }} value="SS">SS</option>
-                                                    <option {{ ($pelesen->kodpgw == 'WP') ? 'selected' : '' }} value="WP">WP</option>
-
+                                                    @foreach ($negeri as $data)
+                                                        <option selected hidden disabled> Sila Pilih Negeri</option>
+                                                        <option value="{{ $data->kod_negeri }}">
+                                                            {{ $data->nama_negeri }}
+                                                        </option>
+                                                    @endforeach
                                                 @endif
 
                                             </select>
@@ -191,719 +575,502 @@
                                 <div class="row" style="margin-top: -7px">
                                     <label for="fname"
                                         class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                        Nombor Siri </label>
+                                        Daerah </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <input type="text" id="nosiri" class="form-control" required  style="text-transform:uppercase"
-                                            placeholder="Nombor Siri" name="nosiri" maxlength="4" minlength="4"
-                                            value="{{ $pelesen->nosiri ?? '' }}">
-                                        </fieldset>
+                                            <select class="form-control" id="daerah_id" name='e_daerah' required
+                                                style="text-transform:uppercase" placeholder="Daerah">
+                                                @if ($pelesen->negeri)
+                                                    @foreach ($pelesen->negeri->daerahs as $daerah)
+                                                        <option value="{{ $daerah->kod_daerah }}"
+                                                            {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected' : '' }}>
+                                                            {{ $daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu' }}
+                                                        </option>
+                                                    @endforeach
+                                                @else
+                                                    <option selected hidden disabled> Sila Pilih Daerah</option>
+                                                @endif
 
-                                    </div>
-                                </div>
-
-                            @endif
-
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Nombor Lesen </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                            <input type="text" id="e_nl" readonly class="form-control" required minlength="12" maxlength="12"  style="text-transform:uppercase"
-                                                placeholder="Nombor Lesen" name="e_nl" value="{{ $pelesen->e_nl ?? '-' }}">
-
-                                    </fieldset>
-
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Nama Premis </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <input type="text" id="e_np" class="form-control" required maxlength="60"  style="text-transform:uppercase" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Nama Premis" name="e_np" value="{{ $pelesen->e_np ?? '-' }}">
-                                    </fieldset>
-
-                                </div>
-                            </div>
-                            <div class="row" style="margin-bottom:2.5%; ">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label required col-form-label align-items-center">
-                                    Alamat Premis Berlesen</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_ap1 }}" required>
-                                    @error('e_ap1')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 25%; ">
-                                    <input type="text" id="e_ap2" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_ap2 }}">
-                                        @error('e_ap2')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 25%;">
-                                    <input type="text" id="e_ap3" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_ap3 }}">
-                                        @error('e_ap3')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row" style="margin-bottom:2.5%">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Alamat Surat Menyurat</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_as1" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Alamat Surat Menyurat 1" name="e_as1"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_as1 }}">
-                                    @error('e_as1')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 25%">
-                                    <input type="text" id="e_as2" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Alamat Surat Menyurat 2" name="e_as2"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_as2 }}">
-                                        @error('e_as2')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 25%">
-                                    <input type="text" id="e_as3" class="form-control" maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_as3 }}">
-                                        @error('e_as3')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    No. Telefon (Pejabat / Kilang)</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_notel" class="form-control" maxlength="40"
-                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_notel }}" required>
-                                    @error('e_notel')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label align-items-center">
-                                    No. Faks</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_nofax" class="form-control" maxlength="40"
-                                        placeholder="No. Faks" name="e_nofax"  style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_nofax }}" >
-                                    @error('e_nofax')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Alamat Emel Kilang</label>
-                                <div class="col-md-6">
-                                    <input type="email" id="e_email" class="form-control"
-                                        placeholder="ALAMAT EMEL KILANG" name="e_email" required maxlength="40"
-                                        value="{{ $pelesen->e_email }}" oninput="valid_email()">
-
-                                        <p type="hidden" id="err_email" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Nama Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_npg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Nama Pegawai Melapor" name="e_npg" style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_npg }}" oninput="valid_npg()">
-
-                                        <p type="hidden" id="err_npg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Jawatan Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_jpg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg" style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_jpg }}" oninput="valid_jpg()">
-
-                                        <p type="hidden" id="err_jpg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    No. Telefon Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_notel_pg" class="form-control"
-                                        placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
-                                        name="e_notel_pg" required maxlength="40"  value="{{ $pelesen->e_notel_pg }}"
-                                        oninput="valid_notel_pg()">
-
-                                        <p type="hidden" id="err_notel_pg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Alamat Emel Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="email" id="e_email_pg" class="form-control"
-                                        placeholder="ALAMAT EMEL PEGAWAI MELAPOR" required maxlength="40"
-                                        name="e_email_pg" value="{{ $pelesen->e_email_pg }}" oninput="valid_email_pg()">
-
-                                        <p type="hidden" id="err_email_pg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Nama Pegawai Bertanggungjawab</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_npgtg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg" style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_npgtg }}" oninput="valid_npgtg()" >
-
-                                        <p type="hidden" id="err_npgtg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                                {{-- </div> --}}
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Jawatan Pegawai
-                                    Bertanggungjawab</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_jpgtg" class="form-control" required maxlength="60" oninput=" this.value = this.value.toUpperCase()"
-                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_jpgtg }}" oninput="valid_jpgtg()">
-
-                                        <p type="hidden" id="err_jpgtg" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Alamat Emel Pengurus</label>
-                                <div class="col-md-6">
-                                    <input type="email" id="e_email_pengurus" class="form-control" required maxlength="40"
-                                        placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
-                                        value="{{ $pelesen->e_email_pengurus }}" oninput="valid_email_pengurus()">
-
-                                        <p type="hidden" id="err_email_pengurus" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Negeri </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="negeri_id" name='e_negeri' required style="text-transform:uppercase"
-                                            onchange="ajax_daerah(this);ajax_kawasan(this)">
-                                            @if($pelesen->negeri)
-                                                @foreach ($negeri as $data)
-                                                <option value="{{ $data->kod_negeri }}" {{ $pelesen->negeri->kod_negeri == $data->kod_negeri ? 'selected': '' }}>
-                                                    {{ $data->nama_negeri }}
-                                                </option>
-                                                @endforeach
-                                            @else
-                                                @foreach ($negeri as $data)
-                                                <option selected hidden disabled> Sila Pilih Negeri</option>
-                                                <option value="{{ $data->kod_negeri }}">
-                                                    {{ $data->nama_negeri }}
-                                                </option>
-                                                @endforeach
-                                            @endif
-
-                                        </select>
-                                    </fieldset>
-
-                                </div>
-                            </div>
-                            <div class="row"  style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Daerah </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="daerah_id" name='e_daerah' required style="text-transform:uppercase"
-                                            placeholder="Daerah">
-                                            @if($pelesen->negeri)
-                                                @foreach ($pelesen->negeri->daerahs as $daerah)
-                                                    <option value="{{$daerah->kod_daerah }}" {{ $daerah->kod_daerah == $pelesen->e_daerah ? 'selected' : ''}}>
-                                                        {{  $daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
-                                                    </option>
-                                                @endforeach
-                                            @else
-                                                <option selected hidden disabled> Sila Pilih Daerah</option>
-
-                                            @endif
-
-                                                        {{-- <option selected hidden disabled value="">POMA</option>
+                                                {{-- <option selected hidden disabled value="">POMA</option>
                                             <option {{ $pelesen->e_daerah == 'Ya' ? 'selected' : '' }} value="Ya">
                                                 Ya</option>
                                             <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
                                                 Tidak</option> --}}
-                                        </select>
-                                    </fieldset>
+                                            </select>
+                                        </fieldset>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row" style="margin-top: -7px">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Kawasan </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="kawasan_id"   style="text-transform:uppercase" name='e_kawasan' required>
-                                            @if($pelesen->negeri)
-                                                <option value="{{ $pelesen->negeri->kod_region }}" selected hidden disabled>
-                                                    {{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
-                                            @else
-                                                <option selected hidden disabled> Sila Pilih Kawasan</option>
-
-                                            @endif
-                                        </select>
-                                    </fieldset>
-
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Syarikat Induk</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_syktinduk" class="form-control" required maxlength="60"
-                                        placeholder="Syarikat Induk" name="e_syktinduk" style="text-transform:uppercase"
-                                        value="{{ $pelesen->e_syktinduk}}" oninput="valid_syktinduk(); this.value = this.value.toUpperCase()"">
-
-                                        <p type="hidden" id="err_syktinduk" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Tahun Mula Beroperasi</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_year" class="form-control" required onkeypress="return isNumberKey(event)"
-                                    placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4" style="text-transform:uppercase"
-                                    value="{{ $pelesen->e_year ?? '' }}" oninput="valid_year()">
-
-                                    <p type="hidden" id="err_year" style="color: red; display:none">
-                                        <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Kumpulan </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="e_group" name="e_group"  style="text-transform:uppercase" required oninput="valid_group()">
-                                            <option selected value="">Sila Pilih Kumpulan</option>
-
-                                            <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
-                                                KERAJAAN</option>
-                                            <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
-                                                SWASTA</option>
-                                        </select>
-
-                                        <p type="hidden" id="err_group" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-
-                                    </fieldset>
-
-                                </div>
-                            </div>
-                            @if ($reg_pelesen->e_kat == 'PL91')
-
-                                <div class="row mb-2" style="margin-top: -7px">
-
+                                <div class="row" style="margin-top: -7px">
                                     <label for="fname"
                                         class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                        POMA </label>
+                                        Kawasan </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="e_poma"  style="text-transform:uppercase" name="e_poma" required>
-                                                <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
-                                                    YA</option>
-                                                <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
-                                                    TIDAK</option>
+                                            <select class="form-control" id="kawasan_id" style="text-transform:uppercase"
+                                                name='e_kawasan' required>
+                                                @if ($pelesen->negeri)
+                                                    <option value="{{ $pelesen->negeri->kod_region }}" selected hidden
+                                                        disabled>
+                                                        {{ $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu' }}
+                                                    </option>
+                                                @else
+                                                    <option selected hidden disabled> Sila Pilih Kawasan</option>
+                                                @endif
                                             </select>
                                         </fieldset>
 
                                     </div>
-
                                 </div>
-                                <div class="row mb-2" style="margin-top: -7px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
-                                        <label for="fname" class=" control-label col-form-label required">
-                                            Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Syarikat Induk</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_syktinduk" class="form-control" required
+                                            maxlength="60" placeholder="Syarikat Induk" name="e_syktinduk"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_syktinduk }}"
+                                            oninput="valid_syktinduk(); this.value = this.value.toUpperCase()"">
+
+                                        <p type="hidden" id="err_syktinduk" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
                                     </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Tahun Mula Beroperasi</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_year" class="form-control" required
+                                            onkeypress="return isNumberKey(event)" placeholder="Tahun Mula Beroperasi"
+                                            name="e_year" maxlength="4" minlength="4"
+                                            style="text-transform:uppercase" value="{{ $pelesen->e_year ?? '' }}"
+                                            oninput="valid_year()">
+
+                                        <p type="hidden" id="err_year" style="color: red; display:none">
+                                            <i>Sila isi butiran di bahagian ini!</i>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="fname"
+                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        Kumpulan </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="e_biogas" name="e_biogas" required
-                                                oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                                <option selected  value="">SILA PILIH</option>
-                                                <option {{ $pelesen->e_biogas == '1' ? 'selected' : '' }} value="1">
-                                                    YA</option>
-                                                <option {{ $pelesen->e_biogas == '2' ? 'selected' : '' }} value="2">
-                                                    TIDAK</option>
+                                            <select class="form-control" id="e_group" name="e_group"
+                                                style="text-transform:uppercase" required oninput="valid_group()">
+                                                <option selected hidden value="">Sila Pilih Kumpulan</option>
+
+                                                <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
+                                                    KERAJAAN</option>
+                                                <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
+                                                    SWASTA</option>
                                             </select>
-                                            <p type="hidden" id="err_biogas" style="color: red; display:none"><i>Sila buat
-                                                    pilihan di bahagian ini!</i></p>
+
+                                            <p type="hidden" id="err_group" style="color: red; display:none">
+                                                <i>Sila isi butiran di bahagian ini!</i>
+                                            </p>
+
                                         </fieldset>
-                                    </div>
-                                </div>
-                                <div id="biogas" style="display: none">
-                                <div class="row mb-2" style="margin-top: -7px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
-                                        <label for="fname" class=" control-label col-form-label required">
-                                            Apakah status loji biogas tersebut? </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" id="e_status_biogas" name="e_status_biogas"
-                                                oninput="setCustomValidity(''); valid_statusbiogas()"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                                <option selected value="">SILA PILIH</option>
-                                                <option {{ $pelesen->e_status_biogas == '3' ? 'selected' : '' }} value="3">
-                                                    TELAH SIAP</option>
-                                                <option {{ $pelesen->e_status_biogas == '2' ? 'selected' : '' }} value="2">
-                                                    DALAM PEMBINAAN</option>
-                                                <option {{ $pelesen->e_status_biogas == '1' ? 'selected' : '' }} value="1">
-                                                    DALAM PERANCANGAN</option>
-                                            </select>
-                                            <p type="hidden" id="err_biogas2" style="color: red; display:none"><i>Sila buat
-                                                    pilihan di bahagian ini!</i></p>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                            </div>
-
-                            @endif
-                            @if ($reg_pelesen->e_kat != 'PL111')
-
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Kapasiti Pemprosesan / Tahun</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="kap_proses" class="form-control" required maxlength="10"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" style="text-transform:uppercase"
-                                        onkeypress="return point(event)"
-                                        value="{{ number_format($pelesen->kap_proses)  }}" oninput="valid_proses(); FormatCurrency(this)">
-
-                                        <p type="hidden" id="err_proses" style="color: red; display:none">
-                                            <i>Sila isi butiran di bahagian ini!</i></p>
-                                </div>
-                            </div>
-                            @else
-                            <div class="row mb-2 noScreen">
-                                <label for="fname"
-                                    class="text-left col-sm-3 control-label col-form-label required align-items-center">
-                                    Kapasiti Pemprosesan / Tahun</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="kap_proses" class="form-control" required maxlength="10"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" style="text-transform:uppercase"
-
-                                        value="0" >
-
-                                </div>
-                            </div>
-
-                            @endif
-
-                            <div class="col-12">
-                            @if ($reg_pelesen->e_kat == 'PL91')
-
-                            <div style="margin-left:-2%">
-
-                                <div class="row mr-auto" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
-                                        <span></span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span>CPO</span>
-                                    </div>
-                                </div>
-
-                                <div class="row mr-auto" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
-                                        <label for="fname" class="control-label col-form-label required">
-                                            Bilangan Tangki</label>
-                                    </div>
-
-                                    <div class="col-md-7">
-                                        <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%"
-                                            id="bil_tangki_cpo91" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                            onkeypress="return point(event)" value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}" onClick="this.select();"
-                                            >
 
                                     </div>
                                 </div>
-                                <div class="row mr-auto" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
-                                        <label for="fname" class="control-label col-form-label">
-                                            Kapasiti Tangki Simpanan (Tan)<span  style="color:red">*</span></label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <input type="text" class="form-control" name='kap_tangki_cpo'
-                                            style="width:20%" id="kap_tangki_cpo91"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                            title="Sila isikan butiran ini."
-                                            onkeypress="return point(event)"  value="{{ number_format($pelesen->kap_tangki_cpo ?? 0)}}" onClick="this.select();" >
-                                            <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
+                                @if ($reg_pelesen->e_kat == 'PL91')
+                                    <div class="row mb-2" style="margin-top: -7px">
+
+                                        <label for="fname"
+                                            class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                            POMA </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="e_poma"
+                                                    style="text-transform:uppercase" name="e_poma" required>
+                                                    <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }}
+                                                        value="Ya">
+                                                        YA</option>
+                                                    <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }}
+                                                        value="Tidak">
+                                                        TIDAK</option>
+                                                </select>
+                                            </fieldset>
+
+                                        </div>
 
                                     </div>
-                                </div>
-                                </div>
-
-                                    <div class="row mx-3" style="margin-left:14%">
-                                        <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
-                                            khusus untuk sesuatu produk. Sila campurkan kesemua
-                                            bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                        </i>
+                                    <div class="row mb-2" style="margin-top: -7px">
+                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <label for="fname" class=" control-label col-form-label required">
+                                                Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="e_biogas" name="e_biogas" required
+                                                    oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                    <option selected hidden value="">SILA PILIH</option>
+                                                    <option {{ $pelesen->e_biogas == '1' ? 'selected' : '' }}
+                                                        value="1">
+                                                        YA</option>
+                                                    <option {{ $pelesen->e_biogas == '2' ? 'selected' : '' }}
+                                                        value="2">
+                                                        TIDAK</option>
+                                                </select>
+                                                <p type="hidden" id="err_biogas" style="color: red; display:none">
+                                                    <i>Sila buat
+                                                        pilihan di bahagian ini!</i></p>
+                                            </fieldset>
+                                        </div>
                                     </div>
-                            @elseif ($reg_pelesen->e_kat == 'PL101')<br>
+                                    <div id="biogas" style="display: none">
+                                        <div class="row mb-2" style="margin-top: -7px">
+                                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                                <label for="fname" class=" control-label col-form-label required">
+                                                    Apakah status loji biogas tersebut? </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-control" id="e_status_biogas"
+                                                        name="e_status_biogas"
+                                                        oninput="setCustomValidity(''); valid_statusbiogas()"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                        <option selected hidden value="">SILA PILIH</option>
+                                                        <option {{ $pelesen->e_status_biogas == '3' ? 'selected' : '' }}
+                                                            value="3">
+                                                            TELAH SIAP</option>
+                                                        <option {{ $pelesen->e_status_biogas == '2' ? 'selected' : '' }}
+                                                            value="2">
+                                                            DALAM PEMBINAAN</option>
+                                                        <option {{ $pelesen->e_status_biogas == '1' ? 'selected' : '' }}
+                                                            value="1">
+                                                            DALAM PERANCANGAN</option>
+                                                    </select>
+                                                    <p type="hidden" id="err_biogas2" style="color: red; display:none">
+                                                        <i>Sila buat
+                                                            pilihan di bahagian ini!</i></p>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                @if ($reg_pelesen->e_kat != 'PL111')
+                                    <div class="row mb-2">
+                                        <label for="fname"
+                                            class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                            Kapasiti Pemprosesan / Tahun</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="kap_proses" class="form-control" maxlength="10"
+                                                placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                                style="text-transform:uppercase" onkeypress="return point(event)"
+                                                value="{{ number_format($pelesen->kap_proses) }}"
+                                                oninput=" FormatCurrency(this)">
 
-                            <div class="row mr-auto" style="margin-left:-2%">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <span><br></span><label for="fname" class="control-label col-form-label required">
-                                        Bilangan Tangki</label><br>
-                                    <label for="fname" class="control-label col-form-label ">
-                                        Kapasiti tangki Simpanan (Tan)<span  style="color:red">*</span></label>
-                                </div>
-                                <div class="col-md-7">
-                                    <table style="width:100%; text-align: center; font-size: 10px">
-                                        <tr>
-                                            <th>CPO</th>
-                                            <th>PPO</th>
-                                            <th>CPKO</th>
-                                            <th>PPKO</th>
-                                            <th>OTHERS</th>
-                                            <th>JUMLAH</th>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="text" class="form-control" name='bil_tangki_cpo' min="0" onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                    size="15" id="bil_tangki_cpo101" onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
-                                                    onchange="validation_jumlah()" required>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name='bil_tangki_ppo' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                    size="15" id="bil_tangki_ppo101" onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
-                                                    onchange="validation_jumlah()" required>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name='bil_tangki_cpko' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                    size="15" id="bil_tangki_cpko101"
-                                                    onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
-                                                    onchange="validation_jumlah()" required>
-                                            </td>
-                                            <td> <input type="text" class="form-control" name='bil_tangki_ppko' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                    size="15" id="bil_tangki_ppko101"
-                                                    onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
-                                                    onchange="validation_jumlah()" required>
-                                            </td>
-                                            <td><input type="text" class="form-control" name='bil_tangki_others' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                                    size="15" id="bil_tangki_others101"
-                                                    onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini."
-                                                    value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}" onchange="validation_jumlah()"
-                                                    required>
-                                            </td>
-                                            <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" >
-                                                <b><span
-                                                        id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
-                                            </td>
-                                        </tr>
-                                        <tr style="vertical-align: top">
-                                            <td><input type="text" class="form-control" name='kap_tangki_cpo' onClick="this.select();"
-                                                    style="width:100%" oninput=" validate_two_decimal(this);FormatCurrency(this)"
-                                                    id="kap_tangki_cpo101" onkeypress="return point(event)"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpo) }}"
-                                                    onchange="validation_jumlah2()" required>
-                                                    <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
-                                                        butiran di
-                                                        bahagian ini!</i></p>
-                                            </td>
-                                            <td> <input type="text" class="form-control" name='kap_tangki_ppo' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                    id="kap_tangki_ppo101" onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}"
-                                                    onchange="validation_jumlah2()" required>
-                                                    <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
-                                                        butiran di
-                                                        bahagian ini!</i></p>
-                                            </td>
-                                            <td> <input type="text" class="form-control" name='kap_tangki_cpko' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                    id="kap_tangki_cpko101" onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}"
-                                                    onchange="validation_jumlah2()" required>
-                                                    <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
-                                                        butiran di
-                                                        bahagian ini!</i></p>
-                                            </td>
-                                            <td> <input type="text" class="form-control" name='kap_tangki_ppko' onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                    id="kap_tangki_ppko101" onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}"
-                                                    onchange="validation_jumlah2()" required>
-                                                    <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
-                                                        butiran di
-                                                        bahagian ini!</i></p>
-                                            </td>
-                                            <td> <input type="text" class="form-control" name='kap_tangki_others' min=0 onClick="this.select();"
-                                                    style="width:100%" oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                                    id="kap_tangki_others" onkeypress="return point(event)"
-                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                    title="Sila isikan butiran ini."
-                                                    value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}" onchange="validation_jumlah2()"
-                                                    required>
-                                                    <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
-                                                        butiran di
-                                                        bahagian ini!</i></p>
-                                            </td>
-                                            <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" ><b><span id="kap_tangki_jumlah">
-                                                        {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
-                                                    </span>
-                                                </b>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+                                            <p type="hidden" id="err_proses" style="color: red; display:none">
+                                                <i>Sila isi butiran di bahagian ini!</i>
+                                            </p>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="row mb-2 noScreen">
+                                        <label for="fname"
+                                            class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                            Kapasiti Pemprosesan / Tahun</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="kap_proses" class="form-control" maxlength="10"
+                                                placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                                style="text-transform:uppercase" value="0">
 
-                            <br><br>
-                            <div class="row ">
-                                <i style="margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
-                                    tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
-                                    bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                </i>
-                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="col-12">
+                                    @if ($reg_pelesen->e_kat == 'PL91')
+                                        <div style="margin-left:-2%">
+
+                                            <div class="row mr-auto" style="margin:20px 0px">
+                                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                                    <span></span>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <span>CPO</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mr-auto" style="margin:20px 0px">
+                                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                                    <label for="fname" class="control-label col-form-label ">
+                                                        Bilangan Tangki</label>
+                                                </div>
+
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                        style="width:20%" id="bil_tangki_cpo91"
+                                                        title="Sila isikan butiran ini."
+                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                        onkeypress="return point(event)"
+                                                        value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
+                                                        onClick="this.select();">
+
+                                                </div>
+                                            </div>
+                                            <div class="row mr-auto" style="margin:20px 0px">
+                                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                                    <label for="fname" class="control-label col-form-label">
+                                                        Kapasiti Tangki Simpanan (Tan)</label>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control" name='kap_tangki_cpo'
+                                                        style="width:20%" id="kap_tangki_cpo91"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                        title="Sila isikan butiran ini." onkeypress="return point(event)"
+                                                        value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"
+                                                        onClick="this.select();">
+                                                    <p type="hidden" id="err_kcpko" style="color: red; display:none">
+                                                        <i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mx-3" style="margin-left:14%">
+                                            <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                                                khusus untuk sesuatu produk. Sila campurkan kesemua
+                                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                            </i>
+                                        </div>
+                                    @elseif ($reg_pelesen->e_kat == 'PL101')
+                                        <br>
+
+                                        <div class="row mr-auto" style="margin-left:-2%">
+                                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                                <span><br></span><label for="fname"
+                                                    class="control-label col-form-label ">
+                                                    Bilangan Tangki</label><br>
+                                                <label for="fname" class="control-label col-form-label ">
+                                                    Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <table style="width:100%; text-align: center; font-size: 10px">
+                                                    <tr>
+                                                        <th>CPO</th>
+                                                        <th>PPO</th>
+                                                        <th>CPKO</th>
+                                                        <th>PPKO</th>
+                                                        <th>OTHERS</th>
+                                                        <th>JUMLAH</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                name='bil_tangki_cpo' min="0"
+                                                                onClick="this.select();" style="width:100%"
+                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                                size="15" id="bil_tangki_cpo101"
+                                                                onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
+                                                                onchange="validation_jumlah()">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                name='bil_tangki_ppo' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                                size="15" id="bil_tangki_ppo101"
+                                                                onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
+                                                                onchange="validation_jumlah()">
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" class="form-control"
+                                                                name='bil_tangki_cpko' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                                size="15" id="bil_tangki_cpko101"
+                                                                onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
+                                                                onchange="validation_jumlah()">
+                                                        </td>
+                                                        <td> <input type="text" class="form-control"
+                                                                name='bil_tangki_ppko' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                                size="15" id="bil_tangki_ppko101"
+                                                                onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
+                                                                onchange="validation_jumlah()">
+                                                        </td>
+                                                        <td><input type="text" class="form-control"
+                                                                name='bil_tangki_others' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                                size="15" id="bil_tangki_others101"
+                                                                onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}"
+                                                                onchange="validation_jumlah()">
+                                                        </td>
+                                                        <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
+                                                            <b><span
+                                                                    id="bil_tangki_jumlah">{{ old('bil_tangki_jumlah') ?? number_format($jumlah) }}</span></b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="vertical-align: top">
+                                                        <td><input type="text" class="form-control"
+                                                                name='kap_tangki_cpo' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput=" validate_two_decimal(this);FormatCurrency(this)"
+                                                                id="kap_tangki_cpo101" onkeypress="return point(event)"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->kap_tangki_cpo) }}"
+                                                                onchange="validation_jumlah2()">
+                                                            <p type="hidden" id="err_kcpo"
+                                                                style="color: red; display:none"><i>Sila isi
+                                                                    butiran di
+                                                                    bahagian ini!</i></p>
+                                                        </td>
+                                                        <td> <input type="text" class="form-control"
+                                                                name='kap_tangki_ppo' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                                id="kap_tangki_ppo101" onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}"
+                                                                onchange="validation_jumlah2()">
+                                                            <p type="hidden" id="err_kppo"
+                                                                style="color: red; display:none"><i>Sila isi
+                                                                    butiran di
+                                                                    bahagian ini!</i></p>
+                                                        </td>
+                                                        <td> <input type="text" class="form-control"
+                                                                name='kap_tangki_cpko' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                                id="kap_tangki_cpko101" onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}"
+                                                                onchange="validation_jumlah2()">
+                                                            <p type="hidden" id="err_kcpko"
+                                                                style="color: red; display:none"><i>Sila isi
+                                                                    butiran di
+                                                                    bahagian ini!</i></p>
+                                                        </td>
+                                                        <td> <input type="text" class="form-control"
+                                                                name='kap_tangki_ppko' onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                                id="kap_tangki_ppko101" onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}"
+                                                                onchange="validation_jumlah2()">
+                                                            <p type="hidden" id="err_kppko"
+                                                                style="color: red; display:none"><i>Sila isi
+                                                                    butiran di
+                                                                    bahagian ini!</i></p>
+                                                        </td>
+                                                        <td> <input type="text" class="form-control"
+                                                                name='kap_tangki_others' min=0 onClick="this.select();"
+                                                                style="width:100%"
+                                                                oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                                id="kap_tangki_others" onkeypress="return point(event)"
+                                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                title="Sila isikan butiran ini."
+                                                                value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}"
+                                                                onchange="validation_jumlah2()">
+                                                            <p type="hidden" id="err_others"
+                                                                style="color: red; display:none"><i>Sila isi
+                                                                    butiran di
+                                                                    bahagian ini!</i></p>
+                                                        </td>
+                                                        <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
+                                                            <b><span id="kap_tangki_jumlah">
+                                                                    {{ old('kap_tangki_jumlah') ?? number_format($jumlah2) }}
+                                                                </span>
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <br><br>
+                                        <div class="row ">
+                                            <i style="margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                                tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                            </i>
+                                        </div>
 
                                 </div>
                             @elseif ($reg_pelesen->e_kat == 'PL102')
-                            <div style="margin-left:-2%">
+                                <div style="margin-left:-2%">
 
-                            <div class="row mr-auto" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <span></span>
-                                </div>
-                                <div class="col-md-7">
-                                    <span>CPKO</span>
-                                </div>
-                            </div>
-
-                            <div class="row mr-auto" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label required">
-                                        Bilangan Tangki</label>
-                                </div>
-
-                                <div class="col-md-7">
-                                    <input type="text" class="form-control" name='bil_tangki_cpko' style="width:20%" onClick="this.select();"
-                                        id="bil_tangki_cpko102" title="Sila isikan butiran ini." oninput="this.setCustomValidity(''); FormatCurrency(this)"
-                                        onkeypress="return point(event)" value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
-                                        required>
-                                    @error('bil_tangki_cpko')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                    <div class="row mr-auto" style="margin:20px 0px">
+                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <span></span>
                                         </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row mr-auto" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label">
-                                        Kapasiti Tangki Simpanan (Tan)<span  style="color:red">*</span></label>
-                                </div>
-                                <div class="col-md-7">
-                                    <input type="text" class="form-control" name='kap_tangki_cpko'
-                                        style="width:20%" id="kap_tangki_cpko102"
-                                        oninput="this.setCustomValidity(''); validate_two_decimal(this);  FormatCurrency(this)" onClick="this.select();"
-                                        title="Sila isikan butiran ini."
-                                        onkeypress="return point(event)"  value="{{ number_format($pelesen->kap_tangki_cpko ?? 0)}}" required>
-                                        <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
-                                            butiran di
-                                            bahagian ini!</i></p>
-                                    @error('kap_tangki_cpko')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                        <div class="col-md-7">
+                                            <span>CPKO</span>
                                         </div>
-                                    @enderror
+                                    </div>
+
+                                    <div class="row mr-auto" style="margin:20px 0px">
+                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <label for="fname" class="control-label col-form-label ">
+                                                Bilangan Tangki</label>
+                                        </div>
+
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" name='bil_tangki_cpko'
+                                                style="width:20%" onClick="this.select();" id="bil_tangki_cpko102"
+                                                title="Sila isikan butiran ini."
+                                                oninput="this.setCustomValidity(''); FormatCurrency(this)"
+                                                onkeypress="return point(event)"
+                                                value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}">
+                                            @error('bil_tangki_cpko')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mr-auto" style="margin:20px 0px">
+                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <label for="fname" class="control-label col-form-label">
+                                                Kapasiti Tangki Simpanan (Tan)<span style="color:red">*</span></label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" name='kap_tangki_cpko'
+                                                style="width:20%" id="kap_tangki_cpko102"
+                                                oninput="this.setCustomValidity(''); validate_two_decimal(this);  FormatCurrency(this)"
+                                                onClick="this.select();" title="Sila isikan butiran ini."
+                                                onkeypress="return point(event)"
+                                                value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}" reuired>
+                                            <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
+                                            @error('kap_tangki_cpko')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
 
                                 <div class="row mx-3" style="margin-left:14%">
                                     <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
@@ -911,263 +1078,287 @@
                                         bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                     </i>
                                 </div>
-                            {{-- </div> --}}
-
-                            @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')<br>
-                            <div class="row mr-auto" style="margin-left:-2%">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <span><br></span><label for="fname" class="control-label col-form-label required">
-                                        Bilangan Tangki</label><br>
-                                    <label for="fname" class="control-label col-form-label">
-                                        Kapasiti tangki Simpanan (Tan)<span  style="color:red">*</span></label>
-                                </div>
-                            <div class="col-md-7">
-                            <table style="width:100%; text-align: center; font-size: 10px">
-                                <tr>
-                                    <th>CPO</th>
-                                    <th>PPO</th>
-                                    <th>CPKO</th>
-                                    <th>PPKO</th>
-                                    <th>OLEO</th>
-                                    <th>OTHERS</th>
-                                    <th>JUMLAH</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="text" class="form-control" name='bil_tangki_cpo'
-                                            style="width:100%" size="15" id="bil_tangki_cpo111" required
-                                            title="Sila isikan butiran ini." onkeypress="return point(event)" onClick="this.select();"
-                                            value="{{ number_format($pelesen->bil_tangki_cpo ?? 0 ) }}" onchange="validation_jumlah3()"
-                                            oninput="this.setCustomValidity(''); FormatCurrency(this)">
-                                        @error('bil_tangki_cpo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name='bil_tangki_ppo'
-                                            size="15" onkeypress="return point(event)" style="width:100%"
-                                            id="bil_tangki_ppo111" required title="Sila isikan butiran ini." onClick="this.select();"
-                                            value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}" onchange="validation_jumlah3()"
-                                            oninput="this.setCustomValidity('');  FormatCurrency(this)">
-                                        @error('bil_tangki_ppo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" name='bil_tangki_cpko'
-                                            size="15" onkeypress="return point(event)" style="width:100%"
-                                            id="bil_tangki_cpko111" required title="Sila isikan butiran ini." onClick="this.select();"
-                                            value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}" onchange="validation_jumlah3()"
-                                            oninput="this.setCustomValidity('');FormatCurrency(this)">
-                                        @error('bil_tangki_cpko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td> <input type="text" class="form-control" name='bil_tangki_ppko'
-                                            size="15" onkeypress="return point(event)" style="width:100%"
-                                            id="bil_tangki_ppko111" required title="Sila isikan butiran ini." onClick="this.select();"
-                                            value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}" onchange="validation_jumlah3()"
-                                            oninput="this.setCustomValidity(''); FormatCurrency(this)">
-                                        @error('bil_tangki_ppko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td><input type="text" class="form-control" name='bil_tangki_oleo'
-                                            size="15" onkeypress="return point(event)" style="width:100%"
-                                            id="bil_tangki_oleo111" required title="Sila isikan butiran ini." onClick="this.select();"
-                                            value="{{ number_format($pelesen->bil_tangki_oleo ?? 0) }}" onchange="validation_jumlah3()"
-                                            oninput="this.setCustomValidity(''); FormatCurrency(this)">
-                                        @error('bil_tangki_oleo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td><input type="text" class="form-control" name='bil_tangki_others'
-                                            size="15" onkeypress="return point(event)" style="width:100%"
-                                            id="bil_tangki_others111" required title="Sila isikan butiran ini." onClick="this.select();"
-                                            value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}" onchange="validation_jumlah3()"
-                                            oninput="this.setCustomValidity('');FormatCurrency(this)">
-                                        @error('bil_tangki_others')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" >
-                                        <b>
-                                            <span
-                                                id="bil_tangki_jumlah"  style="font-size: 10pt">{{ old('bil_tangki_jumlah') ?? number_format($jumlah3) }}</span>
-                                        </b>
-                                    </td>
-                                </tr>
-                                <tr style="vertical-align: top">
-                                    <td><input type="text" class="form-control" name='kap_tangki_cpo'
-                                            onkeypress="return point(event)" style="width:100%"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)" onClick="this.select();"
-                                            id="kap_tangki_cpo111" onchange="validation_jumlah4()"
-                                            title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}">
-                                            <p type="hidden" id="err_kcpo" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
-                                        @error('kap_tangki_cpo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td> <input type="text" class="form-control" name='kap_tangki_ppo'
-                                            onkeypress="return point(event)"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                            style="width:100%" id="kap_tangki_ppo111" onchange="validation_jumlah4()" onClick="this.select();"
-                                            title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}">
-                                            <p type="hidden" id="err_kppo" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
-                                        @error('kap_tangki_ppo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td> <input type="text" class="form-control" name='kap_tangki_cpko'
-                                            onkeypress="return point(event)" style="width:100%"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)" onClick="this.select();"
-                                            id="kap_tangki_cpko111" onchange="validation_jumlah4()"
-                                            title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}">
-                                            <p type="hidden" id="err_kcpko" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
-                                        @error('kap_tangki_cpko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td> <input type="text" class="form-control" name='kap_tangki_ppko'
-                                            onkeypress="return point(event)" style="width:100%"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
-                                            id="kap_tangki_ppko111" onchange="validation_jumlah4()" onClick="this.select();"
-                                            title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}">
-                                            <p type="hidden" id="err_kppko" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
-                                        @error('kap_tangki_ppko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td> <input type="text" class="form-control" name='kap_tangki_oleo'
-                                            onkeypress="return point(event)" style="width:100%"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                            id="kap_tangki_oleo111" onchange="validation_jumlah4()" onClick="this.select();"
-                                            title="Sila isikan butiran ini." value="{{ number_format($pelesen->kap_tangki_oleo ?? 0) }}">
-                                            <p type="hidden" id="err_koleo" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
-                                        @error('kap_tangki_oleo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td><input type="text" class="form-control" name='kap_tangki_others'
-                                            onkeypress="return point(event)" style="width:100%"
-                                            oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
-                                            id="kap_tangki_others111" onchange="validation_jumlah4()" onClick="this.select();"
-                                            title="Sila isikan butiran ini."
-                                            value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}">
-                                            <p type="hidden" id="err_others" style="color: red; display:none"><i>Sila isi
-                                                butiran di
-                                                bahagian ini!</i></p>
-                                        @error('kap_tangki_others')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror
-                                    </td>
-                                    <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px" > <b><span id="kap_tangki_jumlah">
-                                                {{ old('kap_tangki_jumlah') ?? number_format($jumlah4) }}
-                                            </span>
-                                        </b>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        </div>
-                        <br><br>
-                        <div class="row ">
-                            <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
-                                tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
-                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                            </i>
-                        </div>
-
-
-
-                            @endif
-
-
-
-                        </div>
-
-
-                        <div class="row form-group" style="margin-top: 2%">
-                            <div class="text-right col-md-5">
-                                <button type="button" class="btn btn-primary" onclick="check();">Simpan</button>
-                            </div>
-                            <a href="{{ route('admin.cetak.surat', $reg_pelesen->e_id) }}" class="btn btn-primary" >Cetak Surat</a>
-
-                        </div>
-
-                        <!-- Vertically Centered modal Modal -->
-                        <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                            PENGESAHAN</h5>
-                                        <button type="button" class="close"
-                                            data-bs-dismiss="modal" aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
+                                {{-- </div> --}}
+                            @elseif ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')
+                                <br>
+                                <div class="row mr-auto" style="margin-left:-2%">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <span><br></span><label for="fname" class="control-label col-form-label ">
+                                            Bilangan Tangki</label><br>
+                                        <label for="fname" class="control-label col-form-label">
+                                            Kapasiti tangki Simpanan (Tan)<span style="color:red">*</span></label>
                                     </div>
-                                    <div class="modal-body">
-                                        <p>
-                                            Anda pasti mahu menyimpan maklumat ini?
-                                        </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary"
-                                            data-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block"
-                                                style="color:#275047">Tidak</span>
-                                        </button>
-                                        <button type="submit" class="btn btn-primary ml-1"
-                                            data-bs-dismiss="modal">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Ya</span>
-                                        </button>
+                                    <div class="col-md-7">
+                                        <table style="width:100%; text-align: center; font-size: 10px">
+                                            <tr>
+                                                <th>CPO</th>
+                                                <th>PPO</th>
+                                                <th>CPKO</th>
+                                                <th>PPKO</th>
+                                                <th>OLEO</th>
+                                                <th>OTHERS</th>
+                                                <th>JUMLAH</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                        style="width:100%" size="15" id="bil_tangki_cpo111"
+                                                        title="Sila isikan butiran ini." onkeypress="return point(event)"
+                                                        onClick="this.select();"
+                                                        value="{{ number_format($pelesen->bil_tangki_cpo ?? 0) }}"
+                                                        onchange="validation_jumlah3()"
+                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)">
+                                                    @error('bil_tangki_cpo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name='bil_tangki_ppo'
+                                                        size="15" onkeypress="return point(event)"
+                                                        style="width:100%" id="bil_tangki_ppo111"
+                                                        title="Sila isikan butiran ini." onClick="this.select();"
+                                                        value="{{ number_format($pelesen->bil_tangki_ppo ?? 0) }}"
+                                                        onchange="validation_jumlah3()"
+                                                        oninput="this.setCustomValidity('');  FormatCurrency(this)">
+                                                    @error('bil_tangki_ppo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control" name='bil_tangki_cpko'
+                                                        size="15" onkeypress="return point(event)"
+                                                        style="width:100%" id="bil_tangki_cpko111"
+                                                        title="Sila isikan butiran ini." onClick="this.select();"
+                                                        value="{{ number_format($pelesen->bil_tangki_cpko ?? 0) }}"
+                                                        onchange="validation_jumlah3()"
+                                                        oninput="this.setCustomValidity('');FormatCurrency(this)">
+                                                    @error('bil_tangki_cpko')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td> <input type="text" class="form-control" name='bil_tangki_ppko'
+                                                        size="15" onkeypress="return point(event)"
+                                                        style="width:100%" id="bil_tangki_ppko111"
+                                                        title="Sila isikan butiran ini." onClick="this.select();"
+                                                        value="{{ number_format($pelesen->bil_tangki_ppko ?? 0) }}"
+                                                        onchange="validation_jumlah3()"
+                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)">
+                                                    @error('bil_tangki_ppko')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td><input type="text" class="form-control" name='bil_tangki_oleo'
+                                                        size="15" onkeypress="return point(event)"
+                                                        style="width:100%" id="bil_tangki_oleo111"
+                                                        title="Sila isikan butiran ini." onClick="this.select();"
+                                                        value="{{ number_format($pelesen->bil_tangki_oleo ?? 0) }}"
+                                                        onchange="validation_jumlah3()"
+                                                        oninput="this.setCustomValidity(''); FormatCurrency(this)">
+                                                    @error('bil_tangki_oleo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td><input type="text" class="form-control" name='bil_tangki_others'
+                                                        size="15" onkeypress="return point(event)"
+                                                        style="width:100%" id="bil_tangki_others111"
+                                                        title="Sila isikan butiran ini." onClick="this.select();"
+                                                        value="{{ number_format($pelesen->bil_tangki_others ?? 0) }}"
+                                                        onchange="validation_jumlah3()"
+                                                        oninput="this.setCustomValidity('');FormatCurrency(this)">
+                                                    @error('bil_tangki_others')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px">
+                                                    <b>
+                                                        <span id="bil_tangki_jumlah"
+                                                            style="font-size: 10pt">{{ old('bil_tangki_jumlah') ?? number_format($jumlah3) }}</span>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                            <tr style="vertical-align: top">
+                                                <td><input type="text" class="form-control" name='kap_tangki_cpo'
+                                                        onkeypress="return point(event)" style="width:100%"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                        onClick="this.select();" id="kap_tangki_cpo111"
+                                                        onchange="validation_jumlah4()" title="Sila isikan butiran ini."
+                                                        value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}">
+                                                    <p type="hidden" id="err_kcpo" style="color: red; display:none">
+                                                        <i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+                                                    @error('kap_tangki_cpo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td> <input type="text" class="form-control" name='kap_tangki_ppo'
+                                                        onkeypress="return point(event)"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                        style="width:100%" id="kap_tangki_ppo111"
+                                                        onchange="validation_jumlah4()" onClick="this.select();"
+                                                        title="Sila isikan butiran ini."
+                                                        value="{{ number_format($pelesen->kap_tangki_ppo ?? 0) }}">
+                                                    <p type="hidden" id="err_kppo" style="color: red; display:none">
+                                                        <i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+                                                    @error('kap_tangki_ppo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td> <input type="text" class="form-control" name='kap_tangki_cpko'
+                                                        onkeypress="return point(event)" style="width:100%"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
+                                                        onClick="this.select();" id="kap_tangki_cpko111"
+                                                        onchange="validation_jumlah4()" title="Sila isikan butiran ini."
+                                                        value="{{ number_format($pelesen->kap_tangki_cpko ?? 0) }}">
+                                                    <p type="hidden" id="err_kcpko" style="color: red; display:none">
+                                                        <i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+                                                    @error('kap_tangki_cpko')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td> <input type="text" class="form-control" name='kap_tangki_ppko'
+                                                        onkeypress="return point(event)" style="width:100%"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this);FormatCurrency(this)"
+                                                        id="kap_tangki_ppko111" onchange="validation_jumlah4()"
+                                                        onClick="this.select();" title="Sila isikan butiran ini."
+                                                        value="{{ number_format($pelesen->kap_tangki_ppko ?? 0) }}">
+                                                    <p type="hidden" id="err_kppko" style="color: red; display:none">
+                                                        <i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+                                                    @error('kap_tangki_ppko')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td> <input type="text" class="form-control" name='kap_tangki_oleo'
+                                                        onkeypress="return point(event)" style="width:100%"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                        id="kap_tangki_oleo111" onchange="validation_jumlah4()"
+                                                        onClick="this.select();" title="Sila isikan butiran ini."
+                                                        value="{{ number_format($pelesen->kap_tangki_oleo ?? 0) }}">
+                                                    <p type="hidden" id="err_koleo" style="color: red; display:none">
+                                                        <i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+                                                    @error('kap_tangki_oleo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td><input type="text" class="form-control"
+                                                        name='kap_tangki_others' onkeypress="return point(event)"
+                                                        style="width:100%"
+                                                        oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
+                                                        id="kap_tangki_others111" onchange="validation_jumlah4()"
+                                                        onClick="this.select();" title="Sila isikan butiran ini."
+                                                        value="{{ number_format($pelesen->kap_tangki_others ?? 0) }}">
+                                                    <p type="hidden" id="err_others"
+                                                        style="color: red; display:none"><i>Sila isi
+                                                            butiran di
+                                                            bahagian ini!</i></p>
+                                                    @error('kap_tangki_others')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi butiran ini</strong>
+                                                        </div>
+                                                    @enderror
+                                                </td>
+                                                <td style="font-size: 10pt; padding-top: 8px; padding-left: 8px"> <b><span
+                                                            id="kap_tangki_jumlah">
+                                                            {{ old('kap_tangki_jumlah') ?? number_format($jumlah4) }}
+                                                        </span>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
+                                <br><br>
+                                <div class="row ">
+                                    <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                        tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                    </i>
+                                </div>
+                                @endif
+
+
+
                             </div>
-                        </div>
-                    </form>
+
+
+                            <div class="row form-group" style="margin-top: 2%">
+                                <div class="text-right col-md-5">
+                                    <button type="button" class="btn btn-primary" id="checkBtn"
+                                        onclick="check();">Simpan</button>
+                                </div>
+                                <a href="{{ route('admin.cetak.surat', $reg_pelesen->e_id) }}"
+                                    class="btn btn-primary">Cetak Surat</a>
+
+                            </div>
+
+                            <!-- Vertically Centered modal Modal -->
+                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                    role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                PENGESAHAN</h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                Anda pasti mahu menyimpan maklumat ini?
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-secondary"
+                                                data-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                            </button>
+                                            <button type="submit" class="btn btn-primary ml-1"
+                                                data-bs-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Ya</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
     </div>
@@ -1183,20 +1374,19 @@
             if (charCode == 46)
                 return false;
 
-            else if( charCode != 45 && charCode > 31 &&  charCode > 57)
-             return false;
+            else if (charCode != 45 && charCode > 31 && charCode > 57)
+                return false;
 
-        return true;
+            return true;
 
 
-    }
-
+        }
     </script>
-       <script>
+    <script>
         function nodecimal(data) {
             // let decimal = ".00"
             var x = data.value;
-            if(isNaN(x)){
+            if (isNaN(x)) {
                 x = 0;
             }
             const removedDecimal = Math.round(x);
@@ -1205,25 +1395,23 @@
         }
     </script>
     <script>
-    $(document).ready(function() {
-        var biogas = document.getElementById('e_biogas');
+        $(document).ready(function() {
+            var biogas = document.getElementById('e_biogas');
 
-            if (biogas.value == '1')
-            {
+            if (biogas.value == '1') {
                 document.getElementById('biogas').style.display = "block";
 
             } else {
                 document.getElementById('biogas').style.display = "none";
 
             }
-    });
+        });
     </script>
-       <script>
+    <script>
         function biogas() {
             var biogas = document.getElementById('e_biogas');
 
-            if (biogas.value == '1')
-            {
+            if (biogas.value == '1') {
                 document.getElementById('biogas').style.display = "block";
 
             } else {
@@ -1234,7 +1422,7 @@
             }
 
         }
-        </script>
+    </script>
     <script>
         $('.sub-form').submit(function() {
 
@@ -1404,12 +1592,10 @@
         });
     </script>
     <script>
-
-
         $("#e_year").keypress(function(event) {
-        if ( event.which == 45 ) {
-            event.preventDefault();
-        }
+            if (event.which == 45) {
+                event.preventDefault();
+            }
         });
     </script>
     <script>
@@ -1503,7 +1689,7 @@
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
         @endif
     </script> --}}
-{{--
+    {{--
     <script>
         function validation_jumlah() {
             var bil_tangki_cpo = $("#bil_tangki_cpo").val();
@@ -1546,7 +1732,8 @@
             jumlah_input = parseFloat(Number(bcpo)) + parseFloat(Number(bppo)) +
                 parseFloat(Number(bcpko)) + parseFloat(Number(bppko)) + parseFloat(Number(bothers));
 
-            document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ",");
         }
     </script>
     <script>
@@ -1576,7 +1763,8 @@
             jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
                 parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(kothers));
 
-            document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ",");
         }
     </script>
     {{-- <script>
@@ -1620,7 +1808,8 @@
             jumlah_input = parseFloat(Number(bcpo)) + parseFloat(Number(bppo)) + parseFloat(Number(boleo)) +
                 parseFloat(Number(bcpko)) + parseFloat(Number(bppko)) + parseFloat(Number(bothers));
 
-            document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ",");
         }
     </script>
 
@@ -1651,10 +1840,75 @@
             jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) + parseFloat(Number(koleo)) +
                 parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(kothers));
 
-            document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(
+                /\B(?=(\d{3})+(?!\d))/g, ",");
         }
     </script>
 
+    <script>
+        function valid_siri() {
+
+            if ($('#nosiri').val() == '') {
+                $('#nosiri').css('border-color', 'red');
+                document.getElementById('err_nosiri').style.display = "block";
+
+
+            } else {
+                $('#nosiri').css('border-color', '');
+                document.getElementById('err_nosiri').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_np() {
+
+            if ($('#e_np').val() == '') {
+                $('#e_np').css('border-color', 'red');
+                document.getElementById('err_np').style.display = "block";
+
+
+            } else {
+                $('#e_np').css('border-color', '');
+                document.getElementById('err_np').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_ap() {
+
+            if ($('#e_ap1').val() == '') {
+                $('#e_ap1').css('border-color', 'red');
+                document.getElementById('err_ap').style.display = "block";
+
+
+            } else {
+                $('#e_ap1').css('border-color', '');
+                document.getElementById('err_ap').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_as() {
+
+            if ($('#e_as1').val() == '') {
+                $('#e_as1').css('border-color', 'red');
+                document.getElementById('err_as').style.display = "block";
+
+
+            } else {
+                $('#e_as1').css('border-color', '');
+                document.getElementById('err_as').style.display = "none";
+
+            }
+
+        }
+    </script>
     <script>
         function valid_email() {
 
@@ -1672,22 +1926,96 @@
         }
     </script>
     <script>
-        function valid_npg() {
+        function ValidateEmail() {
+            var inputText = document.getElementById('e_email');
+            console.log(inputText.value);
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (inputText.value.match(mailformat)) {
+                // alert("Valid email address!");
+                // document.myform.e_email.focus();
+                document.getElementById('err_email2').style.display = "none";
 
-            if ($('#e_npg').val() == '') {
-                $('#e_npg').css('border-color', 'red');
-                document.getElementById('err_npg').style.display = "block";
+                return true;
+            } else {
+                if (inputText.value != '') {
+                    // alert("You have entered an invalid email address!");
+                    $('#e_email').css('border-color', 'red');
+                    document.getElementById('err_email2').style.display = "block";
+                    return false;
+                }
+            }
+        }
+    </script>
+    <script>
+        function valid_notel() {
+
+            if ($('#e_notel').val() == '') {
+                $('#e_notel').css('border-color', 'red');
+                document.getElementById('err_notel').style.display = "block";
 
 
             } else {
-                $('#e_npg').css('border-color', '');
-                document.getElementById('err_npg').style.display = "none";
+                $('#e_notel').css('border-color', '');
+                document.getElementById('err_notel').style.display = "none";
 
             }
 
         }
     </script>
     <script>
+        function valid_biogas() {
+
+            if ($('#e_biogas').val() == '') {
+                $('#e_biogas').css('border-color', 'red');
+                document.getElementById('err_biogas').style.display = "block";
+
+
+            } else {
+                $('#e_biogas').css('border-color', '');
+                document.getElementById('err_biogas').style.display = "none";
+
+            }
+
+        }
+    </script>
+    <script>
+        function biogas() {
+            var biogas = document.getElementById('e_biogas');
+            console.log(biogas.value);
+
+            if (biogas.value == '1') {
+                document.getElementById('biogas').style.display = "block";
+
+            } else {
+                document.getElementById('biogas').style.display = "none";
+                document.getElementById('e_status_biogas').value = null;
+
+
+            }
+
+        }
+    </script>
+    <script>
+        function valid_statusbiogas() {
+            var biogas = document.getElementById('e_biogas');
+            console.log(biogas.value);
+
+            if (biogas.value == '1') {
+                if ($('#e_status_biogas').val() == '') {
+                    $('#e_status_biogas').css('border-color', 'red');
+                    document.getElementById('err_biogas2').style.display = "block";
+
+
+                } else {
+                    $('#e_status_biogas').css('border-color', '');
+                    document.getElementById('err_biogas2').style.display = "none";
+
+                }
+
+            }
+        }
+    </script>
+    {{-- <script>
         function valid_jpg() {
 
             if ($('#e_jpg').val() == '') {
@@ -1718,9 +2046,9 @@
             }
 
         }
-    </script>
+    </script> --}}
 
-    <script>
+    {{-- <script>
         function valid_email_pg() {
 
             if ($('#e_email_pg').val() == '') {
@@ -1752,9 +2080,9 @@
             }
 
         }
-    </script>
+    </script> --}}
 
-    <script>
+    {{-- <script>
         function valid_jpgtg() {
 
             if ($('#e_jpgtg').val() == '') {
@@ -1786,7 +2114,7 @@
             }
 
         }
-    </script>
+    </script> --}}
 
     <script>
         function valid_syktinduk() {
@@ -1839,7 +2167,7 @@
         }
     </script>
 
-    <script>
+    {{-- <script>
         function valid_proses() {
 
             if ($('#kap_proses').val() == '') {
@@ -1854,8 +2182,8 @@
             }
 
         }
-    </script>
-     <script>
+    </script> --}}
+    {{-- <script>
         function valid_cpo() {
             if ($('#bil_tangki_cpo').val() == '' || $('#bil_tangki_cpo').val() == '0') {
                 $('#kap_tangki_cpo').css('border-color', '');
@@ -1875,7 +2203,7 @@
             }
 
         }
-    </script>
+    </script> --}}
 
 
     <script>
@@ -1917,7 +2245,7 @@
                 if (!field.checkValidity()) {
                     error += "Name must be 2-4 characters kodpgw\r\n";
                 }
-            // no siri
+                // no siri
                 field = document.getElementById("nosiri");
                 if (!field.checkValidity()) {
                     error += "Name must be 2-4 characters nosiri\r\n";
@@ -1959,61 +2287,61 @@
                 document.getElementById('err_email').style.display = "block";
             }
 
-            // nama pegawai melapor
-            field = document.getElementById("e_npg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_npg\r\n";
-                $('#e_npg').css('border-color', 'red');
-                document.getElementById('err_npg').style.display = "block";
-            }
+            // // nama pegawai melapor
+            // field = document.getElementById("e_npg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_npg\r\n";
+            //     $('#e_npg').css('border-color', 'red');
+            //     document.getElementById('err_npg').style.display = "block";
+            // }
 
-            // jawatan pegawai melapor
-            field = document.getElementById("e_jpg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_jpg\r\n";
-                $('#e_jpg').css('border-color', 'red');
-                document.getElementById('err_jpg').style.display = "block";
-            }
+            // // jawatan pegawai melapor
+            // field = document.getElementById("e_jpg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_jpg\r\n";
+            //     $('#e_jpg').css('border-color', 'red');
+            //     document.getElementById('err_jpg').style.display = "block";
+            // }
 
-            // no tel pegawai melapor
-            field = document.getElementById("e_notel_pg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_notel_pg\r\n";
-                $('#e_notel_pg').css('border-color', 'red');
-                document.getElementById('err_notel_pg').style.display = "block";
-            }
+            // // no tel pegawai melapor
+            // field = document.getElementById("e_notel_pg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_notel_pg\r\n";
+            //     $('#e_notel_pg').css('border-color', 'red');
+            //     document.getElementById('err_notel_pg').style.display = "block";
+            // }
 
-            // email pegawai melapor
-            field = document.getElementById("e_email_pg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters\r\n";
-                $('#e_email_pg').css('border-color', 'red');
-                document.getElementById('err_email_pg').style.display = "block";
-            }
+            // // email pegawai melapor
+            // field = document.getElementById("e_email_pg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            //     $('#e_email_pg').css('border-color', 'red');
+            //     document.getElementById('err_email_pg').style.display = "block";
+            // }
 
-            // nama pegawai bertanggungjawab
-            field = document.getElementById("e_npgtg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_npgtg\r\n";
-                $('#e_npgtg').css('border-color', 'red');
-                document.getElementById('err_npgtg').style.display = "block";
-            }
+            // // nama pegawai bertanggungjawab
+            // field = document.getElementById("e_npgtg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_npgtg\r\n";
+            //     $('#e_npgtg').css('border-color', 'red');
+            //     document.getElementById('err_npgtg').style.display = "block";
+            // }
 
             // jawatan pegawai bertanggungjawab
-            field = document.getElementById("e_jpgtg");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_jpgtg\r\n";
-                $('#e_jpgtg').css('border-color', 'red');
-                document.getElementById('err_jpgtg').style.display = "block";
-            }
+            // field = document.getElementById("e_jpgtg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_jpgtg\r\n";
+            //     $('#e_jpgtg').css('border-color', 'red');
+            //     document.getElementById('err_jpgtg').style.display = "block";
+            // }
 
-            // emel pengurus
-            field = document.getElementById("e_email_pengurus");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_email_pengurus\r\n";
-                $('#e_email_pengurus').css('border-color', 'red');
-                document.getElementById('err_email_pengurus').style.display = "block";
-            }
+            // // emel pengurus
+            // field = document.getElementById("e_email_pengurus");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_email_pengurus\r\n";
+            //     $('#e_email_pengurus').css('border-color', 'red');
+            //     document.getElementById('err_email_pengurus').style.display = "block";
+            // }
 
             // enegeri
             field = document.getElementById("negeri_id");
@@ -2055,31 +2383,59 @@
                 $('#e_group').css('border-color', 'red');
                 document.getElementById('err_group').style.display = "block";
             }
-           // kap proses
-            field = document.getElementById("kap_proses");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters kap_proses\r\n";
-                $('#kap_proses').css('border-color', 'red');
-                document.getElementById('err_proses').style.display = "block";
-            }
+            // field = document.getElementById("e_group");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters e_group\r\n";
+            //     $('#e_group').css('border-color', 'red');
+            //     document.getElementById('err_group').style.display = "block";
+            // }
+            // kap proses
+            // field = document.getElementById("kap_proses");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters kap_proses\r\n";
+            //     $('#kap_proses').css('border-color', 'red');
+            //     document.getElementById('err_proses').style.display = "block";
+            // }
 
             @if ($reg_pelesen->e_kat == 'PL91')
-        //    POMA
-            field = document.getElementById("e_poma");
-            if (!field.checkValidity()) {
-                error += "Name must be 2-4 characters e_poma\r\n";
-            }
+                //    POMA
+                field = document.getElementById("e_poma");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_poma\r\n";
+                    $('#e_poma').css('border-color', 'red');
+                    document.getElementById('err_poma').style.display = "block";
+                }
+                field = document.getElementById("e_biogas");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters e_poma\r\n";
+                    $('#e_biogas').css('border-color', 'red');
+                    document.getElementById('err_biogas').style.display = "block";
+                }
+
+                var biogas = document.getElementById('e_biogas');
+                console.log(biogas.value);
+
+                if (biogas.value == '1') {
+                    if ($('#e_status_biogas').val() == '') {
+                        error += "Name must be 2-4 characters e_poma\r\n";
+
+                        $('#e_status_biogas').css('border-color', 'red');
+                        document.getElementById('err_biogas2').style.display = "block";
+
+
+                    }
+                }
             @endif
 
-            cpo = $('#bil_tangki_cpo').val();
-            kcpo = $('#kap_tangki_cpo').val();
+            //     cpo = $('#bil_tangki_cpo').val();
+            //     kcpo = $('#kap_tangki_cpo').val();
 
-            if (cpo != 0 && kcpo == 0) {
-                // $('#next').modal('hide');
-                error += "Name must be 2-4 characters\r\n";
-                $('#kap_tangki_cpo').css('border-color', 'red');
-                document.getElementById('err_kcpo').style.display = "block";
-            }
+            //     if (cpo != 0 && kcpo == 0) {
+            //         // $('#next').modal('hide');
+            //         error += "Name must be 2-4 characters\r\n";
+            //         $('#kap_tangki_cpo').css('border-color', 'red');
+            //         document.getElementById('err_kcpo').style.display = "block";
+            //     }
             // else {
             //     $('#kap_tangki_cpo').css('border-color', '');
             //     document.getElementById('err_kcpo').style.display = "none";
@@ -2095,7 +2451,7 @@
                         "progressBar": true
 
                     })
-                    console.log(error);
+                console.log(error);
                 return false;
             }
 
@@ -2111,86 +2467,574 @@
             // }
         }
     </script>
-            <script>
+    @if ($reg_pelesen->e_kat == 'PL111' || $reg_pelesen->e_kat == 'PL104' || $reg_pelesen->e_kat == 'PLBIO')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    b5 = $('#kap_proses').val();
+                    bcpo111 = $('#bil_tangki_cpo111').val();
+                    kcpo111 = $('#kap_tangki_cpo111').val();
 
-                $("#kap_proses").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    bppo111 = $('#bil_tangki_ppo111').val();
+                    kppo111 = $('#kap_tangki_ppo111').val();
 
-                $("#bil_tangki_cpo").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    bcpko111 = $('#bil_tangki_cpko111').val();
+                    kcpko111 = $('#kap_tangki_cpko111').val();
 
-                $("#kap_tangki_cpo").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    bppko111 = $('#bil_tangki_ppko111').val();
+                    kppko111 = $('#kap_tangki_ppko111').val();
 
-                $("#bil_tangki_ppo").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    boleo111 = $('#bil_tangki_oleo111').val();
+                    koleo111 = $('#kap_tangki_oleo111').val();
 
-                $("#kap_tangki_ppo").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    bothers111 = $('#bil_tangki_others111').val();
+                    kothers111 = $('#kap_tangki_others111').val();
 
-                $("#bil_tangki_cpko").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
 
-                $("#kap_tangki_cpko").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
 
-                $("#bil_tangki_ppko").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    let x5 = b5;
+                    if (x5 == '') {
+                        x5 = x5 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
-                $("#kap_tangki_ppko").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
 
-                $("#bil_tangki_oleo").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    let xbcpo111 = bcpo111;
+                    if (xbcpo111 == '') {
+                        xbcpo111 = xbcpo111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkcpo111 = kcpo111;
+                    if (xkcpo111 == '') {
+                        xkcpo111 = xkcpo111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbppo111 = bppo111;
+                    if (xbppo111 == '') {
+                        xbppo111 = xbppo111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkppo111 = kppo111;
+                    if (xkppo111 == '') {
+                        xkppo111 = xkppo111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
-                $("#kap_tangki_oleo").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
+                    let xbcpko111 = bcpko111;
+                    if (xbcpko111 == '') {
+                        xbcpko111 = xbcpko111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkcpko111 = kcpko111;
+                    if (xkcpko111 == '') {
+                        xkcpko111 = xkcpko111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbppko111 = bppko111;
+                    if (xbppko111 == '') {
+                        xbppko111 = xbppko111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkppko111 = kppko111;
+                    if (xkppko111 == '') {
+                        xkppko111 = xkppko111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbothers111 = bothers111;
+                    if (xbothers111 == '') {
+                        xbothers111 = xbothers111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkothers111 = kothers111;
+                    if (xkothers111 == '') {
+                        xkothers111 = xkothers111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xboleo111 = boleo111;
+                    if (xboleo111 == '') {
+                        xboleo111 = xboleo111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkoleo111 = koleo111;
+                    if (xkoleo111 == '') {
+                        xkoleo111 = xkoleo111 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
 
-                $("#bil_tangki_others").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
-                });
 
-                $("#kap_tangki_others").keypress(function(event) {
-                if ( event.which == 45 ) {
-                    event.preventDefault();
-                }
+                    document.getElementById("kap_proses").value = x5;
+                    document.getElementById("bil_tangki_cpo111").value = xbcpo111;
+                    document.getElementById("kap_tangki_cpo111").value = xkcpo111;
+                    document.getElementById("bil_tangki_ppo111").value = xbppo111;
+                    document.getElementById("kap_tangki_ppo111").value = xkppo111;
+                    document.getElementById("bil_tangki_cpko111").value = xbcpko111;
+                    document.getElementById("kap_tangki_cpko111").value = xkcpko111;
+                    document.getElementById("bil_tangki_ppko111").value = xbppko111;
+                    document.getElementById("kap_tangki_ppko111").value = xkppko111;
+                    document.getElementById("bil_tangki_others111").value = xbothers111;
+                    document.getElementById("kap_tangki_others111").value = xkothers111;
+                    document.getElementById("bil_tangki_oleo111").value = xboleo111;
+                    document.getElementById("kap_tangki_oleo111").value = xkoleo111;
+
+
                 });
-            </script>
+            });
+        </script>
+    @elseif ($reg_pelesen->e_kat == 'PL102')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    b5 = $('#kap_proses').val();
+                    kcpko102 = $('#kap_tangki_cpko102').val();
+                    bcpko102 = $('#bil_tangki_cpko102').val();
+
+                    let x5 = b5;
+                    if (x5 == '') {
+                        x5 = x5 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xkcpko102 = kcpko102;
+                    if (xkcpko102 == '') {
+                        xkcpko102 = xkcpko102 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+                    let xbcpko102 = bcpko102;
+                    if (xbcpko102 == '') {
+                        xbcpko102 = xbcpko102 || 0;
+                        // document.getElementById("ebio_b5").value = x;
+                    }
+
+
+                    document.getElementById("kap_proses").value = x5;
+                    document.getElementById("kap_tangki_cpko102").value = xkcpko102;
+                    document.getElementById("bil_tangki_cpko102").value = xbcpko102;
+
+                });
+            });
+        </script>
+    @elseif ($reg_pelesen->e_kat == 'PL101')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                b5 = $('#kap_proses').val();
+                bcpo101 = $('#bil_tangki_cpo101').val();
+                kcpo101 = $('#kap_tangki_cpo101').val();
+                bppo101 = $('#bil_tangki_ppo101').val();
+                kppo101 = $('#kap_tangki_ppo101').val();
+                bcpko101 = $('#bil_tangki_cpko101').val();
+                kcpko101 = $('#kap_tangki_cpko101').val();
+                bcpko101 = $('#bil_tangki_ppko101').val();
+                kcpko101 = $('#kap_tangki_ppko101').val();
+                bothers101 = $('#bil_tangki_others101').val();
+                kothers101 = $('#kap_tangki_others101').val();
+
+
+                let x5 = b5;
+                if (x5 == '') {
+                    x5 = x5 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+                let xbcpo101 = bcpo101;
+                if (xbcpo101 == '') {
+                    xbcpo101 = xbcpo101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xkcpo101 = kcpo101;
+                if (xkcpo101 == '') {
+                    xkcpo101 = xkcpo101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xbppo101 = bppo101;
+                if (xbppo101 == '') {
+                    xbppo101 = xbppo101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xkppo101 = kppo101;
+                if (xkppo101 == '') {
+                    xkppo101 = xkppo101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+                let xbcpko101 = bcpko101;
+                if (xbcpko101 == '') {
+                    xbcpko101 = xbcpko101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xkcpko101 = kcpko101;
+                if (xkcpko101 == '') {
+                    xkcpko101 = xkcpko101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xbppko101 = bppko101;
+                if (xbppko101 == '') {
+                    xbppko101 = xbppko101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xkppko101 = kppko101;
+                if (xkppko101 == '') {
+                    xkppko101 = xkppko101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xbothers101 = bothers101;
+                if (xbothers101 == '') {
+                    xbothers101 = xbothers101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let xkothers101 = kothers101;
+                if (xkothers101 == '') {
+                    xkothers101 = xkothers101 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+
+                document.getElementById("kap_proses").value = x5;
+                document.getElementById("bil_tangki_cpo101").value = xbcpo101;
+                document.getElementById("kap_tangki_cpo101").value = xkcpo101;
+                document.getElementById("bil_tangki_ppo101").value = xbppo101;
+                document.getElementById("kap_tangki_ppo101").value = xkppo101;
+                document.getElementById("bil_tangki_cpko101").value = xbcpko101;
+                document.getElementById("kap_tangki_cpko101").value = xkcpko101;
+                document.getElementById("bil_tangki_ppko101").value = xbppko101;
+                document.getElementById("kap_tangki_ppko101").value = xkppko101;
+                document.getElementById("bil_tangki_others101").value = xbothers101;
+                document.getElementById("kap_tangki_others101").value = xkothers101;
+
+            });
+        });
+    </script>
+
+    @elseif ($reg_pelesen->e_kat == 'PL91')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#checkBtn').click(function() {
+                b5 = $('#kap_proses').val();
+                b6 = $('#kap_tangki_cpo91').val();
+                b7 = $('#bil_tangki_cpo91').val();
+
+
+                let x5 = b5;
+                if (x5 == '') {
+                    x5 = x5 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x6 = b6;
+                if (x6 == '') {
+                    x6 = x6 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+                let x7 = b7;
+                if (x7 == '') {
+                    x7 = x7 || 0;
+                    // document.getElementById("ebio_b5").value = x;
+                }
+
+
+
+                document.getElementById("kap_proses").value = x5;
+                document.getElementById("kap_tangki_cpo91").value = x6;
+                document.getElementById("bil_tangki_cpo91").value = x7;
+
+
+            });
+        });
+    </script>
+    @endif
+    {{-- <script type="text/javascript">
+    $(document).ready(function() {
+        $('#checkBtn').click(function() {
+            b5 = $('#kap_proses').val();
+            b6 = $('#kap_tangki_cpo91').val();
+            b7 = $('#bil_tangki_cpo91').val();
+
+            kcpko102 = $('#kap_tangki_cpko102').val();
+            bcpko102 = $('#bil_tangki_cpko102').val();
+
+
+            bcpo101 = $('#bil_tangki_cpo101').val();
+            kcpo101 = $('#kap_tangki_cpo101').val();
+            bppo101 = $('#bil_tangki_ppo101').val();
+            kppo101 = $('#kap_tangki_ppo101').val();
+            bcpko101 = $('#bil_tangki_cpko101').val();
+            kcpko101 = $('#kap_tangki_cpko101').val();
+            bcpko101 = $('#bil_tangki_ppko101').val();
+            kcpko101 = $('#kap_tangki_ppko101').val();
+            bothers101 = $('#bil_tangki_others101').val();
+            kothers101 = $('#kap_tangki_others101').val();
+
+            bcpo111 = $('#bil_tangki_cpo111').val();
+            kcpo111 = $('#kap_tangki_cpo111').val();
+            bppo111 = $('#bil_tangki_ppo111').val();
+            kppo111 = $('#kap_tangki_ppo111').val();
+            bcpko111 = $('#bil_tangki_cpko111').val();
+            kcpko111 = $('#kap_tangki_cpko111').val();
+            bcpko111 = $('#bil_tangki_ppko111').val();
+            kcpko111 = $('#kap_tangki_ppko111').val();
+            boleo111 = $('#bil_tangki_oleo111').val();
+            koleo111 = $('#kap_tangki_oleo111').val();
+            bothers111 = $('#bil_tangki_others111').val();
+            kothers111 = $('#kap_tangki_others111').val();
+
+
+
+            let x5 = b5;
+            if (x5 == '') {
+                x5 = x5 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x6 = b6;
+            if (x6 == '') {
+                x6 = x6 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let x7 = b7;
+            if (x7 == '') {
+                x7 = x7 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+
+            let xkcpko102 = kcpko102;
+            if (xkcpko102 == '') {
+                xkcpko102 = xkcpko102 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbcpko102 = bcpko102;
+            if (xbcpko102 == '') {
+                xbcpko102 = xbcpko102 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+            let xbcpo101 = bcpo101;
+            if (xbcpo101 == '') {
+                xbcpo101 = xbcpo101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkcpo101 = kcpo101;
+            if (xkcpo101 == '') {
+                xkcpo101 = xkcpo101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbppo101 = bppo101;
+            if (xbppo101 == '') {
+                xbppo101 = xbppo101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkppo101 = kppo101;
+            if (xkppo101 == '') {
+                xkppo101 = xkppo101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+            let xbcpko101 = bcpko101;
+            if (xbcpko101 == '') {
+                xbcpko101 = xbcpko101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkcpko101 = kcpko101;
+            if (xkcpko101 == '') {
+                xkcpko101 = xkcpko101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbppko101 = bppko101;
+            if (xbppko101 == '') {
+                xbppko101 = xbppko101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkppko101 = kppko101;
+            if (xkppko101 == '') {
+                xkppko101 = xkppko101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbothers101 = bothers101;
+            if (xbothers101 == '') {
+                xbothers101 = xbothers101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkothers101 = kothers101;
+            if (xkothers101 == '') {
+                xkothers101 = xkothers101 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+            let xbcpo111 = bcpo111;
+            if (xbcpo111 == '') {
+                xbcpo111 = xbcpo111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkcpo111 = kcpo111;
+            if (xkcpo111 == '') {
+                xkcpo111 = xkcpo111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbppo111 = bppo111;
+            if (xbppo111 == '') {
+                xbppo111 = xbppo111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkppo111 = kppo111;
+            if (xkppo111 == '') {
+                xkppo111 = xkppo111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+            let xbcpko111 = bcpko111;
+            if (xbcpko111 == '') {
+                xbcpko111 = xbcpko111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkcpko111 = kcpko111;
+            if (xkcpko111 == '') {
+                xkcpko111 = xkcpko111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbppko111 = bppko111;
+            if (xbppko111 == '') {
+                xbppko111 = xbppko111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkppko111 = kppko111;
+            if (xkppko111 == '') {
+                xkppko111 = xkppko111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xbothers111 = bothers111;
+            if (xbothers111 == '') {
+                xbothers111 = xbothers111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkothers111 = kothers111;
+            if (xkothers111 == '') {
+                xkothers111 = xkothers111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xboleo111 = boleo111;
+            if (xboleo111 == '') {
+                xboleo111 = xboleo111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+            let xkoleo111 = koleo111;
+            if (xkoleo111 == '') {
+                xkoleo111 = xkoleo111 || 0;
+                // document.getElementById("ebio_b5").value = x;
+            }
+
+
+            document.getElementById("kap_proses").value = x5;
+            document.getElementById("kap_tangki_cpo91").value = x6;
+            document.getElementById("bil_tangki_cpo91").value = x7;
+
+            document.getElementById("kap_tangki_cpko102").value = xkcpko102;
+            document.getElementById("bil_tangki_cpko102").value = xbcpko102;
+
+            document.getElementById("bil_tangki_cpo101").value = xbcpo101;
+            document.getElementById("kap_tangki_cpo101").value = xkcpo101;
+            document.getElementById("bil_tangki_ppo101").value = xbppo101;
+            document.getElementById("kap_tangki_ppo101").value = xkppo101;
+            document.getElementById("bil_tangki_cpko101").value = xbcpko101;
+            document.getElementById("kap_tangki_cpko101").value = xkcpko101;
+            document.getElementById("bil_tangki_ppko101").value = xbppko101;
+            document.getElementById("kap_tangki_ppko101").value = xkppko101;
+            document.getElementById("bil_tangki_others101").value = xbothers101;
+            document.getElementById("kap_tangki_others101").value = xkothers101;
+
+            document.getElementById("bil_tangki_cpo111").value = xbcpo111;
+            document.getElementById("kap_tangki_cpo111").value = xkcpo111;
+            document.getElementById("bil_tangki_ppo111").value = xbppo111;
+            document.getElementById("kap_tangki_ppo111").value = xkppo111;
+            document.getElementById("bil_tangki_cpko111").value = xbcpko111;
+            document.getElementById("kap_tangki_cpko111").value = xkcpko111;
+            document.getElementById("bil_tangki_ppko111").value = xbppko111;
+            document.getElementById("kap_tangki_ppko111").value = xkppko111;
+            document.getElementById("bil_tangki_others111").value = xbothers111;
+            document.getElementById("kap_tangki_others111").value = xkothers111;
+            document.getElementById("bil_tangki_oleo111").value = xboleo111;
+            document.getElementById("kap_tangki_oleo111").value = xkoleo111;
+
+
+        });
+    });
+</script> --}}
+
+    <script>
+        $("#kap_proses").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#bil_tangki_cpo").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#kap_tangki_cpo").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#bil_tangki_ppo").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#kap_tangki_ppo").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#bil_tangki_cpko").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#kap_tangki_cpko").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#bil_tangki_ppko").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#kap_tangki_ppko").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#bil_tangki_oleo").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#kap_tangki_oleo").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#bil_tangki_others").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+
+        $("#kap_tangki_others").keypress(function(event) {
+            if (event.which == 45) {
+                event.preventDefault();
+            }
+        });
+    </script>
 
     <script>
         function ableInput() {
@@ -2255,5 +3099,4 @@
 
         };
     </script>
-
 @endsection
