@@ -237,7 +237,8 @@
 
                                     <div class="row center mt-3">
                                         <div class="col-md-12 center mb-3">
-                                            <button type="button" class="btn btn-primary center" style="margin-left:45%" onclick="check()">Daftar</button>
+                                            <button type="button" class="btn btn-primary center" style="margin-left:45%"  data-toggle="modal"
+                                            data-target="#myModal">Daftar</button>
                                             {{-- <button type="submit">YA</button> --}}
                                         </div>
                                     </div>
