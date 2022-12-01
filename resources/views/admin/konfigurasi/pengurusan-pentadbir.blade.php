@@ -206,7 +206,7 @@
                                             Kategori</label>
                                         <div class="col-md-6">
 
-                                            <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]" id="subkat" >
+                                            <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]"  >
                                                 <option value="PL91">Kilang Buah</option>
                                                 <option value="PL101">Kilang Penapis</option>
                                                 <option value="PL102">Kilang Isirung</option>
@@ -214,8 +214,7 @@
                                                 <option value="PL111">Pusat Simpanan</option>
                                                 <option value="PLBIO">Kilang Biodiesel</option>
                                             </select>
-                                            <p type="hidden" id="err_subkat" style="color: red; display:none"><i>Sila buat pilihan di
-                                                bahagian ini!</i></p>
+                                          
                                         </div>
                                     </div>
                                     <div class="row" style="margin-top:1%">
