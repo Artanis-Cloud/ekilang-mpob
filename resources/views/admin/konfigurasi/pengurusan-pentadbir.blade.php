@@ -71,7 +71,10 @@
                                             Nama</label>
                                         <div class="col-md-6">
                                             <input type="text" id="name" class="form-control" placeholder="Nama"
-                                                name="name" value="{{ old('name') }}">
+                                                name="name" value="{{ old('name') }}" oninput="valid_name()">
+                                                <p type="hidden" id="err_name" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('name')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -87,6 +90,9 @@
                                         <div class="col-md-6">
                                             <input type="text" id="email" class="form-control" placeholder="Emel"
                                                 name="email" value="{{ old('email') }}">
+                                                <p type="hidden" id="err_email" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('email')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -103,6 +109,9 @@
                                         <div class="col-md-6">
                                             <input type="text" id="username" class="form-control" placeholder="Username" maxlength="8"
                                                 name="username" value="{{ old('username') }}">
+                                                <p type="hidden" id="err_user" style="color: red; display:none"><i>Sila isi
+                                                    butiran di
+                                                    bahagian ini!</i></p>
                                             @error('username')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -264,5 +273,20 @@
 @endsection
 
 @section('scripts')
-    <script></script>
+<script>
+    function valid_name() {
+
+        if ($('#name').val() == '') {
+            $('#name').css('border-color', 'red');
+            document.getElementById('err_name').style.display = "block";
+
+
+        } else {
+            $('#name').css('border-color', '');
+            document.getElementById('err_name').style.display = "none";
+
+        }
+
+    }
+</script>
 @endsection

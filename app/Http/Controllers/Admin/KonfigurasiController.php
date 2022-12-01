@@ -50,11 +50,15 @@ class KonfigurasiController extends Controller
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
         // dd(auth()->user());
+
+        if ($request->role) {
+
         $check_users = User::where('username', $request->username)->first();
         $check_regusers = RegUser::where('e_userid', $request->username)->first();
+        // dd($check_users);
 
 
-        if (!$check_users->username || !$check_regusers) {
+        if (!$check_users || !$check_regusers) {
 
         $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
@@ -130,6 +134,11 @@ class KonfigurasiController extends Controller
     else {
         return redirect()->back()
                 ->with('error', 'Username sudah wujud! ');
+    }
+    }
+    else {
+            return redirect()->back()
+                    ->with('error', 'Sila pilih sekurang-kurangnya satu sub-kategori ');
     }
     }
 
