@@ -141,7 +141,7 @@
                     <hr>
                     {{-- @foreach ($penyata as $key => $data) --}}
 
-                    <form action="{{ route('admin.edit.bahagian.iii.sykt', $penyata->ebio_c1 ?? '' ) }}" method="post" class="sub-form" id="myForm">
+                    <form action="{{ route('admin.edit.bahagian.iii.sykt2', $penyata->ebio_c1 ?? '' ) }}" method="post" class="sub-form" id="myForm">
                         @csrf
 
                         <div class="table-responsive col-10 ml-auto mr-auto">
