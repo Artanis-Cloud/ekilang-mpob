@@ -149,7 +149,7 @@ class KonfigurasiController extends Controller
             'email' => ['required', 'string'],
             'username' => ['required', 'string'],
             'role' => ['required', 'string'],
-            'sub_cat[]' => ['required', 'string'],
+            // 'sub_cat[]' => ['required', 'string'],
             'status' => ['required', 'string'],
 
         ]);
