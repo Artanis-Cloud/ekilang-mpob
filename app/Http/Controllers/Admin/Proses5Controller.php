@@ -978,7 +978,7 @@ class Proses5Controller extends Controller
             and p.e_nl = k.e_nl
             and k.e_kat = 'PLBIO'
             -- and e.ebio_thn = $tahun1
-            -- and e.ebio_bln = $bulan1
+            and e.ebio_bln = $bulan1
             order by k.kodpgw, k.nosiri");
 
             if (!$users) {
@@ -1162,6 +1162,7 @@ class Proses5Controller extends Controller
         $produk_c = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
         $produkiii_2 = Produk::where('prodid', 'AW')->orderBy('prodname')->get();
         $produkiii = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('prodname')->get();
+        $produkiiiaw = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->where('prodid', '!=', 'AW')->orderBy('prodname')->get();
         $syarikat = SyarikatPembeli::get();
 
         // $penyata33 = HBioC::findOrFail($ebio_nobatch);
@@ -1238,6 +1239,7 @@ class Proses5Controller extends Controller
             'produk_b',
             'produk_c',
             'produkiii',
+            'produkiiiaw',
             'produkiii_2',
             'senarai_syarikat',
             'syarikat',
@@ -2425,9 +2427,9 @@ class Proses5Controller extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianiii'), 'name' => "Bahagian 3"],
-            ['link' => route('bio.bahagianiii'), 'name' => "Maklumat Jualan/Edaran"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Bahagian 3"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Maklumat Jualan/Edaran"],
         ];
 
         $kembali = route('bio.bahagianiii');
