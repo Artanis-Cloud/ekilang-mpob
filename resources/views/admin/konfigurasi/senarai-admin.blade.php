@@ -83,7 +83,10 @@
                                                 <th style="vertical-align:middle">Sub-Kategori</th>
                                                 <th style="vertical-align:middle">Status</th>
                                                 <th style="vertical-align:middle">Kemaskini</th>
+                                                @if (auth()->user()->role == 'Superadmin')
                                                 <th style="vertical-align:middle">Hapus</th>
+
+                                                @endif
 
                                             </tr>
                                         </thead>
@@ -97,7 +100,10 @@
                                                 <th>Sub-Kategori</th>
                                                 <th>Status</th>
                                                 <th>Kemaskini</th>
+                                                @if (auth()->user()->role == 'Superadmin')
+
                                                 <th>Hapus</th>
+                                                @endif
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
@@ -144,6 +150,8 @@
                                                             </a>
                                                         </div>
                                                     </td>
+                                                @if (auth()->user()->role == 'Superadmin')
+
                                                     <td>
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button" data-toggle="modal"
@@ -153,6 +161,7 @@
                                                             </a>
                                                         </div>
                                                     </td>
+                                                    @endif
                                                 </tr>
 
 

@@ -71,12 +71,34 @@
                                         <fieldset class="form-group">
                                             <select class="form-control" id="basicSelect" name="e_kat" required>
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="PL91">KILANG BUAH</option>
+                                                @if (auth()->user()->sub_cat)
+                                                        @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                                        @if ($cat == 'PL91')
+                                                        <option value="PL91">KILANG BUAH</option>
+                                                        @endif
+                                                        @if ($cat == 'PL101')
+                                                        <option value="PL101">KILANG PENAPIS</option>
+                                                        @endif
+                                                        @if ($cat == 'PL102')
+                                                        <option value="PL102">KILANG ISIRUNG</option>
+                                                        @endif
+                                                        @if ($cat == 'PL104')
+                                                        <option value="PL104">KILANG OLEOKIMIA</option>
+                                                        @endif
+                                                        @if ($cat == 'PL111')
+                                                        <option value="PL111">PUSAT SIMPANAN</option>
+                                                        @endif
+                                                        @if ($cat == 'PLBIO')
+                                                        <option value="PLBIO">KILANG BIODIESEL</option>
+                                                        @endif
+                                                        @endforeach
+                                                        @endif
+                                                {{-- <option value="PL91">KILANG BUAH</option>
                                                 <option value="PL101">KILANG PENAPIS</option>
                                                 <option value="PL102">KILANG ISIRUNG</option>
                                                 <option value="PL104">KILANG OLEOKIMIA</option>
                                                 <option value="PL111">PUSAT SIMPANAN</option>
-                                                <option value="PLBIO">KILANG BIODIESEL</option>
+                                                <option value="PLBIO">KILANG BIODIESEL</option> --}}
 
                                             </select>
 
