@@ -237,12 +237,18 @@ class DashboardAdminController extends Controller
 
 
         //total pelesen yang sudah hantar penyata setiap sektor
-        $total91 = E91Init::where('e91_flg', '!=' , '1')->where('e91_sdate', '<=' , $enddate )->count();
-        $total101 = E101Init::where('e101_flg', '!=' ,'1')->where('e101_sdate', '<=' , $enddate )->count();
-        $total102 = E102Init::where('e102_flg', '!=' , '1')->where('e102_sdate', '<=' , $enddate )->count();
-        $total104 = E104Init::where('e104_flg', '!=' , '1')->where('e104_sdate', '<=' , $enddate )->count();
-        $total111 = E07Init::where('e07_flg', '!=' , '1')->where('e07_sdate', '<=' , $enddate )->count();
-        $totalBIO = EBioInit::where('ebio_flg', '!=' , '1')->where('ebio_sdate', '<=' , $enddate )->count();
+        $total91 = E91Init::where('e91_flg', '!=' , '1')->count();
+        $total101 = E101Init::where('e101_flg', '!=' ,'1')->count();
+        $total102 = E102Init::where('e102_flg', '!=' , '1')->count();
+        $total104 = E104Init::where('e104_flg', '!=' , '1')->count();
+        $total111 = E07Init::where('e07_flg', '!=' , '1')->count();
+        $totalBIO = EBioInit::where('ebio_flg', '!=' , '1')->count();
+        // $total91 = E91Init::where('e91_flg', '!=' , '1')->where('e91_sdate', '<=' , $enddate )->count();
+        // $total101 = E101Init::where('e101_flg', '!=' ,'1')->where('e101_sdate', '<=' , $enddate )->count();
+        // $total102 = E102Init::where('e102_flg', '!=' , '1')->where('e102_sdate', '<=' , $enddate )->count();
+        // $total104 = E104Init::where('e104_flg', '!=' , '1')->where('e104_sdate', '<=' , $enddate )->count();
+        // $total111 = E07Init::where('e07_flg', '!=' , '1')->where('e07_sdate', '<=' , $enddate )->count();
+        // $totalBIO = EBioInit::where('ebio_flg', '!=' , '1')->where('ebio_sdate', '<=' , $enddate )->count();
 
         $total_overall = ($total91 + $total101 + $total102 + $total104 + $total111 + $totalBIO);
         // dd($total_overall);
