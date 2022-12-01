@@ -129,7 +129,7 @@
                                             </div>
 
                                             <input type="hidden" id="quill_html" name="Message"
-                                                value="{{ old('Message') ?? $pengumuman->Message }}">
+                                                value="">
 
 
                                         </div>
@@ -194,9 +194,23 @@
 @section('scripts')
     <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
 
-    <script>
+    {{-- <script>
         var quill = new Quill('#editor', {
             theme: 'snow'
         });
-    </script>
+    </script> --}}
+
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+
+    function add_message() {
+        // var content = document.querySelector("#snow").innerHTML;
+        // alert(quill.getContents());
+        quill.on('text-change', function(delta, oldDelta, source) {
+            document.getElementById("quill_html").value = quill.root.innerHTML;
+        });
+    }
+</script>
 @endsection
