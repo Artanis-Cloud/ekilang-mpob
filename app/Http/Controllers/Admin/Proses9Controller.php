@@ -2240,7 +2240,7 @@ class Proses9Controller extends Controller
             ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Biodiesel"],
         ];
 
-        $kembali = route('admin.9penyataterdahulu.bio.process');
+        $kembali = route('admin.9penyataterdahulu');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -2256,17 +2256,17 @@ class Proses9Controller extends Controller
             // $penyata[$key] = HBioInit::with('h_pelesen')->find($ebio_nobatch);
             // $pelesens[$key] = Pelesen::where('e_nl', $penyata->e104_nl)->first();
 
-            $penyata[$ebio_nobatch] = DB::select("SELECT p.kodpgw, p.nosiri, e.ebio_bln, e.ebio_thn, e.ebio_notel, e.ebio_npg, e.ebio_jpg, p.e_nl, p.e_np, p.e_ap1, p.e_ap2, e.ebio_nobatch, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate,
-                            p.e_ap3, p.e_as1, p.e_as2, p.e_as3, p.e_notel, p.e_nofax, p.e_email, p.e_npg, p.e_jpg, p.e_npgtg, p.e_jpgtg
+            $penyata[$ebio_nobatch] = DB::select("SELECT *, date_format(e.ebio_sdate,'%d-%m-%Y') as sdate
+
                             FROM h_bio_inits e, h_pelesen p
                             WHERE p.e_nl = e.ebio_nl
                             AND e.ebio_nobatch = '$ebio_nobatch'
                             AND e.ebio_thn = '$tahun'
-                            AND p.e_thn = '2022'
-                            AND p.e_bln = '10'
+                            -- AND p.e_thn = '2022'
+                            -- AND p.e_bln = '10'
                             AND e.ebio_bln = '$bulan'");
 
-            // dd($penyata[$ebio_nobatch][0]);
+            // dd($penyata);
             // if($penyata[$key]->h_pelesen){
 
                 $ia[$ebio_nobatch] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
@@ -2279,7 +2279,7 @@ class Proses9Controller extends Controller
 
 
 
-                $ii[$ebio_nobatch] = HHari::where('lesen',  $penyata[$ebio_nobatch][0]->e_nl)->where('tahunbhg2', $penyata[$ebio_nobatch][0]->ebio_thn)->where('bulanbhg2', $penyata[$ebio_nobatch][0]->ebio_bln)->first();
+                $ii[$ebio_nobatch] = HHari::where('lesen',  $penyata[$ebio_nobatch][$key]->e_nl)->where('tahunbhg2', $penyata[$ebio_nobatch][$key]->ebio_thn)->where('bulanbhg2', $penyata[$ebio_nobatch][$key]->ebio_bln)->first();
 
 
                 $iii[$ebio_nobatch]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $ebio_nobatch)->get();
