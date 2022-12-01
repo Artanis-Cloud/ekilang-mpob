@@ -23,4 +23,10 @@ class Produk extends Model
         'sub_group_rspo',
         'sub_group_mspo',
     ];
+
+    public function kump_produk()
+    {
+
+        return $this->hasOne(KumpProduk::class, 'kumpulan', 'prodcat');
+    }
 }

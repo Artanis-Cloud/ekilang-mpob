@@ -2038,12 +2038,20 @@
                                         <span class="hide-menu"> Validasi </span>
                                     </a>
                                 </li>
+                                @if (json_decode(auth()->user()->sub_cat))
+
+                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                @if ($cat == 'PLBIO')
                                 <li class="sidebar-item">
                                     <a href="{{ route('admin.pembeli') }}" class="sidebar-link">
                                         <i class="fas fa-clipboard-list" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Pembeli </span>
                                     </a>
                                 </li>
+                                @endif
+
+                                @endforeach
+                                @endif
                                 <li class="sidebar-item">
                                     <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>

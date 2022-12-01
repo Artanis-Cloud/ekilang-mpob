@@ -130,7 +130,7 @@
                                                             {{ $data->prodname }}
                                                         </td>
                                                         <td>
-                                                            {{ $data->prodcat }}
+                                                            {{ $data->prodcat }} - {{ $data->kump_produk->nama_kumpulan ?? ''}}
                                                         </td>
                                                         <td>
                                                             {{ $data->proddesc }}
