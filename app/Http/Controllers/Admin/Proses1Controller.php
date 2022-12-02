@@ -1326,9 +1326,9 @@ class Proses1Controller extends Controller
         // dd($penyata);
 
         $penyata2 = RegPelesen::where('e_nl', $request->e_nl)->first();
+        // dd($penyata2);
         $penyata2->e_nl = $request->e_nl;
         // $penyata2->e_kat = $request->e_kat;
-
         $penyata2->nosiri = $request->nosiri;
         $penyata2->kodpgw = $request->kodpgw;
         $penyata2->e_status = $request->e_status;
