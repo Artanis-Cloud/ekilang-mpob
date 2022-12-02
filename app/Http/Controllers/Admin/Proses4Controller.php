@@ -139,8 +139,9 @@ class Proses4Controller extends Controller
     public function porting_pelesen()
     {
         //data from e91_init
-        $regpelesen = RegPelesen::with('pelesen')->get();
-        // $regpelesen = RegPelesen::with('pelesen')->where('e_status', '1')->get();
+
+        // $regpelesen = RegPelesen::with('pelesen')->get();
+        $regpelesen = RegPelesen::with('pelesen')->where('e_status', '1')->get();
         // dd($e91init);
 
         // $totalpl91 = 0;
@@ -243,7 +244,10 @@ class Proses4Controller extends Controller
 
                 $check = HPelesen::where('e_nl', $e_nl)->where('e_thn', $e_thn)->where('e_bln', $e_bln)->first();
 
-                if (!$check) {
+                if ($check) {
+                    $check->delete();
+                    // $del_rp = DB::DELETE("DELETE FROM h_pelesen where e_thn = '$e_thn' and e_bln='$e_bln' and e_nl= '$e_nl'");
+
                     //insert data to hpelesen
                     $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl',
                     $e_thn,$e_bln,'$e_nlkppk','$np','$ap1','$ap2',
@@ -275,7 +279,43 @@ class Proses4Controller extends Controller
                     '$e_status_biogas', $e_year,
                     '$e_cluster','$e_katkilang','$e_status','$e_email_pengurus','$kap_proses',
                     '$kap_tangki','$bil_tangki_cpo','$bil_tangki_ppo','$bil_tangki_cpko','$bil_tangki_ppko','$bil_tangki_oleo','$bil_tangki_oleo','$bil_tangki_jumlah','$kap_tangki_cpo','$kap_tangki_ppo','$kap_tangki_cpko','$kap_tangki_ppko','$kap_tangki_oleo','$kap_tangki_others','$kap_tangki_jumlah')");
+
+
+                } else {
+                    $inserthpelesen = DB::insert("INSERT into h_pelesen values ($idno,'$e_nl',
+                    $e_thn,$e_bln,'$e_nlkppk','$np','$ap1','$ap2',
+                    '$ap3',
+                    '$as1',
+                    '$as2',
+                    '$as3',
+                    '$e_notel',
+                    '$e_nofax',
+                    '$e_email',
+                    '$npg',
+                    '$e_jpg',
+                    '$e_notel_pg',
+                    '$e_email_pg',
+                    '$kodpgw',
+                    '$nosiri',
+                    '$npg2',
+                    '$e_jpgtg',
+                    '$npg1',
+                    '$eqc_jpg',
+                    '$eqc_email',
+                    '$e_asnegeri',
+                    '$e_asdaerah',
+                    '$e_negeri',
+                    '$e_daerah',
+                    '$e_kawasan',
+                    '$e_syktinduk','$stk_npg','$stk_notel','$stk_nofax','$stk_email','$stk_syktinduk',$stk_cpo_kap,$stk_rbdpo_kap,$stk_rbdpl_kap,
+                    $stk_rbdps_kap,$stk_lainppo_kap,$stk_ppo_kap,$stk_po_kap,$stk_pfad_kap,'$e_group','$e_subgroup','$e_poma','$e_biogas',
+                    '$e_status_biogas', $e_year,
+                    '$e_cluster','$e_katkilang','$e_status','$e_email_pengurus','$kap_proses',
+                    '$kap_tangki','$bil_tangki_cpo','$bil_tangki_ppo','$bil_tangki_cpko','$bil_tangki_ppko','$bil_tangki_oleo','$bil_tangki_oleo','$bil_tangki_jumlah','$kap_tangki_cpo','$kap_tangki_ppo','$kap_tangki_cpko','$kap_tangki_ppko','$kap_tangki_oleo','$kap_tangki_others','$kap_tangki_jumlah')");
+
                 }
+
+
 
 
 

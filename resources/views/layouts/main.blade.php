@@ -2681,7 +2681,7 @@ $('ul > li> a').on('click', function() {
                 "September",
                 "Oktober",
                 "November",
-                "Desember"
+                "Disember"
             ],
             day = dateInfo.getDate();
 
