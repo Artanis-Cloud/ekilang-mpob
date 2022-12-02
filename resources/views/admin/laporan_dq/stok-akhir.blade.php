@@ -537,14 +537,11 @@
 
                                                                                 <div class="modal-footer noPrint ">
                                                                                     <div class="container-fluid">
-                                                                                        {{-- <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" hidden
-                                                                                            style="background-color:white; color: #f90a0a; " >
-                                                                                            <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                                                                                        </button> --}}
-                                                                                        <button type="button" class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
-                                                                                            style="background-color: white; color: #0a7569; ">
-                                                                                            <i class="fa fa-file-excel" style="color: #0a7569"></i> PDF
-                                                                                        </button>
+                                                                                  
+                                                                                        <button type="button"  class="dt-button buttons-excel buttons-html5"  onclick=" myPrint('myfrm')"
+                                                                                        style="background-color:white; color: #f90a0a; " >
+                                                                                        <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                                                                                    </button>
                                                                                     </div>
                                                                                     <button type="button"
                                                                                         class="btn btn-light-secondary"
