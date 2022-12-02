@@ -230,7 +230,7 @@ class Proses9Controller extends Controller
                 $bulan = H91Init::where('e91_bln', $request->bulan);
 
                 // dd($bulan);
-                $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT DISTINCT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
                                 FROM pelesen p, h91_init e, reg_pelesen k
                                 WHERE e.e91_thn = '$request->tahun'
                                 and e.e91_bln = '$request->bulan'
@@ -249,7 +249,7 @@ class Proses9Controller extends Controller
                 $bulan = H101Init::where('tahun', $request->e101_bln);
 
 
-                $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, e.e101_nobatch, k.nosiri,date_format(e101_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT DISTINCT  e.e101_nl, p.e_nl, p.e_np, k.kodpgw, e.e101_nobatch, k.nosiri,date_format(e101_sdate,'%d-%m-%Y') as sdate
                                 from pelesen p, h101_init e, reg_pelesen k
                                 WHERE e.e101_thn = '$request->tahun'
                                 and e.e101_bln = '$request->bulan'
@@ -268,7 +268,7 @@ class Proses9Controller extends Controller
                 $bulan = H102Init::where('tahun', $request->e102_bln);
 
 
-                $users = DB::select("SELECT e.e102_nl, p.e_nl, p.e_np, k.kodpgw, e.e102_nobatch, k.nosiri, date_format(e102_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT DISTINCT e.e102_nl, p.e_nl, p.e_np, k.kodpgw, e.e102_nobatch, k.nosiri, date_format(e102_sdate,'%d-%m-%Y') as sdate
                                 FROM  pelesen p, h102_init e, reg_pelesen k
                                 WHERE e.e102_thn = '$request->tahun'
                                 and e.e102_bln = '$request->bulan'
@@ -286,7 +286,7 @@ class Proses9Controller extends Controller
                 $tahun = H104Init::where('tahun', $request->e104_thn);
                 $bulan = H104Init::where('tahun', $request->e104_bln);
 
-                $users = DB::select("SELECT e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT DISTINCT  e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
                                 FROM  pelesen p, h104_init e, reg_pelesen k
                                 WHERE e.e104_thn = '$request->tahun'
                                 and e.e104_bln = '$request->bulan'
@@ -296,6 +296,7 @@ class Proses9Controller extends Controller
                                 and k.e_kat = 'PL104'
                                 order by k.kodpgw, k.nosiri");
 
+
                 if (!$users) {
                     return redirect()->back()
                     ->with('error', 'Penyata Tidak Wujud!');
@@ -304,7 +305,7 @@ class Proses9Controller extends Controller
                 $tahun = H104Init::where('tahun', $request->e104_thn);
                 $bulan = H104Init::where('tahun', $request->e104_bln);
 
-                $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT DISTINCT  e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, h07_init e, reg_pelesen k
                 WHERE e.e07_thn = '$request->tahun'
                 and e.e07_bln = '$request->bulan'
@@ -314,6 +315,7 @@ class Proses9Controller extends Controller
                 and k.e_kat = 'PL111'
                 order by k.kodpgw, k.nosiri");
 
+
             if (!$users) {
                 return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
@@ -322,7 +324,7 @@ class Proses9Controller extends Controller
                 $tahun = HBioInit::where('tahun', $request->ebio_thn);
                 $bulan = HBioInit::where('bulan', $request->ebio_bln);
 
-                $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, date_format(ebio_sdate,'%d-%m-%Y') as sdate
+                $users = DB::select("SELECT DISTINCT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, date_format(ebio_sdate,'%d-%m-%Y') as sdate
                 FROM pelesen p, h_bio_inits e, reg_pelesen k
                 WHERE e.ebio_thn = '$request->tahun'
                 and e.ebio_bln = '$request->bulan2'
