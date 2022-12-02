@@ -1190,14 +1190,13 @@
     </script>
     <script>
         function myPrint(myfrm) {
-            var headstr = "<html><head><title></title></head><body>";
-            var footstr = "</body>";
-            var newstr = document.all.item(myfrm).innerHTML;
-            var oldstr = document.body.innerHTML;
-            document.body.innerHTML = headstr + newstr + footstr;
+
+            var headstr = "<html><head><title></title></head><body></body>";
+            var restorepage = $('body').html();
+            var printcontent = $('#' + myfrm).clone();
+            $('body').empty().html(printcontent);
             window.print();
-            document.body.innerHTML = oldstr;
-            return false;
+            $('body').html(restorepage);
         }
     </script>
 
