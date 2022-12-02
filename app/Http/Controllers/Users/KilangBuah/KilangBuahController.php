@@ -323,7 +323,7 @@ class KilangBuahController extends Controller
 
     public function buah_update_bahagian_i(Request $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
         $penyata = E91Init::findOrFail($id);
         // $penyata->e91_flg = '2';
         $penyata->e91_aa1 = $request->e91_aa1;
