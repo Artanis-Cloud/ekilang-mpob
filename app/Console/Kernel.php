@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
 
 
     protected $commands = [
-        Commands\InitializeUpdate::class
+        Commands\InitializeUpdate::class,
+        Commands\UpdateFlg::class
     ];
 
     protected function schedule(Schedule $schedule)

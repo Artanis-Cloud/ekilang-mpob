@@ -13,6 +13,7 @@ use App\Models\Init;
 use App\Models\RegPelesen;
 use Illuminate\Console\Command;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class InitializeUpdate extends Command
 {
@@ -48,51 +49,51 @@ class InitializeUpdate extends Command
     public function handle()
     {
         $tahun = date('Y');
-        $bulan = date('m') - 1;
+        $bulan = date('m');
         $current_date = date('Y-m-d');
         $date = Init::where('tahun', $tahun)->first();
 
-        if ($bulan == 1) {
+        if ($bulan == 2) {
             $sdate = $date->sjan;
             $edate = $date->ejan;
         }
-        elseif ($bulan == 2) {
+        elseif ($bulan == 3) {
             $sdate = $date->sfeb;
             $edate = $date->efeb;
         }
-        elseif ($bulan == 3) {
+        elseif ($bulan == 4) {
             $sdate = $date->smac;
             $edate = $date->emac;
         }
-        elseif ($bulan == 4) {
+        elseif ($bulan == 5) {
             $sdate = $date->sapr;
             $edate = $date->eapr;
         }
-        elseif ($bulan == 5) {
+        elseif ($bulan == 6) {
             $sdate = $date->smei;
             $edate = $date->emei;
         }
-        elseif ($bulan == 6) {
+        elseif ($bulan == 7) {
             $sdate = $date->sjun;
             $edate = $date->ejun;
         }
-        elseif ($bulan == 7) {
+        elseif ($bulan == 8) {
             $sdate = $date->sjul;
             $edate = $date->ejul;
         }
-        elseif ($bulan == 8) {
+        elseif ($bulan == 9) {
             $sdate = $date->sogos;
             $edate = $date->eogos;
         }
-        elseif ($bulan == 9) {
+        elseif ($bulan == 10) {
             $sdate = $date->ssept;
             $edate = $date->esept;
         }
-        elseif ($bulan == 10) {
+        elseif ($bulan == 11) {
             $sdate = $date->sokt;
             $edate = $date->eokt;
         }
-        elseif ($bulan == 11) {
+        elseif ($bulan == 12) {
             $sdate = $date->snov;
             $edate = $date->enov;
         }
