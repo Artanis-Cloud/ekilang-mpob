@@ -218,7 +218,7 @@ class tryController extends Controller
             $edate = $date->edec;
         }
 
-        dd($sdate);
+        dd($sdate == $current_date);
         // if ($sdate == $current_date ) {
 
         // $e6 = strtotime($selects[0]->e101_e6);
