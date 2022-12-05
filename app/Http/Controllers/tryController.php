@@ -165,7 +165,7 @@ class tryController extends Controller
 
 
         $tahun = date('Y');
-        $bulan = date('m') + 1;
+        $bulan = date('m');
         $current_date = date('Y-m-d');
         $date = Init::where('tahun', $tahun)->first();
 
