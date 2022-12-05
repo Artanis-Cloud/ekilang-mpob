@@ -222,7 +222,7 @@ class tryController extends Controller
         // if ($sdate == $current_date ) {
 
         // $e6 = strtotime($selects[0]->e101_e6);
-        dd($current_date);
+        dd($sdate);
 
         // foreach ($selects as $key => $select) {
 
