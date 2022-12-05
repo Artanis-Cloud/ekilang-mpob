@@ -218,11 +218,11 @@ class tryController extends Controller
             $edate = $date->edec;
         }
 
-        dd($sdate == $current_date);
+        // dd($sdate == $current_date);
         // if ($sdate == $current_date ) {
 
         // $e6 = strtotime($selects[0]->e101_e6);
-        // dd($password);
+        dd($current_date);
 
         // foreach ($selects as $key => $select) {
 
