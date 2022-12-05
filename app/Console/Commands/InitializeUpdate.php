@@ -104,13 +104,15 @@ class InitializeUpdate extends Command
 
         if ($sdate == $current_date ) {
             $this->initialize_proses_pl91($edate);
-            $this->initialize_proses_pl101($edate);
-            $this->initialize_proses_pl102($edate);
-            $this->initialize_proses_pl104($edate);
-            $this->initialize_proses_pl111($edate);
-            $this->initialize_proses_plbio($edate);
+            // $this->initialize_proses_pl101($edate);
+            // $this->initialize_proses_pl102($edate);
+            // $this->initialize_proses_pl104($edate);
+            // $this->initialize_proses_pl111($edate);
+            // $this->initialize_proses_plbio($edate);
 
             Auth::user()->log("INITIALIZE PENYATA BULANAN");
+
+            return redirect()->back()->with('success','CRON RUNNING');
         }
 
     }
