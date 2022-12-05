@@ -159,12 +159,70 @@ class tryController extends Controller
         // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
 
         // $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
-        $password = Hash::make('admin123');
+        // $password = Hash::make('admin123');
         // $selects = DB::connection('mysql2')->select("SELECT e101_e6 FROM h101_e where e101_e1='78697'");
         // dd($selects[0]);
 
+
+        $tahun = date('Y');
+        $bulan = date('m') + 1;
+        $current_date = date('Y-m-d');
+        $date = Init::where('tahun', $tahun)->first();
+
+        if ($bulan == 2) {
+            $sdate = $date->sjan;
+            $edate = $date->ejan;
+        }
+        elseif ($bulan == 3) {
+            $sdate = $date->sfeb;
+            $edate = $date->efeb;
+        }
+        elseif ($bulan == 4) {
+            $sdate = $date->smac;
+            $edate = $date->emac;
+        }
+        elseif ($bulan == 5) {
+            $sdate = $date->sapr;
+            $edate = $date->eapr;
+        }
+        elseif ($bulan == 6) {
+            $sdate = $date->smei;
+            $edate = $date->emei;
+        }
+        elseif ($bulan == 7) {
+            $sdate = $date->sjun;
+            $edate = $date->ejun;
+        }
+        elseif ($bulan == 8) {
+            $sdate = $date->sjul;
+            $edate = $date->ejul;
+        }
+        elseif ($bulan == 9) {
+            $sdate = $date->sogos;
+            $edate = $date->eogos;
+        }
+        elseif ($bulan == 10) {
+            $sdate = $date->ssept;
+            $edate = $date->esept;
+        }
+        elseif ($bulan == 11) {
+            $sdate = $date->sokt;
+            $edate = $date->eokt;
+        }
+        elseif ($bulan == 12) {
+            $sdate = $date->snov;
+            $edate = $date->enov;
+        }
+        else {
+            $sdate = $date->sdec;
+            $edate = $date->edec;
+        }
+
+        dd($sdate);
+        // if ($sdate == $current_date ) {
+
         // $e6 = strtotime($selects[0]->e101_e6);
-        dd($password);
+        // dd($password);
 
         // foreach ($selects as $key => $select) {
 
