@@ -275,7 +275,7 @@
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
                                                         <td class="headerColor" width="8%" align="center"><b>
-                                                                <font size="2">Nama Produk</font>
+                                                                <font size="2">Nama Produk Sawit</font>
                                                             </b></td>
                                                         <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -383,7 +383,7 @@
                                                 <tbody>
                                                     <tr style="background-color: #d3d3d370">
                                                         <td class="headerColor" width="8%" align="center"><b>
-                                                                <font size="2">Nama Produk</font>
+                                                                <font size="2">Nama Produk Sawit</font>
                                                             </b></td>
                                                         <td class="headerColor" width="8%" align="center"><b>
                                                                 <font size="2">Kod Produk</font>

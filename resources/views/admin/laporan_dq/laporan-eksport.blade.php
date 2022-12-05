@@ -57,7 +57,7 @@
                                 A K &nbsp; S A W I T &nbsp; M A L A Y S I A (MPOB)
                             </h3>
                             <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Penyata Bulanan</h4>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Eksport Produk Biodiesel</h6>
+                            <h6 id="title" style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Eksport Produk Biodiesel</h6>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">{{ $tahun2 }}</h6>
                         </div>
                         {{-- <hr> --}}
@@ -539,6 +539,9 @@
                     className: "fred",
 
 
+                    title: function(doc) {
+                            return $('#title').text()
+                            },
 
                     customize: function(xlsx) {
                     var sheet = xlsx.xl.worksheets['sheet1.xml'];
@@ -550,6 +553,20 @@
                     filename: 'Laporan Eksport Produk Biodiesel',
 
 
+
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<a class="bi bi-file-earmark-pdf-fill" aria-hidden="true"  > PDF</a>',
+                    pageSize: 'TABLOID',
+                    className: "prodpdf",
+
+                    title: function(doc) {
+                            return $('#title').text()
+                            },
+
+
+                    filename: 'Laporan Eksport Produk Biodiesel',
 
                 },
 
