@@ -263,7 +263,7 @@
 
 
                             <p><b>
-                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
+                                    <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT STOK AWAL, BELIAN, PROSES,
                                         PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                 </b> </p>
@@ -488,7 +488,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table><br>
 
                             <p><b>
                                     <font style="font-size: 15px" color="0c7c85">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
@@ -1060,7 +1060,7 @@
                                         <td class="headerColor" width="11%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Nilai (RM)</b></font>
                                         </td>
-                                        <td class="headerColor" class="headerColor" width="6%" style="text-align: center; vertical-align:middle">
+                                        <td class="headerColor"  width="6%" style="text-align: center; vertical-align:middle">
                                             <font size="2.7"><b>Kod Negara</b></font>
                                         </td>
                                         <td class="headerColor" width="15%" style="text-align: center; vertical-align:middle">
@@ -1101,20 +1101,22 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <br>
-                                <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;"">
-                            <p style="font-size: 16px; margin-bottom:0; margin-top:0"><b>
+                                <div class="card" style="border: 1px solid #000000; vertical-align:middle; padding: 5px 5px 5px 5px;">
+                            <p style="font-size: 15px; margin-bottom:0; margin-top:0"><b>
                                     Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
                                     benar, lengkap dan selaras dengan rekod harian.
                                 </b></p>
                             </div>
-                            <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $date }}</b>
-                            </p>
-                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_npg }}</span></b>
-                            </p>
-                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_jpg }}</span></b></p>
-                            <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
-                            </p>
+                            <div class="" style="margin-top: -10px ">
+                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $date }}</b>
+                                </p>
+                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_npg }}</span></b>
+                                </p>
+                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_jpg }}</span></b></p>
+                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
+                                </p>
+
+                            </div>
 
                         </body>
                     </div>
