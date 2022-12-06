@@ -349,7 +349,7 @@
                                                 cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                                 class="table table-bordered">
                                                 <tbody>
-                                                    <tr style="background-color: #d3d3d370 ">
+                                                    <tr style="background-color: #d3d3d370;  vertical-align:middle ">
                                                         <td class="headerColor" width="220" >
                                                             <p align="center" ><b>
                                                                     <font size="2.7">Butiran</font>
@@ -1236,7 +1236,7 @@
             window.print();
             $('body').html(restorepage);
 
-        
+
         //     var hashid = "#"+ myfrm;
         //     var tagname =  $(hashid).prop("tagName").toLowerCase() ;
         //     var attributes = "";
