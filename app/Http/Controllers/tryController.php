@@ -223,7 +223,7 @@ class tryController extends Controller
 
         // $e6 = strtotime($selects[0]->e101_e6);
 
-        $qdelplbio = DB::connection('mysql4')->select("SELECT from h_bio_inits where ebio_bln = '10' and ebio_thn = '2022'");
+        $qdelplbio = DB::connection('mysql4')->select("SELECT * from h_bio_inits where ebio_bln = '10' and ebio_thn = '2022'");
         dd($qdelplbio);
 
         // foreach ($selects as $key => $select) {
