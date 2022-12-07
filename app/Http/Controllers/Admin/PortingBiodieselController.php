@@ -11,6 +11,7 @@ use App\Models\Hari;
 use App\Models\HBioB;
 use App\Models\HBioC;
 use App\Models\HBioCC;
+use App\Models\HBioInit;
 use App\Models\HebahanProses;
 use App\Models\HebahanStokAkhir;
 use App\Models\HHari;
@@ -267,7 +268,7 @@ class PortingBiodieselController extends Controller
             }
         }
 
-        $this->admin_portbio();
+        $this->admin_portbio($tahun, $bulan);
 
         // $querycpo1 = " SELECT lesen,tahun,bulan,menu,penyata,penyata.kod_produk as nama_produk,produk.kod_produk as kod_produk,kuantiti,id_penyata,pembekal,noborang,tarikh,nilai,namapengeksport,negara.kod_negara as negara,kilang.e_apnegeri as kod_negeri
         //        FROM
@@ -290,66 +291,47 @@ class PortingBiodieselController extends Controller
 
     }
 
-    public function admin_portbio()
+    public function admin_portbio($tahun, $bulan)
     {
         //data from ebio_init
-        $ebioinit = EBioInit::where('ebio_flg', '2')->get();
+        $ebioinit = HBioInit::where('ebio_thn', $tahun)->where('ebio_bln', $bulan)->get();
         // dd($ebioinit);
+
+        $qdelplbio = DB::connection('mysql4')->delete("DELETE from h_bio_inits where ebio_bln = '$bulan' and ebio_thn = '$tahun'");
+
 
         $totalplbio = 0;
 
         foreach ($ebioinit as $key => $selects) {
             // dd($selects);
 
-            $regno = $selects->ebio_reg ;
+            $nobatch = $selects->ebio_nobatch ;
             $nolesen = $selects->ebio_nl ;
             $tahun = $selects->ebio_thn ;
             $bulan = $selects->ebio_bln ;
+            $flg = $selects->ebio_flg ;
             $tarikh = $selects->ebio_sdate ;
             $tarikh1 = $selects->ebio_ddate ;
-            $a5 = (float) $selects->ebio_a5 ;
-            $a6 = (float) $selects->ebio_a6 ;
             $npg = $selects->ebio_npg ;
             $jpg = $selects->ebio_jpg ;
             $notel = $selects->ebio_notel ;
 
-
-            $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
-            // dd($regpelesenbio);
-
-            foreach ($regpelesenbio as $row)
-          {
-            // dd($row);
-            $kodpgw = $row->kodpgw;
-            $nosiri = $row->nosiri;
-
-            $nobatch = "$bulan$tahun$regno";
-            // dd($nobatch);
-
-          }
-
-          $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
-            ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
 
                 $totalplbio = $totalplbio + 1;
 
                 $str="'";
                 $npg = str_replace($str, "\'", $npg);
 
-                //update flg to 3 (ported)
-                $updateebio = DB::update("UPDATE e_bio_inits
-                set ebio_flg = '3'
-                WHERE ebio_nl = '$nolesen'");
-
-                //insert data to hbio_init
-                $inserthbio = DB::insert("INSERT into h_bio_inits values ('$nobatch','$nolesen',
-                '$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
+                $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
+                ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
 
 
-
-                    $ebiob = EBioB::where('ebio_reg', $regno)->get();
+                    $ebiob = HBioB::where('ebio_nobatch', $nobatch)->get();
                     // dd($rowebio_b);
                     // $jum91b = 0;
+
+                    $qdelplbiob = DB::connection('mysql4')->delete("DELETE from h_bio_b_s where ebio_nobatch = '$nobatch'");
+
 
                     foreach ($ebiob as $rowebio_b)
                     {
@@ -371,7 +353,8 @@ class PortingBiodieselController extends Controller
                         // $jum91b = $jum91b + 1;
 
 
-                        $idmaxbiob = HBioB::max('ebio_b1');
+                        $idmaxbiob = DB::connection('mysql4')->select("SELECT MAX(ebio_b1) from h_bio_b_s");
+                        // HBioB::max('ebio_b1');
                         // dd($idmax);
 
                         if ($idmaxbiob)
@@ -384,12 +367,9 @@ class PortingBiodieselController extends Controller
 
                         $insertplbiob = DB::connection('mysql4')->insert("INSERT into h_bio_b_s
                         values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
-
-                        $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
-                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
                     }
 
-                    $ebioc = EBioC::where('ebio_reg', $regno)->orderBy('ebio_c3')->get();
+                    $ebioc = HBioC::where('ebio_nobatch', $nobatch)->get();
                     // dd($ebioc);
 
                     foreach ($ebioc as $rowebio_c)
@@ -405,7 +385,8 @@ class PortingBiodieselController extends Controller
 
 
 
-                        $idmaxbioc = HBioC::max('ebio_c1');
+                        $idmaxbioc =  DB::connection('mysql4')->select("SELECT MAX(ebio_c1) from h_bio_c_s");
+                        // HBioC::max('ebio_c1');
                         // dd($idmax);
 
                         if ($idmaxbioc)
@@ -420,12 +401,9 @@ class PortingBiodieselController extends Controller
                         '$c3',$c4,
                          $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
 
-                        $inserthbioc = DB::insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
-                        '$c3',$c4,
-                         $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
                     }
 
-                    $ebiocc = EBioCC::where('ebio_reg', $regno)->get();
+                    $ebiocc = HBioCC::where('ebio_nobatch', $nobatch)->get();
                     // dd($ebiocc);
 
                     foreach ($ebiocc as $ebioccs)
@@ -434,7 +412,8 @@ class PortingBiodieselController extends Controller
                         $cc3 = $ebioccs->ebio_cc3 ;
                         $cc4 = $ebioccs->ebio_cc4 ;
 
-                        $idmaxbiod = HBioCC::max('ebio_cc1');
+                        $idmaxbiod = DB::connection('mysql4')->select("SELECT MAX(ebio_cc1) from h_bio_cc");
+                        // HBioCC::max('ebio_cc1');
                         // dd($idmax);
 
                         if ($idmaxbiod)
@@ -447,12 +426,9 @@ class PortingBiodieselController extends Controller
 
                         $insertplbiocc = DB::connection('mysql4')->insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
                         '$cc3','$cc4')");
-
-                        $inserthbiocc = DB::insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
-                        '$cc3','$cc4')");
                     }
 
-                    $hari = Hari::where('lesen', $nolesen)->get();
+                    $hari = HHari::where('lesen', $nolesen)->get();
                     // dd($hari);
 
                     foreach ($hari as $haris)
@@ -463,7 +439,8 @@ class PortingBiodieselController extends Controller
                         $hari_operasi = $haris->hari_operasi ;
                         $kapasiti = $haris->kapasiti ;
 
-                        $idmaxhari = HHari::max('id');
+                        $idmaxhari = DB::connection('mysql4')->select("SELECT MAX(id) from h_hari");
+                        // HHari::max('id');
                         // dd($idmax);
 
                         if ($idmaxhari)
@@ -477,9 +454,6 @@ class PortingBiodieselController extends Controller
                         $insertplbiohari = DB::connection('mysql4')->insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
                         '$bulan','$hari_operasi','$kapasiti',null,null)");
 
-                        $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
-                        '$bulan','$hari_operasi','$kapasiti',null,null)");
-                        // dd($inserthhari);
                     }
 
                 }
