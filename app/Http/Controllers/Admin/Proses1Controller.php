@@ -1338,6 +1338,11 @@ class Proses1Controller extends Controller
 
         $map = User::where('username', $penyata->e_nl)->first();
         $map->email = $request->e_email;
+        $map->no_siri = $request->nosiri;
+        $map->kod_pegawai = $request->kodpgw;
+        $map->status = $request->e_status;
+        $map->stock = $request->e_stock;
+        $map->directory = $request->directory;
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
