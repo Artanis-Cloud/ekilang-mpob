@@ -2354,23 +2354,23 @@ class Proses9Controller extends Controller
                             AND p.e_bln = '$bulan'
                             AND e.ebio_bln = '$bulan'");
 
-            // dd( $penyata[$key]->h_pelesen);
+            // dd($penyata[$key][0]);
             // if($penyata[$key]->h_pelesen){
 
-                $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[0]->ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
+                $ia[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key][0]->ebio_nobatch)->where('ebio_b3', '1')->orderBy('ebio_b4')->get();
 
 
-                $ib[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[0]->ebio_nobatch)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
+                $ib[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key][0]->ebio_nobatch)->where('ebio_b3', '2')->orderBy('ebio_b4')->get();
 
 
-                $ic[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[0]->ebio_nobatch)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
+                $ic[$key] = HBioB::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key][0]->ebio_nobatch)->where('ebio_b3', '3')->orderBy('ebio_b4')->get();
 
 
 
-                $ii[$key] = HHari::where('lesen',  $penyata[0]->ebio_nl)->where('tahunbhg2', $penyata[0]->ebio_thn)->where('bulanbhg2', $penyata[0]->ebio_bln)->first();
+                $ii[$key] = HHari::where('lesen',  $penyata[$key][0]->e_nl)->where('tahunbhg2', $penyata[$key][0]->ebio_thn)->where('bulanbhg2', $penyata[$key][0]->ebio_bln)->first();
 
 
-                $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[0]->ebio_nobatch)->get();
+                $iii[$key]  = HBioC::with('hbioinit', 'produk')->where('ebio_nobatch', $penyata[$key][0]->ebio_nobatch)->get();
 
 
                 // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata[$key]->ebio_sdate);
@@ -2379,8 +2379,8 @@ class Proses9Controller extends Controller
             // }
 
             // else{
-                return redirect()->back()
-                ->with('error', 'Data Tidak Wujud!');
+                // return redirect()->back()
+                // ->with('error', 'Data Tidak Wujud!');
             // }
 
         }
