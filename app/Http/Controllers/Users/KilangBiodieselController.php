@@ -1355,9 +1355,9 @@ class KilangBiodieselController extends Controller
             // dd($ic);
 
             $ii = Hari::where('lesen', auth()->user()->username)->first();
-            // dd($ii);
 
             $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->orderBy('ebio_c3')->get();
+            // dd($iii);
 
             $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
             $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');

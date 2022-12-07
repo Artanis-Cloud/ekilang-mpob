@@ -162,7 +162,7 @@
                             <div class="col-md-3 mt-3">
                                 <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
                                         style="color: red; cursor: pointer;"
-                                        title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan."></i></span>
+                                        title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                             </div>
                             <div class="col-md-2 mt-3">
                                 <input type="text" class="form-control" name='ebio_b6'

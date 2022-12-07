@@ -1,5 +1,7 @@
 @extends($layout)
 
+
+
 @section('content')
 
     <!-- ======= Hero Section ======= -->
@@ -1423,6 +1425,7 @@
                                                                                 <td align="left">
                                                                                     <select class="form-control select2" id="produk24" name="ebio_c3" >
                                                                                         <option selected value="">Sila Pilih Kumpulan Produk</option>
+
                                                                                         @foreach ($produkiii_1 as $prods)
                                                                                             <option value="{{ $prods->prodid }}"  >
                                                                                                 {{ $prods->proddesc }} - {{ $prods->prodid }}
@@ -1504,14 +1507,14 @@
                                                             </tbody>
                                                         </table>
                                                     </form>
-                                                    @if ($penyataiii2->produk->prodid = 'AW')
+                                                    {{-- @if ($penyataiii2->produk->prodid = 'AW') --}}
 
                                                         <div class="" id="aw">
                                                             <a onclick="showAW()"
                                                             style="font-size:11px; color:blue; font:rubik; font-family:'Rubik', 'sans-serif';"
                                                             &nbsp;> (Sila Klik Disini untuk mengisi bagi Produk: PALM DIESEL / BIODIESEL / METHYL ESTER - AW) </a>
                                                         </div>
-                                                    @endif
+                                                    {{-- @endif --}}
 
                                                     <div id="aw_container" style="display: none">
 
@@ -1560,6 +1563,7 @@
                                                                         <td align="left">
                                                                             <select class="form-control select2" id="produk2" name="ebio_c3"  onchange="showDetail2()">
                                                                                 <option selected value="">Sila Pilih Kumpulan Produk</option>
+                                                                                {{-- {{ dd($produkiii_2) }} --}}
                                                                                 @foreach ($produkiii_2 as $prods)
                                                                                     <option value="{{ $prods->prodid }}"  >
                                                                                         {{ $prods->proddesc }} - {{ $prods->prodid }}
