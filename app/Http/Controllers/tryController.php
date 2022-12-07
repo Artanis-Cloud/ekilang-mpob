@@ -164,65 +164,67 @@ class tryController extends Controller
         // dd($selects[0]);
 
 
-        $tahun = date('Y');
-        $bulan = date('m');
-        $current_date = date('Y-m-d');
-        $date = Init::where('tahun', $tahun)->first();
+        // $tahun = date('Y');
+        // $bulan = date('m');
+        // $current_date = date('Y-m-d');
+        // $date = Init::where('tahun', $tahun)->first();
 
-        if ($bulan == 2) {
-            $sdate = $date->sjan;
-            $edate = $date->ejan;
-        }
-        elseif ($bulan == 3) {
-            $sdate = $date->sfeb;
-            $edate = $date->efeb;
-        }
-        elseif ($bulan == 4) {
-            $sdate = $date->smac;
-            $edate = $date->emac;
-        }
-        elseif ($bulan == 5) {
-            $sdate = $date->sapr;
-            $edate = $date->eapr;
-        }
-        elseif ($bulan == 6) {
-            $sdate = $date->smei;
-            $edate = $date->emei;
-        }
-        elseif ($bulan == 7) {
-            $sdate = $date->sjun;
-            $edate = $date->ejun;
-        }
-        elseif ($bulan == 8) {
-            $sdate = $date->sjul;
-            $edate = $date->ejul;
-        }
-        elseif ($bulan == 9) {
-            $sdate = $date->sogos;
-            $edate = $date->eogos;
-        }
-        elseif ($bulan == 10) {
-            $sdate = $date->ssept;
-            $edate = $date->esept;
-        }
-        elseif ($bulan == 11) {
-            $sdate = $date->sokt;
-            $edate = $date->eokt;
-        }
-        elseif ($bulan == 12) {
-            $sdate = $date->snov;
-            $edate = $date->enov;
-        }
-        else {
-            $sdate = $date->sdec;
-            $edate = $date->edec;
-        }
+        // if ($bulan == 2) {
+        //     $sdate = $date->sjan;
+        //     $edate = $date->ejan;
+        // }
+        // elseif ($bulan == 3) {
+        //     $sdate = $date->sfeb;
+        //     $edate = $date->efeb;
+        // }
+        // elseif ($bulan == 4) {
+        //     $sdate = $date->smac;
+        //     $edate = $date->emac;
+        // }
+        // elseif ($bulan == 5) {
+        //     $sdate = $date->sapr;
+        //     $edate = $date->eapr;
+        // }
+        // elseif ($bulan == 6) {
+        //     $sdate = $date->smei;
+        //     $edate = $date->emei;
+        // }
+        // elseif ($bulan == 7) {
+        //     $sdate = $date->sjun;
+        //     $edate = $date->ejun;
+        // }
+        // elseif ($bulan == 8) {
+        //     $sdate = $date->sjul;
+        //     $edate = $date->ejul;
+        // }
+        // elseif ($bulan == 9) {
+        //     $sdate = $date->sogos;
+        //     $edate = $date->eogos;
+        // }
+        // elseif ($bulan == 10) {
+        //     $sdate = $date->ssept;
+        //     $edate = $date->esept;
+        // }
+        // elseif ($bulan == 11) {
+        //     $sdate = $date->sokt;
+        //     $edate = $date->eokt;
+        // }
+        // elseif ($bulan == 12) {
+        //     $sdate = $date->snov;
+        //     $edate = $date->enov;
+        // }
+        // else {
+        //     $sdate = $date->sdec;
+        //     $edate = $date->edec;
+        // }
 
         // dd($sdate == $current_date);
         // if ($sdate == $current_date ) {
 
         // $e6 = strtotime($selects[0]->e101_e6);
-        dd($sdate);
+
+        $qdelplbio = DB::connection('mysql4')->select("SELECT from h_bio_inits where ebio_bln = '10' and ebio_thn = '2022'");
+        dd($qdelplbio);
 
         // foreach ($selects as $key => $select) {
 
