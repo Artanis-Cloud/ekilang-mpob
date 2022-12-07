@@ -3,8 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\EBioB;
+use App\Models\EBioC;
+use App\Models\EBioCC;
+use App\Models\EBioInit;
+use App\Models\Hari;
+use App\Models\HBioB;
+use App\Models\HBioC;
+use App\Models\HBioCC;
 use App\Models\HebahanProses;
 use App\Models\HebahanStokAkhir;
+use App\Models\HHari;
 use App\Models\RegPelesen;
 use App\Models\SyarikatPembeli;
 use App\Models\User;
@@ -258,6 +267,8 @@ class PortingBiodieselController extends Controller
             }
         }
 
+        $this->admin_portbio();
+
         // $querycpo1 = " SELECT lesen,tahun,bulan,menu,penyata,penyata.kod_produk as nama_produk,produk.kod_produk as kod_produk,kuantiti,id_penyata,pembekal,noborang,tarikh,nilai,namapengeksport,negara.kod_negara as negara,kilang.e_apnegeri as kod_negeri
         //        FROM
         //            kilang ,
@@ -275,6 +286,205 @@ class PortingBiodieselController extends Controller
 
 
         return redirect()->route('admin.stok.akhir')->with('success', 'Maklumat Stok Akhir telah berjaya diport');
+
+
+    }
+
+    public function admin_portbio()
+    {
+        //data from ebio_init
+        $ebioinit = EBioInit::where('ebio_flg', '2')->get();
+        // dd($ebioinit);
+
+        $totalplbio = 0;
+
+        foreach ($ebioinit as $key => $selects) {
+            // dd($selects);
+
+            $regno = $selects->ebio_reg ;
+            $nolesen = $selects->ebio_nl ;
+            $tahun = $selects->ebio_thn ;
+            $bulan = $selects->ebio_bln ;
+            $tarikh = $selects->ebio_sdate ;
+            $tarikh1 = $selects->ebio_ddate ;
+            $a5 = (float) $selects->ebio_a5 ;
+            $a6 = (float) $selects->ebio_a6 ;
+            $npg = $selects->ebio_npg ;
+            $jpg = $selects->ebio_jpg ;
+            $notel = $selects->ebio_notel ;
+
+
+            $regpelesenbio = RegPelesen::where('e_nl', $nolesen)->where('e_kat', 'PLBIO')->get();
+            // dd($regpelesenbio);
+
+            foreach ($regpelesenbio as $row)
+          {
+            // dd($row);
+            $kodpgw = $row->kodpgw;
+            $nosiri = $row->nosiri;
+
+            $nobatch = "$bulan$tahun$regno";
+            // dd($nobatch);
+
+          }
+
+          $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
+            ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
+
+                $totalplbio = $totalplbio + 1;
+
+                $str="'";
+                $npg = str_replace($str, "\'", $npg);
+
+                //update flg to 3 (ported)
+                $updateebio = DB::update("UPDATE e_bio_inits
+                set ebio_flg = '3'
+                WHERE ebio_nl = '$nolesen'");
+
+                //insert data to hbio_init
+                $inserthbio = DB::insert("INSERT into h_bio_inits values ('$nobatch','$nolesen',
+                '$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
+
+
+
+                    $ebiob = EBioB::where('ebio_reg', $regno)->get();
+                    // dd($rowebio_b);
+                    // $jum91b = 0;
+
+                    foreach ($ebiob as $rowebio_b)
+                    {
+                        // dd($rowebio_b);
+                        $b3 = $rowebio_b->ebio_b3 ;
+                        $b4 = $rowebio_b->ebio_b4 ;
+                        $b5 = (float) $rowebio_b->ebio_b5 ;
+                        $b6 = (float) $rowebio_b->ebio_b6 ;
+                        $b7 = (float) $rowebio_b->ebio_b7 ;
+                        $b8 = (float) $rowebio_b->ebio_b8 ;
+                        $b9 = (float) $rowebio_b->ebio_b9 ;
+                        $b10 = (float) $rowebio_b->ebio_b10 ;
+                        $b11 = (float) $rowebio_b->ebio_b11 ;
+                        // $b12 = (float) $rowebio_b ->ebio_b12 ;
+                        $b13 = (float) $rowebio_b->ebio_b13 ;
+
+                        // insert into mysqli history e91b
+                        //calculate total row
+                        // $jum91b = $jum91b + 1;
+
+
+                        $idmaxbiob = HBioB::max('ebio_b1');
+                        // dd($idmax);
+
+                        if ($idmaxbiob)
+                        {
+                            $idno = $idmaxbiob + 1;
+                            // dd($idno);
+                        } else {
+                            $idno = 1;
+                        }
+
+                        $insertplbiob = DB::connection('mysql4')->insert("INSERT into h_bio_b_s
+                        values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+
+                        $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
+                        '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+                    }
+
+                    $ebioc = EBioC::where('ebio_reg', $regno)->orderBy('ebio_c3')->get();
+                    // dd($ebioc);
+
+                    foreach ($ebioc as $rowebio_c)
+                    {
+                        $c3 = $rowebio_c->ebio_c3 ;
+                        $c4 = (float) $rowebio_c->ebio_c4 ;
+                        $c5 = (float) $rowebio_c->ebio_c5 ;
+                        $c6 = (float) $rowebio_c->ebio_c6 ;
+                        $c7 = (float) $rowebio_c->ebio_c7 ;
+                        $c8 = (float) $rowebio_c->ebio_c8 ;
+                        $c9 = (float) $rowebio_c->ebio_c9 ;
+                        $c10 = (float) $rowebio_c->ebio_c10 ;
+
+
+
+                        $idmaxbioc = HBioC::max('ebio_c1');
+                        // dd($idmax);
+
+                        if ($idmaxbioc)
+                        {
+                            $idno = $idmaxbioc + 1;
+                            // dd($idno);
+                        } else {
+                            $idno = 1;
+                        }
+
+                        $insertplbioc = DB::connection('mysql4')->insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
+                        '$c3',$c4,
+                         $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
+
+                        $inserthbioc = DB::insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
+                        '$c3',$c4,
+                         $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
+                    }
+
+                    $ebiocc = EBioCC::where('ebio_reg', $regno)->get();
+                    // dd($ebiocc);
+
+                    foreach ($ebiocc as $ebioccs)
+                    {
+                        $cc2 = $ebioccs->ebio_cc2 ;
+                        $cc3 = $ebioccs->ebio_cc3 ;
+                        $cc4 = $ebioccs->ebio_cc4 ;
+
+                        $idmaxbiod = HBioCC::max('ebio_cc1');
+                        // dd($idmax);
+
+                        if ($idmaxbiod)
+                        {
+                            $idno = $idmaxbiod + 1;
+                            // dd($idno);
+                        } else {
+                            $idno = 1;
+                        }
+
+                        $insertplbiocc = DB::connection('mysql4')->insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
+                        '$cc3','$cc4')");
+
+                        $inserthbiocc = DB::insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
+                        '$cc3','$cc4')");
+                    }
+
+                    $hari = Hari::where('lesen', $nolesen)->get();
+                    // dd($hari);
+
+                    foreach ($hari as $haris)
+                    {
+                        // dd($haris);
+                        $tahun = $haris->tahunbhg2 ;
+                        $bulan = $haris->bulanbhg2 ;
+                        $hari_operasi = $haris->hari_operasi ;
+                        $kapasiti = $haris->kapasiti ;
+
+                        $idmaxhari = HHari::max('id');
+                        // dd($idmax);
+
+                        if ($idmaxhari)
+                        {
+                            $idno = $idmaxhari + 1;
+                            // dd($idno);
+                        } else {
+                            $idno = 1;
+                        }
+
+                        $insertplbiohari = DB::connection('mysql4')->insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
+                        '$bulan','$hari_operasi','$kapasiti',null,null)");
+
+                        $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
+                        '$bulan','$hari_operasi','$kapasiti',null,null)");
+                        // dd($inserthhari);
+                    }
+
+                }
+
+                //log audit trail admin
 
 
     }

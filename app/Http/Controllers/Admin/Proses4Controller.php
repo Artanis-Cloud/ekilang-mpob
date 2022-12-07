@@ -1225,6 +1225,9 @@ class Proses4Controller extends Controller
 
           }
 
+        //   $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
+        //     ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
+
                 $totalplbio = $totalplbio + 1;
 
                 $str="'";
@@ -1264,7 +1267,6 @@ class Proses4Controller extends Controller
                         //calculate total row
                         // $jum91b = $jum91b + 1;
 
-
                         $idmaxbiob = HBioB::max('ebio_b1');
                         // dd($idmax);
 
@@ -1275,6 +1277,9 @@ class Proses4Controller extends Controller
                         } else {
                             $idno = 1;
                         }
+
+                    // $insertplbiob = DB::connection('mysql4')->insert("INSERT into h_bio_b_s
+                    // values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
 
                         $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
                         '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
@@ -1307,6 +1312,10 @@ class Proses4Controller extends Controller
                             $idno = 1;
                         }
 
+                        // $insertplbioc = DB::connection('mysql4')->insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
+                        // '$c3',$c4,
+                        //  $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
+
                         $inserthbioc = DB::insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
                         '$c3',$c4,
                          $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
@@ -1331,6 +1340,9 @@ class Proses4Controller extends Controller
                         } else {
                             $idno = 1;
                         }
+
+                        // $insertplbiocc = DB::connection('mysql4')->insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
+                        // '$cc3','$cc4')");
 
                         $inserthbiocc = DB::insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
                         '$cc3','$cc4')");
@@ -1357,6 +1369,9 @@ class Proses4Controller extends Controller
                         } else {
                             $idno = 1;
                         }
+
+                        // $insertplbiohari = DB::connection('mysql4')->insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
+                        // '$bulan','$hari_operasi','$kapasiti',null,null)");
 
                         $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
                         '$bulan','$hari_operasi','$kapasiti',null,null)");
