@@ -357,9 +357,9 @@ class PortingBiodieselController extends Controller
                         // HBioB::max('ebio_b1');
                         // dd($idmaxbiob[0]);
 
-                        if ($idmaxbiob[0])
+                        if ($idmaxbiob[0]->idmaxbiob)
                         {
-                            $idno = $idmaxbiob[0] + 1;
+                            $idno = $idmaxbiob[0]->idmaxbiob + 1;
                             // dd($idno);
                         } else {
                             $idno = 1;
