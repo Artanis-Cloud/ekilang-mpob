@@ -353,13 +353,13 @@ class PortingBiodieselController extends Controller
                         // $jum91b = $jum91b + 1;
 
 
-                        $idmaxbiob = DB::connection('mysql4')->select("SELECT MAX(ebio_b1) from h_bio_b_s");
+                        $idmaxbiob = DB::connection('mysql4')->select("SELECT MAX(ebio_b1) as idmaxbiob from h_bio_b_s");
                         // HBioB::max('ebio_b1');
-                        dd($idmaxbiob[0]);
+                        // dd($idmaxbiob[0]);
 
-                        if ($idmaxbiob)
+                        if ($idmaxbiob[0])
                         {
-                            $idno = $idmaxbiob + 1;
+                            $idno = $idmaxbiob[0] + 1;
                             // dd($idno);
                         } else {
                             $idno = 1;
