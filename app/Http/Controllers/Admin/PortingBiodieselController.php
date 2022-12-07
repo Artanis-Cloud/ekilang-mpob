@@ -385,13 +385,13 @@ class PortingBiodieselController extends Controller
 
 
 
-                        $idmaxbioc =  DB::connection('mysql4')->select("SELECT MAX(ebio_c1) from h_bio_c_s");
+                        $idmaxbioc =  DB::connection('mysql4')->select("SELECT MAX(ebio_c1) as idmaxbioc from h_bio_c_s");
                         // HBioC::max('ebio_c1');
                         // dd($idmax);
 
-                        if ($idmaxbioc)
+                        if ($idmaxbioc[0]->idmaxbioc)
                         {
-                            $idno = $idmaxbioc + 1;
+                            $idno = $idmaxbioc[0]->idmaxbioc + 1;
                             // dd($idno);
                         } else {
                             $idno = 1;
@@ -412,13 +412,13 @@ class PortingBiodieselController extends Controller
                         $cc3 = $ebioccs->ebio_cc3 ;
                         $cc4 = $ebioccs->ebio_cc4 ;
 
-                        $idmaxbiod = DB::connection('mysql4')->select("SELECT MAX(ebio_cc1) from h_bio_cc");
+                        $idmaxbiod = DB::connection('mysql4')->select("SELECT MAX(ebio_cc1) as idmaxbiod from h_bio_cc");
                         // HBioCC::max('ebio_cc1');
                         // dd($idmax);
 
-                        if ($idmaxbiod)
+                        if ($idmaxbiod[0]->idmaxbiod)
                         {
-                            $idno = $idmaxbiod + 1;
+                            $idno = $idmaxbiod[0]->idmaxbiod + 1;
                             // dd($idno);
                         } else {
                             $idno = 1;
@@ -439,13 +439,13 @@ class PortingBiodieselController extends Controller
                         $hari_operasi = $haris->hari_operasi ;
                         $kapasiti = $haris->kapasiti ;
 
-                        $idmaxhari = DB::connection('mysql4')->select("SELECT MAX(id) from h_hari");
+                        $idmaxhari = DB::connection('mysql4')->select("SELECT MAX(id) as idmaxhari from h_hari");
                         // HHari::max('id');
                         // dd($idmax);
 
-                        if ($idmaxhari)
+                        if ($idmaxhari[0]->idmaxhari)
                         {
-                            $idno = $idmaxhari + 1;
+                            $idno = $idmaxhari[0]->idmaxhari + 1;
                             // dd($idno);
                         } else {
                             $idno = 1;
