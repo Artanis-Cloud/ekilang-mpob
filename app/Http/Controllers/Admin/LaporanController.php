@@ -2096,6 +2096,14 @@ class LaporanController extends Controller
         AND p.e_negeri = '02'");
             // dd($kapasiti_kedah);
 
+        //     SELECT DISTINCT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        // FROM kapasiti k, pelesen p, users u
+        // WHERE k.tahun = '2022'
+        // AND k.e_nl = p.e_nl
+        // AND p.e_nl = u.username
+        // AND u.category = 'PLBIO'
+        // AND p.e_negeri = '02'
+
             $kapasiti_kelantan = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
         FROM kapasiti k, pelesen p, users u
         WHERE $tahun_sql
