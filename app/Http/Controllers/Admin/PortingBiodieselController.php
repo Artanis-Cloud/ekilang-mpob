@@ -325,6 +325,9 @@ class PortingBiodieselController extends Controller
                 $insertplbio = DB::connection('mysql4')->insert("INSERT into h_bio_inits values
                 ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
 
+                $insertplbio2 = DB::connection('mysql3')->insert("INSERT into h_bio_inits values
+                ('$nobatch','$nolesen','$bulan','$tahun','3','$tarikh','$tarikh1', '$npg', '$jpg', '$notel')");
+
 
                     $ebiob = HBioB::where('ebio_nobatch', $nobatch)->get();
                     // dd($rowebio_b);
@@ -354,6 +357,7 @@ class PortingBiodieselController extends Controller
 
 
                         $idmaxbiob = DB::connection('mysql4')->select("SELECT MAX(ebio_b1) as idmaxbiob from h_bio_b_s");
+                        $idmaxbiob2 = DB::connection('mysql3')->select("SELECT MAX(ebio_b1) as idmaxbiob2 from h_bio_b_s");
                         // HBioB::max('ebio_b1');
                         // dd($idmaxbiob[0]);
 
@@ -365,8 +369,19 @@ class PortingBiodieselController extends Controller
                             $idno = 1;
                         }
 
+                        if ($idmaxbiob2[0]->idmaxbiob2)
+                        {
+                            $idno2 = $idmaxbiob2[0]->idmaxbiob2 + 1;
+                            // dd($idno);
+                        } else {
+                            $idno2 = 1;
+                        }
+
                         $insertplbiob = DB::connection('mysql4')->insert("INSERT into h_bio_b_s
                         values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
+
+                        $insertplbiob2 = DB::connection('mysql3')->insert("INSERT into h_bio_b_s
+                        values ($idno2,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
                     }
 
                     $ebioc = HBioC::where('ebio_nobatch', $nobatch)->get();
@@ -386,6 +401,7 @@ class PortingBiodieselController extends Controller
 
 
                         $idmaxbioc =  DB::connection('mysql4')->select("SELECT MAX(ebio_c1) as idmaxbioc from h_bio_c_s");
+                        $idmaxbioc2 =  DB::connection('mysql3')->select("SELECT MAX(ebio_c1) as idmaxbioc2 from h_bio_c_s");
                         // HBioC::max('ebio_c1');
                         // dd($idmax);
 
@@ -397,7 +413,19 @@ class PortingBiodieselController extends Controller
                             $idno = 1;
                         }
 
+                        if ($idmaxbioc2[0]->idmaxbioc2)
+                        {
+                            $idno2 = $idmaxbioc2[0]->idmaxbioc2 + 1;
+                            // dd($idno);
+                        } else {
+                            $idno2 = 1;
+                        }
+
                         $insertplbioc = DB::connection('mysql4')->insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
+                        '$c3',$c4,
+                         $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
+
+                        $insertplbioc2 = DB::connection('mysql3')->insert("INSERT into h_bio_c_s values ($idno2,'$nobatch',
                         '$c3',$c4,
                          $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
 
@@ -413,6 +441,7 @@ class PortingBiodieselController extends Controller
                         $cc4 = $ebioccs->ebio_cc4 ;
 
                         $idmaxbiod = DB::connection('mysql4')->select("SELECT MAX(ebio_cc1) as idmaxbiod from h_bio_cc");
+                        $idmaxbiod2 = DB::connection('mysql3')->select("SELECT MAX(ebio_cc1) as idmaxbiod2 from h_bio_cc");
                         // HBioCC::max('ebio_cc1');
                         // dd($idmax);
 
@@ -424,7 +453,18 @@ class PortingBiodieselController extends Controller
                             $idno = 1;
                         }
 
+                        if ($idmaxbiod2[0]->idmaxbiod2)
+                        {
+                            $idno2 = $idmaxbiod2[0]->idmaxbiod2 + 1;
+                            // dd($idno);
+                        } else {
+                            $idno2 = 1;
+                        }
+
                         $insertplbiocc = DB::connection('mysql4')->insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
+                        '$cc3','$cc4')");
+
+                        $insertplbiocc2 = DB::connection('mysql3')->insert("INSERT into h_bio_cc values ($idno2,'$nobatch','$cc2',
                         '$cc3','$cc4')");
                     }
 
@@ -440,6 +480,7 @@ class PortingBiodieselController extends Controller
                         $kapasiti = $haris->kapasiti ;
 
                         $idmaxhari = DB::connection('mysql4')->select("SELECT MAX(id) as idmaxhari from h_hari");
+                        $idmaxhari2 = DB::connection('mysql3')->select("SELECT MAX(id) as idmaxhari2 from h_hari");
                         // HHari::max('id');
                         // dd($idmax);
 
@@ -451,7 +492,18 @@ class PortingBiodieselController extends Controller
                             $idno = 1;
                         }
 
+                        if ($idmaxhari2[0]->idmaxhari2)
+                        {
+                            $idno2 = $idmaxhari2[0]->idmaxhari2 + 1;
+                            // dd($idno);
+                        } else {
+                            $idno2 = 1;
+                        }
+
                         $insertplbiohari = DB::connection('mysql4')->insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
+                        '$bulan','$hari_operasi','$kapasiti',null,null)");
+
+                        $insertplbiohari2 = DB::connection('mysql3')->insert("INSERT into h_hari values ($idno2,'$nolesen','$tahun',
                         '$bulan','$hari_operasi','$kapasiti',null,null)");
 
                     }
