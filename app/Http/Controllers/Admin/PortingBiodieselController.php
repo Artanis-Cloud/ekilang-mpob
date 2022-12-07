@@ -355,7 +355,7 @@ class PortingBiodieselController extends Controller
 
                         $idmaxbiob = DB::connection('mysql4')->select("SELECT MAX(ebio_b1) from h_bio_b_s");
                         // HBioB::max('ebio_b1');
-                        dd($idmaxbiob);
+                        dd($idmaxbiob[0]);
 
                         if ($idmaxbiob)
                         {
