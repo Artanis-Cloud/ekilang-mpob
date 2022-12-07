@@ -941,6 +941,8 @@ class Proses5Controller extends Controller
 
         $this->validation_terdahulu($request->all())->validate();
 
+        // dd($request->all());
+
         $tahun1 = $request->tahun;
         $bulan1 = $request->bulan;
 
@@ -977,21 +979,24 @@ class Proses5Controller extends Controller
             -- and e.ebio_flg in ('2','3')
             and p.e_nl = k.e_nl
             and k.e_kat = 'PLBIO'
-            -- and e.ebio_thn = $tahun1
+            and e.ebio_thn = $tahun1
             and e.ebio_bln = $bulan1
             order by k.kodpgw, k.nosiri");
 
             if (!$users) {
                 return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
-            }else{
+            }else
+            {
 
                 // dd($users);
             return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
 
             }
+        // dd($users);
 
         }
+
         else {
             $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_flg, p.e_email, e.ebio_nobatch, p.e_notel, e.ebio_thn, e.ebio_bln,
             k.kodpgw, k.nosiri, date_format(ebio_sdate,'%d-%m-%Y') as sdate
@@ -1016,6 +1021,7 @@ class Proses5Controller extends Controller
             return view('admin.proses5.5senarai-penyata-bio', compact('returnArr', 'users', 'tahun1', 'bulan1', 'flg', 'day', 'month'));
 
             }
+        // dd($users);
         }
 
 
@@ -1044,7 +1050,7 @@ class Proses5Controller extends Controller
 
 
         $penyata = EBioInit::with('pelesen')->where('ebio_reg', $ebio_reg)->first();
-            //  dd($penyata);
+            //  dd($produkiii_2);
         $senarai_syarikat = EBioCC::with('ebioinit','syarikat')->where('ebio_reg', $penyata->ebio_reg)->get();
 
 
@@ -1061,12 +1067,12 @@ class Proses5Controller extends Controller
             })->get();
 
             $penyataii = Hari::where('lesen',  $penyata->ebio_nl)->first();
-            // dd($penyataiva);
+
 
             $penyataiii = EBioC::with('ebioinit', 'produk')->where('ebio_reg',  $penyata->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->whereIn('prodcat',   ['03', '06', '08', '12']);
             })->get();
-
+//  dd($penyataiii);
             if ($penyata->ebio_sdate) {
                 $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->ebio_sdate);
                 $formatteddate = $myDateTime->format('d-m-Y');
@@ -1144,6 +1150,10 @@ class Proses5Controller extends Controller
             'produk_b',
             'produk_c',
             'produkiii',
+            'produkiii_1',
+            'produkiii_2',
+            'senarai_syarikat',
+            'syarikat',
         ));
     }
     }

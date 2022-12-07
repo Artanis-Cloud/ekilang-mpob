@@ -134,6 +134,10 @@
 
     }
 
+    .disabledByMe{
+        pointer-events: none;
+    }
+
     button.fred {
     /* border-color: #25877b !important; */
     color: #095950 !important;
