@@ -268,7 +268,7 @@ class PortingBiodieselController extends Controller
             }
         }
 
-        // $this->admin_portbio($tahun, $bulan);
+        $this->admin_portbio($tahun, $bulan);
 
         // $querycpo1 = " SELECT lesen,tahun,bulan,menu,penyata,penyata.kod_produk as nama_produk,produk.kod_produk as kod_produk,kuantiti,id_penyata,pembekal,noborang,tarikh,nilai,namapengeksport,negara.kod_negara as negara,kilang.e_apnegeri as kod_negeri
         //        FROM
@@ -583,10 +583,10 @@ class PortingBiodieselController extends Controller
 
         // $qdel2 =  DB::connection('mysql4')->delete("DELETE from penyata_biodiesel where bulan=$bulan and tahun = $tahun");
 
-        // $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
+        $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
 
-        // $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
-        // values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
+        $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_proses (tahun,bulan,cpo_msia,ppo_msia,cpko_msia,ppko_msia)
+        values ($tahun,$bulan,$cpo_msia,$ppo_msia,$cpko_msia,$ppko_msia)");
 
         $qdel2 = DB::delete("DELETE from hebahan_proses where bulan='$bulan' and tahun = '$tahun'");
 
