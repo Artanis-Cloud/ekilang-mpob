@@ -149,10 +149,10 @@ class PortingBiodieselController extends Controller
 
         $qdel2 =  DB::connection('mysql4')->delete("DELETE from penyata_biodiesel where bulan=$bulan and tahun = $tahun");
 
-        // $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
+        $qdel2 = DB::connection('mysql3')->delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
-        // $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_sm,ppo_sm,cpko_sm,ppko_sm,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
-        // values ('$tahun','$bulan',$cpo_sm,$ppo_sm,$cpko_sm,$ppko_sm,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
+        $qinsss1 =  DB::connection('mysql3')->insert("INSERT into hebahan_stok_akhir (tahun,bulan,cpo_sm,ppo_sm,cpko_sm,ppko_sm,cpo_sbh,ppo_sbh,cpko_sbh,ppko_sbh,cpo_srwk,ppo_srwk,cpko_srwk,ppko_srwk)
+        values ('$tahun','$bulan',$cpo_sm,$ppo_sm,$cpko_sm,$ppko_sm,$cpo_sbh,$ppo_sbh,$cpko_sbh,$ppko_sbh,$cpo_srwk,$ppo_srwk,$cpko_srwk,$ppko_srwk)");
 
         $qdel2 = DB::delete("DELETE from hebahan_stok_akhir where bulan='$bulan' and tahun = '$tahun'");
 
@@ -268,7 +268,7 @@ class PortingBiodieselController extends Controller
             }
         }
 
-        $this->admin_portbio($tahun, $bulan);
+        // $this->admin_portbio($tahun, $bulan);
 
         // $querycpo1 = " SELECT lesen,tahun,bulan,menu,penyata,penyata.kod_produk as nama_produk,produk.kod_produk as kod_produk,kuantiti,id_penyata,pembekal,noborang,tarikh,nilai,namapengeksport,negara.kod_negara as negara,kilang.e_apnegeri as kod_negeri
         //        FROM
@@ -386,6 +386,8 @@ class PortingBiodieselController extends Controller
 
                     $ebioc = HBioC::where('ebio_nobatch', $nobatch)->get();
                     // dd($ebioc);
+                    $qdelplbioc = DB::connection('mysql4')->delete("DELETE from h_bio_c_s where ebio_nobatch = '$nobatch'");
+
 
                     foreach ($ebioc as $rowebio_c)
                     {
@@ -433,6 +435,8 @@ class PortingBiodieselController extends Controller
 
                     $ebiocc = HBioCC::where('ebio_nobatch', $nobatch)->get();
                     // dd($ebiocc);
+                    $qdelplbiocc = DB::connection('mysql4')->delete("DELETE from h_bio_cc where ebio_nobatch = '$nobatch'");
+
 
                     foreach ($ebiocc as $ebioccs)
                     {
@@ -468,8 +472,10 @@ class PortingBiodieselController extends Controller
                         // '$cc3','$cc4')");
                     }
 
-                    $hari = HHari::where('lesen', $nolesen)->get();
+                    $hari = HHari::where('lesen', $nolesen)->where('tahunbhg2', $tahun)->where('bulanbhg2', $bulan)->get();
                     // dd($hari);
+                    $qdelplbiohari = DB::connection('mysql4')->delete("DELETE from h_hari where lesen = '$nolesen' and tahunbhg2 = '$tahun' and bulanbhg2 = '$bulan'");
+
 
                     foreach ($hari as $haris)
                     {
