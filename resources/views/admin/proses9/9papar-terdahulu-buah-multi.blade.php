@@ -1120,20 +1120,22 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
+                                            <div class="" style="margin-top: -10px ">
 
-                                            <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                                {{ $formatteddate }}
-                                            </p>
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_npg }}</span>
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_jpg }}</span>
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                                <p>Tarikh Penghantaran: &nbsp;&nbsp;
+                                                    {{ $formatteddate }}
+                                                </p>
+                                                <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                                    <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_npg }}</span>
+                                                </p>
+                                                <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                                    <span  style="text-transform:uppercase">{{ $data->h_pelesen->e_jpg }}</span>
+                                                </p>
+                                                <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                {{ $data->h_pelesen->e_notel }}
-                                            </p>
+                                                    {{ $data->h_pelesen->e_notel }}
+                                                </p>
+                                            </div>
 
 
 

@@ -2372,8 +2372,8 @@
 
             var content = document.getElementById("data_hidden_new");
 
-            $('#data_hidden_new').append('<input type="text" name="new_syarikat_hidden[]"  id="new_syarikat_hidden2" value="'+ new_syarikat +'" />');
-            $('#data_hidden_new').append('<input type="text" name="jumlah_row_hidden[]"  id="jumlah_row_hidden2" value="'+ new_jumlah +'" />');
+            $('#data_hidden_new').append('<input type="hidden" name="new_syarikat_hidden[]"  id="new_syarikat_hidden2" value="'+ new_syarikat +'" />');
+            $('#data_hidden_new').append('<input type="hidden" name="jumlah_row_hidden[]"  id="jumlah_row_hidden2" value="'+ new_jumlah +'" />');
 
             document.getElementById("new_syarikat_new[]").value = "";
             document.getElementById("new_jumlah_new[]").value = "";
