@@ -10,7 +10,7 @@
                 <div class="page-breadcrumb" style="padding: 0px">
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
-                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Terahulu Kilang Buah</h4>
+                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Terdahulu Kilang Buah</h4>
                         </div>
                         <div class="col-7 align-self-center" style="margin-left:-1%;">
                             <div class="d-flex align-items-center justify-content-end">
@@ -41,8 +41,9 @@
                 </div>
 
                 <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
-                    <div class="col-1 align-self-center">
-                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                     <div class="col-1 align-self-center">
+                        <a href="javascript:history.back()" class="btn" style=" color:rgb(64, 69, 68)"><i
+                                class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
 
                     <div class="col-11 align-self-center" style="text-align: right">
@@ -169,7 +170,7 @@
 
 
                                             <p align="left"><b>
-                                                    <font style="font-size: 15px" color="#0c7c85">MAKLUMAT h_pelesen </font>
+                                                    <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                                 </b></p>
 
                                             <table border="0" width="80%" cellpadding="0" cellspacing="0">
