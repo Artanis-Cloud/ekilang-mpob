@@ -1035,16 +1035,19 @@
                                 </tbody>
                             </table>
 
-                            <p style="font-size: 16px"><b>
+                            <p style="font-size: 15px"><b>
                                 Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
                                         benar, lengkap dan selaras dengan rekod harian.
                             </b></p>
-                            <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $formatteddate ?? '' }}</b></p>
-                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b> <span  style="text-transform:uppercase">{{ $pelesen->e_npg ?? '' }}<span></b>
-                            </p>
-                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span  style="text-transform:uppercase">{{ $pelesen->e_jpg ?? '' }}</span></b></p>
-                            <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel ?? '' }}</b>
-                            </p>
+
+                            <div class="" style="margin-top: -10px ">
+                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $formatteddate ?? '' }}</b></p>
+                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b> <span  style="text-transform:uppercase">{{ $pelesen->e_npg ?? '' }}<span></b>
+                                </p>
+                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span  style="text-transform:uppercase">{{ $pelesen->e_jpg ?? '' }}</span></b></p>
+                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel ?? '' }}</b>
+                                </p>
+                            </div>
                         </body>
                     </div>
                 </form>
