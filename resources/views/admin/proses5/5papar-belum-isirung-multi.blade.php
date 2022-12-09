@@ -675,6 +675,9 @@
                                                             </b></td>
                                                     </tr>
                                                     {{-- @if($penyataiii && !$penyataiii->isEmpty()) --}}
+                                                        @php
+                                                            $total_col_e102_b6 = 0;
+                                                        @endphp
 
                                                         @foreach ($penyataiii[$key] as  $dataiii)
                                                             <tr>
@@ -689,6 +692,9 @@
                                                                     <font size="2">
                                                                         {{ number_format($dataiii->e102_b6 ?? 0, 2) }}</font>
                                                                 </td>
+                                                                @php
+                                                                    $total_col_e102_b6 += $dataiii->e102_b6 ?? 0  ;
+                                                                @endphp
                                                             </tr>
                                                         @endforeach
 
@@ -705,7 +711,7 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>{{ number_format($totaliii[$key] ?? 0, 2) }}</b>
+                                                            <font size="2"><b>{{ number_format($total_col_e102_b6 ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -731,6 +737,9 @@
                                                             </b></td>
                                                     </tr>
                                                     @if($penyataiv[$key] && !$penyataiv[$key]->isEmpty())
+                                                        @php
+                                                            $total_col_e102_b6 = 0;
+                                                        @endphp
                                                         @foreach ($penyataiv[$key] as $dataiv)
                                                             <tr>
                                                                 <td style="text-align: center; vertical-align:middle">
@@ -744,25 +753,37 @@
                                                                     <font size="2">
                                                                         {{ number_format($dataiv->e102_b6 ?? 0, 2) }}</font>
                                                                 </td>
+                                                                @php
+                                                                    $total_col_e102_b6 += $dataiv->e102_b6 ?? 0  ;
+                                                                @endphp
                                                             </tr>
                                                         @endforeach
+                                                            <tr>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2"><b>JUMLAH</b></font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2"><b>-</b></font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2"><b>{{ number_format($total_col_e102_b6 ?? 0, 2) }}</b>
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
                                                     @else
-                                                        {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
+                                                        <tr>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>0.00</b>
+                                                                </font>
+                                                            </td>
+                                                        </tr>
                                                     @endif
-                                                    <tr>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>{{ number_format($totaliv[$key] ?? 0, 2) }}</b>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
@@ -784,6 +805,9 @@
                                                             </b></td>
                                                     </tr>
                                                     @if($penyatav[$key] && !$penyatav[$key]->isEmpty())
+                                                        @php
+                                                            $total_col_e102_b6 = 0;
+                                                        @endphp
                                                         @foreach ($penyatav[$key] as $datav)
                                                             <tr>
                                                                 <td style="text-align: center; vertical-align:middle">
@@ -797,25 +821,37 @@
                                                                     <font size="2">
                                                                         {{ number_format($datav->e102_b6 ?? 0, 2) }}</font>
                                                                 </td>
+                                                                @php
+                                                                    $total_col_e102_b6 += $datav->e102_b6 ?? 0  ;
+                                                                @endphp
                                                             </tr>
                                                         @endforeach
+                                                            <tr>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2"><b>JUMLAH</b></font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2"><b>-</b></font>
+                                                                </td>
+                                                                <td style="text-align: center; vertical-align:middle">
+                                                                    <font size="2"><b>{{ number_format($total_col_e102_b6 ?? 0, 2) }}</b>
+                                                                    </font>
+                                                                </td>
+                                                            </tr>
                                                     @else
-                                                        {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
+                                                        <tr>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td style="text-align: center; vertical-align:middle">
+                                                                <font size="2"><b>0.00</b>
+                                                                </font>
+                                                            </td>
+                                                        </tr>
                                                     @endif
-                                                    <tr>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2"><b>{{ number_format($totalv[$key] ?? 0, 2) }}</b>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
