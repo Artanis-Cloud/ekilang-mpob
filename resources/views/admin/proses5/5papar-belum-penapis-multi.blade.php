@@ -342,6 +342,18 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyatai[$key] && !$penyatai[$key]->isEmpty())
+                                                @php
+                                                    $total_col_e101_b5 = 0;
+                                                    $total_col_e101_b6 = 0;
+                                                    $total_col_e101_b7 = 0;
+                                                    $total_col_e101_b8 = 0;
+                                                    $total_col_e101_b9 = 0;
+                                                    $total_col_e101_b10 = 0;
+                                                    $total_col_e101_b11 = 0;
+                                                    $total_col_e101_b12 = 0;
+                                                    $total_col_e101_b13 = 0;
+                                                    $total_col_e101_b14 = 0;
+                                                @endphp
                                                     @foreach ($penyatai[$key] as $datai)
                                                         <tr>
                                                             <td align="left">
@@ -380,13 +392,60 @@
                                                             <td align="right">
                                                                 <font size="2">{{ number_format($datai->e101_b14 ??  0,2) }}</font>
                                                             </td>
+                                                            @php
+                                                                $total_col_e101_b5 += $datai->e101_b5 ?? 0  ;
+                                                                $total_col_e101_b6 += $datai->e101_b6 ?? 0  ;
+                                                                $total_col_e101_b7 += $datai->e101_b7 ?? 0  ;
+                                                                $total_col_e101_b8 += $datai->e101_b8 ?? 0  ;
+                                                                $total_col_e101_b9 += $datai->e101_b9 ?? 0  ;
+                                                                $total_col_e101_b10 += $datai->e101_b10 ?? 0  ;
+                                                                $total_col_e101_b11 += $datai->e101_b11 ?? 0  ;
+                                                                $total_col_e101_b12 += $datai->e101_b12 ?? 0  ;
+                                                                $total_col_e101_b13 += $datai->e101_b13 ?? 0  ;
+                                                                $total_col_e101_b14 += $datai->e101_b14 ?? 0  ;
+                                                            @endphp
                                                         </tr>
                                                     @endforeach
+
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b11 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b12 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b13 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b14 ??  0,2) }}</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
-                                                @endif
 
                                                 <tr>
                                                     <td align="center">
@@ -396,36 +455,37 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib5[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib6[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib7[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib8[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib9[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib10[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib11[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib12[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib13[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalib14[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
+                                                @endif
                                             </tbody>
                                         </table><br>
                                         <p><b>
@@ -474,6 +534,18 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataii[$key] && !$penyataii[$key]->isEmpty())
+                                                    @php
+                                                        $total_col_e101_b5 = 0;
+                                                        $total_col_e101_b6 = 0;
+                                                        $total_col_e101_b7 = 0;
+                                                        $total_col_e101_b8 = 0;
+                                                        $total_col_e101_b9 = 0;
+                                                        $total_col_e101_b10 = 0;
+                                                        $total_col_e101_b11 = 0;
+                                                        $total_col_e101_b12 = 0;
+                                                        $total_col_e101_b13 = 0;
+                                                        $total_col_e101_b14 = 0;
+                                                    @endphp
                                                     @foreach ($penyataii[$key] as $dataii)
                                                         <tr>
                                                             <td align="left">
@@ -512,52 +584,99 @@
                                                             <td align="right">
                                                                 <font size="2">{{ number_format($dataii->e101_b14 ??  0,2) }}</font>
                                                             </td>
+                                                            @php
+                                                                $total_col_e101_b5 += $dataii->e101_b5 ?? 0  ;
+                                                                $total_col_e101_b6 += $dataii->e101_b6 ?? 0  ;
+                                                                $total_col_e101_b7 += $dataii->e101_b7 ?? 0  ;
+                                                                $total_col_e101_b8 += $dataii->e101_b8 ?? 0  ;
+                                                                $total_col_e101_b9 += $dataii->e101_b9 ?? 0  ;
+                                                                $total_col_e101_b10 += $dataii->e101_b10 ?? 0  ;
+                                                                $total_col_e101_b11 += $dataii->e101_b11 ?? 0  ;
+                                                                $total_col_e101_b12 += $dataii->e101_b12 ?? 0  ;
+                                                                $total_col_e101_b13 += $dataii->e101_b13 ?? 0  ;
+                                                                $total_col_e101_b14 += $dataii->e101_b14 ?? 0  ;
+                                                            @endphp
                                                         </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b11 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b12 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b13 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total_col_e101_b14 ??  0,2) }}</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @endif
 
-                                                <tr>
-                                                    <td align="center">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td align="center">
-                                                        <font size="2"><b>-</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib5[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib6[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib7[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib8[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib9[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib10[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib11[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib12[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib13[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totaliib14[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table><br>
 
@@ -619,6 +738,14 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataiva[$key] && !$penyataiva[$key]->isEmpty())
+                                                    @php
+                                                        $total_col_e101_c5 = 0;
+                                                        $total_col_e101_c6 = 0;
+                                                        $total_col_e101_c7 = 0;
+                                                        $total_col_e101_c8 = 0;
+                                                        $total_col_e101_c9 = 0;
+                                                        $total_col_e101_c10 = 0;
+                                                    @endphp
                                                     @foreach ($penyataiva[$key] as $dataiva)
                                                     <tr>
                                                         <td align="left">
@@ -645,13 +772,44 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($dataiva->e101_c10 ??  0,2) }}</font>
                                                         </td>
+                                                        @php
+                                                            $total_col_e101_c5 += $dataiva->e101_c5 ?? 0  ;
+                                                            $total_col_e101_c6 += $dataiva->e101_c6 ?? 0  ;
+                                                            $total_col_e101_c7 += $dataiva->e101_c7 ?? 0  ;
+                                                            $total_col_e101_c8 += $dataiva->e101_c8 ?? 0  ;
+                                                            $total_col_e101_c9 += $dataiva->e101_c9 ?? 0  ;
+                                                            $total_col_e101_c10 += $dataiva->e101_c10 ?? 0  ;
+                                                            $total
+                                                        @endphp
                                                     </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
-                                                @endif
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -660,24 +818,25 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac5[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac6[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac7[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac8[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac9[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivac10[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
+                                                @endif
                                             </tbody>
                                         </table><br>
 
@@ -717,6 +876,14 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyataivb[$key] && !$penyataivb[$key]->isEmpty())
+                                                    @php
+                                                        $total_col_e101_c5 = 0;
+                                                        $total_col_e101_c6 = 0;
+                                                        $total_col_e101_c7 = 0;
+                                                        $total_col_e101_c8 = 0;
+                                                        $total_col_e101_c9 = 0;
+                                                        $total_col_e101_c10 = 0;
+                                                    @endphp
                                                     @foreach ($penyataivb[$key] as $dataivb)
                                                     <tr>
                                                         <td align="left">
@@ -743,13 +910,44 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($dataivb->e101_c10 ??  0,2) }}</font>
                                                         </td>
+                                                        @php
+                                                            $total_col_e101_c5 += $dataivb->e101_c5 ?? 0  ;
+                                                            $total_col_e101_c6 += $dataivb->e101_c6 ?? 0  ;
+                                                            $total_col_e101_c7 += $dataivb->e101_c7 ?? 0  ;
+                                                            $total_col_e101_c8 += $dataivb->e101_c8 ?? 0  ;
+                                                            $total_col_e101_c9 += $dataivb->e101_c9 ?? 0  ;
+                                                            $total_col_e101_c10 += $dataivb->e101_c10 ?? 0  ;
+                                                            $total
+                                                        @endphp
                                                     </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c9 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_c10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
-                                                @endif
                                                 <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
@@ -758,24 +956,25 @@
                                                         <font size="2"><b>-</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc5[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc6[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc7[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc8[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc9[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalivbc10[$key] ??  0,2) }}</b></font>
+                                                        <font size="2"><b>0.00</b></font>
                                                     </td>
                                                 </tr>
+                                                @endif
                                             </tbody>
                                         </table><br>
 
@@ -805,6 +1004,12 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyatava[$key] && !$penyatava[$key]->isEmpty())
+                                                    @php
+                                                        $total_col_e101_d5 = 0;
+                                                        $total_col_e101_d6 = 0;
+                                                        $total_col_e101_d7 = 0;
+                                                        $total_col_e101_d8 = 0;
+                                                    @endphp
                                                     @foreach ($penyatava[$key] as $datava)
                                                     <tr>
                                                         <td align="left">
@@ -822,31 +1027,50 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($datava->e101_d8 ??  0,2) }}</font>
                                                         </td>
+                                                        @php
+                                                            $total_col_e101_d5 += $datava->e101_d5 ?? 0  ;
+                                                            $total_col_e101_d6 += $datava->e101_d6 ?? 0  ;
+                                                            $total_col_e101_d7 += $datava->e101_d7 ?? 0  ;
+                                                            $total_col_e101_d8 += $datava->e101_d8 ?? 0  ;
+                                                        @endphp
                                                     </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @endif
-
-                                                <tr>
-                                                    <td align="center">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad5[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad6[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad7[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvad8[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table><br>
                                         <p><b>
@@ -874,6 +1098,12 @@
                                                         </b></td>
                                                 </tr>
                                                 @if($penyatavb[$key] && !$penyatavb[$key]->isEmpty())
+                                                    @php
+                                                        $total_col_e101_d5 = 0;
+                                                        $total_col_e101_d6 = 0;
+                                                        $total_col_e101_d7 = 0;
+                                                        $total_col_e101_d8 = 0;
+                                                    @endphp
                                                     @foreach ($penyatavb[$key] as $datavb)
                                                     <tr>
                                                         <td align="left">
@@ -891,30 +1121,51 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($datavb->e101_d8 ??  0,2) }}</font>
                                                         </td>
+                                                        @php
+                                                            $total_col_e101_d5 += $datavb->e101_d5 ?? 0  ;
+                                                            $total_col_e101_d6 += $datavb->e101_d6 ?? 0  ;
+                                                            $total_col_e101_d7 += $datavb->e101_d7 ?? 0  ;
+                                                            $total_col_e101_d8 += $datavb->e101_d8 ?? 0  ;
+                                                            $total
+                                                        @endphp
                                                     </tr>
                                                     @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d5 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d6 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d7 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format( $total_col_e101_d8 ??  0,2) }}</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @else
-                                                    {{-- <tr>
-                                                        <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                    </tr> --}}
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
+                                                        </td>
+                                                    </tr>
                                                 @endif
-                                                <tr>
-                                                    <td align="center">
-                                                        <font size="2"><b>JUMLAH</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd5[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd6[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd7[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                    <td align="right">
-                                                        <font size="2"><b>{{ number_format($totalvbd8[$key] ??  0,2) }}</b></font>
-                                                    </td>
-                                                </tr>
                                             </tbody>
                                         </table><br>
                                         <p><b>

@@ -676,36 +676,55 @@
             </script>
             <script>
                 function validation_jumlah() {
-                    var bil_tangki_cpo = $("#bil_tangki_cpo").val();
-                    var bil_tangki_ppo = $("#bil_tangki_ppo").val();
-                    var bil_tangki_cpko = $("#bil_tangki_cpko").val();
-                    var bil_tangki_ppko = $("#bil_tangki_ppko").val();
-                    var bil_tangki_others = $("#bil_tangki_others").val();
+                    var bil_tangki_cpo = document.getElementById('bil_tangki_cpo');
+                    var bcpo = bil_tangki_cpo.value.replace(/,/g, '');
+                    var bil_tangki_ppo = document.getElementById('bil_tangki_ppo');
+                    var bppo = bil_tangki_ppo.value.replace(/,/g, '');
+                    var bil_tangki_cpko = document.getElementById('bil_tangki_cpko');
+                    var bcpko = bil_tangki_cpko.value.replace(/,/g, '');
+                    var bil_tangki_ppko = document.getElementById('bil_tangki_ppko');
+                    var bppko = bil_tangki_ppko.value.replace(/,/g, '');
+                    var bil_tangki_others = document.getElementById('bil_tangki_others');
+                    var bothers = bil_tangki_others.value.replace(/,/g, '');
+
+
+                    // var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+                    // var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+                    // var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+                    // var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+                    // var bil_tangki_others = $("#bil_tangki_others").val();
 
                     var jumlah = $("#jumlah").val();
                     var jumlah_input = 0;
 
-                    jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
-                        parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
-                            bil_tangki_others));
+                    jumlah_input = parseFloat(Number(bcpo)) + parseFloat(Number(bppo)) +
+                        parseFloat(Number(bcpko)) + parseFloat(Number(bppko)) + parseFloat(Number(
+                            bothers));
 
                     document.getElementById('bil_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
             </script>
             <script>
                 function validation_jumlah2() {
-                    var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-                    var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-                    var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-                    var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-                    var kap_tangki_others = $("#kap_tangki_others").val();
+                // $(document).ready(function() {
+
+                    var kap_tangki_cpo =  document.getElementById('kap_tangki_cpo');
+                    var kcpo = kap_tangki_cpo.value.replace(/,/g, '');
+                    var kap_tangki_ppo =  document.getElementById('kap_tangki_ppo');
+                    var kppo = kap_tangki_ppo.value.replace(/,/g, '');
+                    var kap_tangki_cpko =  document.getElementById('kap_tangki_cpko');
+                    var kcpko = kap_tangki_cpko.value.replace(/,/g, '');
+                    var kap_tangki_ppko =  document.getElementById('kap_tangki_ppko');
+                    var kppko = kap_tangki_ppko.value.replace(/,/g, '');
+                    var kap_tangki_others =  document.getElementById('kap_tangki_others');
+                    var kothers = kap_tangki_others.value.replace(/,/g, '');
 
                     var jumlah = $("#jumlah2").val();
                     var jumlah_input = 0;
 
-                    jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                        parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                            kap_tangki_others));
+                    jumlah_input = parseFloat(Number(kcpo)) + parseFloat(Number(kppo)) +
+                        parseFloat(Number(kcpko)) + parseFloat(Number(kppko)) + parseFloat(Number(
+                            kothers));
 
                     document.getElementById('kap_tangki_jumlah').innerHTML = (jumlah_input).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }

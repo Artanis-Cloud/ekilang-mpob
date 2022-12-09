@@ -303,6 +303,15 @@
                                                             </b></td>
                                                     </tr>
                                                     @if($penyatai[$key] && !$penyatai[$key]->isEmpty())
+                                                        @php
+                                                            $total_col_e07bt_stokawal = 0;
+                                                            $total_col_e07bt_terima = 0;
+                                                            $total_col_e07bt_import = 0;
+                                                            $total_col_e07bt_edaran = 0;
+                                                            $total_col_e07bt_eksport = 0;
+                                                            $total_col_e07bt_pelarasan = 0;
+                                                            $total_col_e07bt_stokakhir = 0;
+                                                        @endphp
                                                         @foreach ($penyatai[$key] as $datai)
                                                             <tr>
                                                                 <td align="left">
@@ -312,65 +321,101 @@
                                                                     <font size="2">{{ $datai->produk->prodid }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_stokawal }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_stokawal ?? 0,2)  }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_terima }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_terima ?? 0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_import }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_import ?? 0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_edaran }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_edaran ?? 0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_eksport }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_eksport ?? 0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_pelarasan }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_pelarasan ?? 0,2) }}</font>
                                                                 </td>
                                                                 <td align="right">
-                                                                    <font size="2">{{ $datai->e07bt_stokakhir }}</font>
+                                                                    <font size="2">{{ number_format($datai->e07bt_stokakhir ?? 0,2) }}</font>
                                                                 </td>
+                                                                @php
+                                                                    $total_col_e07bt_stokawal += $datai->e07bt_stokawal ?? 0  ;
+                                                                    $total_col_e07bt_terima += $datai->e07bt_terima ?? 0  ;
+                                                                    $total_col_e07bt_import += $datai->e07bt_import ?? 0  ;
+                                                                    $total_col_e07bt_edaran += $datai->e07bt_edaran ?? 0  ;
+                                                                    $total_col_e07bt_eksport += $datai->e07bt_eksport ?? 0  ;
+                                                                    $total_col_e07bt_pelarasan += $datai->e07bt_pelarasan ?? 0  ;
+                                                                    $total_col_e07bt_stokakhir += $datai->e07bt_stokakhir ?? 0  ;
+                                                                @endphp
                                                             </tr>
                                                         @endforeach
+
+                                                        <tr>
+                                                            <td align="center">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{ number_format($total_col_e07bt_stokawal ??  0,2) }}</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{ number_format($total_col_e07bt_terima ??  0,2) }}</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{ number_format($total_col_e07bt_edaran  ??  0,2) }}</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{ number_format($total_col_e07bt_pelarasan ??  0,2) }}</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>{{ number_format($total_col_e07bt_stokakhir ??  0,2) }}</b></font>
+                                                            </td>
+                                                        </tr>
+
+
                                                     @else
-                                                        {{-- <tr>
-                                                            <td colspan="14" class="text-center" style="height:30px">Tiada Rekod</td>
-                                                        </tr> --}}
+
+                                                        <tr>
+                                                            <td align="center">
+                                                                <font size="2"><b>JUMLAH</b></font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2"><b>-</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"><b>0.00</b></font>
+                                                            </td>
+                                                        </tr>
                                                     @endif
-
-                                                    <tr>
-                                                        <td align="center">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total[$key] ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total2[$key] ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total3[$key] ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total4[$key] ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($total5[$key] ??  0,2) }}</b></font>
-                                                        </td>
-
-
-                                                    </tr>
                                                 </tbody>
                                             </table><br>
                                             <p><b>
