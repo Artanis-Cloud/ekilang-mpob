@@ -10,7 +10,8 @@
             opacity: 0;
         }
     }
-/*
+
+    /*
     table i {
   color: red;
   background: #ffffff;
@@ -19,7 +20,7 @@
   width: 30px;
   margin-right: 5px;
   /* border: 2px solid black; */
-/* table td {
+    /* table td {
   text-align: center;
 } */
 </style>
@@ -350,7 +351,7 @@
                                 <table class="table table-bordered" style="font-size: 13px">
                                     <thead style="text-align: center">
                                         <tr style="vertical-align: middle">
-                                            <th style="vertical-align: middle">Nama Produk Biodiesel</th>
+                                            <th style="vertical-align: middle">Produk Biodiesel dan Glycerine</th>
                                             <th style="vertical-align: middle">Kod Produk</th>
                                             <th style="vertical-align: middle">Stok Awal Di Premis</th>
                                             <th style="vertical-align: middle">Belian / Terimaan</th>
@@ -493,7 +494,8 @@
                                                                                 id="ebio_ec8{{ $data->ebio_c1 }}"
                                                                                 class="form-control" readonly
                                                                                 onchange="autodecimal(this); FormatCurrency(this)"
-                                                                                value="{{ number_format($data->ebio_c8 ?? 0, 2) }}" readonly
+                                                                                value="{{ number_format($data->ebio_c8 ?? 0, 2) }}"
+                                                                                readonly
                                                                                 oninput="validate_two_decimal(this); enableKemaskini_bio({{ $data->ebio_c1 }}); invoke_ec8({{ $data->ebio_c1 }})"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </div>
@@ -695,39 +697,21 @@
                                             <tbody>
                                                 <tr>
                                                     {{-- <div class='field'> --}}
-
                                                     <td class="field">
                                                         <div id="sykt1">
-                                                        <select class="form-control select2 "
-                                                            style="width: 100px" id="new_syarikat[]"
-                                                            name="new_syarikat[]" onchange="showDetail()"
-                                                            oninput="removeDisabled()">
-                                                            <option id="def" selected disabled value="">Sila Pilih
-                                                            </option>
-                                                            @foreach ($syarikat as $data)
-                                                                <option value="{{ $data->id }}">
-                                                                    {{ $data->pembeli }}
+                                                            <select class="form-control " style="width: 100%"
+                                                                id="new_syarikat" name="new_syarikat[]">
+                                                                <option selected='selected' value="0">Sila Pilih
                                                                 </option>
-                                                            @endforeach
+                                                                @foreach ($syarikat as $data)
+                                                                    <option value="{{ $data->id }}">
+                                                                        {{ $data->pembeli }}
+                                                                    </option>
+                                                                @endforeach
 
-                                                        </select>
+                                                            </select>
                                                         </div>
-                                                        <div style="display: none" id="sykt">
-                                                        <select class="form-control select2 "
-                                                            style="width: 100px" id="new_syarikat"
-                                                            name="new_syarikat[]" onchange="showDetail()"
-                                                            oninput="removeDisabled()">
-                                                            <option selected hidden disabled value="">Sila Pilih
-                                                            </option>
-                                                            @foreach ($syarikat as $data)
-                                                                <option value="{{ $data->id }}">
-                                                                    {{ $data->pembeli }}
-                                                                </option>
-                                                            @endforeach
-
-                                                        </select>
-                                                        </div>
-                                                       </td>
+                                                    </td>
                                                     {{-- </div> --}}
                                                     <td class="field"><input type="text" id="new_jumlah[]"
                                                             class="form-control" style="text-align: center"
@@ -735,8 +719,9 @@
                                                         {{-- <div class='actions'> --}}
 
                                                     <td style="size: 10ch" class="actions" align="center">
-                                                        <i class="fa fa-plus-circle center" type="button" id="tambah_maklumat"
-                                                            onclick="add_row()"  disabled="disabled" style="font-size:30px; color:green;">
+                                                        <i class="fa fa-plus-circle center" type="button"
+                                                            id="tambah_maklumat" onclick="add_row()" disabled="disabled"
+                                                            style="font-size:30px; color:green;">
                                                             {{-- <input  class="btn btn-primary ml-1 actions"
                                                             id="tambah_maklumat" onclick="add_row()" disabled="disabled"
                                                             value="Tambah Maklumat"> --}}
@@ -744,6 +729,7 @@
                                                     </td>
                                                     {{-- </div> --}}
                                                 </tr>
+
                                                 <tr style="background-color: #d3d3d34d; text-align: center">
 
                                                     <td><b>JUMLAH</b></td>
@@ -1007,22 +993,26 @@
 
             <script>
                 function add_row() {
-                    var new_syarikat = document.getElementById("new_syarikat[]").value;
+                    var new_syarikat_select = document.getElementById("new_syarikat").value;
+                    console.log('gg', new_syarikat_select);
                     var new_jumlah = document.getElementById("new_jumlah[]").value;
 
-                    var nama_syarikat = document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]")
+                    var nama_syarikat = document.getElementById("new_syarikat").options[document.getElementById("new_syarikat")
                         .selectedIndex].text;
 
                     var table = document.getElementById("data_table");
                     var table_len = (table.rows.length) - 2;
 
 
-                    var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td style='text-align:center' id='syarikat_row" +
+                    var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len +
+                        "'><td style='text-align:center' id='syarikat_row" +
                         table_len + "'>" + nama_syarikat + "</td><td id='jumlah_row" + table_len + "' style=" +
-                        "text-align:center" + ">" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+                        "text-align:center" + ">" + (parseFloat(new_jumlah).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                            ",") +
                         "</td><td><input type='hidden' id='jumlah_row" + table_len +
                         "' name='jumlah_row_input[]' value=" + new_jumlah +
-                        "> <input type='button' value='Hapus' style='display: block; margin: auto' class='btn btn-danger ml-1' onclick='delete_row(" + table_len +
+                        "> <input type='button' id='btnAdd' value='Hapus' style='display: block; margin: auto' class='btn btn-danger ml-1' onclick='delete_row(" +
+                        table_len +
                         ")'></td></tr>";
 
                     var table_input = document.getElementById("cc3_4");
@@ -1030,46 +1020,31 @@
 
 
                     var row_input = table_input.insertRow(table_input_len).outerHTML =
-                        "<tr id='row_input" + (table_input_len + 1) + "'><td><input   id='jumlah_row_hidden" +
+                        "<tr id='row_input" + (table_input_len + 1) + "'><td><input type='hidden'  id='jumlah_row_hidden" +
                         (table_input_len + 1) +
                         "' name='jumlah_row_hidden[]' value=" + new_jumlah +
-                        "><input id='new_syarikat_hidden" + (table_input_len + 1) +
-                        "' name='new_syarikat_hidden[]' value=" + new_syarikat +
+                        "><input  type='hidden' id='new_syarikat_hidden" + (table_input_len + 1) +
+                        "' name='new_syarikat_hidden[]' value=" + new_syarikat_select +
                         "></td></tr>";
 
 
-                    document.getElementById("new_syarikat[]").value = "";
-                    // document.getElementById("new_syarikat[]").text = "";
-                    // document.getElementById("new_syarikat[]").options[document.getElementById("new_syarikat[]").selectedIndex].text= "dsa";
-                    // console.log(document.querySelector("#new_syarikat[]"));
-                    const changeSelected = (e) => {
-                    const $select = document.querySelector('#new_syarikat');
-                    $select.value = 'steve'
-                    };
 
-                    document.querySelector('.changeSelected').addEventListener('click', changeSelected);
-                    // var e = document.getElementById("new_syarikat[]").options[e.selectedIndex].text;
-                    // function onChange() {
-                    // var value = e.value;
-                    // var text = e.options[e.selectedIndex].text;
-                    // e.options[e.selectedIndex].text = text;
-                    // console.log(e.options[e.selectedIndex].text);
-                    // }
-                    // e.onchange = onChange;
-                    // onChange();
-                    // document.getElementById("sykt").style.display = "block";
-                    // document.getElementById("sykt1").style.display = "none";
+
+                    document.getElementById("new_syarikat").value = "0";
+                    // document.getElementById("new_syarikat[]").selectedIndex = "-1";
                     document.getElementById("new_jumlah[]").value = "";
+                    // document.getElementById("new_syarikat").remove(new_sy arikat_select);
+                    $('#new_syarikat').find("[value = '" + new_syarikat + "']").remove();
 
 
 
-                    console.log("tl",table_len);
-                    console.log("til",table_input_len);
+                    console.log("tl", table_len);
+                    console.log("til", table_input_len);
 
                     let total = 0;
                     // console.log(table_input_len);
 
-                    for(var i=0;i<document.getElementsByName("jumlah_row_input[]").length;i++){
+                    for (var i = 0; i < document.getElementsByName("jumlah_row_input[]").length; i++) {
                         var hidden_value = document.getElementsByName("jumlah_row_input[]")[i].value;
                         // console.log('hidden_value',hidden_value);
                         total += parseFloat(hidden_value);
@@ -1077,26 +1052,67 @@
 
                     }
 
-                    // for (let index = 0; index <= table_input_len; index++) {
-                    //     let hidden_value = document.getElementById("jumlah_row_hidden" + index).value;
-                    //     total += parseInt(hidden_value);
-                    // }
-                    // new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
-                    // var num2 = total.toFixed(2);
-                    // var num1 = new Intl.NumberFormat().format(total);
 
                     // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                        ",");
                     // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
                     // console.log("total", total);
-
 
                 }
 
                 function delete_row(no) {
+                    // const btnAdd = document.querySelector('#btnAdd');
+                    // const listbox = document.querySelector('#new_syarikat');
+                    // var new_syarikat = document.getElementById("new_syarikat").value;
+
+                    var data = [];
+                    @foreach ($syarikat as $product)
+                        data.push({
+                            id: '{{ $product->id }}',
+                            pembeli: '{{ $product->pembeli }}'
+                        });
+                    @endforeach
+
+                    console.log('kimakk',data);
+
+
+                    var nama_syarikat = document.getElementById("new_syarikat_hidden" + no).value;
+
+
                     document.getElementById("row" + no + "").remove();
                     document.getElementById("row_input" + no + "").remove();
+
+                    var x = document.getElementById("new_syarikat");
+                    var option = document.createElement("option");
+                    option.value = nama_syarikat;
+                    x.add(option);
+
+
+                    // document.querySelector("#new_syarikat").add(new_syarikat, new_syarikat);
+
+
+                    // btnAdd.addEventListener('click', (e) => {
+                    // e.preventDefault();
+
+                    // validate the option
+                    // if (framework.value.trim() === '') {
+                    //     alert('Please enter the name.');
+                    //     return;
+                    // }
+                    // create a new option
+                    // const option = new Option(new_syarikat, new_syarikat);
+
+                    // // add it to the list
+                    // listbox.add(option, undefined);
+
+                    // reset the value of the input
+                    // framework.value = '';
+                    // framework.focus();
+                    // });
+
+
                     // document.getElementById("row_input" + no + "").outerHTML = "";
                     // document.getElementById("jumlah_row_hidden" + (no)).remove();
                     // document.getElementById("new_syarikat_hidden" + (no)).remove();
@@ -1114,10 +1130,10 @@
 
                     }
                     document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                        ",");
 
                 }
-
             </script>
             {{-- <script>
                     function onChange() {
@@ -1132,45 +1148,6 @@
                     // e.onchange = onChange;
                     // onChange();
                 </script> --}}
-
-            <script>
-                function add_row1(key) {
-                    console.log("new_syarikat" + key + "[]");
-                    var new_syarikat1 = document.getElementById("new_syarikat" + key + "[]").value;
-                    var new_jumlah1 = document.getElementById("new_jumlah" + key + "[]").value;
-
-                    var table1 = document.getElementById("data_table" + key);
-                    var table_len1 = (table1.rows.length) - 1;
-                    var row1 = table1.insertRow(table_len1).outerHTML = "<tr id='row" + key + table_len1 +
-                        "'><td id='syarikat_row" + key +
-                        table_len1 + "'>" + new_syarikat1 + "</td><td id='jumlah_row" + key + table_len1 + "'>" + new_jumlah1 +
-                        "</td><td><input type='hidden' id='jumlah_row" + key + table_len1 +
-                        "' name='jumlah_row_hidden" + key + "[]' value=" + new_jumlah1 +
-                        "> <input type='button' value='Hapus' class='btn btn-danger ml-1' onclick='delete_row1(" + table_len1 +
-                        ")'></td></tr>";
-
-                    var table_input1 = document.getElementById("cc3_4");
-                    var table_input_len1 = (table_input1.rows.length);
-                    var row_input1 = table_input1.insertRow(table_input_len1).outerHTML =
-                        "<tr id='row_input" + key + table_input_len1 + "'><td><input type='hidden' id='jumlah_row_hidden" + key +
-                        table_input_len1 +
-                        "' name='jumlah_row_hidden" + key + "[]' value=" + new_jumlah1 +
-                        "><input type='hidden' id='new_syarikat_hidden" + key + table_input_len1 +
-                        "' name='new_syarikat_hidden" + key + "[]' value=" + new_syarikat1 +
-                        "></td></tr>";
-
-                    document.getElementById("new_syarikat" + key + "[]").value = "";
-                    document.getElementById("new_jumlah" + key + "[]").value = "";
-                }
-
-                function delete_row1(no) {
-                    document.getElementById("row" + key + "").outerHTML = "";
-                    // document.getElementById("row_input" + no + "").outerHTML = "";lain_container
-
-                    document.getElementById("jumlah_row_hidden1" + (no - 1)).value = "";
-                    document.getElementById("new_syarikat_hidden1" + (no - 1)).value = "";
-                }
-            </script>
             <script type="text/javascript">
                 function showDetail() {
                     var produk = $('#produk').val();
@@ -1275,7 +1252,7 @@
 
                 function removeDisabled() {
 
-                    var new_syarikat = document.getElementById("new_syarikat[]").value;
+                    var new_syarikat = document.getElementById("new_syarikat").value;
                     // var new_jumlah = document.getElementById("new_jumlah[]").value;
                     // console.log(new_syarikat);
                     var table_input = document.getElementById("data_table");
