@@ -1699,412 +1699,409 @@
 
                             @if (json_decode(auth()->user()->sub_cat))
 
-                            @foreach (json_decode(auth()->user()->sub_cat) as $cat)
-                            {{-- @if (auth()->user()->role == 'Supervisor' || auth()->user()->role == 'Admin' || auth()->user()->role == 'Manager') --}}
+                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                {{-- @if (auth()->user()->role == 'Supervisor' || auth()->user()->role == 'Admin' || auth()->user()->role == 'Manager') --}}
 
-                            @if ($cat == 'PLBIO' && auth()->user()->role == 'Admin')
+                                    @if ($cat == 'PLBIO' && auth()->user()->role == 'Admin')
+
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                                href="javascript:void(0)" aria-expanded="false">
+                                                <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
+                                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib </span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    @elseif (auth()->user()->role != 'Admin' && $cat == 'PLBIO')
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                            href="javascript:void(0)" aria-expanded="false">
+                                            <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
+                                                    <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib <br> (Biodiesel)</span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
+                                                    <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> e-Kilang ke PLEID </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
+                                                    <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
+                                                    <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Stat Admin/Homepage </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
+                                                    <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Dynamic Query </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @elseif (auth()->user()->role != 'Admin' && $cat != 'PLBIO')
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                            href="javascript:void(0)" aria-expanded="false">
+                                            <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
+                                                    <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> e-Kilang ke PLEID </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
+                                                    <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
+                                                    <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Stat Admin/Homepage </span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
+                                                    <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Dynamic Query </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @endif
+
+                                    @if ($cat == 'PLBIO' || auth()->user()->role == 'Superadmin')
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                                href="javascript:void(0)" aria-expanded="false">
+                                                <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu font-weight-bold"> Dynamic Query<br>Biodiesel
+                                                </span>
+                                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                            </a>
+                                            <ul aria-expanded="false" class="collapse first-level"
+                                                style="margin-left:5%">
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.ringkasan.penyata') }}"
+                                                        class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu">Ringkasan Penyata Bulanan <br> </span>
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Tarikh Penerimaan <br> Borang PL </span>
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.kapasiti') }}" class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Kapasiti Kilang Biodiesel </span>
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.laporan.tahunan') }}"
+                                                        class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Laporan Biodiesel </span>
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                        aria-expanded="false">
+                                                        <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Hebahan 10hb </span>
+                                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                                    </a>
+                                                    <ul aria-expanded="false" class="collapse first-level"
+                                                        style="margin-left:5%">
+                                                        <li class="sidebar-item">
+                                                            <a href="{{ route('admin.stok.akhir') }}"
+                                                                class="sidebar-link">
+                                                                <i class="fas fa-filter"
+                                                                    style="color:rgb(54, 51, 41) "></i>
+                                                                <span class="hide-menu"> Stok Akhir</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sidebar-item">
+                                                            <a href="{{ route('admin.validasi.stok.akhir.proses') }}"
+                                                                class="sidebar-link">
+                                                                <i class="fas fa-filter"
+                                                                    style="color:rgb(54, 51, 41) "></i>
+                                                                <span class="hide-menu"> Validasi Stok Akhir</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sidebar-item">
+                                                            <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}"
+                                                                class="sidebar-link">
+                                                                <i class="fas fa-filter"
+                                                                    style="color:rgb(54, 51, 41) "></i>
+                                                                <span class="hide-menu"> Validasi Stok Akhir <br> Ikut
+                                                                    Produk</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sidebar-item">
+                                                            <a href="{{ route('admin.minyak.sawit.diproses') }}"
+                                                                class="sidebar-link">
+                                                                <i class="fas fa-filter"
+                                                                    style="color:rgb(54, 51, 41) "></i>
+                                                                <span class="hide-menu"> Minyak Sawit <br> Diproses</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="sidebar-item">
+                                                            <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}"
+                                                                class="sidebar-link">
+                                                                <i class="fas fa-filter"
+                                                                    style="color:rgb(54, 51, 41) "></i>
+                                                                <span class="hide-menu"> Validasi Minyak<br>Sawit
+                                                                    Diproses</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                {{-- <li class="sidebar-item">
+                                            <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                aria-expanded="false">
+                                                <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Oleokimia </span>
+                                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                                {{-- </a>
+                                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.activities.all') }}" class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Aktiviti</span>
+                                                    </a>
+                                                </li>
+
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.monthly.all') }}" class="sidebar-link">
+                                                        <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Bulanan </span>
+                                                    </a>
+                                                </li>
+
+
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.yearly.all') }}" class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> Tahunan</span>
+                                                    </a>
+                                                </li>
+                                                <li class="sidebar-item">
+                                                    <a href="{{ route('admin.eksport') }}" class="sidebar-link">
+                                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                        <span class="hide-menu"> OE1 - Export</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li> --}}
+                                            </ul>
+                                        </li>
+                                    @endif
+
+
+                                    @if (auth()->user()->role != 'Admin')
+                                    @break
+                                    @endif
+                                @endforeach
+                            @else
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                        href="javascript:void(0)" aria-expanded="false">
+                                        <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
+                                                <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib <br> (Biodiesel)</span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
+                                                <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> e-Kilang ke PLEID </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
+                                                <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
+                                                <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Stat Admin/Homepage </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
+                                                <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Dynamic Query </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
+
+
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                    href="javascript:void(0)" aria-expanded="false">
-                                    <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Konfigurasi </span>
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
-                                            <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib </span>
+                                        @if (auth()->user()->role == 'Superadmin' ||
+                                            auth()->user()->role == 'Manager' ||
+                                            auth()->user()->role == 'Supervisor')
+                                            <a href="{{ route('admin.senarai.pentadbir') }}"
+                                                class="sidebar-link">
+                                                <i class="fas fa-users" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Pengurusan Pentadbir </span>
+                                            </a>
+                                        @else
+                                        @endif
+
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
+                                            <i class="fas fa-bell" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Pengumuman </span>
                                         </a>
                                     </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.3daftarpenyata') }}" class="sidebar-link">
+                                            <i class="fas fa-server" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Initialize Penyata Baharu </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Lain - Lain </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.direktori') }}" class="sidebar-link">
+                                            <i class="fas fa-database" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Direktori </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
+                                        <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
+                                            class="sidebar-link">
+                                            <i class="fas fa-user-circle" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Panduan Pengguna </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.11emel') }}" class="sidebar-link">
+                                            <i class="fas fa-envelope-open" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Emel Pindaan </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.12validation') }}" class="sidebar-link">
+                                            <i class="fas fa-check-square" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Validasi </span>
+                                        </a>
+                                    </li>
+                                    @if (json_decode(auth()->user()->sub_cat))
+
+                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                    @if ($cat == 'PLBIO')
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.pembeli') }}" class="sidebar-link">
+                                            <i class="fas fa-clipboard-list" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Pembeli </span>
+                                        </a>
+                                    </li>
+                                    @endif
+
+                                    @endforeach
+                                    @endif
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
+                                            <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Kod & Nama Produk </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.kod.negara') }}" class="sidebar-link">
+                                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Kod & Nama Negara </span>
+                                        </a>
+                                    </li>
+                                    @if (auth()->user()->role == 'Superadmin')
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.log.superadmin') }}" class="sidebar-link">
+                                                <i class=" fas fa-clock" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Audit Trail </span>
+                                            </a>
+                                        </li>
+                                    @endif
 
                                 </ul>
                             </li>
-                        @elseif (auth()->user()->role != 'Admin' && $cat == 'PLBIO')
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Pindahan Data </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
-                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib <br> (Biodiesel)</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
-                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> e-Kilang ke PLEID </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
-                                        <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Stat Admin/Homepage </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
-                                        <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Dynamic Query </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @elseif (auth()->user()->role != 'Admin' && $cat != 'PLBIO')
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Pindahan Data </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
-                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> e-Kilang ke PLEID </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
-                                        <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Stat Admin/Homepage </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
-                                        <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Dynamic Query </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @endif
 
-
-
-                                @if ($cat == 'PLBIO' || auth()->user()->role == 'Superadmin')
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                            href="javascript:void(0)" aria-expanded="false">
-                                            <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu font-weight-bold"> Dynamic Query<br>Biodiesel
-                                            </span>
-                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                        </a>
-                                        <ul aria-expanded="false" class="collapse first-level"
-                                            style="margin-left:5%">
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.ringkasan.penyata') }}"
-                                                    class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu">Ringkasan Penyata Bulanan <br> </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Tarikh Penerimaan <br> Borang PL </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.kapasiti') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Kapasiti Kilang Biodiesel </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.laporan.tahunan') }}"
-                                                    class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Laporan Biodiesel </span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
-                                                    aria-expanded="false">
-                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Hebahan 10hb </span>
-                                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                                </a>
-                                                <ul aria-expanded="false" class="collapse first-level"
-                                                    style="margin-left:5%">
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.stok.akhir') }}"
-                                                            class="sidebar-link">
-                                                            <i class="fas fa-filter"
-                                                                style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Stok Akhir</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.stok.akhir.proses') }}"
-                                                            class="sidebar-link">
-                                                            <i class="fas fa-filter"
-                                                                style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Validasi Stok Akhir</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}"
-                                                            class="sidebar-link">
-                                                            <i class="fas fa-filter"
-                                                                style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Validasi Stok Akhir <br> Ikut
-                                                                Produk</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}"
-                                                            class="sidebar-link">
-                                                            <i class="fas fa-filter"
-                                                                style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Minyak Sawit <br> Diproses</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}"
-                                                            class="sidebar-link">
-                                                            <i class="fas fa-filter"
-                                                                style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Validasi Minyak<br>Sawit
-                                                                Diproses</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            {{-- <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " style=" margin-right:5%"
-                                            aria-expanded="false">
-                                            <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Oleokimia </span>
-                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                            {{-- </a>
-                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.activities.all') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Aktiviti</span>
-                                                </a>
-                                            </li>
-
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.monthly.all') }}" class="sidebar-link">
-                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Bulanan </span>
-                                                </a>
-                                            </li>
-
-
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.yearly.all') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Tahunan</span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.eksport') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> OE1 - Export</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
-                                        </ul>
-                                    </li>
-                                @endif
-
-
-                        @if (auth()->user()->role != 'Admin')
-                        @break
-                        @endif
-                        @endforeach
-                        @else
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark"
-                                href="javascript:void(0)" aria-expanded="false">
-                                <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Pindahan Data </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.4ekilangbio') }}" class="sidebar-link">
-                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Penyata Terkini ke <br> Penyata Arkib <br> (Biodiesel)</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
-                                        <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> e-Kilang ke PLEID </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
-                                        <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Stat Admin/Homepage </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
-                                        <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Dynamic Query </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @endif
-
-
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Konfigurasi </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    @if (auth()->user()->role == 'Superadmin' ||
-                                        auth()->user()->role == 'Manager' ||
-                                        auth()->user()->role == 'Supervisor')
-                                        <a href="{{ route('admin.senarai.pentadbir') }}"
-                                            class="sidebar-link">
-                                            <i class="fas fa-users" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Pengurusan Pentadbir </span>
-                                        </a>
-                                    @else
-                                    @endif
-
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
-                                        <i class="fas fa-bell" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Pengumuman </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.3daftarpenyata') }}" class="sidebar-link">
-                                        <i class="fas fa-server" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Initialize Penyata Baharu </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Lain - Lain </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.direktori') }}" class="sidebar-link">
-                                        <i class="fas fa-database" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Direktori </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
-                                    <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
-                                        class="sidebar-link">
-                                        <i class="fas fa-user-circle" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Panduan Pengguna </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.11emel') }}" class="sidebar-link">
-                                        <i class="fas fa-envelope-open" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Emel Pindaan </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.12validation') }}" class="sidebar-link">
-                                        <i class="fas fa-check-square" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Validasi </span>
-                                    </a>
-                                </li>
-                                @if (json_decode(auth()->user()->sub_cat))
-
-                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
-                                @if ($cat == 'PLBIO')
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.pembeli') }}" class="sidebar-link">
-                                        <i class="fas fa-clipboard-list" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Pembeli </span>
-                                    </a>
-                                </li>
-                                @endif
-
-                                @endforeach
-                                @endif
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
-                                        <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Kod & Nama Produk </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.kod.negara') }}" class="sidebar-link">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Kod & Nama Negara </span>
-                                    </a>
-                                </li>
-                                @if (auth()->user()->role == 'Superadmin')
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.log.superadmin') }}" class="sidebar-link">
-                                            <i class=" fas fa-clock" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Audit Trail </span>
-                                        </a>
-                                    </li>
-                                @endif
-
-                            </ul>
-                        </li>
-
-                    </ul>
+                        </ul>
 
 
 
 
 
 
-                </nav>
+                    </nav>
 
-                <!-- End Sidebar navigation -->
-            </div>
+                </div>
 
-            <!-- End Sidebar scroll-->
-        </aside>
-    @endif
+                <!-- End Sidebar scroll-->
+            </aside>
+        @endif
     <!-- Vertically Centered modal Modal -->
     <div class="modal fade" id="tutup" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
