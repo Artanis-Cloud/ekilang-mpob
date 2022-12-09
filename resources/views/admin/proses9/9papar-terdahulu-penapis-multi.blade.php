@@ -43,7 +43,8 @@
 
                 <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
                     <div class="col-1 align-self-center">
-                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                        <a href="javascript:history.back()" class="btn" style=" color:rgb(64, 69, 68)"><i
+                                class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
 
                     <div class="col-11 align-self-center" style="text-align: right">
@@ -1085,14 +1086,13 @@
 
 <script>
     function myPrint(myfrm) {
-        var headstr = "<html><head><title></title></head><body>";
-        var footstr = "</body>";
-        var newstr = document.all.item(myfrm).innerHTML;
-        var oldstr = document.body.innerHTML;
-        document.body.innerHTML = headstr + newstr + footstr;
-        window.print();
-        document.body.innerHTML = oldstr;
-        return false;
+
+        var headstr = "<html><head><title></title></head><body></body>";
+            var restorepage = $('body').html();
+            var printcontent = $('#' + myfrm).clone();
+            $('body').empty().html(printcontent);
+            window.print();
+            $('body').html(restorepage);
     }
 </script>
 

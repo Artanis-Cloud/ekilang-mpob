@@ -1133,19 +1133,22 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
-                                            <p>Tarikh Penghantaran: &nbsp;&nbsp;
-                                                {{-- {{ $formatteddate }} --}}
-                                            </p>
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <span style="text-transform:uppercase"> {{ $data->pelesen->e_npg }}</span>
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <span style="text-transform:uppercase"> {{ $data->pelesen->e_jpg }}</span>
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                            <div class="" style="margin-top: -10px ">
 
-                                                {{ $data->pelesen->e_notel }}
-                                            </p>
+                                                <p>Tarikh Penghantaran: &nbsp;&nbsp;
+                                                    {{-- {{ $formatteddate }} --}}
+                                                </p>
+                                                <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                                    <span style="text-transform:uppercase"> {{ $data->pelesen->e_npg }}</span>
+                                                </p>
+                                                <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                                    <span style="text-transform:uppercase"> {{ $data->pelesen->e_jpg }}</span>
+                                                </p>
+                                                <p>No Telefon Kilang: &nbsp;&nbsp;
+
+                                                    {{ $data->pelesen->e_notel }}
+                                                </p>
+                                            </div>
 
 
                                     </body>
@@ -1190,14 +1193,13 @@
     </script>
     <script>
         function myPrint(myfrm) {
-            var headstr = "<html><head><title></title></head><body>";
-            var footstr = "</body>";
-            var newstr = document.all.item(myfrm).innerHTML;
-            var oldstr = document.body.innerHTML;
-            document.body.innerHTML = headstr + newstr + footstr;
+
+            var headstr = "<html><head><title></title></head><body></body>";
+            var restorepage = $('body').html();
+            var printcontent = $('#' + myfrm).clone();
+            $('body').empty().html(printcontent);
             window.print();
-            document.body.innerHTML = oldstr;
-            return false;
+            $('body').html(restorepage);
         }
     </script>
 

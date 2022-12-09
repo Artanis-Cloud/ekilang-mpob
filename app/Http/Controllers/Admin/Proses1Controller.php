@@ -346,6 +346,7 @@ class Proses1Controller extends Controller
             ];
 
             $kembali = route('admin.senaraipelesenbuah');
+            // dd($kembali);
         } elseif ( $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -404,7 +405,7 @@ class Proses1Controller extends Controller
         // $pelesen = Pelesen::find($e_id);
         // dd($pelesen);
         // $pengumuman = \DB::table('pengumuman')->get();
-        // dd($id);
+        // dd($kembali);
 
         return view('admin.proses1.papar-maklumat', compact(
             'returnArr',

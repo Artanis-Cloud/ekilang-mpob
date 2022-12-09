@@ -97,31 +97,45 @@
 
         .table-bordered {
         border: 1px solid #5d6161 !important;
+            padding: 0.3rem !important;
+            vertical-align: middle !important;
         }
 
         .table-bordered th,
         .table-bordered td {
             -webkit-print-color-adjust: exact !important;
             border: 1px solid #5d6161 !important;
+            padding: 0.3rem !important;
+            vertical-align: middle !important;
         }
 
         .table-bordered td.block {
             background: #C0C0C0 !important;
+            padding: 0.3rem !important;
+            vertical-align: middle !important;
 
         }
         .table-bordered td.headerColor {
             background: #d3d3d370 !important;
+            padding: 0.3rem !important;
+            vertical-align: middle !important;
 
         }
 
         .table-bordered thead th,
         .table-bordered thead td {
             border-bottom-width: 2px;
+            padding: 0.3rem !important;
+            vertical-align: middle !important;
         }
 
 
 
 
+    }
+
+    .disabledByMe{
+        pointer-events: none;
     }
 
     button.fred {

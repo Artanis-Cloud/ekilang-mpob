@@ -192,6 +192,10 @@
                                         <td class="field"><select class="form-control " id="new_syarikat"
                                                 name="new_syarikat[]">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
+                                                {{-- <option value="1">Red</option>
+                                                <option value="2">Green</option>
+                                                <option value="3">White</option>
+                                                <option value="4">Black</option> --}}
                                                 @foreach ($syarikat as $data)
                                                     <option value="{{ $data->id }}">
                                                         {{ $data->pembeli }}
@@ -202,9 +206,8 @@
                                         <td class="field"><input type="text" id="new_jumlah[]" class="form-control"
                                                 style="text-align: center" name='new_jumlah[]' placeholder="Jualan/Edaran"
                                                 onkeypress="return isNumberKey(event)"></td>
-                                        <td class="actions"><input type="button" class="add btn btn-primary"
-                                                style="display: block; margin: auto;" disabled="disabled"
-                                                onclick="add_row();" value="Tambah Maklumat">
+                                        <td class="actions"><input type="button" class="add btn btn-primary" style="display: block; margin: auto;"
+                                                id="remove" disabled="disabled" onclick="add_row(); " value="Tambah Maklumat">
                                         </td>
                                     </tr>
                                     <tr style="background-color: #d3d3d34d; text-align: center">
@@ -339,10 +342,24 @@
                     }
                 }
             }
-
-
         });
-    </script>
+            </script>
+
+{{-- // <script>
+//     const select = document.getElementById('new_syarikat');
+
+//     document.getElementById("remove").addEventListener("click",function() {
+//     const opt  = select.options[select.selectedIndex];
+//     if (opt) opt.remove()
+//     })
+// </script>
+
+// <script>
+//     function validation_jumlah(key) {
+
+
+//         });
+//     </script> --}}
     <script>
         function validation_jumlah(key) {
 

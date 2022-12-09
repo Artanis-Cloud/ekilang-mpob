@@ -42,8 +42,12 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="row" style="padding: 10px">
-                    <div class="col-1 align-self-center">
+                    {{-- <div class="col-1 align-self-center">
                         <a href="javascript:history.back()" class="btn" style=" color:rgb(64, 69, 68)"><i
+                                class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                    </div> --}}
+                    <div class="col-1 align-self-center">
+                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i
                                 class="fa fa-angle-left">&ensp;</i>Kembali</a>
                     </div>
                 </div>

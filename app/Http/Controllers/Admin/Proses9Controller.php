@@ -560,7 +560,7 @@ class Proses9Controller extends Controller
             }
         }
 //   dd($pelesens);
-        // dd($penyata);
+        // dd($kembali);
 
         $layout = 'layouts.main';
 
