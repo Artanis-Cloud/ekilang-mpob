@@ -2494,6 +2494,74 @@ class LaporanController extends Controller
 
             ];
             return view('admin.laporan_dq.laporan-eksport', $array);
+        } elseif ($laporan == 'proses') {
+            // dd($request->tahun);
+
+            if ($request->tahun) {
+                $tahun_sql = "innit.ebio_thn = '$request->tahun' ";
+            } else {
+                $tahun_sql = "";
+            }
+            if ($request->bulan == 'equal') {
+                $bulan_sql = "AND innit.ebio_bln = $request->start";
+            } elseif ($request->bulan == 'between') {
+                $bulan_sql = "AND innit.ebio_bln BETWEEN $request->start_month AND $request->end_month";
+            } else {
+                $bulan_sql = "";
+            }
+            $bulan = $request->bulan;
+            $bulan2 = $request->start;
+            $tahun2 = $request->tahun;
+            $start_month = $request->start_month;
+            $end_month = $request->end_month;
+
+
+            $proses =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_b_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
+            WHERE $tahun_sql" . "$bulan_sql
+            AND  h.ebio_b3 in ('1', '2')");
+
+            // dd($proses);
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Proses Selanjutnya Produk Biodiesel"],
+
+            ];
+
+            $kembali = route('admin.laporan.tahunan');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+            $array = [
+                'laporan' => $laporan,
+                'tahun_sql' => $tahun_sql,
+                'tahun2' => $tahun2,
+                'bulan' => $bulan,
+                'bulan2' => $bulan2,
+
+                'proses' => $proses,
+
+                'start_month' => $start_month,
+                'end_month' => $end_month,
+
+
+                // 'breadcrumbs' => $breadcrumbs,
+                // 'kembali' => $kembali,
+
+                'returnArr' => $returnArr,
+                'layout' => $layout,
+
+            ];
+            return view('admin.laporan_dq.laporan-proses', $array);
         } else {
             return redirect()->back()
                 ->with('error', 'Rekod Tidak Wujud!');

@@ -79,6 +79,9 @@
                                                             Pengeluaran Produk Biodiesel</option>
                                                         <option value="eksport" onclick="laporan_check()">Eksport Produk
                                                             Biodiesel</option>
+                                                        <option value="proses" onclick="laporan_check()">Proses
+                                                            Biodiesel</option>
+                                                        <option value="utilrate" onclick="laporan_check()">Utilization Rate</option>
                                                     </select>
                                                 </fieldset>
                                             </div>

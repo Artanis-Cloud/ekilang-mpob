@@ -155,91 +155,62 @@ class tryController extends Controller
     public function testdb_pldb()
     {
 
-        // $loginmills = DB::connection('mysql4')->select("SELECT F911A FROM PL911P3");
-        // $loginmills = DB::select("SELECT max(oerdaerah_id) as maxoerdaerah_id from oerdaerah");
+        $tahun = date('Y');
+        $bulan = date('m');
+        $current_date = date('Y-m-d');
+        $date = Init::where('tahun', $tahun)->first();
 
-        // $produks = DB::connection('mysql5')->select("SELECT comm_code_l, comm_summary, group_l,comm_desc,sub_group, sub_group_rspo, sub_group_mspo from  commodity_l");
-        // $password = Hash::make('admin123');
-        // $selects = DB::connection('mysql2')->select("SELECT e101_e6 FROM h101_e where e101_e1='78697'");
-        // dd($selects[0]);
+        if ($bulan == 2) {
+            $sdate = $date->sjan;
+            $edate = $date->ejan;
+        }
+        elseif ($bulan == 3) {
+            $sdate = $date->sfeb;
+            $edate = $date->efeb;
+        }
+        elseif ($bulan == 4) {
+            $sdate = $date->smac;
+            $edate = $date->emac;
+        }
+        elseif ($bulan == 5) {
+            $sdate = $date->sapr;
+            $edate = $date->eapr;
+        }
+        elseif ($bulan == 6) {
+            $sdate = $date->smei;
+            $edate = $date->emei;
+        }
+        elseif ($bulan == 7) {
+            $sdate = $date->sjun;
+            $edate = $date->ejun;
+        }
+        elseif ($bulan == 8) {
+            $sdate = $date->sjul;
+            $edate = $date->ejul;
+        }
+        elseif ($bulan == 9) {
+            $sdate = $date->sogos;
+            $edate = $date->eogos;
+        }
+        elseif ($bulan == 10) {
+            $sdate = $date->ssept;
+            $edate = $date->esept;
+        }
+        elseif ($bulan == 11) {
+            $sdate = $date->sokt;
+            $edate = $date->eokt;
+        }
+        elseif ($bulan == 12) {
+            $sdate = $date->snov;
+            $edate = $date->enov;
+        }
+        else {
+            $sdate = $date->sdec;
+            $edate = $date->edec;
+        }
 
 
-        // $tahun = date('Y');
-        // $bulan = date('m');
-        // $current_date = date('Y-m-d');
-        // $date = Init::where('tahun', $tahun)->first();
-
-        // if ($bulan == 2) {
-        //     $sdate = $date->sjan;
-        //     $edate = $date->ejan;
-        // }
-        // elseif ($bulan == 3) {
-        //     $sdate = $date->sfeb;
-        //     $edate = $date->efeb;
-        // }
-        // elseif ($bulan == 4) {
-        //     $sdate = $date->smac;
-        //     $edate = $date->emac;
-        // }
-        // elseif ($bulan == 5) {
-        //     $sdate = $date->sapr;
-        //     $edate = $date->eapr;
-        // }
-        // elseif ($bulan == 6) {
-        //     $sdate = $date->smei;
-        //     $edate = $date->emei;
-        // }
-        // elseif ($bulan == 7) {
-        //     $sdate = $date->sjun;
-        //     $edate = $date->ejun;
-        // }
-        // elseif ($bulan == 8) {
-        //     $sdate = $date->sjul;
-        //     $edate = $date->ejul;
-        // }
-        // elseif ($bulan == 9) {
-        //     $sdate = $date->sogos;
-        //     $edate = $date->eogos;
-        // }
-        // elseif ($bulan == 10) {
-        //     $sdate = $date->ssept;
-        //     $edate = $date->esept;
-        // }
-        // elseif ($bulan == 11) {
-        //     $sdate = $date->sokt;
-        //     $edate = $date->eokt;
-        // }
-        // elseif ($bulan == 12) {
-        //     $sdate = $date->snov;
-        //     $edate = $date->enov;
-        // }
-        // else {
-        //     $sdate = $date->sdec;
-        //     $edate = $date->edec;
-        // }
-
-        // dd($sdate == $current_date);
-        // if ($sdate == $current_date ) {
-
-        // $e6 = strtotime($selects[0]->e101_e6);
-
-        $qdelplbio = DB::connection('mysql4')->select("SELECT * from h_hari");
-        dd($qdelplbio);
-
-        // foreach ($selects as $key => $select) {
-
-        //     if ($select->e101_e6 == '0000-00-00' || $select->e101_e6 == '2020-00-03' || $select->e101_e6 == '2020-00-01'  || $select->e101_e6 == '2020-00-00'|| $select->e101_e6 == '2020-00-08'|| $select->e101_e6 == '2000-04-00'|| $select->e101_e6 == '2020-00-12') {
-        //         $data = NULL;
-        //     } elseif($select->e101_e6 == '2020-00-07' || $select->e101_e6 == '2000-00-22' || $select->e101_e6 == '2000-07-00' || $select->e101_e6 == '2020-00-06' || $select->e101_e6 == '2000-08-00' || $select->e101_e6 == '2020-00-09' || $select->e101_e6 == '2009-00-05') {
-        //         $data = NULL;
-        //     } elseif( date('d', strtotime($select->e101_e6)) == '00' || date('m', strtotime($select->e101_e6)) == '00' || date('Y', strtotime($select->e101_e6)) == '0000'){
-        //         $data = NULL;
-        //     }
-        //      else {
-        //         $data = $select->e101_e6;
-        //     }
-        // }
-        // dd(date('m', $e6));
+        dd($sdate == $current_date);
 
 
 
