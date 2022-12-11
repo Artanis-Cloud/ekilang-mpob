@@ -112,7 +112,7 @@ class InitializeUpdate extends Command
 
             Auth::user()->log("INITIALIZE PENYATA BULANAN");
 
-            return redirect()->back()->with('success','CRON RUNNING');
+            // return redirect()->back()->with('success','CRON RUNNING');
         }
 
     }
