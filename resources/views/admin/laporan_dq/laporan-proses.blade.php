@@ -255,7 +255,6 @@
                                             @if ($bulan == null)
                                                 @php
                                                     $total_kapasiti = 0;
-                                                    $total_proses = 0;
                                                     $total_allproses = 0;
                                                     $bulan_1 = 0;
                                                     $bulan_2 = 0;
@@ -294,6 +293,11 @@
                                                 @endforeach
                                             @endfor --}}
                                                 @foreach ($proses as $data)
+                                                    {{-- {{ dd($data) }} --}}
+                                                    @php
+                                                    $total_proses = 0;
+
+                                                    @endphp
                                                     <tr class="text-right">
                                                         <td scope="row" class="text-left">{{ $loop->iteration }}</td>
                                                         <td scope="row" class="text-left">{{ $data->e_np }}</td>
@@ -343,8 +347,8 @@
                                                     @endfor --}}
                                                         @if ($data->ebio_bln == '01' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_1++;
-                                                                $total_bulan++;
+                                                                // $bulan_1++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_1 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
                                                             @endphp
@@ -355,8 +359,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '02' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_2++;
-                                                                $total_bulan++;
+                                                                // $bulan_2 += $data->ebio_c6;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_2 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -368,8 +372,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '03' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_3++;
-                                                                $total_bulan++;
+                                                                // $bulan_3++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_3 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -381,8 +385,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '04' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_4++;
-                                                                $total_bulan++;
+                                                                // $bulan_4++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_4 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -394,8 +398,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '05' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_5++;
-                                                                $total_bulan++;
+                                                                // $bulan_5++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_5 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -407,8 +411,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '06' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_6++;
-                                                                $total_bulan++;
+                                                                // $bulan_6++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_6 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -420,8 +424,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '07' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_7++;
-                                                                $total_bulan++;
+                                                                // $bulan_7++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_7 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -433,8 +437,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '08' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_8++;
-                                                                $total_bulan++;
+                                                                // $bulan_8++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_8 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -446,8 +450,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '09' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_9++;
-                                                                $total_bulan++;
+                                                                // $bulan_9++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_9 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -459,8 +463,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '10' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_10++;
-                                                                $total_bulan++;
+                                                                // $bulan_10++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_10 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -472,8 +476,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '11' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_11++;
-                                                                $total_bulan++;
+                                                                // $bulan_11++;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_11 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -485,8 +489,8 @@
                                                         @endif
                                                         @if ($data->ebio_bln == '12' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_12++;
-                                                                $total_bulan++;
+                                                                // $bulan_12 += $data->ebio_c6;
+                                                                //$total_bulan += $data->ebio_c6;
                                                                 $total_proses_12 += $data->ebio_c6;
                                                                 $total_proses += $data->ebio_c6;
 
@@ -500,20 +504,23 @@
                                                             {{ number_format($total_proses ?? 0, 2) }}</td>
 
                                                     </tr>
-                                                    @php
-                                                        $total_allproses += $total_proses;
-                                                        // $total_feb += $data->feb;
-                                                        // $total_mac += $data->mac;
-                                                        // $total_apr += $data->apr;
-                                                        // $total_mei += $data->mei;
-                                                        // $total_jun += $data->jun;
-                                                        // $total_jul += $data->jul;
-                                                        // $total_ogs += $data->ogs;
-                                                        // $total_sept += $data->sept;
-                                                        // $total_okt += $data->okt;
-                                                        // $total_nov += $data->nov;
-                                                        // $total_dec += $data->dec;
-                                                    @endphp
+
+                                                @php
+                                                    $total_allproses += $total_proses;
+                                                    // $total_feb += $data->feb;
+                                                    // $total_mac += $data->mac;
+                                                    // $total_apr += $data->apr;
+                                                    // $total_mei += $data->mei;
+                                                    // $total_jun += $data->jun;
+                                                    // $total_jul += $data->jul;
+                                                    // $total_ogs += $data->ogs;
+                                                    // $total_sept += $data->sept;
+                                                    // $total_okt += $data->okt;
+                                                    // $total_nov += $data->nov;
+                                                    // $total_dec += $data->dec;
+                                                @endphp
+                                                {{-- {{ dd($total_proses) }} --}}
+
                                                 @endforeach
 
 
