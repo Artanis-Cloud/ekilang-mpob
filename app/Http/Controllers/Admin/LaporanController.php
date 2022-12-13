@@ -2515,6 +2515,79 @@ class LaporanController extends Controller
             $start_month = $request->start_month;
             $end_month = $request->end_month;
 
+            if ($start_month == '1') {
+                $start = 'Jan';
+            }
+            elseif ($start_month == '2') {
+                $start = 'Feb';
+            }
+            elseif ($start_month == '3') {
+                $start = 'Mac';
+            }
+            elseif ($start_month == '4') {
+                $start = 'Apr';
+            }
+            elseif ($start_month == '5') {
+                $start = 'Mei';
+            }
+            elseif ($start_month == '6') {
+                $start = 'Jun';
+            }
+            elseif ($start_month == '7') {
+                $start = 'Jul';
+            }
+            elseif ($start_month == '8') {
+                $start = 'Ogos';
+            }
+            elseif ($start_month == '9') {
+                $start = 'Sept';
+            }
+            elseif ($start_month == '10') {
+                $start = 'Okt';
+            }
+            elseif ($start_month == '11') {
+                $start = 'Nov';
+            }
+            elseif ($start_month == '12') {
+                $start = 'Dec';
+            }
+
+            if ($end_month == '1') {
+                $end = 'Jan';
+            }
+            elseif ($end_month == '2') {
+                $end = 'Feb';
+            }
+            elseif ($end_month == '3') {
+                $end = 'Mac';
+            }
+            elseif ($end_month == '4') {
+                $end = 'Apr';
+            }
+            elseif ($end_month == '5') {
+                $end = 'Mei';
+            }
+            elseif ($end_month == '6') {
+                $end = 'Jun';
+            }
+            elseif ($end_month == '7') {
+                $end = 'Jul';
+            }
+            elseif ($end_month == '8') {
+                $end = 'Ogos';
+            }
+            elseif ($end_month == '9') {
+                $end = 'Sept';
+            }
+            elseif ($end_month == '10') {
+                $end = 'Okt';
+            }
+            elseif ($end_month == '11') {
+                $end = 'Nov';
+            }
+            elseif ($end_month == '12') {
+                $end = 'Dec';
+            }
 
             $proses =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
             FROM h_bio_b_s h
@@ -2551,26 +2624,46 @@ class LaporanController extends Controller
             ];
             $layout = 'layouts.admin';
 
-            $array = [
-                'laporan' => $laporan,
-                'tahun_sql' => $tahun_sql,
-                'tahun2' => $tahun2,
-                'bulan' => $bulan,
-                'bulan2' => $bulan2,
+            if ($start_month) {
+                $array = [
+                    'laporan' => $laporan,
+                    'tahun_sql' => $tahun_sql,
+                    'tahun2' => $tahun2,
+                    'bulan' => $bulan,
+                    'bulan2' => $bulan2,
+                    'start' => $start,
+                    'end' => $end,
 
-                'proses' => $proses,
+                    'proses' => $proses,
 
-                'start_month' => $start_month,
-                'end_month' => $end_month,
+                    'start_month' => $start_month,
+                    'end_month' => $end_month,
 
+                    'returnArr' => $returnArr,
+                    'layout' => $layout,
 
-                // 'breadcrumbs' => $breadcrumbs,
-                // 'kembali' => $kembali,
+                ];
+            } else {
+                $array = [
+                    'laporan' => $laporan,
+                    'tahun_sql' => $tahun_sql,
+                    'tahun2' => $tahun2,
+                    'bulan' => $bulan,
+                    'bulan2' => $bulan2,
+                    // 'start' => $start,
+                    // 'end' => $end,
 
-                'returnArr' => $returnArr,
-                'layout' => $layout,
+                    'proses' => $proses,
 
-            ];
+                    'start_month' => $start_month,
+                    'end_month' => $end_month,
+
+                    'returnArr' => $returnArr,
+                    'layout' => $layout,
+
+                ];
+            }
+
             return view('admin.laporan_dq.laporan-proses', $array);
         } else {
             return redirect()->back()

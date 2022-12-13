@@ -135,8 +135,8 @@
                                                 </th>
                                                 <th scope="col" style="vertical-align: middle; text-align:center">Dis
                                                 </th>
-                                                <th scope="col" rowspan="2"
-                                                    style="vertical-align: middle; text-align:center">Jan - Dis
+                                                <th scope="col" style="vertical-align: middle; text-align:center">Jan -
+                                                    Dis
                                                     {{ $tahun2 }}
                                                 </th>
                                             @elseif ($bulan == 'between')
@@ -196,6 +196,10 @@
                                                         </th>
                                                     @endif
                                                 @endfor
+                                                <th scope="col" style="vertical-align: middle; text-align:center">{{ $start }} -
+                                                    {{ $end }}
+                                                    {{ $tahun2 }}
+                                                </th>
                                             @else
                                                 @if ($bulan2 == '01')
                                                     <th scope="col" style="vertical-align: middle; text-align:center">
@@ -256,19 +260,19 @@
                                                 @php
                                                     $total_kapasiti = 0;
                                                     $total_allproses = 0;
-                                                    $bulan_1 = 0;
-                                                    $bulan_2 = 0;
-                                                    $bulan_3 = 0;
-                                                    $bulan_4 = 0;
-                                                    $bulan_5 = 0;
-                                                    $bulan_6 = 0;
-                                                    $bulan_7 = 0;
-                                                    $bulan_8 = 0;
-                                                    $bulan_9 = 0;
-                                                    $bulan_10 = 0;
-                                                    $bulan_11 = 0;
-                                                    $bulan_12 = 0;
-                                                    $total_bulan = 0;
+                                                    // $bulan_1 = 0;
+                                                    // $bulan_2 = 0;
+                                                    // $bulan_3 = 0;
+                                                    // $bulan_4 = 0;
+                                                    // $bulan_5 = 0;
+                                                    // $bulan_6 = 0;
+                                                    // $bulan_7 = 0;
+                                                    // $bulan_8 = 0;
+                                                    // $bulan_9 = 0;
+                                                    // $bulan_10 = 0;
+                                                    // $bulan_11 = 0;
+                                                    // $bulan_12 = 0;
+                                                    // $total_bulan = 0;
                                                     // $total_kapasiti_.$i = 0;
                                                     $total_proses_1 = 0;
                                                     $total_proses_2 = 0;
@@ -295,7 +299,7 @@
                                                 @foreach ($proses as $data)
                                                     {{-- {{ dd($data) }} --}}
                                                     @php
-                                                    $total_proses = 0;
+                                                        $total_proses = 0;
 
                                                     @endphp
                                                     <tr class="text-right">
@@ -505,22 +509,21 @@
 
                                                     </tr>
 
-                                                @php
-                                                    $total_allproses += $total_proses;
-                                                    // $total_feb += $data->feb;
-                                                    // $total_mac += $data->mac;
-                                                    // $total_apr += $data->apr;
-                                                    // $total_mei += $data->mei;
-                                                    // $total_jun += $data->jun;
-                                                    // $total_jul += $data->jul;
-                                                    // $total_ogs += $data->ogs;
-                                                    // $total_sept += $data->sept;
-                                                    // $total_okt += $data->okt;
-                                                    // $total_nov += $data->nov;
-                                                    // $total_dec += $data->dec;
-                                                @endphp
-                                                {{-- {{ dd($total_proses) }} --}}
-
+                                                    @php
+                                                        $total_allproses += $total_proses;
+                                                        // $total_feb += $data->feb;
+                                                        // $total_mac += $data->mac;
+                                                        // $total_apr += $data->apr;
+                                                        // $total_mei += $data->mei;
+                                                        // $total_jun += $data->jun;
+                                                        // $total_jul += $data->jul;
+                                                        // $total_ogs += $data->ogs;
+                                                        // $total_sept += $data->sept;
+                                                        // $total_okt += $data->okt;
+                                                        // $total_nov += $data->nov;
+                                                        // $total_dec += $data->dec;
+                                                    @endphp
+                                                    {{-- {{ dd($total_proses) }} --}}
                                                 @endforeach
 
 
@@ -528,7 +531,7 @@
                                                     class="font-weight-bold text-right">
                                                     <th colspan="2"><b>JUMLAH</b></th>
                                                     <td></td>
-                                                    <td>{{ number_format($total_kapproses ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($total_kapproses ?? 0) }}</td>
                                                     <td>{{ number_format($total_proses_1 ?? 0, 2) }}</td>
                                                     <td>{{ number_format($total_proses_2 ?? 0, 2) }}</td>
                                                     <td>{{ number_format($total_proses_3 ?? 0, 2) }}</td>
@@ -546,7 +549,18 @@
                                                     {{-- <td></td> --}}
                                                 </tr>
                                             @elseif ($bulan == 'between')
+                                                @php
+                                                    $total_kapproses = 0;
+                                                    $total_allproses = 0;
+
+                                                @endphp
+
                                                 @foreach ($proses as $key => $data)
+                                                    @php
+                                                        $total_proses = 0;
+                                                        $total_bulan[$i] = 0;
+
+                                                    @endphp
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $data->e_np }}</td>
@@ -582,11 +596,16 @@
                                                         @else
                                                             <td class="text-left">-</td>
                                                         @endif
-                                                        <td scope="row" class="text-left">{{ $data->kap_proses }}</td>
+                                                        @php
+                                                            $total_kapproses += $data->kap_proses;
+                                                        @endphp
+                                                        <td scope="row" class="text-right">
+                                                            {{ number_format($data->kap_proses ?? 0) }}</td>
 
                                                         @for ($i = $start_month; $i <= $end_month; $i++)
                                                             @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
                                                                 @php
+                                                                    $total_proses += $data->ebio_c6;
                                                                     $total_bulan[$i] += $data->ebio_c6;
 
                                                                 @endphp
@@ -596,31 +615,40 @@
                                                                 <td class="text-right">0.00</td>
                                                             @endif
                                                         @endfor
+                                                        {{-- {{ dd($total_proses) }} --}}
+                                                        {{-- @php
+                                                                $jumlah = $total_proses;
+                                                                // {{ dd( $jumlah); }}
+                                                        @endphp --}}
+                                                        <td style="text-align: right">
+                                                            {{ number_format($total_proses ?? 0, 2) }}</td>
+
                                                     </tr>
+                                                    @php
+                                                        $total_allproses += $total_proses;
+                                                @endphp
                                                 @endforeach
+
                                                 <tr style="background-color: #d3d3d34d"
                                                     class="font-weight-bold text-right">
                                                     <th colspan="3"><b>JUMLAH</b></th>
+                                                    <td>{{ number_format($total_kapproses ?? 0) }}</td>
+
                                                     @for ($i = $start_month; $i <= $end_month; $i++)
                                                         <td>{{ number_format($total_bulan[$i] ?? 0, 2) }}</td>
                                                     @endfor
+                                                <td>{{ number_format($total_allproses ?? 0, 2) }}</td>
+
                                                 </tr>
+
+
                                                 {{-- @endif --}}
+
+
                                             @else
                                                 @php
                                                     $total_kapasiti = 0;
-                                                    $bulan_1 = 0;
-                                                    $bulan_2 = 0;
-                                                    $bulan_3 = 0;
-                                                    $bulan_4 = 0;
-                                                    $bulan_5 = 0;
-                                                    $bulan_6 = 0;
-                                                    $bulan_7 = 0;
-                                                    $bulan_8 = 0;
-                                                    $bulan_9 = 0;
-                                                    $bulan_10 = 0;
-                                                    $bulan_11 = 0;
-                                                    $bulan_12 = 0;
+                                                    $total_kapproses = 0;
                                                     $total_bulan = 0;
                                                     // $total_kapasiti_.$i = 0;
                                                     $total_proses_1 = 0;
@@ -672,12 +700,17 @@
                                                         @else
                                                             <td class="text-left">-</td>
                                                         @endif
-                                                        <td scope="row" class="text-left">{{ $data->kap_proses }}</td>
+                                                        @php
+                                                            $total_kapproses += $data->kap_proses;
+                                                        @endphp
+                                                        <td scope="row" class="text-right">
+                                                            {{ number_format($data->kap_proses ?? 0) }}</td>
+                                                        {{-- <td scope="row" class="text-left">{{ $data->kap_proses }}</td> --}}
 
 
                                                         @if ($data->ebio_bln == '01' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_1++;
+                                                                // $bulan_1++;
                                                                 $total_bulan++;
                                                                 $total_proses_1 += $data->ebio_c6;
                                                             @endphp
@@ -685,7 +718,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '02' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_2++;
+                                                                // $bulan_2++;
                                                                 $total_bulan++;
                                                                 $total_proses_2 += $data->ebio_c6;
                                                             @endphp
@@ -693,7 +726,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '03' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_3++;
+                                                                // $bulan_3++;
                                                                 $total_bulan++;
                                                                 $total_proses_3 += $data->ebio_c6;
                                                             @endphp
@@ -701,7 +734,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '04' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_4++;
+                                                                // $bulan_4++;
                                                                 $total_bulan++;
                                                                 $total_proses_4 += $data->ebio_c6;
                                                             @endphp
@@ -709,7 +742,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '05' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_5++;
+                                                                // $bulan_5++;
                                                                 $total_bulan++;
                                                                 $total_proses_5 += $data->ebio_c6;
                                                             @endphp
@@ -717,7 +750,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '06' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_6++;
+                                                                // $bulan_6++;
                                                                 $total_bulan++;
                                                                 $total_proses_6 += $data->ebio_c6;
                                                             @endphp
@@ -725,7 +758,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '07' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_7++;
+                                                                // $bulan_7++;
                                                                 $total_bulan++;
                                                                 $total_proses_7 += $data->ebio_c6;
                                                             @endphp
@@ -733,7 +766,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '08' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_8++;
+                                                                // $bulan_8++;
                                                                 $total_bulan++;
                                                                 $total_proses_8 += $data->ebio_c6;
                                                             @endphp
@@ -741,7 +774,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '09' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_9++;
+                                                                // $bulan_9++;
                                                                 $total_bulan++;
                                                                 $total_proses_9 += $data->ebio_c6;
                                                             @endphp
@@ -749,7 +782,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '10' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_10++;
+                                                                // $bulan_10++;
                                                                 $total_bulan++;
                                                                 $total_proses_10 += $data->ebio_c6;
                                                             @endphp
@@ -757,7 +790,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '11' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_11++;
+                                                                // $bulan_11++;
                                                                 $total_bulan++;
                                                                 $total_proses_11 += $data->ebio_c6;
                                                             @endphp
@@ -765,7 +798,7 @@
                                                                 {{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                         @elseif ($data->ebio_bln == '12' && $data->ebio_c6 != 0)
                                                             @php
-                                                                $bulan_12++;
+                                                                // $bulan_12++;
                                                                 $total_bulan++;
                                                                 $total_proses_12 += $data->ebio_c6;
                                                             @endphp
@@ -778,17 +811,6 @@
                                                     </tr>
                                                     @php
                                                         $total_kapasiti += $data->kap_proses;
-                                                        // $total_feb += $data->feb;
-                                                        // $total_mac += $data->mac;
-                                                        // $total_apr += $data->apr;
-                                                        // $total_mei += $data->mei;
-                                                        // $total_jun += $data->jun;
-                                                        // $total_jul += $data->jul;
-                                                        // $total_ogs += $data->ogs;
-                                                        // $total_sept += $data->sept;
-                                                        // $total_okt += $data->okt;
-                                                        // $total_nov += $data->nov;
-                                                        // $total_dec += $data->dec;
                                                     @endphp
                                                 @endforeach
 
@@ -797,6 +819,8 @@
                                                     class="font-weight-bold text-right">
                                                     <th colspan="2"><b>JUMLAH</b></th>
                                                     <td></td>
+                                                    <td>{{ number_format($total_kapproses ?? 0) }}</td>
+
                                                     @if ($bulan2 == '01')
                                                         <td>{{ number_format($total_proses_1 ?? 0, 2) }}</td>
                                                     @elseif ($bulan2 == '02')
