@@ -2522,9 +2522,19 @@ class LaporanController extends Controller
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
             WHERE $tahun_sql" . "$bulan_sql
-            AND  h.ebio_b3 in ('1', '2')");
+            AND  h.ebio_b3 in ('1', '2')
+            GROUP by innit.ebio_bln, p.e_nl");
 
-            // dd($proses);
+            // SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            // FROM h_bio_b_s h
+            // LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            // LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            // LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
+            // WHERE innit.ebio_thn = '2022'
+            // AND  h.ebio_b3 in ('1', '2')
+            // GROUP by innit.ebio_bln, p.e_nl
+
+            dd($proses);
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
