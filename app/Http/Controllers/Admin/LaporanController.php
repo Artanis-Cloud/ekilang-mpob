@@ -2534,7 +2534,7 @@ class LaporanController extends Controller
             // AND  h.ebio_b3 in ('1', '2')
             // GROUP by innit.ebio_bln, p.e_nl
 
-            dd($proses);
+            // dd($proses);
 
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
