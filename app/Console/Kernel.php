@@ -22,7 +22,7 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-
+        // $run_at = now()->addHours(8)->utc()->format('H:i');
 
         // $schedule->call([App\Http\Controllers\Admin\Proses3try::class, 'crtest'])->everyMinute()->runInBackground();
         // $schedule->call(function () {
