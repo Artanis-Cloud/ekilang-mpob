@@ -43,8 +43,9 @@ class tryController extends Controller
         // // $dt = date('Y-m-d');
         // echo $dt->format('d-m-Y H:i:s');
 
-        $qins = DB::connection('mysql4')->delete("DELETE from hebahan_stok_akhir where bulan='10' and tahun = '2022'");
-        dd($qins);
+        // $run_at = now($zone)->startOfDay()->addHours(8)->utc()->format('H:i');
+        $run_at = now()->addHours(8)->utc()->format('H:i');
+        dd($run_at);
 
 
 
