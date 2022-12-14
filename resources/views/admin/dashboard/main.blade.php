@@ -354,7 +354,7 @@
                                     </tr>
                                     <tr style="background-color:  #d3d3d370">
                                         <td class="headerColor">Tarikh</td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                             {{-- @php --}}
                                                 {{-- // $total_bulan[$i] = 0;
                                                 // $total_kapasiti[$i] = 0;
@@ -373,7 +373,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Buah </td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                                 <td scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $PL91[$i][0]->pelesen }}
                                                 </td>
@@ -385,7 +385,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Penapis </td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                                 <td scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $PL101[$i][0]->pelesen }}
                                                 </td>
@@ -397,7 +397,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Isirung </td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                                 <td scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $PL102[$i][0]->pelesen }}
                                                 </td>
@@ -409,7 +409,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Oleokimia </td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                                 <td scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $PL104[$i][0]->pelesen }}
                                                 </td>
@@ -421,7 +421,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Pusat Simpanan </td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                                 <td scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $PL111[$i][0]->pelesen }}
                                                 </td>
@@ -433,7 +433,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">Kilang Biodiesel </td>
-                                        @for ($i = 1; $i <= $days; $i++)
+                                        @for ($i = $sdays; $i <= $days; $i++)
                                                 <td scope="col"
                                                     style="vertical-align: middle; text-align:center">{{ $PLBIO[$i][0]->pelesen }}
                                                 </td>
@@ -669,12 +669,13 @@
         const ctx2 = document.getElementById('myChart2');
 
         var days2 = {{ $days }};
+        var daysbuah = {{ $sdays }};
         // console.log(days2);
         let labels2 = [];
         let data2 = [];
         var array2 = @json($PL91);
         // console.log(array2);
-        for (let index2 = 1; index2 <= days2; index2++) {
+        for (let index2 = daysbuah; index2 <= days2; index2++) {
             const pl91 = array2[index2];
             labels2.push(pl91[0]['days']+'hb');
             data2.push(pl91[0]['pelesen']);
@@ -729,12 +730,13 @@
     <script>
         const ctx3 = document.getElementById('myChart3');
 
+        var dayspenapis = {{ $sdays }};
         var days = {{ $days }};
         let labels = [];
         let data = [];
         var array = @json($PL101);
         // console.log(array);
-        for (let index = 1; index <= days; index++) {
+        for (let index = dayspenapis; index <= days; index++) {
             const pl101 = array[index];
             labels.push(pl101[0]['days']+'hb');
             data.push(pl101[0]['pelesen']);
@@ -787,12 +789,13 @@
 
     <script>
         const ctx4 = document.getElementById('myChart4');
+        var daysisirung = {{ $sdays }};
         var days4 = {{ $days }};
         let labels4 = [];
         let data4 = [];
         var array4 = @json($PL102);
         // console.log(array4);
-        for (let index4 = 1; index4 <= days4; index4++) {
+        for (let index4 = daysisirung; index4 <= days4; index4++) {
             const pl102 = array4[index4];
             labels4.push(pl102[0]['days']+'hb');
             data4.push(pl102[0]['pelesen']);
@@ -843,12 +846,14 @@
     <script>
         const ctx5 = document.getElementById('myChart5');
 
+        var days104 = {{ $sdays }};
+
         var days5 = {{ $days }};
         let labels5 = [];
         let data5 = [];
         var array5 = @json($PL104);
         console.log(array5);
-        for (let index5 = 1; index5 <= days5; index5++) {
+        for (let index5 = days104; index5 <= days5; index5++) {
             const pl104 = array5[index5];
             labels5.push(pl104[0]['days']+'hb');
             data5.push(pl104[0]['pelesen']);
@@ -899,12 +904,14 @@
     </script>
     <script>
         const ctx6 = document.getElementById('myChart6');
+        var days111 = {{ $sdays }};
+
         var days6 = {{ $days }};
         let labels6 = [];
         let data6 = [];
         var array6 = @json($PL111);
         // console.log(array);
-        for (let index6 = 1; index6 <= days6; index6++) {
+        for (let index6 = days111; index6 <= days6; index6++) {
             const pl111 = array6[index6];
             labels6.push(pl111[0]['days']+'hb');
             data6.push(pl111[0]['pelesen']);
@@ -954,12 +961,14 @@
     </script>
     <script>
         const ctx7 = document.getElementById('myChart7');
+        var daysbio = {{ $sdays }};
+
         var days7 = {{ $days }};
         let labels7 = [];
         let data7 = [];
         var array7 = @json($PLBIO);
         // console.log(array);
-        for (let index7 = 1; index7 <= days7; index7++) {
+        for (let index7 = daysbio; index7 <= days7; index7++) {
             const plbio = array7[index7];
             labels7.push(plbio[0]['days']+'hb');
             data7.push(plbio[0]['pelesen']);
