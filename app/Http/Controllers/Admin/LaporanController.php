@@ -2586,7 +2586,7 @@ class LaporanController extends Controller
                 $end = 'Nov';
             }
             elseif ($end_month == '12') {
-                $end = 'Dec';
+                $end = 'Dis';
             }
 
             $proses =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
@@ -2597,16 +2597,6 @@ class LaporanController extends Controller
             WHERE $tahun_sql" . "$bulan_sql
             AND  h.ebio_b3 in ('1', '2')
             GROUP by innit.ebio_bln, p.e_nl");
-
-            // SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
-            // FROM h_bio_b_s h
-            // LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
-            // LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
-            // LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
-            // WHERE innit.ebio_thn = '2022'
-            // AND  h.ebio_b3 in ('1', '2')
-            // GROUP by innit.ebio_bln, p.e_nl
-
             // dd($proses);
 
             $breadcrumbs    = [
@@ -2665,6 +2655,253 @@ class LaporanController extends Controller
             }
 
             return view('admin.laporan_dq.laporan-proses', $array);
+        } elseif ($laporan == 'utilrate') {
+            // dd($request->tahun);
+
+            if ($request->tahun) {
+                $tahun_sql = "innit.ebio_thn = '$request->tahun' ";
+            } else {
+                $tahun_sql = "";
+            }
+            if ($request->bulan == 'equal') {
+                $bulan_sql = "AND innit.ebio_bln = $request->start";
+            } elseif ($request->bulan == 'between') {
+                $bulan_sql = "AND innit.ebio_bln BETWEEN $request->start_month AND $request->end_month";
+            } else {
+                $bulan_sql = "";
+            }
+            $bulan = $request->bulan;
+            $bulan2 = $request->start;
+            $tahun2 = $request->tahun;
+            $start_month = $request->start_month;
+            $end_month = $request->end_month;
+
+            if ($start_month == '1') {
+                $start = 'Jan';
+            }
+            elseif ($start_month == '2') {
+                $start = 'Feb';
+            }
+            elseif ($start_month == '3') {
+                $start = 'Mac';
+            }
+            elseif ($start_month == '4') {
+                $start = 'Apr';
+            }
+            elseif ($start_month == '5') {
+                $start = 'Mei';
+            }
+            elseif ($start_month == '6') {
+                $start = 'Jun';
+            }
+            elseif ($start_month == '7') {
+                $start = 'Jul';
+            }
+            elseif ($start_month == '8') {
+                $start = 'Ogos';
+            }
+            elseif ($start_month == '9') {
+                $start = 'Sept';
+            }
+            elseif ($start_month == '10') {
+                $start = 'Okt';
+            }
+            elseif ($start_month == '11') {
+                $start = 'Nov';
+            }
+            elseif ($start_month == '12') {
+                $start = 'Dec';
+            }
+
+            if ($end_month == '1') {
+                $end = 'Jan';
+            }
+            elseif ($end_month == '2') {
+                $end = 'Feb';
+            }
+            elseif ($end_month == '3') {
+                $end = 'Mac';
+            }
+            elseif ($end_month == '4') {
+                $end = 'Apr';
+            }
+            elseif ($end_month == '5') {
+                $end = 'Mei';
+            }
+            elseif ($end_month == '6') {
+                $end = 'Jun';
+            }
+            elseif ($end_month == '7') {
+                $end = 'Jul';
+            }
+            elseif ($end_month == '8') {
+                $end = 'Ogos';
+            }
+            elseif ($end_month == '9') {
+                $end = 'Sept';
+            }
+            elseif ($end_month == '10') {
+                $end = 'Okt';
+            }
+            elseif ($end_month == '11') {
+                $end = 'Nov';
+            }
+            elseif ($end_month == '12') {
+                $end = 'Dis';
+            }
+
+            if ($bulan2 == '1') {
+                $bulan3 = 'Januari';
+            }
+            elseif ($bulan2 == '2') {
+                $bulan3 = 'Februari';
+            }
+            elseif ($bulan2 == '3') {
+                $bulan3 = 'Mac';
+            }
+            elseif ($bulan2 == '4') {
+                $bulan3 = 'April';
+            }
+            elseif ($bulan2 == '5') {
+                $bulan3 = 'Mei';
+            }
+            elseif ($bulan2 == '6') {
+                $bulan3 = 'Jun';
+            }
+            elseif ($bulan2 == '7') {
+                $bulan3 = 'Julai';
+            }
+            elseif ($bulan2 == '8') {
+                $bulan3 = 'Ogos';
+            }
+            elseif ($bulan2 == '9') {
+                $bulan3 = 'September';
+            }
+            elseif ($bulan2 == '10') {
+                $bulan3 = 'Oktober';
+            }
+            elseif ($bulan2 == '11') {
+                $bulan3 = 'November';
+            }
+            elseif ($bulan2 == '12') {
+                $bulan3 = 'Dissember';
+            }
+
+            $proses_sm =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_b_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
+            WHERE $tahun_sql" . "$bulan_sql
+            AND p.e_negeri not in ('13','14')
+            AND  h.ebio_b3 in ('1', '2')
+            GROUP by p.e_nl");
+
+            $proses_sbh =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_b_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
+            WHERE $tahun_sql" . "$bulan_sql
+            AND p.e_negeri = '13'
+            AND  h.ebio_b3 in ('1', '2')
+            GROUP by p.e_nl");
+
+            $proses_srwk =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_b3 as ebio_c3, SUM(h.ebio_b8) as ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_b_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
+            WHERE $tahun_sql" . "$bulan_sql
+            AND p.e_negeri = '14'
+            AND  h.ebio_b3 in ('1', '2')
+            GROUP by p.e_nl");
+
+
+            // dd($proses);
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Proses Selanjutnya Produk Biodiesel"],
+
+            ];
+
+            $kembali = route('admin.laporan.tahunan');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+            if ($start_month) {
+                $array = [
+                    'laporan' => $laporan,
+                    'tahun_sql' => $tahun_sql,
+                    'tahun2' => $tahun2,
+                    'bulan' => $bulan,
+                    'bulan2' => $bulan2,
+                    'start' => $start,
+                    'end' => $end,
+
+                    'proses_sm' => $proses_sm,
+                    'proses_sbh' => $proses_sbh,
+                    'proses_srwk' => $proses_srwk,
+
+                    'start_month' => $start_month,
+                    'end_month' => $end_month,
+
+                    'returnArr' => $returnArr,
+                    'layout' => $layout,
+
+                ];
+            }
+            elseif ($bulan2)  {
+                $array = [
+                    'laporan' => $laporan,
+                    'tahun_sql' => $tahun_sql,
+                    'tahun2' => $tahun2,
+                    'bulan' => $bulan,
+                    'bulan2' => $bulan2,
+                    'bulan3' => $bulan3,
+                    // 'end' => $end,
+
+                    'proses_sm' => $proses_sm,
+                    'proses_sbh' => $proses_sbh,
+                    'proses_srwk' => $proses_srwk,
+
+                    'start_month' => $start_month,
+                    'end_month' => $end_month,
+
+                    'returnArr' => $returnArr,
+                    'layout' => $layout,
+
+                ];
+            }
+            else {
+                $array = [
+                    'laporan' => $laporan,
+                    'tahun_sql' => $tahun_sql,
+                    'tahun2' => $tahun2,
+                    'bulan' => $bulan,
+                    'bulan2' => $bulan2,
+                    // 'end' => $end,
+
+                    'proses_sm' => $proses_sm,
+                    'proses_sbh' => $proses_sbh,
+                    'proses_srwk' => $proses_srwk,
+
+                    'start_month' => $start_month,
+                    'end_month' => $end_month,
+
+                    'returnArr' => $returnArr,
+                    'layout' => $layout,
+
+                ];
+            }
+
+            return view('admin.laporan_dq.laporan-utilrate', $array);
         } else {
             return redirect()->back()
                 ->with('error', 'Rekod Tidak Wujud!');
