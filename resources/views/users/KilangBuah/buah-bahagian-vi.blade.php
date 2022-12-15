@@ -248,9 +248,6 @@
                             <tbody>
                                 <td colspan="9" style="text-align: center">Tiada Rekod</td>
 
-
-
-
                                 <tr>
 
                                     <td colspan="2"><b>JUMLAH</b></td>
@@ -277,13 +274,13 @@
 
                 </div>
 
-                <div class=" row form-group" style="padding-top: 10px; ">
+                <div class="form-group" style="padding-top: 10px; ">
 
 
-                    <div class="text-left col-md-5">
+                    <div class="text-left">
                         <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
                     </div>
-                    <div class="text-right col-md-7">
+                    <div class="text-right">
                         <a href="{{ route('buah.paparpenyata') }}" type="button" class="btn btn-primary "  style="float: right"
                             >Simpan &
                             Seterusnya</a>

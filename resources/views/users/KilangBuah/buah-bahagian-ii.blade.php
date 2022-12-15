@@ -124,7 +124,6 @@
 
                     <div class=" text-center">
 
-
                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
                         <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar Perahan Dan Harga</h5>
                     </div>
