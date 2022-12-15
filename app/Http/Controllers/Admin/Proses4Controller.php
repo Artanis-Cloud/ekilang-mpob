@@ -1234,9 +1234,7 @@ class Proses4Controller extends Controller
                 $npg = str_replace($str, "\'", $npg);
 
                 //update flg to 3 (ported)
-                $updateebio = DB::update("UPDATE e_bio_inits
-                set ebio_flg = '3'
-                WHERE ebio_nl = '$nolesen'");
+
 
                 $deletehbio = DB::delete("DELETE from h_bio_inits where ebio_bln='$bulan' and ebio_thn = '$tahun' and ebio_nobatch='$nobatch'");
 
@@ -1284,8 +1282,10 @@ class Proses4Controller extends Controller
                     // $insertplbiob = DB::connection('mysql4')->insert("INSERT into h_bio_b_s
                     // values ($idno,'$nobatch','$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
 
-                        $deletehbiob = DB::delete("DELETE from h_bio_b_s where ebio_nobatch='$nobatch'");
-
+                        // $deletehbiob = DB::delete("DELETE from h_bio_b_s where ebio_nobatch='$nobatch'");
+                        if ($b4) {
+                            $deletehbiob = DB::delete("DELETE from h_bio_b_s where ebio_nobatch='$nobatch' and ebio_b4='$b4'");
+                        }
 
                         $inserthbiob = DB::insert("INSERT into h_bio_b_s values ($idno,'$nobatch',
                         '$b3','$b4',$b5,$b6, $b7,$b8,$b9,$b10,$b11,$b13)");
@@ -1321,8 +1321,9 @@ class Proses4Controller extends Controller
                         // $insertplbioc = DB::connection('mysql4')->insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
                         // '$c3',$c4,
                         //  $c5,$c6,$c7,$c8,$c9,$c10,NULL,NULL)");
-
-                        $deletehbioc = DB::delete("DELETE from h_bio_c_s where ebio_nobatch='$nobatch'");
+                        if ($c3) {
+                            $deletehbioc = DB::delete("DELETE from h_bio_c_s where ebio_nobatch='$nobatch' and ebio_c3='$c3'");
+                        }
 
 
                         $inserthbioc = DB::insert("INSERT into h_bio_c_s values ($idno,'$nobatch',
@@ -1353,8 +1354,10 @@ class Proses4Controller extends Controller
                         // $insertplbiocc = DB::connection('mysql4')->insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
                         // '$cc3','$cc4')");
 
-                        $deletehbiocc = DB::delete("DELETE from h_bio_c_s where ebio_nobatch='$nobatch'");
-
+                        // $deletehbiocc = DB::delete("DELETE from h_bio_c_s where ebio_nobatch='$nobatch'");
+                        if ($cc3) {
+                            $deletehbiocc = DB::delete("DELETE from h_bio_cc where ebio_nobatch='$nobatch' and ebio_cc3='$cc3'");
+                        }
 
                         $inserthbiocc = DB::insert("INSERT into h_bio_cc values ($idno,'$nobatch','$cc2',
                         '$cc3','$cc4')");
@@ -1387,12 +1390,15 @@ class Proses4Controller extends Controller
 
 
                         $deletehbiohari = DB::delete("DELETE from h_hari where lesen='$nolesen'");
-
+                       
 
                         $inserthhari = DB::insert("INSERT into h_hari values ($idno,'$nolesen','$tahun',
                         '$bulan','$hari_operasi','$kapasiti',null,null)");
                         // dd($inserthhari);
                     }
+                    $updateebio = DB::update("UPDATE e_bio_inits
+                    set ebio_flg = '3'
+                    WHERE ebio_nl = '$nolesen'");
 
                 }
 
