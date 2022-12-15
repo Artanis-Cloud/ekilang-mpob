@@ -89,6 +89,7 @@
     }
 
 
+
     @media print {
         @page {
             size: auto !important;
@@ -317,10 +318,10 @@
                                 @endif
                             </span>
                         </a>
-                        <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)"
-                            data-sidebartype="mini-sidebar">
-                            <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>
-                        </a>
+                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="ti-more"></i>
+                    </a>
                     </div>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -451,8 +452,7 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell-outline font-22"></i>
                                 <span
                                     class="badge badge-pill badge-info noti">{{ auth()->user()->unreadNotifications->count() }}</span>
@@ -492,44 +492,33 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="dropdown nav-icon">
+                        <li class="nav-item dropdown border-right">
                             @if (auth()->user()->category == 'PL91')
-                                <a href="{{ route('buah.email') }}"
-                                    class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                    <div style="margin-top:13px">
-                                        <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                    </div>
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark"  href="{{ route('buah.email') }}"
+                                    id="2" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                    <i class="font-22 mdi mdi-email-outline"></i>
+
                                 </a>
                             @elseif (auth()->user()->category == 'PL101')
-                                <a href="{{ route('penapis.email') }}"
-                                    class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                    <div class="mt-3">
-                                        <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                    </div>
-                                @elseif (auth()->user()->category == 'PL102')
-                                    <a href="{{ route('isirung.email') }}"
-                                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                        <div class="mt-3">
-                                            <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                        </div>
-                                    @elseif (auth()->user()->category == 'PL104')
-                                        <a href="{{ route('oleo.email') }}"
-                                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                            <div class="mt-3">
-                                                <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                            </div>
-                                        @elseif (auth()->user()->category == 'PL111')
-                                            <a href="{{ route('pusatsimpan.email') }}"
-                                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                                <div class="mt-3">
-                                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                                </div>
-                                            @elseif (auth()->user()->category == 'PLBIO')
-                                                <a href="{{ route('bio.email') }}"
-                                                    class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                                    <div class="mt-3">
-                                                        <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                                    </div>
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark"   href="{{ route('penapis.email') }}"
+                                id="2" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                <i class="font-22 mdi mdi-email-outline"></i>
+                            @elseif (auth()->user()->category == 'PL102')
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark"   href="{{ route('isirung.email') }}"
+                                id="2" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                <i class="font-22 mdi mdi-email-outline"></i>
+                            @elseif (auth()->user()->category == 'PL104')
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark"   href="{{ route('oleo.email') }}"
+                                id="2" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                <i class="font-22 mdi mdi-email-outline"></i>
+                            @elseif (auth()->user()->category == 'PL111')
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark"   href="{{ route('pusatsimpan.email') }}"
+                                id="2" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                <i class="font-22 mdi mdi-email-outline"></i>
+                            @elseif (auth()->user()->category == 'PLBIO')
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark"   href="{{ route('bio.email') }}"
+                                id="2" data-toggle="" aria-haspopup="true" aria-expanded="false">
+                                <i class="font-22 mdi mdi-email-outline"></i>
                             @endif
                             </a>
                         </li>
@@ -537,11 +526,14 @@
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle"
-                                    width="30">
+                                <i class="font-22 mdi mdi-account-circle">
+
+                                </i>
+                                {{-- <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle"
+                                    width="30"> --}}
                                 <span class="m-l-5 font-medium d-none d-sm-inline-block"
-                                    style="font-size:14px; line-height:20px; padding-top:15px">{{ auth()->user()->name }}
-                                    <br> {{ auth()->user()->username }}</span>
+                                    style="font-size:14px; line-height:15px; ">{{ auth()->user()->name }}<br>{{ auth()->user()->username }}<i class="mdi mdi-chevron-down"></i>
+                                </span>
                                 {{-- <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size: 15px"><i
                                     class="mdi mdi-chevron-down"></i></span> --}}
                             </a>

@@ -344,224 +344,225 @@
                                                         PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
                                                         (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                                 </b> </p>
-
-                                            <table border="1" style="width:95%; "  cellspacing="0"
-                                                cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr style="background-color: #d3d3d370;  vertical-align:middle ">
-                                                        <td class="headerColor" width="220" >
-                                                            <p align="center" ><b>
-                                                                    <font size="2.7">Butiran</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td class="headerColor" width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td class="headerColor" width="135">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Minyak Sawit Mentah <br> (CPO) Kod 01
-                                                                    </font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td class="headerColor" width="110">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Isirung <br>(PK) Kod 51</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td class="headerColor" width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="2.7">Minyak Keladak <br>(Sludge Oil) Kod 49
-                                                                    </font>
-                                                                </b></p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">A. Stok Awal Di Premis</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_aa1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p style="text-align: right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_aa2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_aa3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_aa4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">B. Pembelian/Terimaan</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ab1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ab2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ab3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ab4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">C. Diproses</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ac1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td class="block"  width="135"  style="background-color:#C0C0C0; align:center ">&nbsp;</td>
-                                                        <td class="block" width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td class="block"  width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">D. Pengeluaran</font>
-                                                        </td>
-                                                        <td class="block" width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ad1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ad2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ad3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">E. Penjualan/Pengedaran Tempatan</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ae1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ae2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ae3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ae4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">F. Eksport&nbsp;Terus Dari Premis</font>
-                                                        </td>
-                                                        <td class="block" width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td class="block" width="135" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="2.7"></font>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                        <td class="block" width="110" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="2.7" </font>
+                                            <div class="table-responsive">
+                                                <table border="1" style="width:95%; "  cellspacing="0"
+                                                    cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
+                                                    class="table table-bordered">
+                                                    <tbody>
+                                                        <tr style="background-color: #d3d3d370;  vertical-align:middle ">
+                                                            <td class="headerColor" width="220" >
+                                                                <p align="center" ><b>
+                                                                        <font size="2.7">Butiran</font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td class="headerColor" width="120">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td class="headerColor" width="135">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Minyak Sawit Mentah <br> (CPO) Kod 01
+                                                                        </font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td class="headerColor" width="110">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Isirung <br>(PK) Kod 51</font>
+                                                                    </b></p>
+                                                            </td>
+                                                            <td class="headerColor" width="120">
+                                                                <p align="center"><b>
+                                                                        <font size="2.7">Minyak Keladak <br>(Sludge Oil) Kod 49
+                                                                        </font>
+                                                                    </b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">A. Stok Awal Di Premis</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_aa1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p style="text-align: right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_aa2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_aa3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_aa4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">B. Pembelian/Terimaan</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ab1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ab2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ab3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ab4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">C. Diproses</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ac1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td class="block"  width="135"  style="background-color:#C0C0C0; align:center ">&nbsp;</td>
+                                                            <td class="block" width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                            <td class="block"  width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">D. Pengeluaran</font>
+                                                            </td>
+                                                            <td class="block" width="120" bgcolor="#C0C0C0" align="center">
+                                                                <p align="left">&nbsp;</p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ad1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ad2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ad3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">E. Penjualan/Pengedaran Tempatan</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ae1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ae2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ae3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ae4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">F. Eksport&nbsp;Terus Dari Premis</font>
+                                                            </td>
+                                                            <td class="block" width="120" bgcolor="#C0C0C0" align="center">
+                                                                <p align="left">&nbsp;</p>
+                                                            </td>
+                                                            <td class="block" width="135" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <font size="2.7"></font>
                                                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                        <td class="block" width="120" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="2.7"></font>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="2.7">G. Stok Akhir Di Premis</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ag1 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ag2 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ag3 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="right">
-                                                                <font size="2.7">
-                                                                    {{ number_format($data->e91_ag4 ?? 0, 2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                                </p>
+                                                            </td>
+                                                            <td class="block" width="110" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <font size="2.7" </font>
+                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                </p>
+                                                            </td>
+                                                            <td class="block" width="120" bgcolor="#C0C0C0">
+                                                                <p align="center">
+                                                                    <font size="2.7"></font>
+                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="220">
+                                                                <font size="2.7">G. Stok Akhir Di Premis</font>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ag1 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="135">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ag2 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="110">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ag3 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                            <td width="120">
+                                                                <p align="right">
+                                                                    <font size="2.7">
+                                                                        {{ number_format($data->e91_ag4 ?? 0, 2) }}</font>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                             <br>
 
                                             <p><b>
