@@ -15,7 +15,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
-
+use Illuminate\Support\Facades\Crypt;
 
 class DataMigrationController extends Controller
 {
@@ -158,16 +158,8 @@ class DataMigrationController extends Controller
 
         $kilangs = DB::connection('mysql2')->select("SELECT * FROM  kilang");
 
-        // dd($users);
-
-        // foreach ($users as $user) {
-        //     // dd($user );
-        // }
-
         foreach ($kilangs as $kilang) {
-            // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
-            // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
-            // dd($e_asdaerah);
+
             $daerah = Daerah::where('nama_daerah', $kilang->e_asdaerah)->first();
             $negeri = Negeri::where('nama_negeri', $kilang->e_asnegeri)->first();
 
@@ -375,6 +367,24 @@ class DataMigrationController extends Controller
                     $user->sub_cat = json_encode($e_kat);
                     $user->save();
                 }
+            }
+        }
+    }
+
+    public function transfer_cryptpass()
+    {
+        $reg_users = RegPelesen::get();
+
+        foreach ($reg_users as $reg_user) {
+            $user = User::where('username', $reg_user->e_nl)->where('category', $reg_user->e_kat)->first();
+
+            // $e_kat = array($reg_user->e_kat);
+
+            if($user){
+                // if(!$user->sub_cat){
+                    $user->crypted_pass = Crypt::encryptString($reg_user->e_pwd);
+                    $user->save();
+                // }
             }
         }
     }

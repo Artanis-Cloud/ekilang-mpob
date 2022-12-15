@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
@@ -158,13 +159,15 @@ class LoginController extends Controller
                 foreach ($users as $key => $cat) {
                     $category[$key] = $cat->category;
                     $password[$key] = $cat->password;
+                    $crypted[$key] = $cat->crypted_pass;
                 }
 
-                $check = Hash::check($password[0], $password[1]);
-                dd($check);
+                $check0 = Crypt::decryptString($crypted[0]);
+                $check1 = Crypt::decryptString($crypted[1]);
+                // dd($check1);
 
                 if ($category[0] != $category[1]) {
-                    if (!$check) {
+                    if ($check0 != $check1) {
 
                         foreach ($password as $keypass => $pass) {
 
