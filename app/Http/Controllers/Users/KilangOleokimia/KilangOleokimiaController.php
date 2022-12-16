@@ -24,6 +24,7 @@ use App\Notifications\Pelesen\HantarEmelNotification2;
 use App\Notifications\Pelesen\HantarPenyataNotification;
 use DateTime;
 use DB;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -195,7 +196,7 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_update_password(Request $request, $id)
     {
-        $user = User::findOrFail(auth()->user()->id);
+        $user = User::where('username', auth()->user()->username)->where('category', auth()->user()->category)->first();
         //compare password
         if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->route('oleo.tukarpassword')
@@ -212,7 +213,10 @@ class KilangOleokimiaController extends Controller
                 ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
         } else {
             $password = Hash::make($request->new_password);
+            $password2 = Crypt::encryptString($request->new_password);
+
             $user->password = $password;
+            $user->crypted_pass = $password2;
             $user->save();
         }
 
