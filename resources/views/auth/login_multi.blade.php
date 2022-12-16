@@ -255,89 +255,75 @@
         color: #3c97bf;
         text-decoration: none;
     }
-
-
 </style>
+
 <body style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover;">
-<div class="container" id="container" >
-    <div  class="overlay-container">
-        @foreach ($users as $user)
-                <form method="POST" action="{{ route('multiLogin2.process') }}">
-                    @csrf
+    <div class="container" id="container">
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <h3>Log Masuk</h3>
+                        <div class="social-container">
+                            <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:150px; width:150px; margin-right:2% " alt="logo">
+                        </div>
+                        <span> <b>Sistem e-Kilang</b></span>
+                        <span><b> Lembaga Minyak Sawit</b></span>
+                        <span><b> Sila Pilih Sektor</b></span>
+                        @foreach ($users as $user)
+                            <input id="e_nl" type="hidden"
+                                class="form-control @error('username') is-invalid @enderror"
+                                oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')"
+                                required name="username" value="{{ $user->username }}" autocomplete="username"
+                                maxlength="12" placeholder="No. Lesen">
 
-                        <input id="e_nl" type="hidden" class="form-control @error('username') is-invalid @enderror" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                        oninput="setCustomValidity('')" required
-                            name="username" value="{{ $user->username }}" autocomplete="username" maxlength="12"
-                            placeholder="No. Lesen">
+                            @error('username')
+                                <div class="col-12 alert alert-danger">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
 
-                        @error('username')
-                            <div class="col-12 alert alert-danger">
-                                <strong>{{ $message }}</strong>
-                            </div>
-                        @enderror
-
-                        <input type="hidden" name="multilogin" value="true">
-                        <input type="hidden" name="category" value="{{ $user->category }}">
+                            <input type="hidden" name="multilogin" value="true">
+                            <input type="hidden" name="category" value="{{ $user->category }}">
                             @if ($user->category == 'PL91')
-                            <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: white; width:30%; margin-left: auto; margin-right:auto" type="submit">
-                            Kilang Buah</button>
+                                <button class="btn btn-block btn-lg mb-1 "
+                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                    type="submit">
+                                    Kilang Buah</button>
                             @elseif ($user->category == 'PL101')
-                            <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: white width:30%; margin-left: auto; margin-right:auto" type="submit">
-                            Kilang Penapis</button>
+                                <button class="btn btn-block btn-lg mb-1 "
+                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                    type="submit">
+                                    Kilang Penapis</button>
                             @elseif ($user->category == 'PL102')
-                            <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: white; width:30%; margin-left: auto; margin-right:auto" type="submit">
-                            Kilang Isirung</button>
+                                <button class="btn btn-block btn-lg mb-1 "
+                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                    type="submit">
+                                    Kilang Isirung</button>
                             @elseif ($user->category == 'PL104')
-                            <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: white; width:30%; margin-left: auto; margin-right:auto" type="submit">
-                            Kilang Oleokimia</button>
+                                <button class="btn btn-block btn-lg mb-1 "
+                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                    type="submit">
+                                    Kilang Oleokimia</button>
                             @elseif ($user->category == 'PL111')
-                            <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: white; width:30%; margin-left: auto; margin-right:auto" type="submit">
-                            Pusat Simpanan</button>
+                                <button class="btn btn-block btn-lg mb-1 "
+                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                    type="submit">
+                                    Pusat Simpanan</button>
                             @elseif ($user->category == 'PLBIO')
-                            <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: white; width:30%; margin-left: auto; margin-right:auto" type="submit">
-                            Kilang Biodiesel</button>
+                                <button class="btn btn-block btn-lg mb-1 "
+                                    style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
+                                    type="submit">
+                                    Kilang Biodiesel</button>
                             @endif
-
-                </form>
-              @endforeach
-    </div>
-    {{-- <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-right">
-                <span style="color:black">
-                    Sebarang pertanyaan sila hubungi :<br><br>
-                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - Pn. Nor Syaida<br> (Emel:
-                                nor.syaida@mpob.gov.my atau Tel :
-                                03-7802 2917)<br>
-                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - En. Rominizam<br> (Emel:
-                                rominizam@mpob.gov.my atau Tel :
-                                03-7802 2918)<br>
-                                <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b><br> - Pn. Aziana<br> (Emel:
-                                aziana.misnan@mpob.gov.my atau Tel :
-                                03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b><br> - Pn. Aziana<br> (Emel:
-                                aziana.misnan@mpob.gov.my atau Tel :
-                                03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b><br> - Pn. Nor Baayah<br> (Emel
-                                abby@mpob.gov.my atau Tel : 03-7802
-                                2865)<br>
-                                <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b><br> - Pn. Nor Baayah<br> (Emel
-                                abby@mpob.gov.my atau Tel : 03-7802
-                                2865)<br>
-                                <b>Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b><br> - Cik Rohidayati Sukhaila<br>
-                                (Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
-                                <b>No Faks bagi Penyata Bulanan</b><br>  03-7803 2323 / 03-7803 1399<br>
-                </span>
+                        @endforeach
+                    </form>
+                </div>
             </div>
         </div>
-    </div> --}}
-</div>
+    </div>
 </body>
 
 <footer>
@@ -354,7 +340,7 @@
         toastr.success('{{ session('success') }}', 'Berjaya', {
             "progressBar": true
         });
-    @elseif($message = Session::get('error'))
+    @elseif ($message = Session::get('error'))
         toastr.error('{{ session('error') }}', 'Ralat', {
             "progressBar": true
         });
@@ -363,8 +349,7 @@
 <script>
     function errorMessage() {
         var error = document.getElementById("error")
-        if (isNaN(document.getElementById("password").value))
-        {
+        if (isNaN(document.getElementById("password").value)) {
 
             // Changing content and color of content
             error.textContent = "Please enter a valid number"
