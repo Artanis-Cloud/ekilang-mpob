@@ -9,12 +9,12 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
+        <div class="page-breadcrumb mt-2">
             <div class="row">
-                <div class="col-5 align-self-center">
+                <div class="col-4 align-self-center">
                     <h4 class="page-title">Penyata Bulanan Terdahulu</h4>
                 </div>
-                <div class="col-7 align-self-center">
+                <div class="col-8 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -53,7 +53,7 @@
 
                         <body>
 
-                            <div align="">
+                            <div class="table-responsive">
                                 <table border="0" width="100%">
                                     <tbody style=" width:10rem; margin-right: -10px">
                                         <tr>
@@ -84,7 +84,7 @@
                                     </tbody>
                                 </table>
                             </div><br>
-                            <div align="center">
+                            <div class="table-responsive">
                                 <table border="0" width="25%">
 
                                 </table>
@@ -131,6 +131,7 @@
                             </p>
                             <hr>
 
+                        <div class="table-responsive">
                             <table border="0" width="111%" cellspacing="0">
 
                                 <tbody>
@@ -157,6 +158,7 @@
 
                                 </tbody>
                             </table>
+                        </div>
 
                             <hr>
 
@@ -167,6 +169,7 @@
                                     <font style="font-size: 15px" color="#0c7c85">MAKLUMAT PELESEN </font>
                                 </b></p>
 
+                        <div class="table-responsive">
                             <table border="0" width="80%" cellpadding="0" cellspacing="0">
 
                                 <tbody>
@@ -282,6 +285,7 @@
 
                                 </tbody>
                             </table>
+                        </div>
 
 
                             <br>
@@ -289,6 +293,7 @@
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 1 : MAKLUMAT IMBANGAN </font>
                                 </b> </p>
 
+                        <div class="table-responsive">
                             <table border="1" style="width: 65%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
@@ -531,7 +536,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table></div><br>
 
 
                             <p><b>
@@ -540,6 +545,7 @@
                                         DAN PENGGUNAAN KAPASITI PEMPROSESAN</font>
                                 </b> </p>
 
+                        <div class="table-responsive">
                             <table border="0" width="498" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr>
@@ -564,12 +570,15 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
                             <br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                         SAWIT (PK) (51)
                                     </font>
                                 </b></p>
+
+                        <div class="table-responsive">
                             <table border="1"  style="width: 50%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
@@ -603,12 +612,15 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table>
+                        </div><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
                                         MENTAH (CPKO) (04)
                                     </font>
                                 </b></p>
+
+                        <div class="table-responsive">
                             <table border="1"  style="width: 50%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
@@ -642,11 +654,14 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table>
+                        </div><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                         (PKC) (33)</font>
                                 </b></p>
+
+                        <div class="table-responsive">
                             <table border="1" style="width: 50%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
@@ -680,10 +695,12 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table><br>
+                            </table></div><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                 </b></p>
+
+                        <div class="table-responsive">
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
@@ -756,10 +773,12 @@
                                     </tr>
                                     @endforeach --}}
                                 </tbody>
-                            </table><br>
+                            </table></div><br>
                             <p><b>
                                     <font style="font-size: 15px" color="#0c7c85">BAHAGIAN 7: IMPORT PRODUK SAWIT</font>
                                 </b></p>
+
+                        <div class="table-responsive">
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
                                 <tbody>
@@ -834,6 +853,7 @@
                                     @endforeach --}}
                                 </tbody>
                             </table>
+                        </div>
 
                             <br>
 

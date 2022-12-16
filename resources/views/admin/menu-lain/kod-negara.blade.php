@@ -17,13 +17,13 @@
         <div class="mt-3 mb-4 row">
             <div class="col-md-12">
 
-                <div class="page-breadcrumb" style="padding: 0px; margin-left: 2%">
+                <div class="page-breadcrumb mt-2">
                     <div class="pb-2 row">
-                        <div class="col-5 align-self-center">
+                        <div class="col-4 align-self-center">
                             <h4 class="page-title">Kod & Nama Negara</h4>
                         </div>
 
-                        <div class="col-7 align-self-center" style="margin-left:-1%;">
+                        <div class="col-8 align-self-center">
                             <div class="d-flex align-items-center justify-content-end">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">

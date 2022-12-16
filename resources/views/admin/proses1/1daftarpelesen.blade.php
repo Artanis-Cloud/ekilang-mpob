@@ -8,7 +8,8 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
+
+        <div class="page-breadcrumb" style="padding-top: 40px;">
             <div class="row">
                 <div class="col-5 align-self-center">
                     <h4 class="page-title">Profil Pelesen</h4>
@@ -16,7 +17,7 @@
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
+                            <ol class="breadcrumb" style="font-size: 10.5px;">
                                 @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
                                     @if (!$loop->last)
                                         <li class="breadcrumb-item">
@@ -39,12 +40,14 @@
                 </div>
             </div>
         </div>
+
+
         <div class="container-fluid">
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
-                        <div class="row" style="padding: 20px">
+                        <div class="row">
                             <div class="col-1 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i
                                         class="fa fa-angle-left">&ensp;</i>Kembali</a>
@@ -54,7 +57,7 @@
                             novalidate>
                             @csrf
                             <div class="card-body">
-                                <div class=" text-center">
+                                <div class=" text-center" style="padding-top: 30px">
                                     <h3 style="color: rgb(39, 80, 71); margin-top:-50px">Daftar Pelesen Baru</h3><br>
                                 </div>
                                 <hr>
@@ -65,10 +68,10 @@
 
                                 <div class="row" style="padding: 1%">
                                 <div class="col-md-6">
-                                    <p class="ml-5" style="border-bottom-style: solid; width: 73%; padding: 15px;">
+                                    <p class="ml" style="border-bottom-style: solid; width: 73%; padding: 15px;">
                                         Maklumat Kilang
                                     </p>
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             {{-- @if ($errors->any())
                                             {{ implode('', $errors->all('<div>:message</div>')) }}
@@ -129,7 +132,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label class="control-label col-form-label required">Status e-Kilang</label>
                                         </div>
@@ -147,7 +150,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label class="control-label col-form-label required">Status e-Mingguan</label>
                                         </div>
@@ -165,7 +168,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label class="control-label col-form-label required">Status Direktori</label>
                                         </div>
@@ -183,7 +186,7 @@
                                         </div>
                                     </div>
                                     <div id="nonbio_container" style="display:block">
-                                        <div class="row ml-5">
+                                        <div class="row ml">
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label class="control-label col-form-label required">Kod Negeri </label>
                                             </div>
@@ -284,7 +287,7 @@
                                                         bahagian ini!</i></p>
                                             </div>
                                         </div>
-                                        <div class="row ml-5">
+                                        <div class="row ml">
                                             <div class="col-sm-4 form-group" style="margin: 0px">
                                                 <label for="inputcom" class="control-label col-form-label required">Nombor
                                                     Siri</label>
@@ -304,7 +307,7 @@
                                     <div id="lain_container" style="display:none">
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Nombor
                                                 Lesen</label>
@@ -327,7 +330,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Nama
                                                 Premis</label>
@@ -343,7 +346,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Alamat
                                                 Premis
@@ -379,7 +382,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Alamat Surat
                                                 Menyurat</label>
@@ -416,7 +419,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">No. Telefon
                                                 Kilang</label>
@@ -433,7 +436,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label">No. Faks
                                                 Kilang</label>
@@ -446,7 +449,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row ml-5">
+                                    <div class="row ml">
                                         <div class="col-sm-4 form-group" style="margin: 0px">
                                             <label for="inputcom" class="control-label col-form-label required">Alamat Emel
                                                 Kilang</label>

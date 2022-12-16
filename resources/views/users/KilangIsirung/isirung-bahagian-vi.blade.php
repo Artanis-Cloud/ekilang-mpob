@@ -9,7 +9,7 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
+        <div class="page-breadcrumb mt-2">
             <div class="row">
                 <div class="col-5 align-self-center">
                     {{-- <h4 class="page-title">Kemasukan Penyata Bulanan
@@ -279,10 +279,10 @@
                 <div class=" row form-group" style="padding-top: 10px; ">
 
 
-                    <div class="text-left col-md-5">
+                    <div class="text-left col-md-4">
                         <a href="{{ route('isirung.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
                     </div>
-                    <div class="text-right col-md-7">
+                    <div class="text-right col-md-8">
                         <a href="{{ route('isirung.bahagianvii') }}" type="button" class="btn btn-primary "  style="float: right"
                             >Simpan &
                             Seterusnya</a>

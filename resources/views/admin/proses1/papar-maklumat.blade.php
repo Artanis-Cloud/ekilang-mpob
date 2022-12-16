@@ -8,7 +8,7 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
+        <div class="page-breadcrumb" style="padding-top: 40px;">
             <div class="row">
                 <div class="col-5 align-self-center">
                     <h4 class="page-title">Profil Pelesen</h4>
@@ -65,12 +65,12 @@
                         <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post"
                             onsubmit="return check()" novalidate class="sub-form">
                             @csrf
-                            <div class="container center" style="margin-left: 14%">
+                            <div class="container">
                                 <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Jenis Kilang </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" name="e_kat" id="e_kat"
                                                 style="text-transform:uppercase" disabled>
@@ -92,11 +92,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Status e-Kilang </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" name="e_status" id="e_status"
                                                 style="text-transform:uppercase" required>
@@ -110,11 +110,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Status e-Mingguan </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" name="e_stock" id="e_stock"
                                                 style="text-transform:uppercase" required>
@@ -127,11 +127,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Status Direktori </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" name="directory" id="directory"
                                                 style="text-transform:uppercase" required>
@@ -145,11 +145,11 @@
                                     </div>
                                 </div>
                                 @if ($reg_pelesen->e_kat != 'PLBIO')
-                                    <div class="row" style="margin-top: -7px">
+                                    <div class="row">
                                         <label for="fname"
-                                            class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                            class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                             Kod Negeri </label>
-                                        <div class="col-md-6">
+                                        <div class="col-md">
                                             <fieldset class="form-group">
                                                 <select class="form-control" name="kodpgw" id="kodpgw"
                                                     style="text-transform:uppercase" required>
@@ -247,11 +247,11 @@
 
                                         </div>
                                     </div>
-                                    <div class="row" style="margin-top: -7px">
+                                    <div class="row">
                                         <label for="fname"
-                                            class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                            class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                             Nombor Siri </label>
-                                        <div class="col-md-6">
+                                        <div class="col-md">
                                             <fieldset class="form-group">
                                                 <input type="text" id="nosiri" class="form-control" required
                                                     style="text-transform:uppercase" placeholder="Nombor Siri"
@@ -268,11 +268,11 @@
                                     </div>
                                 @endif
 
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Nombor Lesen </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <input type="text" id="e_nl" readonly class="form-control" required
                                                 minlength="12" maxlength="12" style="text-transform:uppercase"
@@ -283,11 +283,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Nama Premis </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <input type="text" id="e_np" class="form-control" required
                                                 maxlength="60" style="text-transform:uppercase"
@@ -301,11 +301,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-bottom:2.5%; ">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label required col-form-label align-items-center">
+                                        class="text-left col-sm-4 control-label required col-form-label align-items-center">
                                         Alamat Premis Berlesen</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8">
                                         <input type="text" id="e_ap1" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase(); valid_ap()"
                                             placeholder="Alamat Premis Berlesen 1" name="e_ap1"
@@ -319,7 +319,10 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6" style="margin-left: 25%; ">
+                                    <label for="fname"
+                                        class="text-left col-sm-4">
+                                        </label>
+                                    <div class="col-md-8" style="padding-top: 10px;">
                                         <input type="text" id="e_ap2" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Alamat Premis Berlesen 2" name="e_ap2"
@@ -330,7 +333,10 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6" style="margin-left: 25%;">
+                                    <label for="fname"
+                                        class="text-left col-sm-4">
+                                        </label>
+                                    <div class="col-md-8" style="padding-top: 10px;">
                                         <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Alamat Premis Berlesen 3" name="e_ap3"
@@ -343,11 +349,11 @@
                                     </div>
                                 </div>
 
-                                <div class="row" style="margin-bottom:2.5%">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Alamat Surat Menyurat</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8" style="padding-top: 10px;">
                                         <input type="text" id="e_as1" class="form-control" required
                                             maxlength="60" oninput=" this.value = this.value.toUpperCase(); valid_as()"
                                             placeholder="Alamat Surat Menyurat 1" name="e_as1"
@@ -361,7 +367,10 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6" style="margin-left: 25%">
+                                    <label for="fname"
+                                        class="text-left col-sm-4">
+                                        </label>
+                                    <div class="col-md-8" style="padding-top: 10px;">
                                         <input type="text" id="e_as2" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Alamat Surat Menyurat 2" name="e_as2"
@@ -372,7 +381,10 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6" style="margin-left: 25%">
+                                    <label for="fname"
+                                        class="text-left col-sm-4">
+                                        </label>
+                                    <div class="col-md-8" style="padding-top: 10px;">
                                         <input type="text" id="e_as3" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Alamat Surat Menyurat 3" name="e_as3"
@@ -385,11 +397,11 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         No. Telefon (Pejabat / Kilang)</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md-8" style="padding-top: 10px;">
                                         <input type="text" id="e_notel" class="form-control" maxlength="40"
                                             oninput="valid_notel()" placeholder="No. Telefon Pejabat / Kilang"
                                             name="e_notel" style="text-transform:uppercase"
@@ -404,11 +416,11 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label align-items-center">
                                         No. Faks</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="text" id="e_nofax" class="form-control" maxlength="40"
                                             placeholder="No. Faks" name="e_nofax" style="text-transform:uppercase"
                                             value="{{ $pelesen->e_nofax }}">
@@ -419,11 +431,11 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Alamat Emel Kilang</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="email" id="e_email" class="form-control"
                                             placeholder="ALAMAT EMEL KILANG" name="e_email" required maxlength="40"
                                             value="{{ $pelesen->e_email }}" oninput="valid_email(); ValidateEmail()">
@@ -436,11 +448,11 @@
                                                 alamat emel yang betul!</i></p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Nama Pegawai Melapor</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="text" id="e_npg" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Nama Pegawai Melapor" name="e_npg"
@@ -452,11 +464,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Jawatan Pegawai Melapor</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="text" id="e_jpg" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Jawatan Pegawai Melapor" name="e_jpg"
@@ -468,11 +480,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         No. Telefon Pegawai Melapor</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="text" id="e_notel_pg" class="form-control"
                                             placeholder="No. Telefon Pegawai Melapor" style="text-transform:uppercase"
                                             name="e_notel_pg" maxlength="40" value="{{ $pelesen->e_notel_pg }}"
@@ -483,11 +495,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Alamat Emel Pegawai Melapor</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="email" id="e_email_pg" class="form-control"
                                             placeholder="ALAMAT EMEL PEGAWAI MELAPOR" maxlength="40" name="e_email_pg"
                                             value="{{ $pelesen->e_email_pg }}" oninput="valid_email_pg()">
@@ -497,11 +509,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Nama Pegawai Bertanggungjawab</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="text" id="e_npgtg" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
@@ -514,12 +526,12 @@
                                     </div>
                                     {{-- </div> --}}
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Jawatan Pegawai
                                         Bertanggungjawab</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
                                             oninput=" this.value = this.value.toUpperCase()"
                                             placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
@@ -532,11 +544,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                         Alamat Emel Pengurus</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <input type="email" id="e_email_pengurus" class="form-control" maxlength="40"
                                             placeholder="ALAMAT EMEL PENGURUS" name="e_email_pengurus"
                                             value="{{ $pelesen->e_email_pengurus }}" oninput="valid_email_pengurus()">
@@ -548,9 +560,9 @@
                                 </div>
                                 <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Negeri </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md" style="padding-top: 10px;">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="negeri_id" name='e_negeri' required
                                                 style="text-transform:uppercase"
@@ -576,11 +588,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Daerah </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="daerah_id" name='e_daerah' required
                                                 style="text-transform:uppercase" placeholder="Daerah">
@@ -604,11 +616,11 @@
                                         </fieldset>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -7px">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Kawasan </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="kawasan_id" style="text-transform:uppercase"
                                                 name='e_kawasan' required>
@@ -625,11 +637,11 @@
 
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Syarikat Induk</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <input type="text" id="e_syktinduk" class="form-control" required
                                             maxlength="60" placeholder="Syarikat Induk" name="e_syktinduk"
                                             style="text-transform:uppercase" value="{{ $pelesen->e_syktinduk }}"
@@ -640,11 +652,11 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mb-2">
+                                <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Tahun Mula Beroperasi</label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <input type="text" id="e_year" class="form-control" required
                                             onkeypress="return isNumberKey(event)" placeholder="Tahun Mula Beroperasi"
                                             name="e_year" maxlength="4" minlength="4"
@@ -658,9 +670,9 @@
                                 </div>
                                 <div class="row">
                                     <label for="fname"
-                                        class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                        class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                         Kumpulan </label>
-                                    <div class="col-md-6">
+                                    <div class="col-md">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="e_group" name="e_group"
                                                 style="text-transform:uppercase" required oninput="valid_group()">
@@ -681,12 +693,12 @@
                                     </div>
                                 </div>
                                 @if ($reg_pelesen->e_kat == 'PL91')
-                                    <div class="row mb-2" style="margin-top: -7px">
+                                    <div class="row">
 
                                         <label for="fname"
-                                            class="text-left col-sm-3 control-label col-form-label required align-items-center">
+                                            class="text-left col-sm-4 control-label col-form-label required align-items-center">
                                             POMA </label>
-                                        <div class="col-md-6">
+                                        <div class="col-md">
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="e_poma"
                                                     style="text-transform:uppercase" name="e_poma" required>
@@ -702,12 +714,12 @@
                                         </div>
 
                                     </div>
-                                    <div class="row mb-2" style="margin-top: -7px">
-                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <div class="row">
+                                        <div class="col-sm-4 form-group">
                                             <label for="fname" class=" control-label col-form-label required">
                                                 Adakah terdapat kemudahan loji biogas di tapak kilang? </label>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md">
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="e_biogas" name="e_biogas" required
                                                     oninput="setCustomValidity(''); valid_biogas()" onchange="biogas()"
@@ -727,12 +739,12 @@
                                         </div>
                                     </div>
                                     <div id="biogas" style="display: none">
-                                        <div class="row mb-2" style="margin-top: -7px">
-                                            <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group">
                                                 <label for="fname" class=" control-label col-form-label required">
                                                     Apakah status loji biogas tersebut? </label>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md">
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="e_status_biogas"
                                                         name="e_status_biogas"
@@ -758,11 +770,11 @@
                                     </div>
                                 @endif
                                 @if ($reg_pelesen->e_kat != 'PL111')
-                                    <div class="row mb-2">
+                                    <div class="row">
                                         <label for="fname"
-                                            class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                            class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                             Kapasiti Pemprosesan / Tahun</label>
-                                        <div class="col-md-6">
+                                        <div class="col-md">
                                             <input type="text" id="kap_proses" class="form-control" maxlength="10"
                                                 placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                                 style="text-transform:uppercase" onkeypress="return point(event)"
@@ -775,11 +787,11 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="row mb-2 noScreen">
+                                    <div class="row noScreen">
                                         <label for="fname"
-                                            class="text-left col-sm-3 control-label col-form-label  align-items-center">
+                                            class="text-left col-sm-4 control-label col-form-label  align-items-center">
                                             Kapasiti Pemprosesan / Tahun</label>
-                                        <div class="col-md-6">
+                                        <div class="col-md">
                                             <input type="text" id="kap_proses" class="form-control" maxlength="10"
                                                 placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                                 style="text-transform:uppercase" value="0">
@@ -793,23 +805,23 @@
                                         <div style="margin-left:-2%">
 
                                             <div class="row mr-auto" style="margin:20px 0px">
-                                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                                <div class="col-sm-4 form-group" style="margin: 0px">
                                                     <span></span>
                                                 </div>
-                                                <div class="col-md-7">
+                                                <div class="col-md" style="text-align: centerS">
                                                     <span>CPO</span>
                                                 </div>
                                             </div>
 
-                                            <div class="row mr-auto" style="margin:20px 0px">
-                                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group" style="margin: 0px">
                                                     <label for="fname" class="control-label col-form-label ">
                                                         Bilangan Tangki</label>
                                                 </div>
 
-                                                <div class="col-md-7">
+                                                <div class="col-md">
                                                     <input type="text" class="form-control" name='bil_tangki_cpo'
-                                                        style="width:20%" id="bil_tangki_cpo91"
+                                                        style="width:50%" id="bil_tangki_cpo91"
                                                         title="Sila isikan butiran ini."
                                                         oninput="this.setCustomValidity(''); FormatCurrency(this)"
                                                         onkeypress="return point(event)"
@@ -818,14 +830,14 @@
 
                                                 </div>
                                             </div>
-                                            <div class="row mr-auto" style="margin:20px 0px">
-                                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                            <div class="row">
+                                                <div class="col-sm-4 form-group" style="margin: 0px">
                                                     <label for="fname" class="control-label col-form-label">
                                                         Kapasiti Tangki Simpanan (Tan)</label>
                                                 </div>
-                                                <div class="col-md-7">
+                                                <div class="col-md">
                                                     <input type="text" class="form-control" name='kap_tangki_cpo'
-                                                        style="width:20%" id="kap_tangki_cpo91"
+                                                        style="width:50%" id="kap_tangki_cpo91"
                                                         oninput="this.setCustomValidity(''); validate_two_decimal(this); FormatCurrency(this)"
                                                         title="Sila isikan butiran ini." onkeypress="return point(event)"
                                                         value="{{ number_format($pelesen->kap_tangki_cpo ?? 0) }}"

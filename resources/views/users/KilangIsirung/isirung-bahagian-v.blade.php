@@ -9,7 +9,7 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
+        <div class="page-breadcrumb mt-2">
             <div class="row">
                 <div class="col-5 align-self-center">
                     {{-- <h4 class="page-title" >Kemasukan Penyata Bulanan
