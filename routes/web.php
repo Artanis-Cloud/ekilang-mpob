@@ -30,6 +30,7 @@ Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class
 Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
 Route::get('/crypt', [App\Http\Controllers\DataMigrationController::class, 'transfer_cryptpass'])->name('transfer_cryptpass');
 Route::post('/terlupa-kata-laluan/submit', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPasswordSubmit'])->name('forget-password.submit');
+Route::post('/terlupa-kata-laluan/submit2', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPasswordSubmit2'])->name('forget-password.submit2');
 
 Route::post('/terlupa-kata-laluan/kemaskini-kata-laluan-baru', [App\Http\Controllers\ForgetPasswordController::class, 'customChangePassword'])->name('forget.password.update');
 
