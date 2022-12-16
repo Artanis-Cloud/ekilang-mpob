@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-wrapper">
 
-        <div class="page-breadcrumb mb-3">
+        <div class="page-breadcrumb mb-3 mt-2">
             <div class="row" >
                 <div class="col-5 align-self-center">
                     <h4 class="page-title">Maklumat Pelesen</h4>

@@ -9,12 +9,12 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb mb-3">
+        <div class="page-breadcrumb mb-3 mt-2">
             <div class="row">
-                <div class="col-5 align-self-center">
+                <div class="col-4 align-self-center">
                     <h4 class="page-title">Penyata Bulanan Terdahulu</h4>
                 </div>
-                <div class="col-7 align-self-center">
+                <div class="col-8 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -281,6 +281,7 @@
                                 <font color="#0c7c85">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     SAWIT</font>
                             </b> </p>
+                    <div class="table-responsive">
                         <table border="1" class="table table-bordered" width="100%"
                             bordercolor="#000000" cellspacing="0" cellpadding="0"
                             bordercolorlight="#FFFFFF" bordercolordark="#000000">
@@ -404,11 +405,15 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                     ISIRUNG SAWIT</font>
                             </b> </p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
                             <tbody>
@@ -530,7 +535,9 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -561,6 +568,8 @@
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN MAKANAN</font>
                             </b></p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
                             <tbody>
@@ -645,7 +654,9 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
@@ -653,6 +664,8 @@
                                     BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                     BAHAN BUKAN MAKANAN</font>
                             </b></p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered" style="padding: 0.2rem 0.3rem">
                             <tbody>
@@ -737,13 +750,17 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                        <br>
 
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                     TERIMAAN BEKALAN PRODUK SAWIT -
                                     SENDIRI</font>
                             </b></p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                             class="table table-bordered">
                             <tbody>
@@ -801,12 +818,16 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                     TERIMAAN BEKALAN PRODUK SAWIT -
                                     LUAR</font>
                             </b></p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr style="background-color: #d3d3d370">
@@ -863,11 +884,15 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     EKSPORT PRODUK SAWIT</font>
                             </b></p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr style="background-color: #d3d3d370">
@@ -923,11 +948,15 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
                         <p><b>
                                 <font color="#0c7c85">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                     IMPORT PRODUK SAWIT</font>
                             </b></p>
+
+                    <div class="table-responsive">
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr style="background-color: #d3d3d370">
@@ -983,7 +1012,9 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table><br>
+                        </table>
+                    </div>
+                    <br>
 
                         <p style="font-size: 16px"><b>
                             Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
