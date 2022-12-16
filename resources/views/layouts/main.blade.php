@@ -344,8 +344,11 @@
                 <div class="navbar-collapse collapse" id="navbarSupportedContent">
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
+
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-left mr-auto">
+                        {{-- <ul class="float-left navbar-nav"> --}}
+
                         @if (auth()->user()->category == 'PL91')
                             <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
                                 style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
@@ -2245,6 +2248,7 @@
 <script src="{{ asset('nice-admin/dist/js/app.min.js') }}"></script>
 <script src="{{ asset('nice-admin/dist/js/app.init.js') }}"></script>
 <script src="{{ asset('nice-admin/dist/js/app-style-switcher.horizontal.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/app-style-switcher.js') }}"></script>
 <!-- slimscrollbar scrollbar JavaScript -->
 <script src="{{ asset('nice-admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
 <script src="{{ asset('nice-admin/assets/extra-libs/sparkline/sparkline.js') }}"></script>
@@ -2254,6 +2258,7 @@
 <script src="{{ asset('nice-admin/dist/js/sidebarmenu.js') }}"></script>
 <!--Custom JavaScript -->
 <script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/custom.js') }}"></script>
 <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
 <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
 <!--Timer Idle Javascript -->
