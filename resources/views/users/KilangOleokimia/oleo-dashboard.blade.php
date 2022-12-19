@@ -35,9 +35,16 @@
                         <div class="col-md-8">
                             <div class="card" style="border-radius: 20px">
                                 <div class=" text-center" style="background-color: rgb(44, 177, 113); border-radius: 15px; padding: 15px; margin: 15px">
-                                    <h4 style="color: #fff; margin-top:1%">Pengumuman</h4>
-                                </div>
 
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img src="{{ asset('/loudspeaker.png') }}" height="40">
+                                            <h4 style="color: #fff; font-size: 25px;" > Pengumuman</h4>
+
+                                        </div>
+                                    </div>
+
+                                </div>
 
                                 <div class="card-body">
                                     <div class="container center ">
@@ -129,10 +136,11 @@
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="card" style="border-radius: 20px">
-                                        <div class=" text-center" style="background-color: rgb(213, 179, 67); border-radius: 15px; padding: 15px; margin: 15px">
-                                            <h4 style="color: #fff; margin-top: 2%">Peringatan</button></h4>
-                                        </div>
+                                        <div class=" text-center" style="background-color: rgb(41, 160, 134); border-radius: 15px; padding: 15px; margin: 15px">
+                                            <img src="{{ asset('/alert.png') }}" height="30" class='mb-2'>
 
+                                                <h4 style="color: #fff; font-size: 25px;">Peringatan</button></h4>
+                                            </div>
                                         <div class="card-body">
                                             <div class="container center ">
 
@@ -153,8 +161,11 @@
                                         </div>
                                     </div>
                                     <div class="card" style="border-radius: 20px">
-                                        <div class=" text-center" style="background-color: rgb(223, 60, 60); border-radius: 15px; padding: 15px; margin: 15px">
-                                            <h4 style="color: #fff; margin-top: 2%">Penafian</h4>
+                                        <div class=" text-center"
+                                        style="background-color: rgb(38, 105, 122); border-radius: 15px; padding: 15px; margin: 15px">
+                                        <img src="{{ asset('/close.png') }}" height="30" class='mb-2'>
+
+                                        <h4 style="color: #fff;font-size: 25px;" ">Penafian</h4>
                                     </div>
 
 

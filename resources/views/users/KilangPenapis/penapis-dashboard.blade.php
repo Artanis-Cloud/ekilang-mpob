@@ -17,7 +17,7 @@
                     <div class="d-flex align-items-center justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                              Laman Utama
+                                Laman Utama
                             </ol>
                         </nav>
                     </div>
@@ -34,12 +34,13 @@
                     <div class="mb-4 row">
                         <div class="col-md-8">
                             <div class="card" style="border-radius: 20px">
-                                <div class=" text-center" style="background-color: rgb(44, 177, 113); border-radius: 15px; padding: 15px; margin: 15px">
+                                <div class=" text-center"
+                                    style="background-color: rgb(44, 177, 113); border-radius: 15px; padding: 15px; margin: 15px">
 
                                     <div class="row">
                                         <div class="col-md-12">
                                             <img src="{{ asset('/loudspeaker.png') }}" height="40">
-                                            <h4 style="color: #fff; font-size: 25px;" > Pengumuman</h4>
+                                            <h4 style="color: #fff; font-size: 25px;"> Pengumuman</h4>
 
                                         </div>
                                     </div>
@@ -117,16 +118,15 @@
 
                                                 </li> --}}
                                                 @foreach ($pengumuman2 as $data)
-                                                {{-- <li style="text-align: justify"> {{ $data->Message }}</a> --}}
-                                                <li style="text-align: justify"> {!! $data->Message !!}</a>
-                                                    @if ($data->Icon_new == 'Y')
-                                                    <img src="/new.gif">
-
-                                                    @endif
-                                                </li>
-                                                <br>
+                                                    {{-- <li style="text-align: justify"> {{ $data->Message }}</a> --}}
+                                                    <li style="text-align: justify"> {!! $data->Message !!}</a>
+                                                        @if ($data->Icon_new == 'Y')
+                                                            <img src="/new.gif">
+                                                        @endif
+                                                    </li>
+                                                    <br>
                                                 @endforeach
-                                            <ul>
+                                                <ul>
 
                                         </div>
                                     </div>
@@ -136,8 +136,9 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="card" style="border-radius: 20px">
-                                    <div class=" text-center" style="background-color: rgb(41, 160, 134); border-radius: 15px; padding: 15px; margin: 15px">
-                                    <img src="{{ asset('/alert.png') }}" height="30" class='mb-2'>
+                                    <div class=" text-center"
+                                        style="background-color: rgb(41, 160, 134); border-radius: 15px; padding: 15px; margin: 15px">
+                                        <img src="{{ asset('/alert.png') }}" height="30" class='mb-2'>
 
                                         <h4 style="color: #fff; font-size: 25px;">Peringatan</button></h4>
                                     </div>
@@ -162,46 +163,44 @@
                                     </div>
                                 </div>
                                 <div class="card" style="border-radius: 20px">
-                                    <div class=" text-center" style="background-color: rgb(38, 105, 122); border-radius: 15px; padding: 15px; margin: 15px">
-                                    <img src="{{ asset('/close.png') }}" height="30" class='mb-2'>
+                                    <div class=" text-center"
+                                        style="background-color: rgb(38, 105, 122); border-radius: 15px; padding: 15px; margin: 15px">
+                                        <img src="{{ asset('/close.png') }}" height="30" class='mb-2'>
 
                                         <h4 style="color: #fff;font-size: 25px;" ">Penafian</h4>
-                                </div>
+                                    </div>
 
-                                    <div class="card-body">
-                                        <div class="container center ">
+                                        <div class="card-body">
+                                            <div class="container center ">
 
-                                            <div class="pl-3">
+                                                <div class="pl-3">
 
-                                                <p style=" text-align: justify">
-                                                    Kerajaan Malaysia dan
-                                                Lembaga Minyak Sawit
-                                                Malaysia
-                                                (MPOB)
-                                                adalah
-                                                tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
-                                                disebabkan oleh penggunaan
-                                                mana-mana maklumat yang diperolehi dari laman web ini
-                                                .Syarikat-syarikat
-                                                yang dirujuk di dalam
-                                                laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
-                                                syarikat yang disyorkan oleh
-                                                Lembaga Minyak Sawit Malaysia (MPOB).</p>
+                                                    <p style=" text-align: justify">
+                                                        Kerajaan Malaysia dan
+                                                    Lembaga Minyak Sawit
+                                                    Malaysia
+                                                    (MPOB)
+                                                    adalah
+                                                    tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
+                                                    disebabkan oleh penggunaan
+                                                    mana-mana maklumat yang diperolehi dari laman web ini
+                                                    .Syarikat-syarikat
+                                                    yang dirujuk di dalam
+                                                    laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
+                                                    syarikat yang disyorkan oleh
+                                                    Lembaga Minyak Sawit Malaysia (MPOB).</p>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            @endsection
+@endsection
         </div>
     </div>
-
-
-
