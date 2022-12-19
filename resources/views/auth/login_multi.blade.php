@@ -73,14 +73,15 @@
     }
 
     form {
-        background-color: #FFFFFF;
+        background-color: white;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 0 50px;
+        /* padding: 0 50px; */
         height: 100%;
         text-align: center;
+        width: -webkit-fill-available;
     }
 
     input {
@@ -152,8 +153,8 @@
     .overlay-container {
         position: absolute;
         top: 0;
-        left: 50%;
-        width: 50%;
+        /* left: 100%; */
+        width: 100%;
         height: 100%;
         overflow: hidden;
         transition: transform 0.6s ease-in-out;
@@ -165,9 +166,9 @@
     }
 
     .overlay {
-        background: rgba(89, 194, 154, 0.801);
-        background: -webkit-linear-gradient(to right, rgba(89, 194, 154, 0.801), rgba(89, 194, 154, 0.801));
-        background: linear-gradient(to right, rgba(89, 194, 154, 0.801), rgba(89, 194, 154, 0.801));
+        background: white;
+        /* background: -webkit-linear-gradient(to right, white, white);
+        background: linear-gradient(to right, white, white); */
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0 0;
@@ -262,16 +263,15 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('multiLogin2.process') }}">
                         @csrf
-                        <h3>Log Masuk</h3>
                         <div class="social-container">
                             <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:150px; width:150px; margin-right:2% " alt="logo">
                         </div>
-                        <span> <b>Sistem e-Kilang</b></span>
-                        <span><b> Lembaga Minyak Sawit</b></span>
-                        <span><b> Sila Pilih Sektor</b></span>
+                        <span style="color:black"> <b>Sistem e-Kilang</b></span>
+                        <span style="color:black"><b> Lembaga Minyak Sawit</b></span>
+                        <span style="color:black"><b> Sila Pilih Sektor</b></span><br>
                         @foreach ($users as $user)
                             <input id="e_nl" type="hidden"
                                 class="form-control @error('username') is-invalid @enderror"
@@ -288,35 +288,35 @@
                             <input type="hidden" name="multilogin" value="true">
                             <input type="hidden" name="category" value="{{ $user->category }}">
                             @if ($user->category == 'PL91')
-                                <button class="btn btn-block btn-lg mb-1 "
+                                <button
                                     style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
                                     type="submit">
-                                    Kilang Buah</button>
+                                    Kilang Buah</button><br>
                             @elseif ($user->category == 'PL101')
-                                <button class="btn btn-block btn-lg mb-1 "
+                                <button
                                     style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
                                     type="submit">
-                                    Kilang Penapis</button>
+                                    Kilang Penapis</button><br>
                             @elseif ($user->category == 'PL102')
-                                <button class="btn btn-block btn-lg mb-1 "
+                                <button
                                     style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
                                     type="submit">
-                                    Kilang Isirung</button>
+                                    Kilang Isirung</button><br>
                             @elseif ($user->category == 'PL104')
-                                <button class="btn btn-block btn-lg mb-1 "
+                                <button
                                     style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
                                     type="submit">
-                                    Kilang Oleokimia</button>
+                                    Kilang Oleokimia</button><br>
                             @elseif ($user->category == 'PL111')
-                                <button class="btn btn-block btn-lg mb-1 "
+                                <button
                                     style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
                                     type="submit">
-                                    Pusat Simpanan</button>
+                                    Pusat Simpanan</button><br>
                             @elseif ($user->category == 'PLBIO')
-                                <button class="btn btn-block btn-lg mb-1 "
+                                <button
                                     style="color: black; background-color: rgba(89, 194, 154, 0.801); width:30%; margin-left: auto; margin-right:auto"
                                     type="submit">
-                                    Kilang Biodiesel</button>
+                                    Kilang Biodiesel</button><br>
                             @endif
                         @endforeach
                     </form>

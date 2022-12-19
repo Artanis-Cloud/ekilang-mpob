@@ -28,52 +28,66 @@ class ForgetPasswordController extends Controller
 
         if ($kat == 'pelesen') {
             $emel = User::where('username', $request->lesen)->get();
+            if (count($emel) > 1) {
+                foreach ($emel as $key => $cat) {
+                    $cat2[$key] = $cat->category;
+                }
+                // dd($cat2);
+                $lesen = $request->lesen;
+                return view('auth.passwords.email_2_sect', compact('cat2', 'lesen'));
+            } else {
+
+                // dd('masuk', $emel);
+
+                if ($emel->isNotEmpty()) {
+                    foreach ($emel as $emel2) {
+                        # code...
+                        if ($emel2->email == NULL || $emel2->email == '' || $emel2->email == '-') {
+                            return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
+                        } else {
+                            $custom_pass = Str::random(8);
+
+                            $pelesen = User::where('username', $request->lesen)->first();
+                            $pelesen->password = Hash::make($custom_pass);
+                            $pelesen->crypted_pass = Crypt::encryptString($custom_pass);
+
+                            $pelesen->save();
+                        }
+                        if (!$pelesen) {
+                            return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
+                        }
+                        $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
+
+
+                        return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
+                    }
+                }else{
+                    return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
+                }
+            }
         } else {
             $emel = User::where('username', $request->admin)->first();
-        }
-        // dd($emel);
 
-        if (count($emel) > 1) {
-            foreach ($emel as $key => $cat) {
-                $cat2[$key] = $cat->category;
+            # code...
+            if ($emel->email == NULL || $emel->email == '' || $emel->email == '-') {
+                return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
+            } else {
+
+                $custom_pass = Str::random(8);
+                $pelesen = User::where('username', $request->admin)->first();
+                $pelesen->password = Hash::make($custom_pass);
+                $pelesen->save();
             }
-            // dd($cat2);
-            $lesen = $request->lesen;
-            return view('auth.passwords.email_2_sect', compact('cat2', 'lesen'));
-        } else {
 
-            foreach ($emel as $emel2) {
-                # code...
-                if ($emel2->email == NULL || $emel2->email == '' || $emel2->email == '-') {
-                    return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
-                } else {
-                    if ($kat == 'pelesen') {
-                        $custom_pass = Str::random(8);
-
-                        $pelesen = User::where('username', $request->lesen)->first();
-                        $pelesen->password = Hash::make($custom_pass);
-                        $pelesen->crypted_pass = Crypt::encryptString($custom_pass);
-
-                        $pelesen->save();
-                    } else {
-                        $custom_pass = Str::random(8);
-                        $pelesen = User::where('username', $request->admin)->first();
-                        $pelesen->password = Hash::make($custom_pass);
-                        $pelesen->save();
-                    }
-                }
-                if (!$pelesen) {
-                    return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
-                }
-                $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
-
-
-
-
-                return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
+            if (!$pelesen) {
+                return redirect()->back()->with('error', 'Pentadbir tidak berdaftar dalam sistem ini.');
             }
+            $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
+
+            return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
         }
     }
+
 
     public function forgetPasswordSubmit2(Request $request)
     {
