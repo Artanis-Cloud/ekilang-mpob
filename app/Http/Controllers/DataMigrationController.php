@@ -373,10 +373,10 @@ class DataMigrationController extends Controller
 
     public function transfer_cryptpass()
     {
-        $reg_users = RegPelesen::get();
+        $reg_users = RegUser::get();
 
         foreach ($reg_users as $reg_user) {
-            $user = User::where('username', $reg_user->e_nl)->where('category', $reg_user->e_kat)->first();
+            $user = User::where('username', $reg_user->e_userid)->where('category', 'admin')->first();
 
             // $e_kat = array($reg_user->e_kat);
 
