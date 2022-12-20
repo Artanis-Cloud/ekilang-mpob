@@ -4922,7 +4922,7 @@ button.close {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: rgba(249, 208, 94) !important; }
+  background-color: rgb(170 170 168) !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
