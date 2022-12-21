@@ -1415,7 +1415,7 @@
 
                                                                 @endforeach
 
-                                                                <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="subs5">
+                                                                <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="subs5"   class="sub-form">
                                                                     @csrf
                                                                     {{-- <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                                         class="table table-bordered" style="padding: 0.2rem 0.3rem">
@@ -1518,7 +1518,7 @@
 
                                                     <div id="aw_container" style="display: none">
 
-                                                        <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="add16">
+                                                        <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="add16"   class="sub-form">
                                                             @csrf
                                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" id="main"
                                                                 class="table table-bordered" style="padding: 0.2rem 0.3rem">
@@ -1646,7 +1646,7 @@
                                                 {{-- @endforeach --}}
 
                                             @else
-                                                <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="add15">
+                                                <form action="{{ route('admin.add.bahagian.iiikini', [$penyata->ebio_reg] ) }}" method="post" id="add15"  class="sub-form">
                                                     @csrf
                                                     <table border="1" width="100%" cellspacing="0" cellpadding="0" id="main"
                                                         class="table table-bordered" style="padding: 0.2rem 0.3rem">
@@ -1699,19 +1699,19 @@
                                                                     </select>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name='ebio_c4' style="text-align: right"
+                                                                    <input type="text" name='ebio_c4' style="text-align: right" id="ebio_c4"
                                                                     class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name='ebio_c5' style="text-align: right"
+                                                                    <input type="text" name='ebio_c5' style="text-align: right" id="ebio_c5"
                                                                     class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name='ebio_c6' style="text-align: right"
+                                                                    <input type="text" name='ebio_c6' style="text-align: right" id="ebio_c6"
                                                                     class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name='ebio_c7' style="text-align: right"
+                                                                    <input type="text" name='ebio_c7' style="text-align: right" id="ebio_c7"
                                                                     class="form-control" onkeypress="return isNumberKey(event)">
                                                                 </td>
                                                                 <td id="data_hidden">
@@ -2343,9 +2343,9 @@
             // var num1 = new Intl.NumberFormat().format(total);
 
             // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-            document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,"");
             document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
-            ",");
+            "");
             // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
             // console.log("total", total);
 
@@ -2574,7 +2574,7 @@
 
             // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("ebio_c8_new").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
-            document.getElementById("total_new").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("total_new").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
             // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
             // console.log("total", total);
                 console.log(document.getElementById("ebio_c8_new").value);
@@ -2642,6 +2642,49 @@
             document.getElementById("total_new").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
             ",");
         }
+    </script>
+
+    <script>
+        $('.sub-form').submit(function() {
+
+            var x = $('#ebio_c4').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c4').val(x);
+
+            var x = $('#ebio_c5').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c5').val(x);
+
+            var x = $('#ebio_c6').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c6').val(x);
+
+            var x = $('#ebio_c7').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c7').val(x);
+
+            var x = $('#ebio_c8').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c8').val(x);
+
+            var x = $('#ebio_c9').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c9').val(x);
+
+            var x = $('#ebio_c10').val();
+            x = x.replace(/,/g, '');
+            x = parseFloat(x, 10);
+            $('#ebio_c10').val(x);
+
+            return true;
+
+        });
     </script>
 
 
