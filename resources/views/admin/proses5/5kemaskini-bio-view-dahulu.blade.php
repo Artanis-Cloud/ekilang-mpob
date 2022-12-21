@@ -2264,7 +2264,7 @@
 
             // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("ebio_c8").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
-            document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("total").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
             // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
             // console.log("total", total);
                 console.log(document.getElementById("ebio_c8").value);
@@ -2396,7 +2396,7 @@
 
             // console.log((total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
             document.getElementById("ebio_c8_new").value = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
-            document.getElementById("total_new").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            document.getElementById("total_new").innerHTML = (total.toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
             // document.getElementById("ebio_c8").value = new Intl.NumberFormat().format(total.toFixed(2));
             // console.log("total", total);
                 console.log(document.getElementById("ebio_c8_new").value);
