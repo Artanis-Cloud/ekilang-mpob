@@ -1,238 +1,403 @@
-<!DOCTYPE html>
-<html dir="ltr">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+<link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="target-densitydpi=device-dpi">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/images/favicon.png') }}">
-    <title>Sistem e-Kilang</title>
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
-    <!-- Toaster CSS -->
-    <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    * {
+        box-sizing: border-box;
+    }
 
- {{-- <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lora:700italic' rel='stylesheet' type='text/css'> --}}
+    body {
+        background: #f6f5f7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        height: 100vh;
+        margin: -20px 0 50px;
+    }
+
+    h1 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        margin: 20px 0 30px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    a {
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+
+    button {
+        border-radius: 20px;
+        border: 1px solid rgba(89, 194, 154, 0.801);
+        background-color: rgba(89, 194, 154, 0.801);
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+    button.ghost {
+        background-color: transparent;
+        border-color: #FFFFFF;
+    }
+
+    form {
+        background-color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+    }
+
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+    }
+
+    select {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+    }
+
+    .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+            0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 1400px;
+        max-width: 100%;
+        min-height: 600px;
+    }
+
+    .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .sign-in-container {
+        left: 0;
+        width: 50%;
+        z-index: 2;
+    }
+
+    .container.right-panel-active .sign-in-container {
+        transform: translateX(100%);
+    }
+
+    .sign-up-container {
+        left: 0;
+        width: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .container.right-panel-active .sign-up-container {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: show 0.6s;
+    }
+
+    @keyframes show {
+
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+    .overlay-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        transition: transform 0.6s ease-in-out;
+        z-index: 100;
+    }
+
+    .container.right-panel-active .overlay-container {
+        transform: translateX(-100%);
+    }
+
+    .overlay {
+        background: rgba(89, 194, 154, 0.801);
+        background: -webkit-linear-gradient(to right, rgba(89, 194, 154, 0.801), rgba(89, 194, 154, 0.801));
+        background: linear-gradient(to right, rgba(89, 194, 154, 0.014), rgba(89, 194, 154, 0));
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0 0;
+        color: #FFFFFF;
+        position: relative;
+        left: -100%;
+        height: 100%;
+        width: 200%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .container.right-panel-active .overlay {
+        transform: translateX(50%);
+    }
+
+    .overlay-panel {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        transform: translateX(0);
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .overlay-left {
+        transform: translateX(-20%);
+    }
+
+    .container.right-panel-active .overlay-left {
+        transform: translateX(0);
+    }
+
+    .overlay-right {
+        right: 0;
+        transform: translateX(0);
+    }
+
+    .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+    }
+
+    .social-container {
+        margin: 20px 0;
+    }
+
+    .social-container a {
+        border: 1px solid #DDDDDD;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        height: 40px;
+        width: 40px;
+    }
+
+    footer {
+        background-color: #222;
+        color: #fff;
+        font-size: 14px;
+        bottom: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+
+    footer p {
+        margin: 15px 0;
+    }
+
+    footer i {
+        color: red;
+    }
+
+    footer a {
+        color: #3c97bf;
+        text-decoration: none;
+    }
+</style>
+
+<body class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
 
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <!--Bootsrap 4 CDN-->
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> --}}
-
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-    {{-- <--[endif]--> --}}
-</head>
-
-<body>
-    <div class="main-wrapper">
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
-            style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover;">
-            <div class="row" style="justify-content: right;">
-                {{-- <div class="col-md-1"></div> --}}
-                <div class="col-md-9">
-                    <div class="border card-header" style="background-color:rgba(89, 194, 154, 0.801)">
-                        <h3 class="text-white m-b-0" style="text-align: center"><b>Pengumuman</b></h3>
-                    </div>
-                    <div class="container"
-                        style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); height: 500px;">
-                        <div class="card-body">
-                            {{-- <h3 class="card-title">LOREM IPSUM:</h3> --}}
-                            <p class="card-text">
-                                <br>Sebarang pertanyaan sila hubungi :<br>
-                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - Pn. Nor Syaida (Emel:
-                                nor.syaida@mpob.gov.my atau Tel :
-                                03-7802 2917)<br>
-                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - En. Rominizam (Emel:
-                                rominizam@mpob.gov.my atau Tel :
-                                03-7802 2918)<br>
-                                <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b> - Pn. Aziana (Emel:
-                                aziana.misnan@mpob.gov.my atau Tel :
-                                03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b> - Pn. Aziana (Emel:
-                                aziana.misnan@mpob.gov.my atau Tel :
-                                03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel
-                                abby@mpob.gov.my atau Tel : 03-7802
-                                2865)<br>
-                                <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel
-                                abby@mpob.gov.my atau Tel : 03-7802
-                                2865)<br>
-                                <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
-                                <br><mark><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
-                                        MINGGUAN) melalui sistem
-                                        ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
-                                        (ISNIN).</b><br></mark><br>
-                        </div>
-
-
-                    </div>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form method="POST" action="{{ route('forget-password.submit') }}">
+                @csrf
+                <h3>Terlupa Kata Laluan</h3>
+                <div class="social-container">
+                    <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
+                        style="height:100px; width:100px; margin-right:2% " alt="logo">
                 </div>
-            </div>
+                <div class="social-container">
+                    <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
+                        style="height:80px; width:70%; margin-right:2% " alt="logo">
+                </div>
+                <span> <b>Sistem e-Kilang</b></span>
+                <span><b> Lembaga Minyak Sawit</b></span>
+                <select class="form-control select" id="kat" name="kat" required onchange="showDetail()"
+                    oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                    oninput="this.setCustomValidity('')">
+                    <option selected hidden disabled value="">Sila Pilih</option>
+                    <option value="admin">Pegawai MPOB</option>
+                    <option value="pelesen">Pemegang Lesen</option>
 
-            {{-- <div class="col-md-2"> --}}
-            <div class="auth-box on-sidebar"
-                style=" padding-top:5%; background-color: rgba(89, 194, 154, 0.801) !important;">
-                <div id="loginform">
 
-                    <div class="logo">
+                </select>
+                <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
+                    name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12" style="display:none"
+                    onkeypress="return isNumberKey(event)">
 
-                        <span class="db"><img src="{{ asset('theme/images/mpob2.png') }}"
-                                class="brand-image img-circle elevation-3"
-                                style="height:120px; width:115px; margin-right:2% " alt="logo"></span>
-                        <br>
-                        <br>
-                        <h3 class="text-center"
-                            style="color:rgba(15, 15, 15, 0.801); font-size:25px; font-family:verdana"><b> Sistem
-                                e-Kilang </b></h3>
-                        <h4 class="text-center"
-                            style="color:rgba(15, 15, 15, 0.801); font-size:20px; font-family:Trebuchet MS (sans-serif)">
-                            Lembaga
-                            Minyak Sawit Malaysia </h4>
-                        <br>
-                        <h4 class="text-center"
-                            style="color: white; font-size:20px; font-family:Trebuchet MS (sans-serif)">Terlupa Kata
-                            Laluan
-                        </h4>
+
+                @error('email')
+                    <div class="col-12 alert alert-danger">
+                        <strong>{{ $message }}</strong>
                     </div>
-                    <br>
+                @enderror
 
-                    <!-- Form -->
-                    <form method="POST" action="{{ route('forget-password.submit2') }}">
-                        @csrf
-                        {{-- @foreach ($cat2 as $cat)
-                        {{ dd($cat) }}
-                        @endforeach --}}
+                <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror"
+                    name="admin" placeholder="Sila Masukkan Username" style="display:none">
 
-                         <div class="mb-3 input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
-                            </div>
-                            {{-- {{ dd($cat2) }} --}}
+                @error('email')
+                    <div class="col-12 alert alert-danger">
+                        <strong>{{ $message }}</strong>
+                    </div>
+                @enderror
 
-                            <select class="form-control select" id="kat" name="kat" required
-                                            oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
-                                            oninput="this.setCustomValidity('')">
-                                            <option selected hidden disabled value="">Sila Pilih Sektor</option>
-                                            @foreach ($cat2 as $cat)
-
-                                            @if ($cat == 'PL91')
-                                            <option value="{{ $cat }}">Kilang Buah</option>
-                                            @elseif ($cat == 'PL101')
-                                            <option value="{{ $cat }}">Kilang Penapis</option>
-                                            @elseif ($cat == 'PL102')
-                                            <option value="{{ $cat }}">Kilang Isirung</option>
-                                            @elseif ($cat == 'PL104')
-                                            <option value="{{ $cat }}">Kilang Oleokimia</option>
-                                            @elseif ($cat == 'PL111')
-                                            <option value="{{ $cat }}">Pusat Simpanan</option>
-                                            @elseif ($cat == 'PLBIO')
-                                            <option value="{{ $cat }}">Kilang Biodiesel</option>
-
-                                            @endif
-
-                                            @endforeach
-
-
-                                        </select>
-
-
-                        </div>
-                        <input type="hidden" value="{{ $lesen }}" name="nolesen">
-                        {{-- <br> --}}
-                        <div class="mb-3 input-group" style="display:none" id="lesen">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
-                            </div>
-                            {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
-                            <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
-                                name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12" onkeypress="return isNumberKey(event)">
-
-
-                            @error('email')
-                                <div class="col-12 alert alert-danger">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                            @enderror
-
-                        </div>
-                        {{-- <br> --}}
-                        <div class="mb-3 input-group" style="display:none" id="admin">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
-                            </div>
-
-                            <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror"
-                                name="admin" placeholder="Sila Masukkan Username">
-
-                            @error('email')
-                                <div class="col-12 alert alert-danger">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                            @enderror
-
-                        </div>
-
-                        <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
-                            Hantar</button>
-
-                        <a class="btn btn-block btn-lg mb-1 " style="color: white; background-color: #163a9f"
-                            href="{{ route('login') }}">Kembali</a>
-                    </form>
+                <button type="submit" onclick="errorMessage()">Hantar</button>
+                <a href="{{ route('login') }}">Log Masuk</a>
+            </form>
+        </div>
+        <div class="overlay-container"
+            style="background:url({{ asset('theme/images/background/help.png') }}); background-size:cover">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <span style="color:white">
+                        Sebarang pertanyaan sila hubungi :<br><br>
+                        <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - Pn. Nor Syaida<br> (Emel:
+                        nor.syaida@mpob.gov.my atau Tel :
+                        03-7802 2917)<br>
+                        <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - En. Rominizam<br> (Emel:
+                        rominizam@mpob.gov.my atau Tel :
+                        03-7802 2918)<br>
+                        <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b><br> - Pn. Aziana<br> (Emel:
+                        aziana.misnan@mpob.gov.my atau Tel :
+                        03-7802 2955)<br>
+                        <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b><br> - Pn. Aziana<br> (Emel:
+                        aziana.misnan@mpob.gov.my atau Tel :
+                        03-7802 2955)<br>
+                        <b>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b><br> - Pn. Nor Baayah<br> (Emel
+                        abby@mpob.gov.my atau Tel : 03-7802
+                        2865)<br>
+                        <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b><br> - Pn. Nor Baayah<br> (Emel
+                        abby@mpob.gov.my atau Tel : 03-7802
+                        2865)<br>
+                        <b>Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b><br> - Cik Rohidayati
+                        Sukhaila<br>
+                        (Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
+                        <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-
 </body>
-    <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
 
-    <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
-    {{-- toaster display --}}
-    <script>
-        @if (Session::get('success'))
-            toastr.success('{{ session('success') }}', 'Berjaya', {
-                "progressBar": true
-            });
-        @elseif ($message = Session::get('error'))
-            toastr.error('{{ session('error') }}', 'Ralat', {
-                "progressBar": true
-            });
-        @endif
-    </script>
-       <script type="text/javascript">
-        function showDetail() {
-            var kat = $('#kat').val();
-            // const total = $produk2;
+<footer>
+    <p>
+        Hak Cipta Terpelihara 2022 © eKilang Malaysian Palm Oil Board<br>
+        Paparan terbaik dalam Internet Explorer 11.0+,
+        Google Chrome 6+, Mozilla Firefox 4+, Safari 3+, dan Opera 9+.
+    </p>
+</footer>
 
-            if (kat == "admin") {
-                $("#admin").removeAttr("style");
-                $("#lesen").removeAttr("style").hide();
-            } else {
-                $("#lesen").removeAttr("style");
-                $("#admin").removeAttr("style").hide();
-            }
+<script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+
+<script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
+<script>
+    function errorMessage() {
+        var error = document.getElementById("error")
+        if (isNaN(document.getElementById("password").value)) {
+
+            // Changing content and color of content
+            error.textContent = "Please enter a valid number"
+            error.style.color = "red"
+        } else {
+            error.textContent = ""
         }
-    </script>
-</html>
+    }
+</script>
+<script>
+    @if (Session::get('success'))
+        toastr.success('{{ session('success') }}', 'Berjaya', {
+            "progressBar": true
+        });
+    @elseif ($message = Session::get('error'))
+        toastr.error('{{ session('error') }}', 'Ralat', {
+            "progressBar": true
+        });
+    @endif
+</script>
+<script type="text/javascript">
+    function showDetail() {
+        var kat = $('#kat').val();
+        // const total = $produk2;
+
+        if (kat == "admin") {
+            $("#admin").removeAttr("style");
+            $("#lesen").removeAttr("style").hide();
+        } else {
+            $("#lesen").removeAttr("style");
+            $("#admin").removeAttr("style").hide();
+        }
+    }
+</script>
