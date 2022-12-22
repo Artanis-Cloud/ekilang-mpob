@@ -543,11 +543,16 @@ button.close {
             style="background:url({{ asset('theme/images/background/help.png') }}); background-size:cover">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <span style="color:white;font-size:25px">
-                        <b>Selamat Datang ke Sistem ekilang
-
-                        <hr>
+                    <span style="color:white;font-size:20px">
+                        Selamat Datang ke Sistem e-Kilang
                     </span>
+                    <span style="color:white;">
+                        Sistem e-Kilang adalah satu sistem aplikasi MPOB yang dibangunkan oleh MPOB bertujuan bagi membantu pelesen dalam membuat pelaporan 1-7hb setiap sebulan.
+                    <br>
+                    <hr>
+                    </span>
+                    <br>
+
 
                     <span style="color:white">
                         Sebarang pertanyaan sila hubungi :<br><br>
