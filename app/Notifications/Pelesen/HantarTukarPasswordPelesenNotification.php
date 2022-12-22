@@ -42,7 +42,10 @@ class HantarTukarPasswordPelesenNotification extends Notification
     public function toMail($notifiable)
     {
         // dd($notifiable);
-        return (new HantarTukarPasswordPelesenMail($notifiable, $this->password))->to($notifiable->email);
+
+        $to = explode(',', $notifiable->email);
+
+        return (new HantarTukarPasswordPelesenMail($notifiable, $this->password))->to($to[0]);
     }
 
     /**

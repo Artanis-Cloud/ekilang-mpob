@@ -234,6 +234,152 @@ class DataMigrationController extends Controller
         }
     }
 
+    public function transfer_pelesenbio_to_users()
+    {
+        // $reg_pelesens = RegPelesen::get(); // login
+
+        $biodiesels = DB::select("SELECT * FROM  pelesen_aktif_biodiesel");
+
+        foreach ($biodiesels as $biodiesel) {
+
+            $daerahap = Daerah::where('nama_daerah', $biodiesel->e_apdaerah)->first();
+            $daerahas = Daerah::where('nama_daerah', $biodiesel->e_asdaerah)->first();
+
+            $count_user = User::count();
+            $count_pelesen = Pelesen::count();
+            // dd($count);
+            if($biodiesel->e_asnegeri == '-Negeri-'){
+                $biodiesel->e_asnegeri = null;
+            }
+            if($biodiesel->e_apnegeri == '-Negeri-'){
+                $biodiesel->e_apnegeri = null;
+            }
+            // if($kilang->e_nl == '616115025000'){
+            //     dd($kilang);
+            // }
+            // $user = User::where('username', $biodiesel->e_nl)->first();
+
+            // if(!$user){
+            //     $user = User::create([
+            //         'id' => $count_user++,
+            //         'name' => $kilang->e_np ?? '-',
+            //         'email' => $kilang->e_email ?? '-',
+            //         'e_ap1' => $kilang->e_ap1 ?? '-',
+            //         'e_ap2' => $kilang->e_ap2 ?? '-',
+            //         'e_ap3' => $kilang->e_ap3 ?? '-',
+            //         'e_as1' => $kilang->e_as1 ?? '-',
+            //         'e_as2' => $kilang->e_as2 ?? '-',
+            //         'e_as3' => $kilang->e_as3 ?? '-',
+            //         'e_notel' =>  $kilang->e_notel ?? '-',
+            //         'e_nofax' =>  $kilang->e_nofax ?? '-',
+            //         'e_email' =>  $kilang->e_email ?? '-',
+            //         'e_npg' =>  $kilang->e_npg ?? '-',
+            //         'e_jpg' =>  $kilang->e_jpg ?? '-',
+            //         'kodpgw' =>  $kilang->kodpgw ?? '-',
+            //         'nosiri' =>  $kilang->nosiri ?? '-',
+            //         'e_npgtg' =>  $kilang->e_npgtg ?? '-',
+            //         'e_jpgtg' =>  $kilang->e_jpgtg ?? '-',
+            //         'e_asnegeri' =>  $negeri->kod_negeri ?? '-',
+            //         'e_asdaerah' =>  $daerah->kod_daerah ?? '-',
+            //         'e_negeri' =>  $negeri->kod_negeri ?? '-',
+            //         'e_daerah' =>  $daerah->kod_daerah ?? '-',
+            //         'e_syktinduk' =>  $kilang->e_sykt_induk ?? '-',
+            //         'e_status' =>  $kilang->e_status ?? '-',
+            //     ]);
+            // }else{
+
+            //         $user->e_nl = $kilang->e_nl ?? '-';
+            //         $user->e_np = $kilang->e_np ?? '-';
+            //         $user->e_ap1 = $kilang->e_ap1 ?? '-';
+            //         $user->e_ap2 = $kilang->e_ap2 ?? '-';
+            //         $user->e_ap3 = $kilang->e_ap3 ?? '-';
+            //         $user->e_as1 = $kilang->e_as1 ?? '-';
+            //         $user->e_as2 = $kilang->e_as2 ?? '-';
+            //         $user->e_as3 = $kilang->e_as3 ?? '-';
+            //         $user->e_notel = $kilang->e_notel ?? '-';
+            //         $user->e_nofax = $kilang->e_nofax ?? '-';
+            //         $user->e_email = $kilang->e_email ?? '-';
+            //         $user->e_npg = $kilang->e_npg ?? '-';
+            //         $user->e_jpg = $kilang->e_jpg ?? '-';
+            //         $user->kodpgw = $kilang->kodpgw ?? '-';
+            //         $user->nosiri = $kilang->nosiri ?? '-';
+            //         $user->e_npgtg = $kilang->e_npgtg ?? '-';
+            //         $user->e_jpgtg = $kilang->e_jpgtg ?? '-';
+            //         $user->e_asnegeri = $negeri->kod_negeri ?? '-';
+            //         $user->e_asdaerah = $daerah->kod_daerah ?? '-';
+            //         $user->e_negeri = $negeri->kod_negeri ?? '-';
+            //         $user->e_daerah = $daerah->kod_daerah ?? '-';
+            //         $user->e_syktinduk = $kilang->e_sykt_induk ?? '-';
+            //         $user->e_status = $kilang->e_status ?? '-';
+
+            //     $user->save();
+            // }
+
+
+
+
+
+            $pelesen = Pelesen::where('e_nl', $biodiesel->e_nl)->first();
+
+            if(!$pelesen){
+                $pelesen = Pelesen::create([
+                    'e_id' => $count_pelesen++,
+                    'e_nl' => $biodiesel->e_nl ?? '-',
+                    'e_np' => $biodiesel->e_np ?? '-',
+                    'e_ap1' => $biodiesel->e_ap1 ?? '-',
+                    'e_ap2' => $biodiesel->e_ap2 ?? '-',
+                    'e_ap3' => $biodiesel->e_ap3 ?? '-',
+                    'e_as1' => $biodiesel->e_as1 ?? '-',
+                    'e_as2' => $biodiesel->e_as2 ?? '-',
+                    'e_as3' => $biodiesel->e_as3 ?? '-',
+                    'e_notel' =>  $biodiesel->e_notel ?? '-',
+                    'e_nofax' =>  $biodiesel->e_nofax ?? '-',
+                    'e_email' =>  $biodiesel->e_email ?? '-',
+                    'e_npg' =>  $biodiesel->e_npg ?? '-',
+                    'e_jpg' =>  $biodiesel->e_jpg ?? '-',
+                    'kodpgw' =>  $biodiesel->kodpgw ?? '-',
+                    'nosiri' =>  $biodiesel->nosiri ?? '-',
+                    'e_npgtg' =>  $biodiesel->e_npgtg ?? '-',
+                    'e_jpgtg' =>  $biodiesel->e_jpgtg ?? '-',
+                    'e_asnegeri' =>  $biodiesel->e_asnegeri ?? '-',
+                    'e_asdaerah' =>  $daerahas->kod_daerah ?? '-',
+                    'e_negeri' =>  $biodiesel->e_apnegeri ?? '-',
+                    'e_daerah' =>  $daerahap->kod_daerah ?? '-',
+                    'e_syktinduk' =>  $biodiesel->e_sykt_induk ?? '-',
+                    'e_status' =>  $biodiesel->e_status ?? '-',
+                ]);
+            }else{
+
+                    $pelesen->e_nl = $biodiesel->e_nl ?? '-';
+                    $pelesen->e_np = $biodiesel->e_np ?? '-';
+                    $pelesen->e_ap1 = $biodiesel->e_ap1 ?? '-';
+                    $pelesen->e_ap2 = $biodiesel->e_ap2 ?? '-';
+                    $pelesen->e_ap3 = $biodiesel->e_ap3 ?? '-';
+                    $pelesen->e_as1 = $biodiesel->e_as1 ?? '-';
+                    $pelesen->e_as2 = $biodiesel->e_as2 ?? '-';
+                    $pelesen->e_as3 = $biodiesel->e_as3 ?? '-';
+                    $pelesen->e_notel = $biodiesel->e_notel ?? '-';
+                    $pelesen->e_nofax = $biodiesel->e_nofax ?? '-';
+                    $pelesen->e_email = $biodiesel->e_email ?? '-';
+                    $pelesen->e_npg = $biodiesel->e_npg ?? '-';
+                    $pelesen->e_jpg = $biodiesel->e_jpg ?? '-';
+                    $pelesen->kodpgw = $biodiesel->kodpgw ?? '-';
+                    $pelesen->nosiri = $biodiesel->nosiri ?? '-';
+                    $pelesen->e_npgtg = $biodiesel->e_npgtg ?? '-';
+                    $pelesen->e_jpgtg = $biodiesel->e_jpgtg ?? '-';
+                    $pelesen->e_asnegeri = $biodiesel->e_asnegeri ?? '-';
+                    $pelesen->e_asdaerah = $daerahas->kod_daerah ?? '-';
+                    $pelesen->e_negeri = $biodiesel->e_apnegeri ?? '-';
+                    $pelesen->e_daerah = $daerahap->kod_daerah ?? '-';
+                    $pelesen->e_syktinduk = $biodiesel->e_sykt_induk ?? '-';
+                    $pelesen->e_status = $biodiesel->e_status ?? '-';
+
+                $pelesen->save();
+            }
+
+        }
+    }
+
     public function transfer_profilebulanans_to_pelesen()
     {
         // $reg_pelesens = RegPelesen::get(); // login

@@ -32,7 +32,7 @@ class ForgetPasswordController extends Controller
                 foreach ($emel as $key => $cat) {
                     $cat2[$key] = $cat->category;
                 }
-                // dd($cat2);
+                // dd(count($emel) > 1);
                 $lesen = $request->lesen;
                 return view('auth.passwords.email_2_sect', compact('cat2', 'lesen'));
             } else {
@@ -62,12 +62,12 @@ class ForgetPasswordController extends Controller
                         return redirect()->route('login')->with('success', 'Tukar kata laluan BERJAYA. Kata laluan sementara telah dihantar ke emel kilang anda.');
                     }
                 }else{
-                    return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
+                    return redirect()->route('login')->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
                 }
             }
         } else {
             $emel = User::where('username', $request->admin)->first();
-
+            // dd("masuk");
             # code...
             if ($emel->email == NULL || $emel->email == '' || $emel->email == '-') {
                 return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
@@ -80,7 +80,7 @@ class ForgetPasswordController extends Controller
             }
 
             if (!$pelesen) {
-                return redirect()->back()->with('error', 'Pentadbir tidak berdaftar dalam sistem ini.');
+                return redirect()->route('login')->with('error', 'Pentadbir tidak berdaftar dalam sistem ini.');
             }
             $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
 
@@ -112,7 +112,7 @@ class ForgetPasswordController extends Controller
             $pelesen->save();
 
             if (!$pelesen) {
-                return redirect()->back()->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
+                return redirect()->route('login')->with('error', 'Lesen tidak berdaftar dalam sistem ini.');
             }
             $pelesen->notify((new HantarTukarPasswordPelesenNotification($custom_pass)));
 

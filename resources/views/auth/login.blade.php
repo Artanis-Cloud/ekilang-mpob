@@ -627,10 +627,11 @@ button.close {
 </footer>
 <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
 
+{{-- <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script> --}}
+
 <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
 <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> --}}
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 <script>
     @if (Session::get('success'))
         toastr.success('{{ session('success') }}', 'Berjaya', {
