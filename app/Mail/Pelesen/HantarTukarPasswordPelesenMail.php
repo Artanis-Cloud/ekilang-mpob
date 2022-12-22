@@ -8,6 +8,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use DB;
 
 class HantarTukarPasswordPelesenMail extends Mailable
 {
@@ -58,6 +59,12 @@ class HantarTukarPasswordPelesenMail extends Mailable
             $route = route('admin.tukarpassword');
         }
 
+        // $emails = str_replace('', ',', $this->pelesen->email);
+        $to = explode(',', $this->pelesen->email);
+        // dd($to[0]);
+        // $email = DB::select("SELECT STRING_SPLIT (email, ',')  from users");
+
+
         // $reg_pelesen = User::where('username', $pelesen->username)->first();
         // if($reg_pelesen->category == 'PL91'){
         //     $route = route('buah.tukarpassword');
@@ -85,7 +92,8 @@ class HantarTukarPasswordPelesenMail extends Mailable
         //     return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
 
         // } else {
-            return $this->to($this->pelesen->email, $this->pelesen->name)
+            $email = $to[0];
+            return $this->to($email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
         ->subject('Tukar Kata Laluan '. $this->pelesen->username)
         ->view('email.pelesen.newpass', compact('pelesen', 'password', 'route'));    }
