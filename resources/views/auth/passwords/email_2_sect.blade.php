@@ -265,54 +265,81 @@
     }
 </style>
 
-<body class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
+<body
+    class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
 
 
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form method="POST" action="{{ route('forget-password.submit') }}">
+            <form method="POST" action="{{ route('forget-password.submit2') }}">
                 @csrf
-                <h3>Terlupa Kata Laluan</h3>
+                {{-- <h3>Terlupa Kata Laluan</h3> --}}
                 <div class="social-container">
                     <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
                         style="height:100px; width:100px; margin-right:2% " alt="logo">
                 </div>
                 <div class="social-container">
-                    <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
-                        style="height:80px; width:70%; margin-right:2% " alt="logo">
+                    <img src="{{ asset('theme/images/background/ekilanglogo.png') }}"
+                        class="brand-image img-circle elevation-3" style="height:80px; width:70%; margin-right:2% "
+                        alt="logo">
                 </div>
-                <span> <b>Sistem e-Kilang</b></span>
-                <span><b> Lembaga Minyak Sawit</b></span>
-                <select class="form-control select" id="kat" name="kat" required onchange="showDetail()"
+                <select class="form-control select" id="kat" name="kat" required
                     oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
                     oninput="this.setCustomValidity('')">
-                    <option selected hidden disabled value="">Sila Pilih</option>
-                    <option value="admin">Pegawai MPOB</option>
-                    <option value="pelesen">Pemegang Lesen</option>
-
-
+                    <option selected hidden disabled value="">Sila Pilih Sektor</option>
+                    @foreach ($cat2 as $cat)
+                        @if ($cat == 'PL91')
+                            <option value="{{ $cat }}">Kilang Buah</option>
+                        @elseif ($cat == 'PL101')
+                            <option value="{{ $cat }}">Kilang Penapis</option>
+                        @elseif ($cat == 'PL102')
+                            <option value="{{ $cat }}">Kilang Isirung</option>
+                        @elseif ($cat == 'PL104')
+                            <option value="{{ $cat }}">Kilang Oleokimia</option>
+                        @elseif ($cat == 'PL111')
+                            <option value="{{ $cat }}">Pusat Simpanan</option>
+                        @elseif ($cat == 'PLBIO')
+                            <option value="{{ $cat }}">Kilang Biodiesel</option>
+                        @endif
+                    @endforeach
                 </select>
-                <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
-                    name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12" style="display:none"
-                    onkeypress="return isNumberKey(event)">
-
-
-                @error('email')
-                    <div class="col-12 alert alert-danger">
-                        <strong>{{ $message }}</strong>
+                <input type="hidden" value="{{ $lesen }}" name="nolesen">
+                {{-- <br> --}}
+                <div class="mb-3 input-group" style="display:none" id="lesen">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                     </div>
-                @enderror
+                    {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
+                    <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
+                        name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12"
+                        onkeypress="return isNumberKey(event)">
 
-                <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror"
-                    name="admin" placeholder="Sila Masukkan Username" style="display:none">
 
-                @error('email')
-                    <div class="col-12 alert alert-danger">
-                        <strong>{{ $message }}</strong>
+                    @error('email')
+                        <div class="col-12 alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
+
+                </div>
+                {{-- <br> --}}
+                <div class="mb-3 input-group" style="display:none" id="admin">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                     </div>
-                @enderror
 
-                <button type="submit" onclick="errorMessage()">Hantar</button>
+                    <input id="admin" type="text" class="form-control @error('admin') is-invalid @enderror"
+                        name="admin" placeholder="Sila Masukkan Username">
+
+                    @error('email')
+                        <div class="col-12 alert alert-danger">
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @enderror
+
+                </div>
+
+                <button type="submit">Hantar</button>
                 <a href="{{ route('login') }}">Log Masuk</a>
             </form>
         </div>

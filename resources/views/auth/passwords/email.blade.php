@@ -281,8 +281,8 @@
                     <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
                         style="height:80px; width:70%; margin-right:2% " alt="logo">
                 </div>
-                <span> <b>Sistem e-Kilang</b></span>
-                <span><b> Lembaga Minyak Sawit</b></span>
+                {{-- <span> <b>Sistem e-Kilang</b></span>
+                <span><b> Lembaga Minyak Sawit</b></span> --}}
                 <select class="form-control select" id="kat" name="kat" required onchange="showDetail()"
                     oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
                     oninput="this.setCustomValidity('')">
