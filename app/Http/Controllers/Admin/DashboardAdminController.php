@@ -132,6 +132,8 @@ class DashboardAdminController extends Controller
                 $PL91[$i][0]->pelesen = 0;
                 $PL91_total += 0;
             }
+
+        // dd($data);
         }
 
         for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
@@ -350,6 +352,7 @@ class DashboardAdminController extends Controller
         $array = [
             'PL91_total' => $PL91_total,
             'PL91' => $PL91,
+
 
             'PL101_total' => $PL101_total,
             'PL101' => $PL101,
