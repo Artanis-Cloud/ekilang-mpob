@@ -258,7 +258,8 @@
     }
 </style>
 
-<body style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover;">
+<body class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
+
     <div class="container" id="container">
         <div class="overlay-container">
             <div class="overlay">
@@ -267,10 +268,12 @@
                         @csrf
                         <div class="social-container">
                             <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:150px; width:150px; margin-right:2% " alt="logo">
+                                style="height:100px; width:100px; margin-right:2% " alt="logo">
                         </div>
-                        <span style="color:black"> <b>Sistem e-Kilang</b></span>
-                        <span style="color:black"><b> Lembaga Minyak Sawit</b></span>
+                        <div class="social-container">
+                            <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:80px; width:70%; margin-right:2% " alt="logo">
+                        </div>
                         <span style="color:black"><b> Sila Pilih Sektor</b></span><br>
                         @foreach ($users as $user)
                             <input id="e_nl" type="hidden"

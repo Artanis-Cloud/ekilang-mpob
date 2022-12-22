@@ -106,9 +106,9 @@
             0 10px 10px rgba(0, 0, 0, 0.22);
         position: relative;
         overflow: hidden;
-        width: 900px;
+        width: 1400px;
         max-width: 100%;
-        min-height: 550px;
+        min-height: 600px;
     }
 
     .form-container {
@@ -175,7 +175,7 @@
     .overlay {
         background: rgba(89, 194, 154, 0.801);
         background: -webkit-linear-gradient(to right, rgba(89, 194, 154, 0.801), rgba(89, 194, 154, 0.801));
-        background: linear-gradient(to right, rgba(89, 194, 154, 0.801), rgba(89, 194, 154, 0.801));
+        background: linear-gradient(to right, rgba(89, 194, 154, 0.014), rgba(89, 194, 154, 0));
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 0 0;
@@ -265,7 +265,9 @@
     }
 </style>
 
-<body style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover;">
+<body class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
+
+
     <div class="container" id="container">
         <div class="form-container sign-in-container">
             <form method="POST" action="{{ route('forget-password.submit') }}">
@@ -273,7 +275,11 @@
                 <h3>Terlupa Kata Laluan</h3>
                 <div class="social-container">
                     <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
-                        style="height:150px; width:150px; margin-right:2% " alt="logo">
+                        style="height:100px; width:100px; margin-right:2% " alt="logo">
+                </div>
+                <div class="social-container">
+                    <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
+                        style="height:80px; width:70%; margin-right:2% " alt="logo">
                 </div>
                 <span> <b>Sistem e-Kilang</b></span>
                 <span><b> Lembaga Minyak Sawit</b></span>
@@ -310,10 +316,11 @@
                 <a href="{{ route('login') }}">Log Masuk</a>
             </form>
         </div>
-        <div class="overlay-container">
+        <div class="overlay-container"
+            style="background:url({{ asset('theme/images/background/help.png') }}); background-size:cover">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <span style="color:black">
+                    <span style="color:white">
                         Sebarang pertanyaan sila hubungi :<br><br>
                         <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - Pn. Nor Syaida<br> (Emel:
                         nor.syaida@mpob.gov.my atau Tel :
@@ -346,10 +353,9 @@
 
 <footer>
     <p>
-        <b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
-            MINGGUAN) melalui sistem
-            ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
-            (ISNIN).</b><br>
+        Hak Cipta Terpelihara 2022 © eKilang Malaysian Palm Oil Board<br>
+        Paparan terbaik dalam Internet Explorer 11.0+,
+        Google Chrome 6+, Mozilla Firefox 4+, Safari 3+, dan Opera 9+.
     </p>
 </footer>
 
