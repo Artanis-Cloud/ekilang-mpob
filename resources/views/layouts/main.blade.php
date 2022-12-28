@@ -264,7 +264,7 @@
         <!-- ============================================================== -->
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header">
+                <div class="navbar-header" style="background: #f25939 ">
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
                         <i class="ti-menu ti-close"></i>
@@ -1645,12 +1645,13 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'admin')
-            <aside class="left-sidebar" style="margin-top: 20px">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                   background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
-                        <ul id="sidebarnav">
+                        <ul id="sidebarnav" style="background: #f25939 ">
                             {{-- <li class="nav-small-cap">
                                 <i class="mdi mdi-dots-horizontal"></i>
                                 <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>

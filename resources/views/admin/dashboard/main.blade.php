@@ -45,13 +45,13 @@
         <!-- ============================================================== -->
         <div class="container-fluid">
             <div class="card-group">
-                <div class="card">
+                <div class="card" style="border-radius: 15px">
                     <div class="card-body" >
-                        <div class="row" style="background-color: rgba(233, 156, 156, 0.233); border-radius: 15px; padding: 15px; margin: 15px">
+                        <p class="font-16 m-b-5"  style="font-weight:bold; color: #689786">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
+                        <div class="row" style="padding: 15px; margin: 15px">
                             <div class="col-md-12" >
                                 <div class="d-flex no-block align-items-center">
                                     <div>
-                                        <p class="font-16 m-b-5">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
                                         <p class="font-16 m-b-5">Bulan:
                                             @if (now()->month == 2)
                                                 <b>JANUARI</b> &nbsp;
@@ -95,9 +95,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <div class="card">
-                        <div class="card-body" style="background-color: rgba(236, 184, 163, 0.63); border-radius: 15px; padding: 15px; margin: 15px">
-                            <h4 class="card-title">Bilangan Dan Peratusan Penghantaran Penyata Bulanan</h4>
+                    <div class="card" style="border-radius: 15px">
+                        <div class="card-body" style=" padding: 15px; margin: 15px">
+                            <p class="font-16 m-b-5"  style="font-weight:bold; color: #689786">Bilangan Dan Peratusan Penghantaran Penyata Bulanan</p>
                             <canvas class="ct-chart-line" id="pieChart"
                                 style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas>
                         </div>
