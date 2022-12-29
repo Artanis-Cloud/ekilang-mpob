@@ -8,16 +8,16 @@ img{
 	width: 100%;
 }
 .login {
-    height: 800px;
+    height: 100%;
     width: 100%;
     background: linear-gradient(to top right, #f25939 59%, #ffffff 158%);
     position: relative;
 }
 .login_box {
-    width: 1050px;
-    height: 600px;
+    width: 1000px;
+    height: 555px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%,-60%);
     background: #fff;
@@ -27,13 +27,13 @@ img{
     overflow: hidden;
 }
 .login_box .left{
-  width: 41%;
+  width: 40%;
   height: 100%;
   padding: 25px 25px;
 
 }
 .login_box .right{
-  width: 59%;
+  width: 70%;
   height: 100%
 }
 .left .top_link a {
@@ -69,7 +69,7 @@ img{
     font-size: 14px;
 }
 .left{
-	background: linear-gradient(-45deg, #dcd7e0, #fff);
+	background: rgb(255, 255, 255);
 }
 .submit {
     border: none;
@@ -114,7 +114,7 @@ footer {
     }
 
 .right {
-	background: linear-gradient(212.38deg, rgba(25, 12, 55, 0.7) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
+	background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
 	color: #fff;
 	position: relative;
 }
@@ -185,7 +185,7 @@ footer {
                         </div>
                         <div class="container">
                             <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
-                                style="height:80px; width:70%; margin-left:10%  " alt="logo">
+                                style="height:80px; width:70%; margin-left:15%  " alt="logo">
                         </div>
                         <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
                             oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
