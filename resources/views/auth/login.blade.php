@@ -3,237 +3,92 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-    * {
-        box-sizing: border-box;
-    }
+img{
+	width: 100%;
+}
+.login {
+    height: 800px;
+    width: 100%;
+    background: linear-gradient(to top right, #f25939 59%, #ffffff 158%);
+    position: relative;
+}
+.login_box {
+    width: 1050px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_box .left{
+  width: 41%;
+  height: 100%;
+  padding: 25px 25px;
 
-    body {
-        background: #f6f5f7;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-family: 'Montserrat', sans-serif;
-        height: 100vh;
-        margin: -20px 0 50px;
-    }
+}
+.login_box .right{
+  width: 59%;
+  height: 100%
+}
+.left .top_link a {
+    color: #452A5A;
+    font-weight: 400;
+}
+.left .top_link{
+  height: 20px
+}
+.left .contact{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 73%;
+    margin: auto;
+}
+.left h3{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.left input {
+    border: none;
+    width: 80%;
+    margin: 15px 0px;
+    border-bottom: 1px solid #4f30677d;
+    padding: 7px 9px;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    font-weight: 600;
+    font-size: 14px;
+}
+.left{
+	background: linear-gradient(-45deg, #dcd7e0, #fff);
+}
+.submit {
+    border: none;
+    padding: 15px 70px;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    background: linear-gradient(to right, #f25939 59%, #ffffff 158%);
+    color: #fff;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+    box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
 
-    h1 {
-        font-weight: bold;
-        margin: 0;
-    }
 
-    h2 {
-        text-align: center;
-    }
 
-    p {
-        font-size: 14px;
-        font-weight: 100;
-        line-height: 20px;
-        letter-spacing: 0.5px;
-        margin: 20px 0 30px;
-    }
-
-    span {
-        font-size: 12px;
-    }
-
-    a {
-        color: #333;
-        font-size: 14px;
-        text-decoration: none;
-        margin: 15px 0;
-    }
-
-    button {
-        border-radius: 20px;
-        border: 1px solid rgba(89, 194, 154, 0.801);
-        background-color: rgba(89, 194, 154, 0.801);
-        color: #FFFFFF;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 12px 45px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        transition: transform 80ms ease-in;
-    }
-
-    button:active {
-        transform: scale(0.95);
-    }
-
-    button:focus {
-        outline: none;
-    }
-
-    button.ghost {
-        background-color: transparent;
-        border-color: #FFFFFF;
-    }
-
-    form {
-        background-color: #FFFFFF;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 50px;
-        height: 100%;
-        text-align: center;
-    }
-
-    input {
-        background-color: #eee;
-        border: none;
-        padding: 12px 15px;
-        margin: 8px 0;
-        width: 100%;
-    }
-
-    .container {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-            0 10px 10px rgba(0, 0, 0, 0.22);
-        position: relative;
-        overflow: hidden;
-        width: 1400px;
-        max-width: 100%;
-        min-height: 600px;
-    }
-
-    .form-container {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        transition: all 0.6s ease-in-out;
-    }
-
-    .sign-in-container {
-        left: 0;
-        width: 50%;
-        z-index: 2;
-    }
-
-    .container.right-panel-active .sign-in-container {
-        transform: translateX(100%);
-    }
-
-    .sign-up-container {
-        left: 0;
-        width: 50%;
-        opacity: 0;
-        z-index: 1;
-    }
-
-    .container.right-panel-active .sign-up-container {
-        transform: translateX(100%);
-        opacity: 1;
-        z-index: 5;
-        animation: show 0.6s;
-    }
-
-    @keyframes show {
-
-        0%,
-        49.99% {
-            opacity: 0;
-            z-index: 1;
-        }
-
-        50%,
-        100% {
-            opacity: 1;
-            z-index: 5;
-        }
-    }
-
-    .overlay-container {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 50%;
-        height: 100%;
-        overflow: hidden;
-        transition: transform 0.6s ease-in-out;
-        z-index: 100;
-    }
-
-    .container.right-panel-active .overlay-container {
-        transform: translateX(-100%);
-    }
-
-    .overlay {
-        background: rgba(89, 194, 154, 0.801);
-        background: -webkit-linear-gradient(to right, rgba(89, 194, 154, 0.801), rgba(89, 194, 154, 0.801));
-        background: linear-gradient(to right, rgba(89, 194, 154, 0.014), rgba(89, 194, 154, 0));
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0 0;
-        color: #FFFFFF;
-        position: relative;
-        left: -100%;
-        height: 100%;
-        width: 200%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
-
-    .container.right-panel-active .overlay {
-        transform: translateX(50%);
-    }
-
-    .overlay-panel {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        text-align: center;
-        top: 0;
-        height: 100%;
-        width: 50%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
-
-    .overlay-left {
-        transform: translateX(-20%);
-    }
-
-    .container.right-panel-active .overlay-left {
-        transform: translateX(0);
-    }
-
-    .overlay-right {
-        right: 0;
-        transform: translateX(0);
-    }
-
-    .container.right-panel-active .overlay-right {
-        transform: translateX(20%);
-    }
-
-    .social-container {
-        margin: 20px 0;
-    }
-
-    .social-container a {
-        border: 1px solid #DDDDDD;
-        border-radius: 50%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 5px;
-        height: 40px;
-        width: 40px;
-    }
-
-    footer {
+footer {
         background-color: #222;
         color: #fff;
         font-size: 14px;
@@ -258,370 +113,175 @@
         text-decoration: none;
     }
 
-    /* body {
-    font-family: 'Cairo', sans-serif;
-    font-weight: 400;
-} */
-.flexTitle{display:flex; justify-content:center; align-items:center; width:100%;}
-.flexTitle h1{color:#a31313; margin:0;}
-.close {
-    float: right;
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 1;
-    color: #000000;
-    text-shadow: 0 1px 0 #ffffff;
-    opacity: 0.7;
-    filter: alpha(opacity=70);
+.right {
+	background: linear-gradient(212.38deg, rgba(25, 12, 55, 0.7) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
+	color: #fff;
+	position: relative;
 }
-.close:hover,.close:focus {
-    color: #000000;
-    text-decoration: none;
-    cursor: pointer;
-}
-button.close {
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    -webkit-appearance: none;
-}
-.modal-open {
-    overflow: hidden;
-}
-.modal {
-    display: none;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
-    border-radius:25px;
 
+.right .right-text{
+  /* height: 100%; */
+  position: relative;
+  transform: translate(0%, 5%);
 }
-.modal.fade .modal-dialog {
-    -webkit-transform: translate(0, -25%);
-    -ms-transform: translate(0, -25%);
-    -o-transform: translate(0, -25%);
-    transform: translate(0, -25%);
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    -o-transition: -o-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
+.right-text h2{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
 }
-.modal.in .modal-dialog {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    transform: translate(0, 0);
+.right-text h5{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
 }
-.modal-open .modal {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-.modal-dialog {
-    position: relative;
-    width: auto;
-    margin: 10px;
 
+.right .right-inductor{
+  position: absolute;
+  width: 70px;
+  height: 7px;
+  background: #fff0;
+  left: 50%;
+  bottom: 70px;
+  transform: translate(-50%, 0%);
 }
-.modal-content {
-    position: relative;
-    top: 300;
-    border-radius:25px;
+.top_link img {
+    width: 28px;
+    padding-right: 7px;
+    margin-top: -3px;
+}
 
-
-
-}
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1040;
-    opacity:0.6 !important;
-    background-color: black;
-}
-.modal-backdrop.fade {
-    opacity: 0;
-    filter: alpha(opacity=0);
-}
-.modal-backdrop.in {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-}
-.modal-header {
-    padding: 15px;
-    min-height: 16.42857143px;
-}
-.modal-header .close {
-    margin-top: -2px;
-}
-.modal-title {
-    margin: 0;
-    line-height: 1.42857143;
-}
-.modal-body {
-    position: relative;
-    padding: 35px 15px;
-    background-color: #aa1515;
-    border-radius:  10px 10px 0 0px;
-}
-.modal-footer {
-    padding: 15px;
-    text-align: right;
-    background-color: #fff;
-    border-radius: 0 0px 10px 10px;
-}
-.modal-footer .btn + .btn {
-    margin-left: 5px;
-    margin-bottom: 0;
-}
-.modal-footer .btn-group .btn + .btn {
-    margin-left: -1px;
-}
-.modal-footer .btn-block + .btn-block {
-    margin-left: 0;
-}
-.modal-scrollbar-measure {
-    position: absolute;
-    top: -9999px;
-    width: 50px;
-    height: 50px;
-    overflow: scroll;
-}
-.clickable {
-    cursor: pointer;
-}
-@media (min-width: 768px) {
-    .modal-dialog {
-    width: 600px;
-    margin: 30px auto;
-}
- .modal-sm {
-    width: 300px;
-}
-}
-@media (min-width: 992px) {
-    .modal-lg {
-    width: 900px;
-}
-}
-.clearfix:before,.clearfix:after,.modal-footer:before,.modal-footer:after {
-    content: " ";
-    display: table;
-}
-.clearfix:after,.modal-footer:after {
-    clear: both;
-}
-.center-block {
+.right-text p {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.pull-right {
-    float: right !important;
-}
-.pull-left {
-    float: left !important;
-}
-.hide {
-    display: none !important;
-}
-.show {
-    display: block !important;
-}
-.invisible {
-    visibility: hidden;
-}
-.text-hide {
-    font: 0/0 a;
-    color: transparent;
-    text-shadow: none;
-    background-color: transparent;
-    border: 0;
-}
-.hidden {
-    display: none !important;
-}
-.affix {
-    position: fixed;
-}
-.img-responsive-height {
-    display: block;
-    width: auto;
-    max-height: 100%}
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-.signCenter {
+    width: 100%;
     text-align: center;
-}
-.closeSymbol {
-    color: #fff;
-    font-size: 40px;
-    border: 3px solid #fff;
-    width: 96px;
-    heiht: 96px;
-    border-radius: 50%;
-    font-weight: 700;
-    text-align: center;
-    padding: 0 15px;
-}
-.snapHdr {
-    color: #aa1515;
-    font-size: 40px;
-    margin: 0;
-    font-weight: 700;
-}
-.info {
-    margin: 0 0 10px 0;
-}
-.closeftr {
-    background-color: #aa1515;
-    color: #fff;
-    padding: 5px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
+    height: 5px;
 }
 
-.background{
-    filter: blur(8px);
-  -webkit-filter: blur(8px);
-}
+
+
+
 
 </style>
 
-<body class=""style="background:url({{ asset('theme/images/background/loginbg.png') }});background-size:cover;background-position:center;">
-    <div class="container" id="container">
-        <div class="form-container sign-in-container">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <h3>Log Masuk</h3>
-                <div class="social-container">
-                    <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
-                        style="height:100px; width:100px; margin-right:2% " alt="logo">
-                </div>
-                <div class="social-container">
-                    <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
-                        style="height:80px; width:70%; margin-right:2% " alt="logo">
-                </div>
-                <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
-                    oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
-                    name="username" value="{{ old('username') }}" autocomplete="username" maxlength="12"
-                    placeholder="No. Lesen">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<body>
+	<section class="login">
+		<div class="login_box">
+			<div class="left">
+				{{-- <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div> --}}
+				<div class="contact">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <h3>LOG MASUK</h3>
+                        <div class="container">
+                            <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:100px; width:100px; margin-left:30% " alt="logo">
+                        </div>
+                        <div class="container">
+                            <img src="{{ asset('theme/images/background/ekilanglogo.png') }}" class="brand-image img-circle elevation-3"
+                                style="height:80px; width:70%; margin-left:10%  " alt="logo">
+                        </div>
+                        <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
+                            oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
+                            name="username" value="{{ old('username') }}" autocomplete="username" maxlength="12"
+                            placeholder="No. Lesen">
 
-                @error('username')
-                    <div class="col-12 alert alert-danger">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
-                <input id="password" type="password" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                    oninput="setCustomValidity('')" required
-                    class="form-control @error('password') is-invalid @enderror" name="password"
-                    autocomplete="current-password" placeholder="Kata Laluan">
-                {{-- <span id="error"></span> --}}
+                        @error('username')
+                            <div class="col-12 alert alert-danger">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                        <input id="password" type="password" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                            oninput="setCustomValidity('')" required
+                            class="form-control @error('password') is-invalid @enderror" name="password"
+                            autocomplete="current-password" placeholder="Kata Laluan">
+                        {{-- <span id="error"></span> --}}
 
-                @error('password')
-                    <div class="col-12 alert alert-danger">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
-                <a href="{{ route('forget-password.show') }}">Terlupa Kata Laluan?</a>
-                <button type="submit" onclick="errorMessage()">Log Masuk</button>
-            </form>
-        </div>
-        <div class="overlay-container"
-            style="background:url({{ asset('theme/images/background/help.png') }}); background-size:cover">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <span style="color:white;font-size:20px">
-                        Selamat Datang ke Sistem e-Kilang
-                    </span>
-                    <span style="color:white;">
-                        Sistem e-Kilang adalah satu sistem aplikasi MPOB yang dibangunkan oleh MPOB bertujuan bagi membantu pelesen dalam membuat pelaporan 1-7hb setiap sebulan.
-                    <br>
+                        @error('password')
+                            <div class="col-12 alert alert-danger">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @enderror
+                        <a href="{{ route('forget-password.show') }}">Terlupa Kata Laluan?</a>
+                        <button class="submit" type="submit" onclick="errorMessage()">Log Masuk</button>
+                    </form>
+				</div>
+			</div>
+			<div class="right">
+				<div class="right-text">
+					<h2>SELAMAT DATANG KE SISTEM e-Kilang</h2>
+					<h5>Sistem e-Kilang adalah satu sistem aplikasi MPOB yang dibangunkan oleh MPOB bertujuan bagi membantu pelesen dalam membuat pelaporan 1-7hb setiap sebulan.</h5>
                     <hr>
-                    </span>
-                    <br>
+                    <p>
+                        Sebarang pertanyaan sila hubungi :
+                    </p><br>
+                    <p style="text-align: left; margin-left: 5%"><b>
+                        Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>
+                    </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">En. Rominizam : </div>
+                        <div class="col-7">(Emel:
+                            rominizam@mpob.gov.my atau Tel : 03-7802 2918)</div>
+                    </div><br>
+                    <p style="text-align: left; margin-left: 5%"><b>
+                        Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b>
+                    </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">Pn. Aziana : </div>
+                        <div class="col-7">(Emel:
+                            aziana.misnan@mpob.gov.my atau Tel :
+                            03-7802 2955)</div>
+                    </div><br>
+                    <p style="text-align: left; margin-left: 5%"><b>
+                        Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b>
+                    </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">Pn. Aziana : </div>
+                        <div class="col-7">(Emel:
+                            aziana.misnan@mpob.gov.my atau Tel :
+                            03-7802 2955)</div>
+                    </div><br>
+                    <p style="text-align: left; margin-left: 5%"><b>
+                        Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b>
+                    </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">Pn. Nor Baayah : </div>
+                        <div class="col-7">(Emel
+                            abby@mpob.gov.my atau Tel : 03-7802
+                            2865)</div>
+                    </div><br>
+                    <p style="text-align: left; margin-left: 5%"><b>
+                        Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b>
+                    </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">Pn. Nor Baayah : </div>
+                        <div class="col-7">(Emel
+                            abby@mpob.gov.my atau Tel : 03-7802
+                            2865)</div>
+                    </div><br>
+                    <p style="text-align: left; margin-left: 5%"><b>
+                        Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b>
+                    </p>
+                    <div class="row" style=" margin-left: 5%; font-size:11px" >
+                        <div class="col-3">Cik Rohidayati
+                            Sukhaila : </div>
+                        <div class="col-7">(Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
+                            <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br></div>
+                    </div><br>
 
-
-                    <span style="color:white">
-                        Sebarang pertanyaan sila hubungi :<br><br>
-                        <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - Pn. Nor Syaida<br> (Emel:
-                        nor.syaida@mpob.gov.my atau Tel :
-                        03-7802 2917)<br>
-                        <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b><br> - En. Rominizam<br> (Emel:
-                        rominizam@mpob.gov.my atau Tel :
-                        03-7802 2918)<br>
-                        <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b><br> - Pn. Aziana<br> (Emel:
-                        aziana.misnan@mpob.gov.my atau Tel :
-                        03-7802 2955)<br>
-                        <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b><br> - Pn. Aziana<br> (Emel:
-                        aziana.misnan@mpob.gov.my atau Tel :
-                        03-7802 2955)<br>
-                        <b>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b><br> - Pn. Nor Baayah<br> (Emel
-                        abby@mpob.gov.my atau Tel : 03-7802
-                        2865)<br>
-                        <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b><br> - Pn. Nor Baayah<br> (Emel
-                        abby@mpob.gov.my atau Tel : 03-7802
-                        2865)<br>
-                        <b>Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b><br> - Cik Rohidayati
-                        Sukhaila<br>
-                        (Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
-                        <b>No Faks bagi Penyata Bulanan</b><br> 03-7803 2323 / 03-7803 1399<br>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <br>
-    <br>
-    {{-- <p style="background-color: #222; color:white; padding:10px;text-align:center">
-    <b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
-        MINGGUAN) melalui sistem
-        ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
-        (ISNIN).</b><br>
-    </p> --}}
-
-    <div class=""></div>
-    <div id="modal-content" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                {{-- <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                </div> --}}
-                <div class="modal-body">
-
-                        <p class="snapHdr" style="color:white;text-align:center">Peringatan !</p>
-                </div>
-                <div class="modal-footer signCenter">
-
-                    <p class="info">Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
-                        MINGGUAN) melalui sistem
-                        ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
-                        (ISNIN)</p>
-                    <a href="#" class="btn closeftr" data-dismiss="modal">Tutup</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
+				</div>
+				{{-- <div class="right-inductor"><img src="https://lh3.googleusercontent.com/fife/ABSRlIoGiXn2r0SBm7bjFHea6iCUOyY0N2SrvhNUT-orJfyGNRSMO2vfqar3R-xs5Z4xbeqYwrEMq2FXKGXm-l_H6QAlwCBk9uceKBfG-FjacfftM0WM_aoUC_oxRSXXYspQE3tCMHGvMBlb2K1NAdU6qWv3VAQAPdCo8VwTgdnyWv08CmeZ8hX_6Ty8FzetXYKnfXb0CTEFQOVF4p3R58LksVUd73FU6564OsrJt918LPEwqIPAPQ4dMgiH73sgLXnDndUDCdLSDHMSirr4uUaqbiWQq-X1SNdkh-3jzjhW4keeNt1TgQHSrzW3maYO3ryueQzYoMEhts8MP8HH5gs2NkCar9cr_guunglU7Zqaede4cLFhsCZWBLVHY4cKHgk8SzfH_0Rn3St2AQen9MaiT38L5QXsaq6zFMuGiT8M2Md50eS0JdRTdlWLJApbgAUqI3zltUXce-MaCrDtp_UiI6x3IR4fEZiCo0XDyoAesFjXZg9cIuSsLTiKkSAGzzledJU3crgSHjAIycQN2PH2_dBIa3ibAJLphqq6zLh0qiQn_dHh83ru2y7MgxRU85ithgjdIk3PgplREbW9_PLv5j9juYc1WXFNW9ML80UlTaC9D2rP3i80zESJJY56faKsA5GVCIFiUtc3EewSM_C0bkJSMiobIWiXFz7pMcadgZlweUdjBcjvaepHBe8wou0ZtDM9TKom0hs_nx_AKy0dnXGNWI1qftTjAg=w1920-h979-ft" alt=""></div> --}}
+			</div>
+		</div>
+	</section>
 </body>
+
 
 <footer>
     <p>
