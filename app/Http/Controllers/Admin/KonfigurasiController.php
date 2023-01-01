@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Hash;
 
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class KonfigurasiController extends Controller
@@ -163,14 +164,16 @@ class KonfigurasiController extends Controller
 
         $pass = 'admin123';
         $password = Hash::make('admin123');
+        $password2 = Crypt::encryptString('admin123');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $password,
+            'crypted_pass' => $password2,
             'username' => $data['username'],
             'category' => 'admin',
             'role' => $data['role'],
-            'sub_cat' => json_encode($data['sub_cat']),
+            'sub_cat' => json_encode($data['sub_cat']) ?? NULL,
             'status' => $data['status'],
             'map_sdate' => now(),
 
@@ -186,7 +189,7 @@ class KonfigurasiController extends Controller
             // 'email' => $data['email'],
             // 'e_pwd' => $password,
             'e_userid' => $data['username'],
-            'e_kat' => json_encode($data['sub_cat']),
+            'e_kat' => json_encode($data['sub_cat']) ?? null,
         ]);
     }
 

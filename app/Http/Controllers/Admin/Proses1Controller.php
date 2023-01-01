@@ -24,6 +24,7 @@ use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\BuahExport;
 use App\Notifications\Admin\DaftarPelesenNotification;
+use Illuminate\Support\Facades\Crypt;
 
 class Proses1Controller extends Controller
 {
@@ -235,32 +236,6 @@ class Proses1Controller extends Controller
             // 'id' => $count+ 1,
             'e_nl' => $data['e_nl'],
             'tahun' => date("Y"),
-            // 'jan' => $data['kap_proses'],
-            // 'feb' => $data['kap_proses'],
-            // 'mac' => $data['kap_proses'],
-            // 'apr' => $data['kap_proses'],
-            // 'mei' => $data['kap_proses'],
-            // 'jun' => $data['kap_proses'],
-            // 'jul' => $data['kap_proses'],
-            // 'ogs' => $data['kap_proses'],
-            // 'sept' => $data['kap_proses'],
-            // 'okt' => $data['kap_proses'],
-            // 'nov' => $data['kap_proses'],
-            // 'dec' => $data['kap_proses'],
-            // 'e_nl' => $request->e_nl,
-            // 'tahun' => date("Y"),
-            // 'jan' => $request->kap_proses,
-            // 'feb' => $request->kap_proses,
-            // 'mac' => $request->kap_proses,
-            // 'apr' => $request->kap_proses,
-            // 'mei' => $request->kap_proses,
-            // 'jun' => $request->kap_proses,
-            // 'jul' => $request->kap_proses,
-            // 'ogs' => $request->kap_proses,
-            // 'sept' => $request->kap_proses,
-            // 'okt' => $request->kap_proses,
-            // 'nov' => $request->kap_proses,
-            // 'dec' => $request->kap_proses,
 
         ]);
     }
@@ -287,6 +262,7 @@ class Proses1Controller extends Controller
             'name' => $data['e_np'],
             'email' => $data['e_email'],
             'password' => Hash::make($custom_pass),
+            'crypted_pass' => Crypt::encryptString($custom_pass),
             'username' => $data['e_nl'],
             'category' => $data['e_kat'],
             'kod_pegawai' => $data['kodpgw'],

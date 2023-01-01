@@ -31,6 +31,10 @@ class tryController extends Controller
     {
         return view('loginArx');
     }
+    public function converter()
+    {
+        return view('converter');
+    }
     public function testing3()
     {
 
@@ -44,7 +48,7 @@ class tryController extends Controller
         // echo $dt->format('d-m-Y H:i:s');
 
         // $run_at = now($zone)->startOfDay()->addHours(8)->utc()->format('H:i');
-        $run_at = now()->addHours(8)->utc()->format('H:i');
+        $run_at = Hash::make('admin123');
         dd($run_at);
 
 
@@ -156,10 +160,20 @@ class tryController extends Controller
     public function testdb_pldb()
     {
 
-        $tahun = date('Y');
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
         $bulan = date('m');
+
         $current_date = date('Y-m-d');
-        $date = Init::where('tahun', $tahun)->first();
+        if ($bulan == 1) {
+           $date = Init::where('tahun', $tahun2)->first();
+
+        } else {
+           $date = Init::where('tahun', $tahun1)->first();
+
+        }
+        dd($date);
+
 
         if ($bulan == 2) {
             $sdate = $date->sjan;
@@ -205,13 +219,12 @@ class tryController extends Controller
             $sdate = $date->snov;
             $edate = $date->enov;
         }
-        else {
+        elseif ($bulan == 1){
             $sdate = $date->sdec;
             $edate = $date->edec;
         }
 
 
-        dd($sdate == $current_date);
 
 
 
