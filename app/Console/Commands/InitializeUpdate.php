@@ -135,84 +135,169 @@ class InitializeUpdate extends Command
     public function initialize_proses_pl91($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PL91')->where('e_status', '1')->get();
-
         $e91_init = DB::table('e91_init')->delete();
         $e91b = DB::table('e91b')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E91Init::create([
-                'e91_reg' => $key + 1,
-                'e91_nl' => $e_nl,
-                'e91_bln' => now()->format('m') - 1,
-                'e91_thn' => now()->year,
-                'e91_flg' => '1',
-                'e91_sdate' => NULL,
-                'e91_ddate' => $e_ddate,
-                'e91_aa1' => NULL,
-                'e91_aa2' => NULL,
-                'e91_aa3' => NULL,
-                'e91_aa4' => NULL,
-                'e91_ab1' => NULL,
-                'e91_ab2' => NULL,
-                'e91_ab3' => NULL,
-                'e91_ab4' => NULL,
-                'e91_ac1' => NULL,
-                'e91_ad1' => NULL,
-                'e91_ad2' => NULL,
-                'e91_ad3' => NULL,
-                'e91_ae1' => NULL,
-                'e91_ae2' => NULL,
-                'e91_ae3' => NULL,
-                'e91_ae4' => NULL,
-                'e91_af1' => NULL,
-                'e91_af2' => NULL,
-                'e91_af3' => NULL,
-                'e91_ag1' => NULL,
-                'e91_ag2' => NULL,
-                'e91_ag3' => NULL,
-                'e91_ag4' => NULL,
-                'e91_ah1' => NULL,
-                'e91_ah2' => NULL,
-                'e91_ah3' => NULL,
-                'e91_ah4' => NULL,
-                'e91_ai1' => NULL,
-                'e91_ai2' => NULL,
-                'e91_ai3' => NULL,
-                'e91_ai4' => NULL,
-                'e91_ai5' => NULL,
-                'e91_ai6' => NULL,
-                'e91_aj1' => NULL,
-                'e91_aj2' => NULL,
-                'e91_aj3' => NULL,
-                'e91_aj4' => NULL,
-                'e91_aj5' => NULL,
-                'e91_aj6' => NULL,
-                'e91_aj7' => NULL,
-                'e91_aj8' => NULL,
-                'e91_ak1' => NULL,
-                'e91_ak2' => NULL,
-                'e91_ak3' => NULL,
-                'e91_npg' => NULL,
-                'e91_jpg' => NULL,
-                'e91_flagcetak' => NULL,
-                'e91_ah5' => NULL,
-                'e91_ah6' => NULL,
-                'e91_ah7' => NULL,
-                'e91_ah8' => NULL,
-                'e91_ah9' => NULL,
-                'e91_ah10' => NULL,
-                'e91_ah11' => NULL,
-                'e91_ah12' => NULL,
-                'e91_ah13' => NULL,
-                'e91_ah14' => NULL,
-                'e91_ah15' => NULL,
-                'e91_ah16' => NULL,
-                'e91_ah17' => NULL,
-                'e91_ah18' => NULL,
-            ]);
+
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
+
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E91Init::create([
+                    'e91_reg' => $key + 1,
+                    'e91_nl' => $e_nl,
+                    'e91_bln' => now()->format('m') - 1,
+                    'e91_thn' => $tahun2,
+                    'e91_flg' => '1',
+                    'e91_sdate' => NULL,
+                    'e91_ddate' => $e_ddate,
+                    'e91_aa1' => NULL,
+                    'e91_aa2' => NULL,
+                    'e91_aa3' => NULL,
+                    'e91_aa4' => NULL,
+                    'e91_ab1' => NULL,
+                    'e91_ab2' => NULL,
+                    'e91_ab3' => NULL,
+                    'e91_ab4' => NULL,
+                    'e91_ac1' => NULL,
+                    'e91_ad1' => NULL,
+                    'e91_ad2' => NULL,
+                    'e91_ad3' => NULL,
+                    'e91_ae1' => NULL,
+                    'e91_ae2' => NULL,
+                    'e91_ae3' => NULL,
+                    'e91_ae4' => NULL,
+                    'e91_af1' => NULL,
+                    'e91_af2' => NULL,
+                    'e91_af3' => NULL,
+                    'e91_ag1' => NULL,
+                    'e91_ag2' => NULL,
+                    'e91_ag3' => NULL,
+                    'e91_ag4' => NULL,
+                    'e91_ah1' => NULL,
+                    'e91_ah2' => NULL,
+                    'e91_ah3' => NULL,
+                    'e91_ah4' => NULL,
+                    'e91_ai1' => NULL,
+                    'e91_ai2' => NULL,
+                    'e91_ai3' => NULL,
+                    'e91_ai4' => NULL,
+                    'e91_ai5' => NULL,
+                    'e91_ai6' => NULL,
+                    'e91_aj1' => NULL,
+                    'e91_aj2' => NULL,
+                    'e91_aj3' => NULL,
+                    'e91_aj4' => NULL,
+                    'e91_aj5' => NULL,
+                    'e91_aj6' => NULL,
+                    'e91_aj7' => NULL,
+                    'e91_aj8' => NULL,
+                    'e91_ak1' => NULL,
+                    'e91_ak2' => NULL,
+                    'e91_ak3' => NULL,
+                    'e91_npg' => NULL,
+                    'e91_jpg' => NULL,
+                    'e91_flagcetak' => NULL,
+                    'e91_ah5' => NULL,
+                    'e91_ah6' => NULL,
+                    'e91_ah7' => NULL,
+                    'e91_ah8' => NULL,
+                    'e91_ah9' => NULL,
+                    'e91_ah10' => NULL,
+                    'e91_ah11' => NULL,
+                    'e91_ah12' => NULL,
+                    'e91_ah13' => NULL,
+                    'e91_ah14' => NULL,
+                    'e91_ah15' => NULL,
+                    'e91_ah16' => NULL,
+                    'e91_ah17' => NULL,
+                    'e91_ah18' => NULL,
+                ]);
+
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E91Init::create([
+                    'e91_reg' => $key + 1,
+                    'e91_nl' => $e_nl,
+                    'e91_bln' => now()->format('m') - 1,
+                    'e91_thn' => $tahun1,
+                    'e91_flg' => '1',
+                    'e91_sdate' => NULL,
+                    'e91_ddate' => $e_ddate,
+                    'e91_aa1' => NULL,
+                    'e91_aa2' => NULL,
+                    'e91_aa3' => NULL,
+                    'e91_aa4' => NULL,
+                    'e91_ab1' => NULL,
+                    'e91_ab2' => NULL,
+                    'e91_ab3' => NULL,
+                    'e91_ab4' => NULL,
+                    'e91_ac1' => NULL,
+                    'e91_ad1' => NULL,
+                    'e91_ad2' => NULL,
+                    'e91_ad3' => NULL,
+                    'e91_ae1' => NULL,
+                    'e91_ae2' => NULL,
+                    'e91_ae3' => NULL,
+                    'e91_ae4' => NULL,
+                    'e91_af1' => NULL,
+                    'e91_af2' => NULL,
+                    'e91_af3' => NULL,
+                    'e91_ag1' => NULL,
+                    'e91_ag2' => NULL,
+                    'e91_ag3' => NULL,
+                    'e91_ag4' => NULL,
+                    'e91_ah1' => NULL,
+                    'e91_ah2' => NULL,
+                    'e91_ah3' => NULL,
+                    'e91_ah4' => NULL,
+                    'e91_ai1' => NULL,
+                    'e91_ai2' => NULL,
+                    'e91_ai3' => NULL,
+                    'e91_ai4' => NULL,
+                    'e91_ai5' => NULL,
+                    'e91_ai6' => NULL,
+                    'e91_aj1' => NULL,
+                    'e91_aj2' => NULL,
+                    'e91_aj3' => NULL,
+                    'e91_aj4' => NULL,
+                    'e91_aj5' => NULL,
+                    'e91_aj6' => NULL,
+                    'e91_aj7' => NULL,
+                    'e91_aj8' => NULL,
+                    'e91_ak1' => NULL,
+                    'e91_ak2' => NULL,
+                    'e91_ak3' => NULL,
+                    'e91_npg' => NULL,
+                    'e91_jpg' => NULL,
+                    'e91_flagcetak' => NULL,
+                    'e91_ah5' => NULL,
+                    'e91_ah6' => NULL,
+                    'e91_ah7' => NULL,
+                    'e91_ah8' => NULL,
+                    'e91_ah9' => NULL,
+                    'e91_ah10' => NULL,
+                    'e91_ah11' => NULL,
+                    'e91_ah12' => NULL,
+                    'e91_ah13' => NULL,
+                    'e91_ah14' => NULL,
+                    'e91_ah15' => NULL,
+                    'e91_ah16' => NULL,
+                    'e91_ah17' => NULL,
+                    'e91_ah18' => NULL,
+                ]);
+
+            }
 
         }
+
     }
     public function initialize_proses_pl101($e_ddate)
     {
@@ -224,24 +309,53 @@ class InitializeUpdate extends Command
         $e101_d = DB::table('e101_d')->delete();
         $e101_e = DB::table('e101_e')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E101Init::create([
-                'e101_reg' => $key + 1,
-                'e101_nl' => $e_nl,
-                'e101_bln' => now()->format('m') - 1,
-                'e101_thn' => now()->year,
-                'e101_flg' => '1',
-                'e101_sdate' => NULL,
-                'e101_ddate' => $e_ddate,
-                'e101_a1' => NULL,
-                'e101_a2' => NULL,
-                'e101_a3' => NULL,
-                'e101_npg' => NULL,
-                'e101_jpg' => NULL,
-                'e101_flagcetak' => NULL,
-            ]);
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E101Init::create([
+                    'e101_reg' => $key + 1,
+                    'e101_nl' => $e_nl,
+                    'e101_bln' => now()->format('m') - 1,
+                    'e101_thn' => $tahun2,
+                    'e101_flg' => '1',
+                    'e101_sdate' => NULL,
+                    'e101_ddate' => $e_ddate,
+                    'e101_a1' => NULL,
+                    'e101_a2' => NULL,
+                    'e101_a3' => NULL,
+                    'e101_npg' => NULL,
+                    'e101_jpg' => NULL,
+                    'e101_flagcetak' => NULL,
+                ]);
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E101Init::create([
+                    'e101_reg' => $key + 1,
+                    'e101_nl' => $e_nl,
+                    'e101_bln' => now()->format('m') - 1,
+                    'e101_thn' => $tahun1,
+                    'e101_flg' => '1',
+                    'e101_sdate' => NULL,
+                    'e101_ddate' => $e_ddate,
+                    'e101_a1' => NULL,
+                    'e101_a2' => NULL,
+                    'e101_a3' => NULL,
+                    'e101_npg' => NULL,
+                    'e101_jpg' => NULL,
+                    'e101_flagcetak' => NULL,
+                ]);
+            }
+
         }
+
+
     }
 
     public function initialize_proses_pl102($e_ddate)
@@ -252,56 +366,118 @@ class InitializeUpdate extends Command
         $e102b = DB::table('e102b')->delete();
         $e102c = DB::table('e102c')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E102Init::create([
-                'e102_reg' => $key + 1,
-                'e102_nl' => $e_nl,
-                'e102_bln' => now()->format('m') - 1,
-                'e102_thn' => now()->year,
-                'e102_flg' => '1',
-                'e102_sdate' => NULL,
-                'e102_ddate' => $e_ddate,
-                'e102_aa1' => NULL,
-                'e102_aa2' => NULL,
-                'e102_aa3' => NULL,
-                'e102_ab1' => NULL,
-                'e102_ab2' => NULL,
-                'e102_ab3' => NULL,
-                'e102_ac1' => NULL,
-                'e102_ac2' => NULL,
-                'e102_ac3' => NULL,
-                'e102_ad1' => NULL,
-                'e102_ad2' => NULL,
-                'e102_ad3' => NULL,
-                'e102_ae1' => NULL,
-                'e102_af2' => NULL,
-                'e102_af3' => NULL,
-                'e102_ag1' => NULL,
-                'e102_ag2' => NULL,
-                'e102_ag3' => NULL,
-                'e102_ah1' => NULL,
-                'e102_ah2' => NULL,
-                'e102_ah3' => NULL,
-                'e102_ai1' => NULL,
-                'e102_ai2' => NULL,
-                'e102_ai3' => NULL,
-                'e102_aj1' => NULL,
-                'e102_aj2' => NULL,
-                'e102_aj3' => NULL,
-                'e102_ak1' => NULL,
-                'e102_ak2' => NULL,
-                'e102_ak3' => NULL,
-                'e102_al1' => NULL,
-                'e102_al2' => NULL,
-                'e102_al3' => NULL,
-                'e102_al4' => NULL,
-                'e102_npg' => NULL,
-                'e102_jpg' => NULL,
-                'e102_flagcetak' => NULL,
-                'e102_ae3' => NULL,
-            ]);
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
+
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E102Init::create([
+                    'e102_reg' => $key + 1,
+                    'e102_nl' => $e_nl,
+                    'e102_bln' => now()->format('m') - 1,
+                    'e102_thn' => $tahun2,
+                    'e102_flg' => '1',
+                    'e102_sdate' => NULL,
+                    'e102_ddate' => $e_ddate,
+                    'e102_aa1' => NULL,
+                    'e102_aa2' => NULL,
+                    'e102_aa3' => NULL,
+                    'e102_ab1' => NULL,
+                    'e102_ab2' => NULL,
+                    'e102_ab3' => NULL,
+                    'e102_ac1' => NULL,
+                    'e102_ac2' => NULL,
+                    'e102_ac3' => NULL,
+                    'e102_ad1' => NULL,
+                    'e102_ad2' => NULL,
+                    'e102_ad3' => NULL,
+                    'e102_ae1' => NULL,
+                    'e102_af2' => NULL,
+                    'e102_af3' => NULL,
+                    'e102_ag1' => NULL,
+                    'e102_ag2' => NULL,
+                    'e102_ag3' => NULL,
+                    'e102_ah1' => NULL,
+                    'e102_ah2' => NULL,
+                    'e102_ah3' => NULL,
+                    'e102_ai1' => NULL,
+                    'e102_ai2' => NULL,
+                    'e102_ai3' => NULL,
+                    'e102_aj1' => NULL,
+                    'e102_aj2' => NULL,
+                    'e102_aj3' => NULL,
+                    'e102_ak1' => NULL,
+                    'e102_ak2' => NULL,
+                    'e102_ak3' => NULL,
+                    'e102_al1' => NULL,
+                    'e102_al2' => NULL,
+                    'e102_al3' => NULL,
+                    'e102_al4' => NULL,
+                    'e102_npg' => NULL,
+                    'e102_jpg' => NULL,
+                    'e102_flagcetak' => NULL,
+                    'e102_ae3' => NULL,
+                ]);
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E102Init::create([
+                    'e102_reg' => $key + 1,
+                    'e102_nl' => $e_nl,
+                    'e102_bln' => now()->format('m') - 1,
+                    'e102_thn' => $tahun1,
+                    'e102_flg' => '1',
+                    'e102_sdate' => NULL,
+                    'e102_ddate' => $e_ddate,
+                    'e102_aa1' => NULL,
+                    'e102_aa2' => NULL,
+                    'e102_aa3' => NULL,
+                    'e102_ab1' => NULL,
+                    'e102_ab2' => NULL,
+                    'e102_ab3' => NULL,
+                    'e102_ac1' => NULL,
+                    'e102_ac2' => NULL,
+                    'e102_ac3' => NULL,
+                    'e102_ad1' => NULL,
+                    'e102_ad2' => NULL,
+                    'e102_ad3' => NULL,
+                    'e102_ae1' => NULL,
+                    'e102_af2' => NULL,
+                    'e102_af3' => NULL,
+                    'e102_ag1' => NULL,
+                    'e102_ag2' => NULL,
+                    'e102_ag3' => NULL,
+                    'e102_ah1' => NULL,
+                    'e102_ah2' => NULL,
+                    'e102_ah3' => NULL,
+                    'e102_ai1' => NULL,
+                    'e102_ai2' => NULL,
+                    'e102_ai3' => NULL,
+                    'e102_aj1' => NULL,
+                    'e102_aj2' => NULL,
+                    'e102_aj3' => NULL,
+                    'e102_ak1' => NULL,
+                    'e102_ak2' => NULL,
+                    'e102_ak3' => NULL,
+                    'e102_al1' => NULL,
+                    'e102_al2' => NULL,
+                    'e102_al3' => NULL,
+                    'e102_al4' => NULL,
+                    'e102_npg' => NULL,
+                    'e102_jpg' => NULL,
+                    'e102_flagcetak' => NULL,
+                    'e102_ae3' => NULL,
+                ]);
+            }
+
         }
+
+
     }
     public function initialize_proses_pl104($e_ddate)
     {
@@ -312,23 +488,52 @@ class InitializeUpdate extends Command
         $e104_c = DB::table('e104_c')->delete();
         $e104_d = DB::table('e104_d')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E104Init::create([
-                'e104_reg' => $key + 1,
-                'e104_nl' => $e_nl,
-                'e104_bln' => now()->format('m') - 1,
-                'e104_thn' => now()->year,
-                'e104_flg' => '1',
-                'e104_sdate' => NULL,
-                'e104_ddate' => $e_ddate,
-                'e104_a5' => NULL,
-                'e104_a6' => NULL,
-                'e104_npg' => NULL,
-                'e104_jpg' => NULL,
-                'e104_flagcetak' => NULL,
-            ]);
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
+
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E104Init::create([
+                    'e104_reg' => $key + 1,
+                    'e104_nl' => $e_nl,
+                    'e104_bln' => now()->format('m') - 1,
+                    'e104_thn' => $tahun2,
+                    'e104_flg' => '1',
+                    'e104_sdate' => NULL,
+                    'e104_ddate' => $e_ddate,
+                    'e104_a5' => NULL,
+                    'e104_a6' => NULL,
+                    'e104_npg' => NULL,
+                    'e104_jpg' => NULL,
+                    'e104_flagcetak' => NULL,
+                ]);
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E104Init::create([
+                    'e104_reg' => $key + 1,
+                    'e104_nl' => $e_nl,
+                    'e104_bln' => now()->format('m') - 1,
+                    'e104_thn' => $tahun1,
+                    'e104_flg' => '1',
+                    'e104_sdate' => NULL,
+                    'e104_ddate' => $e_ddate,
+                    'e104_a5' => NULL,
+                    'e104_a6' => NULL,
+                    'e104_npg' => NULL,
+                    'e104_jpg' => NULL,
+                    'e104_flagcetak' => NULL,
+                ]);
+            }
+
         }
+
+
     }
     public function initialize_proses_pl111($e_ddate)
     {
@@ -338,21 +543,47 @@ class InitializeUpdate extends Command
         $e07_btranshipment = DB::table('e07_btranshipment')->delete();
         $e07_transhipment = DB::table('e07_transhipment')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = E07Init::create([
-                'e07_reg' => $key + 1,
-                'e07_nl' => $e_nl,
-                'e07_bln' => now()->format('m') - 1,
-                'e07_thn' => now()->year,
-                'e07_flg' => '1',
-                'e07_sdate' => NULL,
-                'e07_ddate' => $e_ddate,
-                'e07_npg' => NULL,
-                'e07_jpg' => NULL,
-                'e07_flagcetak' => NULL,
-            ]);
+
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E07Init::create([
+                    'e07_reg' => $key + 1,
+                    'e07_nl' => $e_nl,
+                    'e07_bln' => now()->format('m') - 1,
+                    'e07_thn' => $tahun2,
+                    'e07_flg' => '1',
+                    'e07_sdate' => NULL,
+                    'e07_ddate' => $e_ddate,
+                    'e07_npg' => NULL,
+                    'e07_jpg' => NULL,
+                    'e07_flagcetak' => NULL,
+                ]);
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = E07Init::create([
+                    'e07_reg' => $key + 1,
+                    'e07_nl' => $e_nl,
+                    'e07_bln' => now()->format('m') - 1,
+                    'e07_thn' => $tahun1,
+                    'e07_flg' => '1',
+                    'e07_sdate' => NULL,
+                    'e07_ddate' => $e_ddate,
+                    'e07_npg' => NULL,
+                    'e07_jpg' => NULL,
+                    'e07_flagcetak' => NULL,
+                ]);
+            }
+
         }
+
     }
     public function initialize_proses_plbio($e_ddate)
     {
@@ -364,36 +595,79 @@ class InitializeUpdate extends Command
         $ebio_c = DB::table('e_bio_c_s')->delete();
         $ebio_cc = DB::table('e_bio_cc')->delete();
 
-        foreach ($reg_pelesen as $key => $reg_pelesens) {
-            $e_nl = $reg_pelesens->e_nl;
-            $query = EBioInit::create([
-                'ebio_reg' => $key + 1,
-                'ebio_nl' => $e_nl,
-                'ebio_bln' => now()->format('m') - 1,
-                'ebio_thn' => now()->year,
-                'ebio_flg' => '1',
-                'ebio_sdate' => NULL,
-                'ebio_ddate' => $e_ddate,
-                'ebio_a5' => $e_ddate,
-                'ebio_a6' => $e_ddate,
-                'ebio_npg' => NULL,
-                'ebio_jpg' => NULL,
-                'ebio_notel' => NULL,
-                'ebio_flagcetak' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ]);
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        $bulan = date('m');
 
-            $query = Hari::create([
-                'id' => $key + 1,
-                'lesen' => $e_nl,
-                'bulanbhg2' => now()->format('m') - 1,
-                'tahunbhg2' => now()->year,
-                'hari_operasi' => NULL,
-                'kapasiti' => NULL,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ]);
+
+        if ($bulan == 1) {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = EBioInit::create([
+                    'ebio_reg' => $key + 1,
+                    'ebio_nl' => $e_nl,
+                    'ebio_bln' => now()->format('m') - 1,
+                    'ebio_thn' => $tahun2,
+                    'ebio_flg' => '1',
+                    'ebio_sdate' => NULL,
+                    'ebio_ddate' => $e_ddate,
+                    'ebio_a5' => $e_ddate,
+                    'ebio_a6' => $e_ddate,
+                    'ebio_npg' => NULL,
+                    'ebio_jpg' => NULL,
+                    'ebio_notel' => NULL,
+                    'ebio_flagcetak' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+
+                $query = Hari::create([
+                    'id' => $key + 1,
+                    'lesen' => $e_nl,
+                    'bulanbhg2' => now()->format('m') - 1,
+                    'tahunbhg2' => $tahun2,
+                    'hari_operasi' => NULL,
+                    'kapasiti' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+            }
+
+        } else {
+            foreach ($reg_pelesen as $key => $reg_pelesens) {
+                $e_nl = $reg_pelesens->e_nl;
+                $query = EBioInit::create([
+                    'ebio_reg' => $key + 1,
+                    'ebio_nl' => $e_nl,
+                    'ebio_bln' => now()->format('m') - 1,
+                    'ebio_thn' =>$tahun1,
+                    'ebio_flg' => '1',
+                    'ebio_sdate' => NULL,
+                    'ebio_ddate' => $e_ddate,
+                    'ebio_a5' => $e_ddate,
+                    'ebio_a6' => $e_ddate,
+                    'ebio_npg' => NULL,
+                    'ebio_jpg' => NULL,
+                    'ebio_notel' => NULL,
+                    'ebio_flagcetak' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+
+                $query = Hari::create([
+                    'id' => $key + 1,
+                    'lesen' => $e_nl,
+                    'bulanbhg2' => now()->format('m') - 1,
+                    'tahunbhg2' => $tahun1,
+                    'hari_operasi' => NULL,
+                    'kapasiti' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                ]);
+            }
+
         }
+
+
     }
 }

@@ -1,12 +1,16 @@
 @extends('layouts.main')
 
 <style>
+    @media print {
+        @page {
+            size: auto !important
+        }
 
-    @media print
-    {
-        @page {size: auto !important}
-        .noPrint{display:block;}
-        .noScreen{}
+        .noPrint {
+            display: block;
+        }
+
+        .noScreen {}
     }
 </style>
 
@@ -46,10 +50,11 @@
         <div class="container-fluid">
             <div class="card-group">
                 <div class="card" style="border-radius: 15px">
-                    <div class="card-body" >
-                        <p class="font-16 m-b-5"  style="font-weight:bold; color: #689786">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
+                    <div class="card-body">
+                        <p class="font-16 m-b-5" style="font-weight:bold; color: #689786">Jumlah Penyata Bulanan Yang Sudah
+                            Dihantar</p>
                         <div class="row" style="padding: 15px; margin: 15px">
-                            <div class="col-md-12" >
+                            <div class="col-md-12">
                                 <div class="d-flex no-block align-items-center">
                                     <div>
                                         <p class="font-16 m-b-5">Bulan:
@@ -76,7 +81,7 @@
                                             @elseif (now()->month == 12)
                                                 <b>NOVEMBER</b> &nbsp;
                                             @elseif (now()->month == 1)
-                                                <b>DECEMBER</b> &nbsp;
+                                                <b>DISEMBER</b> &nbsp;
                                             @endif
 
                                             Tahun:
@@ -86,8 +91,8 @@
                                 </div>
                             </div>
                             {{-- <div class="col-lg-12 col-md-12"> --}}
-                                <canvas id="barChart1"
-                                    style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas>
+                            <canvas id="barChart1"
+                                style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas>
                             {{-- </div> --}}
                         </div>
                     </div>
@@ -97,7 +102,8 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card" style="border-radius: 15px">
                         <div class="card-body" style=" padding: 15px; margin: 15px">
-                            <p class="font-16 m-b-5"  style="font-weight:bold; color: #689786">Bilangan Dan Peratusan Penghantaran Penyata Bulanan</p>
+                            <p class="font-16 m-b-5" style="font-weight:bold; color: #689786">Bilangan Dan Peratusan
+                                Penghantaran Penyata Bulanan</p>
                             <canvas class="ct-chart-line" id="pieChart"
                                 style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas>
                         </div>
@@ -273,9 +279,10 @@
         <div class="modal fade bs-example-modal-lg" id="TOTAL" tabindex="-1" role="dialog"
             aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content" id="printableArea" >
+                <div class="modal-content" id="printableArea">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Semua Sektor - Bulan: <span id="Bulan"></span>&nbsp   Tahun: <span id="Tahun"></span></h4>
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Semua Sektor - Bulan:
+                            <span id="Bulan"></span>&nbsp Tahun: <span id="Tahun"></span></h4>
                         <div class="noPrint">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
@@ -283,27 +290,39 @@
                     </div>
 
 
-                    <script>
+
+                    {{-- <script>
                         var dt = new Date();
-                        document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+                        var newm = (("0" + (dt.getMonth())).slice(-2));
+                        let month = '12';
+
+                        console.log(newm == 0);
+                        if (newm == 00) {
+                            document.getElementById("Bulan").innerHTML = 'month';
+                        } else {
+                            document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+
+                        }
+
+                        console.log(month);
 
                         var dt = new Date();
                         document.getElementById("Tahun").innerHTML = (dt.getFullYear());
-                    </script>
-                    <div class="modal-body" >
+                    </script> --}}
+                    <div class="modal-body">
 
                         <div class="noPrint">
 
                             {{-- <button onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">EXCEL</button> --}}
-                            <button class="dt-button buttons-excel buttons-html5"  onclick="ExportToExcel('cuba')"
-                            style="background-color: white; color: #0a7569; ">
-                            <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
+                            <button class="dt-button buttons-excel buttons-html5" onclick="ExportToExcel('cuba')"
+                                style="background-color: white; color: #0a7569; ">
+                                <i class="fa fa-file-excel" style="color: #0a7569"></i> Excel
                             </button>
 
-                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')" value='Print'
-                            style="background-color:white; color: #f90a0a; " >
-                            <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
-                        </button>
+                            <button class="dt-button buttons-excel buttons-html5" onclick="printDiv('printableArea')"
+                                value='Print' style="background-color:white; color: #f90a0a; ">
+                                <i class="fa fa-file-pdf" style="color: #f90a0a"></i> PDF
+                            </button>
                         </div><br>
                         <div class="table-responsive">
 
@@ -313,40 +332,49 @@
                                         <td colspan="12">
                                             Jadual Penerimaan PL Bagi Semua Sektor -
                                             Bulan:
-                                                @if (now()->month == 2)
-                                                    <b>JANUARI</b> &nbsp;
-                                                @elseif (now()->month == 3)
-                                                    <b>FEBRUARI</b> &nbsp;
-                                                @elseif (now()->month == 4)
-                                                    <b>MAC</b> &nbsp;
-                                                @elseif (now()->month == 5)
-                                                    <b>APRIL</b> &nbsp;
-                                                @elseif (now()->month == 6)
-                                                    <b>MEI</b> &nbsp;
-                                                @elseif (now()->month == 7)
-                                                    <b>JUN</b> &nbsp;
-                                                @elseif (now()->month == 8)
-                                                    <b>JULAI</b> &nbsp;
-                                                @elseif (now()->month == 9)
-                                                    <b>OGOS</b> &nbsp;
-                                                @elseif (now()->month == 10)
-                                                    <b>SEPTEMBER</b> &nbsp;
-                                                @elseif (now()->month == 11)
-                                                    <b>OKTOBER</b> &nbsp;
-                                                @elseif (now()->month == 12)
-                                                    <b>NOVEMBER</b> &nbsp;
-                                                @elseif (now()->month == 1)
-                                                    <b>DECEMBER</b> &nbsp;
-                                                @endif
+                                            @if (now()->month == 2)
+                                                <b>JANUARI</b> &nbsp;
+                                            @elseif (now()->month == 3)
+                                                <b>FEBRUARI</b> &nbsp;
+                                            @elseif (now()->month == 4)
+                                                <b>MAC</b> &nbsp;
+                                            @elseif (now()->month == 5)
+                                                <b>APRIL</b> &nbsp;
+                                            @elseif (now()->month == 6)
+                                                <b>MEI</b> &nbsp;
+                                            @elseif (now()->month == 7)
+                                                <b>JUN</b> &nbsp;
+                                            @elseif (now()->month == 8)
+                                                <b>JULAI</b> &nbsp;
+                                            @elseif (now()->month == 9)
+                                                <b>OGOS</b> &nbsp;
+                                            @elseif (now()->month == 10)
+                                                <b>SEPTEMBER</b> &nbsp;
+                                            @elseif (now()->month == 11)
+                                                <b>OKTOBER</b> &nbsp;
+                                            @elseif (now()->month == 12)
+                                                <b>NOVEMBER</b> &nbsp;
+                                            @elseif (now()->month == 1)
+                                                <b>DISEMBER</b> &nbsp;
+                                            @endif
 
-                                                Tahun:
-                                                <b>{{ now()->year }}</b>
+                                            Tahun:
+                                            <b>{{ now()->year }}</b>
 
                                         </td>
 
                                         <script>
                                             var dt = new Date();
-                                            document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2)) ;
+                                            var newm = (("0" + (dt.getMonth())).slice(-2));
+                                            // let month = '12';
+
+                                            console.log(newm == 0);
+                                            if (newm == 00) {
+                                                document.getElementById("Bulan").innerHTML = '12';
+                                            } else {
+                                                document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2));
+
+                                            }
 
                                             var dt = new Date();
                                             document.getElementById("Tahun").innerHTML = (dt.getFullYear());
@@ -356,15 +384,14 @@
                                         <td class="headerColor">Tarikh</td>
                                         @for ($i = $sdays; $i <= $days; $i++)
                                             {{-- @php --}}
-                                                {{-- // $total_bulan[$i] = 0;
+                                            {{-- // $total_bulan[$i] = 0;
                                                 // $total_kapasiti[$i] = 0;
                                                 // $total_kapasiti_bio = 0;
                                             // @endphp --}}
                                             {{-- @if ($i == '1') --}}
-                                                <td class="headerColor" scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $i }}hb
-                                                </td>
-
+                                            <td class="headerColor" scope="col"
+                                                style="vertical-align: middle; text-align:center">{{ $i }}hb
+                                            </td>
                                         @endfor
                                         <td class="headerColor">Jumlah</td>
                                     </tr>
@@ -374,9 +401,9 @@
 
                                         <td style="text-align: left">Kilang Buah </td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL91[$i][0]->pelesen }}
-                                                </td>
+                                            <td scope="col" style="vertical-align: middle; text-align:center">
+                                                {{ $PL91[$i][0]->pelesen }}
+                                            </td>
                                         @endfor
 
                                         <td style="text-align: center">{{ $PL91_total }} / {{ $PC91[0]->pelesen }}
@@ -386,9 +413,9 @@
 
                                         <td style="text-align: left">Kilang Penapis </td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL101[$i][0]->pelesen }}
-                                                </td>
+                                            <td scope="col" style="vertical-align: middle; text-align:center">
+                                                {{ $PL101[$i][0]->pelesen }}
+                                            </td>
                                         @endfor
                                         <td style="text-align: center">{{ $PL101_total }} / {{ $PC101[0]->pelesen }}
                                             &nbsp; ({{ round($percent101, 2) }}%)</td>
@@ -398,9 +425,9 @@
 
                                         <td style="text-align: left">Kilang Isirung </td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL102[$i][0]->pelesen }}
-                                                </td>
+                                            <td scope="col" style="vertical-align: middle; text-align:center">
+                                                {{ $PL102[$i][0]->pelesen }}
+                                            </td>
                                         @endfor
                                         <td style="text-align: center">{{ $PL102_total }} / {{ $PC102[0]->pelesen }}
                                             &nbsp; ({{ round($percent102, 2) }}%)</td>
@@ -410,9 +437,9 @@
 
                                         <td style="text-align: left">Kilang Oleokimia </td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL104[$i][0]->pelesen }}
-                                                </td>
+                                            <td scope="col" style="vertical-align: middle; text-align:center">
+                                                {{ $PL104[$i][0]->pelesen }}
+                                            </td>
                                         @endfor
                                         <td style="text-align: center">{{ $PL104_total }} / {{ $PC104[0]->pelesen }}
                                             &nbsp; ({{ round($percent104, 2) }}%)</td>
@@ -422,9 +449,9 @@
 
                                         <td style="text-align: left">Pusat Simpanan </td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PL111[$i][0]->pelesen }}
-                                                </td>
+                                            <td scope="col" style="vertical-align: middle; text-align:center">
+                                                {{ $PL111[$i][0]->pelesen }}
+                                            </td>
                                         @endfor
                                         <td style="text-align: center">{{ $PL111_total }} / {{ $PC111[0]->pelesen }}
                                             &nbsp; ({{ round($percent111, 2) }}%)</td>
@@ -434,9 +461,9 @@
 
                                         <td style="text-align: left">Kilang Biodiesel </td>
                                         @for ($i = $sdays; $i <= $days; $i++)
-                                                <td scope="col"
-                                                    style="vertical-align: middle; text-align:center">{{ $PLBIO[$i][0]->pelesen }}
-                                                </td>
+                                            <td scope="col" style="vertical-align: middle; text-align:center">
+                                                {{ $PLBIO[$i][0]->pelesen }}
+                                            </td>
                                         @endfor
                                         <td style="text-align: center">{{ $PLBIO_total }} / {{ $PCBIO[0]->pelesen }}
                                             &nbsp; ({{ round($percentBIO, 2) }}%)</td>
@@ -617,8 +644,7 @@
                     'Belum Hantar'
                 ],
                 datasets: [{
-                    data: [{{ $total_overall }}, {{ $total_overall_1 }}
-                    ],
+                    data: [{{ $total_overall }}, {{ $total_overall_1 }}],
                     // data: [{{ $total_overall }}, {{ $total_overall_1 }}],
                     backgroundColor: [
                         'rgb(0, 36, 255, 1)',
@@ -665,7 +691,6 @@
     </script>
 
     <script>
-
         const ctx2 = document.getElementById('myChart2');
 
         var days2 = {{ $days }};
@@ -677,7 +702,7 @@
         // console.log(array2);
         for (let index2 = daysbuah; index2 <= days2; index2++) {
             const pl91 = array2[index2];
-            labels2.push(pl91[0]['days']+'hb');
+            labels2.push(pl91[0]['days'] + 'hb');
             data2.push(pl91[0]['pelesen']);
         }
 
@@ -738,7 +763,7 @@
         // console.log(array);
         for (let index = dayspenapis; index <= days; index++) {
             const pl101 = array[index];
-            labels.push(pl101[0]['days']+'hb');
+            labels.push(pl101[0]['days'] + 'hb');
             data.push(pl101[0]['pelesen']);
         }
 
@@ -750,7 +775,7 @@
                 labels: labels,
                 datasets: [{
                     // label: '# of Votes',
-                    data:data,
+                    data: data,
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.2)',
                     ],
@@ -797,7 +822,7 @@
         // console.log(array4);
         for (let index4 = daysisirung; index4 <= days4; index4++) {
             const pl102 = array4[index4];
-            labels4.push(pl102[0]['days']+'hb');
+            labels4.push(pl102[0]['days'] + 'hb');
             data4.push(pl102[0]['pelesen']);
         }
         var myChart4 = new Chart(ctx4, {
@@ -855,7 +880,7 @@
         console.log(array5);
         for (let index5 = days104; index5 <= days5; index5++) {
             const pl104 = array5[index5];
-            labels5.push(pl104[0]['days']+'hb');
+            labels5.push(pl104[0]['days'] + 'hb');
             data5.push(pl104[0]['pelesen']);
         }
 
@@ -913,7 +938,7 @@
         // console.log(array);
         for (let index6 = days111; index6 <= days6; index6++) {
             const pl111 = array6[index6];
-            labels6.push(pl111[0]['days']+'hb');
+            labels6.push(pl111[0]['days'] + 'hb');
             data6.push(pl111[0]['pelesen']);
         }
         var myChart6 = new Chart(ctx6, {
@@ -970,7 +995,7 @@
         // console.log(array);
         for (let index7 = daysbio; index7 <= days7; index7++) {
             const plbio = array7[index7];
-            labels7.push(plbio[0]['days']+'hb');
+            labels7.push(plbio[0]['days'] + 'hb');
             data7.push(plbio[0]['pelesen']);
         }
         var myChart7 = new Chart(ctx7, {
@@ -1019,27 +1044,29 @@
 
     <script>
         function printDiv(printableArea) {
-            var hashid = "#"+ printableArea;
-            var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+            var hashid = "#" + printableArea;
+            var tagname = $(hashid).prop("tagName").toLowerCase();
             var attributes = "";
             var attrs = document.getElementById(printableArea).attributes;
-              $.each(attrs,function(i,elem){
-                attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
-              })
-            var divToPrint= $(hashid).html() ;
-            var head = "<html><head>"+ $("head").html() + "</head>" ;
-            var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
-            var newWin=window.open('','Print-Window');
+            $.each(attrs, function(i, elem) {
+                attributes += " " + elem.name + " ='" + elem.value + "' ";
+            })
+            var divToPrint = $(hashid).html();
+            var head = "<html><head>" + $("head").html() + "</head>";
+            var allcontent = head + "<body  onload='window.print()' >" + "<" + tagname + attributes + ">" + divToPrint +
+                "</" + tagname + ">" + "</body></html>";
+            var newWin = window.open('', 'Print-Window');
             newWin.document.open();
             newWin.document.write(allcontent);
             newWin.document.close();
-           setTimeout(function(){newWin.close();},10);
+            setTimeout(function() {
+                newWin.close();
+            }, 10);
         }
     </script>
 
     <script>
-        function ExportToExcel()
-        {
+        function ExportToExcel() {
             var filename = "Jadual Penerimaan PL Bagi Semua Sektor"
             var tab_text = "<table border='2px'>";
             var textRange;
@@ -1047,7 +1074,7 @@
             tab = document.getElementById('cuba');
 
             for (j = 0; j < tab.rows.length; j++) {
-            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
             }
 
             tab_text = tab_text + "</table>";
@@ -1056,9 +1083,9 @@
             a.href = data_type + ', ' + encodeURIComponent(tab_text);
             a.download = filename + '.xls';
             a.click();
-                }
+        }
     </script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet" >
+    <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet">
 @endsection
