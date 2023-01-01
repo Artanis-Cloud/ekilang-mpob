@@ -48,10 +48,23 @@ class InitializeUpdate extends Command
      */
     public function handle()
     {
-        $tahun = date('Y');
+
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
         $bulan = date('m');
+
         $current_date = date('Y-m-d');
-        $date = Init::where('tahun', $tahun)->first();
+        if ($bulan == 1) {
+           $date = Init::where('tahun', $tahun2)->first();
+
+        } else {
+           $date = Init::where('tahun', $tahun1)->first();
+
+        }
+        // $tahun = date('Y');
+        // $bulan = date('m');
+        // $current_date = date('Y-m-d');
+        // $date = Init::where('tahun', $tahun)->first();
 
         if ($bulan == 2) {
             $sdate = $date->sjan;

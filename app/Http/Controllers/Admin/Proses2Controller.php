@@ -16,6 +16,7 @@ use DB;
 use Illuminate\Support\Facades\Validator;
 use App\Notifications\Pelesen\HantarTukarPasswordPelesenNotification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -53,6 +54,7 @@ class Proses2Controller extends Controller
 
         $pelesen = User::where('username', $request->username)->first();
         $pelesen->password = Hash::make($custom_pass);
+        $pelesen->crypted_pass = Crypt::encryptString($custom_pass);
         $pelesen->save();
 
         // dd($pelesen);

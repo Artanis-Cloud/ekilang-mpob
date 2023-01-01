@@ -249,7 +249,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1{{ $data->e102_nobatch }}"
                                                                     value="{{ $data->e102_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -586,10 +586,10 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit" id="checkbox-1" onclick="myFunction()"
                                                                     value="{{ $data->nobatch }}">&nbspYa
                                                             </td>
-                                                            <td> <input name="e_nl" type="hidden" class="checkit"
+                                                            <td id="lesen"> <input name="e_nl" type="hidden" class="checkit"
                                                                 value="{{ $data->nolesen }}">{{ $data->nolesen }}</td>
                                                             <td style="text-transform:uppercase">{{ $data->namapremis }}</td>
                                                             <td>{{ $data->nobatch }}</td>
@@ -783,6 +783,7 @@
                         <input type="hidden" name="sumber" value="{{ $sumber }}">
                         <input type="hidden" name="tahun" value="{{ $tahun1 }}">
                         <input type="hidden" name="bulan" value="{{ $bulan1 }}">
+                        <input name="nolesen[]" id="nolesen" value="">
                         {{-- <button type="submit" class="btn btn-primary ">Papar</button>
                          --}}
                         <input type="submit" class="btn btn-primary " value="Papar">
@@ -824,6 +825,59 @@
             });
         });
     </script> --}}
+    <script>
+
+
+
+
+
+        $(document).ready(function(){
+  // Get the checkbox
+        $('input[name="papar_ya[]"]').click(function () {
+
+        alert("Thanks for checking me");
+
+        });
+        // console.log(checkBox.checked);
+        // Get the output text
+        // var text = document.getElementById("text");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == false){
+            $("#example22").on('click','.checkit',function(){
+            // get the current row
+            var currentRow=$(this).closest("tr");
+        //    console.log(table);
+            // var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+            var col2=currentRow.find("td:eq(1)").text();
+            // console.log(col2);// get current row 2nd TD
+            // var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+            var data=col2;
+
+            // alert(data);
+            $('#nolesen').val(data);
+        });
+        }
+        }
+    );
+        </script>
+    {{-- <script>
+    $(document).ready(function(){
+
+        // code to read selected table row cell data (values).
+        $("#example22").on('click','.checkit',function(){
+            // get the current row
+            var currentRow=$(this).closest("tr");
+            // var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+            var col2=currentRow.find("td:eq(1)").text(); // get current row 2nd TD
+            // var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+            var data=col2;
+
+            // alert(data);
+            $('#nolesen').val(data);
+        });
+        });
+      </script> --}}
         <script>
 
             $(document).ready(function () {

@@ -30,9 +30,25 @@ class DashboardAdminController extends Controller
         $PL104_total = 0;
         $PL111_total = 0;
         $PLBIO_total = 0;
+
+
+        $tahun1 = date('Y');
+        $tahun2 = date('Y') - 1;
+        // $bulan = date('m');
         $bulan = date('m') - 1;
-        $tahun = date('Y');
-        $initdate = Init::where('tahun', $tahun)->first();
+        // dd($bulan);
+
+        $current_date = date('Y-m-d');
+        if ($bulan == 0 || $bulan == 12) {
+           $initdate = Init::where('tahun', $tahun2)->first();
+
+        } else {
+           $initdate = Init::where('tahun', $tahun1)->first();
+
+        }
+        // dd($initdate);
+        // $tahun = date('Y');
+        // $initdate = Init::where('tahun', $tahun)->first();
 
         if($bulan == 1){
             $strdate = $initdate->sjan;
@@ -135,6 +151,7 @@ class DashboardAdminController extends Controller
 
         // dd($data);
         }
+        // dd($PL91);
 
         for ($i = date('d', strtotime($strdate)); $i <= date('d', strtotime($enddate)); $i++) { //haribulan
             $data = DB::select("SELECT e.e101_sdate as date, count(e.e101_nl) as pelesen, DAY(e.e101_sdate) as days
