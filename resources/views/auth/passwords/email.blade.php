@@ -1,175 +1,178 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-<link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+</head>
 <style>
 
-img{
-	width: 100%;
-}
-.login {
+    img{
+        width: 100%;
+    }
+    .login {
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to top right, #f25939 59%, #ffffff 158%);
+        position: relative;
+    }
+    .login_box {
+        width: 1000px;
+        height: 555px;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%,-60%);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 4px 22px -8px #0004;
+        display: flex;
+        overflow: hidden;
+    }
+    .login_box .left{
+    width: 40%;
     height: 100%;
-    width: 100%;
-    background: linear-gradient(to top right, #f25939 59%, #ffffff 158%);
-    position: relative;
-}
-.login_box {
-    width: 1000px;
-    height: 555px;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%,-60%);
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 1px 4px 22px -8px #0004;
-    display: flex;
-    overflow: hidden;
-}
-.login_box .left{
-  width: 40%;
-  height: 100%;
-  padding: 25px 25px;
+    padding: 25px 25px;
 
-}
-.login_box .right{
-  width: 70%;
-  height: 100%
-}
-.left .top_link a {
-    color: #452A5A;
-    font-weight: 400;
-}
-.left .top_link{
-  height: 20px
-}
-.left .contact{
-	display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    height: 100%;
-    width: 73%;
-    margin: auto;
-}
-.left h3{
-  text-align: center;
-  margin-bottom: 40px;
-}
-.left input {
-    border: none;
-    width: 80%;
-    margin: 15px 0px;
-    border-bottom: 1px solid #4f30677d;
-    padding: 7px 9px;
-    width: 100%;
-    overflow: hidden;
-    background: transparent;
-    font-weight: 600;
-    font-size: 14px;
-}
-.left{
-	background: linear-gradient(-45deg, #dcd7e0, #fff);
-}
-.submit {
-    border: none;
-    padding: 15px 70px;
-    border-radius: 8px;
-    display: block;
-    margin: auto;
-    margin-top: 50px;
-    background: linear-gradient(to right, #f25939 59%, #ffffff 158%);
-    color: #fff;
-    font-weight: bold;
-    -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-    -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-    box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
-}
-
-
-
-footer {
-        background-color: #222;
-        color: #fff;
+    }
+    .login_box .right{
+    width: 70%;
+    height: 100%
+    }
+    .left .top_link a {
+        color: #452A5A;
+        font-weight: 400;
+    }
+    .left .top_link{
+    height: 20px
+    }
+    .left .contact{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        height: 100%;
+        width: 73%;
+        margin: auto;
+    }
+    .left h3{
+    text-align: center;
+    margin-bottom: 40px;
+    }
+    .left input {
+        border: none;
+        width: 80%;
+        margin: 15px 0px;
+        border-bottom: 1px solid #4f30677d;
+        padding: 7px 9px;
+        width: 100%;
+        overflow: hidden;
+        background: transparent;
+        font-weight: 600;
         font-size: 14px;
-        bottom: 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 999;
+    }
+    .left{
+        background: linear-gradient(-45deg, #dcd7e0, #fff);
+    }
+    .submit {
+        border: none;
+        padding: 15px 70px;
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+        background: linear-gradient(to right, #f25939 59%, #ffffff 158%);
+        color: #fff;
+        font-weight: bold;
+        -webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+        -moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+        box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
     }
 
-    footer p {
-        margin: 15px 0;
+
+
+    footer {
+            background-color: #222;
+            color: #fff;
+            font-size: 14px;
+            bottom: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 999;
+        }
+
+        footer p {
+            margin: 15px 0;
+        }
+
+        footer i {
+            color: red;
+        }
+
+        footer a {
+            color: #3c97bf;
+            text-decoration: none;
+        }
+
+    .right {
+        background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
+        color: #fff;
+        position: relative;
     }
 
-    footer i {
-        color: red;
+    .right .right-text{
+    /* height: 100%; */
+    position: relative;
+    transform: translate(0%, 5%);
     }
-
-    footer a {
-        color: #3c97bf;
-        text-decoration: none;
-    }
-
-.right {
-	background: linear-gradient(212.38deg, rgba(25, 12, 55) 0%, rgba(57, 66, 85, 0.71) 100%),url({{ asset('theme/images/background/biji.png') }});
-	color: #fff;
-	position: relative;
-}
-
-.right .right-text{
-  /* height: 100%; */
-  position: relative;
-  transform: translate(0%, 5%);
-}
-.right-text h2{
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 500;
-}
-.right-text h5{
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.right .right-inductor{
-  position: absolute;
-  width: 70px;
-  height: 7px;
-  background: #fff0;
-  left: 50%;
-  bottom: 70px;
-  transform: translate(-50%, 0%);
-}
-.top_link img {
-    width: 28px;
-    padding-right: 7px;
-    margin-top: -3px;
-}
-
-.right-text p {
+    .right-text h2{
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 500;
-    height: 5px;
-}
+    }
+    .right-text h5{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    }
 
+    .right .right-inductor{
+    position: absolute;
+    width: 70px;
+    height: 7px;
+    background: #fff0;
+    left: 50%;
+    bottom: 70px;
+    transform: translate(-50%, 0%);
+    }
+    .top_link img {
+        width: 28px;
+        padding-right: 7px;
+        margin-top: -3px;
+    }
 
-
-
+    .right-text p {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 500;
+        height: 5px;
+    }
 
 </style>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 <body>
 	<section class="login">
 		<div class="login_box">
