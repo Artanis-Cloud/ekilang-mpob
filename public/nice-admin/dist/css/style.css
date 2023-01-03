@@ -7966,7 +7966,7 @@ Notify
         display: flex;
         align-items: center;
         margin: 0px;
-        padding: 0 10px 0 10px;
+        padding: 20px 20px 20px 20px;
         justify-content: space-between; }
         .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
           display: none; }
