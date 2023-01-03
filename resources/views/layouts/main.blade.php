@@ -605,16 +605,13 @@
             </nav>
         </header>
         @if (auth()->user()->category == 'PL91')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar" data-height="100%" data-init="true">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -740,16 +737,14 @@
                 </div>
             </aside>
         @elseif (auth()->user()->category == 'PL101')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li>
+
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -878,16 +873,16 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PL102')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
-                        <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
+                        <ul id="sidebarnav" style="background: #f25939;">
+                            {{-- <li class="nav-small-cap">
                                 <span class="hide-menu font-weight-bold"> </span>
-                            </li>
+                            </li> --}}
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -1012,16 +1007,13 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PL104')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -1142,16 +1134,13 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PL111')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -1242,16 +1231,13 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PLBIO')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -1372,16 +1358,13 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PL101' ?? 'PL104')
-            <aside class="left-sidebar">
+            <aside class="left-sidebar" style="margin-top: 20px; font-size:11px;
+                background:url( {{ asset('theme/images/background/template-sidebar.png') }});background-size:cover;background-position:center;">
                 <!-- Sidebar scroll-->
                 <div class="scroll-sidebar">
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
-                            <li class="nav-small-cap">
-                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
-                                <span class="hide-menu font-weight-bold"> </span>
-                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
