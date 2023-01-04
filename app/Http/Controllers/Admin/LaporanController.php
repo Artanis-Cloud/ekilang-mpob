@@ -1335,7 +1335,7 @@ class LaporanController extends Controller
 
                 foreach ($no_batches as $no_batch) {
 
-        // dd($no_batch);
+                    // dd($no_batch);
 
 
 

@@ -582,12 +582,18 @@
                     y: {
                         suggestedMin: 10,
                         suggestedMax: 10,
+                        grid: {
+                            display: false
+                        },
                         title: {
                             display: true,
                             text: 'Jumlah Penyata Bulanan'
                         }
                     },
                     x: {
+                        grid: {
+                            display: false
+                        },
                         title: {
                             display: true,
                             text: 'Sektor Kilang'
