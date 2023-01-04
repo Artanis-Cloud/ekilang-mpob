@@ -783,7 +783,7 @@
                         <input type="hidden" name="sumber" value="{{ $sumber }}">
                         <input type="hidden" name="tahun" value="{{ $tahun1 }}">
                         <input type="hidden" name="bulan" value="{{ $bulan1 }}">
-                        <input name="nolesen[]" id="nolesen" value="">
+                        {{-- <input name="nolesen[]" id="nolesen" value=""> --}}
                         {{-- <button type="submit" class="btn btn-primary ">Papar</button>
                          --}}
                         <input type="submit" class="btn btn-primary " value="Papar">

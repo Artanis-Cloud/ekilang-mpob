@@ -612,6 +612,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -744,6 +747,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
 
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -880,9 +886,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav" style="background: #f25939;">
-                            {{-- <li class="nav-small-cap">
+                            <li class="nav-small-cap">
                                 <span class="hide-menu font-weight-bold"> </span>
-                            </li> --}}
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -1014,6 +1020,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -1141,6 +1150,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -1238,6 +1250,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false" style="margin-top:-9%">
@@ -1365,6 +1380,9 @@
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
