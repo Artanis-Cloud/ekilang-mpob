@@ -519,6 +519,8 @@ class DataMigrationController extends Controller
 
     public function transfer_cryptpass()
     {
+
+
         $reg_users = RegUser::get();
 
         foreach ($reg_users as $reg_user) {
@@ -529,6 +531,20 @@ class DataMigrationController extends Controller
             if($user){
                 // if(!$user->sub_cat){
                     $user->crypted_pass = Crypt::encryptString($reg_user->e_pwd);
+                    $user->save();
+                // }
+            }
+        }
+        $reg_pls = RegPelesen::get();
+
+        foreach ($reg_pls as $reg_pl) {
+            $user = User::where('username', $reg_pl->e_nl)->where('category', $reg_pl->e_kat)->first();
+
+            // $e_kat = array($reg_user->e_kat);
+
+            if($user){
+                // if(!$user->sub_cat){
+                    $user->crypted_pass = Crypt::encryptString($reg_pl->e_pwd);
                     $user->save();
                 // }
             }
