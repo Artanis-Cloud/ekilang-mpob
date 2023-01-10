@@ -7,6 +7,7 @@ use App\Models\AuditTrail;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\FailLain;
 use App\Models\Negara;
 use App\Models\Negeri;
 use App\Models\Pelesen;
@@ -21,6 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class MenuLainController extends Controller
 {
@@ -1469,6 +1471,80 @@ class MenuLainController extends Controller
         return redirect()->back()
             ->with('success', 'Pengumuman telah dikemaskini');
     }
+
+
+    public function admin_tambah_fail()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.pengumuman'), 'name' => "Pengumuman"],
+            ['link' => route('admin.tambahfail'), 'name' => "Kemaskini Pengumuman"],
+
+        ];
+
+        $kembali = route('admin.tambahpengumuman');
+
+        // $files = Storage::disk('public')->files();
+        $files = FailLain::get();
+        // dd($files);
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+        // $pengumuman = \DB::table('pengumuman')->get();
+
+        return view('admin.menu-lain.tambahfail', compact('returnArr', 'layout', 'files'));
+    }
+
+
+    public function admin_tambah_fail_process(Request $request)
+    {
+        $emel = $request->TypeOfEmail;
+        // dd($request->all());
+
+       if ($request->file_upload) {
+
+        $file = $request->file('file_upload');
+        $originalname = $file->getClientOriginalName();
+        // $this->store_send_email($request->all());
+        $pelesen = $this->store_send_email($request->all(), $originalname);
+
+       }
+        return redirect()->back()->with('success', 'Fail sudah ditambah');
+    }
+
+    protected function store_send_email(array $data, $originalname)
+    {
+
+        //store file
+        if ($data['file_upload']) {
+            $file = $data['file_upload']->storeAs('pengumuman/fail', $originalname, 'public');
+            // $file = $data['file_upload']->storeAs('isirung', $originalname);
+        }
+
+
+        return FailLain::create([
+            // 'Id' => $data['Id'],
+
+            'file_upload' => $file,
+
+        ]);
+    }
+
+    // public function admin_tambah_fail_process(Request $request)
+    // {
+
+    //     if($request->hasFile('file_upload'))
+    //     {
+    //         $file = $request->file('file_upload');
+    //         $originalname = $file->getClientOriginalName();
+    //         $path = $file->storeAs('public/', $originalname);
+    //         $path = $file->storeAs('isirung/storage', $originalname);
+    //     }
+    //     return redirect()->back()->with('success', 'Fail sudah ditambah');
+    // }
 
 
     public function admin_jadualpenerimaanPL()

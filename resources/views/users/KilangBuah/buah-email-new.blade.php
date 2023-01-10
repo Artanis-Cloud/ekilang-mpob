@@ -180,7 +180,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <div class="form-file">
-                                        <input type="file" class="form-file-input" id="file" name="file_upload">
+                                        <input type="file" class="form-file-input" id="file" name="file_upload" multiple>
                                         <label class="form-file-label" for="file">
                                             <label class="form-file-label" for="file">
                                                 <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan

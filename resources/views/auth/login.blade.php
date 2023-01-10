@@ -44,7 +44,7 @@ img{
   height: 20px
 }
 .left .contact{
-	display: flex;
+	display: block;
     align-items: center;
     justify-content: center;
     align-self: center;
@@ -54,7 +54,7 @@ img{
 }
 .left h3{
   text-align: center;
-  margin-bottom: 40px;
+  font-size: 19px;
 }
 .left input {
     border: none;
@@ -77,7 +77,7 @@ img{
     border-radius: 8px;
     display: block;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 10px;
     background: linear-gradient(to right, #f25939 59%, #ffffff 158%);
     color: #fff;
     font-weight: bold;
@@ -181,7 +181,7 @@ footer {
 				<div class="contact">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <h3>LOG MASUK</h3>
+                        <h3>&nbsp; &nbsp;  LOG MASUK</h3>
                         <div class="container">
                             <img src="{{ asset('theme/images/mpob2.png') }}" class="brand-image img-circle elevation-3"
                                 style="height:100px; width:100px; margin-left:30% " alt="logo">
@@ -196,7 +196,7 @@ footer {
                             placeholder="No. Lesen">
 
                         @error('username')
-                            <div class="col-12 alert alert-danger">
+                            <div class="col-12 alert alert-danger" style="font-size: 15px">
                                 <strong>{{ $message }}</strong>
                             </div>
                         @enderror

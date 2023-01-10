@@ -51,6 +51,12 @@
                                 <div class="col-1 align-self-center">
                                     <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                                 </div>
+                                <div class="col-11 text-right">
+                                    <a href="{{ route('admin.tambahfail') }}" class="btn btn-primary ">
+                                        Tambah Fail Berkaitan
+                                    </a>
+
+                                </div><br>
                             </div>
                             <div class=" text-center">
                                 <h3 style="color: rgb(39, 80, 71); margin-top:-2%">Tambah Pengumuman</h3>
@@ -296,4 +302,11 @@
 
         }
 </script>
+{{-- 
+
+
+    <script src="{{ asset('nice-admin/assets/libs/jquery.repeater/jquery.repeater.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/extra-libs/jquery.repeater/repeater-init.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/extra-libs/jquery.repeater/dff.js') }}"></script> --}}
+
 @endsection
