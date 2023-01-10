@@ -192,7 +192,7 @@ footer {
                         </div>
                         <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
                             oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="setCustomValidity('')" required
-                            name="username" value="{{ old('username') }}" autocomplete="username" maxlength="12"
+                            name="username" value="{{ old('username') }}" autocomplete="off" maxlength="12"
                             placeholder="No. Lesen">
 
                         @error('username')
@@ -201,9 +201,9 @@ footer {
                             </div>
                         @enderror
                         <input id="password" type="password" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                            oninput="setCustomValidity('')" required
+                            oninput="setCustomValidity('')" required autocomplete="off"
                             class="form-control @error('password') is-invalid @enderror" name="password"
-                            autocomplete="current-password" placeholder="Kata Laluan">
+                            autocomplete="off" placeholder="Kata Laluan">
                         {{-- <span id="error"></span> --}}
 
                         @error('password')
@@ -341,3 +341,17 @@ $('#openBtn').click(function () {
     });
 });
 </script>
+<style>
+    /* Hide page by default */
+    html { display : none; }
+  </style>
+
+  <script>
+    if (self == top) {
+      // Everything checks out, show the page.
+      document.documentElement.style.display = 'block';
+    } else {
+      // Break out of the frame.
+      top.location = self.location;
+    }
+  </script>

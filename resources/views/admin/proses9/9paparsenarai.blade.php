@@ -825,42 +825,42 @@
             });
         });
     </script> --}}
-    <script>
+    {{-- <script> --}}
 
 
 
 
+{{-- 
+//         $(document).ready(function(){
+//   // Get the checkbox
+//         $('input[name="papar_ya[]"]').click(function () {
 
-        $(document).ready(function(){
-  // Get the checkbox
-        $('input[name="papar_ya[]"]').click(function () {
+//         alert("Thanks for checking me");
 
-        alert("Thanks for checking me");
+//         });
+//         // console.log(checkBox.checked);
+//         // Get the output text
+//         // var text = document.getElementById("text");
 
-        });
-        // console.log(checkBox.checked);
-        // Get the output text
-        // var text = document.getElementById("text");
+//         // If the checkbox is checked, display the output text
+//         if (checkBox.checked == false){
+//             $("#example22").on('click','.checkit',function(){
+//             // get the current row
+//             var currentRow=$(this).closest("tr");
+//         //    console.log(table);
+//             // var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+//             var col2=currentRow.find("td:eq(1)").text();
+//             // console.log(col2);// get current row 2nd TD
+//             // var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+//             var data=col2;
 
-        // If the checkbox is checked, display the output text
-        if (checkBox.checked == false){
-            $("#example22").on('click','.checkit',function(){
-            // get the current row
-            var currentRow=$(this).closest("tr");
-        //    console.log(table);
-            // var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-            var col2=currentRow.find("td:eq(1)").text();
-            // console.log(col2);// get current row 2nd TD
-            // var col3=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
-            var data=col2;
-
-            // alert(data);
-            $('#nolesen').val(data);
-        });
-        }
-        }
-    );
-        </script>
+//             // alert(data);
+//             $('#nolesen').val(data);
+//         });
+//         }
+//         }
+//     );
+//         </script> --}}
     {{-- <script>
     $(document).ready(function(){
 

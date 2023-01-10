@@ -637,6 +637,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            {{-- {{ dd($res == true) }} --}}
+                            @if ($res == false)
                             @if (!$layoutpenyata)
                                 <li class="sidebar-item has-sub">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
@@ -697,6 +699,15 @@
                                         </li>
                                     </ul>
                                 </li>
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ route('buah.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             @else
                                 <li class="sidebar-item">
                                     <a href="{{ route('buah.hantar.penyata') }}" class="sidebar-link">
@@ -773,6 +784,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if ($res == false)
+
                             @if (!$layoutpenyata)
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -852,6 +865,15 @@
                                     </a>
                                 </li>
                             @endif
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ route('penapis.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="sidebar-item">
                                 <a href="{{ route('penapis.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
@@ -911,6 +933,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if ($res == false)
+
                             @if (!$layoutpenyata)
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -986,6 +1010,15 @@
                                     </a>
                                 </li>
                             @endif
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ route('isirung.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="sidebar-item">
                                 <a href="{{ route('isirung.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
@@ -1045,6 +1078,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if ($res == false)
+
                             @if (!$layoutpenyata)
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -1116,6 +1151,15 @@
                                     </a>
                                 </li>
                             @endif
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ route('oleo.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="sidebar-item">
                                 <a href="{{ route('oleo.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
@@ -1176,6 +1220,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if ($res == false)
+
                             @if (!$layoutpenyata)
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -1207,6 +1253,15 @@
                                         </li>
                                     </ul>
                                 </li>
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ route('pusatsimpan.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             @else
                                 <li class="sidebar-item">
                                     <a href="{{ route('pusatsimpan.hantar.penyata') }}" class="sidebar-link">
@@ -1275,6 +1330,8 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if ($res == false)
+
                             @if (!$layoutpenyata)
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark"
@@ -1337,6 +1394,15 @@
                                         </li>
                                     </ul>
                                 </li>
+                            @else
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             @else
                                 <li class="sidebar-item">
                                     <a href="{{ route('bio.hantar.penyata') }}" class="sidebar-link">
@@ -2660,6 +2726,10 @@ $('ul > li> a').on('click', function() {
 
 
 {{-- clock --}}
+<script>
+    jQuery.migrateEnablePatches( "self-closed-tags" );
+    console. log(jQuery(). jquery);
+    </script>
 <script type="text/javascript">
     function updateTime() {
         var dateInfo = new Date();

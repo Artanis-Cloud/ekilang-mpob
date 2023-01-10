@@ -1,3 +1,8 @@
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"> --}}
+{{-- <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet"> --}}
+{{-- <link rel="preconnect" href="https://fonts.gstatic.com"> --}}
+{{-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"> --}}
+{{-- <style> --}}
 
 
 
@@ -346,3 +351,17 @@
         }
     }
 </script>
+<style>
+    /* Hide page by default */
+    html { display : none; }
+  </style>
+
+  <script>
+    if (self == top) {
+      // Everything checks out, show the page.
+      document.documentElement.style.display = 'block';
+    } else {
+      // Break out of the frame.
+      top.location = self.location;
+    }
+  </script>

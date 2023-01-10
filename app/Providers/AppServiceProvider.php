@@ -8,6 +8,7 @@ use App\Models\E102Init;
 use App\Models\E104Init;
 use App\Models\E91Init;
 use App\Models\EBioInit;
+use App\Models\Init;
 use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,6 +41,69 @@ class AppServiceProvider extends ServiceProvider
             $map_url = true;
             $map_date_expired = null;
 
+            $current_date = date('Y-m-d');
+            $year = date('Y');
+            $bulan = date('m');
+            if ($bulan == '01') {
+                $tahun = $year - 1;
+            } else {
+                $tahun = $year;
+            }
+            $date = Init::where('tahun', $tahun)->first();
+
+            if ($bulan == 2) {
+                $sdate = $date->sjan;
+                $edate = $date->ejan;
+            }
+            elseif ($bulan == 3) {
+                $sdate = $date->sfeb;
+                $edate = $date->efeb;
+            }
+            elseif ($bulan == 4) {
+                $sdate = $date->smac;
+                $edate = $date->emac;
+            }
+            elseif ($bulan == 5) {
+                $sdate = $date->sapr;
+                $edate = $date->eapr;
+            }
+            elseif ($bulan == 6) {
+                $sdate = $date->smei;
+                $edate = $date->emei;
+            }
+            elseif ($bulan == 7) {
+                $sdate = $date->sjun;
+                $edate = $date->ejun;
+            }
+            elseif ($bulan == 8) {
+                $sdate = $date->sjul;
+                $edate = $date->ejul;
+            }
+            elseif ($bulan == 9) {
+                $sdate = $date->sogos;
+                $edate = $date->eogos;
+            }
+            elseif ($bulan == 10) {
+                $sdate = $date->ssept;
+                $edate = $date->esept;
+            }
+            elseif ($bulan == 11) {
+                $sdate = $date->sokt;
+                $edate = $date->eokt;
+            }
+            elseif ($bulan == 12) {
+                $sdate = $date->snov;
+                $edate = $date->enov;
+            }
+            else {
+                $sdate = $date->sdec;
+                $edate = $date->edec;
+            }
+
+                $res = ($edate <= $current_date);
+
+            // dd($tahun);
+
             if (auth()->user()) {
                 if (auth()->user()->category == 'PL91') {
                     $layoutpenyata = E91Init::where([['e91_nl', auth()->user()->username], ['e91_flg', '2']])->orWhere([['e91_nl', auth()->user()->username], ['e91_flg', '3']])->first();
@@ -60,7 +124,11 @@ class AppServiceProvider extends ServiceProvider
                     $layoutpenyata = EBioInit::where([['ebio_nl', auth()->user()->username], ['ebio_flg', '2']])->orWhere([['ebio_nl', auth()->user()->username], ['ebio_flg', '3']])->first();
                     $not_admin = true;
                 }
-                // dd($layoutpenyata);
+
+
+
+
+                // dd($res);
 
                 // $map_flg = User::where('username', auth()->user()->username)->first();
                 // dd($map_flg);
@@ -82,6 +150,9 @@ class AppServiceProvider extends ServiceProvider
                 [
                     "layoutpenyata" => $layoutpenyata,
                     "map_url" => $map_url,
+                    // "edate" => $edate,
+                    // "current_date" => $current_date,
+                    "res" => $res,
                     // "map_flg" => $map_flg,
                     // "map_date_expired" => $map_date_expired,
                     "not_admin" => $not_admin

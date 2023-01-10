@@ -141,7 +141,7 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-user"></i></span>
                             </div>
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
-                            <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
+                            <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror" 
                                 name="lesen" placeholder="Sila Masukkan No. Lesen" maxlength="12" onkeypress="return isNumberKey(event)">
 
 

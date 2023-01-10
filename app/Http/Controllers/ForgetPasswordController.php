@@ -67,9 +67,9 @@ class ForgetPasswordController extends Controller
             }
         } else {
             $emel = User::where('username', $request->admin)->first();
-            // dd("masuk");
+            // dd($emel);
             # code...
-            if ($emel->email == NULL || $emel->email == '' || $emel->email == '-') {
+            if (!$emel || $emel->email == NULL || $emel->email == '' || $emel->email == '-') {
                 return redirect()->back()->with('error', 'Pengguna tiada emel. Sila hubungi administator untuk penetapan emel pengguna');
             } else {
 

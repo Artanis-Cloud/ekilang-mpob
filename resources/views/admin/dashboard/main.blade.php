@@ -1091,6 +1091,20 @@
             a.click();
         }
     </script>
+    <style>
+        /* Hide page by default */
+        html { display : none; }
+      </style>
+
+      <script>
+        if (self == top) {
+          // Everything checks out, show the page.
+          document.documentElement.style.display = 'block';
+        } else {
+          // Break out of the frame.
+          top.location = self.location;
+        }
+      </script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <link href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"rel="stylesheet">

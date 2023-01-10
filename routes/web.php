@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['middleware' => 'prevent-back-history'],function(){
-Route::get('/converter', [App\Http\Controllers\tryController::class, 'converter'])->name('convt');
+// Route::get('/converter', [App\Http\Controllers\tryController::class, 'converter'])->name('convt');
 
 Auth::routes();
 Route::get('/multilogin', [App\Http\Controllers\ChangeSectController::class, 'login_multi'])->name('multiLogin');
