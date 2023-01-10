@@ -283,6 +283,9 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/editpengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_editpengumuman'])->name('admin.editpengumuman');
         Route::post('admin/updatepengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_updatepengumuman'])->name('admin.updatepengumuman');
 
+        Route::get('admin/tambahfail', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_fail'])->name('admin.tambahfail');
+        Route::post('admin/tambahfail_process', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_fail_process'])->name('admin.tambahfail2.process');
+
         Route::get('admin/jadual-penerimanPL', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_jadualpenerimaanPL'])->name('admin.jadualpenerimaanPL');
         Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
         Route::get('admin/panduan', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_panduan'])->name('admin.panduan');
