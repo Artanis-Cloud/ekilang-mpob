@@ -84,8 +84,14 @@
                                                 <b>DISEMBER</b> &nbsp;
                                             @endif
 
+                                            @if (now()->month == 1)
+                                            Tahun:
+                                            <b>{{ now()->year - 1 }}</b>
+                                            @else
                                             Tahun:
                                             <b>{{ now()->year }}</b>
+                                            @endif
+
                                         </p>
                                     </div>
                                 </div>
@@ -371,13 +377,16 @@
                                             console.log(newm == 0);
                                             if (newm == 00) {
                                                 document.getElementById("Bulan").innerHTML = '12';
+                                                document.getElementById("Tahun").innerHTML = (dt.getFullYear() - 1);
+
                                             } else {
                                                 document.getElementById("Bulan").innerHTML = (("0" + (dt.getMonth())).slice(-2));
+                                                document.getElementById("Tahun").innerHTML = (dt.getFullYear());
+
 
                                             }
 
                                             var dt = new Date();
-                                            document.getElementById("Tahun").innerHTML = (dt.getFullYear());
                                         </script>
                                     </tr>
                                     <tr style="background-color:  #d3d3d370">

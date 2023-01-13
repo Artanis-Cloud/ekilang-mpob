@@ -80,9 +80,11 @@ class Proses3Controller extends Controller
         elseif($bulan == 11){
             $month = 'NOVEMBER';
         }
-        elseif($bulan == 12){
+        else{
             $month = 'DISEMBER';
         };
+
+        // dd($month);
 
 
         return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout', 'month', 'bulan', 'tahun', 'date'));

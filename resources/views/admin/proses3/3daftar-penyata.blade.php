@@ -214,8 +214,14 @@
                                         class="text-right col-sm-4 control-label col-form-label align-items-center">Tahun
                                     </label>
                                     <div class="col-md-6">
+                                        @if (now()->month == '01')
                                         <input type="text" class="form-control" readonly name="e_tahun"
-                                            value="{{ now()->year }}">
+                                        value="{{ now()->year - 1 }}">
+                                        @else
+                                        <input type="text" class="form-control" readonly name="e_tahun"
+                                        value="{{ now()->year }}">
+                                        @endif
+
                                     </div>
                                 </div>
                                 <div class="row" style="margin-top:1%">
