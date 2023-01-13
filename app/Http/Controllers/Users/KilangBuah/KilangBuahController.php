@@ -52,8 +52,14 @@ class KilangBuahController extends Controller
         // $pelesen = Pelesen::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
+        if ($pelesen) {
+            return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
 
-        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
+        } else {
+            return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila hubungi pegawai MPOB');
+
+        }
+
     }
 
 
@@ -72,7 +78,6 @@ class KilangBuahController extends Controller
             $this->store_pelesen($request->all());
         }
 
-        return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
     }
 
     protected function validation_daftar_pelesen(array $data)
@@ -831,8 +836,8 @@ class KilangBuahController extends Controller
         // $date = date("d-m-Y");
 
         $penyata2 = E91Init::where('e91_nl', auth()->user()->username)->first();
-        $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata2->e91_sdate);
-        $date = $myDateTime->format('d-m-Y');
+        // $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata2->e91_sdate);
+        // $date = $myDateTime->format('d-m-Y');
         // dd($date);
 
         $user = User::first();
@@ -852,7 +857,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-hantar-penyata', compact('date', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
+        return view('users.KilangBuah.buah-hantar-penyata', compact( 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
     }
 
     public function buah_email()

@@ -63,10 +63,16 @@ class KilangIsirungController extends Controller
 
         //dd($pelesen);
 
+        if ($pelesen) {
+            return view('users.KilangIsirung.isirung-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
 
 
+        } else {
+            return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila hubungi pegawai MPOB');
 
-        return view('users.KilangIsirung.isirung-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
+        }
+
+
     }
 
     public function isirung_update_maklumat_asas_pelesen(Request $request, $id)
