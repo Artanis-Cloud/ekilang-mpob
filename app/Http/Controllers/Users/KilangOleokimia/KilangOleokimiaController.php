@@ -57,32 +57,33 @@ class KilangOleokimiaController extends Controller
         // $pelesen = E91Init::get();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
-        // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
-        $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
-            ($pelesen->bil_tangki_ppo ?? 0) +
-            ($pelesen->bil_tangki_cpko ?? 0) +
-            ($pelesen->bil_tangki_ppko ?? 0) +
-            ($pelesen->bil_tangki_oleo ?? 0) +
-            ($pelesen->bil_tangki_others ?? 0);
+        if ($pelesen) {
+            $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
+                ($pelesen->bil_tangki_ppo ?? 0) +
+                ($pelesen->bil_tangki_cpko ?? 0) +
+                ($pelesen->bil_tangki_ppko ?? 0) +
+                ($pelesen->bil_tangki_oleo ?? 0) +
+                ($pelesen->bil_tangki_others ?? 0);
 
-        $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
-            ($pelesen->kap_tangki_ppo ?? 0) +
-            ($pelesen->kap_tangki_cpko ?? 0) +
-            ($pelesen->kap_tangki_ppko ?? 0) +
-            ($pelesen->kap_tangki_oleo ?? 0) +
-            ($pelesen->kap_tangki_others ?? 0);
-        // dd($pelesen);
-
-
+            $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
+                ($pelesen->kap_tangki_ppo ?? 0) +
+                ($pelesen->kap_tangki_cpko ?? 0) +
+                ($pelesen->kap_tangki_ppko ?? 0) +
+                ($pelesen->kap_tangki_oleo ?? 0) +
+                ($pelesen->kap_tangki_others ?? 0);
+            // dd($pelesen);
 
 
-        return view('users.KilangOleokimia.oleo-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+            return view('users.KilangOleokimia.oleo-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+        } else {
+            return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila hubungi pegawai MPOB');
+        }
     }
 
     public function oleo_update_maklumat_asas_pelesen(Request $request, $id)
     {
         // dd($request->all());
-        if(isset($request['alamat_sama'])){
+        if (isset($request['alamat_sama'])) {
             $penyata = Pelesen::findOrFail($id);
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
@@ -118,8 +119,7 @@ class KilangOleokimiaController extends Controller
             $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
             $penyata->kap_tangki_others = $request->kap_tangki_others;
             // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
-        }
-        else{
+        } else {
             $penyata = Pelesen::findOrFail($id);
             $penyata->e_ap1 = $request->e_ap1;
             $penyata->e_ap2 = $request->e_ap2;
@@ -159,7 +159,7 @@ class KilangOleokimiaController extends Controller
 
         $penyata->save();
 
-        $map = User::where('username',$penyata->e_nl)->first();
+        $map = User::where('username', $penyata->e_nl)->first();
         $map->email = $request->e_email;
         $map->map_flg = '1';
         $map->map_sdate = now();
@@ -247,7 +247,7 @@ class KilangOleokimiaController extends Controller
         // dd($user);
 
         if ($user) {
-            $produk = Produk::where('prodcat', '01')->whereNotIn('prodid', ['KB','JW'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
+            $produk = Produk::where('prodcat', '01')->whereNotIn('prodid', ['KB', 'JW'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
 
 
             $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
@@ -288,7 +288,9 @@ class KilangOleokimiaController extends Controller
                 'total6',
                 'total7',
                 'total8',
-                'total9','bulan','tahun',
+                'total9',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
@@ -469,7 +471,9 @@ class KilangOleokimiaController extends Controller
                 'total6',
                 'total7',
                 'total8',
-                'total9','bulan','tahun',
+                'total9',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
@@ -660,7 +664,9 @@ class KilangOleokimiaController extends Controller
                 'total6',
                 'total7',
                 'total8',
-                'total9','bulan','tahun',
+                'total9',
+                'bulan',
+                'tahun',
             ));
         } else {
 
@@ -815,8 +821,7 @@ class KilangOleokimiaController extends Controller
         if ($user) {
             $penyata = E104Init::where('e104_nl', auth()->user()->username)->first();
 
-            return view('users.KilangOleokimia.oleo-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'user','bulan','tahun',));
-
+            return view('users.KilangOleokimia.oleo-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'user', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Sila hubungi pegawai MPOB');
@@ -857,11 +862,11 @@ class KilangOleokimiaController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::whereIn('prodcat',  ['03','04', '06', '08'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat',  ['03', '04', '06', '08'])->where('sub_group_rspo', '')->where('sub_group_mspo', '')->orderBy('prodname')->get();
 
         if ($user) {
             $penyata = E104C::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
-                return $query->whereIn('prodcat', ['03','04', '06', '08']);
+                return $query->whereIn('prodcat', ['03', '04', '06', '08']);
             })->orderBy('e104_c3')->get();
 
             $total = DB::table("e104_c")->where('e104_reg', $user->e104_reg)->sum('e104_c4');
@@ -886,9 +891,10 @@ class KilangOleokimiaController extends Controller
                 'total2',
                 'total3',
                 'total4',
-                'total5','bulan','tahun',
+                'total5',
+                'bulan',
+                'tahun',
             ));
-
         } else {
             return redirect()->back()
                 ->with('error', 'Sila hubungi pegawai MPOB');
@@ -1561,9 +1567,9 @@ class KilangOleokimiaController extends Controller
 
         $year = $pelesen->pelesen->e_year;
         // dd($year);
-        if($year){
+        if ($year) {
             $tahun = $year;
-        }else{
+        } else {
             $tahun = 2003;
         }
         // dd($pelesen);
@@ -1582,7 +1588,7 @@ class KilangOleokimiaController extends Controller
 
 
 
-        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout','pelesen','year','tahun'));
+        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout', 'pelesen', 'year', 'tahun'));
     }
 
     protected function validation_terdahulu(array $data)
@@ -1932,13 +1938,10 @@ class KilangOleokimiaController extends Controller
 
         if ($emel == 'pindaan') {
             return redirect()->back()->with('success', 'Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
-
         } elseif ($emel == 'cadangan') {
             return redirect()->back()->with('success', 'Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
-
         } else {
             return redirect()->back()->with('success', 'Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
-
         }
         // return redirect()->back()->with('success', 'Emel sudah dihantar');
     }

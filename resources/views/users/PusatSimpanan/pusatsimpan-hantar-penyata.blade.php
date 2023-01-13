@@ -420,12 +420,17 @@
                                                 <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>
                                             </p> --}}
-
-                                            <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ date('d-m-Y', strtotime($user->e07_sdate)) }} </b></p>
-                                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $user->e07_npg }}</b>
+                                            @if ($user->e07_sdate == null)
+                                            <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b></b>
                                             </p>
-                                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b> {{ $user->e07_jpg }}</b></p>
-                                            <p>No Telefon Kilang:&nbsp;&nbsp;<b> {{ $user->e07_notel }}</b>
+                                            @else
+                                            <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ date('d-m-Y', strtotime($user->e07_sdate)) }} </b></p>
+
+                                            @endif
+                                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $user->e07_npg ?? ''}}</b>
+                                            </p>
+                                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b> {{ $user->e07_jpg ?? ''}}</b></p>
+                                            <p>No Telefon Kilang:&nbsp;&nbsp;<b> {{ $user->e07_notel ?? ''}}</b>
                                             </p>
 
                                             </form>

@@ -76,9 +76,47 @@ class DataMigrationController extends Controller
                 'password' => $password,
                 'username' => $reg_user->e_userid ?? '-',
                 'category' => 'admin',
+                'status' =>  '1',
                 'priv' =>  $reg_user->e_priv ?? '-',
                 'role' =>  'admin',
             ]);
+        }
+    }
+
+    public function transfer_adminbio_to_users()
+    {
+        $admins = DB::connection('mysql2')->select("SELECT * from login_admin");
+
+        foreach ($admins as $admin) {
+            $password = Hash::make($admin->PASSWORD);
+            $crypted = Crypt::encryptString($admin->PASSWORD);
+
+            $user = User::where('username', $admin->EMAIL)->first();
+            if(!$user){
+                $user = User::create([
+                    'name' => $admin->NAME ?? '-',
+                    'email' => $admin->EMAIL ?? '-',
+                    'password' => $password,
+                    'crypted_pass' => $crypted,
+                    'username' => $admin->USERNAME ?? '-',
+                    'category' => 'admin',
+                    'status' =>  '1',
+                    'role' =>  $admin->LEVEL ?? '-',
+                ]);
+            }else{
+                $user->name = $admin->NAME ?? '-';
+                $user->email = $admin->EMAIL ?? '-';
+                $user->username = $admin->USERNAME ?? '-';
+                $user->password = $password;
+                $user->crypted_pass = $crypted;
+                $user->category = 'admin';
+                $user->status = '1';
+                $user->role = $admin->LEVEL ?? '-';
+
+                $user->save();
+            }
+
+
         }
     }
 

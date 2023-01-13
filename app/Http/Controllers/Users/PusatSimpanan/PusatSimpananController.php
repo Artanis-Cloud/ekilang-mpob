@@ -51,8 +51,9 @@ class PusatSimpananController extends Controller
 
         // $pelesen = E91Init::get();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
-        // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
-        $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
+        
+        if ($pelesen) {
+            $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
             ($pelesen->bil_tangki_ppo ?? 0) +
             ($pelesen->bil_tangki_cpko ?? 0) +
             ($pelesen->bil_tangki_ppko ?? 0) +
@@ -68,7 +69,12 @@ class PusatSimpananController extends Controller
         // dd($pelesen);
 
 
-        return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+            return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+
+        } else {
+            return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila hubungi pegawai MPOB');
+
+        }
     }
 
     public function pusatsimpan_update_maklumat_asas_pelesen(Request $request)

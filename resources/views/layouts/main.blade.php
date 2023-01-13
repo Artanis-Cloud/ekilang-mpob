@@ -1879,7 +1879,7 @@
                                     </li>
                                     @endif
 
-                                    @if ($cat == 'PLBIO' || auth()->user()->role == 'Superadmin')
+                                    @if ($cat == 'PLBIO')
                                         <li class="sidebar-item">
                                             <a class="sidebar-link has-arrow waves-effect waves-dark"
                                                 href="javascript:void(0)" aria-expanded="false">

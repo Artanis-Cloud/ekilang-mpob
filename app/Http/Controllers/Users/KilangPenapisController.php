@@ -57,19 +57,25 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
-        $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
-            ($pelesen->bil_tangki_ppo ?? 0) +
-            ($pelesen->bil_tangki_cpko ?? 0) +
-            ($pelesen->bil_tangki_ppko ?? 0) +
-            ($pelesen->bil_tangki_others ?? 0);
+        if ($pelesen) {
+            $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
+                ($pelesen->bil_tangki_ppo ?? 0) +
+                ($pelesen->bil_tangki_cpko ?? 0) +
+                ($pelesen->bil_tangki_ppko ?? 0) +
+                ($pelesen->bil_tangki_others ?? 0);
 
-        $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
-            ($pelesen->kap_tangki_ppo ?? 0) +
-            ($pelesen->kap_tangki_cpko ?? 0) +
-            ($pelesen->kap_tangki_ppko ?? 0) +
-            ($pelesen->kap_tangki_others ?? 0);
+            $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
+                ($pelesen->kap_tangki_ppo ?? 0) +
+                ($pelesen->kap_tangki_cpko ?? 0) +
+                ($pelesen->kap_tangki_ppko ?? 0) +
+                ($pelesen->kap_tangki_others ?? 0);
 
-        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+
+
+            return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+        } else {
+            return redirect()->back()->with('error', 'Maklumat pelesen tidak wujud. Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -112,6 +118,7 @@ class KilangPenapisController extends Controller
             'e_npgtg' => ['required', 'string'],
             'e_jpgtg' => ['required', 'string'],
             'e_email_pengurus' => ['required', 'string'],
+            // 'e_email_sso' => ['required', 'string'],
             // 'e_negeri' => ['required', 'string'],
             // 'e_daerah' => ['required', 'string'],
             // 'e_kawasan' => ['required', 'string'],
@@ -149,6 +156,7 @@ class KilangPenapisController extends Controller
             $penyata->e_jpgtg = $request->e_jpgtg;
             $penyata->e_group = $request->e_group;
             $penyata->e_email_pengurus = $request->e_email_pengurus;
+            // $penyata->e_email_sso = $request->e_email_sso;
             $penyata->kap_proses = $request->kap_proses;
             $penyata->kap_tangki = $request->kap_tangki;
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
@@ -182,6 +190,7 @@ class KilangPenapisController extends Controller
             $penyata->e_jpgtg = $request->e_jpgtg;
             $penyata->e_group = $request->e_group;
             $penyata->e_email_pengurus = $request->e_email_pengurus;
+            // $penyata->e_email_sso = $request->e_email_sso;
             $penyata->kap_proses = $request->kap_proses;
             $penyata->kap_tangki = $request->kap_tangki;
             $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
@@ -785,8 +794,8 @@ class KilangPenapisController extends Controller
         $tahun = date("Y");
 
         $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->first();
-        $cpo = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','01')->first('e101_b10');
-        $cpko = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4','04')->first('e101_b10');
+        $cpo = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4', '01')->first('e101_b10');
+        $cpko = E101B::where('e101_reg', $penyata->e101_reg)->where('e101_b4', '04')->first('e101_b10');
         // $produk2 = $penyata->e101b->e101_b4;
         // $json = json_encode($produk);
         // dd($cpko);
@@ -795,7 +804,7 @@ class KilangPenapisController extends Controller
         // $cpko = E101B::where($produk->e101_b4, '04')->first();
         // dd($cpo);
         if ($penyata) {
-            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'cpo', 'cpko','layout', 'penyata', 'bulan', 'tahun'));
+            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'cpo', 'cpko', 'layout', 'penyata', 'bulan', 'tahun'));
         } else {
             return redirect()->back()
                 ->with('error', 'Sila hubungi pegawai MPOB');
@@ -1341,7 +1350,7 @@ class KilangPenapisController extends Controller
         // dd($penyata);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout', 'produk', 'negara', 'penyata','tahun', 'bulan'));
+        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout', 'produk', 'negara', 'penyata', 'tahun', 'bulan'));
     }
 
 
@@ -1444,7 +1453,7 @@ class KilangPenapisController extends Controller
         // dd($penyata);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-vii', compact('returnArr', 'layout', 'produk', 'negara', 'penyata','tahun', 'bulan'));
+        return view('users.KilangPenapis.penapis-bahagian-vii', compact('returnArr', 'layout', 'produk', 'negara', 'penyata', 'tahun', 'bulan'));
     }
     public function penapis_paparpenyata()
     {
@@ -2254,13 +2263,10 @@ class KilangPenapisController extends Controller
         // return redirect()->back()->with('success', 'Emel sudah dihantar');
         if ($emel == 'pindaan') {
             return redirect()->back()->with('success', 'Pindaan telah dihantar. Salinan pindaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
-
         } elseif ($emel == 'cadangan') {
             return redirect()->back()->with('success', 'Cadangan telah dihantar. Salinan cadangan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
-
         } else {
             return redirect()->back()->with('success', 'Pertanyaan telah dihantar. Salinan pertanyaan telah dihantar ke emel kilang anda untuk cetakan/simpanan anda');
-
         }
     }
 

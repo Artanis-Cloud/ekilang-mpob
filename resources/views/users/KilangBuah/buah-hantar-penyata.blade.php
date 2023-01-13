@@ -1113,13 +1113,20 @@
                                     benar, lengkap dan selaras dengan rekod harian.
                                 </b></p>
                             </div>
+                            {{-- {{ dd($penyata->e91_sdate) }} --}}
                             <div class="" style="margin-top: -10px ">
-                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $date }}</b>
+                                @if ($penyata->e91_sdate == null)
+                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b></b>
                                 </p>
-                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_npg }}</span></b>
+                                @else
+                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ date('d-m-Y', strtotime($penyata->e91_sdate))}}</b>
                                 </p>
-                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_jpg }}</span></b></p>
-                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
+                                @endif
+
+                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_npg ?? '' }}</span></b>
+                                </p>
+                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b><span style="text-transform:uppercase" >{{ $penyata->e91_jpg ?? '' }}</span></b></p>
+                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel ?? '' }}</b>
                                 </p>
 
                             </div>
